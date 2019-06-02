@@ -1,21 +1,104 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<app-header></app-header>
+  <router-outlet></router-outlet>
+<app-footer></app-footer>
 
-<router-outlet></router-outlet>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript">
+  var dthen1 = new Date("12/25/17 11:59:00 PM");
+  start = "05/03/15 03:02:11 AM";
+  start_date = Date.parse(start);
+  var dnow1 = new Date(start_date);
+  if (CountStepper > 0)
+    ddiff = new Date((dnow1) - (dthen1));
+  else
+    ddiff = new Date((dthen1) - (dnow1));
+  gsecs1 = Math.floor(ddiff.valueOf() / 1000);
+
+  var iid1 = "countbox_1";
+  CountBack_slider(gsecs1, "countbox_1", 1);
+
+  var dthen1 = new Date("12/12/17 11:59:00 PM");
+  start = "01/20/16 03:02:11 AM";
+  start_date = Date.parse(start);
+  var dnow1 = new Date(start_date);
+  if (CountStepper > 0)
+    ddiff = new Date((dnow1) - (dthen1));
+  else
+    ddiff = new Date((dthen1) - (dnow1));
+  gsecs1 = Math.floor(ddiff.valueOf() / 1000);
+
+  var iid1 = "countbox_2";
+  CountBack_slider(gsecs1, "countbox_2", 1);
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#thm-rev-slider').show().revolution({
+      dottedOverlay: 'none',
+      delay: 5000,
+      startwidth: 0,
+      startheight:820,
+
+      hideThumbs: 200,
+      thumbWidth: 200,
+      thumbHeight: 50,
+      thumbAmount: 2,
+
+      navigationType: 'thumb',
+      navigationArrows: 'solo',
+      navigationStyle: 'round',
+
+      touchenabled: 'on',
+      onHoverStop: 'on',
+
+      swipe_velocity: 0.7,
+      swipe_min_touches: 1,
+      swipe_max_touches: 1,
+      drag_block_vertical: false,
+
+      spinner: 'spinner0',
+      keyboardNavigation: 'off',
+
+      navigationHAlign: 'center',
+      navigationVAlign: 'bottom',
+      navigationHOffset: 0,
+      navigationVOffset: 20,
+
+      soloArrowLeftHalign: 'left',
+      soloArrowLeftValign: 'center',
+      soloArrowLeftHOffset: 20,
+      soloArrowLeftVOffset: 0,
+
+      soloArrowRightHalign: 'right',
+      soloArrowRightValign: 'center',
+      soloArrowRightHOffset: 20,
+      soloArrowRightVOffset: 0,
+
+      shadow: 0,
+      fullWidth: 'on',
+      fullScreen: 'on',
+
+      stopLoop: 'off',
+      stopAfterLoops: -1,
+      stopAtSlide: -1,
+
+      shuffle: 'off',
+
+      autoHeight: 'on',
+      forceFullWidth: 'off',
+      fullScreenAlignForce: 'off',
+      minFullScreenHeight: 0,
+      hideNavDelayOnMobile: 1500,
+
+      hideThumbsOnMobile: 'off',
+      hideBulletsOnMobile: 'off',
+      hideArrowsOnMobile: 'off',
+      hideThumbsUnderResolution: 0,
+
+      hideSliderAtLimit: 0,
+      hideCaptionAtLimit: 0,
+      hideAllCaptionAtLilmit: 0,
+      startWithSlide: 0,
+      fullScreenOffsetContainer: ''
+    });
+  });
+</script>
