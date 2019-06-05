@@ -1,0 +1,14 @@
+.category-box .item-img {
+    width: 75px !important;
+    margin-bottom: 0px;
+    display: initial !important;
+  }
+  .CollectionGrid-tile{
+    padding: 10px 0px 10px 0px !important;
+    width: 100% !important;
+    float:auto !important;
+  }  
+
+.item{
+    margin:0 !important;
+  }

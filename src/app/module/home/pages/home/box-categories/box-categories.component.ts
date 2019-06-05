@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {OwlCarousel} from 'ngx-owl-carousel';
 
 @Component({
   selector: 'app-box-categories',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoxCategoriesComponent implements OnInit {
 
-  constructor() { }
+
+  @ViewChild('owlCategories') owlElement: OwlCarousel;
+  public data: any;
+  public optionsOws: any;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.optionsOws = {items: 6, dots: false, navigation: true, autoplay: false};
+    this.data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
 
 }
