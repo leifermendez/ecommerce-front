@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BannerComponent } from './module/home/pages/home/banner/banner.component';
 import { BoxCategoriesComponent } from './module/home/pages/home/box-categories/box-categories.component';
 import { BoxFeaturedProductComponent } from './module/home/pages/home/box-featured-product/box-featured-product.component';
+import { BoxShopsComponent } from './module/home/pages/home/box-shops/box-shops.component';
 
 const config = new AuthServiceConfig([
   {
@@ -44,7 +45,8 @@ export function provideConfig() {
     LoginComponent,
     BannerComponent,
     BoxCategoriesComponent,
-    BoxFeaturedProductComponent
+    BoxFeaturedProductComponent,
+    BoxShopsComponent
   ],
   imports: [
     BrowserModule,
