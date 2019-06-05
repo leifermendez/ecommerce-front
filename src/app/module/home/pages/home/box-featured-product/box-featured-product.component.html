@@ -1,0 +1,67 @@
+<section class=" wow bounceInUp animated">
+  <div class="best-pro slider-items-products container">
+    <div class="new_title">
+      <h2>Mega ofertas</h2>
+    </div>
+
+    <div id="best-seller" class="product-flexslider hidden-buttons">
+      <div class="slider-items slider-width-col4 products-grid">
+        <owl-carousel
+          #owlFeatured
+          *ngIf="data && data.length"
+          [options]="optionsOws"
+          [items]="data"
+          [carouselClasses]="['owl-theme', 'sliding']">
+          <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
+            <div class="item">
+              <div class="item-inner">
+                <div class="item-img">
+                  <div class="item-img-info"><a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
+                                                title="Retis lapen casen" class="product-image"><img
+                    src="http://www.themesground.com/flipmart-demo/V5/products-images/p1.jpg"
+                    alt="Retis lapen casen"></a>
+
+                    <div class="item-box-hover">
+                      <div class="box-inner">
+                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
+                        <div class="actions"><span class="add-to-links"><a href="index.html#" class="link-wishlist"
+                                                                           title="Add to Wishlist"><span>Add to Wishlist</span></a> <a
+                          href="index.html#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span>
+                        </div>
+                        <div class="add_cart">
+                          <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item-info">
+                  <div class="info-inner">
+                    <div class="item-title"><a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
+                                               title="Retis lapen casen">Retis lapen casen</a></div>
+                    <div class="item-content">
+                      <div class="rating">
+                        <div class="ratings">
+                          <div class="rating-box">
+                            <div class="rating" style="width:80%"></div>
+                          </div>
+                          <p class="rating-links"><a href="index.html#">1 Review(s)</a> <span class="separator">|</span>
+                            <a href="index.html#">Add Review</a></p>
+                        </div>
+                      </div>
+                      <div class="item-price">
+                        <div class="price-box"><span class="regular-price"><span class="price">$125</span> </span></div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </owl-carousel>
+      </div>
+    </div>
+  </div>
+</section>

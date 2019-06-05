@@ -15,6 +15,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { BannerComponent } from './module/home/pages/home/banner/banner.component';
+import { BoxCategoriesComponent } from './module/home/pages/home/box-categories/box-categories.component';
+import { BoxFeaturedProductComponent } from './module/home/pages/home/box-featured-product/box-featured-product.component';
 
 const config = new AuthServiceConfig([
   {
@@ -38,7 +41,10 @@ export function provideConfig() {
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    BannerComponent,
+    BoxCategoriesComponent,
+    BoxFeaturedProductComponent
   ],
   imports: [
     BrowserModule,

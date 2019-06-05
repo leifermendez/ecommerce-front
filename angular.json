@@ -38,13 +38,13 @@
               "src/styles.css"
             ],
             "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/revslider.js",
               "src/assets/js/common.js",
               "src/assets/js/countdown.js",
               "src/assets/js/jquery.bxslider.min.js",
               "src/assets/js/owl.carousel.min.js",
-              "./node_modules/jquery/dist/jquery.js",
               "./node_modules/owl.carousel/dist/owl.carousel.js",
               "src/assets/js/jquery.mobile-menu.min.js"
             ]

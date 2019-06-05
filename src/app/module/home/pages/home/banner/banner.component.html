@@ -1,0 +1,25 @@
+<div id='thm_slider_wrapper' class='thm_slider_wrapper fullwidthbanner-container'>
+  <div id='thm-rev-slider' class='rev_slider fullwidthabanner'>
+    <div class="nav-buttons">
+      <button class="btn btn-lg banner-prev" (click)="owlElement.previous()">
+        <fa name="angle-left"></fa>
+      </button>
+      <button class="btn btn-lg banner-next" (click)="owlElement.next()">
+        <fa name="angle-right"></fa>
+      </button>
+    </div>
+
+    <owl-carousel
+      #owlElement
+      *ngIf="data && data.length"
+      [options]="optionsGallery"
+      [items]="data"
+      [carouselClasses]="['owl-theme', 'sliding']">
+      <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
+        <div class="thumbnail-image">
+          <img class="image-banner" [src]="dat['attached_large']" [alt]="dat['title']">
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+</div>

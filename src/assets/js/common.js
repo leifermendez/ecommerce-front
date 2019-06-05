@@ -48,18 +48,18 @@ jQuery(document).ready(function() {
             pagination: !1
         }),
 /*  Featured Product Slider */
-        jQuery("#best-seller .slider-items").owlCarousel({
-            items: 4,
-            itemsDesktop: [1024, 4],
-            itemsDesktopSmall: [900, 3],
-            itemsTablet: [600, 1],
-            itemsMobile: [320, 1],
-            navigation: !0,
-            navigationText: ['<a class="flex-prev"></a>', '<a class="flex-next"></a>'],
-            slideSpeed: 500,
-            pagination: !1
-        }),
-       
+        // jQuery("#best-seller .slider-items").owlCarousel({
+        //     items: 4,
+        //     itemsDesktop: [1024, 4],
+        //     itemsDesktopSmall: [900, 3],
+        //     itemsTablet: [600, 1],
+        //     itemsMobile: [320, 1],
+        //     navigation: !0,
+        //     navigationText: ['<a class="flex-prev"></a>', '<a class="flex-next"></a>'],
+        //     slideSpeed: 500,
+        //     pagination: !1
+        // }),
+        //
         jQuery("#brand-slider .slider-items").owlCarousel({
           autoplay : true,
 	      items : 6, //10 items above 1000px browser width
