@@ -15,8 +15,9 @@ export class BannerComponent implements OnInit {
   constructor(private rest: RestService) {
   }
 
+
   ngOnInit() {
-    this.optionsGallery = {items: 1, dots: false, navigation: true, autoplay: true};
+    this.optionsGallery = {items: 1, dots: false, navigation: true, autoplay: true, loop: true};
     this.rest.get('/rest/banners')
       .then((response: any) => {
         if (response['status'] === 'success') {

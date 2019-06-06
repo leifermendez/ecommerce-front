@@ -47,7 +47,7 @@ website:   	http://www.themesground.com/
 }
 
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
-  height: 450px !important
+  height: 460px !important
 }
 
 #tmg-slideshow .RHS-banner {
@@ -794,7 +794,9 @@ website:   	http://www.themesground.com/
 }
 
 .fullwidthabanner .nav-buttons .banner-prev {
+  background: transparent;
   left: 0;
+  border:0px !important;
   position: absolute;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
@@ -802,6 +804,8 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .nav-buttons .banner-next {
   right: 0;
+  border:0px !important;
+  background: transparent;
   position: absolute;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
@@ -809,7 +813,7 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
   width: 100%;
-  height: 450px;
+  height: 460px;
   background-color: lightgray;
 }
 

@@ -1,0 +1,30 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Ubicación</h5>
+    <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--      <span aria-hidden="true">&times;</span>-->
+    <!--    </button>-->
+  </div>
+  <div class="modal-body">
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, pariatur!</p>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">
+          <fa name="map-marker"></fa>
+        </span>
+      </div>
+      <input ngx-google-places-autocomplete class="form-control" [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
+             (onAddressChange)="handleAddressChange($event)"/>
+    </div>
+    <small *ngIf="msg" class="text-mute text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
+      tempora?
+    </small>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" [disabled]="!buttonAvailable"
+            (click)="bsModalRef.hide()"
+            data-dismiss="modal">Continuar
+    </button>
+  </div>
+</div>

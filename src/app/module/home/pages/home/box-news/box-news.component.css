@@ -1,0 +1,8 @@
+.thumbnail_block, .thumbnail_block img {
+  height: 100%;
+}
+
+.thumbnails .thumbnail_block:hover .caption.hovered, .thumbnail_block:hover .caption.hovered {
+  background-color: rgba(0, 0, 0, .4);
+}
+

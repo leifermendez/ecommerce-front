@@ -1,4 +1,9 @@
 .box-info{
-    background-color: white;
-    padding-top: 25px;
+  background: white;
+  padding-top: 20px;
 }
+
+/*.border-color {*/
+/*  border-bottom: solid 1px #ce0000;*/
+/*  border-top: solid 1px #ce0000;*/
+/*}*/
