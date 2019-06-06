@@ -15,6 +15,7 @@ export class BannerComponent implements OnInit {
   constructor(private rest: RestService) {
   }
 
+
   ngOnInit() {
     this.optionsGallery = {items: 1, dots: false, navigation: true, autoplay: true};
     this.rest.get('/rest/banners')
