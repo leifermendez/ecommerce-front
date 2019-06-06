@@ -6,17 +6,25 @@
     <!--    </button>-->
   </div>
   <div class="modal-body">
+
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, pariatur!</p>
-    <div class="input-group mb-3">
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">
           <fa name="map-marker"></fa>
         </span>
       </div>
-      <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+      <input ngx-google-places-autocomplete class="form-control" [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
+             (onAddressChange)="handleAddressChange($event)"/>
     </div>
+    <small *ngIf="msg" class="text-mute text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
+      tempora?
+    </small>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" [disabled]="!zip_code" data-dismiss="modal">Continuar</button>
+    <button type="button" class="btn btn-primary" [disabled]="!buttonAvailable"
+            (click)="bsModalRef.hide()"
+            data-dismiss="modal">Continuar
+    </button>
   </div>
 </div>

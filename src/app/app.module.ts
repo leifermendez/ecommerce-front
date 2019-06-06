@@ -20,9 +20,10 @@ import {BoxCategoriesComponent} from './module/home/pages/home/box-categories/bo
 import {BoxFeaturedProductComponent} from './module/home/pages/home/box-featured-product/box-featured-product.component';
 import {BoxShopsComponent} from './module/home/pages/home/box-shops/box-shops.component';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
-import { BoxInfoComponent } from './module/home/pages/home/box-info/box-info.component';
-import { BoxBlogComponent } from './module/home/pages/home/box-blog/box-blog.component';
-import { BoxNewsComponent } from './module/home/pages/home/box-news/box-news.component';
+import {BoxInfoComponent} from './module/home/pages/home/box-info/box-info.component';
+import {BoxBlogComponent} from './module/home/pages/home/box-blog/box-blog.component';
+import {BoxNewsComponent} from './module/home/pages/home/box-news/box-news.component';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 
 const config = new AuthServiceConfig([
   {
@@ -65,6 +66,7 @@ export function provideConfig() {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    GooglePlaceModule,
     ModalModule.forRoot()
   ],
 
