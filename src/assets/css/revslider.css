@@ -780,10 +780,14 @@ website:   	http://www.themesground.com/
   z-index: 999;
   top: 215px;
   display: flex;
-  opacity: .6;
+  opacity: .3;
   width: 100%;
 }
 
+.fullwidthabanner .nav-buttons .btn{
+  background: transparent;
+  border:0;
+}
 
 .fullwidthabanner:hover .nav-buttons {
   opacity: 1;
