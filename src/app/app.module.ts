@@ -24,6 +24,7 @@ import {BoxInfoComponent} from './module/home/pages/home/box-info/box-info.compo
 import {BoxBlogComponent} from './module/home/pages/home/box-blog/box-blog.component';
 import {BoxNewsComponent} from './module/home/pages/home/box-news/box-news.component';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import { MiniGalleryProductComponent } from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
 
 const config = new AuthServiceConfig([
   {
@@ -55,7 +56,8 @@ export function provideConfig() {
     ZipLocationComponent,
     BoxInfoComponent,
     BoxBlogComponent,
-    BoxNewsComponent
+    BoxNewsComponent,
+    MiniGalleryProductComponent
   ],
   imports: [
     BrowserModule,

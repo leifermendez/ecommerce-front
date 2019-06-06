@@ -1,0 +1,16 @@
+<owl-carousel
+  #owlMiniGallery
+  *ngIf="data && data.length"
+  [options]="optionsOws"
+  [items]="data"
+  [carouselClasses]="['owl-theme', 'sliding']">
+  <div *ngFor="let dat of data;let i = index">
+    <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
+       title="Retis lapen casen" class="product-image">
+      <img src="http://via.placeholder.com/640x640"
+           alt="Retis lapen casen">
+    </a>
+
+  </div>
+</owl-carousel>
+

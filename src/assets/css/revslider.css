@@ -47,7 +47,7 @@ website:   	http://www.themesground.com/
 }
 
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
-  height: 450px !important
+  height: 460px !important
 }
 
 #tmg-slideshow .RHS-banner {
@@ -809,7 +809,7 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
   width: 100%;
-  height: 450px;
+  height: 460px;
   background-color: lightgray;
 }
 

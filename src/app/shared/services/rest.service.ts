@@ -9,11 +9,13 @@ import {UtilsService} from './util.service';
 export class RestService {
   public headers: HttpHeaders;
   public readonly url: string = 'http://localhost:8000/api/1.0';
+
   // public readonly url: string = 'https://api.mochileros.com.mx/api/v2';
   constructor(public http: HttpClient, private router: Router, public utils: UtilsService) {
     this.headers = new HttpHeaders({
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'LOCATION-ZIP': '28039'
     });
 
   }
@@ -42,12 +44,13 @@ export class RestService {
   }
 
   private parseParams(params: IUrlParams): string {
-    let parsed: string = '';
-    if (params)
+    let parsed = '';
+    if (params) {
       Object.keys(params).forEach((k, i) => {
         parsed += (i == 0) ? '?' : '&';
         parsed += k + '=' + params[k];
       });
+    }
     return parsed;
   }
 
