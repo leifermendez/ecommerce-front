@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-zip-location',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./zip-location.component.css']
 })
 export class ZipLocationComponent implements OnInit {
+  public zip_code = null;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     console.log('hereee');

@@ -25,7 +25,6 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/responsive.css",
-              "src/assets/css/bootstrap.min.css",
               "src/assets/css/jquery.bxslider.css",
               "src/assets/css/jquery.mobile-menu.css",
               "src/assets/css/revslider.css",
@@ -39,7 +38,6 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "src/assets/js/bootstrap.min.js",
               "src/assets/js/revslider.js",
               "src/assets/js/common.js",
               "src/assets/js/countdown.js",

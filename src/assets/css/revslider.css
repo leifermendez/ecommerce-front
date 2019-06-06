@@ -790,7 +790,9 @@ website:   	http://www.themesground.com/
 }
 
 .fullwidthabanner .nav-buttons .banner-prev {
+  background: transparent;
   left: 0;
+  border:0px !important;
   position: absolute;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
@@ -798,6 +800,8 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .nav-buttons .banner-next {
   right: 0;
+  border:0px !important;
+  background: transparent;
   position: absolute;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;

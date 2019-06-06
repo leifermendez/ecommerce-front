@@ -31,13 +31,20 @@ export class AppComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       ZipLocationComponent,
-      Object.assign({initialState}, {class: 'gray modal-lg'}, this.config)
+      Object.assign({initialState}, {
+          class: 'gray modal-md top-modal'
+        },
+        this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
 
   ngOnInit() {
-    this.open();
+    const _location = localStorage.getItem('_location');
+    if (!_location) {
+      window.scrollTo(0, 0);
+      this.open();
+    }
   }
 }
