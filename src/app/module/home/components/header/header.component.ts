@@ -9,12 +9,15 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
   scrollTop = (aid) => {
-    var aTag = $("a[name='"+ aid +"']");
+    const aTag = $(`#${aid}`);
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+    
   }
 
+  searchFocus = () => {
+    console.log('here')
+  }
 
   ngOnInit() {
   }

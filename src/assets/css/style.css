@@ -15212,3 +15212,8 @@ select#shipping-address-select {
 .custom-select-search-item .ng-dropdown-panel.ng-select-bottom{
   border-radius: 2px !important;
 }
+
+.custom-select-search-item  .ng-dropdown-panel{
+  box-shadow: 0 0 0 transparent;
+  /*border-top: 0 !important;*/
+}
