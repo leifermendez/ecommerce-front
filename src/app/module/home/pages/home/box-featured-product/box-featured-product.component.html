@@ -74,9 +74,17 @@
           
                     <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']===false)">
                         <div *ngIf="dat['is_available']['nextOpen']">
-                            <span class="item-price-amount-unavailable text-muted"> 
-                                <fa name="history"></fa>
-                             Disponible en {{dat['is_available']['nextOpen']['timestamp'] | date}}</span>
+                    
+                            <div>
+                              <span 
+                              tooltip="Disponible"
+                              class="item-price-avalible-on text-success"> 
+                                  <fa name="hourglass" animation="spin" rotate="180" class="mr-1"></fa>
+                                  <span class="time-ago-string" timeago 
+                                  [date]="dat['is_available']['nextOpen']['formatted']"></span>
+                    
+                              </span>
+                            </div>
                         </div>
                         <div *ngIf="!dat['is_available']['nextOpen']">
                             <span class="item-price-amount-unavailable text-muted"> 

@@ -18,6 +18,11 @@
   font-weight: normal !important;
 }
 
+.item-price-avalible-on{
+  font-size:15px;
+  font-weight: 600;
+}
+
 .item-price-amount{
   font-size:20px;
   font-weight: 600;
@@ -41,4 +46,13 @@
 }
 .euro-sign{
   font-size: 18px
+}
+.item-info{
+  height: 90px;
+}
+.time-ago-string{
+  display: inline-block;
+}
+.time-ago-string:first-letter{
+  text-transform: capitalize;
 }

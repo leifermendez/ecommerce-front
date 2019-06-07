@@ -2,7 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { TimeagoIntl } from 'ngx-timeago';
+import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-box-featured-product',
@@ -16,7 +19,9 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService, intl: TimeagoIntl) {
+    intl.strings = englishStrings;
+    intl.changes.next();
   }
 
   ngOnInit() {
