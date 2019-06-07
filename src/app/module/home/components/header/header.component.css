@@ -2,3 +2,34 @@
     padding-top: 5px;
     padding-left: 30px;
 }
+.fl-nav-menu-search{
+    width: 65%;
+}
+.custom-select-search-item{
+    width: 100%;
+    margin-top: 10px;
+}
+.fl-nav-menu{
+    width: 100%;
+    height: 45px;
+}
+#nav > li > a{
+    line-height: 45px !important;
+    font-weight: normal;
+}
+#nav > li {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+#nav li.drop-menu:hover ul, #nav .level0-wrapper, #nav.classic ul.level0{
+    top:45px;
+}
+#nav > li:hover > a, .vertnav-top li > a:hover {
+    background: rgba(255, 1, 1, 0.05) !important;
+}
+
+.send-to{
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    color: #ce0100 !important;
+}

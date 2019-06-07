@@ -11,7 +11,7 @@ website:   	http://www.themesground.com/
 #Media Queries
 */
 
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
@@ -129,7 +129,7 @@ small {
 header {
   background-color: #fff;
   /* box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15); */
-  height: 68px;
+  min-height: 68px;
   top: 0;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -15198,4 +15198,17 @@ select#shipping-address-select {
 
 .pac-container{
   z-index: 9999;
+}
+.custom-select-search-item .ng-select-container{
+  background: #fdfdfd;
+  height: 40px !important;
+  border: solid 0px #f1f1f1 !important;
+  border-radius: 2px;
+  box-shadow: 0 0 3px #d0d0d0;
+}
+.custom-select-search-item .ng-select-container:hover{
+  box-shadow: 0 0 3px #d0d0d0 !important;
+}
+.custom-select-search-item .ng-dropdown-panel.ng-select-bottom{
+  border-radius: 2px !important;
 }

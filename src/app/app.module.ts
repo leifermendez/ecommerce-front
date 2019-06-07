@@ -28,6 +28,7 @@ import {BoxNewsComponent} from './module/home/pages/home/box-news/box-news.compo
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import { MiniGalleryProductComponent } from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const config = new AuthServiceConfig([
   {
@@ -74,6 +75,7 @@ export class MyIntl extends TimeagoIntl {
     SocialLoginModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
     HttpClientModule,
     GooglePlaceModule,
     NgxStarsModule,
