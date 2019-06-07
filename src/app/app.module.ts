@@ -30,6 +30,8 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import { MiniGalleryProductComponent } from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
 
 const config = new AuthServiceConfig([
   {
@@ -49,7 +51,6 @@ export function provideConfig() {
 export class MyIntl extends TimeagoIntl {
   // do extra stuff here...
   }
-  
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,9 +66,10 @@ export class MyIntl extends TimeagoIntl {
     BoxInfoComponent,
     BoxBlogComponent,
     BoxNewsComponent,
-    MiniGalleryProductComponent
+    MiniGalleryProductComponent,
   ],
   imports: [
+    LoadingBarHttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgxGalleryModule,

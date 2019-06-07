@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
+import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 
 declare var jQuery: any;
 declare var $: any;
@@ -17,8 +18,12 @@ export class AppComponent implements OnInit {
   config = {
     ignoreBackdropClick: true
   };
+  loading = false;
+  constructor(private modalService: BsModalService, private router: Router) {
+    router.events.subscribe((event: RouterEvent) => {
+      this.navigationInterceptor(event);
+    });
 
-  constructor(private modalService: BsModalService) {
   }
 
   emitBack = () => this.ngOnInit();
@@ -37,6 +42,21 @@ export class AppComponent implements OnInit {
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
+  }
+
+  navigationInterceptor(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      this.loading = true;
+    }
+    if (event instanceof NavigationEnd) {
+      this.loading = false;
+    }
+    if (event instanceof NavigationCancel) {
+      this.loading = false;
+    }
+    if (event instanceof NavigationError) {
+      this.loading = false;
+    }
   }
 
 
