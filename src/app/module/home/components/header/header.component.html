@@ -4,7 +4,7 @@
     <div class="header-container container">
       <div class="row">
         <div class="logo"> <a [routerLink]="['/','']" title="Home" title="Flavours HTML">
-          <div><img src="assets/images/logo-apatxee.png" height="55" alt="Flavours Store"></div>
+          <div><img src="assets/images/logo-apatxee.png" height="50" alt="Flavours Store"></div>
         </a> </div>
         <div class="fl-nav-menu-search">
             <ng-select 
@@ -22,6 +22,12 @@
               <ul id="nav" class="hidden-xs">
 
 
+                  <li class="mega-menu"
+                  ><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top send-to">
+                    <span><fa name="map-marker"></fa> Madrid 28039</span>
+                  </a>
+                   
+                  </li>
                   <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
                     <span>Categorías</span>
                   </a>
@@ -87,7 +93,9 @@
                     </div>
                   </li>
 
-                <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
+                <li class="mega-menu">
+                  <a (click)="scrollTo('top-offert')"
+                  class="level-top">
                   <span>Ofertas</span>
                 </a>
                  
@@ -109,9 +117,12 @@
                  
                 </li>
 
-                <li class="mega-menu float-right "
-                ><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top send-to">
-                  <span><fa name="map-marker"></fa> Madrid 28039</span>
+                <li class="mega-menu float-right d-flex"
+                ><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top sign">
+                  <span>Registrate</span>
+                </a>
+                <a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top sign">
+                  <span> Ingresar</span>
                 </a>
                  
                 </li>

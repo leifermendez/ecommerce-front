@@ -23,7 +23,7 @@
 
                    
                         <div 
-                        *ngIf="dat['variations'] && (dat['variations']['length']>0)"
+                        *ngIf="dat['is_available']['isAvailable']"
                         class="add_cart mt-1 mr-1">
                           <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
                         </div>
