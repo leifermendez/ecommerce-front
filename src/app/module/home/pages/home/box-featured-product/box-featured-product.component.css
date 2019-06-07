@@ -19,18 +19,20 @@
 }
 
 .item-price-avalible-on{
-  font-size:15px;
+  font-size:14px;
   font-weight: 600;
 }
 
 .item-price-amount{
-  font-size:20px;
+  font-size:16px;
   font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 .item-price-amount-unavailable{
   font-size:18px;
   font-weight: 500;
   opacity: .4;
+  font-family: 'Montserrat', sans-serif;
 }
 .item-price-amount-unavailable:hover{
   opacity: 1;
@@ -48,11 +50,23 @@
   font-size: 18px
 }
 .item-info{
-  height: 90px;
+  min-height: 90px;
 }
 .time-ago-string{
   display: inline-block;
+  font-family: 'Montserrat', sans-serif;
 }
 .time-ago-string:first-letter{
   text-transform: capitalize;
+}
+
+.price-regular .item-price-amount ,.price-regular .euro-sign{
+  font-size: 12px;
+}
+
+.price-regular{
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: line-through;
 }

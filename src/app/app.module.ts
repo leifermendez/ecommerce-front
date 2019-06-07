@@ -7,6 +7,7 @@ import {HomeComponent} from './module/home/pages/home/home.component';
 import {HeaderComponent} from './module/home/components/header/header.component';
 import {FooterComponent} from './module/home/components/footer/footer.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { NgxStarsModule } from 'ngx-stars';
 import {OwlModule} from 'ngx-owl-carousel';
 import {RestService} from './shared/services/rest.service';
 import {UtilsService} from './shared/services/util.service';
@@ -75,6 +76,7 @@ export class MyIntl extends TimeagoIntl {
     ReactiveFormsModule,
     HttpClientModule,
     GooglePlaceModule,
+    NgxStarsModule,
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     TimeagoModule.forRoot({

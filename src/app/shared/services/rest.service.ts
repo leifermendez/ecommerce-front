@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {UtilsService} from './util.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,9 +13,11 @@ export class RestService {
 
   // public readonly url: string = 'https://api.mochileros.com.mx/api/v2';
   constructor(public http: HttpClient, private router: Router, public utils: UtilsService) {
+    const timezone = new Date().getTimezoneOffset();
     this.headers = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'TIME-ZONE':`${timezone}`,
       'LOCATION-ZIP': '28039'
     });
 

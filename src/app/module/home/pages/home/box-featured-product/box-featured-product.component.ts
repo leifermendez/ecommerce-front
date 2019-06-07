@@ -24,6 +24,12 @@ export class BoxFeaturedProductComponent implements OnInit {
     intl.changes.next();
   }
 
+  timeAgoNext = (minutes =0) => {
+    const date = moment()
+        .add(minutes, 'minutes');
+    return date;
+  }
+
   ngOnInit() {
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
 
