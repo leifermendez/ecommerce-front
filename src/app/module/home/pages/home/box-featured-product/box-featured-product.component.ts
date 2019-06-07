@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-box-featured-product',

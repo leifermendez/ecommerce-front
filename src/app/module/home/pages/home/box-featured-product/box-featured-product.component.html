@@ -22,7 +22,9 @@
                       <div class="box-inner">
 
                    
-                        <div class="add_cart mt-1 mr-1">
+                        <div 
+                        *ngIf="dat['variations'] && (dat['variations']['length']>0)"
+                        class="add_cart mt-1 mr-1">
                           <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
                         </div>
 
@@ -55,17 +57,33 @@
                      
   
                       </div>
-                    <div *ngIf="dat['variations'] && (dat['variations']['length']>1)">
-                      <span class="item-price-amount">Desde 100.00 <span class="euro-sign">€</span></span>
+                    <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
+                        <div *ngIf="dat['variations'] && (dat['variations']['length']>1)">
+                            <span class="item-price-amount">Desde 100.00 <span class="euro-sign">€</span></span>
+                          </div>
+                          <div *ngIf="dat['variations'] && (dat['variations']['length']===1)">
+                              <span class="item-price-amount">100.00 <span class="euro-sign">€</span></span>
+                          </div>
+      
+                          <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
+                              <span class="item-price-amount-unavailable text-muted"> 
+                                  <fa name="history"></fa>
+                               No stock</span>
+                          </div>
                     </div>
-                    <div *ngIf="dat['variations'] && (dat['variations']['length']===1)">
-                        <span class="item-price-amount">100.00 <span class="euro-sign">€</span></span>
-                    </div>
+          
+                    <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']===false)">
+                        <div *ngIf="dat['is_available']['nextOpen']">
+                            <span class="item-price-amount-unavailable text-muted"> 
+                                <fa name="history"></fa>
+                             Disponible en {{dat['is_available']['nextOpen']['timestamp'] | date}}</span>
+                        </div>
+                        <div *ngIf="!dat['is_available']['nextOpen']">
+                            <span class="item-price-amount-unavailable text-muted"> 
+                                <fa name="history"></fa>
+                             No disponible</span>
+                        </div>
 
-                    <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
-                        <span class="item-price-amount-unavailable text-muted"> 
-                            <fa name="exclamation-circle"></fa>
-                         No disponible</span>
                     </div>
                 
                   </div>

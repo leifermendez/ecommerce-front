@@ -19,12 +19,16 @@
 }
 
 .item-price-amount{
-  font-size:23px;
+  font-size:20px;
   font-weight: 600;
 }
 .item-price-amount-unavailable{
   font-size:18px;
-  font-weight: 600;
+  font-weight: 500;
+  opacity: .4;
+}
+.item-price-amount-unavailable:hover{
+  opacity: 1;
 }
 
 .products-grid .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button{

@@ -29,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "ngx-bootstrap": "^4.2.0",
     "ngx-gallery": "^5.10.0",
     "ngx-google-places-autocomplete": "^2.0.4",
