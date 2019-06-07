@@ -14,7 +14,7 @@ import * as moment from 'moment';
 })
 export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
-  public data: any;
+  public data: any[];
   public optionsOws: any;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -32,7 +32,7 @@ export class BoxFeaturedProductComponent implements OnInit {
 
   ngOnInit() {
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
-
+      
     this.galleryOptions = [
       {
           width: '270px',
@@ -74,10 +74,8 @@ export class BoxFeaturedProductComponent implements OnInit {
     this.rest.get('/rest/products')
       .then((response: any) => {
         if (response['status'] === 'success') {
-
           response = response['data'];
           this.data = response['items']['data'];
-          console.log(this.data);
         }
       });
   }

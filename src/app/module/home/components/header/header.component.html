@@ -6,7 +6,15 @@
         <div class="logo"> <a [routerLink]="['/','']" title="Home" title="Flavours HTML">
           <div><img src="assets/images/logo-apatxee.png" height="55" alt="Flavours Store"></div>
         </a> </div>
-        <div class="fl-nav-menu">
+        <div class="fl-nav-menu-search">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+        </div>
+        <div class="fl-nav-menu" style="display: none">
 
           <nav>
             <div class="mm-toggle-wrap">
