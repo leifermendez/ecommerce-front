@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -84,7 +85,8 @@ export class MyIntl extends TimeagoIntl {
     TimeagoModule.forRoot({
       intl: { provide: TimeagoIntl, useClass: MyIntl },
       formatter: { provide: TimeagoFormatter, useClass: TimeagoCustomFormatter },
-    })
+    }),
+    NgxPageScrollCoreModule.forRoot({duration: 2500}),
   ],
 
   providers: [

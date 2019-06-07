@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,14 +10,13 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  scrollTop = (aid) => {
+    var aTag = $("a[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
   }
 
-  scrollTo(id){
-    const x = document.querySelector(`#${id}`);
-    if (x){
-        x.scrollIntoView();
-    }
-}
+
+  ngOnInit() {
+  }
 
 }

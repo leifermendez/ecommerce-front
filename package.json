@@ -36,6 +36,7 @@
     "ngx-google-places-autocomplete": "^2.0.4",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^1.1.5",
+    "ngx-page-scroll-core": "^6.0.2",
     "ngx-stars": "^1.3.0",
     "ngx-timeago": "^1.0.1",
     "rxjs": "~6.3.3",
