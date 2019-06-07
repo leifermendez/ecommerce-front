@@ -25,6 +25,7 @@ import {BoxBlogComponent} from './module/home/pages/home/box-blog/box-blog.compo
 import {BoxNewsComponent} from './module/home/pages/home/box-news/box-news.component';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import { MiniGalleryProductComponent } from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 const config = new AuthServiceConfig([
   {
@@ -62,6 +63,7 @@ export function provideConfig() {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxGalleryModule,
     AngularFontAwesomeModule,
     OwlModule,
     SocialLoginModule,

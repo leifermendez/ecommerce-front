@@ -2,3 +2,39 @@
   width: 100%;
   height: 300px;
 }
+.item-box-hover{
+  z-index: 9999 !important;
+  height: 42px;
+}
+.item-price{
+  z-index: 9999 !important;
+  height: 40px;
+}
+.item-title {
+  padding-top:0px !important;
+}
+
+.item-title a{
+  font-weight: normal !important;
+}
+
+.item-price-amount{
+  font-size:23px;
+  font-weight: 600;
+}
+.item-price-amount-unavailable{
+  font-size:18px;
+  font-weight: 600;
+}
+
+.products-grid .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button{
+  margin-right: 0px !important;
+}
+
+.btn-cart:before {
+  padding: 11px 12px !important;
+  border-radius: 20px;
+}
+.euro-sign{
+  font-size: 18px
+}

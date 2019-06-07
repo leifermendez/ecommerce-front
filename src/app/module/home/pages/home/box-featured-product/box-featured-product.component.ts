@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 @Component({
   selector: 'app-box-featured-product',
@@ -11,13 +12,52 @@ export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any;
   public optionsOws: any;
-
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
+  
   constructor(private rest: RestService) {
   }
 
   ngOnInit() {
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
 
+    this.galleryOptions = [
+      {
+          width: '270px',
+          height: '300px',
+          thumbnails:false,
+          "preview": false, 
+          "arrowPrevIcon": "fa fa-angle-left",
+           "arrowNextIcon": "fa fa-angle-right",
+          imageAnimation: NgxGalleryAnimation.Slide
+      },
+      // max-width 800
+      { "breakpoint": 500, "width": "100%", "height": "200px" }
+,
+      // max-width 400
+      {
+          breakpoint: 400,
+          preview: false
+      }
+  ];
+
+  this.galleryImages = [
+    {
+        small: 'https://via.placeholder.com/400',
+        medium: 'https://via.placeholder.com/400',
+        big: 'https://via.placeholder.com/400'
+    },
+    {
+        small: 'https://via.placeholder.com/400',
+        medium: 'https://via.placeholder.com/400',
+        big: 'https://via.placeholder.com/400'
+    },
+    {
+        small: 'https://via.placeholder.com/400',
+        medium: 'https://via.placeholder.com/400',
+        big: 'https://via.placeholder.com/400'
+    }
+];
 
     this.rest.get('/rest/products')
       .then((response: any) => {

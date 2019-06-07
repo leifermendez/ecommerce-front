@@ -17,20 +17,12 @@
               <div class="item-inner">
                 <div class="item-img">
                   <div class="item-img-info">
-                      <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                      title="Retis lapen casen" class="product-image">
-                      <app-mini-gallery-product [data]="dat['gallery']"></app-mini-gallery-product>
-                   
-                   </a>
-
+                      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
                     <div class="item-box-hover">
                       <div class="box-inner">
-                        <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
-                        <div class="actions"><span class="add-to-links"><a href="index.html#" class="link-wishlist"
-                                                                           title="Add to Wishlist"><span>Add to Wishlist</span></a> <a
-                          href="index.html#" class="link-compare add_to_compare" title="Add to Compare"><span>Add to Compare</span></a></span>
-                        </div>
-                        <div class="add_cart">
+
+                   
+                        <div class="add_cart mt-1 mr-1">
                           <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
                         </div>
 
@@ -40,23 +32,42 @@
                 </div>
                 <div class="item-info">
                   <div class="info-inner">
-                    <div class="item-title"><a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                                               title="Retis lapen casen">Retis lapen casen</a></div>
-                    <div class="item-content">
-                      <div class="rating">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:80%"></div>
+                    <div class="item-title mb-0">
+                      <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
+                                               title="Retis lapen casen">{{dat['name']}}</a>
+                          
+                     </div>
+                     <div>
+                       <a class="text-muted" href="#">
+                          {{dat['shop_name']}}
+                       </a>
+                     </div>
+                     <div class="item-content">
+                        <div class="rating">
+                          <div class="ratings">
+                            <div class="rating-box">
+                              <div class="rating" style="width:80%"></div>
+                            </div>
+                            <p class="rating-links"><a href="index.html#">1 Review(s)</a> <span class="separator">|</span>
+                              <a href="index.html#">Add Review</a></p>
                           </div>
-                          <p class="rating-links"><a href="index.html#">1 Review(s)</a> <span class="separator">|</span>
-                            <a href="index.html#">Add Review</a></p>
                         </div>
+                     
+  
                       </div>
-                      <div class="item-price">
-                        <div class="price-box"><span class="regular-price"><span class="price">$125</span> </span></div>
-                      </div>
-
+                    <div *ngIf="dat['variations'] && (dat['variations']['length']>1)">
+                      <span class="item-price-amount">Desde 100.00 <span class="euro-sign">€</span></span>
                     </div>
+                    <div *ngIf="dat['variations'] && (dat['variations']['length']===1)">
+                        <span class="item-price-amount">100.00 <span class="euro-sign">€</span></span>
+                    </div>
+
+                    <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
+                        <span class="item-price-amount-unavailable text-muted"> 
+                            <fa name="exclamation-circle"></fa>
+                         No disponible</span>
+                    </div>
+                
                   </div>
                 </div>
               </div>
