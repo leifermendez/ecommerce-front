@@ -8,6 +8,7 @@
         </a> </div>
         <div class="fl-nav-menu-search">
             <ng-select 
+            (focus)="searchFocus()"
             placeholder="Busca productos, marcas y más..."
             class="custom-select-search-item"></ng-select>
         </div>
@@ -28,7 +29,7 @@
                   </a>
                    
                   </li>
-                  <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
+                  <li class="mega-menu"><a class="level-top">
                     <span>Categorías</span>
                   </a>
                     <div class="level0-wrapper dropdown-6col">

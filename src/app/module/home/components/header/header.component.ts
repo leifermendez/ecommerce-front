@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit {
     
   }
 
+  searchFocus = () => {
+    console.log('here')
+  }
 
   ngOnInit() {
   }
