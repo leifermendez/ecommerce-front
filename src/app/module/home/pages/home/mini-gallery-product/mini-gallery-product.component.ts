@@ -17,6 +17,7 @@ export class MiniGalleryProductComponent implements OnInit {
 
   ngOnInit() {
     this.optionsOws = {items: 1, dots: false, navigation: true, autoplay: false};
+    this.data = [1]
     console.log('-->', this.data);
   }
 

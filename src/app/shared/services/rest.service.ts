@@ -8,7 +8,7 @@ import {UtilsService} from './util.service';
 })
 export class RestService {
   public headers: HttpHeaders;
-  public readonly url: string = 'http://localhost:8000/api/1.0';
+  public readonly url: string = 'https://ecommerce-api-leanga.herokuapp.com/api/1.0';
 
   // public readonly url: string = 'https://api.mochileros.com.mx/api/v2';
   constructor(public http: HttpClient, private router: Router, public utils: UtilsService) {
