@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import { Injectable, EventEmitter, Output } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,9 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
 
 
 export class UtilsService {
+  cookie_zip_code = null;
   @Output() getLocation: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
   openSnackBar(message: string, action: string, duration: number = 5000) {
     console.log(message, action);
     if (action === 'success') {
@@ -43,5 +45,10 @@ export class UtilsService {
       });
     }
 
+  }
+
+  getZipCookie = () => {
+    this.cookie_zip_code = this.cookieService.get('_location_zip_code');
+    return this.cookie_zip_code;
   }
 }

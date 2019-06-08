@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
-declare var jQuery: any;
-declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -18,11 +17,15 @@ export class AppComponent implements OnInit {
   config = {
     ignoreBackdropClick: true
   };
+  cookie_zip_code = null;
   loading = false;
-  constructor(private modalService: BsModalService, private router: Router) {
+  constructor(private modalService: BsModalService, private router: Router,
+    private cookieService: CookieService) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
+
+    this.cookie_zip_code = this.cookieService.get('_location_zip_code');
 
   }
 
@@ -64,7 +67,9 @@ export class AppComponent implements OnInit {
     const _location = localStorage.getItem('_location');
     if (!_location) {
       window.scrollTo(0, 0);
-      this.open();
+      if(!this.cookie_zip_code){
+        this.open();
+      }
     }
   }
 }

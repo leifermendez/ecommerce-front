@@ -31,6 +31,7 @@ import { MiniGalleryProductComponent } from './module/home/pages/home/mini-galle
 import { NgxGalleryModule } from 'ngx-gallery';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { CookieService } from 'ngx-cookie-service';
 
 
 const config = new AuthServiceConfig([
@@ -97,6 +98,7 @@ export class MyIntl extends TimeagoIntl {
     BsModalService,
     BsModalRef,
     ZipLocationComponent,
+    CookieService,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig

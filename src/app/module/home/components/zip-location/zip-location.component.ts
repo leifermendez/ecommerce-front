@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
-import {zip} from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef} from 'ngx-bootstrap';
 import { UtilsService } from '../../../../shared/services/util.service';
@@ -24,7 +24,8 @@ export class ZipLocationComponent implements OnInit {
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
 
-  constructor(private rest: RestService, private util:UtilsService, public bsModalRef: BsModalRef) {
+  constructor(private rest: RestService, private util:UtilsService, public bsModalRef: BsModalRef,
+    private cookieService: CookieService) {
 
   }
 
@@ -60,6 +61,7 @@ export class ZipLocationComponent implements OnInit {
           this.data = response['data'];
           if (this.data.length) {
             this.buttonAvailable = true;
+            this.cookieService.set( '_location_zip_code', this.data[0]['zip_code'] );
            this.util.getLocation.emit(this.data);
             this.bsModalRef.hide();
           } else {

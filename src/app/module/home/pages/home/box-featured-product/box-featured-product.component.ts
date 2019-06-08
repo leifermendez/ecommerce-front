@@ -5,6 +5,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import { TimeagoIntl } from 'ngx-timeago';
 import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
+import { UtilsService } from '../../../../../shared/services/util.service';
 
 
 @Component({
@@ -19,15 +20,30 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   
-  constructor(private rest: RestService, intl: TimeagoIntl) {
+  constructor(private rest: RestService, intl: TimeagoIntl,
+    private util:UtilsService) {
     intl.strings = englishStrings;
     intl.changes.next();
+
+    util.getLocation.subscribe(data => {
+        this.loadData();
+    });
   }
 
   timeAgoNext = (minutes =0) => {
     const date = moment()
         .add(minutes, 'minutes');
     return date;
+  }
+
+  loadData = () => {
+    this.rest.get('/rest/products')
+    .then((response: any) => {
+      if (response['status'] === 'success') {
+        response = response['data'];
+        this.data = response['items']['data'];
+      }
+    });
   }
 
   ngOnInit() {
@@ -71,13 +87,11 @@ export class BoxFeaturedProductComponent implements OnInit {
     }
 ];
 
-    this.rest.get('/rest/products')
-      .then((response: any) => {
-        if (response['status'] === 'success') {
-          response = response['data'];
-          this.data = response['items']['data'];
-        }
-      });
+    if(this.util.getZipCookie()){
+        this.loadData()
+    }
+
   }
+  
 
 }
