@@ -96,6 +96,7 @@ export class MyIntl extends TimeagoIntl {
     UtilsService,
     BsModalService,
     BsModalRef,
+    ZipLocationComponent,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig

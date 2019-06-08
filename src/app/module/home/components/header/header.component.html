@@ -23,9 +23,9 @@
               <ul id="nav" class="hidden-xs">
 
 
-                  <li class="mega-menu"
+                  <li class="mega-menu" *ngIf="location"
                   ><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top send-to">
-                    <span><fa name="map-marker"></fa> Madrid 28039</span>
+                    <span><fa name="map-marker"></fa> {{location['name']}} {{location['zip_code']}}</span>
                   </a>
                    
                   </li>

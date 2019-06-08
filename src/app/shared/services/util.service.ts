@@ -1,10 +1,13 @@
 import Swal from 'sweetalert2';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+
 @Injectable({
   providedIn: 'root'
 })
-export class UtilsService {
 
+
+export class UtilsService {
+  @Output() getLocation: EventEmitter<any> = new EventEmitter();
   constructor() { }
   openSnackBar(message: string, action: string, duration: number = 5000) {
     console.log(message, action);

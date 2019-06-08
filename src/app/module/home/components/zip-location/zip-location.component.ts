@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 import {zip} from 'rxjs';
 import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef} from 'ngx-bootstrap';
+import { UtilsService } from '../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-zip-location',
@@ -22,7 +23,8 @@ export class ZipLocationComponent implements OnInit {
   };
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
-  constructor(private rest: RestService, public bsModalRef: BsModalRef) {
+
+  constructor(private rest: RestService, private util:UtilsService, public bsModalRef: BsModalRef) {
 
   }
 
@@ -58,6 +60,7 @@ export class ZipLocationComponent implements OnInit {
           this.data = response['data'];
           if (this.data.length) {
             this.buttonAvailable = true;
+           this.util.getLocation.emit(this.data);
             this.bsModalRef.hide();
           } else {
             this.address = '';

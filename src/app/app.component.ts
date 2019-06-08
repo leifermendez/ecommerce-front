@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     this.modalRef = this.modalService.show(
       ZipLocationComponent,
       Object.assign({initialState}, {
-          class: 'gray modal-md top-modal'
+          class: 'gray modal-md top-modal box-shadow-modal'
         },
         this.config)
     );

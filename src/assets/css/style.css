@@ -15178,10 +15178,14 @@ select#shipping-address-select {
 .top-modal {
   margin-top: 10%;
 }
+.box-shadow-modal{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
 
 .modal-content {
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .modal-dialog {
@@ -15216,4 +15220,20 @@ select#shipping-address-select {
 .custom-select-search-item  .ng-dropdown-panel{
   box-shadow: 0 0 0 transparent;
   /*border-top: 0 !important;*/
+}
+.modal-backdrop{
+  background-color: white;
+}
+.pac-container{
+  background-color: #fefefe
+}
+.pac-item{
+  height: 40px;
+  font-size:14px;
+  font-family: 'Raleway', sans-serif;
+}
+.pac-item-query{
+  color:#191919;
+  font-size:14px;
+  font-family: 'Raleway', sans-serif;
 }
