@@ -6,3 +6,33 @@
   background-color: #df4b37!important;
   color: #ffffff!important;
 }
+.page-heading{
+  background-color: #ce0100 !important;
+  height: 300px;
+  /*ce0100*/
+}
+.block-login{
+  background: white;
+    min-height: 300px;
+    border-radius: 5px;
+    margin-top: -130px;
+}
+
+.main-container{
+  min-height: 100px;
+}
+
+.btn-facebook{
+  background-color: #3b5998;
+  color:white;
+}
+.btn-facebook:hover{
+  border-color: #5873aa !important;
+}
+.btn-google{
+  background-color: #D44638;
+  color:white;
+}
+.btn-google:hover{
+  border-color: #B23121 !important;
+}

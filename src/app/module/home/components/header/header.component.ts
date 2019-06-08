@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../../../shared/services/util.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 declare var $: any;
@@ -11,11 +12,15 @@ declare var $: any;
 
 export class HeaderComponent implements OnInit {
   public location:any = null;
-  constructor(util:UtilsService) {
+  header = false;
+  constructor(util:UtilsService, private route: ActivatedRoute, private router: Router) {
     util.getLocation.subscribe(data => {
       this.location = data[0];
-      console.log(this.location)
     });
+
+    this.router.events.subscribe(()=> {
+      this.header = (this.router.url === '/login')
+    } );
    }
    
   scrollTop = (aid) => {

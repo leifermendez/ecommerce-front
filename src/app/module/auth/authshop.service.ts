@@ -1,8 +1,8 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
-import {RestService} from '../../shared/services/rest.service';
-import {UtilsService} from '../../shared/services/util.service';
-import {Router} from '@angular/router';
-import {UserModel} from '../../shared/models/base.model';
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { RestService } from '../../shared/services/rest.service';
+import { UtilsService } from '../../shared/services/util.service';
+import { Router } from '@angular/router';
+import { UserModel } from '../../shared/models/base.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class AuthshopService {
   @Output() getLoggedInData: EventEmitter<any> = new EventEmitter();
 
   constructor(private rest: RestService,
-              private utils: UtilsService,
-              private router: Router
+    private utils: UtilsService,
+    private router: Router
   ) {
     if (this.localtoken && this.rest.headers) {
       this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + this.localtoken);
@@ -26,17 +26,18 @@ export class AuthshopService {
 
   }
 
-  public login(username: string, password: string): Promise<boolean> {
+  public login(email: string, password: string, name: string = null): Promise<boolean> {
     return new Promise<boolean>(((resolve, reject) => {
       this.waiting = true;
-      this.rest.post('/login', {email: username, password: password})
+      this.rest.post('/auth', { email, password, name })
         .then(((response: any) => {
-          if (response.user) {
-            const token = response.token;
+          console.log(response)
+          if (response.data) {
+            const token = response.data['token'];
             if (token) {
               this._currentUser = response.user;
               this.emitlogin(this._currentUser);
-              localStorage.setItem('currentUser', JSON.stringify({email: username, token: token, datauser: response.user}));
+              localStorage.setItem('currentUser', JSON.stringify({ email, token: token, datauser: response.user }));
               this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + token);
               resolve(true);
             }

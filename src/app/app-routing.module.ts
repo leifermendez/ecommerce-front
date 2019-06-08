@@ -5,7 +5,8 @@ import {LoginComponent} from './module/auth/pages/login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: 'login', component: LoginComponent, pathMatch: 'full'},
+  {path: 'login', component: LoginComponent, pathMatch: 'full',
+  data : {header : false}},
   {path: '**', component: HomeComponent},
 ];
 @NgModule({

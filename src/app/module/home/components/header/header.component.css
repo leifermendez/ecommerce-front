@@ -48,3 +48,14 @@
     color: #ce0100 !important;
     border-radius: 5px;
 }
+
+.menu-account{
+    width:40% !important;
+    left: 60% !important;
+}
+.menu-account h5, .fl-links .no-js:hover .fl-nav-links .links a{
+    color:black !important;
+}
+.fl-links .no-js:hover .fl-nav-links{
+    background-color: white;
+}

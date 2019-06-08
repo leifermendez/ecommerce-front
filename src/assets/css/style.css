@@ -15237,3 +15237,21 @@ select#shipping-address-select {
   font-size:14px;
   font-family: 'Raleway', sans-serif;
 }
+
+.btn-outline-primary{
+  border-color: #ce0100 !important;
+  color:#ce0100;
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary:disabled{
+  color:#D44638;
+}
+.btn-outline-primary.disabled:hover{
+color:white !important;
+}
+.has-success input{
+    border: solid 1px green;
+}
+.has-danger input{
+  border: solid 1px red;
+}

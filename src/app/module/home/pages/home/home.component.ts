@@ -3,6 +3,7 @@ import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {BannerComponent} from './banner/banner.component';
+import { ActivatedRoute } from '@angular/router';
 
 declare var jQuery: any;
 declare var $: any;
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   public data: any;
   public optionsGallery: any;
   bsModalRef: BsModalRef;
-  constructor(private rest: RestService, private modalService: BsModalService) {
+  constructor(private rest: RestService, private modalService: BsModalService,
+    private route: ActivatedRoute) {
   }
   modal() {
     const initialState = {
@@ -35,6 +37,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route
+    .data
+    .subscribe(v => console.log(v));
     this.optionsGallery = {items: 1, dots: false, navigation: true, autoplay: true};
     this.images = ['1', '2', '3'];
 
