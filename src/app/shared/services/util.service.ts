@@ -49,6 +49,8 @@ export class UtilsService {
 
   getZipCookie = () => {
     this.cookie_zip_code = this.cookieService.get('_location_zip_code');
-    return this.cookie_zip_code;
+    const _cookie_data = (this.cookie_zip_code && JSON.parse(this.cookie_zip_code)) ?
+      JSON.parse(this.cookie_zip_code) : null;
+    return _cookie_data;
   }
 }

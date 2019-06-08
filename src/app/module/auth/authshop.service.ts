@@ -35,9 +35,9 @@ export class AuthshopService {
           if (response.data) {
             const token = response.data['token'];
             if (token) {
-              this._currentUser = response.user;
+              this._currentUser = response.data;
               this.emitlogin(this._currentUser);
-              localStorage.setItem('currentUser', JSON.stringify({ email, token: token, datauser: response.user }));
+              localStorage.setItem('currentUser', JSON.stringify(response.data));
               this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + token);
               resolve(true);
             }

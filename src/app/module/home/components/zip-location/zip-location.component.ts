@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
-import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
-import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { CookieService } from 'ngx-cookie-service';
-import {RestService} from '../../../../shared/services/rest.service';
-import {BsModalRef} from 'ngx-bootstrap';
+import { RestService } from '../../../../shared/services/rest.service';
+import { BsModalRef } from 'ngx-bootstrap';
 import { UtilsService } from '../../../../shared/services/util.service';
 
 @Component({
@@ -19,12 +19,12 @@ export class ZipLocationComponent implements OnInit {
   public buttonAvailable = false;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: {country: 'ES'}
+    componentRestrictions: { country: 'ES' }
   };
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
 
-  constructor(private rest: RestService, private util:UtilsService, public bsModalRef: BsModalRef,
+  constructor(private rest: RestService, private util: UtilsService, public bsModalRef: BsModalRef,
     private cookieService: CookieService) {
 
   }
@@ -48,9 +48,9 @@ export class ZipLocationComponent implements OnInit {
         this.zip_code = zip_code;
         this.checkZip(zip_code);
       }).catch(error => {
-      this.address = '';
-      this.msg = 'Not found';
-    });
+        this.address = '';
+        this.msg = 'Not found';
+      });
   }
 
   public checkZip = (zip_code) => {
@@ -61,8 +61,10 @@ export class ZipLocationComponent implements OnInit {
           this.data = response['data'];
           if (this.data.length) {
             this.buttonAvailable = true;
-            this.cookieService.set( '_location_zip_code', this.data[0]['zip_code'] );
-           this.util.getLocation.emit(this.data);
+            const _cookie_data = (this.data[0] && JSON.stringify(this.data[0])) ?
+              JSON.stringify(this.data[0]) : null;
+            this.cookieService.set('_location_zip_code', _cookie_data);
+            this.util.getLocation.emit(this.data);
             this.bsModalRef.hide();
           } else {
             this.address = '';

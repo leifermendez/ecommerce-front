@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../../../shared/services/util.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthshopService } from '../../../auth/authshop.service';
 
 
 declare var $: any;
@@ -13,9 +14,15 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
   public location:any = null;
   header = false;
-  constructor(util:UtilsService, private route: ActivatedRoute, private router: Router) {
+  public user_data: any = null;
+  constructor(private util:UtilsService, private route: ActivatedRoute, private router: Router,
+    private auth: AuthshopService) {
     util.getLocation.subscribe(data => {
       this.location = data[0];
+    });
+
+    auth.getLoggedInData.subscribe(data => {
+      this.user_data = data;
     });
 
     this.router.events.subscribe(()=> {
@@ -34,6 +41,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user_data = this.auth.getCurrentUser();
+    this.location = this.util.getZipCookie();
   }
 
 }

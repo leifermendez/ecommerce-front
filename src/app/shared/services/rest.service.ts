@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {UtilsService} from './util.service';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UtilsService } from './util.service';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -16,16 +16,20 @@ export class RestService {
   // public readonly url: string = 'https://api.mochileros.com.mx/api/v2';
   constructor(public http: HttpClient, private router: Router, public utils: UtilsService,
     private cookieService: CookieService) {
-    
+
   }
 
   getHeaders = () => {
-    this.location_zip = this.cookieService.get('_location_zip_code');
+    const _cookie_data = this.cookieService.get('_location_zip_code');
+    this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
+      JSON.parse(_cookie_data) : null;
+    this.location_zip = (this.location_zip && this.location_zip['zip_code']) ?
+      this.location_zip['zip_code'] : '';
     const timezone = new Date().getTimezoneOffset();
     this.headers = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'TIME-ZONE':`${timezone}`,
+      'TIME-ZONE': `${timezone}`,
       'LOCATION-ZIP': this.location_zip
     });
 
@@ -33,19 +37,19 @@ export class RestService {
   }
 
   get(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.get(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
   }
 
   post(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.post(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.post(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
   }
 
   patch(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.patch(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.patch(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
   }
 
   delete(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.delete(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.delete(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
   }
 
   public getUrl(endpoint: string, params?: IUrlParams): string {
