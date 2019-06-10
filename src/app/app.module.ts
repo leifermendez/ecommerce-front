@@ -35,6 +35,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { ProfileComponent } from './module/home/pages/profile/profile.component';
 import { DashboardComponent } from './module/home/pages/dashboard/dashboard.component';
 import { SidebarComponent } from './module/home/pages/dashboard/sidebar/sidebar.component';
+import { ChartsResumenComponent } from './module/home/pages/dashboard/charts-resumen/charts-resumen.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 const config = new AuthServiceConfig([
@@ -74,6 +76,7 @@ export class MyIntl extends TimeagoIntl {
     ProfileComponent,
     DashboardComponent,
     SidebarComponent,
+    ChartsResumenComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -92,10 +95,11 @@ export class MyIntl extends TimeagoIntl {
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     TimeagoModule.forRoot({
-      intl: { provide: TimeagoIntl, useClass: MyIntl },
-      formatter: { provide: TimeagoFormatter, useClass: TimeagoCustomFormatter },
+      intl: {provide: TimeagoIntl, useClass: MyIntl},
+      formatter: {provide: TimeagoFormatter, useClass: TimeagoCustomFormatter},
     }),
     NgxPageScrollCoreModule.forRoot({duration: 2500}),
+    NgxChartsModule,
   ],
 
   providers: [

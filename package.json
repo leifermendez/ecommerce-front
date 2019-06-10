@@ -24,6 +24,7 @@
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/http-client": "^4.2.0",
     "@sweetalert2/ngx-sweetalert2": "^5.0.3",
+    "@swimlane/ngx-charts": "^11.1.0",
     "angular-font-awesome": "^3.1.2",
     "angularx-social-login": "^1.2.7",
     "bootstrap": "4.2.1",

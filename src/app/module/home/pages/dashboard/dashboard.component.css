@@ -9,5 +9,14 @@
   padding: 0 32px;
 }
 .inside-body{
-  margin-top: 80px;
+  margin-top: 70px;
+}
+.title-content{
+  font-weight: bold;
+}
+.block-dashboard{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 10px;
+  background-color: white;
 }

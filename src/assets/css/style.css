@@ -232,6 +232,9 @@ header {
   font-size: 18px;
   color: #090809
 }
+.chart-legend{
+  display: block !important;
+}
 
 .navbar-form {
   padding: 0px;
