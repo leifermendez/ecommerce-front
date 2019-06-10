@@ -37,6 +37,9 @@ import { DashboardComponent } from './module/home/pages/dashboard/dashboard.comp
 import { SidebarComponent } from './module/home/pages/dashboard/sidebar/sidebar.component';
 import { ChartsResumenComponent } from './module/home/pages/dashboard/charts-resumen/charts-resumen.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { LastSellComponent } from './module/home/pages/dashboard/last-sell/last-sell.component';
+import { LastOrderComponent } from './module/home/pages/dashboard/last-order/last-order.component';
+import { LastTicketsComponent } from './module/home/pages/dashboard/last-tickets/last-tickets.component';
 
 
 const config = new AuthServiceConfig([
@@ -77,6 +80,9 @@ export class MyIntl extends TimeagoIntl {
     DashboardComponent,
     SidebarComponent,
     ChartsResumenComponent,
+    LastSellComponent,
+    LastOrderComponent,
+    LastTicketsComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

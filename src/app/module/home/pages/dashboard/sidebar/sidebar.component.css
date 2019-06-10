@@ -1,14 +1,14 @@
 .sidebar-ecommerce {
   background-color: #fff;
   width: 100px;
-  position: absolute;
-  margin-top: -115px;
+  position: fixed;
+  margin-top: 0;
   height: 100vh;
 }
 
 ul {
   list-style: none;
-  margin: 135px 0 0;
+  margin: 100px 0 0;
   padding: 0px 10px;
 }
 

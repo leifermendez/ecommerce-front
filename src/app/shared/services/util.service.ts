@@ -52,14 +52,8 @@ export class UtilsService {
 
   }
 
-  checkHeader = (router = null) => {
-    const _a = this._settings.header.find(a => a === router);
-    return !!(_a);
-  };
-
-
-  checkFooter = (router = null) => {
-    const _a = this._settings.footer.find(a => a === router);
+  checkH = (p=null,router = null) => {
+    const _a = this._settings[p].find(a => a === router);
     return !!(_a);
   };
 

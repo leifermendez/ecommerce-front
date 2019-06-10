@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AuthshopService} from '../../../auth/authshop.service';
+import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthshopService } from '../../../auth/authshop.service';
 
 
 declare var $: any;
@@ -15,10 +15,11 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
   public location: any = null;
   header = false;
+  subMenu = false;
   public user_data: any = null;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
-              private auth: AuthshopService) {
+    private auth: AuthshopService) {
     util.getLocation.subscribe(data => {
       this.location = data[0];
     });
@@ -28,13 +29,14 @@ export class HeaderComponent implements OnInit {
     });
 
     this.router.events.subscribe(() => {
-      this.header =  this.util.checkHeader(this.router.url);
+      this.header = this.util.checkH('header', this.router.url);
+      this.subMenu = this.util.checkH('subMenu', this.router.url);
     });
   }
 
   scrollTop = (aid) => {
     const aTag = $(`#${aid}`);
-    $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
+    $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
 
   };
 

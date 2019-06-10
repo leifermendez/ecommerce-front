@@ -15,10 +15,9 @@ export class FooterComponent implements OnInit {
   constructor(private router: Router,
               private util: UtilsService) {
     this.router.events.subscribe(() => {
-      this.footer = this.util.checkFooter(this.router.url);
+      this.footer = this.util.checkH('footer', this.router.url);
     });
   }
-
 
   ngOnInit() {
 

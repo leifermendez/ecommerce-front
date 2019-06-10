@@ -1,4 +1,4 @@
-<header *ngIf="!header">
+<header *ngIf="!header" [ngClass]="{'position-fixed':(subMenu)}">
 
   <div id="header">
     <div class="header-container container">
@@ -10,7 +10,7 @@
           <ng-select (focus)="searchFocus()" placeholder="Busca productos, marcas y más..."
                      class="custom-select-search-item"></ng-select>
         </div>
-        <div class="fl-nav-menu mt-2">
+        <div *ngIf="!subMenu" class="fl-nav-menu mt-2">
 
           <nav>
             <div class="mm-toggle-wrap">
