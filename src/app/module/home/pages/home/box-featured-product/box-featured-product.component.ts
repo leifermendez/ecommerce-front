@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-import { TimeagoIntl } from 'ngx-timeago';
+import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
+import {TimeagoIntl} from 'ngx-timeago';
 import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
-import { UtilsService } from '../../../../../shared/services/util.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 
 @Component({
@@ -19,79 +19,79 @@ export class BoxFeaturedProductComponent implements OnInit {
   public optionsOws: any;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  
+
   constructor(private rest: RestService, intl: TimeagoIntl,
-    private util:UtilsService) {
+              private util: UtilsService) {
     intl.strings = englishStrings;
     intl.changes.next();
 
     util.getLocation.subscribe(data => {
-        this.loadData();
+      this.loadData();
     });
   }
 
-  timeAgoNext = (minutes =0) => {
+  timeAgoNext = (minutes = 0) => {
     const date = moment()
-        .add(minutes, 'minutes');
+      .add(minutes, 'minutes');
     return date;
-  }
+  };
 
   loadData = () => {
     this.rest.get('/rest/products')
-    .then((response: any) => {
-      if (response['status'] === 'success') {
-        response = response['data'];
-        this.data = response['items']['data'];
-      }
-    });
-  }
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          response = response['data'];
+          this.data = response['items']['data'];
+        }
+      });
+  };
 
   ngOnInit() {
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
-      
+
     this.galleryOptions = [
       {
-          width: '270px',
-          height: '300px',
-          thumbnails:false,
-          "preview": false, 
-          "arrowPrevIcon": "fa fa-angle-left",
-           "arrowNextIcon": "fa fa-angle-right",
-          imageAnimation: NgxGalleryAnimation.Slide
+        width: '270px',
+        height: '300px',
+        thumbnails: false,
+        'preview': false,
+        'arrowPrevIcon': 'fa fa-angle-left',
+        'arrowNextIcon': 'fa fa-angle-right',
+        imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
-      { "breakpoint": 500, "width": "100%", "height": "200px" }
-,
+      {'breakpoint': 500, 'width': '100%', 'height': '200px'}
+      ,
       // max-width 400
       {
-          breakpoint: 400,
-          preview: false
+        breakpoint: 400,
+        preview: false
       }
-  ];
+    ];
 
-  this.galleryImages = [
-    {
+    this.galleryImages = [
+      {
         small: 'https://via.placeholder.com/400',
         medium: 'https://via.placeholder.com/400',
         big: 'https://via.placeholder.com/400'
-    },
-    {
+      },
+      {
         small: 'https://via.placeholder.com/400',
         medium: 'https://via.placeholder.com/400',
         big: 'https://via.placeholder.com/400'
-    },
-    {
+      },
+      {
         small: 'https://via.placeholder.com/400',
         medium: 'https://via.placeholder.com/400',
         big: 'https://via.placeholder.com/400'
-    }
-];
+      }
+    ];
 
-    if(this.util.getZipCookie()){
-        this.loadData()
+    if (this.util.getZipCookie()) {
+      this.loadData();
     }
 
   }
-  
+
 
 }

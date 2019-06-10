@@ -1,8 +1,9 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
-import { RestService } from '../../shared/services/rest.service';
-import { UtilsService } from '../../shared/services/util.service';
-import { Router } from '@angular/router';
-import { UserModel } from '../../shared/models/base.model';
+import {EventEmitter, Injectable, Output} from '@angular/core';
+import {RestService} from '../../shared/services/rest.service';
+import {UtilsService} from '../../shared/services/util.service';
+import {Router} from '@angular/router';
+import {UserModel} from '../../shared/models/base.model';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class AuthshopService {
   @Output() getLoggedInData: EventEmitter<any> = new EventEmitter();
 
   constructor(private rest: RestService,
-    private utils: UtilsService,
-    private router: Router
+              private utils: UtilsService,
+              private router: Router,
+              private cookieService: CookieService
   ) {
     if (this.localtoken && this.rest.headers) {
       this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + this.localtoken);
@@ -29,15 +31,16 @@ export class AuthshopService {
   public login(email: string, password: string, name: string = null): Promise<boolean> {
     return new Promise<boolean>(((resolve, reject) => {
       this.waiting = true;
-      this.rest.post('/auth', { email, password, name })
+      this.rest.post('/auth', {email, password, name})
         .then(((response: any) => {
-          console.log(response)
+          console.log(response);
           if (response.data) {
             const token = response.data['token'];
             if (token) {
               this._currentUser = response.data;
               this.emitlogin(this._currentUser);
-              localStorage.setItem('currentUser', JSON.stringify(response.data));
+              this.cookieService.set('_currentUser', JSON.stringify(response.data));
+              // localStorage.setItem('currentUser', JSON.stringify(response.data)); <------- guarde en cookie en vez de localstorage
               this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + token);
               resolve(true);
             }
@@ -84,11 +87,12 @@ export class AuthshopService {
   }
 
   private get localtoken(): string {
-    const obj = JSON.parse(localStorage.getItem('currentUser'));
-    if (obj) {
-      return obj.token;
+    const obj = this.cookieService.get('_currentUser');
+    if (obj && JSON.parse(obj)) {
+      return JSON.parse(obj)['token'];
+    } else {
+      return null;
     }
-    return null;
   }
 
   public get isAuthenticated(): boolean {
@@ -101,10 +105,10 @@ export class AuthshopService {
 
 
   public getCurrentUser() {
-    const _current = localStorage.getItem('currentUser');
-    const _parseCurrent = JSON.parse(localStorage.getItem('currentUser'));
-    const _userData = (_current && _parseCurrent) ? JSON.parse(localStorage.getItem('currentUser')) : null;
-    return _userData;
+    const _current = this.cookieService.get('_currentUser');
+    const _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
+      JSON.parse(this.cookieService.get('_currentUser')) : null;
+    return (_current && _parseCurrent) ? _parseCurrent : null;
   }
 
   public emitlogin(data) {

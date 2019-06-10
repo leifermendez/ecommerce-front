@@ -128,7 +128,6 @@ small {
 /* Header Start */
 header {
   background-color: #fff;
-  /* box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15); */
   min-height: 68px;
   top: 0;
   -webkit-transform: translateZ(0);
@@ -146,7 +145,7 @@ header {
   width: 100%;
   z-index: 100;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+  /*border-bottom-width: 2px;*/
   border-bottom-color: #ce0000;
   position: relative;
 }
@@ -15215,6 +15214,7 @@ select#shipping-address-select {
 }
 .custom-select-search-item .ng-dropdown-panel.ng-select-bottom{
   border-radius: 2px !important;
+  border-color: #f1f1f1;
 }
 
 .custom-select-search-item  .ng-dropdown-panel{

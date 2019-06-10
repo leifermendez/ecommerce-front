@@ -3,18 +3,18 @@
   <div id="header">
     <div class="header-container container">
       <div class="row">
-        <div class="logo"> <a [routerLink]="['/','']" title="Home" title="Flavours HTML">
-            <div><img src="assets/images/logo-apatxee.png" height="50" alt="Flavours Store"></div>
-          </a> </div>
+        <div class="logo"><a [routerLink]="['/','']" title="Home" title="Flavours HTML">
+          <div><img src="assets/images/logo-apatxee.png" height="50" alt="Flavours Store"></div>
+        </a></div>
         <div class="fl-nav-menu-search">
           <ng-select (focus)="searchFocus()" placeholder="Busca productos, marcas y más..."
-            class="custom-select-search-item"></ng-select>
+                     class="custom-select-search-item"></ng-select>
         </div>
         <div class="fl-nav-menu mt-2">
 
           <nav>
             <div class="mm-toggle-wrap">
-              <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span> </div>
+              <div class="mm-toggle"><i class="icon-align-justify"></i><span class="mm-label">Menu</span></div>
             </div>
             <div class="nav-inner">
               <!-- BEGIN NAV -->
@@ -22,36 +22,37 @@
 
 
                 <li class="mega-menu" *ngIf="location"><a href="http://themesground.com/flipmart-demo/V5/grid.html"
-                    class="level-top send-to">
+                                                          class="level-top send-to">
                     <span>
-                      <fa name="map-marker"></fa> {{location['name']}} {{location['zip_code']}}
+                      <fa name="map-marker"></fa>
+                      {{location['name']}} {{location['zip_code']}}
                     </span>
-                  </a>
+                </a>
 
                 </li>
                 <li class="mega-menu"><a class="level-top">
-                    <span>Categorías</span>
-                  </a>
+                  <span>Categorías</span>
+                </a>
                   <div class="level0-wrapper dropdown-6col">
                     <div class="container">
                       <div class="level0-wrapper2">
                         <div class="nav-block nav-block-center">
                           <ul class="level0">
                             <li class="level1 nav-6-1 parent item"><a
-                                href="index.html#/mobiles.html"><span>Mobiles</span></a>
+                              href="index.html#/mobiles.html"><span>Mobiles</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/mobiles/samsung.html"><span>Samsung</span></a></li>
+                                  href="index.html#/mobiles/samsung.html"><span>Samsung</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/mobiles/nokia.html"><span>Nokia</span></a></li>
+                                  href="index.html#/mobiles/nokia.html"><span>Nokia</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/mobiles/iphone.html"><span>IPhone</span></a></li>
+                                  href="index.html#/mobiles/iphone.html"><span>IPhone</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/mobiles/sony.html"><span>Sony</span></a></li>
+                                  href="index.html#/mobiles/sony.html"><span>Sony</span></a></li>
                               </ul>
                             </li>
                             <li class="level1 nav-6-1 parent item"><a href="index.html#.html"
-                                class=""><span>Accesories</span></a>
+                                                                      class=""><span>Accesories</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a href="index.html#/mobile-memory-cards.html"><span>Mobile
                                       Memory Cards</span></a></li>
@@ -60,18 +61,18 @@
                                 <li class="level2 nav-6-1-1"><a href="index.html#/mobile-haedphones.html"><span>Mobile
                                       Headphones</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/bluetooth-headsets.html"><span>Bluetooth Headsets</span></a></li>
+                                  href="index.html#/bluetooth-headsets.html"><span>Bluetooth Headsets</span></a></li>
                               </ul>
                             </li>
                             <li class="level1 nav-6-1 parent item"><a
-                                href="index.html#/cameras.html"><span>Cameras</span></a>
+                              href="index.html#/cameras.html"><span>Cameras</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/cameras/camcorders.html"><span>Camcorders</span></a></li>
+                                  href="index.html#/cameras/camcorders.html"><span>Camcorders</span></a></li>
                                 <li class="level2 nav-6-1-1"><a href="index.html#/cameras/point-shoot.html"><span>Point
                                       &amp; Shoot</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/cameras/digital-slr.html"><span>Digital SLR</span></a></li>
+                                  href="index.html#/cameras/digital-slr.html"><span>Digital SLR</span></a></li>
                                 <li class="level2 nav-6-1-1"><a href="index.html#camera-accesories.html"><span>Camera
                                       Accesories</span></a></li>
                               </ul>
@@ -80,31 +81,31 @@
                                   &amp; Video</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/audio-video/mp3-players.html"><span>MP3 Players</span></a></li>
+                                  href="index.html#/audio-video/mp3-players.html"><span>MP3 Players</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/audio-video/ipods.html"><span>IPods</span></a></li>
+                                  href="index.html#/audio-video/ipods.html"><span>IPods</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/audio-video/speakers.html"><span>Speakers</span></a></li>
+                                  href="index.html#/audio-video/speakers.html"><span>Speakers</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/audio-video/video-players.html"><span>Video Players</span></a>
+                                  href="index.html#/audio-video/video-players.html"><span>Video Players</span></a>
                                 </li>
                               </ul>
                             </li>
                             <li class="level1 nav-6-1 parent item"><a
-                                href="index.html#/computer.html"><span>Computer</span></a>
+                              href="index.html#/computer.html"><span>Computer</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/external-hard-disk.html"><span>External Hard Disk</span></a></li>
+                                  href="index.html#/external-hard-disk.html"><span>External Hard Disk</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/computer/pendrives.html"><span>Pendrives</span></a></li>
+                                  href="index.html#/computer/pendrives.html"><span>Pendrives</span></a></li>
                                 <li class="level2 nav-6-1-1"><a
-                                    href="index.html#/computer/headphones.html"><span>Headphones</span></a></li>
+                                  href="index.html#/computer/headphones.html"><span>Headphones</span></a></li>
                                 <li class="level2 nav-6-1-1"><a href="index.html#/computer/pc-components.html"><span>PC
                                       Components</span></a></li>
                               </ul>
                             </li>
                             <li class="level1 nav-6-1 parent item"><a
-                                href="index.html#/home-appliances.html"><span>Appliances</span></a>
+                              href="index.html#/home-appliances.html"><span>Appliances</span></a>
                               <ul class="level1">
                                 <li class="level2 nav-6-1-1"><a href="index.html#/vaccum-cleaners.html"><span>Vaccum
                                       Cleaners</span></a></li>
@@ -139,13 +140,13 @@
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                    <span>Vender</span>
-                  </a>
+                  <span>Vender</span>
+                </a>
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                    <span>Ayuda</span>
-                  </a>
+                  <span>Ayuda</span>
+                </a>
 
                 </li>
 
@@ -178,9 +179,9 @@
                         <div class="col pb-2 last text-center">
                           <div>
                             <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                              title="Retis lapen casen" class="product-image">
+                               title="Retis lapen casen" class="product-image">
                               <img src="../../../../../assets/images/shopping.svg" height="70"
-                                alt="Retis lapen casen"></a></div>
+                                   alt="Retis lapen casen"></a></div>
 
                           <h5 class="mt-2">
                             <a href="#" title="Retis lapen casen">Comprar</a>
@@ -194,12 +195,11 @@
                 </li>
 
                 <li *ngIf="user_data" class="mega-menu float-right d-flex">
-                  <a href="#" class="level-top">
+                  <a [routerLink]="['/','dashboard']" class="level-top">
                     <span>Hola <b>{{user_data['name']}}</b></span>
                   </a>
 
                 </li>
-
 
 
               </ul>
@@ -211,17 +211,17 @@
       </div>
       <div class="fl-header-right">
         <div class="fl-links">
-          <div class="no-js"> <a title="Company" class="clicker"></a>
+          <div class="no-js"><a title="Company" class="clicker"></a>
             <div class="fl-nav-links">
               <div class="language-currency">
                 <div class="fl-language">
                   <ul class="lang">
                     <li><a href="index.html#"> <img src="assets/images/english.png" alt="English"> <span>English</span>
-                      </a></li>
+                    </a></li>
                     <li><a href="index.html#"> <img src="assets/images/francais.png" alt="French"> <span>French</span>
-                      </a></li>
+                    </a></li>
                     <li><a href="index.html#"> <img src="assets/images/german.png" alt="German"> <span>German</span>
-                      </a></li>
+                    </a></li>
                   </ul>
                 </div>
                 <!--fl-language-->
@@ -250,10 +250,10 @@
         </div>
         <div class="fl-cart-contain">
           <div class="mini-cart">
-            <div class="basket"> <a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html"> </a> </div>
+            <div class="basket"><a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html"> </a></div>
             <div class="fl-mini-cart-content">
               <div class="block-subtitle">
-                <div class="top-subtotal">2 items, <span class="price">$449.99</span> </div>
+                <div class="top-subtotal">2 items, <span class="price">$449.99</span></div>
                 <!--top-subtotal-->
                 <!--pull-right-->
               </div>
@@ -261,42 +261,44 @@
               <ul class="mini-products-list" id="cart-sidebar">
                 <li class="item first">
                   <div class="item-inner"><a class="product-image"
-                      title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="index.html#l"><img
-                        alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"
-                        src="products-assets/images/p4.jpg"></a>
+                                             title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"
+                                             href="index.html#l"><img
+                    alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"
+                    src="products-assets/images/p4.jpg"></a>
                     <div class="product-details">
                       <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>
                         <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span
-                            class="hidden">Edit item</span></a> </div>
+                          class="hidden">Edit item</span></a></div>
                       <!--access-->
                       <strong>1</strong> x <span class="price">$179.99</span>
                       <p class="product-name"><a
-                          href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
+                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
                     </div>
                   </div>
                 </li>
                 <li class="item last">
                   <div class="item-inner"><a class="product-image"
-                      title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="index.html#"><img
-                        alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"
-                        src="products-assets/images/p3.jpg"></a>
+                                             title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"
+                                             href="index.html#"><img
+                    alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"
+                    src="products-assets/images/p3.jpg"></a>
                     <div class="product-details">
                       <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>
                         <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span
-                            class="hidden">Edit item</span></a> </div>
+                          class="hidden">Edit item</span></a></div>
                       <!--access-->
                       <strong>1</strong> x <span class="price">$80</span>
                       <p class="product-name"><a
-                          href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
+                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
                     </div>
                   </div>
                 </li>
               </ul>
               <div class="actions">
                 <button class="btn-checkout" title="Checkout" type="button"
-                  onClick="window.location=checkout.html"><span>Checkout</span></button>
+                        onClick="window.location=checkout.html"><span>Checkout</span></button>
                 <button class="view-cart" title="Checkout" type="button"
-                  onClick="window.location=checkout.html"><span>View Cart</span></button>
+                        onClick="window.location=checkout.html"><span>View Cart</span></button>
               </div>
               <!--actions-->
             </div>
@@ -308,7 +310,7 @@
           <form class="navbar-form" role="search">
             <div class="input-group">
               <input class="GlobalNavSearch js-globalSearchInput " placeholder="Search" id="desktopSearchInput"
-                data-reactid=".1.0.0.0">
+                     data-reactid=".1.0.0.0">
               <label class="GlobalNavSearch-searchIcon" for="desktopSearchInput" data-reactid=".1.0.0.1"></label>
             </div>
           </form>
@@ -327,83 +329,83 @@
   <ul class="mobile-menu">
 
     <li>
-      <div class="home"><a href="index.html#"><i class="icon-home"></i>Home</a> </div>
+      <div class="home"><a href="index.html#"><i class="icon-home"></i>Home</a></div>
     </li>
     <li><span class="expand fa fa-plus"></span><a href="index.html#">Pages</a>
       <ul>
-        <li><a href="http://themesground.com/flipmart-demo/V5/grid.html">Grid</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/list.html">List</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/product-detail.html">Product Detail</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html">Shopping Cart</a> </li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/grid.html">Grid</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/list.html">List</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/product-detail.html">Product Detail</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html">Shopping Cart</a></li>
         <li><span class="expand fa fa-plus"></span><a
-            href="http://themesground.com/flipmart-demo/V5/checkout.html">Checkout</a>
+          href="http://themesground.com/flipmart-demo/V5/checkout.html">Checkout</a>
           <ul>
-            <li><a href="http://themesground.com/flipmart-demo/V5/checkout-method.html">Checkout Method</a> </li>
+            <li><a href="http://themesground.com/flipmart-demo/V5/checkout-method.html">Checkout Method</a></li>
             <li><a href="http://themesground.com/flipmart-demo/V5/checkout-billing-info.html">Checkout Billing Info</a>
             </li>
           </ul>
         </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/wishlist.html">Wishlist</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/dashboard.html">Dashboard</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/multiple-addresses.html">Multiple Addresses</a> </li>
-        <li> <a href="http://themesground.com/flipmart-demo/V5/about-us.html">About us</a> </li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/wishlist.html">Wishlist</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/dashboard.html">Dashboard</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/multiple-addresses.html">Multiple Addresses</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/about-us.html">About us</a></li>
         <li><span class="expand fa fa-plus"></span><a href="http://themesground.com/flipmart-demo/V5/blog.html">Blog</a>
           <ul>
-            <li><a href="http://themesground.com/flipmart-demo/V5/blog-detail.html">Blog Detail</a> </li>
+            <li><a href="http://themesground.com/flipmart-demo/V5/blog-detail.html">Blog Detail</a></li>
           </ul>
         </li>
-        <li><a href="http://themesground.com/flipmart-demo/V5/contact-us.html">Contact us</a> </li>
-        <li><a href="http://themesground.com/flipmart-demo/V5/404error.html">404 Error Page</a> </li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/contact-us.html">Contact us</a></li>
+        <li><a href="http://themesground.com/flipmart-demo/V5/404error.html">404 Error Page</a></li>
       </ul>
     </li>
     <li><span class="expand fa fa-plus"></span><a href="index.html#">Women</a>
       <ul>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#" class="">Stylish Bag</a>
           <ul>
-            <li> <a href="index.html#" class="">Clutch Handbags</a> </li>
-            <li> <a href="index.html#l" class="">Diaper Bags</a> </li>
-            <li> <a href="index.html#" class="">Bags</a> </li>
-            <li> <a href="index.html#" class="">Hobo handbags</a> </li>
+            <li><a href="index.html#" class="">Clutch Handbags</a></li>
+            <li><a href="index.html#l" class="">Diaper Bags</a></li>
+            <li><a href="index.html#" class="">Bags</a></li>
+            <li><a href="index.html#" class="">Hobo handbags</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Material Bag</a>
           <ul>
-            <li> <a href="index.html#">Beaded Handbags</a> </li>
-            <li> <a href="index.html#">Fabric Handbags</a> </li>
-            <li> <a href="index.html#">Handbags</a> </li>
-            <li> <a href="index.html#">Leather Handbags</a> </li>
+            <li><a href="index.html#">Beaded Handbags</a></li>
+            <li><a href="index.html#">Fabric Handbags</a></li>
+            <li><a href="index.html#">Handbags</a></li>
+            <li><a href="index.html#">Leather Handbags</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Shoes</a>
           <ul>
-            <li> <a href="index.html#">Flat Shoes</a> </li>
-            <li> <a href="index.html#">Flat Sandals</a> </li>
-            <li> <a href="index.html#">Boots</a> </li>
-            <li> <a href="index.html#">Heels</a> </li>
+            <li><a href="index.html#">Flat Shoes</a></li>
+            <li><a href="index.html#">Flat Sandals</a></li>
+            <li><a href="index.html#">Boots</a></li>
+            <li><a href="index.html#">Heels</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Jwellery</a>
           <ul>
-            <li> <a href="index.html#">Bracelets</a> </li>
-            <li> <a href="index.html#">Necklaces &amp; Pendent</a> </li>
-            <li> <a href="index.html#l">Pendants</a> </li>
-            <li> <a href="index.html#">Pins &amp; Brooches</a> </li>
+            <li><a href="index.html#">Bracelets</a></li>
+            <li><a href="index.html#">Necklaces &amp; Pendent</a></li>
+            <li><a href="index.html#l">Pendants</a></li>
+            <li><a href="index.html#">Pins &amp; Brooches</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Dresses</a>
           <ul>
-            <li> <a href="index.html#">Casual Dresses</a> </li>
-            <li> <a href="index.html#">Evening</a> </li>
-            <li> <a href="index.html#">Designer</a> </li>
-            <li> <a href="index.html#">Party</a> </li>
+            <li><a href="index.html#">Casual Dresses</a></li>
+            <li><a href="index.html#">Evening</a></li>
+            <li><a href="index.html#">Designer</a></li>
+            <li><a href="index.html#">Party</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Swimwear</a>
           <ul>
-            <li> <a href="index.html#">Swimsuits</a> </li>
-            <li> <a href="index.html#">Beach Clothing</a> </li>
-            <li> <a href="index.html#">Clothing</a> </li>
-            <li> <a href="index.html#">Bikinis</a> </li>
+            <li><a href="index.html#">Swimsuits</a></li>
+            <li><a href="index.html#">Beach Clothing</a></li>
+            <li><a href="index.html#">Clothing</a></li>
+            <li><a href="index.html#">Bikinis</a></li>
           </ul>
         </li>
       </ul>
@@ -412,51 +414,51 @@
       <ul>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#" class="">Shoes</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Sport Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Casual Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Leather Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">canvas shoes</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Sport Shoes</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Casual Shoes</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Leather Shoes</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">canvas shoes</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Dresses</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Casual Dresses</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Evening</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Designer</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Party</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Casual Dresses</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Evening</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Designer</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Party</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Jackets</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Coats</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Formal Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Leather Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Blazers</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Coats</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Formal Jackets</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Leather Jackets</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Blazers</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Watches</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Casio</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Titan</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Tommy-Hilfiger</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Fasttrack</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Casio</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Titan</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Tommy-Hilfiger</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Sunglasses</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Ray Ban</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Police</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Oakley</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Ray Ban</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Fasttrack</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Police</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Oakley</a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#">Accesories</a>
           <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="index.html#">Backpacks</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Backpacks</a></li>
 
-            <li class="level2 nav-6-1-1"><a href="index.html#">Wallets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Laptops Bags</a> </li>
-            <li class="level2 nav-6-1-1"><a href="index.html#">Belts</a> </li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Wallets</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Laptops Bags</a></li>
+            <li class="level2 nav-6-1-1"><a href="index.html#">Belts</a></li>
           </ul>
         </li>
       </ul>
@@ -465,56 +467,56 @@
       <ul>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#"><span>Mobiles</span></a>
           <ul>
-            <li> <a href="index.html#"><span>Samsung</span></a> </li>
-            <li> <a href="index.html#"><span>Nokia</span></a> </li>
-            <li> <a href="index.html#"><span>IPhone</span></a> </li>
-            <li> <a href="index.html#"><span>Sony</span></a> </li>
+            <li><a href="index.html#"><span>Samsung</span></a></li>
+            <li><a href="index.html#"><span>Nokia</span></a></li>
+            <li><a href="index.html#"><span>IPhone</span></a></li>
+            <li><a href="index.html#"><span>Sony</span></a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#" class=""><span>Accesories</span></a>
           <ul>
-            <li> <a href="index.html#"><span>Mobile Memory Cards</span></a> </li>
-            <li> <a href="index.html#"><span>Cases &amp; Covers</span></a> </li>
-            <li> <a href="index.html#"><span>Mobile Headphones</span></a> </li>
-            <li> <a href="index.html#"><span>Bluetooth Headsets</span></a> </li>
+            <li><a href="index.html#"><span>Mobile Memory Cards</span></a></li>
+            <li><a href="index.html#"><span>Cases &amp; Covers</span></a></li>
+            <li><a href="index.html#"><span>Mobile Headphones</span></a></li>
+            <li><a href="index.html#"><span>Bluetooth Headsets</span></a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#"><span>Cameras</span></a>
           <ul>
-            <li> <a href="index.html#"><span>Camcorders</span></a> </li>
-            <li> <a href="index.html#"><span>Point &amp; Shoot</span></a> </li>
-            <li> <a href="index.html#"><span>Digital SLR</span></a> </li>
-            <li> <a href="index.html#"><span>Camera Accesories</span></a> </li>
+            <li><a href="index.html#"><span>Camcorders</span></a></li>
+            <li><a href="index.html#"><span>Point &amp; Shoot</span></a></li>
+            <li><a href="index.html#"><span>Digital SLR</span></a></li>
+            <li><a href="index.html#"><span>Camera Accesories</span></a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#"><span>Audio &amp; Video</span></a>
           <ul>
-            <li> <a href="index.html#"><span>MP3 Players</span></a> </li>
-            <li> <a href="index.html#"><span>IPods</span></a> </li>
-            <li> <a href="index.html#"><span>Speakers</span></a> </li>
-            <li> <a href="index.html#"><span>Video Players</span></a> </li>
+            <li><a href="index.html#"><span>MP3 Players</span></a></li>
+            <li><a href="index.html#"><span>IPods</span></a></li>
+            <li><a href="index.html#"><span>Speakers</span></a></li>
+            <li><a href="index.html#"><span>Video Players</span></a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#"><span>Computer</span></a>
           <ul>
-            <li> <a href="index.html#"><span>External Hard Disk</span></a> </li>
-            <li> <a href="index.html#"><span>Pendrives</span></a> </li>
-            <li> <a href="index.html#"><span>Headphones</span></a> </li>
-            <li> <a href="index.html#"><span>PC Components</span></a> </li>
+            <li><a href="index.html#"><span>External Hard Disk</span></a></li>
+            <li><a href="index.html#"><span>Pendrives</span></a></li>
+            <li><a href="index.html#"><span>Headphones</span></a></li>
+            <li><a href="index.html#"><span>PC Components</span></a></li>
           </ul>
         </li>
         <li><span class="expand fa fa-plus"></span> <a href="index.html#"><span>Appliances</span></a>
           <ul>
-            <li> <a href="index.html#"><span>Vaccum Cleaners</span></a> </li>
-            <li> <a href="index.html#"><span>Indoor Lighting</span></a> </li>
-            <li> <a href="index.html#"><span>Kitchen Tools</span></a> </li>
-            <li> <a href="index.html#"><span>Water Purifier</span></a> </li>
+            <li><a href="index.html#"><span>Vaccum Cleaners</span></a></li>
+            <li><a href="index.html#"><span>Indoor Lighting</span></a></li>
+            <li><a href="index.html#"><span>Kitchen Tools</span></a></li>
+            <li><a href="index.html#"><span>Water Purifier</span></a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="index.html#">Furniture</a> </li>
-    <li><a href="index.html#">Kids</a> </li>
-    <li><a href="http://themesground.com/flipmart-demo/V5/contact-us.html">Contact Us</a> </li>
+    <li><a href="index.html#">Furniture</a></li>
+    <li><a href="index.html#">Kids</a></li>
+    <li><a href="http://themesground.com/flipmart-demo/V5/contact-us.html">Contact Us</a></li>
   </ul>
 </div>

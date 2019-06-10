@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserModel } from '../../../../shared/models/base.model';
-import { RestService } from '../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../shared/services/util.service';
-import { AuthshopService } from '../../authshop.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserModel} from '../../../../shared/models/base.model';
+import {RestService} from '../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../shared/services/util.service';
+import {AuthshopService} from '../../authshop.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   loading = false;
 
   constructor(private auth: AuthshopService, private rest: RestService,
-    private router: Router, private utils: UtilsService,
-    private fb: FormBuilder, private authService: AuthService,
-    private route: ActivatedRoute
+              private router: Router, private utils: UtilsService,
+              private fb: FormBuilder, private authService: AuthService,
+              private route: ActivatedRoute
   ) {
     this.form = fb.group({
       'email': [null, Validators.compose([Validators.required, Validators.email])],
@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
 
   }
 
-  get f() { return this.form.controls; }
+  get f() {
+    return this.form.controls;
+  }
 
   login() {
 
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
         this.form.value['name']
       ).then(loged => {
         this.loading = false;
-        console.log('-------------- ',loged)
+        console.log('-------------- ', loged);
         if (loged) {
           this.router.navigateByUrl('/home');
         } else {
@@ -72,14 +74,14 @@ export class LoginComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data: any) => {
-      console.log(data);
-      this.user = data;
-      this.user.avatar = data.photoUrl;
-      this.user.uid = data.id;
-      this.user.token = data.authToken;
-      this.user.provider = 'google';
-      this.socialloginrest(this.user);
-    }
+        console.log(data);
+        this.user = data;
+        this.user.avatar = data.photoUrl;
+        this.user.uid = data.id;
+        this.user.token = data.authToken;
+        this.user.provider = 'google';
+        this.socialloginrest(this.user);
+      }
     ).catch(error => {
       console.log(error);
     });
@@ -87,14 +89,14 @@ export class LoginComponent implements OnInit {
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data: any) => {
-      console.log(data);
-      this.user = data;
-      this.user.avatar = data.photoUrl;
-      this.user.uid = data.id;
-      this.user.token = data.authToken;
-      this.user.provider = 'facebook';
-      this.socialloginrest(this.user);
-    }
+        console.log(data);
+        this.user = data;
+        this.user.avatar = data.photoUrl;
+        this.user.uid = data.id;
+        this.user.token = data.authToken;
+        this.user.provider = 'facebook';
+        this.socialloginrest(this.user);
+      }
     ).catch(error => {
       console.log(error);
     });
@@ -115,11 +117,11 @@ export class LoginComponent implements OnInit {
           this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + response.token);
         }
       }).catch((e) => {
-        console.log(e);
-        if (e.error.errors.msg === 'USER_DOES_NOT_EXIST') {
-        } else {
-          this.utils.openSnackBar('Login Fail', 'error');
-        }
-      });
+      console.log(e);
+      if (e.error.errors.msg === 'USER_DOES_NOT_EXIST') {
+      } else {
+        this.utils.openSnackBar('Login Fail', 'error');
+      }
+    });
   }
 }

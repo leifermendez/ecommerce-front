@@ -32,6 +32,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { CookieService } from 'ngx-cookie-service';
+import { ProfileComponent } from './module/home/pages/profile/profile.component';
+import { DashboardComponent } from './module/home/pages/dashboard/dashboard.component';
+import { SidebarComponent } from './module/home/pages/dashboard/sidebar/sidebar.component';
 
 
 const config = new AuthServiceConfig([
@@ -68,6 +71,9 @@ export class MyIntl extends TimeagoIntl {
     BoxBlogComponent,
     BoxNewsComponent,
     MiniGalleryProductComponent,
+    ProfileComponent,
+    DashboardComponent,
+    SidebarComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

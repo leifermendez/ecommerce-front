@@ -1,0 +1,29 @@
+.sidebar-ecommerce {
+  background-color: #fff;
+  width: 100px;
+  position: absolute;
+  margin-top: -115px;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+  margin: 135px 0 0;
+  padding: 0px 10px;
+}
+
+ul li {
+  /*min-height: 70px;*/
+  margin-bottom: 15px;
+  text-align: center;
+  /*padding: 5px;*/
+}
+
+.bubble {
+  background-color: orange;
+}
+
+.btn {
+  font-size: 85%;
+  padding: 5px;
+}
