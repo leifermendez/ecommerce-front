@@ -30,10 +30,19 @@ export class RestService {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'TIME-ZONE': `${timezone}`,
-      'LOCATION-ZIP': this.location_zip
+      'LOCATION-ZIP': this.location_zip,
+      'Authorization': `Bearer  ${this.localtoken}`
     });
-
     return this.headers;
+  }
+
+  private get localtoken(): string {
+    const obj = this.cookieService.get('_currentUser');
+    if (obj && JSON.parse(obj)) {
+      return JSON.parse(obj)['token'];
+    } else {
+      return null;
+    }
   }
 
   get(endpoint: string, params?: IUrlParams): Promise<object> {
