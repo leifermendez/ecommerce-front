@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ZipLocationComponent} from '../../../components/zip-location/zip-location.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalBankComponent} from '../modal-bank/modal-bank.component';
+import {RestService} from '../../../../../shared/services/rest.service';
 
 @Component({
   selector: 'app-info-bank',
@@ -14,13 +15,28 @@ export class InfoBankComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
-  constructor(private modalService: BsModalService) {
+  public data: any;
+  constructor(private modalService: BsModalService,
+    private rest: RestService) {
   }
 
   ngOnInit() {
+    this.loadData();
   }
 
   emitBack = () => this.ngOnInit();
+
+  loadData = (
+
+  ) => {
+    this.rest.get(`/rest/payment-user`)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+            this.data = response['data']['data']
+            console.log('-------',this.data)
+        }
+      });
+  };
 
   open() {
     const initialState = {

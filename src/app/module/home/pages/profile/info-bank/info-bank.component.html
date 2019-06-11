@@ -1,7 +1,38 @@
 <div class="card block-dashboard border-0">
   <div class="card-header"><b>Banco</b></div>
   <div class="col p-3">
-    <form>
+      <ul class="list-group border-0 ng-star-inserted">
+          <!---->
+          <li class="list-group-item border-0 rounded-0 p-2 mb-1 pointer ng-star-inserted"
+           tabindex="0" *ngFor="let dat of data;let i = index">
+            <div class="d-flex align-items-center">
+          
+              <div class="col-7 p-0 pointer">
+                <div class="pl-3"><span class="d-block"><b class="font-weight-600">
+                  {{dat['account_name']}} {{dat['account_lastname']}}
+                </b></span><small
+                    class="text-muted letter-spacing-1 opacity-05">{{dat['iban'] | slice:0:10}}***</small></div>
+              </div>
+              <div class="col-4 pointer">
+                <div class="pl-3"><span class="d-block"><b class="text-muted font-weight-600">
+                    {{dat['payment_option']}}
+                </b> </span>
+                <span *ngIf="dat['primary']" class="badge badge-primary mr-3 text-white p-1"> 
+                      Primaria
+                  </span>
+                 
+                </div>
+              </div>
+              <div class="col-1 text-center">
+                <!---->
+                <h4 class="pointer" placement="bottom" aria-describedby="tooltip-6"><i
+                    class="icon ion-lock-combination text-danger"></i></h4>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+    <form style="display: none">
       <div class="form-group">
         <label>Nombre</label>
         <input type="text" class="form-control" placeholder="Nombre completo">

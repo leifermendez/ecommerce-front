@@ -5,3 +5,11 @@
 .card {
   border: 0px !important;
 }
+
+.letter-spacing-1{
+  letter-spacing: 1px !important;
+}
+
+.opacity-05{
+  opacity: .5;
+}
