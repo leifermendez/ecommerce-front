@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
-import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
-import { Address } from 'ngx-google-places-autocomplete/objects/address';
-import { CookieService } from 'ngx-cookie-service';
-import { RestService } from '../../../../shared/services/rest.service';
-import { BsModalRef } from 'ngx-bootstrap';
-import { UtilsService } from '../../../../shared/services/util.service';
+import {Component, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
+import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {CookieService} from 'ngx-cookie-service';
+import {RestService} from '../../../../shared/services/rest.service';
+import {BsModalRef} from 'ngx-bootstrap';
+import {UtilsService} from '../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-zip-location',
@@ -17,15 +17,16 @@ export class ZipLocationComponent implements OnInit {
   public address: any;
   public msg: any;
   public buttonAvailable = false;
+  loading = false;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: { country: 'ES' }
+    componentRestrictions: {country: 'ES'}
   };
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
 
   constructor(private rest: RestService, private util: UtilsService, public bsModalRef: BsModalRef,
-    private cookieService: CookieService) {
+              private cookieService: CookieService) {
 
   }
 
@@ -48,14 +49,16 @@ export class ZipLocationComponent implements OnInit {
         this.zip_code = zip_code;
         this.checkZip(zip_code);
       }).catch(error => {
-        this.address = '';
-        this.msg = 'Not found';
-      });
+      this.address = '';
+      this.msg = 'Not found';
+    });
   }
 
   public checkZip = (zip_code) => {
+    this.loading = true;
     this.rest.get(`/rest/zone-available?src=${zip_code}`)
       .then((response: any) => {
+        this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];
           this.data = response['data'];

@@ -19,17 +19,6 @@
             <div class="nav-inner">
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
-
-
-                <li class="mega-menu" *ngIf="location"><a href="http://themesground.com/flipmart-demo/V5/grid.html"
-                                                          class="level-top send-to">
-                    <span>
-                      <fa name="map-marker"></fa>
-                      {{location['name']}} {{location['zip_code']}}
-                    </span>
-                </a>
-
-                </li>
                 <li class="mega-menu"><a class="level-top">
                   <span>Categorías</span>
                 </a>
@@ -194,13 +183,22 @@
 
                 </li>
 
-                <li *ngIf="user_data" class="mega-menu float-right d-flex">
-                  <a [routerLink]="['/','dashboard']" class="level-top">
-                    <span>Hola <b>{{user_data['name']}}</b></span>
+<!--                <li *ngIf="user_data" class="mega-menu float-right d-flex">-->
+<!--                  <a [routerLink]="['/','dashboard']" class="level-top">-->
+<!--                    <span>Hola <b>{{user_data['name']}}</b></span>-->
+<!--                  </a>-->
+
+<!--                </li>-->
+
+                <li class="mega-menu  float-right " *ngIf="location">
+                  <a href="#" class="level-top send-to">
+                    <span>
+                      <fa name="map-marker"></fa>
+                      {{location['name']}} {{location['zip_code']}}
+                    </span>
                   </a>
 
                 </li>
-
 
               </ul>
               <!--nav-->
@@ -209,31 +207,33 @@
         </div>
         <!--row-->
       </div>
+
       <div class="fl-header-right">
         <div class="fl-links">
           <div class="no-js"><a title="Company" class="clicker"></a>
+
             <div class="fl-nav-links">
               <div class="language-currency">
-                <div class="fl-language">
-                  <ul class="lang">
-                    <li><a href="index.html#"> <img src="assets/images/english.png" alt="English"> <span>English</span>
-                    </a></li>
-                    <li><a href="index.html#"> <img src="assets/images/francais.png" alt="French"> <span>French</span>
-                    </a></li>
-                    <li><a href="index.html#"> <img src="assets/images/german.png" alt="German"> <span>German</span>
-                    </a></li>
-                  </ul>
-                </div>
+<!--                <div class="fl-language">-->
+<!--                  <ul class="lang">-->
+<!--                    <li><a href="index.html#"> <img src="assets/images/english.png" alt="English"> <span>English</span>-->
+<!--                    </a></li>-->
+<!--                    <li><a href="index.html#"> <img src="assets/images/francais.png" alt="French"> <span>French</span>-->
+<!--                    </a></li>-->
+<!--                    <li><a href="index.html#"> <img src="assets/images/german.png" alt="German"> <span>German</span>-->
+<!--                    </a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
                 <!--fl-language-->
                 <!-- END For version 1,2,3,4,6 -->
                 <!-- For version 1,2,3,4,6 -->
-                <div class="fl-currency">
-                  <ul class="currencies_list">
-                    <li><a href="index.html#" title="EGP"> £</a></li>
-                    <li><a href="index.html#" title="EUR"> €</a></li>
-                    <li><a href="index.html#" title="USD"> $</a></li>
-                  </ul>
-                </div>
+<!--                <div class="fl-currency">-->
+<!--                  <ul class="currencies_list">-->
+<!--                    <li><a href="index.html#" title="EGP"> £</a></li>-->
+<!--                    <li><a href="index.html#" title="EUR"> €</a></li>-->
+<!--                    <li><a href="index.html#" title="USD"> $</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
                 <!--fl-currency-->
                 <!-- END For version 1,2,3,4,6 -->
               </div>

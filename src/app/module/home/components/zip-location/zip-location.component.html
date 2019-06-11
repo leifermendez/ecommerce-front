@@ -6,24 +6,34 @@
     <!--    </button>-->
   </div>
   <div class="image-block">
-      <div class="container">
-          <div class="row pt-2 pb-2">
-            <div class="col-6 text-center">
-                <img src="../../../../../assets/images/scooter.svg" height="70px" alt="">
-            </div>
-            <div class="col-6 text-center text-muted">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, veritatis!</p>
-            </div>
-          </div>
-   
+    <div class="container">
+      <div class="row pt-2 pb-2">
+        <div class="col-6 text-center">
+          <img src="../../../../../assets/images/scooter.svg" height="70px" alt="">
         </div>
+        <div class="col-6 text-center text-muted">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, veritatis!</p>
+        </div>
+      </div>
+
+    </div>
   </div>
   <div class="modal-body">
-
-      <input ngx-google-places-autocomplete class="form-control" 
-      [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
-      placeholder="Ingresa una dirección de envio"
+    <div>
+      <div *ngIf="loading" class="loading-zip">
+        <fa name="spinner" animation="spin"></fa>
+      </div>
+      <input ngx-google-places-autocomplete
+             [disabled]="loading"
+             class="form-control"
+             [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
+             placeholder="Ingresa una dirección de envio"
              (onAddressChange)="handleAddressChange($event)"/>
+
+    </div>
+
+
+
     <p class="text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, pariatur!</p>
     <small *ngIf="msg" class="text-mute text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
       tempora?
@@ -32,17 +42,17 @@
   <div class="modal-footer">
     <div class="container-fluid d-flex">
       <div class="col-6 text-center">
-         <a href="#" class="text-muted">
-            <fa size="2x" name="map-marker"></fa>
+        <a href="#" class="text-muted">
+          <fa size="2x" name="map-marker"></fa>
           <div>¿Lorem, ipsum.?</div>
-         </a>
+        </a>
       </div>
       <div class="col-6 text-center">
-          <a href="#" class=" text-muted">
-              <fa size="2x" name="question-circle"></fa>
-              <div>¿Lorem, ipsum.?</div>
-          </a>
-       </div>
+        <a href="#" class=" text-muted">
+          <fa size="2x" name="question-circle"></fa>
+          <div>¿Lorem, ipsum.?</div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

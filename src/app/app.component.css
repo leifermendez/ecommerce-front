@@ -1,0 +1,7 @@
+.drop-hover-menu{
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+}
