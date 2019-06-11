@@ -18,13 +18,13 @@ export class AuthshopService {
               private router: Router,
               private cookieService: CookieService
   ) {
-    if (this.localtoken && this.rest.headers) {
-      this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + this.localtoken);
-      this.rest.headers = this.rest.headers.set('deviceInfo', '{"language_local":"en-US","uuid":"unknown","os":"Web",' +
-        '"os_version":"unknown","device":"unknown","carrier":"unknown"}');
-    } else if (!this.rest.headers) {
-      console.error('headers object is not available!');
-    }
+    // if (this.localtoken && this.cookieService.get('_currentUser')) {
+    //   this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + this.localtoken);
+    //   this.rest.headers = this.rest.headers.set('deviceInfo', '{"language_local":"en-US","uuid":"unknown","os":"Web",' +
+    //     '"os_version":"unknown","device":"unknown","carrier":"unknown"}');
+    // } else if (!this.rest.headers) {
+    //   console.error('headers object is not available!');
+    // }
 
   }
 
@@ -41,7 +41,7 @@ export class AuthshopService {
               this.emitlogin(this._currentUser);
               this.cookieService.set('_currentUser', JSON.stringify(response.data));
               // localStorage.setItem('currentUser', JSON.stringify(response.data)); <------- guarde en cookie en vez de localstorage
-              this.rest.headers = this.rest.headers.set('Authorization', 'Bearer ' + token);
+
               resolve(true);
             }
             resolve(false);
@@ -67,9 +67,11 @@ export class AuthshopService {
   public validate(): Promise<string> {
     return new Promise<string>(((resolve, reject) => {
       this.waiting = true;
-      if (this.rest.headers.has('Authorization')) {
-        this.rest.get('/oauth/session').then(((response: any) => {
-          this._currentUser = response.data;
+      if (this.localtoken) {
+        this.rest.get('/auth').then(((response: any) => {
+          const _tmp_current = this.getCurrentUser();
+          _tmp_current['token'] = response.data;
+          this.cookieService.set('_currentUser', JSON.stringify(_tmp_current));
           this.waiting = false;
           console.log('Second Validation');
           resolve(response.message);
@@ -96,7 +98,8 @@ export class AuthshopService {
   }
 
   public get isAuthenticated(): boolean {
-    return !!this.localtoken && this.rest.headers.has('Authorization');
+    return !!this.localtoken;
+    // return !!this.localtoken && this.rest.headers.has('Authorization');
   }
 
   public get user(): UserModel {

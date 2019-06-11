@@ -40,6 +40,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { LastSellComponent } from './module/home/pages/dashboard/last-sell/last-sell.component';
 import { LastOrderComponent } from './module/home/pages/dashboard/last-order/last-order.component';
 import { LastTicketsComponent } from './module/home/pages/dashboard/last-tickets/last-tickets.component';
+import {AuthGuard} from './module/auth/guards/auth.guard';
 
 
 const config = new AuthServiceConfig([
@@ -111,6 +112,7 @@ export class MyIntl extends TimeagoIntl {
   providers: [
     RestService,
     UtilsService,
+    AuthGuard,
     BsModalService,
     BsModalRef,
     ZipLocationComponent,
