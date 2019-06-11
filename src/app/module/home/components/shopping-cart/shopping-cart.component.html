@@ -1,0 +1,70 @@
+<div class="container p-0">
+  <div *ngIf="data && data.length" class="col p-2 bar-item-total">
+    <h5 class="m-0 text-white">({{data.length}}) articulos</h5>
+  </div>
+  <div *ngIf="data && !data.length" class="col p-2 bar-item-total">
+    <h6 class="m-0 text-white">No tienes productos</h6>
+  </div>
+
+  <div class="header-nav-dropdown-wrapper clearer pb-2 mt-2">
+    <div *ngIf="loading" class="timeline-wrapper">
+      <div class="timeline-item">
+        <div class="animated-background" style="height: 40px">
+          <div class="background-masker header-top"></div>
+          <div class="background-masker header-left"></div>
+          <div class="background-masker header-right"></div>
+          <div class="background-masker header-bottom"></div>
+          <div class="background-masker subheader-left"></div>
+          <div class="background-masker subheader-right"></div>
+          <div class="background-masker subheader-bottom"></div>
+
+        </div>
+        <div class="animated-background mt-3" style="height: 40px">
+          <div class="background-masker header-top"></div>
+          <div class="background-masker header-left"></div>
+          <div class="background-masker header-right"></div>
+          <div class="background-masker header-bottom"></div>
+          <div class="background-masker subheader-left"></div>
+          <div class="background-masker subheader-right"></div>
+          <div class="background-masker subheader-bottom"></div>
+
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!loading">
+      <div *ngIf="data && data.length">
+        <div class="col-12 d-flex p-0 mb-2 border-bottom-item"
+             *ngFor="let dat of data;let i = index">
+          <div class="col-4 pb-2 text-center">
+            <a href="#" title="Retis lapen casen" class="product-image">
+              <img src="http://www.themesground.com/flipmart-demo/V5/products-images/p4.jpg"
+                   class="image-item" alt="Retis lapen casen"></a>
+          </div>
+          <div class="col-8 pb-2 pl-0 last">
+            <div>
+              <span class="d-block">{{dat['price_normal']}}</span>
+              <span class="d-block">{{dat['name']}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-flex pt-2 mb-2 border-bottom-item">
+          <div class="col-12">
+            <a href="#" class="btn btn-default price-font">Proceder pago ({{total_shop['price_normal']}})</a>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="data && !data.length">
+        <div class="col-12 d-flex p-0 mb-2 border-bottom-item">
+          <div class="col-md-6 offset-md-3 pb-2 text-center">
+            <a href="#" title="Retis lapen casen" class="product-image">
+              <img src="../../../../../assets/images/shopping-cart-empty-side-view.svg"
+                   class="image-item" alt="Retis lapen casen"></a>
+            <p class="mb-0 mt-1">Tu carrito esta vacio</p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

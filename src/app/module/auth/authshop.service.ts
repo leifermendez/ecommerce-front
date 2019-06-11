@@ -114,6 +114,21 @@ export class AuthshopService {
     return (_current && _parseCurrent) ? _parseCurrent : null;
   }
 
+
+  public updateUser = (key, data) => {
+    if (key && data) {
+      const _current = this.cookieService.get('_currentUser');
+      const _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
+        JSON.parse(this.cookieService.get('_currentUser')) : null;
+      _parseCurrent[key] = data;
+      this.cookieService.set('_currentUser', JSON.stringify(_parseCurrent));
+      return true;
+    } else {
+      return false;
+    }
+
+  };
+
   public emitlogin(data) {
     this.getLoggedInData.emit(data);
   }

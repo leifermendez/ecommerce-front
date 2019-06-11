@@ -12,6 +12,8 @@ export class UtilsService {
   cookie_zip_code = null;
   _settings = settings;
   @Output() getLocation: EventEmitter<any> = new EventEmitter();
+  @Output() refreshShopping: EventEmitter<any> = new EventEmitter();
+  @Output() numberShopping: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService) {
   }
@@ -52,7 +54,7 @@ export class UtilsService {
 
   }
 
-  checkH = (p=null,router = null) => {
+  checkH = (p = null, router = null) => {
     const _a = this._settings[p].find(a => a === router);
     return !!(_a);
   };
@@ -62,5 +64,12 @@ export class UtilsService {
     const _cookie_data = (this.cookie_zip_code && JSON.parse(this.cookie_zip_code)) ?
       JSON.parse(this.cookie_zip_code) : null;
     return _cookie_data;
+  };
+
+
+  emitShopping = () => {
+    return {
+      a: 1
+    };
   };
 }

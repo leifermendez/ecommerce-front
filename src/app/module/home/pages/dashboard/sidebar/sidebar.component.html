@@ -1,16 +1,16 @@
 <div class="sidebar-ecommerce">
   <div class="inside">
     <ul>
-        <li>
-            <div class="btn btn-default btn-block">
-              <div>
-                <fa name="home" size="2x"></fa>
-              </div>
-              <div>
-                <span class="font-weight-bold">Inicio</span>
-              </div>
-            </div>
-          </li>
+      <li [routerLink]="['/','dashboard']">
+        <div class="btn btn-default btn-block">
+          <div>
+            <fa name="home" size="2x"></fa>
+          </div>
+          <div>
+            <span class="font-weight-bold">Inicio</span>
+          </div>
+        </div>
+      </li>
       <li>
         <div class="btn btn-default btn-block">
           <div>
@@ -68,6 +68,16 @@
           </div>
           <div>
             <span class="font-weight-bold">Direcciones</span>
+          </div>
+        </div>
+      </li>
+      <li [routerLink]="['/','profile']">
+        <div class="btn btn-default btn-block">
+          <div>
+            <fa name="cogs" size="2x"></fa>
+          </div>
+          <div>
+            <span class="font-weight-bold">Ajustes</span>
           </div>
         </div>
       </li>

@@ -23,3 +23,32 @@
   width: 200px;
   height: 200px;
 }
+.inside-body{
+  margin-top: 25px;
+}
+.page-content{
+  position: absolute;
+  left: 90px;
+  top: 66px;
+  /*height: calc(100vh - 66px);*/
+  width: calc(100% - 90px);
+  overflow: auto;
+  /*background: #f5f5f5;*/
+  padding: 0 32px;
+}
+.form-control{
+  border-top: 0;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: #ececec;
+}
+.form-control:focus {
+  border-color: #f1bbb7;
+  border-bottom-width: 1px;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
+}
+input.form-control::placeholder {
+  color: #dadada;
+  letter-spacing: 1px;
+}

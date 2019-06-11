@@ -1,6 +1,6 @@
 .card-header, .card-footer{
-    background-color: transparent !important;
-  }
-  .card{
-      border: 0px !important;
-  }
+  background-color: transparent !important;
+}
+.card{
+  border: 0px !important;
+}

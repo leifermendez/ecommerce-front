@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UtilsService } from '../../../../shared/services/util.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthshopService } from '../../../auth/authshop.service';
+import {Component, OnInit} from '@angular/core';
+import {UtilsService} from '../../../../shared/services/util.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthshopService} from '../../../auth/authshop.service';
+import {AppComponent} from '../../../../app.component';
 
 
 declare var $: any;
@@ -17,11 +18,18 @@ export class HeaderComponent implements OnInit {
   header = false;
   subMenu = false;
   public user_data: any = null;
+  public number_items = 0;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
-    private auth: AuthshopService) {
+              private auth: AuthshopService, private app: AppComponent) {
     util.getLocation.subscribe(data => {
       this.location = data[0];
+    });
+
+    util.numberShopping.subscribe(data => {
+      if (data) {
+        this.number_items = data;
+      }
     });
 
     auth.getLoggedInData.subscribe(data => {
@@ -36,13 +44,15 @@ export class HeaderComponent implements OnInit {
 
   scrollTop = (aid) => {
     const aTag = $(`#${aid}`);
-    $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
+    $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
 
   };
 
   searchFocus = () => {
     console.log('here');
   };
+
+  openZip = () => this.app.open();
 
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();

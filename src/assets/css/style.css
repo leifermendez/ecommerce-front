@@ -4,14 +4,13 @@ date:      	12/04/16
 author:		ThemesGround
 website:   	http://www.themesground.com/
 */
-
 /* Table of Content
 #Custom Fonts
 #Site Styles
 #Media Queries
 */
-
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
@@ -232,7 +231,8 @@ header {
   font-size: 18px;
   color: #090809
 }
-.chart-legend{
+
+.chart-legend {
   display: block !important;
 }
 
@@ -10802,7 +10802,8 @@ a.button.view-all {
 }
 
 label {
-  font-weight: normal;
+  font-weight: 600;
+  color: #464646;
 }
 
 .box-reviews .form-list input.input-text {
@@ -11698,7 +11699,7 @@ button.button.btn-proceed-checkout span {
 small {
   font-size: 85%;
   font-weight: normal;
-  text-transform: lowercase;
+  text-transform: inherit;
 }
 
 a:hover small {
@@ -15180,7 +15181,8 @@ select#shipping-address-select {
 .top-modal {
   margin-top: 10%;
 }
-.box-shadow-modal{
+
+.box-shadow-modal {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
@@ -15202,62 +15204,205 @@ select#shipping-address-select {
   background-color: #ce0000;
 }
 
-.pac-container{
+.pac-container {
   z-index: 9999;
 }
-.custom-select-search-item .ng-select-container{
+
+.custom-select-search-item .ng-select-container {
   background: #fdfdfd;
   height: 40px !important;
   border: solid 0px #f1f1f1 !important;
   border-radius: 2px;
   box-shadow: 0 0 3px #d0d0d0;
 }
-.custom-select-search-item .ng-select-container:hover{
+
+.custom-select-search-item .ng-select-container:hover {
   box-shadow: 0 0 3px #d0d0d0 !important;
 }
-.custom-select-search-item .ng-dropdown-panel.ng-select-bottom{
+
+.custom-select-search-item .ng-dropdown-panel.ng-select-bottom {
   border-radius: 2px !important;
   border-color: #f1f1f1;
 }
 
-.custom-select-search-item  .ng-dropdown-panel{
+.custom-select-search-item .ng-dropdown-panel {
   box-shadow: 0 0 0 transparent;
   /*border-top: 0 !important;*/
 }
-.modal-backdrop{
+
+.modal-backdrop {
   background-color: white;
 }
-.pac-container{
+
+.pac-container {
   background-color: #fefefe
 }
-.pac-item{
+
+.pac-item {
   height: 40px;
-  font-size:14px;
-  font-family: 'Raleway', sans-serif;
-}
-.pac-item-query{
-  color:#191919;
-  font-size:14px;
+  font-size: 14px;
   font-family: 'Raleway', sans-serif;
 }
 
-.btn-outline-primary{
+.pac-item-query {
+  color: #191919;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn-outline-primary {
   border-color: #ce0100 !important;
-  color:#ce0100;
+  color: #ce0100;
 }
 
-.btn-outline-primary.disabled, .btn-outline-primary:disabled{
-  color:#D44638;
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+  color: #D44638;
 }
-.btn-outline-primary.disabled:hover{
-color:white !important;
+
+.btn-outline-primary.disabled:hover {
+  color: white !important;
 }
-.has-success input{
-    border: solid 1px green;
+
+.has-success input {
+  border: solid 1px green;
 }
-.has-danger input{
+
+.has-danger input {
   border: solid 1px red;
 }
-.font-weight-600{
-    font-weight: 600 !important;
+
+.font-weight-600 {
+  font-weight: 600 !important;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  height: 96px;
+  position: relative;
+}
+
+.background-masker {
+  background: #fff;
+  position: absolute;
+}
+
+/* Every thing below this is just positioning */
+
+.background-masker.header-top,
+.background-masker.header-bottom,
+.background-masker.subheader-bottom {
+  top: 0;
+  left: 40px;
+  right: 0;
+  height: 10px;
+}
+
+.background-masker.header-left,
+.background-masker.subheader-left,
+.background-masker.header-right,
+.background-masker.subheader-right {
+  top: 10px;
+  left: 40px;
+  height: 8px;
+  width: 10px;
+}
+
+.background-masker.header-bottom {
+  top: 18px;
+  height: 6px;
+}
+
+.background-masker.subheader-left,
+.background-masker.subheader-right {
+  top: 24px;
+  height: 6px;
+}
+
+
+.background-masker.header-right,
+.background-masker.subheader-right {
+  width: auto;
+  left: 300px;
+  right: 0;
+}
+
+.background-masker.subheader-right {
+  left: 230px;
+}
+
+.background-masker.subheader-bottom {
+  top: 30px;
+  height: 10px;
+}
+
+.background-masker.content-top,
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.background-masker.content-top {
+  height: 20px;
+}
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end {
+  width: auto;
+  left: 380px;
+  right: 0;
+  top: 60px;
+  height: 8px;
+}
+
+.background-masker.content-second-line {
+  top: 68px;
+}
+
+.background-masker.content-second-end {
+  left: 420px;
+  top: 74px;
+}
+
+.background-masker.content-third-line {
+  top: 82px;
+}
+
+.background-masker.content-third-end {
+  left: 300px;
+  top: 88px;
+}
+
+.timeline-item {
+  background: #fff;
+  border: 0px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
+  padding: 12px;
+
+  margin: 0 auto;
+  max-width: 472px;
+  min-height: 130px;
 }

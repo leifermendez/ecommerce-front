@@ -13,7 +13,11 @@ const routes: Routes = [
     component: LoginComponent,
     pathMatch: 'full'
   },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
   // {
   //   path: 'profile',
   //   component: ProfileComponent,
@@ -26,7 +30,7 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard]
   },
-   {path: '**', component: HomeComponent},
+  {path: '**', component: HomeComponent},
 ];
 
 @NgModule({

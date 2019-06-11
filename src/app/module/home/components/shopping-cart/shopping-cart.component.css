@@ -1,0 +1,27 @@
+.bar-item-total {
+  background-color: #ce0000;
+}
+
+.image-item {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+span {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.border-bottom-item {
+  border-bottom: solid 1px #e6e6e6;
+}
+
+.border-bottom-item:last-child {
+  border: 0px !important;
+}
+
+.price-font {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}

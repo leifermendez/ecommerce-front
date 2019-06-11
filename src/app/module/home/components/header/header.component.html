@@ -9,6 +9,12 @@
         <div class="fl-nav-menu-search">
           <ng-select (focus)="searchFocus()" placeholder="Busca productos, marcas y más..."
                      class="custom-select-search-item"></ng-select>
+          <small *ngIf="location">
+            <span class="cursor-pointer" (click)="openZip()">
+                  <fa name="map-marker"></fa>
+              Enviar a  <b>{{location['name']}}</b> {{location['zip_code']}}
+                </span>
+          </small>
         </div>
         <div *ngIf="!subMenu" class="fl-nav-menu mt-2">
 
@@ -20,7 +26,7 @@
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
                 <li class="mega-menu"><a class="level-top">
-                  <span>Categorías</span>
+                  <span class="cursor-pointer">Categorías</span>
                 </a>
                   <div class="level0-wrapper dropdown-6col">
                     <div class="container">
@@ -117,24 +123,24 @@
 
                 <li class="mega-menu">
                   <a (click)="scrollTop('offers')" class="level-top">
-                    <span>Ofertas</span>
+                    <span class="cursor-pointer">Ofertas</span>
                   </a>
 
                 </li>
 
                 <li class="mega-menu">
                   <a (click)="scrollTop('official-shops')" lass="level-top">
-                    <span>Tiendas oficiales</span>
+                    <span class="cursor-pointer">Tiendas oficiales</span>
                   </a>
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                  <span>Vender</span>
+                  <span class="cursor-pointer">Vender</span>
                 </a>
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                  <span>Ayuda</span>
+                  <span class="cursor-pointer">Ayuda</span>
                 </a>
 
                 </li>
@@ -183,23 +189,24 @@
 
                 </li>
 
-<!--                <li *ngIf="user_data" class="mega-menu float-right d-flex">-->
-<!--                  <a [routerLink]="['/','dashboard']" class="level-top">-->
-<!--                    <span>Hola <b>{{user_data['name']}}</b></span>-->
-<!--                  </a>-->
-
-<!--                </li>-->
-
-                <li class="mega-menu  float-right " *ngIf="location">
-                  <a href="#" class="level-top send-to">
-                    <span>
-                      <fa name="map-marker"></fa>
-                      {{location['name']}} {{location['zip_code']}}
-                    </span>
+                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
+                  <a [routerLink]="['/','dashboard']" class="level-top">
+                    <span >Hola, <b>{{user_data['name']}}</b></span>
                   </a>
 
                 </li>
 
+                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
+                  <a class="level-top">
+                    <span class="pr-0">
+                      <fa name="shopping-cart"></fa>
+                      <span class="ml-1"><b>{{number_items}}</b></span>
+                    </span>
+                  </a>
+                  <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
+                    <app-shopping-cart></app-shopping-cart>
+                  </div>
+                </li>
               </ul>
               <!--nav-->
             </div>
@@ -208,115 +215,93 @@
         <!--row-->
       </div>
 
-      <div class="fl-header-right">
-        <div class="fl-links">
-          <div class="no-js"><a title="Company" class="clicker"></a>
+      <!--      <div class="fl-header-right">-->
+      <!--        <div class="fl-links">-->
+      <!--          <div class="no-js"><a title="Company" class="clicker"></a>-->
 
-            <div class="fl-nav-links">
-              <div class="language-currency">
-<!--                <div class="fl-language">-->
-<!--                  <ul class="lang">-->
-<!--                    <li><a href="index.html#"> <img src="assets/images/english.png" alt="English"> <span>English</span>-->
-<!--                    </a></li>-->
-<!--                    <li><a href="index.html#"> <img src="assets/images/francais.png" alt="French"> <span>French</span>-->
-<!--                    </a></li>-->
-<!--                    <li><a href="index.html#"> <img src="assets/images/german.png" alt="German"> <span>German</span>-->
-<!--                    </a></li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-                <!--fl-language-->
-                <!-- END For version 1,2,3,4,6 -->
-                <!-- For version 1,2,3,4,6 -->
-<!--                <div class="fl-currency">-->
-<!--                  <ul class="currencies_list">-->
-<!--                    <li><a href="index.html#" title="EGP"> £</a></li>-->
-<!--                    <li><a href="index.html#" title="EUR"> €</a></li>-->
-<!--                    <li><a href="index.html#" title="USD"> $</a></li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-                <!--fl-currency-->
-                <!-- END For version 1,2,3,4,6 -->
-              </div>
-              <ul class="links">
-                <li><a href="http://themesground.com/flipmart-demo/V5/dashboard.html" title="My Account">My Account</a>
-                </li>
-                <li><a href="http://themesground.com/flipmart-demo/V5/wishlist.html" title="Wishlist">Wishlist</a></li>
-                <li><a href="http://themesground.com/flipmart-demo/V5/checkout.html" title="Checkout">Checkout</a></li>
-                <li><a href="http://themesground.com/flipmart-demo/V5/blog.html" title="Blog"><span>Blog</span></a></li>
-                <li class="last"><a [routerLink]="['/','login']" title="Login"><span>Login</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="fl-cart-contain">
-          <div class="mini-cart">
-            <div class="basket"><a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html"> </a></div>
-            <div class="fl-mini-cart-content">
-              <div class="block-subtitle">
-                <div class="top-subtotal">2 items, <span class="price">$449.99</span></div>
-                <!--top-subtotal-->
-                <!--pull-right-->
-              </div>
-              <!--block-subtitle-->
-              <ul class="mini-products-list" id="cart-sidebar">
-                <li class="item first">
-                  <div class="item-inner"><a class="product-image"
-                                             title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"
-                                             href="index.html#l"><img
-                    alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"
-                    src="products-assets/images/p4.jpg"></a>
-                    <div class="product-details">
-                      <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>
-                        <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span
-                          class="hidden">Edit item</span></a></div>
-                      <!--access-->
-                      <strong>1</strong> x <span class="price">$179.99</span>
-                      <p class="product-name"><a
-                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
-                    </div>
-                  </div>
-                </li>
-                <li class="item last">
-                  <div class="item-inner"><a class="product-image"
-                                             title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"
-                                             href="index.html#"><img
-                    alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"
-                    src="products-assets/images/p3.jpg"></a>
-                    <div class="product-details">
-                      <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>
-                        <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span
-                          class="hidden">Edit item</span></a></div>
-                      <!--access-->
-                      <strong>1</strong> x <span class="price">$80</span>
-                      <p class="product-name"><a
-                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <div class="actions">
-                <button class="btn-checkout" title="Checkout" type="button"
-                        onClick="window.location=checkout.html"><span>Checkout</span></button>
-                <button class="view-cart" title="Checkout" type="button"
-                        onClick="window.location=checkout.html"><span>View Cart</span></button>
-              </div>
-              <!--actions-->
-            </div>
-            <!--fl-mini-cart-content-->
-          </div>
-        </div>
-        <!--mini-cart-->
-        <div class="collapse navbar-collapse">
-          <form class="navbar-form" role="search">
-            <div class="input-group">
-              <input class="GlobalNavSearch js-globalSearchInput " placeholder="Search" id="desktopSearchInput"
-                     data-reactid=".1.0.0.0">
-              <label class="GlobalNavSearch-searchIcon" for="desktopSearchInput" data-reactid=".1.0.0.1"></label>
-            </div>
-          </form>
-        </div>
-        <!--links-->
-      </div>
+      <!--            <div class="fl-nav-links">-->
+
+
+      <!--              <ul class="links">-->
+      <!--                <li><a href="http://themesground.com/flipmart-demo/V5/dashboard.html" title="My Account">My Account</a>-->
+      <!--                </li>-->
+      <!--                <li><a href="http://themesground.com/flipmart-demo/V5/wishlist.html" title="Wishlist">Wishlist</a></li>-->
+      <!--                <li><a href="http://themesground.com/flipmart-demo/V5/checkout.html" title="Checkout">Checkout</a></li>-->
+      <!--                <li><a href="http://themesground.com/flipmart-demo/V5/blog.html" title="Blog"><span>Blog</span></a></li>-->
+      <!--                <li class="last"><a [routerLink]="['/','login']" title="Login"><span>Login</span></a></li>-->
+      <!--              </ul>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--        <div class="fl-cart-contain">-->
+      <!--          <div class="mini-cart">-->
+      <!--            <div class="basket"><a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html"> </a></div>-->
+      <!--            <div class="fl-mini-cart-content">-->
+      <!--              <div class="block-subtitle">-->
+      <!--                <div class="top-subtotal">2 items, <span class="price">$449.99</span></div>-->
+      <!--                &lt;!&ndash;top-subtotal&ndash;&gt;-->
+      <!--                &lt;!&ndash;pull-right&ndash;&gt;-->
+      <!--              </div>-->
+      <!--              &lt;!&ndash;block-subtitle&ndash;&gt;-->
+      <!--              <ul class="mini-products-list" id="cart-sidebar">-->
+      <!--                <li class="item first">-->
+      <!--                  <div class="item-inner"><a class="product-image"-->
+      <!--                                             title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"-->
+      <!--                                             href="index.html#l"><img-->
+      <!--                    alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White"-->
+      <!--                    src="products-assets/images/p4.jpg"></a>-->
+      <!--                    <div class="product-details">-->
+      <!--                      <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>-->
+      <!--                        <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span-->
+      <!--                          class="hidden">Edit item</span></a></div>-->
+      <!--                      &lt;!&ndash;access&ndash;&gt;-->
+      <!--                      <strong>1</strong> x <span class="price">$179.99</span>-->
+      <!--                      <p class="product-name"><a-->
+      <!--                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>-->
+      <!--                    </div>-->
+      <!--                  </div>-->
+      <!--                </li>-->
+      <!--                <li class="item last">-->
+      <!--                  <div class="item-inner"><a class="product-image"-->
+      <!--                                             title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"-->
+      <!--                                             href="index.html#"><img-->
+      <!--                    alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron"-->
+      <!--                    src="products-assets/images/p3.jpg"></a>-->
+      <!--                    <div class="product-details">-->
+      <!--                      <div class="access"><a class="btn-remove1" title="Remove This Item" href="index.html#">Remove</a>-->
+      <!--                        <a class="btn-edit" title="Edit item" href="index.html#"><i class="icon-pencil"></i><span-->
+      <!--                          class="hidden">Edit item</span></a></div>-->
+      <!--                      &lt;!&ndash;access&ndash;&gt;-->
+      <!--                      <strong>1</strong> x <span class="price">$80</span>-->
+      <!--                      <p class="product-name"><a-->
+      <!--                        href="http://themesground.com/flipmart-demo/V5/product-detail.html">Retis lapen casen</a></p>-->
+      <!--                    </div>-->
+      <!--                  </div>-->
+      <!--                </li>-->
+      <!--              </ul>-->
+      <!--              <div class="actions">-->
+      <!--                <button class="btn-checkout" title="Checkout" type="button"-->
+      <!--                        onClick="window.location=checkout.html"><span>Checkout</span></button>-->
+      <!--                <button class="view-cart" title="Checkout" type="button"-->
+      <!--                        onClick="window.location=checkout.html"><span>View Cart</span></button>-->
+      <!--              </div>-->
+      <!--              &lt;!&ndash;actions&ndash;&gt;-->
+      <!--            </div>-->
+      <!--            &lt;!&ndash;fl-mini-cart-content&ndash;&gt;-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--        &lt;!&ndash;mini-cart&ndash;&gt;-->
+      <!--        <div class="collapse navbar-collapse">-->
+      <!--          <form class="navbar-form" role="search">-->
+      <!--            <div class="input-group">-->
+      <!--              <input class="GlobalNavSearch js-globalSearchInput " placeholder="Search" id="desktopSearchInput"-->
+      <!--                     data-reactid=".1.0.0.0">-->
+      <!--              <label class="GlobalNavSearch-searchIcon" for="desktopSearchInput" data-reactid=".1.0.0.1"></label>-->
+      <!--            </div>-->
+      <!--          </form>-->
+      <!--        </div>-->
+      <!--        &lt;!&ndash;links&ndash;&gt;-->
+      <!--      </div>-->
     </div>
   </div>
 </header>

@@ -6,6 +6,7 @@ import {TimeagoIntl} from 'ngx-timeago';
 import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
 import {UtilsService} from '../../../../../shared/services/util.service';
+import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, intl: TimeagoIntl,
-              private util: UtilsService) {
+              private util: UtilsService,
+              private shopping: ShoppingCartComponent) {
     intl.strings = englishStrings;
     intl.changes.next();
 
@@ -44,6 +46,15 @@ export class BoxFeaturedProductComponent implements OnInit {
           this.data = response['items']['data'];
         }
       });
+  };
+
+  addProduct = (obj) => {
+    const _data = {
+      product_id: obj['id'],
+      product_variation_id: obj['variations']['item'][0]['id'],
+      shop_id: obj['shop_id']
+    };
+    this.shopping.addCart(_data);
   };
 
   ngOnInit() {
