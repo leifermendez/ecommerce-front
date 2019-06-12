@@ -1,25 +1,13 @@
 <form [formGroup]="form" (submit)="saveData()">
   <div class="card block-dashboard border-0">
     <div class="card-header"><b>Datos personales</b></div>
-    <div class="col p-3">
-
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
+    <div class="col p-3 min-height-300">
+      <app-avatar-upload [preview]="editform['avatar']" (callback)="success($event)"></app-avatar-upload>
       <div class="form-group">
         <label>Nombre</label>
         <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
                placeholder="¿Como te llamas?">
       </div>
-
-      <div class="form-group">
-        <label>Telefono</label>
-        <input type="tel" formControlName="phone" [(ngModel)]="editform.phone" class="form-control"
-               placeholder="Ingresa un numero de movil válido">
-      </div>
-
-
     </div>
     <div class="card-footer">
       <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>

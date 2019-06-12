@@ -47,7 +47,17 @@ import {InfoAccountComponent} from './module/home/pages/profile/info-account/inf
 import {InfoAddressComponent} from './module/home/pages/profile/info-address/info-address.component';
 import {InfoBankComponent} from './module/home/pages/profile/info-bank/info-bank.component';
 import {ModalBankComponent} from './module/home/pages/profile/modal-bank/modal-bank.component';
+import {NgxDropzoneModule} from 'ngx-dropzone';
+import {DropTargetOptions, MineTypeEnum, NgxUploadModule} from '@wkoza/ngx-upload';
+import { AvatarUploadComponent } from './module/home/pages/profile/avatar-upload/avatar-upload.component';
 
+export const ngxDropTargetOptions: DropTargetOptions = {
+  color: 'dropZoneColor',
+  colorDrag: 'dropZoneColorDrag',
+  colorDrop: 'dropZoneColorDrop',
+  multiple: false,
+  accept: [MineTypeEnum.Image]
+};
 
 const config = new AuthServiceConfig([
   {
@@ -97,6 +107,7 @@ export class MyIntl extends TimeagoIntl {
     InfoAddressComponent,
     InfoBankComponent,
     ModalBankComponent,
+    AvatarUploadComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -111,7 +122,9 @@ export class MyIntl extends TimeagoIntl {
     NgSelectModule,
     HttpClientModule,
     GooglePlaceModule,
+    NgxDropzoneModule,
     NgxStarsModule,
+    NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     TimeagoModule.forRoot({

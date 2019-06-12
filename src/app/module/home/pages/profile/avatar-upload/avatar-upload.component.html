@@ -1,0 +1,31 @@
+<div class="d-flex">
+  <div class="col-6">
+    <div *ngIf="!uploader.queue[0] && !preview" class="img-profile-drag-profile text-center">
+      <img src="../../../../../../assets/images/user-profile.svg" alt="">
+    </div>
+    <div *ngIf="preview" class="img-profile-drag text-center">
+      <img [src]="preview" alt="">
+    </div>
+    <div class="img-profile-drag text-center"
+         *ngIf="uploader.queue[0]" [ngxThumbnail]="uploader.queue[0]"></div>
+  </div>
+  <div class="col-6">
+    <div *ngIf="!uploader.queue[0]">
+            <span class="btn btn-outline-primary btn-sm" *ngxInputFile>
+              Cambiar foto
+            </span>
+    </div>
+    <div *ngIf="uploader.queue[0]">
+            <span class="btn btn-outline-secondary btn-sm" (click)="uploader.removeAllFromQueue()">
+              Remover foto
+            </span>
+    </div>
+    <div>
+      <small class="text-muted form-text mb-0 mt-2">
+        Aceptamos formatos .jpg y mínimo 400 x 400px
+      </small>
+    </div>
+  </div>
+
+
+</div>

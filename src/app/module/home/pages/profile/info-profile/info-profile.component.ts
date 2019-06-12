@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthshopService} from '../../../../auth/authshop.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {FileItem, HttpClientUploadService} from '@wkoza/ngx-upload';
 
 @Component({
   selector: 'app-info-profile',
@@ -13,19 +14,26 @@ export class InfoProfileComponent implements OnInit {
   public form: any = FormGroup;
   public data: any = {};
   public editform: any = {};
+  public avatarFile: any = null;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
               private rest: RestService) {
     this.form = fb.group({
-      'name': [null, Validators.compose([Validators.required])],
-      'phone': [null, Validators.compose([Validators.required])],
+      'name': [null, Validators.compose([Validators.required])]
     });
   }
 
   ngOnInit() {
+
     const _data = this.auth.getCurrentUser();
     this.loadData(_data['id']);
+
+
   }
+
+  success = (obj) => {
+    this.editform['avatar'] = obj['data']['small'];
+  };
 
   loadData = (id) => {
     this.user_data = this.auth.getCurrentUser();
@@ -33,8 +41,8 @@ export class InfoProfileComponent implements OnInit {
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
-          this.editform = {...response['data'], ...{phone: this.user_data['phone']}};
-          console.log(this.editform)
+          this.editform = {...response['data']};
+          console.log(this.editform);
         }
       });
   };

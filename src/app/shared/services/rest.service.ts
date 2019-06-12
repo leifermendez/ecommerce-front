@@ -11,7 +11,7 @@ import {CookieService} from 'ngx-cookie-service';
 export class RestService {
   public headers: HttpHeaders;
   location_zip = '';
-  public readonly url: string = 'https://ecommerce-api-leanga.herokuapp.com/api/1.0';
+  public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
 
   constructor(public http: HttpClient, private router: Router, public utils: UtilsService,
               private cookieService: CookieService) {
@@ -28,6 +28,22 @@ export class RestService {
     this.headers = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'TIME-ZONE': `${timezone}`,
+      'LOCATION-ZIP': this.location_zip,
+      'Authorization': `Bearer  ${this.localtoken}`
+    });
+    return this.headers;
+  };
+
+  getHeadersMedia = () => {
+    const _cookie_data = this.cookieService.get('_location_zip_code');
+    this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
+      JSON.parse(_cookie_data) : null;
+    this.location_zip = (this.location_zip && this.location_zip['zip_code']) ?
+      this.location_zip['zip_code'] : '';
+    const timezone = new Date().getTimezoneOffset();
+    this.headers = new HttpHeaders({
+      'Accept': 'application/json',
       'TIME-ZONE': `${timezone}`,
       'LOCATION-ZIP': this.location_zip,
       'Authorization': `Bearer  ${this.localtoken}`

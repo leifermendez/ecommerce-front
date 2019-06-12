@@ -1,23 +1,33 @@
-<div class="card block-dashboard border-0">
-  <div class="card-header"><b>Datos de cuenta</b></div>
-  <div class="col p-3">
-    <form>
+<form [formGroup]="form" (submit)="saveData()">
+  <div class="card block-dashboard border-0">
+    <div class="card-header"><b>Datos de cuenta</b></div>
+    <div class="col p-3 min-height-300">
       <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre completo">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [(ngModel)]="editform.email"
+               placeholder="¿Como te llamas?">
       </div>
 
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="name@example.com">
+        <label>Código referido</label>
+        <input type="text" formControlName="referer_code" class="form-control" [(ngModel)]="editform.referer_code"
+               placeholder="¿Como te llamas?">
       </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label>Telefono</label>
+        <input type="tel" formControlName="phone" [(ngModel)]="editform.phone" class="form-control"
+               placeholder="Ingresa un numero de movil válido">
       </div>
-    </form>
+
+<!--      <div class="form-group">-->
+<!--        <label>Contraseña</label>-->
+<!--        <input type="tel" formControlName="password" [(ngModel)]="editform.password" class="form-control"-->
+<!--               placeholder="Ingresa un numero de movil válido">-->
+<!--      </div>-->
+
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
+    </div>
   </div>
-  <div class="card-footer">
-    <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
-  </div>
-</div>
+</form>
