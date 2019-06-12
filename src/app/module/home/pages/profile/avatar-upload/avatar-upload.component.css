@@ -1,6 +1,6 @@
 .img-profile-drag img{
-  width: 120px !important;
-  height: 120px !important;
+  width: 135px !important;
+  height: 135px !important;
   -o-object-fit: contain;
   object-fit: contain;
   border-radius: 100px;
@@ -11,8 +11,8 @@
 
 
 .img-profile-drag-profile img{
-  width: 120px !important;
-  height: 120px !important;
+  width: 135px !important;
+  height: 135px !important;
   margin-bottom: 30px;
   margin-top: 5px;
   opacity: .3;

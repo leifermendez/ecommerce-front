@@ -77,13 +77,13 @@ export class AuthshopService {
           resolve(response.message);
         }).bind(this)).catch((error) => {
           this.cleanSession();
-          this.router.navigateByUrl('/auth/login');
+          this.router.navigateByUrl('/login');
           this.waiting = false;
           reject(error.message);
         });
       } else {
         this.cleanSession();
-        this.router.navigateByUrl('/auth/login');
+        this.router.navigateByUrl('/login');
       }
     }).bind(this));
   }

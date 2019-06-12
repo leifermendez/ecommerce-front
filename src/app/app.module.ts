@@ -50,6 +50,8 @@ import {ModalBankComponent} from './module/home/pages/profile/modal-bank/modal-b
 import {NgxDropzoneModule} from 'ngx-dropzone';
 import {DropTargetOptions, MineTypeEnum, NgxUploadModule} from '@wkoza/ngx-upload';
 import { AvatarUploadComponent } from './module/home/pages/profile/avatar-upload/avatar-upload.component';
+import {NgxFlagIconCssModule} from 'ngx-flag-icon-css';
+import { ModalShippingComponent } from './module/home/pages/profile/modal-shipping/modal-shipping.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -108,6 +110,7 @@ export class MyIntl extends TimeagoIntl {
     InfoBankComponent,
     ModalBankComponent,
     AvatarUploadComponent,
+    ModalShippingComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -124,6 +127,7 @@ export class MyIntl extends TimeagoIntl {
     GooglePlaceModule,
     NgxDropzoneModule,
     NgxStarsModule,
+    NgxFlagIconCssModule,
     NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
@@ -153,7 +157,8 @@ export class MyIntl extends TimeagoIntl {
   ],
   entryComponents: [
     ZipLocationComponent,
-    ModalBankComponent
+    ModalBankComponent,
+    ModalShippingComponent
   ],
   bootstrap: [AppComponent]
 })

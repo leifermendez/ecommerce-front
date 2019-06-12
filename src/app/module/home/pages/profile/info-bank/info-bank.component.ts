@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ZipLocationComponent} from '../../../components/zip-location/zip-location.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalBankComponent} from '../modal-bank/modal-bank.component';
 import {RestService} from '../../../../../shared/services/rest.service';
@@ -15,6 +14,7 @@ export class InfoBankComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
+  loading = false;
   public data: any;
   constructor(private modalService: BsModalService,
     private rest: RestService) {
@@ -26,11 +26,11 @@ export class InfoBankComponent implements OnInit {
 
   emitBack = () => this.ngOnInit();
 
-  loadData = (
-
-  ) => {
+  loadData = () => {
+    this.loading = true;
     this.rest.get(`/rest/payment-user`)
       .then((response: any) => {
+        this.loading = false;
         if (response['status'] === 'success') {
             this.data = response['data']['data']
             console.log('-------',this.data)

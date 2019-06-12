@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="col-12 d-flex pt-2 mb-2 border-bottom-item">
-          <div class="col-12">
+          <div class="col-12" *ngIf="total_shop">
             <a href="#" class="btn btn-default price-font">Proceder pago ({{total_shop['price_normal']}})</a>
           </div>
         </div>

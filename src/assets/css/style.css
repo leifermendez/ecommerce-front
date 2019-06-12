@@ -10803,7 +10803,7 @@ a.button.view-all {
 
 label {
   font-weight: 600;
-  color: #464646;
+  color: #a7a7a7;
 }
 
 .box-reviews .form-list input.input-text {
@@ -15424,4 +15424,7 @@ select#shipping-address-select {
 
 .min-height-300 {
   min-height: 300px;
+}
+.text-muted {
+  color: #a9a9a9!important;
 }

@@ -1,5 +1,29 @@
 <form [formGroup]="form" (submit)="saveData()">
-  <div class="card block-dashboard border-0">
+    <div *ngIf="loading">
+        <div class="timeline-item">
+            <div class="animated-background" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+    
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+    
+            </div>
+          </div>
+    </div>
+  <div *ngIf="!loading" class="card block-dashboard border-0">
     <div class="card-header"><b>Datos personales</b></div>
     <div class="col p-3 min-height-300">
       <app-avatar-upload [preview]="editform['avatar']" (callback)="success($event)"></app-avatar-upload>
@@ -7,10 +31,14 @@
         <label>Nombre</label>
         <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
                placeholder="¿Como te llamas?">
+               <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, tenetur.</small>
       </div>
     </div>
-    <div class="card-footer">
-      <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
+    <div class="card-footer text-right">
+      <button class="btn btn-primary btn-sm" tabindex="0">
+        <fa name="save"></fa>
+      </button>
+  
     </div>
   </div>
 </form>

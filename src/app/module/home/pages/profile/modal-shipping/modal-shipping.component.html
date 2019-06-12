@@ -1,0 +1,58 @@
+<form [formGroup]="form" (submit)="saveData()">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Dirección</h5>
+        <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--      <span aria-hidden="true">&times;</span>-->
+        <!--    </button>-->
+      </div>
+  
+      <div class="modal-body">
+        <div *ngIf="editform && editform.iban" class="form-group">
+          <label>Nombre titular</label>
+          <input type="text" class="form-control"
+                 formControlName="account_name"
+                 [(ngModel)]="editform.account_name"
+                 placeholder="Ingresa nombre del titular">
+        </div>
+        <div *ngIf="editform && editform.iban" class="form-group">
+          <label>Apellido titular</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="editform.account_lastname"
+                 formControlName="account_lastname"
+                 placeholder="Ingresa apellido del titular">
+        </div>
+  
+        <div *ngIf="editform && editform.iban" class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control"
+                 [(ngModel)]="editform.payment_email"
+                 formControlName="payment_email"
+                 placeholder="Email asociado">
+        </div>
+  
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" readonly class="form-control"
+                 formControlName="iban"
+                 [(ngModel)]="editform.iban"
+                 placeholder="ID Stripe">
+        </div>
+        <div *ngIf="editform && !editform.iban" class="form-group text-center">
+          <button *ngIf="!loading" (click)="loadData()" class="btn btn-primary text-center">
+            Vincular Stripe
+          </button>
+          <div *ngIf="loading">
+            <fa name="spinner" animation="spin"></fa>
+          </div>
+        </div>
+  
+  
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
+      </div>
+    </div>
+  </form>
+  

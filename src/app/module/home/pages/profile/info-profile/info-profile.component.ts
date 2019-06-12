@@ -15,6 +15,7 @@ export class InfoProfileComponent implements OnInit {
   public data: any = {};
   public editform: any = {};
   public avatarFile: any = null;
+  loading = false;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
               private rest: RestService) {
@@ -36,9 +37,11 @@ export class InfoProfileComponent implements OnInit {
   };
 
   loadData = (id) => {
+    this.loading = true;
     this.user_data = this.auth.getCurrentUser();
     this.rest.get(`/rest/user/${id}`)
       .then((response: any) => {
+        this.loading = false
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
           this.editform = {...response['data']};
@@ -49,10 +52,12 @@ export class InfoProfileComponent implements OnInit {
 
   saveData = () => {
     if (event) {
+      this.loading = true;
       event.preventDefault();
       console.log('EDIT', this.editform);
       this.rest.put(`/rest/user/me`, this.editform)
         .then((response: any) => {
+          this.loading = false
           if (response['status'] === 'success') {
             // this.editform['email'] = this.user_data['email'];
             // this.editform = {...response['data'], ...{email: this.user_data['email']}};

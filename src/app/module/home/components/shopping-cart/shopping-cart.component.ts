@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit {
   public total_shop: any;
 
   constructor(private rest: RestService, private util: UtilsService) {
-    util.refreshShopping.subscribe(data => {
+    this.util.refreshShopping.subscribe(data => {
       if (data) {
         this.loadData();
       }

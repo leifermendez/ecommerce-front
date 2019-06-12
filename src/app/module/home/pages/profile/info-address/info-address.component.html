@@ -1,23 +1,69 @@
-<div class="card block-dashboard border-0">
-  <div class="card-header"><b>Direcciones</b></div>
-  <div class="col p-3 min-height-300">
-    <form>
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre completo">
+<div>
+    <div *ngIf="loading">
+      <div class="timeline-item">
+        <div class="animated-background" style="height: 40px">
+          <div class="background-masker header-top"></div>
+          <div class="background-masker header-left"></div>
+          <div class="background-masker header-right"></div>
+          <div class="background-masker header-bottom"></div>
+          <div class="background-masker subheader-left"></div>
+          <div class="background-masker subheader-right"></div>
+          <div class="background-masker subheader-bottom"></div>
+  
+        </div>
+        <div class="animated-background mt-3" style="height: 40px">
+          <div class="background-masker header-top"></div>
+          <div class="background-masker header-left"></div>
+          <div class="background-masker header-right"></div>
+          <div class="background-masker header-bottom"></div>
+          <div class="background-masker subheader-left"></div>
+          <div class="background-masker subheader-right"></div>
+          <div class="background-masker subheader-bottom"></div>
+  
+        </div>
       </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="name@example.com">
+    </div>
+    <div class="card block-dashboard border-0" *ngIf="!loading">
+      <div class="card-header"><b>Direcciones</b></div>
+      <div class="col p-3 min-height-300">
+        <ul class="list-group border-0 ng-star-inserted">
+          <!---->
+          <li class="list-group-item border-0 rounded-0 p-2 mb-1 pointer ng-star-inserted" tabindex="0"
+            *ngFor="let dat of data;let i = index">
+            <div class="d-flex align-items-center">
+  
+              <div class="col-7 p-0 pointer">
+                <div class="pl-3"><span class="d-block"><b class="font-weight-600">
+                    <flag-icon country="es"></flag-icon>
+                     <span class="ml-1"> Delaware, Guiseppeberg </span>
+                    </b></span><small
+                    class="text-muted letter-spacing-1 opacity-05">
+                    33564 Ola Shoal</small></div>
+              </div>
+              <div class="col-3 pointer">
+                <div class="pl-3"><span class="d-block"><b class="font-weight-600">
+                      <span class="badge badge-primary">28039</span>
+                    </b> </span>
+         
+  
+                </div>
+              </div>
+              <div class="col-1 text-center">
+                <!---->
+                <h4 class="pointer" placement="bottom" aria-describedby="tooltip-6"><i
+                    class="icon ion-lock-combination text-danger"></i></h4>
+              </div>
+            </div>
+          </li>
+  
+        </ul>
+  
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-    </form>
+      <div class="card-footer text-right">
+          <button type="button" (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
+            <fa name="plus"></fa>
+          </button>
+        </div>
+    </div>
+  
   </div>
-  <div class="card-footer">
-    <button class="btn btn-default btn-sm" tabindex="0">Agregar</button>
-  </div>
-</div>
