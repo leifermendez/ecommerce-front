@@ -56,6 +56,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { WizardOverlayComponent } from './wizard-overlay/wizard-overlay.component';
 import {TabsModule} from 'ngx-bootstrap';
+import { ShopCifComponent } from './module/home/pages/profile/shop-cif/shop-cif.component';
+import { ShopInfoComponent } from './module/home/pages/profile/shop-info/shop-info.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -116,6 +118,8 @@ export class MyIntl extends TimeagoIntl {
     AvatarUploadComponent,
     ModalShippingComponent,
     WizardOverlayComponent,
+    ShopCifComponent,
+    ShopInfoComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

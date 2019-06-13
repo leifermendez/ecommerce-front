@@ -1,0 +1,23 @@
+<div class="card block-dashboard border-0">
+    <div class="card-header">
+      <b>CIF</b>
+    </div>
+    <div class="col p-3">
+      <form [formGroup]="form" (submit)="saveData()">
+        <div class="form-group">
+  
+          <input type="text" class="form-control" formControlName="cif" [(ngModel)]="editform.cif"
+            placeholder="Ingresa tu cif">
+          <small class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, fugit.</small>
+        </div>
+  
+      </form>
+  
+    </div>
+    <div class="card-footer text-right">
+      <button type="button" (click)="open()" [disabled]="data && data.length"
+       class="btn btn-primary btn-sm" tabindex="0">
+       Validar
+      </button>
+    </div>
+  </div>

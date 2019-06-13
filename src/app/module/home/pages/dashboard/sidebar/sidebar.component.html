@@ -1,8 +1,8 @@
-<div class="sidebar-ecommerce">
+<div *ngIf="data['role'] === 'shop'" class="sidebar-ecommerce">
   <div class="inside">
     <ul>
       <li [routerLink]="['/','dashboard']">
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="home" size="2x"></fa>
           </div>
@@ -12,9 +12,9 @@
         </div>
       </li>
       <li>
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
-            <fa name="list" size="2x"></fa>
+            <fa name="shopping-basket" size="2x"></fa>
           </div>
           <div>
             <span class="font-weight-bold">Productos</span>
@@ -22,19 +22,10 @@
         </div>
       </li>
       <li>
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
-            <fa name="shopping-cart" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Tiendas</span>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="btn btn-default btn-block">
-          <div>
-            <fa name="shopping-basket" size="2x"></fa>
+            <fa name="list" size="2x"></fa>
+
           </div>
           <div>
             <span class="font-weight-bold">Pedidos</span>
@@ -42,7 +33,7 @@
         </div>
       </li>
       <li>
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="hashtag" size="2x"></fa>
           </div>
@@ -52,7 +43,7 @@
         </div>
       </li>
       <li>
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="motorcycle" size="2x"></fa>
           </div>
@@ -61,9 +52,18 @@
           </div>
         </div>
       </li>
-
+      <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="shopping-cart" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Tienda</span>
+            </div>
+          </div>
+        </li>
       <li [routerLink]="['/','profile']">
-        <div class="btn btn-default btn-block">
+        <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="cogs" size="2x"></fa>
           </div>
@@ -72,7 +72,85 @@
           </div>
         </div>
       </li>
-
+      <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="question-circle" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Ayuda</span>
+            </div>
+          </div>
+        </li>
     </ul>
   </div>
 </div>
+<div *ngIf="data['role'] === 'user'" class="sidebar-ecommerce">
+    <div class="inside">
+      <ul>
+        <li [routerLink]="['/','dashboard']">
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="home" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Inicio</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="shopping-basket" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Compras</span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="hashtag" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Transaciones</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="motorcycle" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Envios</span>
+            </div>
+          </div>
+        </li>
+    
+        <li [routerLink]="['/','profile']">
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="cogs" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Ajustes</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="question-circle" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Ayuda</span>
+            </div>
+          </div>
+        </li>
+  
+      </ul>
+    </div>
+  </div>

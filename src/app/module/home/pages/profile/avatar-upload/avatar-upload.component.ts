@@ -18,11 +18,6 @@ export class AvatarUploadComponent implements OnInit {
   ngOnInit() {
     this.uploader.queue = [];
 
-    if (this.preview) {
-      const _image = this.makeThumbnail(this.preview);
-      // this.uploader.queue.push();
-    }
-
     this.uploader.onCancel$.subscribe(
       (data: FileItem) => {
         console.log('file canceled: ' + data.file.name);
@@ -61,13 +56,6 @@ export class AvatarUploadComponent implements OnInit {
     );
   }
 
-  makeThumbnail(url) {
-    const reader = new FileReader();
-    // read the image file as a data URL.
-    return reader.readAsDataURL(url);
-
-
-  }
 
   upload(item: FileItem) {
     item['alias'] = 'attached';

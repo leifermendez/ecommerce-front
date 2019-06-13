@@ -183,7 +183,7 @@ header {
   height: 75px;
   float: right;
   overflow: hidden;
-  transition: width 0.3s;
+  transition: width 0.2s;
   display: inline-block;
 }
 
@@ -663,9 +663,9 @@ ul.currencies_list li a:hover {
   letter-spacing: 0.5px;
   font-weight: normal;
   display: block;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #202020;
   background-color: #ce0000;
   height: 40px;
@@ -676,9 +676,9 @@ ul.currencies_list li a:hover {
 }
 
 .fl-cart-contain > .mini-cart:hover > .basket a {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -75px 0 0 #090809333;
   color: #fff;
   border-radius: 0px;
@@ -776,7 +776,7 @@ ul.currencies_list li a:hover {
   margin-top: -2px;
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
   -webkit-transform: scale(1.0) rotate(0deg);
   transform: scale(1.0) rotate(0deg);
   box-shadow: 0 10px 20px -5px;
@@ -1349,9 +1349,9 @@ ul.vertnav-top li > a > span > .cat-label {
   font-weight: 600;
   position: relative;
   letter-spacing: 1px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff
 }
 
@@ -1521,20 +1521,20 @@ ul.level1 {
 }
 
 #nav ul.level1 > li a {
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: 300;
 }
 
 #nav ul.level1 > li a:hover {
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   padding-left: 10px;
 }
 
@@ -1824,7 +1824,7 @@ ul.level1 {
   z-index: 1000;
   opacity: 0;
   transform: scale(0) rotate(0deg);
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
   visibility: hidden
 }
 
@@ -1888,10 +1888,10 @@ ul.level1 {
 #nav li.drop-menu ul li:hover > a {
   color: #090809333;
   padding-left: 18px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #nav li.drop-menu ul li span.plus {
@@ -2384,10 +2384,10 @@ ul.level1 {
 
 .products-grid-home .item .item-inner .item-img .item-img-info {
   text-align: center;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
 }
@@ -2465,9 +2465,9 @@ ul.level1 {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px #fff solid;
   width: 40px;
   background: none
@@ -2487,9 +2487,9 @@ ul.level1 {
   white-space: nowrap;
   color: #fff;
   font-weight: normal;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px solid #fff;
   background: none
 }
@@ -2527,10 +2527,10 @@ ul.level1 {
 .products-grid-home .item .item-inner .item-info .info-inner {
   border: 0px solid #fff;
   border-top: none;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .products-grid-home .item .item-inner .item-info .info-inner .item-content .no-rating, . products-grid-home .item .item-inner .item-info .info-inner .item-content .ratings {
@@ -2714,9 +2714,9 @@ ul.level1 {
   text-transform: uppercase;
   margin-left: 5px;
   margin-right: 5px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #090809333
 }
 
@@ -2732,9 +2732,9 @@ ul.level1 {
   color: #fff;
   border: 1px solid #e0403d;
   background: #090809333;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   -webkit-box-shadow: inset 0 -34px 0 0 #222;
   box-shadow: inset 0 -60px 0 0 #090809333;
 }
@@ -3750,7 +3750,7 @@ ul.pdt-list li.item a img.image-hover {
 
 .thm-mart-producttabs ul.pdt-list li.item a.thumb.flip {
   transform-style: preserve-3d;
-  transition: transform 0.5s linear;
+  transition: transform 0.2s linear;
 }
 
 .thm-mart-producttabs ul.pdt-list li.item .product-wrapper .thumb-wrapper a.thumb span.quick-view {
@@ -3828,9 +3828,9 @@ ul.pdt-list li.item a img.image-hover {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   margin-right: 15px;
   border-radius: 50px;
   float: left;
@@ -3849,9 +3849,9 @@ ul.pdt-list li.item a img.image-hover {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: none;
   border-radius: 50px;
   float: left;
@@ -3902,10 +3902,10 @@ ul.pdt-list li.item a img.image-hover {
 
 .products-grid .item .item-inner .item-img .item-img-info {
   text-align: center;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
 }
@@ -3980,9 +3980,9 @@ ul.pdt-list li.item a img.image-hover {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px #fff solid;
   width: 40px;
   background: none
@@ -4002,9 +4002,9 @@ ul.pdt-list li.item a img.image-hover {
   white-space: nowrap;
   color: #fff;
   font-weight: normal;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: none;
   background: none;
   float: right;
@@ -4040,10 +4040,10 @@ ul.pdt-list li.item a img.image-hover {
 .products-grid .item .item-inner .item-info .info-inner {
   border: 0px solid #fff;
   border-top: none;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   padding-left: 20px;
   padding-bottom: 15px;
 }
@@ -4608,9 +4608,9 @@ ul.pdt-list li.item a img.image-hover {
 
 .featured-pro .pro-img img:hover {
   transform: rotate(-360deg);
-  transition: all 0.5s ease 0s;
+  transition: all 0.2s ease 0s;
   -webkit-transform: rotate(-360deg);
-  -webkit-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
   cursor: pointer
 }
 
@@ -5107,9 +5107,9 @@ text-transform: uppercase
   font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #090809;
   color: #090809;
   margin-top: 15px;
@@ -5139,10 +5139,10 @@ text-transform: uppercase
 }
 
 #top-deals .homeslider-description:after {
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   content: "";
   position: absolute;
   top: 0;
@@ -5239,10 +5239,10 @@ text-transform: uppercase
 
 #top-deals .owl-item .item .item-inner .item-img .item-img-info {
   text-align: center;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
 
@@ -5431,10 +5431,10 @@ text-transform: uppercase
 
 #best-seller .owl-item .item .item-inner .item-img .item-img-info {
   text-align: center;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
 
@@ -5503,9 +5503,9 @@ text-transform: uppercase
   padding: 5px 0px 0px 6px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   width: 36px;
   border-radius: 50px;
   border: none;
@@ -5528,9 +5528,9 @@ text-transform: uppercase
   white-space: nowrap;
   color: #252932;
   font-weight: normal;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   background: #fff;
 
 }
@@ -5569,10 +5569,10 @@ text-transform: uppercase
 #best-seller .owl-item .item .item-inner .item-info .info-inner {
   border: 0px solid #fff;
   border-top: none;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   padding-left: 20px;
   padding-bottom: 15px
 }
@@ -5747,7 +5747,7 @@ text-transform: uppercase
 
 .col-item a.thumb.flip {
   transform-style: preserve-3d;
-  transition: transform 0.5s linear;
+  transition: transform 0.2s linear;
 }
 
 .col-item .thumb-wrapper:hover a.thumb.flip {
@@ -6246,16 +6246,16 @@ text-transform: uppercase
   font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff
 }
 
 .latest-blog .readmore:hover {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809333;
   border: 1px solid #090809333;
   color: #fff
@@ -6344,30 +6344,30 @@ text-transform: uppercase
 }
 
 .blog-img img {
-  -webkit-transition: all 0.4s ease-in-out 0.5s;
-  -moz-transition: all 0.4s ease-in-out 0.5s;
-  -o-transition: all 0.4s ease-in-out 0.5s;
-  -ms-transition: all 0.4s ease-in-out 0.5s;
-  transition: all 0.4s ease-in-out 0.5s;
+  -webkit-transition: all 0.4s ease-in-out 0.2s;
+  -moz-transition: all 0.4s ease-in-out 0.2s;
+  -o-transition: all 0.4s ease-in-out 0.2s;
+  -ms-transition: all 0.4s ease-in-out 0.2s;
+  transition: all 0.4s ease-in-out 0.2s;
 }
 
 .blog-img .mask {
   background-color: #fff;
   opacity: 0;
-  -webkit-transition: all 0.3s ease-in 0.4s;
-  -moz-transition: all 0.3s ease-in 0.4s;
-  -o-transition: all 0.3s ease-in 0.4s;
-  -ms-transition: all 0.3s ease-in 0.4s;
-  transition: all 0.3s ease-in 0.4s;
+  -webkit-transition: all 0.2s ease-in 0.4s;
+  -moz-transition: all 0.2s ease-in 0.4s;
+  -o-transition: all 0.2s ease-in 0.4s;
+  -ms-transition: all 0.2s ease-in 0.4s;
+  transition: all 0.2s ease-in 0.4s;
 }
 
 .blog-img a.info {
   opacity: 0;
-  -webkit-transition: all 0.3s ease-in-out 0.1s;
-  -moz-transition: all 0.3s ease-in-out 0.1s;
-  -o-transition: all 0.3s ease-in-out 0.1s;
-  -ms-transition: all 0.3s ease-in-out 0.1s;
-  transition: all 0.3s ease-in-out 0.1s;
+  -webkit-transition: all 0.2s ease-in-out 0.1s;
+  -moz-transition: all 0.2s ease-in-out 0.1s;
+  -o-transition: all 0.2s ease-in-out 0.1s;
+  -ms-transition: all 0.2s ease-in-out 0.1s;
+  transition: all 0.2s ease-in-out 0.1s;
   -webkit-transform: translateY(70px);
   -moz-transform: translateY(70px);
 
@@ -6394,11 +6394,11 @@ text-transform: uppercase
   -o-transform: translateY(70px);
   -ms-transform: translateY(70px);
   transform: translateY(70px);
-  -webkit-transition-delay: 0.3s;
-  -moz-transition-delay: 0.3s;
-  -o-transition-delay: 0.3s;
-  -ms-transition-delay: 0.3s;
-  transition-delay: 0.3s;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  -ms-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .blog-img .mask, .blog-img .content {
@@ -9424,9 +9424,9 @@ li .list {
   border-radius: 0px;
   letter-spacing: 0.5px;
   border: 1px #e5e5e5 solid;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff;
   vertical-align: top
 }
@@ -9448,9 +9448,9 @@ li .list {
   border-radius: 0px;
   letter-spacing: 0.5px;
   border: 1px #e5e5e5 solid;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff;
   vertical-align: top
 }
@@ -9469,9 +9469,9 @@ li .list {
   text-decoration: none;
   display: inline-block;
   margin-right: 8px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809333;
   border: 1px solid #090809333;
   color: #fff;
@@ -9486,9 +9486,9 @@ li .list {
   text-decoration: none;
   display: inline-block;
   margin-right: 8px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809333;
   border: 1px solid #090809333;
   color: #fff;
@@ -9975,9 +9975,9 @@ a.button.detail-bnt span {
   margin-left: 10px;
   border: 2px #ce0000 solid;
   border-radius: 999px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff;
 }
 
@@ -9990,9 +9990,9 @@ a.button.detail-bnt span {
 }
 
 .product-view .product-shop .add-to-box .btn-cart:hover {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809;
   border: 2px solid #090809;
   color: #fff;
@@ -10304,9 +10304,9 @@ a.button.detail-bnt span {
 }
 
 .custom button.items-count:hover {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -45px 0 0 #090809;
   border: none;
   color: #fff;
@@ -10502,9 +10502,9 @@ button.button.btn-add:before {
 .form-add-tags button.button:hover {
   display: inline;
   background: #090809333;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 2px #eee solid;
   color: #fff;
   padding: 6px 12px;
@@ -10688,9 +10688,9 @@ a.button.view-all {
   white-space: nowrap;
   color: #090809;
   font-weight: bold;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   vertical-align: top;
   border: 1px solid #ddd;
   font-family: 'Open Sans', sans-serif;
@@ -10699,9 +10699,9 @@ a.button.view-all {
 
 .button.view-all:hover {
   background: #e0403d;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px solid #e0403d;
   color: #fff;
   text-decoration: none;
@@ -11031,7 +11031,7 @@ button.button.submit:before {
 
 .category-products ul.products-grid li.item a.thumb.flip {
   transform-style: preserve-3d;
-  transition: transform 0.5s linear;
+  transition: transform 0.2s linear;
 }
 
 .category-products ul.products-grid li.item .product-wrapper .thumb-wrapper:hover a.thumb.flip {
@@ -11069,9 +11069,9 @@ button.button.submit:before {
   right: 0px;
   z-index: 10;
   top: -130px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff;
   background: rgba(235, 235, 235, 0.6);
   border-radius: 999px;
@@ -11079,9 +11079,9 @@ button.button.submit:before {
 }
 
 .product-view .product-next-prev .product-next:hover {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809333;
   color: #fff;
 
@@ -11104,18 +11104,18 @@ button.button.submit:before {
   right: 35px;
   z-index: 10;
   top: -130px;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #fff;
   background: rgba(235, 235, 235, 0.6);
   border-radius: 999px
 }
 
 .product-view .product-next-prev .product-prev:hover {
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -40px 0 0 #090809333;
   color: #fff;
 }
@@ -11309,9 +11309,9 @@ a.edit-bnt:hover {
   cursor: pointer;
   text-decoration: none;
   float: left;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px #ddd solid
 }
 
@@ -11642,9 +11642,9 @@ button.button.btn-proceed-checkout span {
   color: #222;
   background-color: inherit;
   border: none;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   margin: 0 0 10px !important;
   border: 1px #ddd solid !important
 }
@@ -11675,9 +11675,9 @@ button.button.btn-proceed-checkout span {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border: 0px #090809 solid;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   text-decoration: none;
   border: 1px #ddd solid;
   display: block
@@ -11852,9 +11852,9 @@ button.button.new-address:before {
   text-decoration: none;
   border: 1px solid #fff;
   float: left;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   line-height: 12px;
   border: 1px #ddd solid
 }
@@ -12970,9 +12970,9 @@ button.button span span {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px #fff solid;
   width: 40px;
   margin-right: 7px
@@ -12991,9 +12991,9 @@ button.button span span {
   padding: 8px 0px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
   border: 1px #fff solid;
   width: 40px
 }
@@ -14580,9 +14580,9 @@ select#shipping-address-select {
 .fl-links .clicker {
   padding: 0px 0px;
   display: block;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #202020;
   text-align: center
 
@@ -14591,9 +14591,9 @@ select#shipping-address-select {
 .fl-links > .no-js:hover > .clicker {
   padding: 0px 0px;
   color: #fff;
-  -webkit-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  -o-transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
-  transition: all 0.3s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   -webkit-box-shadow: inset 0 -60px 0 0 #090809333;
   box-shadow: inset 0 -75px 0 0 #090809333;
   height: 55px;
@@ -14648,7 +14648,7 @@ select#shipping-address-select {
   right: 0px;
   margin-top: -2px;
   transform: scale(0) rotate(0deg);
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
   visibility: hidden;
 }
 
@@ -14670,7 +14670,7 @@ select#shipping-address-select {
   margin-top: -2px;
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
   -webkit-transform: scale(1.0) rotate(0deg);
   transform: scale(1.0) rotate(0deg);
 }
@@ -14822,9 +14822,9 @@ select#shipping-address-select {
 }
 
 .offer-inner img {
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   width: 100%
 }
 
@@ -15492,3 +15492,22 @@ select#shipping-address-select {
 .nav-tabs > li > a:hover {
   background-color: transparent;
 }
+
+.slide-hidden {
+    height:0px;
+    opacity: 0;
+       -webkit-transition:height, 0.2s linear;
+    -moz-transition: height, 0.2s linear;
+    -ms-transition: height, 0.2s linear;
+    -o-transition: height, 0.2s linear;
+    transition: height, 0.2s linear;
+}
+    .slide-hidden.open {
+        height:200px;
+        opacity: 1;
+     -webkit-transition:height, 0.2s linear;
+    -moz-transition: height, 0.2s linear;
+    -ms-transition: height, 0.2s linear;
+    -o-transition: height, 0.2s linear;
+    transition: height, 0.2s linear;
+    }
