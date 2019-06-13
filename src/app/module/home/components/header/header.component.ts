@@ -3,6 +3,7 @@ import {UtilsService} from '../../../../shared/services/util.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
 import {AppComponent} from '../../../../app.component';
+import {TranslateService} from '@ngx-translate/core';
 
 
 declare var $: any;
@@ -19,9 +20,9 @@ export class HeaderComponent implements OnInit {
   subMenu = false;
   public user_data: any = null;
   public number_items = 0;
-
+  public activeLang = 'es';
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
-              private auth: AuthshopService, private app: AppComponent) {
+              private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
       this.location = data[0];
     });
@@ -58,5 +59,11 @@ export class HeaderComponent implements OnInit {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
   }
+  public editLenguaje(lang) {
+    console.log('clickee idioma');
+    this.activeLang = lang;
+    this.translate.use(lang);
+  }
+
 
 }

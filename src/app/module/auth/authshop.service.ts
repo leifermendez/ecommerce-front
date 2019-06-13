@@ -48,7 +48,7 @@ export class AuthshopService {
                 this.nowCookies
               );
 
-              resolve(true);
+              resolve(response.data);
             }
             resolve(false);
           } else {

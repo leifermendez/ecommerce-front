@@ -17,7 +17,7 @@ import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BannerComponent} from './module/home/pages/home/banner/banner.component';
 import {BoxCategoriesComponent} from './module/home/pages/home/box-categories/box-categories.component';
 import {BoxFeaturedProductComponent} from './module/home/pages/home/box-featured-product/box-featured-product.component';
@@ -52,7 +52,10 @@ import {DropTargetOptions, MineTypeEnum, NgxUploadModule} from '@wkoza/ngx-uploa
 import { AvatarUploadComponent } from './module/home/pages/profile/avatar-upload/avatar-upload.component';
 import {NgxFlagIconCssModule} from 'ngx-flag-icon-css';
 import { ModalShippingComponent } from './module/home/pages/profile/modal-shipping/modal-shipping.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { WizardOverlayComponent } from './wizard-overlay/wizard-overlay.component';
+import {TabsModule} from 'ngx-bootstrap';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -130,6 +133,7 @@ export class MyIntl extends TimeagoIntl {
     NgxDropzoneModule,
     NgxStarsModule,
     NgxFlagIconCssModule,
+    TabsModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
@@ -139,6 +143,15 @@ export class MyIntl extends TimeagoIntl {
     }),
     NgxPageScrollCoreModule.forRoot({duration: 2500}),
     NgxChartsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient]
+      }
+    })
   ],
 
   providers: [

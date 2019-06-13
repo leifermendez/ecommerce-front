@@ -74,6 +74,8 @@ export class UtilsService {
 
   closeAllTooltip = () => $('html body .button-hide-tooltip').click();
 
+  clickElement = (e) => $(`html body ${e}`).click();
+
   emitShopping = () => {
     return {
       a: 1

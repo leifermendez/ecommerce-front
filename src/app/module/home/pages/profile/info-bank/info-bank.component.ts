@@ -3,6 +3,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalBankComponent} from '../modal-bank/modal-bank.component';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
+import {AuthshopService} from '../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-info-bank',
@@ -13,7 +14,8 @@ export class InfoBankComponent implements OnInit {
 
   constructor(private modalService: BsModalService,
               private rest: RestService,
-              public util: UtilsService) {
+              public util: UtilsService,
+              private auth: AuthshopService) {
   }
 
   modalRef: BsModalRef;
@@ -21,11 +23,13 @@ export class InfoBankComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
+  currentUser: any = null;
   loading = false;
   public data: any;
   pop: any;
 
   ngOnInit() {
+    this.currentUser = this.auth.getCurrentUser();
     this.loadData();
   }
 

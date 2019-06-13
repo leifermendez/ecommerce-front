@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthshopService} from '../../../../auth/authshop.service';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-info-account',
@@ -15,9 +16,12 @@ export class InfoAccountComponent implements OnInit {
   public editform: any = {};
   public avatarFile: any = null;
   loading = false;
+  public waitCode: any = null;
+  public codeValidation = null;
+  public dataTmp: any = null;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
-              private rest: RestService) {
+              private rest: RestService, public util: UtilsService) {
     this.form = fb.group({
       'email': [null, Validators.compose([Validators.required])],
       'password': [null, Validators.compose([Validators.required])],
@@ -37,6 +41,7 @@ export class InfoAccountComponent implements OnInit {
     this.loadData(_data['id']);
   }
 
+
   loadData = (id) => {
     this.loading = true;
     this.user_data = this.auth.getCurrentUser();
@@ -45,7 +50,7 @@ export class InfoAccountComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.editform = response['data'];
-          console.log(this.editform);
+          this.dataTmp = response['data']['phone'];
         }
       });
   };
@@ -54,11 +59,11 @@ export class InfoAccountComponent implements OnInit {
     if (event) {
       this.loading = true;
       event.preventDefault();
-      console.log('EDIT', this.editform);
       this.rest.put(`/rest/user/me`, this.editform)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
+            this.ngOnInit();
             // this.editform['email'] = this.user_data['email'];
             // this.editform = {...response['data'], ...{email: this.user_data['email']}};
             // this.auth.updateUser(,data);
@@ -67,4 +72,39 @@ export class InfoAccountComponent implements OnInit {
     }
   };
 
+  validatePhone = (code = null) => {
+    if (event) {
+      this.loading = true;
+      const method = (code) ? 'put' : 'post';
+      const _data = {
+        phone: this.editform['phone']
+      };
+      event.preventDefault();
+      this.rest[method](`/rest/validatePhone/${(code) ? this.codeValidation : ''}`,
+        (code) ? null : _data)
+        .then((response: any) => {
+          this.loading = false;
+          if (response['status'] === 'success') {
+            console.log(response['data']);
+            if (code) {
+              this.saveData();
+            }
+            this.waitCode = (!code);
+
+          }
+        })
+        .catch((error) => {
+          this.loading = false;
+          this.util.openSnackBar('Numero no valido', 'try again');
+        });
+    }
+  };
+
+  save = () => {
+    if (this.dataTmp !== this.editform['phone']) {
+      this.validatePhone();
+    } else {
+      this.saveData();
+    }
+  }
 }

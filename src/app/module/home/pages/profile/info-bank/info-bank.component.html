@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="{'opacity-03':(currentUser['role'] === 'user')}">
 
   <div *ngIf="loading">
     <div class="timeline-item">
@@ -104,7 +104,8 @@
       </div>
     </div>
     <div class="card-footer text-right">
-      <button type="button" (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
+      <button type="button" [disabled]="currentUser['role'] === 'user'"
+              (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
         <fa name="plus"></fa>
       </button>
     </div>

@@ -54,8 +54,10 @@ export class LoginComponent implements OnInit {
       ).then(loged => {
         this.loading = false;
         console.log('-------------- ', loged);
-        if (loged) {
+        if (loged['confirmed'] === 1) {
           this.router.navigateByUrl('/home');
+        } else if (loged['confirmed'] === 0) {
+          this.router.navigateByUrl('/profile');
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
         }
