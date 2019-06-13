@@ -5,6 +5,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef} from 'ngx-bootstrap';
 import {UtilsService} from '../../../../shared/services/util.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-zip-location',
@@ -22,6 +23,8 @@ export class ZipLocationComponent implements OnInit {
     types: [],
     componentRestrictions: {country: 'ES'}
   };
+
+  nowCookies = moment().add(15, 'days').toDate();
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
 
@@ -66,7 +69,10 @@ export class ZipLocationComponent implements OnInit {
             this.buttonAvailable = true;
             const _cookie_data = (this.data[0] && JSON.stringify(this.data[0])) ?
               JSON.stringify(this.data[0]) : null;
-            this.cookieService.set('_location_zip_code', _cookie_data);
+            this.cookieService.set(
+              '_location_zip_code',
+              _cookie_data,
+              this.nowCookies);
             this.util.getLocation.emit(this.data);
             this.bsModalRef.hide();
           } else {

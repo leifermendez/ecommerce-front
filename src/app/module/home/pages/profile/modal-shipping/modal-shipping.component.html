@@ -1,58 +1,110 @@
-<form [formGroup]="form" (submit)="saveData()">
+<form [formGroup]="form"  autocomplete="off" (submit)="saveData()">
 
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Agregar Dirección</h5>
-        <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-        <!--      <span aria-hidden="true">&times;</span>-->
-        <!--    </button>-->
-      </div>
-  
-      <div class="modal-body">
-        <div *ngIf="editform && editform.iban" class="form-group">
-          <label>Nombre titular</label>
-          <input type="text" class="form-control"
-                 formControlName="account_name"
-                 [(ngModel)]="editform.account_name"
-                 placeholder="Ingresa nombre del titular">
-        </div>
-        <div *ngIf="editform && editform.iban" class="form-group">
-          <label>Apellido titular</label>
-          <input type="text" class="form-control"
-                 [(ngModel)]="editform.account_lastname"
-                 formControlName="account_lastname"
-                 placeholder="Ingresa apellido del titular">
-        </div>
-  
-        <div *ngIf="editform && editform.iban" class="form-group">
-          <label>Email</label>
-          <input type="email" class="form-control"
-                 [(ngModel)]="editform.payment_email"
-                 formControlName="payment_email"
-                 placeholder="Email asociado">
-        </div>
-  
-        <div class="form-group">
-          <label>ID</label>
-          <input type="text" readonly class="form-control"
-                 formControlName="iban"
-                 [(ngModel)]="editform.iban"
-                 placeholder="ID Stripe">
-        </div>
-        <div *ngIf="editform && !editform.iban" class="form-group text-center">
-          <button *ngIf="!loading" (click)="loadData()" class="btn btn-primary text-center">
-            Vincular Stripe
-          </button>
-          <div *ngIf="loading">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Agregar Dirección</h5>
+      <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+      <!--      <span aria-hidden="true">&times;</span>-->
+      <!--    </button>-->
+    </div>
+
+    <div class="modal-body modal-body pr-0 pl-0">
+      <div class="form-group col">
+        <div>
+          <label>Ingresa tu dirección</label>
+          <div *ngIf="loading" class="loading-zip">
             <fa name="spinner" animation="spin"></fa>
           </div>
+          <input ngx-google-places-autocomplete
+                 [disabled]="loading"
+                 autocomplete="off"
+                 class="form-control"
+                 [ngModelOptions]="{standalone: true}"
+                 [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
+                 placeholder="Ingresa una dirección de envio"
+                 (onAddressChange)="handleAddressChange($event)"/>
+
         </div>
-  
-  
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
+      <div class="d-flex">
+        <div class="col">
+          <div *ngIf="editform" class="form-group">
+            <label>País</label>
+            <input type="text" class="form-control"
+                   readonly
+                   spellcheck="false" autocomplete="off"
+                   [(ngModel)]="editform['country']"
+                   formControlName="country"
+                   placeholder="¿Cual es tu pais?">
+          </div>
+          <div *ngIf="editform" class="form-group">
+            <label>Provincia</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="editform.state"
+                   formControlName="state"
+                   spellcheck="false" autocomplete="off"
+                   placeholder="¿Cual es tu provincia?">
+          </div>
+          <div *ngIf="editform" class="form-group">
+            <label>Distrito</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="editform.district"
+                   spellcheck="false" autocomplete="off"
+                   formControlName="district"
+                   placeholder="¿Cual es tu distrito?">
+          </div>
+        </div>
+
+        <div class="col">
+          <div *ngIf="editform" class="form-group">
+            <label>Piso, Numero</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="editform.address"
+                   spellcheck="false" autocomplete="off"
+                   formControlName="address"
+                   placeholder="¿Piso 2, #2-4?">
+          </div>
+          <div *ngIf="editform" class="form-group">
+            <label>Codigo postal</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="editform.zip_code"
+                   readonly
+                   spellcheck="false" autocomplete="off"
+                   formControlName="zip_code"
+                   placeholder="¿Cual es tu codigo postañ?">
+          </div>
+          <div *ngIf="editform" class="form-group">
+            <label>Instrucciones</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="editform.instructions"
+                   formControlName="instructions"
+                   spellcheck="false" autocomplete="off"
+                   placeholder="Toca 3 veces el timbre">
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group" *ngIf="id">
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, exercitationem.</p>
+          <div class="text-center" *ngIf="!deleteMe">
+            <button type="button" (click)="deleteMe = true"
+                    class="btn btn-outline-secondary">Borrar cuenta
+            </button>
+          </div>
+          <div class="text-center" *ngIf="deleteMe">
+            <h6>
+              <b>¿Estas seguro de eliminar?</b>
+            </h6>
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-  
+    <div class="modal-footer justify-content-md-between">
+      <button type="button" (click)="bsModalRef.hide()" class="btn btn-default btn-sm" tabindex="0">Cancelar</button>
+      <button *ngIf="!deleteMe" class="btn btn-primary btn-sm" tabindex="0">Guardar</button>
+      <button *ngIf="deleteMe" type="button" (click)="deleteBank()"
+              class="btn btn-primary btn-sm" tabindex="0">Eliminar
+      </button>
+    </div>
+  </div>
+</form>

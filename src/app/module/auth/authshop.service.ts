@@ -4,6 +4,7 @@ import {UtilsService} from '../../shared/services/util.service';
 import {Router} from '@angular/router';
 import {UserModel} from '../../shared/models/base.model';
 import {CookieService} from 'ngx-cookie-service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class AuthshopService {
   private _currentUser: UserModel;
   public waiting: boolean;
   @Output() getLoggedInData: EventEmitter<any> = new EventEmitter();
+
+  nowCookies = moment().add(15, 'days').toDate();
 
   constructor(private rest: RestService,
               private utils: UtilsService,
@@ -39,8 +42,11 @@ export class AuthshopService {
             if (token) {
               this._currentUser = response.data;
               this.emitlogin(this._currentUser);
-              this.cookieService.set('_currentUser', JSON.stringify(response.data));
-              // localStorage.setItem('currentUser', JSON.stringify(response.data)); <------- guarde en cookie en vez de localstorage
+              this.cookieService.set(
+                '_currentUser',
+                JSON.stringify(response.data),
+                this.nowCookies
+              );
 
               resolve(true);
             }
@@ -71,7 +77,11 @@ export class AuthshopService {
         this.rest.get('/auth').then(((response: any) => {
           const _tmp_current = this.getCurrentUser();
           _tmp_current['token'] = response.data;
-          this.cookieService.set('_currentUser', JSON.stringify(_tmp_current));
+          this.cookieService.set(
+            '_currentUser',
+            JSON.stringify(_tmp_current),
+            this.nowCookies
+          );
           this.waiting = false;
           console.log('Second Validation');
           resolve(response.message);
@@ -121,7 +131,11 @@ export class AuthshopService {
       const _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
         JSON.parse(this.cookieService.get('_currentUser')) : null;
       _parseCurrent[key] = data;
-      this.cookieService.set('_currentUser', JSON.stringify(_parseCurrent));
+      this.cookieService.set(
+        '_currentUser',
+        JSON.stringify(_parseCurrent),
+        this.nowCookies
+      );
       return true;
     } else {
       return false;

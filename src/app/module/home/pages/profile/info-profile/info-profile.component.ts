@@ -20,7 +20,10 @@ export class InfoProfileComponent implements OnInit {
   constructor(private auth: AuthshopService, private fb: FormBuilder,
               private rest: RestService) {
     this.form = fb.group({
-      'name': [null, Validators.compose([Validators.required])]
+      'name': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(4)
+      ])]
     });
   }
 
@@ -32,6 +35,10 @@ export class InfoProfileComponent implements OnInit {
 
   }
 
+  get f() {
+    return this.form.controls;
+  }
+
   success = (obj) => {
     this.editform['avatar'] = obj['data']['small'];
   };
@@ -41,7 +48,7 @@ export class InfoProfileComponent implements OnInit {
     this.user_data = this.auth.getCurrentUser();
     this.rest.get(`/rest/user/${id}`)
       .then((response: any) => {
-        this.loading = false
+        this.loading = false;
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
           this.editform = {...response['data']};
@@ -57,7 +64,7 @@ export class InfoProfileComponent implements OnInit {
       console.log('EDIT', this.editform);
       this.rest.put(`/rest/user/me`, this.editform)
         .then((response: any) => {
-          this.loading = false
+          this.loading = false;
           if (response['status'] === 'success') {
             // this.editform['email'] = this.user_data['email'];
             // this.editform = {...response['data'], ...{email: this.user_data['email']}};

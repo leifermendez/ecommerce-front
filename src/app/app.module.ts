@@ -52,6 +52,7 @@ import {DropTargetOptions, MineTypeEnum, NgxUploadModule} from '@wkoza/ngx-uploa
 import { AvatarUploadComponent } from './module/home/pages/profile/avatar-upload/avatar-upload.component';
 import {NgxFlagIconCssModule} from 'ngx-flag-icon-css';
 import { ModalShippingComponent } from './module/home/pages/profile/modal-shipping/modal-shipping.component';
+import { WizardOverlayComponent } from './wizard-overlay/wizard-overlay.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -111,6 +112,7 @@ export class MyIntl extends TimeagoIntl {
     ModalBankComponent,
     AvatarUploadComponent,
     ModalShippingComponent,
+    WizardOverlayComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

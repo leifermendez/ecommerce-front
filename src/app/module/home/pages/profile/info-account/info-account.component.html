@@ -1,61 +1,68 @@
 <form [formGroup]="form" (submit)="saveData()">
   <div *ngIf="loading">
-      <div class="timeline-item">
-          <div class="animated-background" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-  
-          </div>
-          <div class="animated-background mt-3" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-  
-          </div>
-        </div>
+    <div class="timeline-item">
+      <div class="animated-background" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+    </div>
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
     <div class="card-header"><b>Datos de cuenta</b></div>
     <div class="col p-3 min-height-300">
       <div class="form-group">
         <label>Email</label>
-        <input type="text" formControlName="email" class="form-control" [(ngModel)]="editform.email"
+        <input type="text" formControlName="email" readonly class="form-control" [(ngModel)]="editform.email"
                placeholder="¿Como es tu email?">
-               <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, tenetur.</small>
+        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+          tenetur.
+        </small>
       </div>
 
       <div class="form-group">
         <label>Código referido</label>
-        <input type="text" formControlName="referer_code" class="form-control" [(ngModel)]="editform.referer_code">
-               <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, tenetur.</small>
+        <input type="text" formControlName="referer_code" readonly class="form-control"
+               [(ngModel)]="editform.referer_code">
+        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+          tenetur.
+        </small>
       </div>
       <div class="form-group">
         <label>Telefono</label>
         <input type="tel" formControlName="phone" [(ngModel)]="editform.phone" class="form-control"
-               placeholder="Ingresa un numero de movil válido">
-               <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, tenetur.</small>
+               placeholder="+34 Ingresa un numero de movil válido">
+        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+          tenetur.
+        </small>
       </div>
 
-<!--      <div class="form-group">-->
-<!--        <label>Contraseña</label>-->
-<!--        <input type="tel" formControlName="password" [(ngModel)]="editform.password" class="form-control"-->
-<!--               placeholder="Ingresa un numero de movil válido">-->
-<!--      </div>-->
+      <!--      <div class="form-group">-->
+      <!--        <label>Contraseña</label>-->
+      <!--        <input type="tel" formControlName="password" [(ngModel)]="editform.password" class="form-control"-->
+      <!--               placeholder="Ingresa un numero de movil válido">-->
+      <!--      </div>-->
 
     </div>
     <div class="card-footer text-right">
-        <button class="btn btn-primary btn-sm" tabindex="0">
-          <fa name="save"></fa>
-        </button>
-      </div>
+      <button [disabled]="f.phone.errors" class="btn btn-primary btn-sm" tabindex="0">
+        <fa name="save"></fa>
+      </button>
+    </div>
   </div>
 </form>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalBankComponent} from '../modal-bank/modal-bank.component';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-info-bank',
@@ -9,6 +10,12 @@ import {RestService} from '../../../../../shared/services/rest.service';
   styleUrls: ['./info-bank.component.css']
 })
 export class InfoBankComponent implements OnInit {
+
+  constructor(private modalService: BsModalService,
+              private rest: RestService,
+              public util: UtilsService) {
+  }
+
   modalRef: BsModalRef;
   config = {
     ignoreBackdropClick: true
@@ -16,9 +23,7 @@ export class InfoBankComponent implements OnInit {
 
   loading = false;
   public data: any;
-  constructor(private modalService: BsModalService,
-    private rest: RestService) {
-  }
+  pop: any;
 
   ngOnInit() {
     this.loadData();
@@ -32,16 +37,17 @@ export class InfoBankComponent implements OnInit {
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
-            this.data = response['data']['data']
-            console.log('-------',this.data)
+          this.data = response['data']['data'];
+          console.log('-------', this.data);
         }
       });
   };
 
-  open() {
+  open(id = null) {
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,
+      id
     };
 
     this.modalRef = this.modalService.show(

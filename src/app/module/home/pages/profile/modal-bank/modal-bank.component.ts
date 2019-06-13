@@ -12,6 +12,9 @@ export class ModalBankComponent implements OnInit {
   public loading = false;
   public data: any = null;
   public form: any = FormGroup;
+  public emitBack: any;
+  public id: any = null;
+  public deleteMe: any = false;
   public editform: any = {
     iban: null,
     payment_option: 'stripe'
@@ -33,7 +36,33 @@ export class ModalBankComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.id) {
+      this.getDetail();
+    }
   }
+
+  deleteBank = () => {
+    this.loading = true;
+    this.rest.delete(`/rest/payment-user/${this.id}`)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.loading = false;
+          this.emitBack();
+          this.bsModalRef.hide();
+        }
+      });
+  };
+
+  getDetail = () => {
+    this.loading = true;
+    this.rest.get(`/rest/payment-user/${this.id}`)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.loading = false;
+          this.editform = response['data'];
+        }
+      });
+  };
 
   openStripe = (url) => new Promise(function (resolve, reject) {
     try {
@@ -65,12 +94,14 @@ export class ModalBankComponent implements OnInit {
 
   saveData = () => {
     this.loading = true;
-    this.rest.post(`/rest/payment-user`,
+    const method = (this.id) ? 'put' : 'post';
+    this.rest[method](`/rest/payment-user/${(this.id) ? this.id : ''}`,
       this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading = false;
           this.data = response['data'];
+          this.emitBack();
           this.bsModalRef.hide();
         }
       });

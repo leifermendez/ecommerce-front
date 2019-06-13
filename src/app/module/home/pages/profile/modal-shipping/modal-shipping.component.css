@@ -1,0 +1,5 @@
+.loading-zip{
+  position: absolute;
+  right: calc(0% + 25px);
+  margin-top: 9px;
+}

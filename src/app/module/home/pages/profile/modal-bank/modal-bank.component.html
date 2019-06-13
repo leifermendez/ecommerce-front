@@ -40,7 +40,7 @@
                placeholder="ID Stripe">
       </div>
       <div *ngIf="editform && !editform.iban" class="form-group text-center">
-        <button *ngIf="!loading" (click)="loadData()" class="btn btn-primary text-center">
+        <button *ngIf="!loading" (click)="loadData()" class="btn btn-outline-secondary btn-sm text-center">
           Vincular Stripe
         </button>
         <div *ngIf="loading">
@@ -48,10 +48,26 @@
         </div>
       </div>
 
-
+      <div class="form-group" *ngIf="id">
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, exercitationem.</p>
+        <div class="text-center" *ngIf="!deleteMe">
+          <button type="button" (click)="deleteMe = true"
+                  class="btn btn-outline-secondary">Borrar cuenta
+          </button>
+        </div>
+        <div class="text-center" *ngIf="deleteMe">
+          <h6>
+            <b>¿Estas seguro de eliminar?</b>
+          </h6>
+        </div>
+      </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn-default btn-sm" tabindex="0">Guardar</button>
+    <div class="modal-footer justify-content-md-between">
+      <button type="button" (click)="bsModalRef.hide()" class="btn btn-default btn-sm" tabindex="0">Cancelar</button>
+      <button *ngIf="!deleteMe" class="btn btn-primary btn-sm" tabindex="0">Guardar</button>
+      <button *ngIf="deleteMe" type="button" (click)="deleteBank()"
+              class="btn btn-primary btn-sm" tabindex="0">Eliminar
+      </button>
     </div>
   </div>
 </form>

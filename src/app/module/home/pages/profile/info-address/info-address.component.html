@@ -1,69 +1,110 @@
 <div>
-    <div *ngIf="loading">
-      <div class="timeline-item">
-        <div class="animated-background" style="height: 40px">
-          <div class="background-masker header-top"></div>
-          <div class="background-masker header-left"></div>
-          <div class="background-masker header-right"></div>
-          <div class="background-masker header-bottom"></div>
-          <div class="background-masker subheader-left"></div>
-          <div class="background-masker subheader-right"></div>
-          <div class="background-masker subheader-bottom"></div>
-  
-        </div>
-        <div class="animated-background mt-3" style="height: 40px">
-          <div class="background-masker header-top"></div>
-          <div class="background-masker header-left"></div>
-          <div class="background-masker header-right"></div>
-          <div class="background-masker header-bottom"></div>
-          <div class="background-masker subheader-left"></div>
-          <div class="background-masker subheader-right"></div>
-          <div class="background-masker subheader-bottom"></div>
-  
-        </div>
+
+  <div *ngIf="loading">
+    <div class="timeline-item">
+      <div class="animated-background" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
       </div>
     </div>
-    <div class="card block-dashboard border-0" *ngIf="!loading">
-      <div class="card-header"><b>Direcciones</b></div>
-      <div class="col p-3 min-height-300">
+  </div>
+  <div class="card block-dashboard border-0" *ngIf="!loading">
+    <div class="card-header">
+      <b>Direcciones</b>
+    </div>
+    <!--    <button type="button" class="btn btn-success" (click)="pop.show()">-->
+    <!--      Show-->
+    <!--    </button>-->
+    <!--    <button type="button" class="btn btn-warning" (click)="pop.hide()">-->
+    <!--      Hide-->
+    <!--    </button>-->
+    <!--    <button type="button" class="btn btn-info" (click)="pop.toggle()">-->
+    <!--      Toggle-->
+    <!--    </button>-->
+    <div class="col p-3 min-height-300">
+      <div *ngIf="data && data.length">
         <ul class="list-group border-0 ng-star-inserted">
           <!---->
-          <li class="list-group-item border-0 rounded-0 p-2 mb-1 pointer ng-star-inserted" tabindex="0"
-            *ngFor="let dat of data;let i = index">
+          <li class="list-group-item border-0 rounded-0 p-0 mb-1 pointer ng-star-inserted" tabindex="0"
+              *ngFor="let dat of data;let i = index">
             <div class="d-flex align-items-center">
-  
-              <div class="col-7 p-0 pointer">
+
+              <div class="col-8 p-0 pointer">
                 <div class="pl-3"><span class="d-block"><b class="font-weight-600">
-                    <flag-icon country="es"></flag-icon>
-                     <span class="ml-1"> Delaware, Guiseppeberg </span>
-                    </b></span><small
-                    class="text-muted letter-spacing-1 opacity-05">
-                    33564 Ola Shoal</small></div>
-              </div>
-              <div class="col-3 pointer">
-                <div class="pl-3"><span class="d-block"><b class="font-weight-600">
-                      <span class="badge badge-primary">28039</span>
-                    </b> </span>
-         
-  
+                   <flag-icon country="{{dat['country'] | lowercase}}"></flag-icon>
+                  {{dat['state']}}, {{dat['district']}}
+                  </b></span>
+                  <small
+                    class="text-muted letter-spacing-1 opacity-05">{{dat['instructions'] | slice:0:120}}...
+                  </small>
                 </div>
               </div>
-              <div class="col-1 text-center">
+              <div class="col-2 pointer">
+                <div class="pl-3">
+                  <div>
+                    <ng-template #tolTemplate>
+                      <button class="d-none button-hide-tooltip" (click)="pop.hide()">close</button>
+                      <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, facere?</p>
+                      </div>
+                    </ng-template>
+                    <span
+                      [tooltip]="tolTemplate"
+                      triggers="mouseenter:click"
+                      #pop="bs-tooltip"
+                      (onShown)="util.showTool()"
+                      (onHidden)="util.hiddenTool()"
+                      class="badge badge-secondary mr-3 text-white p-1">
+                   {{dat['zip_code']}}
+                  </span>
+                  </div>
+                  <span class="d-block">
+                  <b class="font-weight-600">
+                    <span class="badge badge-primary">{{dat['payment_option']}}</span>
+                  </b>
+                </span>
+
+
+                </div>
+              </div>
+              <div class="col-2 text-right">
                 <!---->
-                <h4 class="pointer" placement="bottom" aria-describedby="tooltip-6"><i
-                    class="icon ion-lock-combination text-danger"></i></h4>
+                <button class="btn btn-link btn-sm" (click)="open(dat['id'])">
+                  <fa name="edit"></fa>
+                </button>
               </div>
             </div>
           </li>
-  
+
         </ul>
-  
       </div>
-      <div class="card-footer text-right">
-          <button type="button" (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
-            <fa name="plus"></fa>
-          </button>
-        </div>
+      <div *ngIf="data && !data.length" class="text-center p-img-center">
+        <img src="../../../../../../assets/images/location-gray.svg" width="100px" alt="">
+        <p class="text-muted mt-3">Aun no has agregado ninguna direccion de envio</p>
+      </div>
     </div>
-  
+    <div class="card-footer text-right">
+      <button type="button" (click)="open()" [disabled]="data && data.length" class="btn btn-primary btn-sm"
+              tabindex="0">
+        <fa name="plus"></fa>
+      </button>
+    </div>
   </div>
+
+</div>

@@ -22,10 +22,15 @@ export class InfoAccountComponent implements OnInit {
       'email': [null, Validators.compose([Validators.required])],
       'password': [null, Validators.compose([Validators.required])],
       'referer_code': [null, Validators.compose([Validators.required])],
-      'phone': [null, Validators.compose([Validators.required])],
+      'phone': [null, Validators.compose(
+        [Validators.required,
+          Validators.minLength(4)])],
     });
   }
 
+  get f() {
+    return this.form.controls;
+  }
 
   ngOnInit() {
     const _data = this.auth.getCurrentUser();
@@ -37,7 +42,7 @@ export class InfoAccountComponent implements OnInit {
     this.user_data = this.auth.getCurrentUser();
     this.rest.get(`/rest/user/${id}`)
       .then((response: any) => {
-        this.loading = false
+        this.loading = false;
         if (response['status'] === 'success') {
           this.editform = response['data'];
           console.log(this.editform);

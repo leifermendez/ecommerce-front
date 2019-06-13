@@ -3,6 +3,8 @@ import {Injectable, EventEmitter, Output} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {settings} from '../settings';
 
+declare var $: any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -66,6 +68,11 @@ export class UtilsService {
     return _cookie_data;
   };
 
+  showTool = () => $('html body .overlay-tooltip').show();
+
+  hiddenTool = () => $('html body .overlay-tooltip').hide();
+
+  closeAllTooltip = () => $('html body .button-hide-tooltip').click();
 
   emitShopping = () => {
     return {

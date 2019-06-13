@@ -1,4 +1,5 @@
 <div>
+
   <div *ngIf="loading">
     <div class="timeline-item">
       <div class="animated-background" style="height: 40px">
@@ -24,49 +25,89 @@
     </div>
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
-    <div class="card-header"><b>Banco</b></div>
+    <div class="card-header">
+      <b>Banco</b>
+    </div>
+    <!--    <button type="button" class="btn btn-success" (click)="pop.show()">-->
+    <!--      Show-->
+    <!--    </button>-->
+    <!--    <button type="button" class="btn btn-warning" (click)="pop.hide()">-->
+    <!--      Hide-->
+    <!--    </button>-->
+    <!--    <button type="button" class="btn btn-info" (click)="pop.toggle()">-->
+    <!--      Toggle-->
+    <!--    </button>-->
     <div class="col p-3 min-height-300">
-      <ul class="list-group border-0 ng-star-inserted">
-        <!---->
-        <li class="list-group-item border-0 rounded-0 p-2 mb-1 pointer ng-star-inserted" tabindex="0"
-          *ngFor="let dat of data;let i = index">
-          <div class="d-flex align-items-center">
+      <div *ngIf="data && data.length">
+        <ul class="list-group border-0 ng-star-inserted">
+          <!---->
+          <li class="list-group-item border-0 rounded-0 p-0 mb-1 pointer ng-star-inserted" tabindex="0"
+              *ngFor="let dat of data;let i = index">
+            <div class="d-flex align-items-center">
 
-            <div class="col-7 p-0 pointer">
-              <div class="pl-3"><span class="d-block"><b class="font-weight-600">
+              <div class="col-7 p-0 pointer">
+                <div class="pl-3"><span class="d-block"><b class="font-weight-600">
                     {{dat['account_name']}} {{dat['account_lastname']}}
-                  </b></span><small
-                  class="text-muted letter-spacing-1 opacity-05">{{dat['iban'] | slice:0:14}}*****</small></div>
-            </div>
-            <div class="col-4 pointer">
-              <div class="pl-3"><span class="d-block"><b class="font-weight-600">
-                    <span class="badge badge-primary">{{dat['payment_option']}}</span>
-                  </b> </span>
-                <span *ngIf="dat['primary']" class="badge badge-primary mr-3 text-white p-1">
+                  </b></span>
+                  <small
+                    class="text-muted letter-spacing-1 opacity-05">{{dat['iban'] | slice:0:14}}*****
+                  </small>
+                </div>
+              </div>
+              <div class="col-3 pointer">
+                <div class="pl-3">
+                  <div>
+                  <span *ngIf="dat['primary']" class="badge badge-primary mr-3 text-white p-1">
                   Primaria
                 </span>
-                <span *ngIf="!dat['primary']" class="badge badge-secondary mr-3 text-white p-1">
+                  </div>
+                  <div>
+                    <ng-template #tolTemplate>
+                      <button class="d-none button-hide-tooltip" (click)="pop.hide()">close</button>
+                      <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, facere?</p>
+                      </div>
+                    </ng-template>
+                    <span
+                      [tooltip]="tolTemplate"
+                      triggers="mouseenter:click"
+                      #pop="bs-tooltip"
+                      (onShown)="util.showTool()"
+                      (onHidden)="util.hiddenTool()"
+                      class="badge badge-secondary mr-3 text-white p-1">
                     No determinada
                   </span>
+                  </div>
+                  <span class="d-block">
+                  <b class="font-weight-600">
+                    <span class="badge badge-primary">{{dat['payment_option']}}</span>
+                  </b>
+                </span>
 
+
+                </div>
+              </div>
+              <div class="col-2 text-right">
+                <!---->
+                <button class="btn btn-link btn-sm" (click)="open(dat['id'])">
+                  <fa name="edit"></fa>
+                </button>
               </div>
             </div>
-            <div class="col-1 text-center">
-              <!---->
-              <h4 class="pointer" placement="bottom" aria-describedby="tooltip-6"><i
-                  class="icon ion-lock-combination text-danger"></i></h4>
-            </div>
-          </div>
-        </li>
+          </li>
 
-      </ul>
-
+        </ul>
+      </div>
+      <div *ngIf="data && !data.length" class="text-center p-img-center">
+        <img src="../../../../../../assets/images/bank-gray.svg" width="100px" alt="">
+        <p class="text-muted mt-3">Aun no has agregado ninguna cuenta de banco</p>
+      </div>
     </div>
     <div class="card-footer text-right">
-        <button type="button" (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
-          <fa name="plus"></fa>
-        </button>
-      </div>
+      <button type="button" (click)="open()" class="btn btn-primary btn-sm" tabindex="0">
+        <fa name="plus"></fa>
+      </button>
+    </div>
   </div>
 
 </div>
