@@ -3,6 +3,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -19,14 +20,15 @@ export class AppComponent implements OnInit {
   };
   cookie_zip_code = null;
   loading = false;
-  constructor(private modalService: BsModalService, private router: Router,
+  public activeLang = 'es';
+  constructor(private modalService: BsModalService, private router: Router, private translate: TranslateService,
     private cookieService: CookieService) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
 
     this.cookie_zip_code = this.cookieService.get('_location_zip_code');
-
+    this.translate.setDefaultLang(this.activeLang);
   }
 
   emitBack = () => this.ngOnInit();
