@@ -103,8 +103,10 @@ export class InfoAccountComponent implements OnInit {
   save = () => {
     if (this.dataTmp !== this.editform['phone']) {
       this.validatePhone();
+    } else if (!this.editform['confirmed']) {
+      this.validatePhone();
     } else {
       this.saveData();
     }
-  }
+  };
 }

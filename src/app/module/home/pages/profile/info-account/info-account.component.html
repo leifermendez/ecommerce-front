@@ -44,24 +44,25 @@
         </small>
       </div>
       <div *ngIf="!waitCode" class="form-group">
-        <ng-template #tolTemplate>
-          <button class="d-none button-hide-tooltip" type="button" (click)="pop.hide()">close</button>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, facere?</p>
-          </div>
-        </ng-template>
 
-        <label>
+
+        <label *ngIf="!editform['confirmed']">
+          <ng-template #tolTemplate>
+            <button class="d-none button-hide-tooltip" type="button" (click)="pop.hide()">close</button>
+            <div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, facere?</p>
+            </div>
+          </ng-template>
           <span [tooltip]="tolTemplate"
                 triggers="mouseenter:click"
                 #pop="bs-tooltip"
                 id="warning-phone"
-                *ngIf="!editform['confirmed']"
                 (onShown)="util.showTool()"
                 (onHidden)="util.hiddenTool()">
             <fa name="exclamation-triangle" class="text-danger"></fa>
           </span>
           Telefono</label>
+        <label *ngIf="editform['confirmed']">Telefono</label>
         <input type="tel"
                formControlName="phone" [(ngModel)]="editform.phone" class="form-control"
                placeholder="+34 Ingresa un numero de movil válido">
