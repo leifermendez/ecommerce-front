@@ -1,0 +1,15 @@
+.card-header, .card-footer {
+  background-color: transparent !important;
+}
+
+.card {
+  border: 0px !important;
+}
+.card-footer {
+  border-top: 0px solid rgba(0,0,0,.125);
+}
+
+.timeline-item{
+  min-height: 405px;
+  margin: 0;
+}

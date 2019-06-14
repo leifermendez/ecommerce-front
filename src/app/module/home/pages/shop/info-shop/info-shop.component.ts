@@ -1,48 +1,48 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthshopService} from '../../../../auth/authshop.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthshopService} from '../../../../auth/authshop.service';
 import {RestService} from '../../../../../shared/services/rest.service';
-import {FileItem, HttpClientUploadService} from '@wkoza/ngx-upload';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
-  selector: 'app-info-profile',
-  templateUrl: './info-profile.component.html',
-  styleUrls: ['./info-profile.component.css']
+  selector: 'app-info-shop',
+  templateUrl: './info-shop.component.html',
+  styleUrls: ['./info-shop.component.css']
 })
-export class InfoProfileComponent implements OnInit {
+export class InfoShopComponent implements OnInit {
+
   public user_data: any = null;
   public form: any = FormGroup;
   public data: any = {};
   public editform: any = {};
-  public avatarFile: any = null;
+  public id: any = null;
   loading = false;
+  public waitCode: any = null;
+  public codeValidation = null;
+  public dataTmp: any = null;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
-              private rest: RestService) {
+              private rest: RestService, public util: UtilsService) {
     this.form = fb.group({
-      'name': [null, Validators.compose([
-        Validators.required,
-        Validators.minLength(4)
-      ])]
+      'name': [null, Validators.compose([Validators.required])],
+      'legal_id': [null, Validators.compose([Validators.required])],
+      'email_corporate': [null, Validators.compose([Validators.required])],
+      'phone_mobil': [null, Validators.compose([Validators.required])],
+      'phone_fixed': [null, Validators.compose([Validators.required])],
+      'address': [null, Validators.compose([Validators.required])],
+      'meta_key': [null, Validators.compose([Validators.required])],
+
     });
-  }
-
-  ngOnInit() {
-
-    const _data = this.auth.getCurrentUser();
-    this.loadData(_data['id']);
-    console.log(_data);
-
-
   }
 
   get f() {
     return this.form.controls;
   }
 
-  success = (obj) => {
-    this.editform['avatar'] = obj['data']['small'];
-  };
+  ngOnInit() {
+
+  }
+
 
   loadData = (id) => {
     this.loading = true;
@@ -58,12 +58,14 @@ export class InfoProfileComponent implements OnInit {
       });
   };
 
-  saveData = () => {
+
+  save = () => {
     if (event) {
       this.loading = true;
+      const method = (this.id) ? 'put' : 'post';
       event.preventDefault();
-      console.log('EDIT', this.editform);
-      this.rest.put(`/rest/user/me`, this.editform)
+      this.rest[method](`/rest/shop/${(this.id) ? this.id : ''}`,
+        this.editform)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
@@ -71,7 +73,9 @@ export class InfoProfileComponent implements OnInit {
             // this.editform = {...response['data'], ...{email: this.user_data['email']}};
             // this.auth.updateUser(,data);
           }
-        });
+        }).catch(err => {
+        this.loading = false;
+      });
     }
   };
 

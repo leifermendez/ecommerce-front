@@ -52,7 +52,7 @@
           </div>
         </div>
       </li>
-      <li>
+      <li [routerLink]="['/','shop']">
           <div class="btn btn-default btn-block border-0">
             <div>
               <fa name="shopping-cart" size="2x"></fa>
@@ -129,7 +129,16 @@
             </div>
           </div>
         </li>
-    
+        <li [routerLink]="['/','shop']">
+          <div class="btn btn-default btn-block border-0">
+            <div>
+              <fa name="shopping-cart" size="2x"></fa>
+            </div>
+            <div>
+              <span class="font-weight-bold">Tienda</span>
+            </div>
+          </div>
+        </li>
         <li [routerLink]="['/','profile']">
           <div class="btn btn-default btn-block border-0">
             <div>

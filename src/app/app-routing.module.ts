@@ -5,6 +5,7 @@ import {LoginComponent} from './module/auth/pages/login/login.component';
 import {AuthGuard} from './module/auth/guards/auth.guard';
 import {ProfileComponent} from './module/home/pages/profile/profile.component';
 import {DashboardComponent} from './module/home/pages/dashboard/dashboard.component';
+import {ShopComponent} from './module/home/pages/shop/shop.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'shop',
+    component: ShopComponent,
     canActivate: [AuthGuard]
   },
   // {
