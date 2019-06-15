@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {RestService} from '../../../../shared/services/rest.service';
 
 @Component({
   selector: 'app-shop',
@@ -9,10 +10,12 @@ import { Router } from '@angular/router';
 export class ShopComponent implements OnInit {
 
   public cif_flag: any = null;
-  public data_shops: any = true;
+  public data_shops: any = [];
   public data_inside: any = {}
+  public loading = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private rest: RestService) {
   }
 
   cif_callback = (e) => {
@@ -20,15 +23,26 @@ export class ShopComponent implements OnInit {
     this.data_inside['legal_id'] = e;
   }
 
-  data_shops_callback = (e) => {
+  /*data_shops_callback = (e) => {
     this.data_shops = (e.length);
     if(!this.data_shops){
       this.router.navigateByUrl('/shop/create');
     }
-  }
+  }*/
 
+  loadData = () => {
+    this.loading = true;
+    this.rest.get(`/rest/shop`)
+      .then((response: any) => {
+        this.loading = false;
+        if (response['status'] === 'success') {
+          this.data_shops = response['data']['data'];
+        }
+      });
+  };
 
   ngOnInit() {
+    this.loadData();
   }
 
 }

@@ -1,12 +1,17 @@
 <section class="main-container  col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
+
   <div class="page-content">
     <div class="container p-0">
       <div class="inside-body mb-4">
-        <div class="row">
-          <app-info-shops *ngIf="data_shops" (callback)="data_shops_callback($event)" class="mb-2 col-12 p-0">
-          </app-info-shops>
-        </div>
+          <tabset>
+              <tab *ngFor="let dat of data_shops; let indice = index"
+               heading="Basic title" [id]="dat['id']">
+                  <div  class="mb-2 col-12 p-0">
+                    <p>lorem</p>
+                  </div>
+              </tab>
+          </tabset>
       </div>
     </div>
 

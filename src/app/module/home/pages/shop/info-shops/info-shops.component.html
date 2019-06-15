@@ -23,14 +23,23 @@
     </div>
   </div>
 <div *ngIf="!loading" class="block-dashboard p-2">
-  <div class="d-flex cursor-pointer" *ngFor="let dat of data; let indice = index"  [routerLink]="['/','shop','edit',dat['id']]">
-    <div class="col-2 pl-0">
+  <div class="d-flex cursor-pointer" *ngFor="let dat of data; let indice = index">
+    <div class="col-3 pl-0">
       <img class="img-cover-shop" src="https://picsum.photos/200" alt="">
     </div>
     <div class="col-9">
-      <h5><b>{{dat['name']}}</b></h5>
-      <p>{{dat['email_corporate']}}.</p>
-      <p class="text-muted">{{dat['address']}}</p>
+      <div>
+          <h5><b>{{dat['name']}}</b></h5>
+          <p>{{dat['email_corporate']}}.</p>
+          <p class="text-muted">{{dat['address']}}</p>
+      </div>
+   <div class="text-right">
+     <button 
+     [routerLink]="['/','shop','edit',dat['id']]"
+     class="btn btn-outline-seconday btn-sm">
+       Ver
+     </button>
+   </div>
     </div>
   </div>
 </div>
