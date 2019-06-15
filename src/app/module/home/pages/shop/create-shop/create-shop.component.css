@@ -12,3 +12,7 @@
     background-position: center 30px;
     background-size: 80px;
 }
+.timeline-item {
+    width: 100%;
+    max-width: 100%;
+}

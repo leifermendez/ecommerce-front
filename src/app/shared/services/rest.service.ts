@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {UtilsService} from './util.service';
-import {CookieService} from 'ngx-cookie-service';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UtilsService } from './util.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -13,8 +13,11 @@ export class RestService {
   location_zip = '';
   public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
 
-  constructor(public http: HttpClient, private router: Router, public utils: UtilsService,
-              private cookieService: CookieService) {
+  constructor(public http: HttpClient,
+    private router: Router,
+    public utils: UtilsService,
+    private cookieService: CookieService,
+  ) {
 
   }
 
@@ -61,19 +64,24 @@ export class RestService {
   }
 
   get(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.get(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
   }
 
   post(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.post(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.post(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
+  }
+
+  postMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
+    return this.check(this.http.post(this.getUrl(endpoint, params), body,
+      { headers: this.getHeadersMedia() }).toPromise());
   }
 
   put(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.put(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.put(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
   }
 
   delete(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.delete(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.delete(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
   }
 
   public getUrl(endpoint: string, params?: IUrlParams): string {
