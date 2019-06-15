@@ -4,14 +4,31 @@
   <div class="page-content">
     <div class="container p-0">
       <div class="inside-body mb-4">
-          <tabset>
-              <tab *ngFor="let dat of data_shops; let indice = index"
-               heading="Basic title" [id]="dat['id']">
-                  <div  class="mb-2 col-12 p-0">
-                    <p>lorem</p>
+        <tabset>
+          <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:16" [id]="dat['id']">
+              <div class="container p-0">
+                  <div class="row pb-2">
+                    <div class="col-4 pr-0">
+                        <app-dashboard-total class="block-dashboard min-height-300">
+                        </app-dashboard-total>
+                    </div>
+                    <div class="col-4 pr-0">
+                        <app-dashboard-total class="block-dashboard min-height-300">
+                        </app-dashboard-total>
+                    </div>
+                    <div class="col-4 pr-0">
+                        <app-dashboard-total class="block-dashboard min-height-300">
+                        </app-dashboard-total>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <app-dashboard-total class="block-dashboard min-height-300">
+                        </app-dashboard-total>
+                    </div>
                   </div>
-              </tab>
-          </tabset>
+                </div>
+          
+          </tab>
+        </tabset>
       </div>
     </div>
 
