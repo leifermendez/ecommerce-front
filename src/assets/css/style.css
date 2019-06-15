@@ -15513,10 +15513,35 @@ select#shipping-address-select {
     }
     
 .custom-drop .preview img{
-      max-height: 100px !important;
+      max-height: 120px !important;
+      border-radius: 0px !important;
+      border: solid 1px #e0e0e0;
+      opacity: 1 !important;
+      object-fit: contain !important;
+      background: #ececec !important;
+      width: 120px;
+      height: 120px;
+}
+
+.custom-drop .dropzone{
+  display: block  !important;
+  padding: 10px;
+  min-height: 180px !important;
+  height: 100%;
+}
+
+.custom-drop .preview {
+  height: inherit !important;
+  float: left;
+  padding-left: 0px !important;
+  padding-bottom: 10px !important;
+}
+.custom-drop .preview span{
+  display: none !important;
 }
 
 .custom-drop .preview:first-child img { 
-  background-color: yellow;
-  max-height: 200px !important;
+  max-height: 250px !important;
+  width: 30rem;
+  height: 250px;
 }

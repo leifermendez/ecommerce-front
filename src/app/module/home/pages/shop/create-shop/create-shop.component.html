@@ -54,10 +54,12 @@
                 <div class="block-dashboard-drop">
                     <ngx-dropzone [showPreviews]="true"
                     [accept]="'image/png,image/jpeg'"
-        
+                    #dropzone
                     [multiple]="true"
                     label="Arrastra y suelta los archivos que deseas subir"
-                    class="custom-drop"></ngx-dropzone>
+                    class="custom-drop">
+                  </ngx-dropzone>
+                  <button (click)="dropzone.reset()">Reset</button>
                 </div>
               
               </div>

@@ -56,8 +56,6 @@ export class HeaderComponent implements OnInit {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
 
-
-    
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         const _data = data.state.root.firstChild.data;
