@@ -1,17 +1,19 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot} from '@angular/router';
-import {UtilsService} from '../../../shared/services/util.service';
-import {RestService} from '../../../shared/services/rest.service';
-import {AuthshopService} from '../authshop.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot } from '@angular/router';
+import { UtilsService } from '../../../shared/services/util.service';
+import { RestService } from '../../../shared/services/rest.service';
+import { AuthshopService } from '../authshop.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable()
 export class AuthGuard implements CanLoad, CanActivate, CanActivateChild {
 
   constructor(private auth: AuthshopService,
-              private router: Router,
-              private utils: UtilsService,
-              private rest: RestService) {
+    private router: Router,
+    private utils: UtilsService,
+    private cookieService: CookieService,
+    private rest: RestService) {
   }
 
   canLoad(route: Route): Promise<boolean> {
@@ -27,24 +29,23 @@ export class AuthGuard implements CanLoad, CanActivate, CanActivateChild {
   }
 
   verify(): Promise<boolean> {
-    console.log(' Verify Called');
+
     return new Promise<boolean>(((resolve, reject) => {
-      if (!this.auth.isAuthenticated) {
+      const _current_user = this.auth.getCurrentUser();
+      if (!_current_user) {
         this.router.navigate(['/login', {}]);
         reject(false);
       } else {
-        if (!this.auth.user) {
-          this.auth.validate().then((response => {
-            // this.utils.openSnackBar('Validado con exito', 'success');
-            resolve(true);
-          }).bind(this)).catch((error) => {
-            reject(false);
-          });
-        } else {
-          console.log('Success');
-          resolve(true);
-        }
+        resolve(true)
       }
+
+      /*this.auth.validate().then((response => {
+        this.utils.openSnackBar('Validado con exito', 'success');
+        resolve(true);
+      }).bind(this)).catch((error) => {
+        reject(false);
+      });*/
+
     }).bind(this));
   }
 }

@@ -72,7 +72,8 @@ export class ZipLocationComponent implements OnInit {
             this.cookieService.set(
               '_location_zip_code',
               _cookie_data,
-              this.nowCookies);
+              this.nowCookies,
+              '/');
             this.util.getLocation.emit(this.data);
             this.bsModalRef.hide();
           } else {

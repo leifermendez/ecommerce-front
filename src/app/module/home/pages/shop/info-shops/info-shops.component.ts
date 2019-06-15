@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {FormGroup} from '@angular/forms';
 
@@ -8,9 +8,10 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./info-shops.component.css']
 })
 export class InfoShopsComponent implements OnInit {
+  @Output() callback = new EventEmitter<any>();
   public user_data: any = null;
   public form: any = FormGroup;
-  public data: any = {};
+  public data: any = [];
   public editform: any = {};
   public avatarFile: any = null;
   loading = false;
@@ -30,6 +31,7 @@ export class InfoShopsComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data = response['data']['data'];
+          this.callback.emit(this.data);
         }
       });
   };

@@ -60,6 +60,7 @@ import { ShopCifComponent } from './module/home/pages/shop/shop-cif/shop-cif.com
 import { ShopComponent } from './module/home/pages/shop/shop.component';
 import { InfoShopComponent } from './module/home/pages/shop/info-shop/info-shop.component';
 import { InfoShopsComponent } from './module/home/pages/shop/info-shops/info-shops.component';
+import { CreateShopComponent } from './module/home/pages/shop/create-shop/create-shop.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -124,6 +125,7 @@ export class MyIntl extends TimeagoIntl {
     ShopComponent,
     InfoShopComponent,
     InfoShopsComponent,
+    CreateShopComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

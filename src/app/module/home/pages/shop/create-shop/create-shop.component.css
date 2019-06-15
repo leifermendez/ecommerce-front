@@ -1,0 +1,13 @@
+.block-dashboard-drop{
+    width:100%;
+    margin: 20px;
+}
+.custom-drop{
+    border: solid 1px #e6e6e6;
+    border-radius: 3px;
+    min-height: 350px;
+    background-image: url(../../../../../../assets/images/gallery.svg);
+    background-repeat: no-repeat;
+    background-position: center 30px;
+    background-size: 80px;
+}

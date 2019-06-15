@@ -3,50 +3,9 @@
   <div class="page-content">
     <div class="container p-0">
       <div class="inside-body mb-4">
-        <div class="pt-2">
-          <div class="row">
-            <div class="col-8 offset-2">
-              <div>
-                <h3><b>Comienza a vender</b></h3>
-                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia repellat velit,
-                  expedita dolores
-                  maxime dolor. Mollitia atque sed nihil necessitatibus minus unde odit culpa accusamus alias,
-                  reprehenderit repudiandae, distinctio accusantium.</p>
-                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia repellat velit,
-                  expedita dolores
-                  maxime dolor. Mollitia atque sed nihil necessitatibus minus unde odit culpa accusamus alias,
-                  reprehenderit repudiandae, distinctio accusantium.</p>
-
-              </div>
-
-              <div class="d-flex">
-                <div class="col-12 p-0 mt-4">
-                  <app-shop-cif (callback)="cif_callback($event)" class="block-dashboard mb-2"></app-shop-cif>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 ">
-              <app-info-shops class="mb-2 mt-2"></app-info-shops>
-              <app-info-shop class="block-dashboard mb-2 mt-2"></app-info-shop>
-            </div>
-            <!--            <div *ngIf="cif_flag">-->
-            <!--              <div class="col-12">-->
-            <!--                <app-info-profile class="block-dashboard mb-2"></app-info-profile>-->
-            <!--              </div>-->
-            <!--              <div class="col-12">-->
-            <!--                <app-info-account class="block-dashboard mb-2"></app-info-account>-->
-            <!--              </div>-->
-            <!--              <div class="col-6 ">-->
-            <!--                politi-->
-            <!--                <app-info-address class="block-dashboard mb-2 mt-2"></app-info-address>-->
-            <!--              </div>-->
-            <!--              <div class="col-6 pl-0">-->
-            <!--                terms-->
-            <!--                <app-info-bank class="block-dashboard mb-2 mt-2"></app-info-bank>-->
-            <!--              </div>-->
-            <!--            </div>-->
-          </div>
+        <div class="row">
+          <app-info-shops *ngIf="data_shops" (callback)="data_shops_callback($event)" class="mb-2 col-12 p-0">
+          </app-info-shops>
         </div>
       </div>
     </div>

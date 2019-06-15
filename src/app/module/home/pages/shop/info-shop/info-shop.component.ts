@@ -1,28 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthshopService} from '../../../../auth/authshop.service';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {UtilsService} from '../../../../../shared/services/util.service';
+import { Component, OnInit, Input, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthshopService } from '../../../../auth/authshop.service';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { UtilsService } from '../../../../../shared/services/util.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-shop',
   templateUrl: './info-shop.component.html',
   styleUrls: ['./info-shop.component.css']
 })
-export class InfoShopComponent implements OnInit {
-
+export class InfoShopComponent implements OnInit, AfterViewInit {
+  @Input() data_inside: any = {};
+  @Input() id: any = null;
+  @Output() callback = new EventEmitter<any>();
   public user_data: any = null;
   public form: any = FormGroup;
   public data: any = {};
   public editform: any = {};
-  public id: any = null;
   loading = false;
   public waitCode: any = null;
   public codeValidation = null;
   public dataTmp: any = null;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
-              private rest: RestService, public util: UtilsService) {
+    private rest: RestService, public util: UtilsService,
+    private router: Router) {
+
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
       'legal_id': [null, Validators.compose([Validators.required])],
@@ -40,19 +44,28 @@ export class InfoShopComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('aa-----',this.id)
+    if (!this.id) {
+      this.editform = { ...this.editform, ...this.data_inside }
+    } else {
+      this.loadData(this.id)
+    }
 
   }
 
+  ngAfterViewInit = () => {
+
+  }
 
   loadData = (id) => {
     this.loading = true;
     this.user_data = this.auth.getCurrentUser();
-    this.rest.get(`/rest/user/${id}`)
+    this.rest.get(`/rest/shop/${id}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
-          this.editform = {...response['data']};
+          this.editform = { ...response['data'] };
           console.log(this.editform);
         }
       });
@@ -69,13 +82,11 @@ export class InfoShopComponent implements OnInit {
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
-            // this.editform['email'] = this.user_data['email'];
-            // this.editform = {...response['data'], ...{email: this.user_data['email']}};
-            // this.auth.updateUser(,data);
+            this.router.navigateByUrl('/shop');
           }
         }).catch(err => {
-        this.loading = false;
-      });
+          this.loading = false;
+        });
     }
   };
 

@@ -45,7 +45,8 @@ export class AuthshopService {
               this.cookieService.set(
                 '_currentUser',
                 JSON.stringify(response.data),
-                this.nowCookies
+                this.nowCookies,
+                '/'
               );
 
               resolve(response.data);
@@ -80,8 +81,10 @@ export class AuthshopService {
           this.cookieService.set(
             '_currentUser',
             JSON.stringify(_tmp_current),
-            this.nowCookies
+            this.nowCookies,
+            '/'
           );
+          
           this.waiting = false;
           console.log('Second Validation');
           resolve(response.message);
@@ -134,7 +137,8 @@ export class AuthshopService {
       this.cookieService.set(
         '_currentUser',
         JSON.stringify(_parseCurrent),
-        this.nowCookies
+        this.nowCookies,
+        '/'
       );
       return true;
     } else {

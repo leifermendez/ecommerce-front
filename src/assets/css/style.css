@@ -15511,3 +15511,12 @@ select#shipping-address-select {
     -o-transition: height, 0.2s linear;
     transition: height, 0.2s linear;
     }
+    
+.custom-drop .preview img{
+      max-height: 100px !important;
+}
+
+.custom-drop .preview:first-child img { 
+  background-color: yellow;
+  max-height: 200px !important;
+}

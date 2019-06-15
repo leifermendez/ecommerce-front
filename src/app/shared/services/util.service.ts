@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import {Injectable, EventEmitter, Output} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
-import {settings} from '../settings';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { settings } from '../settings';
 
 declare var $: any;
 
@@ -55,10 +55,16 @@ export class UtilsService {
     }
 
   }
+  //   /(\/shop\/edit\/.*)/i;
 
-  checkH = (p = null, router = null) => {
-    const _a = this._settings[p].find(a => a === router);
-    return !!(_a);
+  checkH = async (p = null, router = null) => {
+    let _b = false;
+    const _b1 = this._settings[p].map(b => {
+      const expresion = new RegExp(b, "i");
+      _b = (router.match(expresion));
+      return _b
+    })
+    return await Promise.all(_b1);
   };
 
   getZipCookie = () => {

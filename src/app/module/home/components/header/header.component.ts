@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UtilsService} from '../../../../shared/services/util.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
 import {AppComponent} from '../../../../app.component';
 import {TranslateService} from '@ngx-translate/core';
@@ -16,8 +16,8 @@ declare var $: any;
 
 export class HeaderComponent implements OnInit {
   public location: any = null;
-  header = false;
-  subMenu = false;
+  public header = false;
+  public subMenu = false;
   public user_data: any = null;
   public number_items = 0;
   public activeLang = 'es';
@@ -37,10 +37,7 @@ export class HeaderComponent implements OnInit {
       this.user_data = data;
     });
 
-    this.router.events.subscribe(() => {
-      this.header = this.util.checkH('header', this.router.url);
-      this.subMenu = this.util.checkH('subMenu', this.router.url);
-    });
+
   }
 
   scrollTop = (aid) => {
@@ -58,6 +55,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
+
+
+    
+    this.router.events.subscribe((data) => {
+      if (data instanceof RoutesRecognized) {
+        const _data = data.state.root.firstChild.data;
+        this.header = (_data['header'])
+        this.subMenu = (_data['subMenu'])
+      }
+    });
   }
   public editLenguaje(lang) {
     console.log('clickee idioma');

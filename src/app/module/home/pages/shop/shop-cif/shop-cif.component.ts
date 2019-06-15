@@ -39,7 +39,7 @@ export class ShopCifComponent implements OnInit {
           this.loading = false;
           if (response['data']) {
             this.validateFlag = true;
-            this.callback.emit(this.validateFlag);
+            this.callback.emit(this.editform['cif']);
             this.clickElementHidden();
           }
         }

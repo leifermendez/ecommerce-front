@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, RoutesRecognized} from '@angular/router';
 
 import {UtilsService} from '../../../../shared/services/util.service';
 
@@ -14,13 +14,16 @@ export class FooterComponent implements OnInit {
 
   constructor(private router: Router,
               private util: UtilsService) {
-    this.router.events.subscribe(() => {
-      this.footer = this.util.checkH('footer', this.router.url);
-    });
+
   }
 
   ngOnInit() {
-
+    this.router.events.subscribe((data) => {
+      if (data instanceof RoutesRecognized) {
+        const _data = data.state.root.firstChild.data;
+        this.footer = (_data['footer'])
+      }
+    });
   }
 
 }

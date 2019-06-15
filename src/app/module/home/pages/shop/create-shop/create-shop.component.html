@@ -1,0 +1,72 @@
+<section class="main-container  col2-right-layout mt-0">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+
+        <div *ngIf="!id">
+          <div class="row" *ngIf="!cif_flag">
+            <div class="col-8 offset-2">
+              <div>
+                <h3><b>Comienza a vender</b></h3>
+                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia repellat velit,
+                  expedita dolores
+                  maxime dolor. Mollitia atque sed nihil necessitatibus minus unde odit culpa accusamus alias,
+                  reprehenderit repudiandae, distinctio accusantium.</p>
+                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia repellat velit,
+                  expedita dolores
+                  maxime dolor. Mollitia atque sed nihil necessitatibus minus unde odit culpa accusamus alias,
+                  reprehenderit repudiandae, distinctio accusantium.</p>
+
+              </div>
+
+              <div class="d-flex">
+                <div class="col-12 p-0 mt-4">
+                  <app-shop-cif (callback)="cif_callback($event)" class="block-dashboard mb-2"></app-shop-cif>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row" *ngIf="cif_flag">
+            <div class="col-12">
+              <app-info-shop [data_inside]="data_inside" class="block-dashboard mb-2 col-12 p-0">
+              </app-info-shop>
+            </div>
+
+          </div>
+        </div>
+        <div *ngIf="id">
+          <tabset>
+            <tab heading="Informacion" id="tab1">
+              <div class="row">
+                <div class="col-12">
+                  <app-info-shop [data_inside]="data_inside" 
+                  [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                  </app-info-shop>
+                </div>
+
+              </div>
+            </tab>
+            <tab heading="Galeria">
+              <div class="row">
+                <div class="block-dashboard-drop">
+                    <ngx-dropzone [showPreviews]="true"
+                    [accept]="'image/png,image/jpeg'"
+        
+                    [multiple]="true"
+                    label="Arrastra y suelta los archivos que deseas subir"
+                    class="custom-drop"></ngx-dropzone>
+                </div>
+              
+              </div>
+            </tab>
+          </tabset>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

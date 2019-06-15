@@ -12,4 +12,5 @@
 .timeline-item{
   min-height: 405px;
   margin: 0;
+  max-width: inherit
 }

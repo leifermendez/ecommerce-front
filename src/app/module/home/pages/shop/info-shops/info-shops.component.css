@@ -22,3 +22,9 @@
   height: 150px;
   object-fit: cover;
 }
+.timeline-item{
+  min-height: 405px;
+  margin: 0;
+  max-width: inherit
+}
+
