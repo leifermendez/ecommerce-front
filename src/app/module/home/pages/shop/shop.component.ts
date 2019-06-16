@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {RestService} from '../../../../shared/services/rest.service';
+import { RestService } from '../../../../shared/services/rest.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-shop',
@@ -13,6 +14,7 @@ export class ShopComponent implements OnInit {
   public data_shops: any = [];
   public data_inside: any = {}
   public loading = false;
+  public rangeDate: any;
 
   constructor(private router: Router,
     private rest: RestService) {
@@ -42,6 +44,12 @@ export class ShopComponent implements OnInit {
   };
 
   ngOnInit() {
+    const _start = moment().toDate();
+    const _finish = moment().add(15, 'days');
+    this.rangeDate = {
+      startDate: _start,
+      endDate: _finish
+    };
     this.loadData();
   }
 

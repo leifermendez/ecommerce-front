@@ -23,3 +23,16 @@
   margin: 0;
   max-width: 100%
 }
+
+.form-input-data-ng{
+  font-size: 12px;
+  border: solid 1px #e4e4e4;
+  margin-left: 10px;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #fdfdfd;
+}
+
+.setting-button{
+  background-color: transparent
+}

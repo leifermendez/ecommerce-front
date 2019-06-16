@@ -57,6 +57,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { WizardOverlayComponent } from './wizard-overlay/wizard-overlay.component';
 import {TabsModule} from 'ngx-bootstrap';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { ShopCifComponent } from './module/home/pages/shop/shop-cif/shop-cif.component';
 import { ShopComponent } from './module/home/pages/shop/shop.component';
 import { InfoShopComponent } from './module/home/pages/shop/info-shop/info-shop.component';
@@ -149,6 +150,7 @@ export class MyIntl extends TimeagoIntl {
     NgxStarsModule,
     NgxFlagIconCssModule,
     ChartModule,
+    NgxDaterangepickerMd.forRoot(),
     TabsModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),

@@ -5,57 +5,74 @@
     <div class="container p-0">
       <div class="inside-body mb-4">
 
-    <div *ngIf="loading" class="p-2">
-        <div class="timeline-item">
-          <div class="animated-background" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-  
-          </div>
-          <div class="animated-background mt-3" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-  
+        <div *ngIf="loading" class="p-2">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
           </div>
         </div>
-      </div>
         <tabset *ngIf="!loading">
           <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:16" [id]="dat['id']">
-              <div class="container p-0">
-                  <div class="row pb-2">
-                    <div class="col-4 pr-0">
-                      ventas
-                        <app-dashboard-total class="block-dashboard min-height-300">
-                        </app-dashboard-total>
+            <div class="container p-0">
+              <div class="row pb-2">
+                <div class="col-12 pl-2 pr-2 mb-2 d-flex justify-content-between">
+                  <input type="text" ngxDaterangepickerMd 
+                  [(ngModel)]="rangeDate" 
+                  class="form-control form-input-data-ng col-2" />
+                  <div class="col-2 text-right">
+                      <button 
+                      [routerLink]="['/','shop','edit',dat['id']]"
+                      class="btn btn-link btn-sm setting-button">
+                        <fa name="cog"></fa> Ajustes
+                      </button>
                     </div>
-                    <div class="col-4 pr-0">
-                      productos mas vendidos
-                        <app-dashboard-total class="block-dashboard min-height-300">
-                        </app-dashboard-total>
-                    </div>
-                    <div class="col-4 pr-0">
-                      pedidos
-                        <app-dashboard-total class="block-dashboard min-height-300">
-                        </app-dashboard-total>
-                    </div>
-                    <div class="col-12 mt-3">
-                      inbox
-                        <app-dashboard-total class="block-dashboard min-height-300">
-                        </app-dashboard-total>
-                    </div>
-                  </div>
                 </div>
+            
+                <div class="col-4 pr-0">
+            
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  ventas
+                </div>
+                <div class="col-4 pr-0">
+            
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  productos mas vendidos
+                </div>
+                <div class="col-4 pr-0">
           
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  pedidos
+                </div>
+                <div class="col-12 mt-3">
+             
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  inbox
+                </div>
+              </div>
+            </div>
+
           </tab>
         </tabset>
       </div>

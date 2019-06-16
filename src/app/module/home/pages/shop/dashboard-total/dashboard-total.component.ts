@@ -31,7 +31,15 @@ export class DashboardTotalComponent implements OnInit {
       },
       series: [  {
         name: 'Line 1',
-        data: [1, 2, 3],
+        data: [
+          [1293580800000, 46.47],
+          [1293667200000, 46.24],
+          [1293753600000, 46.08],
+          /* Jan 2011 */
+          [1294012800000, 47.08],
+          [1294099200000, 47.33],
+          [1294185600000, 47.71],
+        ],
         type: undefined
       }]
     });
