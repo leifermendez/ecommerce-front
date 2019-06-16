@@ -1,3 +1,10 @@
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
 .card-header, .card-footer {
   background-color: transparent !important;
 }
