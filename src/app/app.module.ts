@@ -15,6 +15,7 @@ import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import { ChartModule } from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -147,6 +148,7 @@ export class MyIntl extends TimeagoIntl {
     NgxDropzoneModule,
     NgxStarsModule,
     NgxFlagIconCssModule,
+    ChartModule,
     TabsModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),

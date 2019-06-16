@@ -17,3 +17,9 @@
   border: 0px !important;
   border-radius: 0px;
 }
+
+.timeline-item{
+  min-height: 405px;
+  margin: 0;
+  max-width: 100%
+}

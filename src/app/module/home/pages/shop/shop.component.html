@@ -4,23 +4,52 @@
   <div class="page-content">
     <div class="container p-0">
       <div class="inside-body mb-4">
-        <tabset>
+
+    <div *ngIf="loading" class="p-2">
+        <div class="timeline-item">
+          <div class="animated-background" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+  
+          </div>
+          <div class="animated-background mt-3" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+  
+          </div>
+        </div>
+      </div>
+        <tabset *ngIf="!loading">
           <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:16" [id]="dat['id']">
               <div class="container p-0">
                   <div class="row pb-2">
                     <div class="col-4 pr-0">
+                      ventas
                         <app-dashboard-total class="block-dashboard min-height-300">
                         </app-dashboard-total>
                     </div>
                     <div class="col-4 pr-0">
+                      productos mas vendidos
                         <app-dashboard-total class="block-dashboard min-height-300">
                         </app-dashboard-total>
                     </div>
                     <div class="col-4 pr-0">
+                      pedidos
                         <app-dashboard-total class="block-dashboard min-height-300">
                         </app-dashboard-total>
                     </div>
                     <div class="col-12 mt-3">
+                      inbox
                         <app-dashboard-total class="block-dashboard min-height-300">
                         </app-dashboard-total>
                     </div>
