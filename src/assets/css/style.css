@@ -15545,3 +15545,8 @@ select#shipping-address-select {
   width: 30rem;
   height: 250px;
 }
+
+.video-banner video{
+    height: 460px;
+    object-fit: cover;
+}
