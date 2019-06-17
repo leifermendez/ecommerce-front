@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './module/home/pages/home/home.component';
-import { LoginComponent } from './module/auth/pages/login/login.component';
-import { AuthGuard } from './module/auth/guards/auth.guard';
-import { ProfileComponent } from './module/home/pages/profile/profile.component';
-import { DashboardComponent } from './module/home/pages/dashboard/dashboard.component';
-import { ShopComponent } from './module/home/pages/shop/shop.component';
-import { CreateShopComponent } from './module/home/pages/shop/create-shop/create-shop.component';
-import { ShipmentsComponent } from './module/home/pages/shipments/shipments.component';
-import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
-import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent} from './module/home/pages/home/home.component';
+import {LoginComponent} from './module/auth/pages/login/login.component';
+import {AuthGuard} from './module/auth/guards/auth.guard';
+import {ProfileComponent} from './module/home/pages/profile/profile.component';
+import {DashboardComponent} from './module/home/pages/dashboard/dashboard.component';
+import {ShopComponent} from './module/home/pages/shop/shop.component';
+import {CreateShopComponent} from './module/home/pages/shop/create-shop/create-shop.component';
+import {ShipmentsComponent} from './module/home/pages/shipments/shipments.component';
+import {TransactionsComponent} from './module/home/pages/transactions/transactions.component';
+import {PurchaseComponent} from './module/home/pages/purchase/purchase.component';
+import {SinglePurchaseComponent} from './module/home/pages/single-purchase/single-purchase.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {
     path: 'login',
     component: LoginComponent,
@@ -98,7 +99,17 @@ const routes: Routes = [
       footer: true
     },
   },
-  { path: '**', component: HomeComponent },
+  {
+    path: 'purchases/:id',
+    component: SinglePurchaseComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {path: '**', component: HomeComponent},
 ];
 
 @NgModule({

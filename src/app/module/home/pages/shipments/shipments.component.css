@@ -1,25 +1,30 @@
 .title-content {
-    font-weight: bold;
-  }
-  
-  .block-dashboard {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-    display: block;
-    padding: 0;
-    background-color: white;
-  }
-  
-  .card-header, .card-footer {
-    background-color: transparent !important;
-  }
-  
-  .card {
-    border: 0px !important;
-    border-radius: 0px;
-  }
-  .block-dashboard {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-    display: block;
-    padding: 0;
-    background-color: white;
-  }
+  font-weight: bold;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.card-header, .card-footer {
+  background-color: transparent !important;
+}
+
+.card {
+  border: 0px !important;
+  border-radius: 0px;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.table td, .table th {
+  border: 0px
+}

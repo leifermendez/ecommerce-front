@@ -30,48 +30,46 @@
         </div>
         <tabset *ngIf="!loading">
           <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:16" [id]="dat['id']">
-            <div class="container p-0">
-              <div class="row pb-2">
-                <div class="col-12 pl-2 pr-2 mb-2 d-flex justify-content-between">
-                  <input type="text" ngxDaterangepickerMd 
-                  [(ngModel)]="rangeDate" 
-                  class="form-control form-input-data-ng col-2" />
+            <div class="container">
+              <div class="row">
+                <div class="col-12 p-0 mb-2 ml-1 mr-1 d-flex justify-content-between">
+                  <input type="text" ngxDaterangepickerMd
+                         [(ngModel)]="rangeDate"
+                         class="form-control m-0 form-input-data-ng col-2" />
                   <div class="col-2 text-right">
-                      <button 
+                    <button
                       [routerLink]="['/','shop','edit',dat['id']]"
                       class="btn btn-link btn-sm setting-button">
-                        <fa name="cog"></fa> Ajustes
-                      </button>
-                    </div>
+                      <fa name="cog"></fa> Ajustes
+                    </button>
+                  </div>
                 </div>
-            
-                <div class="col-4 pr-0">
-            
+                <div class="col-4 pl-1">
+
                   <app-dashboard-total class="block-dashboard min-height-300">
                   </app-dashboard-total>
                   ventas
                 </div>
-                <div class="col-4 pr-0">
-            
+                <div class="col-4 pl-1">
+
                   <app-dashboard-total class="block-dashboard min-height-300">
                   </app-dashboard-total>
                   productos mas vendidos
                 </div>
-                <div class="col-4 pr-0">
-          
+                <div class="col-4 pl-1">
+
                   <app-dashboard-total class="block-dashboard min-height-300">
                   </app-dashboard-total>
                   pedidos
                 </div>
-                <div class="col-12 mt-3">
-             
+                <div class="col-12 pl-1 mt-3">
+
                   <app-dashboard-total class="block-dashboard min-height-300">
                   </app-dashboard-total>
                   inbox
                 </div>
               </div>
             </div>
-
           </tab>
         </tabset>
       </div>

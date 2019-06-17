@@ -69,6 +69,7 @@ import { DashboardReviewsComponent } from './module/home/pages/shop/dashboard-re
 import { ShipmentsComponent } from './module/home/pages/shipments/shipments.component';
 import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
 import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
+import { SinglePurchaseComponent } from './module/home/pages/single-purchase/single-purchase.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -139,6 +140,7 @@ export class MyIntl extends TimeagoIntl {
     ShipmentsComponent,
     TransactionsComponent,
     PurchaseComponent,
+    SinglePurchaseComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

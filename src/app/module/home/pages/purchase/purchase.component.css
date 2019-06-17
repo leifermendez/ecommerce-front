@@ -1,26 +1,55 @@
 .title-content {
-    font-weight: bold;
-  }
-  
-  .block-dashboard {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-    display: block;
-    padding: 0;
-    background-color: white;
-  }
-  
-  .card-header, .card-footer {
-    background-color: transparent !important;
-  }
-  
-  .card {
-    border: 0px !important;
-    border-radius: 0px;
-  }
-  
-  .block-dashboard {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-    display: block;
-    padding: 0;
-    background-color: white;
-  }
+  font-weight: bold;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.timeline-item {
+  max-width: 100%;
+}
+
+.card-header, .card-footer {
+  background-color: transparent !important;
+}
+
+.card {
+  border: 0px !important;
+  border-radius: 0px;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.table td, .table th {
+  border: 0px
+}
+
+.img-contain {
+  object-fit: contain;
+}
+
+.list-table-item {
+  background-color: white;
+  box-shadow: 0px 0px 5px #f1f1f1
+}
+
+.bg-table {
+  background: #fbfbfb;
+}
+
+.image-bran {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
+}

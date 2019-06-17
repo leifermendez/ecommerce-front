@@ -1,27 +1,122 @@
 <section class="main-container col2-right-layout mt-0">
-    <app-sidebar></app-sidebar>
-    <div class="page-content">
-      <div class="container p-0">
-        <div class="inside-body mb-4">
-          <div class="pt-2">
-            <div class="row">
-              <div class="col-6">
-                <app-info-profile class="block-dashboard mb-2"></app-info-profile>
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+        <div class="pt-2">
+          <div class="row">
+            <div class="col-12">
+              <div *ngIf="loading">
+                <div class="timeline-item ">
+                  <div class="animated-background" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                </div>
               </div>
-              <div class="col-6 pl-0">
-                <app-info-account class="block-dashboard mb-2"></app-info-account>
-              </div>
-              <div class="col-6 ">
-                <app-info-address class="block-dashboard mb-2 mt-2"></app-info-address>
-              </div>
-              <div class="col-6 pl-0">
-                <app-info-bank class="block-dashboard mb-2 mt-2"></app-info-bank>
+              <div *ngIf="!loading" class="card block-dashboard border-0">
+                <div class="card-header"><b>Compras</b></div>
+                <div class="col p-0 bg-table min-height-300">
+                  <table *ngIf="data && data['data'].length" class="table table-shipment">
+                    <thead>
+                    <tr>
+                      <th scope="col" style="width: 100px"></th>
+                      <th scope="col"></th>
+                      <th scope="col" style="width: 100px">Comision</th>
+                      <th scope="col" style="width: 100px">Envio</th>
+                      <th scope="col" class="text-center" style="width: 100px">Estatus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let dat of data['data'];let i = index"
+                        [routerLink]="['/','purchases',dat['id']]"
+                        class="list-table-item cursor-pointer">
+                      <td>
+                        <img src="https://www.vectorlogo.es/wp-content/uploads/2019/04/logo-vector-mediamarkt.jpg"
+                             width="100px"
+                             class="image-bran"
+                             height="100px"
+                             alt="">
+                      </td>
+                      <td>
+                        <div>
+                          <h6>
+                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
+                          </h6>
+                        </div>
+                        <small class="text-muted form-text">{{dat['uuid']}}</small>
+                      </td>
+                      <td>
+                        <span class="text-muted">
+                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
+                        </span>
+                      </td>
+                      <td>
+                          <span>
+                          <h6><b>{{dat['feed'] |number:'1.2-2'}}</b></h6>
+                        </span>
+                      </td>
+                      <td class="text-center">
+                        <div [tooltip]="dat['status']">
+                          <fa name="history" animation="spin" size="2x" class="text-muted"></fa>
+<!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+                    <img src="../../../../../assets/images/paper-bag.svg"
+                         class="mt-4"
+                         width="100px" alt="">
+                    <div class="mt-2">
+                      <p class="text-muted">Aun no tienes compras</p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-  
     </div>
-  </section>
-  
+
+  </div>
+</section>
