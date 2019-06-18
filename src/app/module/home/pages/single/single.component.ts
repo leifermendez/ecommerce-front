@@ -14,7 +14,7 @@ export class SingleComponent implements OnInit {
   count: any = 1;
   variation: any = [];
 
-  selectedvariationName = '';
+  selectedvariationName: any;
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent) { }
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class SingleComponent implements OnInit {
         if (response.status === 'success') {
           this.data = response.data;
           this.variation = response.data.variations.item;
+          this.selectedvariationName = response.data.variation.item[0];
         }
       });
   }

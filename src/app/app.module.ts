@@ -70,6 +70,7 @@ import { ShipmentsComponent } from './module/home/pages/shipments/shipments.comp
 import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
 import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
 import { SingleComponent } from './module/home/pages/single/single.component';
+import { SearchComponent } from './module/home/components/search/search.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -141,6 +142,7 @@ export class MyIntl extends TimeagoIntl {
     TransactionsComponent,
     PurchaseComponent,
     SingleComponent,
+    SearchComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

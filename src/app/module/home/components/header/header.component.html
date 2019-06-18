@@ -7,8 +7,13 @@
           <div><img src="assets/images/logo-apatxee.png" height="50" alt="Flavours Store"></div>
         </a></div>
         <div class="fl-nav-menu-search">
-          <ng-select (focus)="searchFocus()" placeholder="Busca productos, marcas y más..."
-                     class="custom-select-search-item"></ng-select>
+
+
+          <div class="custom-select-search-item">
+            <app-search  class="custom-select-search-item"></app-search>
+          </div>
+
+
           <small *ngIf="location">
             <span class="cursor-pointer" (click)="openZip()">
                   <fa name="map-marker"></fa>

@@ -1,0 +1,13 @@
+<ng-select [items]="datafilter"
+           bindLabel="name"
+           bindValue="id"
+           placeholder="Select variation">
+  <ng-template ng-label-tmp let-item="item">
+    <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>
+    <b>&nbsp;{{item.name}}</b>
+  </ng-template>
+  <ng-template ng-option-tmp let-item="item" let-index="index">
+    <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>
+    <b>&nbsp;{{item.name}}</b>
+  </ng-template>
+</ng-select>

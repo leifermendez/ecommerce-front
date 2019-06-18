@@ -61,16 +61,17 @@
                              bindValue="id"
                              placeholder="Select variation"
                              [(ngModel)]="selectedvariationName">
-                    <!--<ng-template ng-label-tmp let-item="item">-->
-                      <!--<img height="15" width="15" [src]="item.attacheds_small"/>-->
-                      <!--<b>{{item.label}}</b> Variable-->
-                    <!--</ng-template>-->
+                    <ng-template ng-label-tmp let-item="item">
+                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <b>&nbsp;{{item.label}}</b>
+                    </ng-template>
                     <ng-template ng-option-tmp let-item="item" let-index="index">
-                      <img height="15" width="15" [src]="item.attacheds_small"/>
-                      <b>{{item.label}}</b>
+                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <b>&nbsp;{{item.label}}</b>
                     </ng-template>
                   </ng-select>
                   <br>
+
 
                   <div class="add-to-box">
                     <div class="add-to-cart">
@@ -138,7 +139,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid border-booton-solid">
+            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid ">
               <div class="container">
                 <div class="row">
                   <br>
@@ -146,6 +147,69 @@
                     Ubicación <br>
                    <i class="fa fa-map-marker"></i> {{data.shop_address}}
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h2>Caracteristicas</h2>
+                  </div>
+                  <div class="col-6 ">
+                    COLOR
+                  </div>
+                  <div class="col-6 ">
+                    COMIDA
+                  </div>
+                  <div class="col-6 ">
+                    COLOR
+                  </div>
+                  <div class="col-6 ">
+                    COMIDA
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-12 ">
+                    <h2>Opiniones sobre el producto</h2>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-12">
+                    <div itemprop="aggregateRating" itemscope="" >
+                      <div class="rating">
+                        <div class="ratings">
+                          <div class="rating-box">
+                            <div class="rating" style="width:50%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Genial exelente</h5>
+                    <p>hasta ahora todo bien todo. ssdfsfd</p>
+                  </div>
+                  <br>
+                  <div class="col-12">
+                    <div itemprop="aggregateRating" itemscope="" >
+                      <div class="rating">
+                        <div class="ratings">
+                          <div class="rating-box">
+                            <div class="rating" style="width:50%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Genial exelente</h5>
+                    <p>hasta ahora todo bien todo. ssdfsfd</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid border-booton-solid">
+              <div class="container">
+                <div class="row">
+                  <br>
+
                 </div>
               </div>
             </div>
