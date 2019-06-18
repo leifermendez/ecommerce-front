@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthshopService} from '../../../../auth/authshop.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,11 +10,14 @@ import {AuthshopService} from '../../../../auth/authshop.service';
 export class SidebarComponent implements OnInit {
   @Input() type = null;
   public data: any = null;
+  public show_toggle:any = false;
 
-  constructor(private auth: AuthshopService) {
+  constructor(private auth: AuthshopService,
+    private cookieService: CookieService) {
   }
 
   ngOnInit() {
+    this.show_toggle = this.cookieService.get('_wizard_dashboard');
     this.data = this.auth.getCurrentUser();
   }
 

@@ -9,7 +9,7 @@
             height="50px" alt="">
         </div>
         <div class="icon-setting">
-          <fa name="th-list"></fa>
+          <fa name="toggle-on"></fa>
         </div>
       </li>
       <!--      <li [routerLink]="['/','dashboard']">-->
@@ -96,8 +96,8 @@
             [src]="data['avatar']" width="50px"
             height="50px" alt="">
         </div>
-        <div class="icon-setting">
-          <fa name="th-list"></fa>
+        <div *ngIf="show_toggle" class="icon-setting">
+          <fa name="toggle-on"></fa>
         </div>
       </li>
       <!--      <li [routerLink]="['/','dashboard']">-->

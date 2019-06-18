@@ -135,9 +135,6 @@ export class AuthshopService {
       let _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
         JSON.parse(this.cookieService.get('_currentUser')) : null;
       _parseCurrent[key] = data;
-      console.log(_parseCurrent);
-      console.log('key-->', key);
-      console.log('data-->', data);
       this.cookieService.set(
         '_currentUser',
         JSON.stringify(_parseCurrent),

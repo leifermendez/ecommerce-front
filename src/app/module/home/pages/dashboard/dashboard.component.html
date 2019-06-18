@@ -5,7 +5,7 @@
 
       <div class="inside-body mb-4">
         <div class="">
-          <div class="row">
+          <div *ngIf="!show_toggle" class="row">
             <div class="col-8 offset-2 text-center pt-4">
               <h2>Bienvenido a tu panel de administracion <b>{{data['name']}}</b></h2>
               <p class="mt-4 mb-4 text-muted">
@@ -16,17 +16,19 @@
 
               <div class="block-dashboard mt-4">
                 <tabset>
-                  <tab heading="SOY COMPRADOR" (selectTab)="switch('user')" id="tab1">
+                  <tab heading="SOY COMPRADOR" id="tab1">
                     <div class="mt-4 mb-4">
                       <img src="../../../../../assets/images/shopping.svg" width="150px" alt="">
                       <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
+                      <button class="btn btn-default" (click)="skip_welcome('user')">A</button>
                     </div>
 
                   </tab>
-                  <tab heading="SOY PEQUEÑO COMERCIO" (selectTab)="switch('shop')">
+                  <tab heading="SOY PEQUEÑO COMERCIO">
                     <div class="mt-4 mb-4">
                       <img src="../../../../../assets/images/store.svg" width="150px" alt="">
                       <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
+                      <button class="btn btn-default" (click)="skip_welcome('shop')">A</button>
                     </div>
                   </tab>
                 </tabset>
