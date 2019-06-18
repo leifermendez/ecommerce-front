@@ -10,6 +10,7 @@ import { CreateShopComponent } from './module/home/pages/shop/create-shop/create
 import { ShipmentsComponent } from './module/home/pages/shipments/shipments.component';
 import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
 import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
+import {SingleComponent} from './module/home/pages/single/single.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -46,6 +47,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
+      footer: true
+    }
+  },
+  {
+    path: 'single/:id',
+    component: SingleComponent,
+    pathMatch: 'full',
+    data: {
       footer: true
     }
   },
