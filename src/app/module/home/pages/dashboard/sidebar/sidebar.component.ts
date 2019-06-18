@@ -16,6 +16,8 @@ export class SidebarComponent implements OnInit {
     private cookieService: CookieService) {
   }
 
+  swtich = (type) => this.type = type
+
   ngOnInit() {
     this.show_toggle = this.cookieService.get('_wizard_dashboard');
     this.data = this.auth.getCurrentUser();
