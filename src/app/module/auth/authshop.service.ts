@@ -41,6 +41,7 @@ export class AuthshopService {
             const token = response.data['token'];
             if (token) {
               this._currentUser = response.data;
+              this._currentUser['menu_rol'] = 'user';
               this.emitlogin(this._currentUser);
               this.cookieService.set(
                 '_currentUser',
@@ -84,7 +85,7 @@ export class AuthshopService {
             this.nowCookies,
             '/'
           );
-          
+
           this.waiting = false;
           console.log('Second Validation');
           resolve(response.message);
@@ -131,9 +132,12 @@ export class AuthshopService {
   public updateUser = (key, data) => {
     if (key && data) {
       const _current = this.cookieService.get('_currentUser');
-      const _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
+      let _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
         JSON.parse(this.cookieService.get('_currentUser')) : null;
       _parseCurrent[key] = data;
+      console.log(_parseCurrent);
+      console.log('key-->', key);
+      console.log('data-->', data);
       this.cookieService.set(
         '_currentUser',
         JSON.stringify(_parseCurrent),

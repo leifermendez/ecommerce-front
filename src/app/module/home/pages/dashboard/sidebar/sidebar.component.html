@@ -1,24 +1,27 @@
 <div *ngIf="'shop' === type" class="sidebar-ecommerce">
   <div class="inside">
     <ul>
-      <li>
+      <li class="mb-4 cursor-pointer" [routerLink]="['/','dashboard']">
         <div>
           <img
             class="img-profile-radius"
             [src]="data['avatar']" width="50px"
             height="50px" alt="">
         </div>
-      </li>
-      <li [routerLink]="['/','dashboard']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="home" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Inicio SHOP</span>
-          </div>
+        <div class="icon-setting">
+          <fa name="th-list"></fa>
         </div>
       </li>
+      <!--      <li [routerLink]="['/','dashboard']">-->
+      <!--        <div class="btn btn-default btn-block border-0">-->
+      <!--          <div>-->
+      <!--            <fa name="home" size="2x"></fa>-->
+      <!--          </div>-->
+      <!--          <div>-->
+      <!--            <span class="font-weight-bold">Inicio SHOP</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </li>-->
       <li>
         <div class="btn btn-default btn-block border-0">
           <div>
@@ -26,16 +29,6 @@
           </div>
           <div>
             <span class="font-weight-bold">Productos</span>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="shopping-basket" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Mis compras</span>
           </div>
         </div>
       </li>
@@ -96,41 +89,34 @@
 <div *ngIf="'shop' !== type" class="sidebar-ecommerce">
   <div class="inside">
     <ul>
-      <li>
+      <li class="mb-4 cursor-pointer" [routerLink]="['/','dashboard']">
         <div>
           <img
             class="img-profile-radius"
             [src]="data['avatar']" width="50px"
             height="50px" alt="">
         </div>
-      </li>
-      <li [routerLink]="['/','dashboard']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="home" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Inicio USER</span>
-          </div>
+        <div class="icon-setting">
+          <fa name="th-list"></fa>
         </div>
       </li>
+      <!--      <li [routerLink]="['/','dashboard']">-->
+      <!--        <div class="btn btn-default btn-block border-0">-->
+      <!--          <div>-->
+      <!--            <fa name="home" size="2x"></fa>-->
+      <!--          </div>-->
+      <!--          <div>-->
+      <!--            <span class="font-weight-bold">Inicio USER</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </li>-->
       <li [routerLink]="['/','purchases']">
         <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="shopping-basket" size="2x"></fa>
           </div>
           <div>
-            <span class="font-weight-bold">Compras</span>
-          </div>
-        </div>
-      </li>
-      <li [routerLink]="['/','shop']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="shopping-cart" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Tienda</span>
+            <span class="font-weight-bold">Mis compras</span>
           </div>
         </div>
       </li>

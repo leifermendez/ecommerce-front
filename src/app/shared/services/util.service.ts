@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { settings } from '../settings';
+import {Injectable, EventEmitter, Output} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
+import {settings} from '../settings';
 
 declare var $: any;
 
@@ -21,7 +21,7 @@ export class UtilsService {
   }
 
   openSnackBar(message: string, action: string, duration: number = 5000) {
-    console.log(message, action);
+
     if (action === 'success') {
       Swal.fire({
         position: 'top-end',
@@ -55,15 +55,16 @@ export class UtilsService {
     }
 
   }
+
   //   /(\/shop\/edit\/.*)/i;
 
   checkH = async (p = null, router = null) => {
     let _b = false;
     const _b1 = this._settings[p].map(b => {
-      const expresion = new RegExp(b, "i");
+      const expresion = new RegExp(b, 'i');
       _b = (router.match(expresion));
-      return _b
-    })
+      return _b;
+    });
     return await Promise.all(_b1);
   };
 

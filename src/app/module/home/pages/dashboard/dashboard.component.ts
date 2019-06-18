@@ -16,11 +16,14 @@ export class DashboardComponent implements OnInit {
 
   switch = (type) => {
     this.type = type;
+    this.data['menu_rol'] = type;
+    this.auth.updateUser('menu_rol', type);
     this.callback.emit({type});
   };
 
   ngOnInit() {
     this.data = this.auth.getCurrentUser();
+    console.log('----->', this.data);
   }
 
 }

@@ -15,7 +15,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.auth.getCurrentUser();
-    console.log(this.data);
   }
 
 }
