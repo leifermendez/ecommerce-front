@@ -44,7 +44,6 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log('aa-----',this.id)
     if (!this.id) {
       this.editform = { ...this.editform, ...this.data_inside }
     } else {
