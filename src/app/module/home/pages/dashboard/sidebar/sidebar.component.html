@@ -1,6 +1,14 @@
-<div *ngIf="data['role'] === 'shop'" class="sidebar-ecommerce">
+<div *ngIf="'shop' === type" class="sidebar-ecommerce">
   <div class="inside">
     <ul>
+      <li>
+        <div>
+          <img
+            class="img-profile-radius"
+            [src]="data['avatar']" width="50px"
+            height="50px" alt="">
+        </div>
+      </li>
       <li [routerLink]="['/','dashboard']">
         <div class="btn btn-default btn-block border-0">
           <div>
@@ -14,7 +22,7 @@
       <li>
         <div class="btn btn-default btn-block border-0">
           <div>
-            <fa name="shopping-basket" size="2x"></fa>
+            <fa name="inbox" size="2x"></fa>
           </div>
           <div>
             <span class="font-weight-bold">Productos</span>
@@ -22,6 +30,16 @@
         </div>
       </li>
       <li>
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="shopping-basket" size="2x"></fa>
+          </div>
+          <div>
+            <span class="font-weight-bold">Mis compras</span>
+          </div>
+        </div>
+      </li>
+      <li [routerLink]="['/','purchases']">
         <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="list" size="2x"></fa>
@@ -42,26 +60,16 @@
           </div>
         </div>
       </li>
-      <li [routerLink]="['/','shipments']">
+      <li [routerLink]="['/','shop']">
         <div class="btn btn-default btn-block border-0">
           <div>
-            <fa name="motorcycle" size="2x"></fa>
+            <fa name="shopping-cart" size="2x"></fa>
           </div>
           <div>
-            <span class="font-weight-bold">Envios</span>
+            <span class="font-weight-bold">Tienda</span>
           </div>
         </div>
       </li>
-      <li [routerLink]="['/','shop']">
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="shopping-cart" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Tienda</span>
-            </div>
-          </div>
-        </li>
       <li [routerLink]="['/','profile']">
         <div class="btn btn-default btn-block border-0">
           <div>
@@ -73,72 +81,80 @@
         </div>
       </li>
       <li>
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="question-circle" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Ayuda</span>
-            </div>
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="question-circle" size="2x"></fa>
           </div>
-        </li>
+          <div>
+            <span class="font-weight-bold">Ayuda</span>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
-<div *ngIf="data['role'] === 'user'" class="sidebar-ecommerce">
-    <div class="inside">
-      <ul>
-        <li [routerLink]="['/','dashboard']">
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="home" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Inicio USER</span>
-            </div>
+<div *ngIf="'shop' !== type" class="sidebar-ecommerce">
+  <div class="inside">
+    <ul>
+      <li>
+        <div>
+          <img
+            class="img-profile-radius"
+            [src]="data['avatar']" width="50px"
+            height="50px" alt="">
+        </div>
+      </li>
+      <li [routerLink]="['/','dashboard']">
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="home" size="2x"></fa>
           </div>
-        </li>
-        <li [routerLink]="['/','purchases']">
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="shopping-basket" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Compras</span>
-            </div>
+          <div>
+            <span class="font-weight-bold">Inicio USER</span>
           </div>
-        </li>
-        <li [routerLink]="['/','shop']">
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="shopping-cart" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Tienda</span>
-            </div>
+        </div>
+      </li>
+      <li [routerLink]="['/','purchases']">
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="shopping-basket" size="2x"></fa>
           </div>
-        </li>
-        <li [routerLink]="['/','profile']">
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="cogs" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Ajustes</span>
-            </div>
+          <div>
+            <span class="font-weight-bold">Compras</span>
           </div>
-        </li>
-        <li>
-          <div class="btn btn-default btn-block border-0">
-            <div>
-              <fa name="question-circle" size="2x"></fa>
-            </div>
-            <div>
-              <span class="font-weight-bold">Ayuda</span>
-            </div>
+        </div>
+      </li>
+      <li [routerLink]="['/','shop']">
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="shopping-cart" size="2x"></fa>
           </div>
-        </li>
-  
-      </ul>
-    </div>
+          <div>
+            <span class="font-weight-bold">Tienda</span>
+          </div>
+        </div>
+      </li>
+      <li [routerLink]="['/','profile']">
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="cogs" size="2x"></fa>
+          </div>
+          <div>
+            <span class="font-weight-bold">Ajustes</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="question-circle" size="2x"></fa>
+          </div>
+          <div>
+            <span class="font-weight-bold">Ayuda</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
   </div>
+</div>

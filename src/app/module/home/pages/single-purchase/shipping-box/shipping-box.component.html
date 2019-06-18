@@ -1,0 +1,88 @@
+<div *ngIf="loading">
+  <div class="timeline-item ">
+    <div class="animated-background" style="height: 40px">
+      <div class="background-masker header-top"></div>
+      <div class="background-masker header-left"></div>
+      <div class="background-masker header-right"></div>
+      <div class="background-masker header-bottom"></div>
+      <div class="background-masker subheader-left"></div>
+      <div class="background-masker subheader-right"></div>
+      <div class="background-masker subheader-bottom"></div>
+
+    </div>
+    <div class="animated-background mt-3" style="height: 40px">
+      <div class="background-masker header-top"></div>
+      <div class="background-masker header-left"></div>
+      <div class="background-masker header-right"></div>
+      <div class="background-masker header-bottom"></div>
+      <div class="background-masker subheader-left"></div>
+      <div class="background-masker subheader-right"></div>
+      <div class="background-masker subheader-bottom"></div>
+
+    </div>
+    <div class="animated-background mt-3" style="height: 40px">
+      <div class="background-masker header-top"></div>
+      <div class="background-masker header-left"></div>
+      <div class="background-masker header-right"></div>
+      <div class="background-masker header-bottom"></div>
+      <div class="background-masker subheader-left"></div>
+      <div class="background-masker subheader-right"></div>
+      <div class="background-masker subheader-bottom"></div>
+
+    </div>
+    <div class="animated-background mt-3" style="height: 40px">
+      <div class="background-masker header-top"></div>
+      <div class="background-masker header-left"></div>
+      <div class="background-masker header-right"></div>
+      <div class="background-masker header-bottom"></div>
+      <div class="background-masker subheader-left"></div>
+      <div class="background-masker subheader-right"></div>
+      <div class="background-masker subheader-bottom"></div>
+
+    </div>
+  </div>
+</div>
+<div *ngIf="!loading">
+  <div class="card-header"><b>Envio</b></div>
+  <div *ngIf="data" class="col pt-2">
+    <div class="justify-content-between d-flex mb-2">
+      <div>
+        <label class="text-muted">Identificador</label>
+        <h6 class="mb-0"><b><a target="_blank" [href]="data['tracking_url']">
+          <fa class="text-muted" name="map-marker"></fa> {{data['deliver_uuid']}}
+        </a></b></h6>
+        <small class="form-text mt-0">{{data['retailer_order_number']}}</small>
+      </div>
+      <div>
+        <label class="text-muted">Estatus</label>
+        <h2><b>{{data['status']}}</b></h2>
+      </div>
+    </div>
+    <div class="justify-content-between pr-3 pl-3 pb-2 pt-2 section-block row d-flex">
+      <!--      <div class="col-3 pl-0">-->
+      <!--        <label class="text-muted">Fecha</label>-->
+      <!--        <h2><b>{{data['created_at']}}</b></h2>-->
+      <!--      </div>-->
+      <!--      <div class="col-3 pl-0">-->
+      <!--        <label class="text-muted">Tienda</label>-->
+      <!--        <h2><b>{{data['shops_name']}}</b></h2>-->
+      <!--      </div>-->
+      <!--      <div class="col-3 pl-0">-->
+      <!--        <label class="text-muted">Envio</label>-->
+      <!--        <h2><b>{{data['amount_shipping'] | number:'1.2-2'}}</b></h2>-->
+      <!--      </div>-->
+      <!--      <div class="col-3 pl-0">-->
+      <!--        <label class="text-muted">Identificador</label>-->
+      <!--        <div>-->
+      <!--          <small class="form-text">{{data['uuid']}}</small>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
+  </div>
+  <div *ngIf="!data" class="col pt-2 pb-3 text-center">
+    <img src="../../../../../../assets/images/archive.svg"
+         class="mb-2 mt-4"
+         width="100px" alt="">
+    <p class="text-muted mb-4">No existe registro de envio</p>
+  </div>
+</div>

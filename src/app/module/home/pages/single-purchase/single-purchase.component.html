@@ -6,7 +6,7 @@
         <div class="pt-2">
           <div class="row">
             <div class="col-12">
-              <div class="card block-dashboard border-0">
+              <div *ngIf="!loading" class="card block-dashboard border-0">
                 <div class="card-header"><b>Detalles de compra</b></div>
                 <div class="col pt-2">
                   <div class="justify-content-between d-flex mb-2">
@@ -45,6 +45,50 @@
 
                 </div>
 
+              </div>
+              <div *ngIf="loading" class="card block-dashboard border-0">
+                <div class="timeline-item ">
+                  <div class="animated-background" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                </div>
               </div>
               <app-shipping-box
                 *ngIf="data && data['uuid_shipping']"

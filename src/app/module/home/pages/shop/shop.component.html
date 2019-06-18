@@ -29,7 +29,7 @@
           </div>
         </div>
         <tabset *ngIf="!loading">
-          <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:16" [id]="dat['id']">
+          <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:25" [id]="dat['id']">
             <div class="container">
               <div class="row">
                 <div class="col-12 p-0 mb-2 ml-1 mr-1 d-flex justify-content-between">

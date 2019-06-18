@@ -94,8 +94,15 @@
                       </td>
                       <td class="text-center">
                         <div [tooltip]="dat['status']">
-                          <fa name="history" animation="spin" size="2x" class="text-muted"></fa>
-<!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
+                          <fa *ngIf="dat['status']==='success'"
+                              name="check" size="2x" class="text-success"></fa>
+                          <fa *ngIf="dat['status']==='wait'"
+                              name="history" animation="spin" size="2x" class="text-muted"></fa>
+                          <fa *ngIf="dat['status']==='cancel'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <fa *ngIf="dat['status']==='fail'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
                         </div>
                       </td>
                     </tr>

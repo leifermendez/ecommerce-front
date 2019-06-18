@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AuthshopService} from '../../../auth/authshop.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @Output() callback = new EventEmitter<any>();
+  public data: any = null;
+  public type: any = null;
 
-  constructor() { }
+  constructor(private auth: AuthshopService) {
+  }
+
+  switch = (type) => {
+    this.type = type;
+    this.callback.emit({type});
+  };
 
   ngOnInit() {
+    this.data = this.auth.getCurrentUser();
   }
 
 }

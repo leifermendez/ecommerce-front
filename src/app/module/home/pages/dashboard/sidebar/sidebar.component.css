@@ -27,3 +27,10 @@ ul li {
   font-size: 85%;
   padding: 5px;
 }
+
+.img-profile-radius{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  box-shadow: 0 0 5px rgba(179, 179, 179, 0.62);
+}
