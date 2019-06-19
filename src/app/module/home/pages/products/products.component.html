@@ -1,0 +1,146 @@
+<section class="main-container col2-right-layout mt-0">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+        <div class="pt-2">
+          <div class="row">
+            <div class="col-12">
+              <div *ngIf="loading">
+                <div class="timeline-item ">
+                  <div class="animated-background" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!loading" class="card block-dashboard border-0">
+
+                <div class="card-header">
+                  <div class="d-flex justify-content-between">
+                    <div>Productos</div>
+                    <div>
+                      <button class="btn btn-primary btn-sm"
+                              [routerLink]="['/','products','create']">
+                        Agregar producto
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-0 bg-table min-height-300">
+                  <table *ngIf="data && data['data'].length" class="table table-shipment">
+                    <thead>
+                    <tr>
+                      <th scope="col" style="width: 100px"></th>
+                      <th scope="col"></th>
+                      <th scope="col" style="width: 100px">Monto</th>
+                      <th scope="col" style="width: 100px">Envio</th>
+                      <th scope="col" class="text-center" style="width: 100px">Estatus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let dat of data['data'];let i = index"
+                        [routerLink]="['/','purchases',dat['id']]"
+                        class="list-table-item cursor-pointer">
+                      <td>
+                        <img [src]="dat['logo_brand']"
+                             width="100px"
+                             class="image-bran"
+                             height="100px"
+                             alt="">
+                      </td>
+                      <td>
+                        <div>
+                          <h6>
+                            <b>{{dat['shops_name']}}</b>
+                          </h6>
+                        </div>
+                        <small class="text-muted form-text">
+                          <fa name="phone"></fa>
+                          {{dat['shops_fixed']}}
+                          <fa name="phone ml-2"></fa>
+                          {{dat['shops_mobil']}}</small>
+                      </td>
+                      <td>
+                        <span>
+                          <h6>
+                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
+                          </h6>
+                        </span>
+                      </td>
+                      <td>
+                          <span>
+                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
+                        </span>
+                      </td>
+                      <td class="text-center">
+                        <div [tooltip]="dat['status']">
+                          <fa *ngIf="dat['status']==='success'"
+                              name="check" size="2x" class="text-success"></fa>
+                          <fa *ngIf="dat['status']==='wait'"
+                              name="history" animation="spin" size="2x" class="text-muted"></fa>
+                          <fa *ngIf="dat['status']==='cancel'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <fa *ngIf="dat['status']==='fail'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+                    <img src="../../../../../assets/images/paper-bag.svg"
+                         class="mt-4"
+                         width="100px" alt="">
+                    <div class="mt-2">
+                      <p class="text-muted">Aun no tienes compras</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

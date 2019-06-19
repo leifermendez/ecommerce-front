@@ -74,6 +74,8 @@ import { ShippingBoxComponent } from './module/home/pages/single-purchase/shippi
 import { SingleSaleComponent } from './module/home/pages/single-sale/single-sale.component';
 import { WelcomeComponent } from './module/home/components/welcome/welcome.component';
 import { SalesComponent } from './module/home/pages/sales/sales.component';
+import { ProductsComponent } from './module/home/pages/products/products.component';
+import { CreateProductComponent } from './module/home/pages/products/create-product/create-product.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -149,6 +151,8 @@ export class MyIntl extends TimeagoIntl {
     SingleSaleComponent,
     WelcomeComponent,
     SalesComponent,
+    ProductsComponent,
+    CreateProductComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

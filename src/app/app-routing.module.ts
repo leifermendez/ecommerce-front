@@ -13,6 +13,8 @@ import {PurchaseComponent} from './module/home/pages/purchase/purchase.component
 import {SinglePurchaseComponent} from './module/home/pages/single-purchase/single-purchase.component';
 import {SingleSaleComponent} from './module/home/pages/single-sale/single-sale.component';
 import {SalesComponent} from './module/home/pages/sales/sales.component';
+import {ProductsComponent} from './module/home/pages/products/products.component';
+import {CreateProductComponent} from './module/home/pages/products/create-product/create-product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -94,6 +96,26 @@ const routes: Routes = [
   {
     path: 'purchases',
     component: PurchaseComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
+    path: 'products/create',
+    component: CreateProductComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
     data: {
