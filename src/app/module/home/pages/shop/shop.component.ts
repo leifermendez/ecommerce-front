@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RestService } from '../../../../shared/services/rest.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {RestService} from '../../../../shared/services/rest.service';
 import * as moment from 'moment';
 
 @Component({
@@ -12,18 +12,18 @@ export class ShopComponent implements OnInit {
 
   public cif_flag: any = null;
   public data_shops: any = [];
-  public data_inside: any = {}
+  public data_inside: any = {};
   public loading = false;
   public rangeDate: any;
 
   constructor(private router: Router,
-    private rest: RestService) {
+              private rest: RestService) {
   }
 
   cif_callback = (e) => {
     this.cif_flag = e;
     this.data_inside['legal_id'] = e;
-  }
+  };
 
   /*data_shops_callback = (e) => {
     this.data_shops = (e.length);
@@ -39,6 +39,9 @@ export class ShopComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data_shops = response['data']['data'];
+          if (!this.data_shops.length) {
+            this.router.navigateByUrl('/shop/create');
+          }
         }
       });
   };
@@ -51,6 +54,7 @@ export class ShopComponent implements OnInit {
       endDate: _finish
     };
     this.loadData();
+
   }
 
 }

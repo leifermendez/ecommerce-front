@@ -132,7 +132,7 @@ export class AuthshopService {
   public updateUser = (key, data) => {
     if (key && data) {
       const _current = this.cookieService.get('_currentUser');
-      let _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
+      const _parseCurrent = (_current && JSON.parse(this.cookieService.get('_currentUser'))) ?
         JSON.parse(this.cookieService.get('_currentUser')) : null;
       _parseCurrent[key] = data;
       this.cookieService.set(
@@ -141,11 +141,12 @@ export class AuthshopService {
         this.nowCookies,
         '/'
       );
+
+      this.utils.updateProfile.emit(_parseCurrent);
       return true;
     } else {
       return false;
     }
-
   };
 
   public emitlogin(data) {

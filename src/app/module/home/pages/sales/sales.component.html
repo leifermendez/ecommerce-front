@@ -68,10 +68,10 @@
                     </thead>
                     <tbody>
                     <tr *ngFor="let dat of data['data'];let i = index"
-                        [routerLink]="['/','purchases',dat['id']]"
+                        [routerLink]="['/','sales',dat['id']]"
                         class="list-table-item cursor-pointer">
                       <td>
-                        <img [src]="dat['logo_brand']"
+                        <img [src]="dat['users_avatar']"
                              width="100px"
                              class="image-bran"
                              height="100px"
@@ -80,12 +80,12 @@
                       <td>
                         <div>
                           <h6>
-                            <b>{{dat['shops_name']}}</b>
+                            <b>{{dat['users_name']}}</b>
                           </h6>
                         </div>
                         <small class="text-muted form-text">
-                          <fa name="phone"></fa> {{dat['shops_fixed']}}
-                          <fa name="phone ml-2"></fa> {{dat['shops_mobil']}}</small>
+                          <fa name="phone"></fa> {{dat['users_phone']}}
+                          <fa name="phone ml-2"></fa> {{dat['users_email']}}</small>
                       </td>
                       <td>
                         <span>

@@ -1,29 +1,35 @@
-<div *ngIf="'shop' === type" class="sidebar-ecommerce">
+<div class="sidebar-ecommerce">
   <div class="inside">
     <ul>
-      <li class="mb-4">
+      <li class="mb-4 first-item">
         <div class="cursor-pointer" [routerLink]="['/','dashboard']">
           <img
             class="img-profile-radius"
             [src]="data['avatar']" width="50px"
             height="50px" alt="">
         </div>
-        <div (click)="swtich('user')" *ngIf="show_toggle" 
-        class="icon-setting cursor-pointer">
-          <fa name="toggle-on"></fa>
+
+        <div tooltip="Cambiar menu" placement="right" (click)="switch()" *ngIf="type"
+             class="icon-setting cursor-pointer">
+          <fa [name]="(type==='shop') ? 'toggle-on' : 'toggle-off'"></fa>
         </div>
       </li>
-      <!--      <li [routerLink]="['/','dashboard']">-->
-      <!--        <div class="btn btn-default btn-block border-0">-->
-      <!--          <div>-->
-      <!--            <fa name="home" size="2x"></fa>-->
-      <!--          </div>-->
-      <!--          <div>-->
-      <!--            <span class="font-weight-bold">Inicio SHOP</span>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </li>-->
-      <li>
+
+      <li [routerLink]="['/',(type==='shop')? 'sales' : 'purchases']">
+        <div class="btn btn-default btn-block border-0">
+          <div>
+            <fa name="shopping-basket" size="2x"></fa>
+
+          </div>
+          <div>
+            <span class="font-weight-bold">
+              <span *ngIf="type==='shop'">Ventas</span>
+              <span *ngIf="type==='user'">Compras</span>
+            </span>
+          </div>
+        </div>
+      </li>
+      <li *ngIf="type === 'shop'">
         <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="inbox" size="2x"></fa>
@@ -33,18 +39,7 @@
           </div>
         </div>
       </li>
-      <li [routerLink]="['/','purchases']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="list" size="2x"></fa>
-
-          </div>
-          <div>
-            <span class="font-weight-bold">Pedidos</span>
-          </div>
-        </div>
-      </li>
-      <li [routerLink]="['/','transactions']">
+      <li *ngIf="type === 'shop'" [routerLink]="['/','transactions']">
         <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="hashtag" size="2x"></fa>
@@ -54,7 +49,7 @@
           </div>
         </div>
       </li>
-      <li [routerLink]="['/','shop']">
+      <li *ngIf="type === 'shop'" [routerLink]="['/','shop']">
         <div class="btn btn-default btn-block border-0">
           <div>
             <fa name="shopping-cart" size="2x"></fa>
@@ -84,65 +79,6 @@
           </div>
         </div>
       </li>
-    </ul>
-  </div>
-</div>
-<div *ngIf="'shop' !== type" class="sidebar-ecommerce">
-  <div class="inside">
-    <ul>
-      <li class="mb-4">
-        <div class="cursor-pointer" [routerLink]="['/','dashboard']">
-          <img
-            class="img-profile-radius"
-            [src]="data['avatar']" width="50px"
-            height="50px" alt="">
-        </div>
-        <div (click)="swtich('shop')" *ngIf="show_toggle" 
-        class="icon-setting cursor-pointer">
-          <fa name="toggle-off"></fa>
-        </div>
-      </li>
-      <!--      <li [routerLink]="['/','dashboard']">-->
-      <!--        <div class="btn btn-default btn-block border-0">-->
-      <!--          <div>-->
-      <!--            <fa name="home" size="2x"></fa>-->
-      <!--          </div>-->
-      <!--          <div>-->
-      <!--            <span class="font-weight-bold">Inicio USER</span>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </li>-->
-      <li [routerLink]="['/','purchases']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="shopping-basket" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Mis compras</span>
-          </div>
-        </div>
-      </li>
-      <li [routerLink]="['/','profile']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="cogs" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Ajustes</span>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="question-circle" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Ayuda</span>
-          </div>
-        </div>
-      </li>
-
     </ul>
   </div>
 </div>

@@ -16,6 +16,8 @@ export class UtilsService {
   @Output() getLocation: EventEmitter<any> = new EventEmitter();
   @Output() refreshShopping: EventEmitter<any> = new EventEmitter();
   @Output() numberShopping: EventEmitter<any> = new EventEmitter();
+  @Output() switchBar: EventEmitter<any> = new EventEmitter();
+  @Output() updateProfile: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService) {
   }

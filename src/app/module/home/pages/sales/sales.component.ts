@@ -3,11 +3,12 @@ import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 
 @Component({
-  selector: 'app-purchase',
-  templateUrl: './purchase.component.html',
-  styleUrls: ['./purchase.component.css']
+  selector: 'app-sales',
+  templateUrl: './sales.component.html',
+  styleUrls: ['./sales.component.css']
 })
-export class PurchaseComponent implements OnInit {
+
+export class SalesComponent implements OnInit {
   public from: any = 'user';
   public data: any = {data: []};
   public loading = false;
@@ -23,7 +24,7 @@ export class PurchaseComponent implements OnInit {
 
   loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/purchase`)
+    this.rest.get(`/rest/sales`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

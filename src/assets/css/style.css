@@ -15179,7 +15179,7 @@ select#shipping-address-select {
 }
 
 .top-modal {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .box-shadow-modal {
@@ -15428,6 +15428,10 @@ select#shipping-address-select {
 
 .text-muted {
   color: #a9a9a9 !important;
+}
+
+.text-primary {
+  color: #ce0000 !important;
 }
 
 .btn-link {

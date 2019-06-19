@@ -11,6 +11,8 @@ import {ShipmentsComponent} from './module/home/pages/shipments/shipments.compon
 import {TransactionsComponent} from './module/home/pages/transactions/transactions.component';
 import {PurchaseComponent} from './module/home/pages/purchase/purchase.component';
 import {SinglePurchaseComponent} from './module/home/pages/single-purchase/single-purchase.component';
+import {SingleSaleComponent} from './module/home/pages/single-sale/single-sale.component';
+import {SalesComponent} from './module/home/pages/sales/sales.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -100,8 +102,28 @@ const routes: Routes = [
     },
   },
   {
+    path: 'sales',
+    component: SalesComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
     path: 'purchases/:id',
     component: SinglePurchaseComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
+    path: 'sales/:id',
+    component: SingleSaleComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
     data: {

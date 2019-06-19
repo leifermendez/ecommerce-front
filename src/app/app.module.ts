@@ -71,6 +71,9 @@ import { TransactionsComponent } from './module/home/pages/transactions/transact
 import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
 import { SinglePurchaseComponent } from './module/home/pages/single-purchase/single-purchase.component';
 import { ShippingBoxComponent } from './module/home/pages/single-purchase/shipping-box/shipping-box.component';
+import { SingleSaleComponent } from './module/home/pages/single-sale/single-sale.component';
+import { WelcomeComponent } from './module/home/components/welcome/welcome.component';
+import { SalesComponent } from './module/home/pages/sales/sales.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -143,6 +146,9 @@ export class MyIntl extends TimeagoIntl {
     PurchaseComponent,
     SinglePurchaseComponent,
     ShippingBoxComponent,
+    SingleSaleComponent,
+    WelcomeComponent,
+    SalesComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -193,6 +199,7 @@ export class MyIntl extends TimeagoIntl {
     ZipLocationComponent,
     ShoppingCartComponent,
     ModalBankComponent,
+    SidebarComponent,
     CookieService,
     {
       provide: AuthServiceConfig,
@@ -203,7 +210,8 @@ export class MyIntl extends TimeagoIntl {
   entryComponents: [
     ZipLocationComponent,
     ModalBankComponent,
-    ModalShippingComponent
+    ModalShippingComponent,
+    WelcomeComponent
   ],
   bootstrap: [AppComponent]
 })

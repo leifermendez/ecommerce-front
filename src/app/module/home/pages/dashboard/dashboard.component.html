@@ -2,50 +2,12 @@
   <app-sidebar [type]="type"></app-sidebar>
   <div class="page-content">
     <div class="container p-0">
-
       <div class="inside-body mb-4">
         <div class="">
-          <div *ngIf="!show_toggle" class="row">
-            <div class="col-8 offset-2 text-center pt-4">
-              <h2>Bienvenido a tu panel de administracion <b>{{data['name']}}</b></h2>
-              <p class="mt-4 mb-4 text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae cupiditate debitis dolore
-                doloremque esse est, eum illum ipsam itaque minus nostrum odit officia officiis perspiciatis sit vitae
-                voluptates voluptatibus?
-              </p>
 
-              <div class="block-dashboard mt-4">
-                <tabset>
-                  <tab heading="SOY COMPRADOR" id="tab1">
-                    <div class="mt-4 mb-4">
-                      <img src="../../../../../assets/images/shopping.svg" width="150px" alt="">
-                      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
-                      <button class="btn btn-default" (click)="skip_welcome('user')">A</button>
-                    </div>
-
-                  </tab>
-                  <tab heading="SOY PEQUEÑO COMERCIO">
-                    <div class="mt-4 mb-4">
-                      <img src="../../../../../assets/images/store.svg" width="150px" alt="">
-                      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
-                      <button class="btn btn-default" (click)="skip_welcome('shop')">A</button>
-                    </div>
-                  </tab>
-                </tabset>
-              </div>
-            </div>
-            <div class="col-sm">
-              <!--                <app-last-sell class="block-dashboard mb-2"></app-last-sell>-->
-            </div>
-            <div class="col-sm pl-0">
-              <!--              <app-last-order class="block-dashboard mb-2"></app-last-order>-->
-            </div>
-
-          </div>
         </div>
         <div>
-          <!--            <app-last-order class="block-dashboard mt-2"></app-last-order>-->
-
+          <app-last-order class="block-dashboard mt-2"></app-last-order>
         </div>
       </div>
     </div>
