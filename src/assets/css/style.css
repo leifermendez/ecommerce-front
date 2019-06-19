@@ -15534,6 +15534,14 @@ select#shipping-address-select {
   height: 100%;
 }
 
+.custom-drop .dropzone p{
+  margin: 10px auto;
+  text-align: center;
+  padding-top: 110px;
+  font-size: .8rem;
+  color: #b9b9b9;
+}
+
 .custom-drop .preview {
   height: inherit !important;
   float: left;
