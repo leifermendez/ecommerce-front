@@ -42,7 +42,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.type = this.cookieService.get('_wizard_dashboard');
+    this.type = (this.cookieService.get('_wizard_dashboard')) ?
+      this.cookieService.get('_wizard_dashboard') : 'user';
+
     this.util.switchBar.emit(this.type);
     this.data = this.auth.getCurrentUser();
   }

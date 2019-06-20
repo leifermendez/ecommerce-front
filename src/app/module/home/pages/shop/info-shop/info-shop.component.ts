@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, AfterViewInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthshopService } from '../../../../auth/authshop.service';
-import { RestService } from '../../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../../shared/services/util.service';
-import { Router } from '@angular/router';
+import {Component, OnInit, Input, AfterViewInit, EventEmitter, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthshopService} from '../../../../auth/authshop.service';
+import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
+import {Router} from '@angular/router';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-info-shop',
@@ -22,10 +23,14 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public waitCode: any = null;
   public codeValidation = null;
   public dataTmp: any = null;
+  public optionsPlaces = {
+    types: [],
+    componentRestrictions: {country: 'ES'}
+  };
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
-    private rest: RestService, public util: UtilsService,
-    private router: Router) {
+              private rest: RestService, public util: UtilsService,
+              private router: Router) {
 
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
@@ -34,6 +39,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       'phone_mobil': [null, Validators.compose([Validators.required])],
       'phone_fixed': [null, Validators.compose([Validators.required])],
       'address': [null, Validators.compose([Validators.required])],
+      'zip_code': [null, Validators.compose([Validators.required])],
       'meta_key': [null, Validators.compose([Validators.required])],
 
     });
@@ -43,18 +49,40 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
     return this.form.controls;
   }
 
+  getZipCode = (data) => new Promise((resolve, reject) => {
+    if (data && (typeof data) === 'object') {
+      const res = data.find(b => b.types[0] === 'postal_code');
+      if (res) {
+        resolve(res['short_name']);
+      } else {
+        reject(new Error('Not valid address object'));
+      }
+    } else {
+      reject(new Error('Not valid address object'));
+    }
+  });
+
+  public handleAddressChange(address: Address) {
+    this.getZipCode(address['address_components'])
+      .then(zip_code => {
+        this.editform['zip_code'] = zip_code;
+      }).catch(error => {
+      return false;
+    });
+  }
+
   ngOnInit() {
     if (!this.id) {
-      this.editform = { ...this.editform, ...this.data_inside }
+      this.editform = {...this.editform, ...this.data_inside};
     } else {
-      this.loadData(this.id)
+      this.loadData(this.id);
     }
 
   }
 
   ngAfterViewInit = () => {
 
-  }
+  };
 
   loadData = (id) => {
     this.loading = true;
@@ -64,7 +92,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
-          this.editform = { ...response['data'] };
+          this.editform = {...response['data']};
           console.log(this.editform);
         }
       });
@@ -84,8 +112,8 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
             this.router.navigateByUrl('/shop');
           }
         }).catch(err => {
-          this.loading = false;
-        });
+        this.loading = false;
+      });
     }
   };
 

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {TabsetComponent} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-create-product',
@@ -8,49 +9,35 @@ import {RestService} from '../../../../../shared/services/rest.service';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
+  // @ts-ignore
+  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent;
   public loading = false;
-  public form: any = FormGroup;
-  public editform: any = {};
-  public categories: any = [];
-  public select_categories: any = [];
-  public list_shops: any = [];
+  public categories = false;
+  public variations = false;
 
-  constructor(private fb: FormBuilder, private rest: RestService) {
-    this.form = fb.group({
-      'name': [null, Validators.compose([Validators.required])],
-      'short_description': [null, Validators.compose([Validators.required])],
-      'description': [null, Validators.compose([Validators.required])],
-    });
+  constructor() {
+
   }
 
-  getCategories = () => {
-    this.rest.get('/rest/categories?limit=50')
-      .then((response: any) => {
-        if (response['status'] === 'success') {
-          response = response['data'];
-          this.categories = response['data'];
-        }
-      });
+  selectTab(tabId: number) {
+    this.staticTabs.tabs[tabId].active = true;
+  }
+
+  callback_data_categories = (e) => {
+    this.categories = e['id'];
+    this.staticTabs.tabs[1].disabled = false;
+    this.selectTab(1);
   };
 
-  getShops = () => {
-    this.rest.get('/rest/shop?limit=50')
-      .then((response: any) => {
-        if (response['status'] === 'success') {
-          response = response['data'];
-          this.list_shops = response['data'];
-        }
-      });
-  };
-
-
-  save = () => {
-
+  callback_data_variations = (e) => {
+    this.variations = e['id'];
+    this.staticTabs.tabs[2].disabled = false;
+    this.selectTab(2);
   };
 
   ngOnInit() {
-    this.getShops();
-    this.getCategories();
+    this.staticTabs.tabs[1].disabled = true;
+    // this.staticTabs.tabs[2].disabled = true;
   }
 
 }

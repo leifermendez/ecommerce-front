@@ -15483,9 +15483,11 @@ select#shipping-address-select {
   font-weight: 600;
   border-left: solid 1px #ececec;
 }
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   background-color: transparent;
 }
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
   background-color: transparent;
@@ -15493,48 +15495,50 @@ select#shipping-address-select {
   /* background: rgba(0, 0, 0, 0.25); */
   /* color: #fff; */
 }
+
 .nav-tabs > li > a:hover {
   background-color: transparent;
 }
 
 .slide-hidden {
-    height:0px;
-    opacity: 0;
-       -webkit-transition:height, 0.2s linear;
-    -moz-transition: height, 0.2s linear;
-    -ms-transition: height, 0.2s linear;
-    -o-transition: height, 0.2s linear;
-    transition: height, 0.2s linear;
-}
-    .slide-hidden.open {
-        height:200px;
-        opacity: 1;
-     -webkit-transition:height, 0.2s linear;
-    -moz-transition: height, 0.2s linear;
-    -ms-transition: height, 0.2s linear;
-    -o-transition: height, 0.2s linear;
-    transition: height, 0.2s linear;
-    }
-    
-.custom-drop .preview img{
-      max-height: 120px !important;
-      border-radius: 0px !important;
-      border: solid 1px #e0e0e0;
-      opacity: 1 !important;
-      object-fit: contain !important;
-      background: #ececec !important;
-      width: 120px;
-      height: 120px;
+  height: 0px;
+  opacity: 0;
+  -webkit-transition: height, 0.2s linear;
+  -moz-transition: height, 0.2s linear;
+  -ms-transition: height, 0.2s linear;
+  -o-transition: height, 0.2s linear;
+  transition: height, 0.2s linear;
 }
 
-.custom-drop .dropzone{
-  display: block  !important;
+.slide-hidden.open {
+  height: 200px;
+  opacity: 1;
+  -webkit-transition: height, 0.2s linear;
+  -moz-transition: height, 0.2s linear;
+  -ms-transition: height, 0.2s linear;
+  -o-transition: height, 0.2s linear;
+  transition: height, 0.2s linear;
+}
+
+.custom-drop .preview img {
+  max-height: 120px !important;
+  border-radius: 0px !important;
+  border: solid 1px #e0e0e0;
+  opacity: 1 !important;
+  object-fit: contain !important;
+  background: #ececec !important;
+  width: 120px;
+  height: 120px;
+}
+
+.custom-drop .dropzone {
+  display: block !important;
   padding: 10px;
   min-height: 180px !important;
   height: 100%;
 }
 
-.custom-drop .dropzone p{
+.custom-drop .dropzone p {
   margin: 10px auto;
   text-align: center;
   padding-top: 110px;
@@ -15548,17 +15552,46 @@ select#shipping-address-select {
   padding-left: 0px !important;
   padding-bottom: 10px !important;
 }
-.custom-drop .preview span{
+
+.custom-drop .preview span {
   display: none !important;
 }
 
-.custom-drop .preview:first-child img { 
+.custom-drop .preview:first-child img {
   max-height: 250px !important;
   width: 30rem;
   height: 250px;
 }
 
-.video-banner video{
-    height: 460px;
-    object-fit: cover;
+.video-banner video {
+  height: 460px;
+  object-fit: cover;
+}
+
+.select-create-product .ng-select-container, .select-create-category .ng-select-container {
+  border-radius: 0px;
+  border: 0px !important;
+  border-bottom: 1px solid #ececec !important;
+}
+
+.select-create-product .ng-dropdown-panel, .select-create-category .ng-select-container {
+  border: 1px solid #ececec;
+}
+
+.select-create-category .ng-dropdown-panel {
+  position: inherit;
+  border-color: #ececec;
+}
+
+.select-create-category .ng-dropdown-panel .scroll-host {
+  border-left: solid 1px #ececec;
+  border-right: solid 1px #ececec;
+}
+html {
+  scroll-behavior: smooth;
+
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }

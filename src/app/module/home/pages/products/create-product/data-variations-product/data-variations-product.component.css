@@ -59,3 +59,9 @@
   border-bottom: solid 1px #efeeee;
 }
 
+.img-main{
+  object-fit: contain;
+  border: solid 1px #eceaea;
+  width: 100%;
+  height: 150px;
+}

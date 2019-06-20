@@ -76,9 +76,23 @@
 
       <div class="form-group">
         <label>Dirección</label>
-        <input type="text" formControlName="address" class="form-control"
-               [(ngModel)]="editform.address"
-               placeholder="Direccion de la tienda">
+        <input ngx-google-places-autocomplete
+               [disabled]="loading"
+               class="form-control"
+               [ngModel]="editform.address" [options]='optionsPlaces' #placesRef="ngx-places"
+               placeholder="Direccion de la tienda"
+               (onAddressChange)="handleAddressChange($event)"/>
+        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+          tenetur.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Codigo postal</label>
+        <input type="text" formControlName="zip_code" class="form-control"
+               [(ngModel)]="editform.zip_code"
+               readonly
+               placeholder="Ingresa código postal">
         <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
           tenetur.
         </small>
