@@ -52,3 +52,6 @@ input.form-control::placeholder {
   color: #dadada;
   letter-spacing: 1px;
 }
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  display: flex!important;
+}

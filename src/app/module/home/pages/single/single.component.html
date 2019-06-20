@@ -20,10 +20,9 @@
         <div class="">
           <div class="row">
             <div
-              class="col-7 product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
+              class="col-7 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
               <div class=" ">
-                <img class="w-100"
-                     src="https://i2.wp.com/sneakerfactory.net/sneakers/wp-content/uploads/2015/03/shutterstock_219385027.jpg">
+                <img class="w-100"  onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
               </div>
             </div>
             <div class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">

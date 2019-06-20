@@ -1,13 +1,37 @@
 <ng-select [items]="datafilter"
            bindLabel="name"
            bindValue="id"
-           placeholder="Select variation">
-  <ng-template ng-label-tmp let-item="item">
-    <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>
-    <b>&nbsp;{{item.name}}</b>
-  </ng-template>
+           (search)="search($event)"
+           [ngModelOptions]="{standalone: true}"
+           [clearable]="true"
+           [clearOnBackspace]="false"
+           [searchable]="true"
+           [multiple]="false"
+           [virtualScroll]="true"
+           [closeOnSelect]="true"
+           (change)="selectOptions($event)"
+           placeholder="Buscar..."
+           [(ngModel)]="src">
+  <!--<ng-template ng-label-tmp let-item="item">-->
+    <!--<img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>-->
+    <!--<b>&nbsp;{{item.name}}</b>-->
+  <!--</ng-template>-->
   <ng-template ng-option-tmp let-item="item" let-index="index">
-    <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>
-    <b>&nbsp;{{item.name}}</b>
+    <div style="width: 10%">
+      <img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.variations.item[0].attacheds_small"/>
+    </div>
+    <div style="width: 90%">
+      {{item.name}} <br>
+      <div itemprop="aggregateRating" itemscope="" >
+        <div class="rating">
+          <div class="ratings">
+            <div class="rating-box">
+              <div class="rating" style="width:50%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </ng-template>
 </ng-select>

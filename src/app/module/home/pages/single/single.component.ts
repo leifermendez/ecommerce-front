@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-single',
@@ -13,16 +14,22 @@ export class SingleComponent implements OnInit {
   loading = false;
   count: any = 1;
   variation: any = [];
-
   selectedvariationName: any;
-  constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent) { }
+  idparam: any;
+  constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadData();
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.idparam = params['id'].toString();
+        this.loadData(this.idparam);
+      }
+    });
   }
-  loadData = () => {
+  loadData = (id) => {
     this.loading = true;
-    this.rest.get(`/rest/products/6`)
+    this.rest.get(`/rest/products/${id}`)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
