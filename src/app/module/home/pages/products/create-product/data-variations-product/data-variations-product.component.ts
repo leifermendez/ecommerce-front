@@ -13,6 +13,7 @@ export class DataVariationsProductComponent implements OnInit {
   public form: any = FormGroup;
   public loading = false;
   public data_product: any = [];
+  public variations: any = [];
   public editform: any = {};
 
   constructor(private rest: RestService, private fb: FormBuilder) {
@@ -42,6 +43,13 @@ export class DataVariationsProductComponent implements OnInit {
   };
 
   save_variation = () => {
+    this.editform = {...this.editform, ...{product_id: this.id}};
+    this.rest.post(`/rest/products-variations`, this.editform)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.variations = response['data'];
+        }
+      });
 
   };
 }

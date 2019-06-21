@@ -53,21 +53,3 @@
   border: solid 1px #e8e8e8;
   border-radius: 3px;
 }
-.section-block{
-  background-color: #fbfbfb;
-  border-top: solid 1px #efeeee;
-  border-bottom: solid 1px #efeeee;
-}
-.block-dashboard-drop{
-  width:100%;
-}
-.custom-drop{
-  border: solid 1px #e6e6e6;
-  border-radius: 3px;
-  min-height: 265px;
-  background-image: url(../../../../../../assets/images/gallery.svg);
-  background-repeat: no-repeat;
-  height: inherit;
-  background-position: center 30px;
-  background-size: 80px;
-}

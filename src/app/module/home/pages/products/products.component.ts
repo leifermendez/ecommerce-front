@@ -9,7 +9,7 @@ import {UtilsService} from '../../../../shared/services/util.service';
 })
 export class ProductsComponent implements OnInit {
   public from: any = 'user';
-  public data: any = {data: []};
+  public data_shops: any = [];
   public loading = false;
 
   constructor(private rest: RestService,
@@ -18,18 +18,20 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadData();
+    this.loadDataShop();
+    // this.loadData();
   }
 
-  loadData = () => {
+  loadDataShop = () => {
     this.loading = true;
-    this.rest.get(`/rest/purchase`)
+    this.rest.get(`/rest/shop`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
-          this.data = response['data'];
+          this.data_shops = response['data']['data'];
 
         }
       });
   };
+
 }

@@ -124,6 +124,16 @@ const routes: Routes = [
     },
   },
   {
+    path: 'products/edit/:id',
+    component: CreateProductComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
     path: 'sales',
     component: SalesComponent,
     pathMatch: 'full',

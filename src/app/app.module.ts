@@ -79,6 +79,7 @@ import { CreateProductComponent } from './module/home/pages/products/create-prod
 import { DataProductComponent } from './module/home/pages/products/create-product/data-product/data-product.component';
 import { DataCategoriesProductComponent } from './module/home/pages/products/create-product/data-categories-product/data-categories-product.component';
 import { DataVariationsProductComponent } from './module/home/pages/products/create-product/data-variations-product/data-variations-product.component';
+import { ListProductsComponent } from './module/home/pages/products/list-products/list-products.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -159,6 +160,7 @@ export class MyIntl extends TimeagoIntl {
     DataProductComponent,
     DataCategoriesProductComponent,
     DataVariationsProductComponent,
+    ListProductsComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

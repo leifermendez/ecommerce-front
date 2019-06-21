@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-data-product',
@@ -9,13 +10,14 @@ import {RestService} from '../../../../../../shared/services/rest.service';
 })
 export class DataProductComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
+  @Input() id: any = null;
   public loading = false;
   public form: any = FormGroup;
   public editform: any = {};
   public list_shops: any = [];
   public select_shop: any = null;
 
-  constructor(private fb: FormBuilder, private rest: RestService) {
+  constructor(private fb: FormBuilder, private rest: RestService, private router: Router) {
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
       'short_description': [null, Validators.compose([Validators.required])],
@@ -25,6 +27,9 @@ export class DataProductComponent implements OnInit {
 
   ngOnInit() {
     this.getShops();
+    if (this.id) {
+      this.loadData();
+    }
   }
 
   getShops = () => {
@@ -40,6 +45,15 @@ export class DataProductComponent implements OnInit {
       });
   };
 
+  loadData = () => {
+    this.rest.get(`/rest/products/${this.id}`)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.editform = {...this.editform, ...response['data']};
+        }
+      });
+  };
+
   save = () => {
     this.editform = {
       ...this.editform,
@@ -50,6 +64,7 @@ export class DataProductComponent implements OnInit {
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.callback.emit(response['data']);
+          this.router.navigateByUrl(`/products/edit/${response['data']['id']}`);
         }
       });
   };
