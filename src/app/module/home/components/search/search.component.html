@@ -18,7 +18,9 @@
   <!--</ng-template>-->
   <ng-template ng-option-tmp let-item="item" let-index="index">
     <div style="width: 10%">
-      <img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.variations.item[0].attacheds_small"/>
+      <div *ngIf="item.variations.item[0]">
+        <img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.variations.item[0].attacheds_small"/>
+      </div>
     </div>
     <div style="width: 90%">
       {{item.name}} <br>

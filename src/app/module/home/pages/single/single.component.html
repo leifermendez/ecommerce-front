@@ -1,5 +1,4 @@
 <section class="main-container col2-right-layout mt-0">
-
   <div class="page-content">
     <div class="breadcrumbs">
       <div class="container">
@@ -21,8 +20,11 @@
           <div class="row">
             <div
               class="col-7 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
-              <div class=" ">
+              <div *ngIf="variation[0]" class=" ">
                 <img class="w-100"  onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
+              </div>
+              <div *ngIf="!variation[0]" class="w-100">
+                <img class="w-100"  [src]="'assets/images/nofound.png'"/>
               </div>
             </div>
             <div class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">

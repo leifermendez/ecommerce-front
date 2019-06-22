@@ -11,6 +11,7 @@ import { ShipmentsComponent } from './module/home/pages/shipments/shipments.comp
 import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
 import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
 import {SingleComponent} from './module/home/pages/single/single.component';
+import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -106,6 +107,11 @@ const routes: Routes = [
       subMenu: true,
       footer: true
     },
+  },
+  {
+    path: 'store/:id',
+    component: StoreprofileComponent,
+    pathMatch: 'full',
   },
   { path: '**', component: HomeComponent },
 ];

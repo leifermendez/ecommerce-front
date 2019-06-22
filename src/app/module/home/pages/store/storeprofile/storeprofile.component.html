@@ -1,0 +1,63 @@
+<div class="page-heading">
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="row">
+        <div class="page-title col-sm-6">
+          <img class="imgstore" src="assets/images/hot_img.png">
+        </div>
+        <div class="col-sm-6">
+        </div>
+      </div>
+    </div>
+    <!--container-->
+  </div>
+</div>
+
+<section class="main-container col2-left-layout bounceInUp animated">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="add45">
+          <h5>{{this.data.name}}</h5>
+          <div>
+            <ul class="styleno">
+              <li>
+                <span class="fontweight">Ordenar publicaciones</span>
+              </li>
+              <li>
+                Más relevantes
+              </li>
+              <li>
+                <span class="fontweight"> Categorías</span><br>
+              </li>
+              <li>
+                Ropa, Zapatos y Accesorios (62)
+                Deportes y Fitness (35)
+                Relojes, Joyas y Bisutería (12)
+                Computación (11)
+                Industrias (1)
+              </li>
+              <span class="fontweight">Precio</span>
+                <br>
+                Hasta Bs.200.000 (27)
+                Bs.200.000 a Bs.350.000 (29)
+                Más de Bs.350.000 (30)
+
+                Mínimo
+
+                Máximo
+              <li>
+               <span class="fontweight">Detalles de la publicación</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div *ngIf="idparam">
+          <app-listproduct  [idpara]="idparam" ></app-listproduct>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
