@@ -25,6 +25,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/flag-icon-css/css/flag-icon.min.css",
+              "./node_modules/videogular2/fonts/videogular.css",
               "src/assets/css/responsive.css",
               "src/assets/css/jquery.bxslider.css",
               "src/assets/css/jquery.mobile-menu.css",

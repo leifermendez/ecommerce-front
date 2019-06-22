@@ -80,6 +80,10 @@ import { DataProductComponent } from './module/home/pages/products/create-produc
 import { DataCategoriesProductComponent } from './module/home/pages/products/create-product/data-categories-product/data-categories-product.component';
 import { DataVariationsProductComponent } from './module/home/pages/products/create-product/data-variations-product/data-variations-product.component';
 import { ListProductsComponent } from './module/home/pages/products/list-products/list-products.component';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -179,6 +183,10 @@ export class MyIntl extends TimeagoIntl {
     NgxStarsModule,
     NgxFlagIconCssModule,
     ChartModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     NgxEpicVideoPlayerModule,
     NgxDaterangepickerMd.forRoot(),
     TabsModule.forRoot(),
