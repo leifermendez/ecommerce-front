@@ -89,11 +89,15 @@ export class CreateProductComponent implements OnInit {
 
   ngOnInit() {
     if (this.id) {
-
+      this.staticTabs.tabs[1].disabled = false;
+      this.staticTabs.tabs[2].disabled = false;
+      this.staticTabs.tabs[3].disabled = false;
+    }else{
+      this.staticTabs.tabs[1].disabled = true;
+      this.staticTabs.tabs[2].disabled = true;
+      this.staticTabs.tabs[3].disabled = true;
     }
-    this.staticTabs.tabs[1].disabled = true;
-    this.staticTabs.tabs[2].disabled = true;
-    this.staticTabs.tabs[3].disabled = true;
+
   }
 
 }

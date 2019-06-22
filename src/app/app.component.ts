@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
-import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ZipLocationComponent } from './module/home/components/zip-location/zip-location.component';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
 
   modalRef: BsModalRef;
   config = {
-    ignoreBackdropClick: true
+    ignoreBackdropClick: true,
+    keyboard: false
   };
   cookie_zip_code = null;
   loading = false;
@@ -41,9 +42,9 @@ export class AppComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       ZipLocationComponent,
-      Object.assign({initialState}, {
-          class: 'gray modal-md top-modal box-shadow-modal'
-        },
+      Object.assign({ initialState }, {
+        class: 'gray modal-md top-modal box-shadow-modal'
+      },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
@@ -69,7 +70,7 @@ export class AppComponent implements OnInit {
     const _location = localStorage.getItem('_location');
     if (!_location) {
       window.scrollTo(0, 0);
-      if(!this.cookie_zip_code){
+      if (!this.cookie_zip_code) {
         this.open();
       }
     }

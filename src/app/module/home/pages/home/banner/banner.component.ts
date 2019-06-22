@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
+import { NgxEpicVideoPlayerComponent } from 'ngx-epic-video-player';
 
 @Component({
   selector: 'app-banner',
@@ -9,6 +10,7 @@ import {OwlCarousel} from 'ngx-owl-carousel';
 })
 export class BannerComponent implements OnInit {
   @ViewChild('owlElement') owlElement: OwlCarousel;
+  @ViewChild('evp') evp: NgxEpicVideoPlayerComponent;
   public data: any;
   public optionsGallery: any;
 
@@ -26,5 +28,7 @@ export class BannerComponent implements OnInit {
         }
       });
   }
+
+  play = () => this.evp.play();
 
 }
