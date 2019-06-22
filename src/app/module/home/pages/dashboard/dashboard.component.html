@@ -1,23 +1,13 @@
 <section class="main-container  col2-right-layout mt-0">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [type]="type"></app-sidebar>
   <div class="page-content">
     <div class="container p-0">
-
       <div class="inside-body mb-4">
         <div class="">
-          <div class="row">
-            <div class="col-sm">
-                <app-last-sell class="block-dashboard mb-2"></app-last-sell>
-            </div>
-            <div class="col-sm pl-0">
-              <app-last-order class="block-dashboard mb-2"></app-last-order>
-            </div>
-         
-          </div>
+
         </div>
         <div>
-            <app-last-order class="block-dashboard mt-2"></app-last-order>
-      
+          <app-last-order class="block-dashboard mt-2"></app-last-order>
         </div>
       </div>
     </div>

@@ -69,6 +69,7 @@
                       </div>
                     </ng-template>
                     <span
+                      *ngIf="!dat['primary']"
                       [tooltip]="tolTemplate"
                       triggers="mouseenter:click"
                       #pop="bs-tooltip"

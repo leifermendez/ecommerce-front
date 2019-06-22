@@ -107,19 +107,36 @@ export class ModalBankComponent implements OnInit {
       });
   };
 
+  getAct = (code) => {
+    this.loading = true;
+    this.rest.post(`/rest/stripe-auth`, {
+      code
+    })
+      .then((response: any) => {
+        this.loading = false;
+        if (response['status'] === 'success') {
+          this.editform['iban'] = response['data']['stripe_user_id'];
+        }
+
+      }).catch(err => {
+      this.loading = false;
+    });
+  };
+
   loadData = () => {
     this.loading = true;
     this.rest.get(`/rest/stripe-auth`)
       .then((response: any) => {
         if (response['status'] === 'success') {
-          this.loading = false;
+
           this.data = response['data'];
 
           this.openStripe(this.data)
             .then(res => {
-              this.editform['iban'] = res['token'];
+              this.getAct(res['token'])
               // @ts-ignore
               res.win.close();
+              this.loading = false;
             });
         }
       });

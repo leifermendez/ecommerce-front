@@ -41,6 +41,7 @@ export class AuthshopService {
             const token = response.data['token'];
             if (token) {
               this._currentUser = response.data;
+              this._currentUser['menu_rol'] = 'user';
               this.emitlogin(this._currentUser);
               this.cookieService.set(
                 '_currentUser',
@@ -84,7 +85,7 @@ export class AuthshopService {
             this.nowCookies,
             '/'
           );
-          
+
           this.waiting = false;
           console.log('Second Validation');
           resolve(response.message);
@@ -140,11 +141,12 @@ export class AuthshopService {
         this.nowCookies,
         '/'
       );
+
+      this.utils.updateProfile.emit(_parseCurrent);
       return true;
     } else {
       return false;
     }
-
   };
 
   public emitlogin(data) {

@@ -40,12 +40,12 @@
                   <div class="info-inner">
                     <div class="item-title mb-0">
                       <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                         title="Retis lapen casen">{{dat['name']}}</a>
+                         title="Retis lapen casen">{{dat['name'] | slice:0:12}}</a>
 
                     </div>
                     <div>
                       <a class="text-muted" href="#">
-                        {{dat['shop_name']}}
+                        {{dat['shop_name']| slice:0:12}}
                       </a>
                     </div>
 

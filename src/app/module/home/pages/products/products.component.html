@@ -1,0 +1,18 @@
+<section class="main-container col2-right-layout mt-0">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+        <tabset *ngIf="!loading">
+          <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:25" [id]="dat['id']">
+            <div class="container">
+              <app-list-products [id]="dat['id']" class="row"></app-list-products>
+            </div>
+          </tab>
+        </tabset>
+
+      </div>
+    </div>
+
+  </div>
+</section>

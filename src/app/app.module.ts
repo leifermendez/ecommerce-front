@@ -15,8 +15,8 @@ import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
-import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
-import {ChartModule} from 'angular-highcharts';
+import { NgxEpicVideoPlayerModule } from 'ngx-epic-video-player';
+import { ChartModule } from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -58,21 +58,34 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {WizardOverlayComponent} from './wizard-overlay/wizard-overlay.component';
 import {TabsModule} from 'ngx-bootstrap';
-import {NgxDaterangepickerMd} from 'ngx-daterangepicker-material';
-import {ShopCifComponent} from './module/home/pages/shop/shop-cif/shop-cif.component';
-import {ShopComponent} from './module/home/pages/shop/shop.component';
-import {InfoShopComponent} from './module/home/pages/shop/info-shop/info-shop.component';
-import {InfoShopsComponent} from './module/home/pages/shop/info-shops/info-shops.component';
-import {CreateShopComponent} from './module/home/pages/shop/create-shop/create-shop.component';
-import {DashboardTotalComponent} from './module/home/pages/shop/dashboard-total/dashboard-total.component';
-import {DashboardReviewsComponent} from './module/home/pages/shop/dashboard-reviews/dashboard-reviews.component';
-import {ShipmentsComponent} from './module/home/pages/shipments/shipments.component';
-import {TransactionsComponent} from './module/home/pages/transactions/transactions.component';
-import {PurchaseComponent} from './module/home/pages/purchase/purchase.component';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { ShopCifComponent } from './module/home/pages/shop/shop-cif/shop-cif.component';
+import { ShopComponent } from './module/home/pages/shop/shop.component';
+import { InfoShopComponent } from './module/home/pages/shop/info-shop/info-shop.component';
+import { InfoShopsComponent } from './module/home/pages/shop/info-shops/info-shops.component';
+import { CreateShopComponent } from './module/home/pages/shop/create-shop/create-shop.component';
+import { DashboardTotalComponent } from './module/home/pages/shop/dashboard-total/dashboard-total.component';
+import { DashboardReviewsComponent } from './module/home/pages/shop/dashboard-reviews/dashboard-reviews.component';
+import { ShipmentsComponent } from './module/home/pages/shipments/shipments.component';
+import { TransactionsComponent } from './module/home/pages/transactions/transactions.component';
+import { PurchaseComponent } from './module/home/pages/purchase/purchase.component';
+import { SinglePurchaseComponent } from './module/home/pages/single-purchase/single-purchase.component';
+import { ShippingBoxComponent } from './module/home/pages/single-purchase/shipping-box/shipping-box.component';
+import { SingleSaleComponent } from './module/home/pages/single-sale/single-sale.component';
+import { WelcomeComponent } from './module/home/components/welcome/welcome.component';
+import { SalesComponent } from './module/home/pages/sales/sales.component';
+import { ProductsComponent } from './module/home/pages/products/products.component';
+import { CreateProductComponent } from './module/home/pages/products/create-product/create-product.component';
+import { DataProductComponent } from './module/home/pages/products/create-product/data-product/data-product.component';
+import { DataCategoriesProductComponent } from './module/home/pages/products/create-product/data-categories-product/data-categories-product.component';
+import { DataVariationsProductComponent } from './module/home/pages/products/create-product/data-variations-product/data-variations-product.component';
+import { ListProductsComponent } from './module/home/pages/products/list-products/list-products.component';
 import {SingleComponent} from './module/home/pages/single/single.component';
 import {SearchComponent} from './module/home/components/search/search.component';
 import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
 import {ListproductComponent} from './module/home/pages/store/listproduct/listproduct.component';
+
+
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -143,6 +156,17 @@ export class MyIntl extends TimeagoIntl {
     ShipmentsComponent,
     TransactionsComponent,
     PurchaseComponent,
+    SinglePurchaseComponent,
+    ShippingBoxComponent,
+    SingleSaleComponent,
+    WelcomeComponent,
+    SalesComponent,
+    ProductsComponent,
+    CreateProductComponent,
+    DataProductComponent,
+    DataCategoriesProductComponent,
+    DataVariationsProductComponent,
+    ListProductsComponent,
     SingleComponent,
     SearchComponent,
     StoreprofileComponent,
@@ -197,6 +221,7 @@ export class MyIntl extends TimeagoIntl {
     ZipLocationComponent,
     ShoppingCartComponent,
     ModalBankComponent,
+    SidebarComponent,
     CookieService,
     {
       provide: AuthServiceConfig,
@@ -207,7 +232,8 @@ export class MyIntl extends TimeagoIntl {
   entryComponents: [
     ZipLocationComponent,
     ModalBankComponent,
-    ModalShippingComponent
+    ModalShippingComponent,
+    WelcomeComponent
   ],
   bootstrap: [AppComponent]
 })

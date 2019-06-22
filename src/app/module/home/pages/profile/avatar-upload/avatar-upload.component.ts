@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FileItem, HttpClientUploadService} from '@wkoza/ngx-upload';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {AuthshopService} from '../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-avatar-upload',
@@ -12,7 +13,8 @@ export class AvatarUploadComponent implements OnInit {
   @Input() preview = null;
 
   constructor(public  uploader: HttpClientUploadService,
-              private rest: RestService) {
+              private rest: RestService,
+              private auth: AuthshopService,) {
   }
 
   ngOnInit() {

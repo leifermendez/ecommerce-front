@@ -1,0 +1,53 @@
+<section class="main-container col2-right-layout mt-0">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+        <div class="pt-2">
+          <div>
+            <tabset #staticTabs>
+              <tab heading="Producto" id="tab1">
+                <app-data-product
+                  [id]="id"
+                  (callback)="callback_data_categories($event)"
+                  class="row">
+                </app-data-product>
+              </tab>
+              <tab heading="Categorias">
+                <app-data-categories-product
+                  *ngIf="id"
+                  [id]="id"
+                  (callback)="callback_data_variations($event)"
+                  class="row">
+                </app-data-categories-product>
+              </tab>
+              <tab heading="Variaciones">
+                <app-data-variations-product
+                  *ngIf="id"
+                  [id]="id"
+                  class="row">
+                </app-data-variations-product>
+              </tab>
+              <tab heading="Galeria">
+                <div class="block-dashboard-drop">
+                  <ngx-dropzone [showPreviews]="true"
+                                [accept]="'image/png,image/jpeg'"
+                                #dropzone
+                                [multiple]="true"
+                                (filesAdded)="onFilesAdded($event)"
+                                label="Arrastra y suelta los archivos que deseas subir"
+                                class="custom-drop">
+                  </ngx-dropzone>
+                  <div class="text-right p-2">
+                    <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>
+                    <button class="btn btn-primary btn-sm ml-2" (click)="uploadSave()">Guardar</button>
+                  </div>
+                </div>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

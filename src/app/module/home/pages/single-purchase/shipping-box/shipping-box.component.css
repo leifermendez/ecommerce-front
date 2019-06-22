@@ -1,0 +1,13 @@
+.timeline-item{
+  margin: 0;
+  max-width: 100%
+}
+
+.card-header, .card-footer {
+  background-color: transparent !important;
+}
+
+.card {
+  border: 0px !important;
+  border-radius: 0px;
+}
