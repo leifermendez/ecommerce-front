@@ -37,6 +37,7 @@ export class BannerComponent implements OnInit {
   this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(
     () => {
       this.api.getDefaultMedia()['volume'] = 0;
+      console.log(this.api)
     });
   }
 
