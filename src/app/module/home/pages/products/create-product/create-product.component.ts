@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {TabsetComponent} from 'ngx-bootstrap';
-import {ActivatedRoute} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { TabsetComponent } from 'ngx-bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-product',
@@ -12,7 +12,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CreateProductComponent implements OnInit {
   // @ts-ignore
-  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent;
+  @ViewChild('staticTabs', { static: false }) staticTabs: TabsetComponent;
   public loading = false;
   public categories = false;
   public variations = false;
@@ -20,27 +20,17 @@ export class CreateProductComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private rest: RestService,
-              private formBuilder: FormBuilder,
-              private httpClient: HttpClient) {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-    });
-    this.route.queryParams.subscribe(params => {
-      // this.id = params['id'];
-      if (params && params['step']) {
-        const index = (params['step']);
-        console.log('--->',index)
-        this.staticTabs.tabs[index].disabled = false;
-        this.selectTab(index);
-      }
+    private rest: RestService,
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient) {
 
-    });
+
   }
 
 
 
   selectTab(tabId: number) {
+    this.staticTabs.tabs[tabId].disabled = false;
     this.staticTabs.tabs[tabId].active = true;
   }
 
@@ -59,11 +49,29 @@ export class CreateProductComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      switch (params['step']) {
+        case 'categories':
+          this.selectTab(1);
+          break
+        case 'gallery':
+          this.selectTab(2);
+          break
+        case 'variations':
+          this.selectTab(3);
+          break
+        default:
+          this.selectTab(0)
+      }
+    });
+
+
     if (this.id) {
       this.staticTabs.tabs[1].disabled = false;
       this.staticTabs.tabs[2].disabled = false;
       this.staticTabs.tabs[3].disabled = false;
-    }else{
+    } else {
       this.staticTabs.tabs[1].disabled = true;
       this.staticTabs.tabs[2].disabled = true;
       this.staticTabs.tabs[3].disabled = true;

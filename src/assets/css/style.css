@@ -15582,7 +15582,9 @@ select#shipping-address-select {
   position: inherit;
   border-color: #ececec;
 }
-
+.ngx-gallery-image{
+  background-size: contain !important;
+}
 .select-create-category .ng-dropdown-panel .scroll-host {
   border-left: solid 1px #ececec;
   border-right: solid 1px #ececec;

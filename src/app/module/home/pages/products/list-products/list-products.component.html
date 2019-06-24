@@ -55,7 +55,7 @@
       <div class="col p-0 bg-table min-height-300">
         <table *ngIf="data && data['data'].length" class="table table-shipment">
           <thead>
-          <tr>
+          <tr class="d-none">
             <th scope="col" style="width: 100px"></th>
             <th scope="col"></th>
             <th scope="col" class="text-center" style="width: 150px"></th>
@@ -64,7 +64,7 @@
           <tbody>
           <tr *ngFor="let dat of data['data'];let i = index"
               class="list-table-item cursor-pointer">
-            <td>
+            <td class="image-td">
               <img
                 *ngIf="dat['cover_image']"
                 [src]="dat['cover_image']['small']"

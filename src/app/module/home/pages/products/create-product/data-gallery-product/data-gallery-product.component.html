@@ -9,6 +9,10 @@
   </ngx-dropzone>
   <div class="text-right p-2">
     <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>
-    <button class="btn btn-primary btn-sm ml-2" (click)="uploadSave()">Guardar</button>
+    <button class="btn btn-primary btn-sm" 
+    (click)="uploadSave()" [disabled]="loading_save" tabindex="0">
+      <fa *ngIf="!loading_save" name="save"></fa>
+      <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+    </button>
   </div>
 </div>

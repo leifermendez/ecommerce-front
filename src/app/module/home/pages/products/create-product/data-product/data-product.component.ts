@@ -72,7 +72,7 @@ export class DataProductComponent implements OnInit {
         if (response['status'] === 'success') {
           this.loading_save = false;
           this.callback.emit(response['data']);
-          this.router.navigateByUrl(`/products/edit/${response['data']['id']}`);
+          this.router.navigateByUrl(`/products/edit/${response['data']['id']}/categories`);
         }
       });
   };

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-data-variations-product',
@@ -21,7 +22,8 @@ export class DataVariationsProductComponent implements OnInit {
     item: []
   };
 
-  constructor(private rest: RestService, private fb: FormBuilder) {
+  constructor(private rest: RestService, private fb: FormBuilder,
+    private router: Router) {
     this.form = fb.group({
       'label': [null, Validators.compose([Validators.required])],
       'price_normal': [null, Validators.compose([Validators.required])],
@@ -75,6 +77,7 @@ export class DataVariationsProductComponent implements OnInit {
         if (response['status'] === 'success') {
           this.loading_save = false;
           this.variations = response['data'];
+          this.router.navigateByUrl(`/products`);
         }
       });
 
