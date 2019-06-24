@@ -1,0 +1,225 @@
+<section class="main-container col2-right-layout mt-0">
+  <div class="page-content">
+    <div class="breadcrumbs">
+      <div class="container">
+        <div class="row">
+          <div>
+            <ul>
+              <li class="home"><a href="index.html" title="Go to Home Page">Home</a> <span>&rsaquo; </span></li>
+              <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
+              <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
+              <li class="category1601"><strong>Retis lapen casen</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container p-0">
+      <div class="inside-body2 mb-4">
+        <div class="">
+          <div class="row">
+            <div
+              class="col-7 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
+              <div *ngIf="variation[0]" class=" ">
+                <img class="w-100"  onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
+              </div>
+              <div *ngIf="!variation[0]" class="w-100">
+                <img class="w-100"  [src]="'assets/images/nofound.png'"/>
+              </div>
+            </div>
+            <div class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
+              <div>
+                <div class="product-shop ">
+
+                  <div class="product-name">
+                    <h1 itemprop="name">{{data.name}}</h1>
+                  </div>
+                  <!--product-name-->
+                  <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                    <div class="rating">
+                      <div class="ratings">
+                        <div class="rating-box">
+                          <div class="rating" style="width:50%"></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="price-block">
+                    <div class="price-box"><span class="regular-price" id="product-price-123">
+                      <span class="price">{{variation.price_normal}}</span> </span>  <span class="regular margin-left-10 ">{{variation.price_regular}}</span>
+                    </div>
+                  </div>
+                  <!--price-block-->
+                  <div class="short-description">
+                    <h2>Las DISICHU</h2>
+                    <p>{{data.description}} </p>
+                  </div>
+                  <br>
+                  <h2>Variaciones:</h2>
+                  <ng-select [items]="variation"
+                             bindLabel="label"
+                             bindValue="id"
+                             placeholder="Select variation"
+                             [(ngModel)]="selectedvariationName">
+                    <ng-template ng-label-tmp let-item="item">
+                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <b>&nbsp;{{item.label}}</b>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index">
+                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <b>&nbsp;{{item.label}}</b>
+                    </ng-template>
+                  </ng-select>
+                  <br>
+
+
+                  <div class="add-to-box">
+                    <div class="add-to-cart">
+                      <div class="pull-left">
+                        <div class="custom pull-left">
+                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i class="fa fa-plus"></i></button>
+                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1" title="Quantity:"
+                                 class="input-text qty">
+                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i class="fa fa-minus"></i></button>
+                        </div>
+                        <!--custom pull-left-->
+                      </div>
+                      <!--pull-left-->
+                      <button  (click)="addProduct(data)" type="button" title="Add to Cart" class="button btn-cart carbtn">
+                        <span>Agregar al carrito</span></button>
+
+
+                    </div>
+                    <div class="social center-block">
+                      <ul class="link">
+                        <li class="fb"><a href="http://www.facebook.com/" rel="nofollow" target="_blank"
+                                          style="text-decoration:none;"> </a></li>
+                        <li class="linkedin"><a href="http://www.linkedin.com/" rel="nofollow" target="_blank"
+                                                style="text-decoration:none;"> </a></li>
+                        <li class="tw"><a href="http://twitter.com/" rel="nofollow" target="_blank"
+                                          style="text-decoration:none;"> </a></li>
+                        <li class="pintrest"><a href="http://pinterest.com/" rel="nofollow" target="_blank"
+                                                style="text-decoration:none;"> </a></li>
+                        <li class="googleplus"><a href="https://plus.google.com/" rel="nofollow" target="_blank"
+                                                  style="text-decoration:none;"> </a></li>
+                      </ul>
+                    </div>
+                    <!--add-to-cart-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid">
+              <h1>Galeria sliders</h1>
+            </div>
+            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid  p-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <h5 itemprop="name">Información de la tienda</h5>
+                    </div>
+
+                    <div class="col-3 pl-0 offset-2">
+                      <img  src="https://http2.mlstatic.com/resources/largesellers/175499661/cat/small_logo201708240452.jpg">
+                    </div>
+                    <div class="col-7 pl-0 ">
+                      Cat <br>
+                      Tienda oficial de mercado libre
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h2>Descripción</h2>
+                    <p>{{data.description}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid ">
+              <div class="container">
+                <div class="row">
+                  <br>
+                  <div class="col-12 pl-0 offset-2">
+                    Ubicación <br>
+                   <i class="fa fa-map-marker"></i> {{data.shop_address}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h2>Caracteristicas</h2>
+                  </div>
+                  <div class="col-6 ">
+                    COLOR
+                  </div>
+                  <div class="col-6 ">
+                    COMIDA
+                  </div>
+                  <div class="col-6 ">
+                    COLOR
+                  </div>
+                  <div class="col-6 ">
+                    COMIDA
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-12 ">
+                    <h2>Opiniones sobre el producto</h2>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-12">
+                    <div itemprop="aggregateRating" itemscope="" >
+                      <div class="rating">
+                        <div class="ratings">
+                          <div class="rating-box">
+                            <div class="rating" style="width:50%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Genial exelente</h5>
+                    <p>hasta ahora todo bien todo. ssdfsfd</p>
+                  </div>
+                  <br>
+                  <div class="col-12">
+                    <div itemprop="aggregateRating" itemscope="" >
+                      <div class="rating">
+                        <div class="ratings">
+                          <div class="rating-box">
+                            <div class="rating" style="width:50%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Genial exelente</h5>
+                    <p>hasta ahora todo bien todo. ssdfsfd</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid border-booton-solid">
+              <div class="container">
+                <div class="row">
+                  <br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container p-0">
+      <app-box-featured-product id='offers'></app-box-featured-product>
+    </div>
+  </div>
+</section>

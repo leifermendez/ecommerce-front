@@ -15,6 +15,11 @@ import {SingleSaleComponent} from './module/home/pages/single-sale/single-sale.c
 import {SalesComponent} from './module/home/pages/sales/sales.component';
 import {ProductsComponent} from './module/home/pages/products/products.component';
 import {CreateProductComponent} from './module/home/pages/products/create-product/create-product.component';
+import {SingleComponent} from './module/home/pages/single/single.component';
+import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
+import {CarComponent} from './module/home/pages/car/car.component';
+import {CheckoutComponent} from './module/home/pages/checkout/checkout.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -51,6 +56,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
+      footer: true
+    }
+  },
+  {
+    path: 'single/:id',
+    component: SingleComponent,
+    pathMatch: 'full',
+    data: {
       footer: true
     }
   },
@@ -163,6 +176,24 @@ const routes: Routes = [
       footer: true
     },
   },
+  {
+    path: 'shopping-cart',
+    component: CarComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'store/:id',
+    component: StoreprofileComponent,
+    pathMatch: 'full',
+  },
+  { path: '**', component: HomeComponent },
   {path: '**', component: HomeComponent},
 ];
 

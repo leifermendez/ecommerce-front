@@ -1,0 +1,118 @@
+.page-heading {
+  padding: 40px 0 40px 0;
+  background-image: url("https://http2.mlstatic.com/resources/largesellers/175499661/cat/background201809061111.jpg");
+  border-bottom: none;
+  min-height: 201px;
+  text-align: left;
+  background-repeat: no-repeat;
+  overflow: inherit;
+}
+.page-content {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 0px);
+  overflow: auto;
+  padding: 0 32px;
+}
+.imgstore {
+  border: solid 1px;
+  border-radius: 10px;
+  width: 150px;
+  position: absolute;
+  margin-top: 100px;
+}
+.add45 {
+  margin-top: 45px;
+}
+.slider-items-products .item {
+  text-align: center;
+  padding: 10px;
+}
+
+
+/*store single*/
+.product-image img{
+  width: 100%;
+  height: 300px;
+}
+.item-box-hover{
+  z-index: 9999 !important;
+  height: 42px;
+}
+.item-price{
+  z-index: 9999 !important;
+  height: 40px;
+}
+.item-title {
+  padding-top:0px !important;
+}
+
+.item-title a{
+  font-weight: normal !important;
+}
+
+.item-price-avalible-on{
+  font-size:14px;
+  font-weight: 600;
+}
+
+.item-price-amount{
+  font-size:16px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+.item-price-amount-unavailable{
+  font-size:18px;
+  font-weight: 500;
+  opacity: .4;
+  font-family: 'Montserrat', sans-serif;
+}
+.item-price-amount-unavailable:hover{
+  opacity: 1;
+}
+
+.products-grid .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button{
+  margin-right: 0px !important;
+}
+
+.btn-cart:before {
+  padding: 11px 12px !important;
+  border-radius: 20px;
+}
+.euro-sign{
+  font-size: 18px
+}
+.item-info{
+  min-height: 90px;
+}
+.time-ago-string{
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+}
+.time-ago-string:first-letter{
+  text-transform: capitalize;
+}
+
+.price-regular .item-price-amount ,.price-regular .euro-sign{
+  font-size: 12px;
+}
+
+.price-regular{
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: line-through;
+}
+
+.styleno {
+  list-style: none;
+  padding-left: 0px;
+}
+.fontweight {
+  font-weight: bold;
+}
+li {
+  margin-top: 10px!important;
+  margin-bottom: 15px!important;
+}
