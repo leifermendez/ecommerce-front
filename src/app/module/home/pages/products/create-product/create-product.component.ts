@@ -17,7 +17,7 @@ export class CreateProductComponent implements OnInit {
   public categories = false;
   public variations = false;
   public id: any = false;
-  public filesReady: any;
+
 
   constructor(private route: ActivatedRoute,
               private rest: RestService,
@@ -38,42 +38,13 @@ export class CreateProductComponent implements OnInit {
     });
   }
 
-  onFilesAdded(files: File[]) {
 
-    files.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (e: ProgressEvent) => {
-        const content = (e.target as FileReader).result;
-      };
-      this.filesReady = files;
-    });
-  }
 
   selectTab(tabId: number) {
     this.staticTabs.tabs[tabId].active = true;
   }
 
-  uploadSave = () => {
-    this.loading = true;
-    this.filesReady.forEach(file => {
-      const formData = new FormData();
-      formData.append('attached', file);
-      formData.append('type_file', 'image');
 
-      this.httpClient.post<any>(
-        `${this.rest.url}/rest/media`, formData,
-        {headers: this.rest.getHeadersMedia()})
-        .subscribe(
-          (res) => {
-            this.loading = false;
-          },
-          (err) => {
-            this.loading = false;
-          }
-        );
-    });
-
-  };
 
   callback_data_categories = (e) => {
     this.categories = e['id'];

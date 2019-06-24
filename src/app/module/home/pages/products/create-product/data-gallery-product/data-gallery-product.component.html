@@ -1,0 +1,14 @@
+<div class="block-dashboard-drop">
+  <ngx-dropzone [showPreviews]="true"
+                [accept]="'image/png,image/jpeg'"
+                #dropzone
+                [multiple]="true"
+                (filesAdded)="onFilesAdded($event)"
+                label="Arrastra y suelta los archivos que deseas subir"
+                class="custom-drop">
+  </ngx-dropzone>
+  <div class="text-right p-2">
+    <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>
+    <button class="btn btn-primary btn-sm ml-2" (click)="uploadSave()">Guardar</button>
+  </div>
+</div>

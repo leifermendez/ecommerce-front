@@ -44,87 +44,78 @@
     </div>
   </div>
 
-  <div *ngIf="!loading" class="card block-dashboard border-0">
-
-    <div class="card-header">
-      <div class="d-flex justify-content-between">
-        <div>Productos</div>
-        <div>
-          <button class="btn btn-primary btn-sm"
-                  [routerLink]="['/','products','create']">
-            Agregar producto
-          </button>
-        </div>
-      </div>
+  <div *ngIf="!loading">
+    <div class="text-right">
+      <button class="btn btn-primary btn-sm mb-2"
+              [routerLink]="['/','products','create']">
+        Agregar producto
+      </button>
     </div>
-    <div class="col p-0 bg-table min-height-300">
-      <table *ngIf="data && data['data'].length" class="table table-shipment">
-        <thead>
-        <tr>
-          <th scope="col" style="width: 100px"></th>
-          <th scope="col"></th>
-          <th scope="col" style="width: 100px">Monto</th>
-          <th scope="col" style="width: 100px">Envio</th>
-          <th scope="col" class="text-center" style="width: 100px">Estatus</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let dat of data['data'];let i = index"
-            [routerLink]="['/','products','edit',dat['id']]"
-            class="list-table-item cursor-pointer">
-          <td>
-            <img
-              src="https://rukminim1.flixcart.com/image/612/612/jjelq4w0/shoe/m/u/t/tp1023-7-foot-locker-blue-original-imaf6jsd5c8zzhvu.jpeg?q=70"
-              width="100px"
-              class="image-bran"
-              height="100px"
-              alt="">
-          </td>
-          <td>
-            <div>
-              <span>{{dat['name']}}</span>
-            </div>
-            <span class="text-muted form-text">
+    <div class="card block-dashboard border-0">
+      <div class="col p-0 bg-table min-height-300">
+        <table *ngIf="data && data['data'].length" class="table table-shipment">
+          <thead>
+          <tr>
+            <th scope="col" style="width: 100px"></th>
+            <th scope="col"></th>
+            <th scope="col" class="text-center" style="width: 150px"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let dat of data['data'];let i = index"
+              class="list-table-item cursor-pointer">
+            <td>
+              <img
+                *ngIf="dat['cover_image']"
+                [src]="dat['cover_image']['small']"
+                class="image-bran"
+                alt="">
+              <div *ngIf="!dat['cover_image']" class="item-image">
+              </div>
+            </td>
+            <td>
+              <div>
+                <span class="font-weight-600">{{dat['name']}}</span>
+              </div>
+              <span class="text-muted form-text">
+            <span class="badge mr-1"
+                  [ngClass]="{
+                'badge-success':(dat['status'] === 'available'),
+                'badge-danger':(dat['status']!=='available')}">
+                <span *ngIf="dat['status'] === 'available'">
+                  <fa name="check"></fa>
+                </span>
+                <span *ngIf="dat['status'] !== 'available'">
+                   <fa name="times"></fa>
+                </span>
+              </span>
               <b>{{dat['variations']['length']}}</b> variaciones
             </span>
-          </td>
-          <td>
-                        <span>
-                          <h6>
-                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
-                          </h6>
-                        </span>
-          </td>
-          <td>
-                          <span>
-                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
-                        </span>
-          </td>
-          <td class="text-center">
-            <div [tooltip]="dat['status']">
-              <fa *ngIf="dat['status']==='success'"
-                  name="check" size="2x" class="text-success"></fa>
-              <fa *ngIf="dat['status']==='wait'"
-                  name="history" animation="spin" size="2x" class="text-muted"></fa>
-              <fa *ngIf="dat['status']==='cancel'"
-                  name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-              <fa *ngIf="dat['status']==='fail'"
-                  name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-              <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
-            </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <div *ngIf="data && !data['data'].length" class="text-center pb-4">
-        <img src="../../../../../assets/images/paper-bag.svg"
-             class="mt-4"
-             width="100px" alt="">
-        <div class="mt-2">
-          <p class="text-muted">Aun no tienes compras</p>
+            </td>
+            <td class="align-middle text-right">
+              <button
+                [routerLink]="['/','products','edit',dat['id']]"
+                class="btn btn-link btn-sm mr-1">
+                <fa name="edit"></fa>
+              </button>
+              <button class="btn btn-link btn-sm" (click)="deleteProduct(dat['id'])">
+                <fa name="trash"></fa>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+          <img src="../../../../../assets/images/paper-bag.svg"
+               class="mt-4"
+               width="100px" alt="">
+          <div class="mt-2">
+            <p class="text-muted">Aun no tienes compras</p>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
+
 </div>

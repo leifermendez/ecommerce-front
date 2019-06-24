@@ -84,6 +84,9 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
+import { DataGalleryProductComponent } from './module/home/pages/products/create-product/data-gallery-product/data-gallery-product.component';
+import { DataGalleryProductVariationComponent } from './module/home/pages/products/create-product/data-gallery-product-variation/data-gallery-product-variation.component';
+import { LoadingApatxeeComponent } from './module/home/components/loading-apatxee/loading-apatxee.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -165,6 +168,9 @@ export class MyIntl extends TimeagoIntl {
     DataCategoriesProductComponent,
     DataVariationsProductComponent,
     ListProductsComponent,
+    DataGalleryProductComponent,
+    DataGalleryProductVariationComponent,
+    LoadingApatxeeComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

@@ -13,8 +13,13 @@ export class DataVariationsProductComponent implements OnInit {
   public form: any = FormGroup;
   public loading = false;
   public data_product: any = [];
-  public variations: any = [];
+  public variations: any = false;
+  public apiDropzone: any;
   public editform: any = {};
+  public loading_save = false;
+  public list_variations: any = {
+    item: []
+  };
 
   constructor(private rest: RestService, private fb: FormBuilder) {
     this.form = fb.group({
@@ -31,22 +36,44 @@ export class DataVariationsProductComponent implements OnInit {
 
   ngOnInit() {
     this.loadData();
+    // this.loadDataList();
   }
+
+  dropzoneApiCallback = (a) => this.apiDropzone = a;
+
+  addMedia = (a) => {
+    this.loading_save = false;
+    this.editform['attached_id'] = a;
+    this.save_variation();
+  };
+
+  reset = () => this.apiDropzone.dropzone.reset();
 
   loadData = () => {
     this.rest.get(`/rest/products/${this.id}`)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.data_product = response['data'];
+          this.list_variations = {
+            ...this.list_variations,
+            ...response['data']['variations']
+          };
         }
       });
   };
 
+  save = () => {
+    this.loading_save = true;
+    this.apiDropzone.uploadSave();
+  };
+
   save_variation = () => {
+    this.loading_save = true;
     this.editform = {...this.editform, ...{product_id: this.id}};
     this.rest.post(`/rest/products-variations`, this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {
+          this.loading_save = false;
           this.variations = response['data'];
         }
       });

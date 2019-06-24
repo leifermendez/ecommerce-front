@@ -3,6 +3,50 @@
   <div class="page-content">
     <div class="container p-0">
       <div class="inside-body mb-4">
+        <div *ngIf="loading">
+          <div class="timeline-item ">
+            <div class="animated-background" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
         <tabset *ngIf="!loading">
           <tab *ngFor="let dat of data_shops; let indice = index" [heading]="dat['name'] | slice:0:25" [id]="dat['id']">
             <div class="container">
@@ -10,7 +54,6 @@
             </div>
           </tab>
         </tabset>
-
       </div>
     </div>
 

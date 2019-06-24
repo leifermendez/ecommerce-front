@@ -53,3 +53,10 @@
   border: solid 1px #e8e8e8;
   border-radius: 3px;
 }
+
+.item-image{
+  width: 60px;
+  height: 60px;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}

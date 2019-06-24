@@ -50,23 +50,24 @@
   width: 60px;
   height: 60px;
   object-fit: contain;
-  border: solid 1px #e8e8e8;
+  border: solid 0px #e8e8e8;
   border-radius: 3px;
 }
-
-.section-block {
+.section-block{
   background-color: #fbfbfb;
   border-top: solid 1px #efeeee;
   border-bottom: solid 1px #efeeee;
 }
-
-.img-main {
-  object-fit: contain;
-  border: solid 1px #eceaea;
-  width: 100%;
-  height: 150px;
+.block-dashboard-drop{
+  width:100%;
 }
-
-.table-width-limit {
-  width: 100px;
+.custom-drop{
+  border: solid 0px #e6e6e6;
+  border-radius: 3px;
+  min-height: 265px;
+  background-image: url(../../../../../../../assets/images/gallery.svg);
+  background-repeat: no-repeat;
+  height: inherit;
+  background-position: center 30px;
+  background-size: 80px;
 }

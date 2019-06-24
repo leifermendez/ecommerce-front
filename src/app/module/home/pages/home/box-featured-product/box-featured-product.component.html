@@ -1,10 +1,10 @@
-<section *ngIf="data && data.length" class=" wow bounceInUp animated CollectionGrid-container">
-  <div class="best-pro slider-items-products container">
+<section class=" wow bounceInUp animated CollectionGrid-container">
+  <div *ngIf="!loading" class="best-pro slider-items-products container">
     <div class="new_title">
       <h2>Mega ofertas</h2>
     </div>
 
-    <div id="best-seller" class="product-flexslider hidden-buttons">
+    <div *ngIf="data && data.length" id="best-seller" class="product-flexslider hidden-buttons">
       <div class="slider-items slider-width-col4 products-grid">
         <owl-carousel
           #owlFeatured
@@ -12,16 +12,14 @@
           [options]="optionsOws"
           [items]="data"
           [carouselClasses]="['owl-theme', 'sliding']">
-          <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
+          <div class="item cursor-pointer" *ngFor="let dat of data; let i = index">
             <div class="item">
               <div class="item-inner">
                 <div class="item-img">
                   <div class="item-img-info">
-                    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                    <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                     <div class="item-box-hover">
                       <div class="box-inner">
-
-
                         <div
                           *ngIf="dat['is_available']['isAvailable']"
                           class="add_cart mt-1 mr-1">
@@ -31,7 +29,6 @@
                             <span>Add to Cart</span>
                           </button>
                         </div>
-
                       </div>
                     </div>
                   </div>
@@ -63,8 +60,8 @@
                                     <span class="euro-sign">€</span></span>
                         </div>
                         <div class="price-regular">
-                                  <span class="item-price-amount text-muted"> 
-                                      {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}} 
+                                  <span class="item-price-amount text-muted">
+                                      {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                       </span>
                         </div>
                       </div>
@@ -77,14 +74,14 @@
                                       <span class="euro-sign">€</span></span>
                         </div>
                         <div class="price-regular">
-                                    <span class="item-price-amount text-muted"> 
-                                        {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}} 
+                                    <span class="item-price-amount text-muted">
+                                        {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                         </span>
                         </div>
                       </div>
 
                       <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
-                              <span class="item-price-amount-unavailable text-muted"> 
+                              <span class="item-price-amount-unavailable text-muted">
                                   <fa name="history"></fa>
                                No stock</span>
                       </div>
@@ -100,12 +97,12 @@
                                   <fa name="hourglass" animation="spin" rotate="180" class="mr-1"></fa>
                                   <span class="time-ago-string" timeago
                                         [date]="timeAgoNext(dat['is_available']['minutes'])"></span>
-                    
+
                               </span>
                         </div>
                       </div>
                       <div *ngIf="!dat['is_available']['nextOpen']">
-                            <span class="item-price-amount-unavailable text-muted"> 
+                            <span class="item-price-amount-unavailable text-muted">
                                 <fa name="history"></fa>
                              No disponible</span>
                       </div>
@@ -118,6 +115,30 @@
             </div>
           </div>
         </owl-carousel>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="best-pro slider-items-products container">
+    <div class="timeline-item">
+      <div class="animated-background" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
       </div>
     </div>
   </div>

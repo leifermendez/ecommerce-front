@@ -43,6 +43,7 @@ export class CreateShopComponent implements OnInit {
         .subscribe(
           (res) => {
             this.loading = false;
+            return res;
           },
           (err) => {
             this.loading = false;

@@ -1,4 +1,49 @@
 <div class="col-12">
+  <app-loading-apatxee *ngIf="loading_save"></app-loading-apatxee>
+  <div *ngIf="loading" class="card block-dashboard border-0">
+    <div class="timeline-item ">
+      <div class="animated-background" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+      <div class="animated-background mt-3" style="height: 40px">
+        <div class="background-masker header-top"></div>
+        <div class="background-masker header-left"></div>
+        <div class="background-masker header-right"></div>
+        <div class="background-masker header-bottom"></div>
+        <div class="background-masker subheader-left"></div>
+        <div class="background-masker subheader-right"></div>
+        <div class="background-masker subheader-bottom"></div>
+
+      </div>
+    </div>
+  </div>
   <div *ngIf="!loading" class="card block-dashboard border-0">
     <form [formGroup]="form" (submit)="save()">
       <div class="card-header"><b>Agregar producto</b></div>
@@ -65,50 +110,5 @@
       </div>
     </form>
 
-  </div>
-
-  <div *ngIf="loading" class="card block-dashboard border-0">
-    <div class="timeline-item ">
-      <div class="animated-background" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-
-      </div>
-      <div class="animated-background mt-3" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-
-      </div>
-      <div class="animated-background mt-3" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-
-      </div>
-      <div class="animated-background mt-3" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-
-      </div>
-    </div>
   </div>
 </div>

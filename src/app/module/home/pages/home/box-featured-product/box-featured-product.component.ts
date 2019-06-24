@@ -18,6 +18,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any[];
   public optionsOws: any;
+  public loading: any = false;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -39,8 +40,10 @@ export class BoxFeaturedProductComponent implements OnInit {
   };
 
   loadData = () => {
-    this.rest.get('/rest/products')
+    this.loading = true;
+    this.rest.get('/rest/products?filters=products.status,=,available')
       .then((response: any) => {
+        this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];
           this.data = response['items']['data'];
@@ -59,7 +62,7 @@ export class BoxFeaturedProductComponent implements OnInit {
 
   ngOnInit() {
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
-
+    this.data = [1, 1, 1, 1];
     this.galleryOptions = [
       {
         width: '270px',

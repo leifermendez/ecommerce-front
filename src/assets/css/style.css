@@ -15587,11 +15587,17 @@ select#shipping-address-select {
   border-left: solid 1px #ececec;
   border-right: solid 1px #ececec;
 }
+
+.slider-items-products i.ngx-gallery-icon-content.fa{
+  color:#d0a8a8 !important;
+}
+
 html {
   scroll-behavior: smooth;
 
 }
+
 ::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }

@@ -20,13 +20,27 @@ export class ListProductsComponent implements OnInit {
 
   loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/seller/${this.id}`)
+    this.rest.get(`/rest/seller/${this.id}?limit=10&filters=products.status,=,available`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data = response['data'];
 
         }
+      });
+  };
+
+  deleteProduct = (id) => {
+    this.rest.put(`/rest/products/${id}`,
+      {
+        status: 'unavailable'
+      })
+      .then((response: any) => {
+        this.loading = false;
+        // if (response['status'] === 'success') {
+        //   this.data = response['data'];
+        //
+        // }
       });
   };
 
