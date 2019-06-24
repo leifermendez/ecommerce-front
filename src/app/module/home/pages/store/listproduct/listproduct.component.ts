@@ -11,7 +11,7 @@ import {OwlCarousel} from 'ngx-owl-carousel';
   templateUrl: './listproduct.component.html',
   styleUrls: ['./listproduct.component.css']
 })
-export class ListproductComponent implements OnInit {
+export class ListstoreComponent implements OnInit {
   loading = false;
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any[];

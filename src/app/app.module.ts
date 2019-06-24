@@ -78,12 +78,14 @@ import { ProductsComponent } from './module/home/pages/products/products.compone
 import { CreateProductComponent } from './module/home/pages/products/create-product/create-product.component';
 import { DataProductComponent } from './module/home/pages/products/create-product/data-product/data-product.component';
 import { DataCategoriesProductComponent } from './module/home/pages/products/create-product/data-categories-product/data-categories-product.component';
-import { DataVariationsProductComponent } from './module/home/pages/products/create-product/data-variations-product/data-variations-product.component';
+import { DataVariationsProductComponent} from './module/home/pages/products/create-product/data-variations-product/data-variations-product.component';
 import { ListProductsComponent } from './module/home/pages/products/list-products/list-products.component';
 import {SingleComponent} from './module/home/pages/single/single.component';
 import {SearchComponent} from './module/home/components/search/search.component';
 import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
-import {ListproductComponent} from './module/home/pages/store/listproduct/listproduct.component';
+import {ListstoreComponent} from './module/home/pages/store/listproduct/listproduct.component';
+import { CarComponent } from './module/home/pages/car/car.component';
+import { CheckoutComponent } from './module/home/pages/checkout/checkout.component';
 
 
 
@@ -170,7 +172,9 @@ export class MyIntl extends TimeagoIntl {
     SingleComponent,
     SearchComponent,
     StoreprofileComponent,
-    ListproductComponent,
+    ListstoreComponent,
+    CarComponent,
+    CheckoutComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
