@@ -1,0 +1,7 @@
+button.button:hover {
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -45px 0 0 #090809333;
+  border: 1px solid #ce0000;
+  color: #ffffff;
+  background-color: #ce0000;
+}
