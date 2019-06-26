@@ -1,14 +1,21 @@
 .category-box .item-img {
-    width: 75px !important;
-    margin-bottom: 0px;
-    display: initial !important;
-  }
-  .CollectionGrid-tile{
-    padding: 10px 0px 10px 0px !important;
-    width: 100% !important;
-    float:auto !important;
-  }  
+  width: 75px !important;
+  margin-bottom: 0px;
+  height: 75px;
+  display: initial !important;
+  object-fit: contain;
+}
 
-.item{
-    margin:0 !important;
-  }
+.CollectionGrid-tile {
+  padding: 10px 0px 10px 0px !important;
+  width: 100% !important;
+  float: auto !important;
+  font-size: 100%;
+}
+
+.item {
+  margin: 0 !important;
+}
+.CollectionGrid{
+  /*height: 140px !important;*/
+}

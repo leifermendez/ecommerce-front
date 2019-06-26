@@ -21,16 +21,16 @@
   background-color: #ffffff;
 }
 .border-rigth-solid {
-  border-right: solid 1px #c7c7c7;;
+  border-right: solid 1px #eaeaea;;
 }
 .border-left-solid {
-  border-left: solid 1px #c7c7c7;;
+  border-left: solid 1px #eaeaea;;
 }
 .border-booton-solid {
-  border-bottom: solid 1px #c7c7c7;
+  border-bottom: solid 1px #eaeaea;
 }
 .border-top-solid {
-  border-top: solid 1px #c7c7c7;
+  border-top: solid 1px #eaeaea;
 }
 .carbtn {
   width: 70%;

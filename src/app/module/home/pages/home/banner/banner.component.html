@@ -16,20 +16,27 @@
       [items]="data"
       [carouselClasses]="['owl-theme', 'sliding']">
       <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
-        <div class="thumbnail-image">
-            <vg-player class="video-banner" (onPlayerReady)="onPlayerReady($event)">
-                <video [vgMedia]="media" muted #media id="singleVideo" class="video-box" 
-                preload="auto" autoplay="true">
-                    <source src="https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/video_mQvpOQzdDOqdTb57IF7V3DWSoNVDqSd4mBl.mp4/Ff48WwMRoIQRE30k9WUz7birrxzmmqcOVDxhA0t4.mp4" type="video/mp4">
-                </video>
+        <a [href]="dat['url']" target="_blank">
+          <div class="thumbnail-image">
+            <vg-player *ngIf="dat['media_type']==='video'" class="video-banner" (onPlayerReady)="onPlayerReady($event)">
+              <video controls [vgMedia]="media" muted #media id="singleVideo" class="video-box"
+                     preload="auto" autoplay="true">
+                <source
+                  src=" https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/video_3HLwCXKiINSRrarnzM7blY549NkwV6kd6v1.mp4/HUf5GbvH8KLpIcnbAxtkj0jelYbwI6zHAvPfFQo0.mp4"
+                  type="video/mp4">
+              </video>
             </vg-player>
+            <!--          https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/video_mQvpOQzdDOqdTb57IF7V3DWSoNVDqSd4mBl.mp4/Ff48WwMRoIQRE30k9WUz7birrxzmmqcOVDxhA0t4.mp4-->
+
             <!--https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/video_GH7foBbWt6ZJs6Hd2DA9AlSkAagTITKDXwT.mp4/xSksKvJ0PxzzIf1TbrrPO1Ep3DJrNLXOJWPTHFUR.mp4-->
             <!--<vp-ngx-epic-video-player class="video-banner" #evp [videoId]="'my-own-id'"
             [autoplay]="true" [muted] ="true"
               url="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8">
             </vp-ngx-epic-video-player> -->
-          <!--<img class="image-banner" [src]="dat['attached_large']" [alt]="dat['title']"> -->
-        </div>
+            <img *ngIf="dat['media_type']==='image'" class="image-banner" [src]="dat['attached_large']" [alt]="dat['title']">
+          </div>
+        </a>
+
       </div>
     </owl-carousel>
   </div>

@@ -5,6 +5,7 @@ import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {OwlCarousel} from 'ngx-owl-carousel';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-listproduct',
@@ -18,18 +19,20 @@ export class ListstoreComponent implements OnInit {
   public optionsOws: any;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  @Input() idpara: any = null;
+  @Input() id: any = null;
+
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute, private router: Router) { }
+              private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
-    if (this.idpara) {
-      this.loadData(this.idpara);
+    if (this.id) {
+      this.loadData();
     }
     // this.route.params.subscribe(params => {
     //   if (params['id']) {
-    //     this.idparam = params['id'].toString();
-    //     this.loadData(this.idparam);
+    //     this.idm = params['id'].toString();
+    //     this.loadData(this.idm);
     //   }
     // });
     this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
@@ -72,16 +75,22 @@ export class ListstoreComponent implements OnInit {
     ];
   }
 
-  loadData = (id) => {
+  loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/seller/${id}`)
+    this.rest.get(`/rest/seller/${this.id}?limit=15&filters=products.status,=,available`)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
           this.data = response.data.data;
         }
       });
-  }
+  };
+
+  timeAgoNext = (minutes = 0) => {
+    const date = moment()
+      .add(minutes, 'minutes');
+    return date;
+  };
   addProduct = (obj) => {
     const _data = {
       product_id: obj['id'],
@@ -89,7 +98,8 @@ export class ListstoreComponent implements OnInit {
       shop_id: obj['shop_id']
     };
     this.shopping.addCart(_data);
-  }
+  };
+
   detail(id) {
     this.router.navigateByUrl(`/single/${id}`);
   }

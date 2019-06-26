@@ -21,7 +21,7 @@ export class BannerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.optionsGallery = { items: 1, dots: false, navigation: true, autoplay: true, loop: false };
+    this.optionsGallery = { items: 1, dots: false, navigation: true, autoplay: false, loop: false };
     this.rest.get('/rest/banners')
       .then((response: any) => {
         if (response['status'] === 'success') {
@@ -37,6 +37,7 @@ export class BannerComponent implements OnInit {
   this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(
     () => {
       this.api.getDefaultMedia()['volume'] = 0;
+      this.api.play();
       console.log(this.api)
     });
   }

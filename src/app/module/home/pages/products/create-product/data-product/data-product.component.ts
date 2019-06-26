@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
+import {AuthshopService} from '../../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-data-product',
@@ -17,8 +18,10 @@ export class DataProductComponent implements OnInit {
   public editform: any = {};
   public list_shops: any = [];
   public select_shop: any = null;
+  public user_data: any;
 
-  constructor(private fb: FormBuilder, private rest: RestService, private router: Router) {
+  constructor(private fb: FormBuilder, private rest: RestService, private router: Router,
+              private auth: AuthshopService) {
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
       'short_description': [null, Validators.compose([Validators.required])],
@@ -27,6 +30,7 @@ export class DataProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user_data = this.auth.getCurrentUser();
     this.getShops();
     if (this.id) {
       this.loadData();
@@ -35,7 +39,7 @@ export class DataProductComponent implements OnInit {
 
   getShops = () => {
     this.loading = true;
-    this.rest.get('/rest/shop?limit=50')
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

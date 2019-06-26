@@ -3,13 +3,13 @@
     <div class="slider-items  products-grid">
       <div class="container">
         <div class="row">
-          <div class="item cursor-pointer col-sm-4 pr-0" *ngFor="let dat of data; let i = index">
-            <div class="item" >
+          <div class="item cursor-pointer col-sm-4 p-0" *ngFor="let dat of data; let i = index">
+            <div class="item">
               <div class="item-inner">
                 <div class="item-img">
                   <div class="item-img-info">
-                    <div >
-                      <ngx-gallery [options]="galleryOptions"   [images]="galleryImages"></ngx-gallery>
+                    <div>
+                      <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                     </div>
                     <div class="item-box-hover">
                       <div class="box-inner">
@@ -27,18 +27,19 @@
                 <div class="item-info" (click)="detail(dat.id)">
                   <div class="info-inner">
                     <div class="item-title mb-0">
-                      <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                         title="Retis lapen casen">{{dat.name}}</a>
+                      <a href="#"
+                         class="font-weight-600"
+                         title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
                     </div>
                     <div>
                       <a class="text-muted">
-                        {{dat.shop_name}}
+                        {{dat['shop_name'] | words : 4}}
                       </a>
                     </div>
                     <div class="item-content d-flex">
-                      <!--<ngx-stars [readonly]="true" initialStars="{{dat.'score_shop']['score']}}"-->
-                      <!--customPadding="2px" color="#FFC400"></ngx-stars>-->
-                      <span class="text-muted">5</span>
+                      <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
+                      customPadding="2px" color="#FFC400"></ngx-stars>
+                      <span class="text-muted">({{dat['score_shop']['count']}})</span>
                     </div>
                     <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
                       <div class="d-flex"

@@ -1,9 +1,80 @@
 <section class=" wow bounceInUp animated CollectionGrid-container">
+  <div *ngIf="loading" class="best-pro slider-items-products container">
+    <div class="new_title">
+      <h2>Mega ofertas</h2>
+    </div>
+    <div class="CollectionGrid container min-height-300">
+      <div class="CollectionGrid-tile hover-overlay-light">
+        <div class="timeline-item">
+          <div class="animated-background" style="height: 150px">
+          </div>
+          <div class="animated-background mt-3" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="CollectionGrid-tile hover-overlay-light">
+        <div class="timeline-item">
+          <div class="animated-background" style="height: 150px">
+          </div>
+          <div class="animated-background mt-3" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="CollectionGrid-tile hover-overlay-light">
+        <div class="timeline-item">
+          <div class="animated-background" style="height: 150px">
+          </div>
+          <div class="animated-background mt-3" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="CollectionGrid-tile hover-overlay-light">
+        <div class="timeline-item">
+          <div class="animated-background" style="height: 150px">
+          </div>
+          <div class="animated-background mt-3" style="height: 40px">
+            <div class="background-masker header-top"></div>
+            <div class="background-masker header-left"></div>
+            <div class="background-masker header-right"></div>
+            <div class="background-masker header-bottom"></div>
+            <div class="background-masker subheader-left"></div>
+            <div class="background-masker subheader-right"></div>
+            <div class="background-masker subheader-bottom"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <div *ngIf="!loading" class="best-pro slider-items-products container">
     <div class="new_title">
       <h2>Mega ofertas</h2>
     </div>
-
     <div *ngIf="data && data.length" id="best-seller" class="product-flexslider hidden-buttons">
       <div class="slider-items slider-width-col4 products-grid">
         <owl-carousel
@@ -36,13 +107,13 @@
                 <div class="item-info">
                   <div class="info-inner">
                     <div class="item-title mb-0">
-                      <a href="http://themesground.com/flipmart-demo/V5/product-detail.html"
-                         title="Retis lapen casen">{{dat['name'] | slice:0:12}}</a>
+                      <a href="#"
+                         title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
 
                     </div>
                     <div>
                       <a class="text-muted" href="#">
-                        {{dat['shop_name']| slice:0:12}}
+                        {{dat['shop_name']|  words : 4 }}
                       </a>
                     </div>
 
@@ -93,7 +164,7 @@
                         <div>
                               <span
                                 tooltip="Disponible"
-                                class="item-price-avalible-on text-success">
+                                class="item-price-avalible-on">
                                   <fa name="hourglass" animation="spin" rotate="180" class="mr-1"></fa>
                                   <span class="time-ago-string" timeago
                                         [date]="timeAgoNext(dat['is_available']['minutes'])"></span>
@@ -118,28 +189,5 @@
       </div>
     </div>
   </div>
-  <div *ngIf="loading" class="best-pro slider-items-products container">
-    <div class="timeline-item">
-      <div class="animated-background" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
 
-      </div>
-      <div class="animated-background mt-3" style="height: 40px">
-        <div class="background-masker header-top"></div>
-        <div class="background-masker header-left"></div>
-        <div class="background-masker header-right"></div>
-        <div class="background-masker header-bottom"></div>
-        <div class="background-masker subheader-left"></div>
-        <div class="background-masker subheader-right"></div>
-        <div class="background-masker subheader-bottom"></div>
-
-      </div>
-    </div>
-  </div>
 </section>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RestService} from '../../../../shared/services/rest.service';
 import * as moment from 'moment';
+import {AuthshopService} from '../../../auth/authshop.service';
 
 @Component({
   selector: 'app-shop',
@@ -10,20 +11,15 @@ import * as moment from 'moment';
 })
 export class ShopComponent implements OnInit {
 
-  public cif_flag: any = null;
   public data_shops: any = [];
-  public data_inside: any = {};
   public loading = false;
   public rangeDate: any;
+  public user_data: any;
 
   constructor(private router: Router,
-              private rest: RestService) {
+              private rest: RestService,
+              private auth: AuthshopService) {
   }
-
-  cif_callback = (e) => {
-    this.cif_flag = e;
-    this.data_inside['legal_id'] = e;
-  };
 
   /*data_shops_callback = (e) => {
     this.data_shops = (e.length);
@@ -33,8 +29,9 @@ export class ShopComponent implements OnInit {
   }*/
 
   loadData = () => {
+    this.user_data = this.auth.getCurrentUser();
     this.loading = true;
-    this.rest.get(`/rest/shop`)
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

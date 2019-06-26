@@ -199,11 +199,22 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'store/:id/:slug',
+    component: StoreprofileComponent,
+    pathMatch: 'full',
+    data: {
+      footer: true
+    }
+  },
+  {
     path: 'store/:id',
     component: StoreprofileComponent,
     pathMatch: 'full',
+    data: {
+      footer: true
+    }
   },
-  { path: '**', component: HomeComponent },
+  {path: '**', component: HomeComponent},
   {path: '**', component: HomeComponent},
 ];
 

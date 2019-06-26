@@ -6626,7 +6626,7 @@ text-transform: uppercase
   float: left;
   margin-bottom: 0px;
   text-align: center;
-  width: 25.5%;
+  width: 25%;
   padding: 0;
   display: inline-block;
 }
@@ -15564,7 +15564,7 @@ select#shipping-address-select {
 }
 
 .video-banner video {
-  height: 460px;
+  height: 550px;
   object-fit: cover;
 }
 
@@ -15591,7 +15591,14 @@ select#shipping-address-select {
 }
 
 .slider-items-products i.ngx-gallery-icon-content.fa{
-  color:#d0a8a8 !important;
+  color: #3a3a3a !important;
+  background: rgba(247, 247, 247, 0.8);
+  padding: 0px 5px;
+  border-radius: 3px;
+}
+
+.slider-items-products .ngx-gallery-arrow.ngx-gallery-disabled{
+  opacity: .2 !important;
 }
 
 html {

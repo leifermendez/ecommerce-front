@@ -17,17 +17,18 @@
     <div class="container p-0">
       <div class="inside-body2 mb-4">
         <div class="">
-          <div class="row">
+          <div class="row m-0">
             <div
               class="col-7 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
               <div *ngIf="variation[0]" class=" ">
-                <img class="w-100"  onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
+                <img class="w-100" onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
               </div>
               <div *ngIf="!variation[0]" class="w-100">
-                <img class="w-100"  [src]="'assets/images/nofound.png'"/>
+                <img class="w-100" [src]="'assets/images/nofound.png'"/>
               </div>
             </div>
-            <div class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
+            <div
+              class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
               <div>
                 <div class="product-shop ">
 
@@ -47,7 +48,8 @@
                   </div>
                   <div class="price-block">
                     <div class="price-box"><span class="regular-price" id="product-price-123">
-                      <span class="price">{{variation.price_normal}}</span> </span>  <span class="regular margin-left-10 ">{{variation.price_regular}}</span>
+                      <span class="price">{{variation.price_normal}}</span> </span> <span
+                      class="regular margin-left-10 ">{{variation.price_regular}}</span>
                     </div>
                   </div>
                   <!--price-block-->
@@ -63,11 +65,13 @@
                              placeholder="Select variation"
                              [(ngModel)]="selectedvariationName">
                     <ng-template ng-label-tmp let-item="item">
-                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
+                           [src]="item.attacheds_small"/>
                       <b>&nbsp;{{item.label}}</b>
                     </ng-template>
                     <ng-template ng-option-tmp let-item="item" let-index="index">
-                      <img height="15" width="15"  onError="this.src='assets/images/nofound.png'" [src]="item.attacheds_small"/>
+                      <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
+                           [src]="item.attacheds_small"/>
                       <b>&nbsp;{{item.label}}</b>
                     </ng-template>
                   </ng-select>
@@ -78,15 +82,19 @@
                     <div class="add-to-cart">
                       <div class="pull-left">
                         <div class="custom pull-left">
-                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i class="fa fa-plus"></i></button>
-                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1" title="Quantity:"
+                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i
+                            class="fa fa-plus"></i></button>
+                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1"
+                                 title="Quantity:"
                                  class="input-text qty">
-                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i class="fa fa-minus"></i></button>
+                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i
+                            class="fa fa-minus"></i></button>
                         </div>
                         <!--custom pull-left-->
                       </div>
                       <!--pull-left-->
-                      <button  (click)="addProduct(data)" type="button" title="Add to Cart" class="button btn-cart carbtn">
+                      <button (click)="addProduct(data)" type="button" title="Add to Cart"
+                              class="button btn-cart carbtn">
                         <span>Agregar al carrito</span></button>
 
 
@@ -114,21 +122,22 @@
               <h1>Galeria sliders</h1>
             </div>
             <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid  p-3">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12 text-center">
-                      <h5 itemprop="name">Información de la tienda</h5>
-                    </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <h5 itemprop="name">Información de la tienda</h5>
+                  </div>
 
-                    <div class="col-3 pl-0 offset-2">
-                      <img  src="https://http2.mlstatic.com/resources/largesellers/175499661/cat/small_logo201708240452.jpg">
-                    </div>
-                    <div class="col-7 pl-0 ">
-                      Cat <br>
-                      Tienda oficial de mercado libre
-                    </div>
+                  <div class="col-3 pl-0 offset-2">
+                    <img
+                      src="https://http2.mlstatic.com/resources/largesellers/175499661/cat/small_logo201708240452.jpg">
+                  </div>
+                  <div class="col-7 pl-0 ">
+                    Cat <br>
+                    Tienda oficial de mercado libre
                   </div>
                 </div>
+              </div>
             </div>
             <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
               <div class="container">
@@ -146,7 +155,7 @@
                   <br>
                   <div class="col-12 pl-0 offset-2">
                     Ubicación <br>
-                   <i class="fa fa-map-marker"></i> {{data.shop_address}}
+                    <i class="fa fa-map-marker"></i> {{data.shop_address}}
                   </div>
                 </div>
               </div>
@@ -177,7 +186,7 @@
                   <br>
                   <br>
                   <div class="col-12">
-                    <div itemprop="aggregateRating" itemscope="" >
+                    <div itemprop="aggregateRating" itemscope="">
                       <div class="rating">
                         <div class="ratings">
                           <div class="rating-box">
@@ -191,7 +200,7 @@
                   </div>
                   <br>
                   <div class="col-12">
-                    <div itemprop="aggregateRating" itemscope="" >
+                    <div itemprop="aggregateRating" itemscope="">
                       <div class="rating">
                         <div class="ratings">
                           <div class="rating-box">

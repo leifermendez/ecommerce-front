@@ -4,23 +4,24 @@
       <h2>Categorías populares</h2>
     </div>
     <div class="CollectionGrid container">
-        <owl-carousel
+      <owl-carousel
         #owlCategories
         *ngIf="data && data.length"
         [options]="optionsOws"
         [items]="data"
         [carouselClasses]="['owl-theme', 'sliding']">
         <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
-            <a class="CollectionGrid-tile hover-overlay-light" href="index.html#">
-                <div class="CollectionGrid-tileImage align-center">
-                  <img class="item-img"  src="http://via.placeholder.com/640x640" alt="bags">
-                </div>
-                <div class="CollectionGrid-tileName js-dotdotdot">
-                  {{dat['name'] | slice:0:12}}
-                </div>
-              </a>
+          <div class="CollectionGrid-tile hover-overlay-light">
+            <div class="CollectionGrid-tileImage align-center">
+              <img class="item-img" [src]="dat['image_small']" alt="bags">
+            </div>
+            <div class="CollectionGrid-tileName js-dotdotdot">
+              {{dat['name']}}
+            </div>
+          </div>
         </div>
-        </owl-carousel>
+      </owl-carousel>
 
     </div>
   </div>
+</div>

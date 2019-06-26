@@ -18,7 +18,7 @@
 }
 
 .item-title a {
-  font-weight: normal !important;
+  font-weight: 600 !important;
 }
 
 .item-price-avalible-on {
@@ -85,4 +85,9 @@
 }
 .timeline-item{
   max-width: 100%;
+  min-height: 300px;
+}
+.CollectionGrid-tile{
+  padding: 0 0 0 0;
+  width: 25%;
 }

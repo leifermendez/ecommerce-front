@@ -15,9 +15,15 @@ export class StoreprofileComponent implements OnInit {
   loading = false;
   idparam: any;
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
-  public data: any[];
+  public data: any = {
+    image_header_large: null,
+    image_cover_medium: null,
+    name: null
+  };
+
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute, private router: Router) { }
+              private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -34,8 +40,8 @@ export class StoreprofileComponent implements OnInit {
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
-          this.data = response.data;
+          this.data = {...this.data, ...response.data};
         }
       });
-  }
+  };
 }

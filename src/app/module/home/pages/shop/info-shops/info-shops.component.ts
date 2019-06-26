@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {FormGroup} from '@angular/forms';
+import {AuthshopService} from '../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-info-shops',
@@ -16,17 +17,19 @@ export class InfoShopsComponent implements OnInit {
   public avatarFile: any = null;
   loading = false;
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService,
+              private auth: AuthshopService) {
   }
 
   ngOnInit() {
+    this.user_data = this.auth.getCurrentUser();
     this.loadData();
   }
 
 
   loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/shop`)
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

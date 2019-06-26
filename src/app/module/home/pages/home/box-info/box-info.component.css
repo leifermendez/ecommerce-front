@@ -1,9 +1,37 @@
-.box-info{
-  background: white;
+.box-info {
+
   padding-top: 20px;
+  border-top-color: #ce0000;
+  border-top-width: 5px;
+  border-top-style: solid;
+  background: #ce0100;
+  background: -webkit-linear-gradient(-45deg, #9b232f, #ce0100, #8a0513);
+  background: -o-linear-gradient(-45deg, #9b232f, #ce0100, #8a0513);
+  background: -moz-linear-gradient(-45deg, #9b232f, #ce0100, #8a0513);
+  background: linear-gradient(-45deg, #9b232f, #ce0100, #8a0513);
 }
 
 /*.border-color {*/
 /*  border-bottom: solid 1px #ce0000;*/
 /*  border-top: solid 1px #ce0000;*/
 /*}*/
+
+.our-features-box .feature-box {
+  overflow: hidden;
+  font-size: 100%;
+  text-align: center;
+  color: #ffcaca;
+  line-height: 1.4em;
+  font-weight: 300;
+  margin-right: 15px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  padding: 15px 25px;
+  border: 1px rgba(255, 255, 255, 0.14) solid;
+  margin-bottom: 25px;
+  background: #fcfcfc00;
+}
+
+.icon-main {
+  color: white;
+}

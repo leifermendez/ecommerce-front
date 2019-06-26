@@ -1,9 +1,10 @@
-<div class="page-heading">
+<div class="page-heading mb-3" [style.backgroundImage]="'url('+data['image_header_large']+')'">
   <div class="breadcrumbs">
     <div class="container">
       <div class="row">
         <div class="page-title col-sm-6">
-          <img class="imgstore" src="assets/images/hot_img.png">
+          <img class="imgstore"
+               [src]="data['image_cover_medium']">
         </div>
         <div class="col-sm-6">
         </div>
@@ -17,9 +18,9 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
-        <div class="add45">
-          <h5>{{this.data.name}}</h5>
-          <div>
+        <div class="mt-4">
+          <h4 class="font-weight-600">{{data['name']}}</h4>
+          <div class="text-dark">
             <ul class="styleno">
               <li>
                 <span class="fontweight">Ordenar publicaciones</span>
@@ -38,25 +39,26 @@
                 Industrias (1)
               </li>
               <span class="fontweight">Precio</span>
-                <br>
-                Hasta Bs.200.000 (27)
-                Bs.200.000 a Bs.350.000 (29)
-                Más de Bs.350.000 (30)
+              <br>
+              Hasta Bs.200.000 (27)
+              Bs.200.000 a Bs.350.000 (29)
+              Más de Bs.350.000 (30)
 
-                Mínimo
+              Mínimo
 
-                Máximo
+              Máximo
               <li>
-               <span class="fontweight">Detalles de la publicación</span>
+                <span class="fontweight">Detalles de la publicación</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="col-sm-9">
-        <div *ngIf="idparam">
-          <app-listproduct  [idpara]="idparam" ></app-listproduct>
-        </div>
+      <div class="col-sm-9 p-0">
+        <app-listproduct
+          class="mt-2"
+          *ngIf="idparam" [id]="idparam">
+        </app-listproduct>
       </div>
     </div>
   </div>

@@ -1,0 +1,21 @@
+.category-box .item-img {
+  width: 150px !important;
+  margin-bottom: 0px;
+  height: 150px;
+  display: initial !important;
+  object-fit: contain;
+}
+
+.CollectionGrid-tile {
+  padding: 10px 0px 10px 0px !important;
+  width: 100% !important;
+  float: auto !important;
+  font-size: 100%;
+}
+
+.item {
+  margin: 0 !important;
+}
+.CollectionGrid{
+  /*height: 140px !important;*/
+}
