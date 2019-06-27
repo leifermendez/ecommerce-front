@@ -13,7 +13,9 @@ export class DataVariationsProductComponent implements OnInit {
   @Input() id: any = null;
   public form: any = FormGroup;
   public loading = false;
-  public data_product: any = [];
+  public data_product: any = {
+    variations: []
+  };
   public variations: any = false;
   public apiDropzone: any;
   public editform: any = {};
@@ -23,7 +25,7 @@ export class DataVariationsProductComponent implements OnInit {
   };
 
   constructor(private rest: RestService, private fb: FormBuilder,
-    private router: Router) {
+              private router: Router) {
     this.form = fb.group({
       'label': [null, Validators.compose([Validators.required])],
       'price_normal': [null, Validators.compose([Validators.required])],
@@ -58,7 +60,7 @@ export class DataVariationsProductComponent implements OnInit {
           this.data_product = response['data'];
           this.list_variations = {
             ...this.list_variations,
-            ...response['data']['variations']
+            ...this.data_product['variations']
           };
         }
       });
@@ -72,6 +74,7 @@ export class DataVariationsProductComponent implements OnInit {
   save_variation = () => {
     this.loading_save = true;
     this.editform = {...this.editform, ...{product_id: this.id}};
+
     this.rest.post(`/rest/products-variations`, this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {

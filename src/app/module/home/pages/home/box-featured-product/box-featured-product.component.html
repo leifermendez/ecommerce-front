@@ -83,7 +83,7 @@
           [options]="optionsOws"
           [items]="data"
           [carouselClasses]="['owl-theme', 'sliding']">
-          <div class="item cursor-pointer" *ngFor="let dat of data; let i = index">
+          <div class="item" *ngFor="let dat of data; let i = index">
             <div class="item">
               <div class="item-inner">
                 <div class="item-img">
@@ -104,64 +104,65 @@
                     </div>
                   </div>
                 </div>
-                <div class="item-info">
-                  <div class="info-inner">
-                    <div class="item-title mb-0">
-                      <a href="#"
-                         title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
+                <a [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]">
+                  <div class="item-info">
+                    <div class="info-inner">
+                      <div class="item-title mb-0">
+                        <a href="#"
+                           title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
 
-                    </div>
-                    <div>
-                      <a class="text-muted" href="#">
-                        {{dat['shop_name']|  words : 4 }}
-                      </a>
-                    </div>
+                      </div>
+                      <div>
+                        <a class="text-muted" href="#">
+                          {{dat['shop_name']|  words : 4 }}
+                        </a>
+                      </div>
 
-                    <div class="item-content d-flex">
-                      <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
-                                 customPadding="2px" color="#FFC400"></ngx-stars>
-                      <span class="text-muted">({{dat['score_shop']['count']}})</span>
-                    </div>
-                    <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
-                      <div class="d-flex"
-                           *ngIf="dat['variations'] && (dat['variations']['length']>1)">
-                        <div class="price-normal">
+                      <div class="item-content d-flex">
+                        <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
+                                   customPadding="2px" color="#FFC400"></ngx-stars>
+                        <span class="text-muted">({{dat['score_shop']['count']}})</span>
+                      </div>
+                      <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
+                        <div class="d-flex"
+                             *ngIf="dat['variations'] && (dat['variations']['length']>1)">
+                          <div class="price-normal">
                                   <span class="item-price-amount">Desde
                                     {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
                                     <span class="euro-sign">€</span></span>
-                        </div>
-                        <div class="price-regular">
+                          </div>
+                          <div class="price-regular">
                                   <span class="item-price-amount text-muted">
                                       {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                       </span>
+                          </div>
                         </div>
-                      </div>
 
-                      <div class="d-flex"
-                           *ngIf="dat['variations'] && (dat['variations']['length']===1)">
-                        <div class="price-normal">
+                        <div class="d-flex"
+                             *ngIf="dat['variations'] && (dat['variations']['length']===1)">
+                          <div class="price-normal">
                                     <span class="item-price-amount">
                                         {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
                                       <span class="euro-sign">€</span></span>
-                        </div>
-                        <div class="price-regular">
+                          </div>
+                          <div class="price-regular">
                                     <span class="item-price-amount text-muted">
                                         {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                         </span>
+                          </div>
                         </div>
-                      </div>
 
-                      <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
+                        <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
                               <span class="item-price-amount-unavailable text-muted">
                                   <fa name="history"></fa>
                                No stock</span>
+                        </div>
                       </div>
-                    </div>
 
-                    <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']===false)">
-                      <div *ngIf="dat['is_available']['nextOpen']">
+                      <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']===false)">
+                        <div *ngIf="dat['is_available']['nextOpen']">
 
-                        <div>
+                          <div>
                               <span
                                 tooltip="Disponible"
                                 class="item-price-avalible-on">
@@ -170,18 +171,20 @@
                                         [date]="timeAgoNext(dat['is_available']['minutes'])"></span>
 
                               </span>
+                          </div>
                         </div>
-                      </div>
-                      <div *ngIf="!dat['is_available']['nextOpen']">
+                        <div *ngIf="!dat['is_available']['nextOpen']">
                             <span class="item-price-amount-unavailable text-muted">
                                 <fa name="history"></fa>
                              No disponible</span>
+                        </div>
+
                       </div>
 
                     </div>
-
                   </div>
-                </div>
+                </a>
+
               </div>
             </div>
           </div>

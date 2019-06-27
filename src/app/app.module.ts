@@ -94,6 +94,7 @@ import {DataGalleryProductComponent} from './module/home/pages/products/create-p
 import {DataGalleryProductVariationComponent} from './module/home/pages/products/create-product/data-gallery-product-variation/data-gallery-product-variation.component';
 import {LoadingApatxeeComponent} from './module/home/components/loading-apatxee/loading-apatxee.component';
 import {TruncateModule} from 'ng2-truncate';
+import { GallerySingleComponent } from './module/home/pages/single/gallery-single/gallery-single.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -184,6 +185,7 @@ export class MyIntl extends TimeagoIntl {
     DataGalleryProductComponent,
     DataGalleryProductVariationComponent,
     LoadingApatxeeComponent,
+    GallerySingleComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

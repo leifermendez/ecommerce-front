@@ -85,6 +85,12 @@ export class UtilsService {
 
   clickElement = (e) => $(`html body ${e}`).click();
 
+  slug = (a) => {
+    let str = a;
+    str = str.replace(/\s+/g, '-').toLowerCase();
+    return str;
+  };
+
   emitShopping = () => {
     return {
       a: 1

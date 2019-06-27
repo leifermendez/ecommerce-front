@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
@@ -10,14 +10,19 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./single.component.css']
 })
 export class SingleComponent implements OnInit {
-  data: any = [];
+  data: any = {
+    gallery: []
+  };
   loading = false;
+  cover: any = null;
   count: any = 1;
   variation: any = [];
   selectedvariationName: any;
   idparam: any;
+
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -27,26 +32,35 @@ export class SingleComponent implements OnInit {
       }
     });
   }
+
+  changeCover = (a) => this.cover = a;
+
   loadData = (id) => {
     this.loading = true;
     this.rest.get(`/rest/products/${id}`)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
+          console.log('--->', response['data']['variations']);
           this.data = response.data;
-          this.variation = response.data.variations.item;
-          this.selectedvariationName = response.data.variation.item[0];
+          this.variation = response['data']['variations']['item'];
+          this.selectedvariationName = response['data']['variations']['item'][0];
+          this.cover = (response['data']['gallery'] && response['data']['gallery'].length)
+            ? response['data']['gallery'][0] : null;
         }
       });
-  }
+  };
+
   pluscount() {
     this.count = this.count + 1;
   }
-  dismis () {
+
+  dismis() {
     if (this.count > 1) {
       this.count = this.count - 1;
     }
   }
+
   addProduct = (obj) => {
     const _data = {
       product_id: obj['id'],
@@ -54,5 +68,5 @@ export class SingleComponent implements OnInit {
       shop_id: obj['shop_id']
     };
     this.shopping.addCart(_data);
-  }
+  };
 }

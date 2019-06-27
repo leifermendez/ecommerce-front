@@ -60,6 +60,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'single/:id/:slug',
+    component: SingleComponent,
+    pathMatch: 'full',
+    data: {
+      footer: true
+    }
+  },
+  {
     path: 'single/:id',
     component: SingleComponent,
     pathMatch: 'full',

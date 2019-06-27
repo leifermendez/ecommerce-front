@@ -1,0 +1,9 @@
+<owl-carousel *ngIf="images && images.length"
+  [options]="{items: 4, dots: false, navigation: false}" [items]="images"
+  [carouselClasses]="['owl-theme', 'row', 'sliding']">
+  <div class="item" *ngFor="let image of images;let i = index">
+    <div class="thumbnail-image p-2 cursor-pointer" (mouseover)="changeCover(image)">
+      <img [src]="image['medium']" alt="">
+    </div>
+  </div>
+</owl-carousel>

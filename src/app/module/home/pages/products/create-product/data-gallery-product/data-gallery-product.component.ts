@@ -23,7 +23,7 @@ export class DataGalleryProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  uploadSave = () => {
+  uploadSave = (variation_id = null) => {
 
     if(this.filesReady.length){
       this.loading = true;
@@ -32,7 +32,7 @@ export class DataGalleryProductComponent implements OnInit {
         const formData = new FormData();
         formData.append('attached', file);
         formData.append('type_file', 'image');
-  
+
         this.httpClient.post<any>(
           `${this.rest.url}/rest/media`, formData,
           {headers: this.rest.getHeadersMedia()})
@@ -41,7 +41,7 @@ export class DataGalleryProductComponent implements OnInit {
               this.loading = false;
               this.loading_save = true;
               // this.responseData.push(res['data']['id']);
-              this.updateItem(res['data']['id']);
+              this.updateItem(res['data']['id'], variation_id);
             },
             (err) => {
               this.loading = false;
@@ -50,7 +50,7 @@ export class DataGalleryProductComponent implements OnInit {
           );
       });
     }
- 
+
   };
 
   updateItem = (id, variation = null) => {

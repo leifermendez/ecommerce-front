@@ -57,6 +57,9 @@
   padding-top: 0px !important;
 }
 
+.CollectionGrid .CollectionGrid-tile{
+  width: 33.333333333%;
+}
 .item-price-avalible-on {
   font-size: 14px;
   font-weight: 600;

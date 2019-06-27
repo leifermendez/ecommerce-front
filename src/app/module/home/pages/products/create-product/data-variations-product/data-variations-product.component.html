@@ -45,7 +45,7 @@
   </div>
   <div *ngIf="!loading" class="card block-dashboard border-0 mb-2">
     <div class="col p-3">
-      <div class="form-group d-flex">
+      <div class="form-group d-flex" *ngIf="data_product">
         <div class="col-2 pl-0">
           <img
             *ngIf="data_product && data_product['cover_image']"

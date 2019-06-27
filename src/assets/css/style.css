@@ -15582,23 +15582,45 @@ select#shipping-address-select {
   position: inherit;
   border-color: #ececec;
 }
-.ngx-gallery-image{
+
+.ngx-gallery-image {
   background-size: contain !important;
 }
+
 .select-create-category .ng-dropdown-panel .scroll-host {
   border-left: solid 1px #ececec;
   border-right: solid 1px #ececec;
 }
 
-.slider-items-products i.ngx-gallery-icon-content.fa{
+.slider-items-products i.ngx-gallery-icon-content.fa {
   color: #3a3a3a !important;
   background: rgba(247, 247, 247, 0.8);
   padding: 0px 5px;
   border-radius: 3px;
 }
 
-.slider-items-products .ngx-gallery-arrow.ngx-gallery-disabled{
+.slider-items-products .ngx-gallery-arrow.ngx-gallery-disabled {
   opacity: .2 !important;
+}
+
+.list-variations .ng-select-container {
+  border-color: #f5f4f4 !important;
+  height: 50px !important;
+}
+
+.list-variations .ng-dropdown-panel {
+  border-color: #f5f4f4 !important;
+}
+
+.list-variations .ng-option {
+  height: 50px !important;
+}
+
+.list-variations .ng-option img, .list-variations .ng-value-container .ng-value img{
+  width: 33px;
+  height: 33px;
+  object-fit: contain;
+  margin-right: 10px;
 }
 
 html {

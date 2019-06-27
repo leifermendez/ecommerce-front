@@ -19,137 +19,133 @@
         <div class="">
           <div class="row m-0">
             <div
-              class="col-7 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
-              <div *ngIf="variation[0]" class=" ">
-                <img class="w-100" onError="this.src='assets/images/nofound.png'" [src]="variation[0].attacheds_large"/>
+              class="col-8 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
+              <div *ngIf="data && data['gallery'].length" class="w-100 p-4">
+                <img class="w-100 cover" onError="this.src='assets/images/nofound.png'"
+                     [src]="cover['large']"/>
               </div>
-              <div *ngIf="!variation[0]" class="w-100">
-                <img class="w-100" [src]="'assets/images/nofound.png'"/>
+              <div *ngIf="data && !data['gallery']" class="w-100">
+                <img class="w-100 cover" [src]="'assets/images/nofound.png'"/>
               </div>
             </div>
             <div
-              class="col-5 pl-0  inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
-              <div>
-                <div class="product-shop ">
-
+              class="col-4 p-0 inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
+              <div class="w-100">
+                <div class="product-shop p-4">
                   <div class="product-name">
-                    <h1 itemprop="name">{{data.name}}</h1>
+                    <h2 class="font-weight-bold text-dark">
+                      {{data['name']}}
+                    </h2>
                   </div>
                   <!--product-name-->
-                  <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                    <div class="rating">
-                      <div class="ratings">
-                        <div class="rating-box">
-                          <div class="rating" style="width:50%"></div>
-                        </div>
 
-                      </div>
-                    </div>
-                  </div>
-                  <div class="price-block">
-                    <div class="price-box"><span class="regular-price" id="product-price-123">
-                      <span class="price">{{variation.price_normal}}</span> </span> <span
-                      class="regular margin-left-10 ">{{variation.price_regular}}</span>
+                  <div class="price-block" *ngIf="variation.length">
+                    <div class="price-box">
+                      <h6 class="m-0 text-muted">
+                        <del>{{selectedvariationName['price_regular'] |number:'1.2-2'}}</del>
+                      </h6>
+                      <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}</h1>
                     </div>
                   </div>
                   <!--price-block-->
-                  <div class="short-description">
-                    <h2>Las DISICHU</h2>
-                    <p>{{data.description}} </p>
+                  <p class="font-weight-normal text-muted mt-2 mb-0">Variaciones:</p>
+                  <div class="list-variations">
+                    <ng-select [items]="variation"
+                               bindLabel="label"
+                               [searchable]="false"
+                               [clearable]="false"
+                               placeholder="Select variation"
+                               [(ngModel)]="selectedvariationName">
+                      <ng-template ng-label-tmp let-item="item">
+                        <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
+                             [src]="item.attacheds_small"/>
+                        <b>&nbsp;{{item.label}}</b>
+                      </ng-template>
+                      <ng-template ng-option-tmp let-item="item" let-index="index">
+                        <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
+                             [src]="item.attacheds_small"/>
+                        <b>{{item.label | words: 5: '...'}}</b>
+                      </ng-template>
+                    </ng-select>
                   </div>
-                  <br>
-                  <h2>Variaciones:</h2>
-                  <ng-select [items]="variation"
-                             bindLabel="label"
-                             bindValue="id"
-                             placeholder="Select variation"
-                             [(ngModel)]="selectedvariationName">
-                    <ng-template ng-label-tmp let-item="item">
-                      <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
-                           [src]="item.attacheds_small"/>
-                      <b>&nbsp;{{item.label}}</b>
-                    </ng-template>
-                    <ng-template ng-option-tmp let-item="item" let-index="index">
-                      <img height="15" width="15" onError="this.src='assets/images/nofound.png'"
-                           [src]="item.attacheds_small"/>
-                      <b>&nbsp;{{item.label}}</b>
-                    </ng-template>
-                  </ng-select>
-                  <br>
-
-
-                  <div class="add-to-box">
-                    <div class="add-to-cart">
-                      <div class="pull-left">
-                        <div class="custom pull-left">
-                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i
-                            class="fa fa-plus"></i></button>
-                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1"
-                                 title="Quantity:"
-                                 class="input-text qty">
-                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i
-                            class="fa fa-minus"></i></button>
-                        </div>
-                        <!--custom pull-left-->
-                      </div>
-                      <!--pull-left-->
-                      <button (click)="addProduct(data)" type="button" title="Add to Cart"
-                              class="button btn-cart carbtn">
-                        <span>Agregar al carrito</span></button>
-
-
+                  <div class="short-description text-dark mt-3">
+                    <p class="mt-2 mb-2 description text-justify">{{data['short_description'] | words: 15 : '...'}}</p>
+                    <div class="alert alert-warning mt-4"
+                         *ngIf="selectedvariationName &&selectedvariationName['observation']">
+                      <fa name="exclamation-triangle"></fa>
+                      <b class="ml-1">{{selectedvariationName['observation']}}</b>
                     </div>
-                    <div class="social center-block">
-                      <ul class="link">
-                        <li class="fb"><a href="http://www.facebook.com/" rel="nofollow" target="_blank"
-                                          style="text-decoration:none;"> </a></li>
-                        <li class="linkedin"><a href="http://www.linkedin.com/" rel="nofollow" target="_blank"
-                                                style="text-decoration:none;"> </a></li>
-                        <li class="tw"><a href="http://twitter.com/" rel="nofollow" target="_blank"
-                                          style="text-decoration:none;"> </a></li>
-                        <li class="pintrest"><a href="http://pinterest.com/" rel="nofollow" target="_blank"
-                                                style="text-decoration:none;"> </a></li>
-                        <li class="googleplus"><a href="https://plus.google.com/" rel="nofollow" target="_blank"
-                                                  style="text-decoration:none;"> </a></li>
-                      </ul>
-                    </div>
-                    <!--add-to-cart-->
                   </div>
+                  <div class="text-center">
+                    <button (click)="addProduct(data)" type="button" title="Add to Cart"
+                            class="btn btn-primary btn-block btn-lg">
+                      <span>Agregar al carrito</span></button>
+                  </div>
+
+                  <!--                  <div class="add-to-box mt-4">-->
+                  <!--                    <div class="add-to-cart">-->
+                  <!--                      <div class="pull-left">-->
+                  <!--                        <div class="custom pull-left">-->
+                  <!--                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i-->
+                  <!--                            class="fa fa-plus"></i></button>-->
+                  <!--                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1"-->
+                  <!--                                 title="Quantity:"-->
+                  <!--                                 class="input-text qty">-->
+                  <!--                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i-->
+                  <!--                            class="fa fa-minus"></i></button>-->
+                  <!--                        </div>-->
+                  <!--                        &lt;!&ndash;custom pull-left&ndash;&gt;-->
+                  <!--                      </div>-->
+                  <!--                      &lt;!&ndash;pull-left&ndash;&gt;-->
+                  <!--                      <button (click)="addProduct(data)" type="button" title="Add to Cart"-->
+                  <!--                              class="button btn-cart carbtn">-->
+                  <!--                        <span>Agregar al carrito</span></button>-->
+
+
+                  <!--                    </div>-->
+                  <!--                    <div class="social center-block">-->
+                  <!--                      <ul class="link">-->
+                  <!--                        <li class="fb"><a href="http://www.facebook.com/" rel="nofollow" target="_blank"-->
+                  <!--                                          style="text-decoration:none;"> </a></li>-->
+                  <!--                        <li class="linkedin"><a href="http://www.linkedin.com/" rel="nofollow" target="_blank"-->
+                  <!--                                                style="text-decoration:none;"> </a></li>-->
+                  <!--                        <li class="tw"><a href="http://twitter.com/" rel="nofollow" target="_blank"-->
+                  <!--                                          style="text-decoration:none;"> </a></li>-->
+                  <!--                        <li class="pintrest"><a href="http://pinterest.com/" rel="nofollow" target="_blank"-->
+                  <!--                                                style="text-decoration:none;"> </a></li>-->
+                  <!--                        <li class="googleplus"><a href="https://plus.google.com/" rel="nofollow" target="_blank"-->
+                  <!--                                                  style="text-decoration:none;"> </a></li>-->
+                  <!--                      </ul>-->
+                  <!--                    </div>-->
+                  <!--                    &lt;!&ndash;add-to-cart&ndash;&gt;-->
+                  <!--                  </div>-->
                 </div>
               </div>
             </div>
-            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid">
-              <h1>Galeria sliders</h1>
+            <div class="col-8 inline-table  background-solid border-left-solid border-booton-solid">
+              <app-gallery-single (callback)="changeCover($event)" [images]="data['gallery']"
+                                  class="w-100"></app-gallery-single>
             </div>
-            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid  p-3">
+            <div class="col-4 inline-table border-rigth-solid border-left-solid background-solid  p-3">
               <div class="container">
                 <div class="row">
                   <div class="col-12 text-center">
-                    <h5 itemprop="name">Información de la tienda</h5>
-                  </div>
-
-                  <div class="col-3 pl-0 offset-2">
-                    <img
-                      src="https://http2.mlstatic.com/resources/largesellers/175499661/cat/small_logo201708240452.jpg">
-                  </div>
-                  <div class="col-7 pl-0 ">
-                    Cat <br>
-                    Tienda oficial de mercado libre
+                    <h5 class="font-weight-600">Información de la tienda</h5>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
+            <div class="col-8 inline-table  background-solid border-left-solid border-booton-solid text-dark p-4 mt-4">
               <div class="container">
                 <div class="row">
                   <div class="col-12 ">
-                    <h2>Descripción</h2>
-                    <p>{{data.description}}</p>
+                    <h2 class="font-weight-600 mb-2">Descripción</h2>
+                    <p class="description text-justify">{{data.description}}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid ">
+            <div class="col-4 inline-table border-rigth-solid border-left-solid background-solid ">
               <div class="container">
                 <div class="row">
                   <br>
@@ -160,69 +156,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-7 inline-table  background-solid border-left-solid border-booton-solid p-2">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 ">
-                    <h2>Caracteristicas</h2>
-                  </div>
-                  <div class="col-6 ">
-                    COLOR
-                  </div>
-                  <div class="col-6 ">
-                    COMIDA
-                  </div>
-                  <div class="col-6 ">
-                    COLOR
-                  </div>
-                  <div class="col-6 ">
-                    COMIDA
-                  </div>
-                  <br>
-                  <br>
-                  <div class="col-12 ">
-                    <h2>Opiniones sobre el producto</h2>
-                  </div>
-                  <br>
-                  <br>
-                  <div class="col-12">
-                    <div itemprop="aggregateRating" itemscope="">
-                      <div class="rating">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:50%"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <h5>Genial exelente</h5>
-                    <p>hasta ahora todo bien todo. ssdfsfd</p>
-                  </div>
-                  <br>
-                  <div class="col-12">
-                    <div itemprop="aggregateRating" itemscope="">
-                      <div class="rating">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:50%"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <h5>Genial exelente</h5>
-                    <p>hasta ahora todo bien todo. ssdfsfd</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-5 inline-table border-rigth-solid border-left-solid background-solid border-booton-solid">
-              <div class="container">
-                <div class="row">
-                  <br>
 
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

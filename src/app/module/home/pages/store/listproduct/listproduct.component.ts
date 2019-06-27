@@ -5,7 +5,9 @@ import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {OwlCarousel} from 'ngx-owl-carousel';
+import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
+import {TimeagoIntl} from 'ngx-timeago';
 
 @Component({
   selector: 'app-listproduct',
@@ -21,8 +23,12 @@ export class ListstoreComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
   @Input() id: any = null;
 
-  constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
+  constructor(private rest: RestService, private util: UtilsService,
+              private shopping: ShoppingCartComponent,
+              intl: TimeagoIntl,
               private route: ActivatedRoute, private router: Router) {
+    intl.strings = englishStrings;
+    intl.changes.next();
   }
 
   ngOnInit() {
@@ -87,10 +93,11 @@ export class ListstoreComponent implements OnInit {
   };
 
   timeAgoNext = (minutes = 0) => {
-    const date = moment()
-      .add(minutes, 'minutes');
+
+    const date = moment().add(minutes, 'minutes');
     return date;
   };
+
   addProduct = (obj) => {
     const _data = {
       product_id: obj['id'],
@@ -103,5 +110,4 @@ export class ListstoreComponent implements OnInit {
   detail(id) {
     this.router.navigateByUrl(`/single/${id}`);
   }
-
 }

@@ -16,7 +16,21 @@
 
 <section class="main-container col2-left-layout bounceInUp animated">
   <div class="container">
-    <div class="row">
+    <div class="breadcrumbs">
+      <div class="container">
+        <div class="row">
+          <div>
+            <ul>
+              <li class="home"><a [routerLink]="['/']">Home</a> <span>&rsaquo; </span></li>
+              <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
+              <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
+              <li class="category1601"><strong>Retis lapen casen</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
       <div class="col-sm-3">
         <div class="mt-4">
           <h4 class="font-weight-600">{{data['name']}}</h4>
@@ -32,21 +46,12 @@
                 <span class="fontweight"> Categorías</span><br>
               </li>
               <li>
-                Ropa, Zapatos y Accesorios (62)
-                Deportes y Fitness (35)
-                Relojes, Joyas y Bisutería (12)
-                Computación (11)
-                Industrias (1)
+                Lorem ipsum dolor.
               </li>
               <span class="fontweight">Precio</span>
               <br>
-              Hasta Bs.200.000 (27)
-              Bs.200.000 a Bs.350.000 (29)
-              Más de Bs.350.000 (30)
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, ullam.
 
-              Mínimo
-
-              Máximo
               <li>
                 <span class="fontweight">Detalles de la publicación</span>
               </li>
@@ -55,6 +60,7 @@
         </div>
       </div>
       <div class="col-sm-9 p-0">
+
         <app-listproduct
           class="mt-2"
           *ngIf="idparam" [id]="idparam">
