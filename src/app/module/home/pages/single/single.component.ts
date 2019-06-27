@@ -14,14 +14,28 @@ export class SingleComponent implements OnInit {
     gallery: []
   };
   loading = false;
+  loading_save = false;
   cover: any = null;
   count: any = 1;
   variation: any = [];
+  number_items: any = false;
   selectedvariationName: any;
   idparam: any;
 
-  constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
+  constructor(private rest: RestService, private util: UtilsService,
+              private shopping: ShoppingCartComponent,
               private route: ActivatedRoute) {
+    this.util.refreshShopping.subscribe(data => {
+      if (data) {
+        this.loading_save = false;
+      }
+    });
+    util.numberShopping.subscribe(data => {
+      if (data) {
+        this.number_items = data;
+        console.log('--', data);
+      }
+    });
   }
 
   ngOnInit() {
@@ -62,6 +76,7 @@ export class SingleComponent implements OnInit {
   }
 
   addProduct = (obj) => {
+    this.loading_save = true;
     const _data = {
       product_id: obj['id'],
       product_variation_id: obj['variations']['item'][0]['id'],

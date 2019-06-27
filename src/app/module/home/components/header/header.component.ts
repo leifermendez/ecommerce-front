@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   public user_data: any = null;
   public number_items = 0;
   public activeLang = 'es';
+
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
@@ -59,11 +60,12 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         const _data = data.state.root.firstChild.data;
-        this.header = (_data['header'])
-        this.subMenu = (_data['subMenu'])
+        this.header = (_data['header']);
+        this.subMenu = (_data['subMenu']);
       }
     });
   }
+
   public editLenguaje(lang) {
     console.log('clickee idioma');
     this.activeLang = lang;

@@ -77,9 +77,25 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button (click)="addProduct(data)" type="button" title="Add to Cart"
-                            class="btn btn-primary btn-block btn-lg">
-                      <span>Agregar al carrito</span></button>
+                    <button (click)="addProduct(data)" type="button" [disabled]="loading_save" title="Add to Cart"
+                            class="btn btn-primary btn-block">
+                      <span *ngIf="!loading_save">Agregar al carrito</span>
+                      <span *ngIf="loading_save">
+                        <fa name="spinner" animation="spin"></fa>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="text-center mt-2">
+                    <button (click)="addProduct(data)"
+                            [routerLink]="['/','shopping-cart']"
+                            *ngIf="number_items"
+                            type="button" [disabled]="loading_save" title="Add to Cart"
+                            class="btn btn-outline-secondary btn-block">
+                      <span *ngIf="!loading_save">Comprar</span>
+                      <span *ngIf="loading_save">
+                        <fa name="spinner" animation="spin"></fa>
+                      </span>
+                    </button>
                   </div>
 
                   <!--                  <div class="add-to-box mt-4">-->
