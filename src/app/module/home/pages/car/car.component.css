@@ -1,0 +1,9 @@
+.img-product{
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+.data-table tbody th, .data-table tbody td{
+  height: 100px;
+  border:0;
+}

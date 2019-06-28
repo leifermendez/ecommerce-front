@@ -11175,10 +11175,9 @@ button.button.submit:before {
 /* Cart page */
 
 .shopping-cart-tbl {
-  padding: 0px 25px;
+  padding: 25px;
   position: relative;
   margin-top: 0px;
-  padding-bottom: 30px;
   background-color: #fff;
   box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
@@ -11196,7 +11195,6 @@ button.button.submit:before {
   width: 100%;
   background-color: #FFFFFF;
   text-align: left;
-  margin-top: 25px;
 }
 
 .cart-table .btn-continue {
@@ -11222,7 +11220,6 @@ button.button.btn-continue:before {
 .data-table td {
   line-height: 20px;
   padding: 15px;
-  vertical-align: top;
 }
 
 #shopping-cart-table tfoot tr td.last {
@@ -11308,7 +11305,6 @@ a.edit-bnt:hover {
   border-radius: 0px;
   cursor: pointer;
   text-decoration: none;
-  float: left;
   transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
@@ -14497,8 +14493,8 @@ select#shipping-address-select {
 
 .data-table thead th {
   color: #222;
-  border-top: 2px #e5e5e5 solid;
-  border-bottom: 2px #e5e5e5 solid;
+  border-top: 0px #e5e5e5 solid;
+  border-bottom: 1px #e5e5e5 solid;
 }
 
 .table-striped > tbody > tr:nth-child(odd) {
@@ -15616,7 +15612,7 @@ select#shipping-address-select {
   height: 50px !important;
 }
 
-.list-variations .ng-option img, .list-variations .ng-value-container .ng-value img{
+.list-variations .ng-option img, .list-variations .ng-value-container .ng-value img {
   width: 33px;
   height: 33px;
   object-fit: contain;
