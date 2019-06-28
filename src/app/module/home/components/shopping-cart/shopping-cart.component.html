@@ -37,7 +37,7 @@
              *ngFor="let dat of data;let i = index">
           <div class="col-4 pb-2 text-center">
             <a href="#" title="Retis lapen casen" class="product-image">
-              <img [src]="dat['cover_image']['small']"
+              <img *ngIf="dat['cover_image']" [src]="dat['cover_image']['small']"
                    class="image-item" alt="Retis lapen casen"></a>
           </div>
           <div class="col-8 pb-2 pl-0 last">

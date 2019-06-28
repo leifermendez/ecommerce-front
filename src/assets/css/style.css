@@ -4423,9 +4423,7 @@ ul.pdt-list li.item a img.image-hover {
 .CollectionGrid-container {
   height: 100%;
   position: relative;
-  margin: 0;
-  margin-bottom: 20px;
-  margin-top: 40px
+  margin: 30px 0 20px;
 }
 
 .CollectionGrid {

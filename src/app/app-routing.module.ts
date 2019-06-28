@@ -199,12 +199,18 @@ const routes: Routes = [
     component: CarComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
+    data: {
+      footer: true
+    }
   },
   {
     path: 'checkout',
     component: CheckoutComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
+    data: {
+      footer: true
+    }
   },
   {
     path: 'store/:id/:slug',

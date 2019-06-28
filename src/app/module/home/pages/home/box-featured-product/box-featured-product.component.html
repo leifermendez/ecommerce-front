@@ -1,8 +1,5 @@
 <section class=" wow bounceInUp animated CollectionGrid-container">
   <div *ngIf="loading" class="best-pro slider-items-products container">
-    <div class="new_title">
-      <h2>Mega ofertas</h2>
-    </div>
     <div class="CollectionGrid container min-height-300">
       <div class="CollectionGrid-tile hover-overlay-light">
         <div class="timeline-item">
@@ -73,7 +70,7 @@
   </div>
   <div *ngIf="!loading" class="best-pro slider-items-products container">
     <div class="new_title">
-      <h2>Mega ofertas</h2>
+      <h2>{{title}}</h2>
     </div>
     <div *ngIf="data && data.length" id="best-seller" class="product-flexslider hidden-buttons">
       <div class="slider-items slider-width-col4 products-grid">

@@ -7,3 +7,17 @@
   height: 100px;
   border:0;
 }
+.new_title h2 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  padding: 15px 0px 0px 0px;
+  position: relative;
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+  margin-top: 0px;
+  min-width: 250px;
+
+}

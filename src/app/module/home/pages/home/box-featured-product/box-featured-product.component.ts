@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
@@ -16,6 +16,7 @@ import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-
 })
 export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
+  @Input() title: any = null;
   public data: any[];
   public optionsOws: any;
   public loading: any = false;
