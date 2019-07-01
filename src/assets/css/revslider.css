@@ -20,9 +20,6 @@ website:   	http://www.themesground.com/
   padding: 0px;
   padding-bottom: 0px;
   position: relative;
-  margin-top: -68px
-
-
 }
 
 
@@ -48,7 +45,7 @@ website:   	http://www.themesground.com/
 
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
   height: 45vw;
-  max-height: 380px;
+
 }
 
 #tmg-slideshow .RHS-banner {
@@ -154,6 +151,7 @@ website:   	http://www.themesground.com/
 .fullwidthbanner-container .fullwidthabanner {
   width: 100%;
   margin: auto;
+  height: inherit;
 }
 
 .tp-simpleresponsive .slotholder *, .tp-simpleresponsive img {
@@ -640,7 +638,7 @@ website:   	http://www.themesground.com/
   max-width: 100%;
   left: 0 !important;
   margin: auto !important;
-
+  height: 300px;
 }
 
 #tmg-slideshow .col-lg-8 {
@@ -779,7 +777,7 @@ website:   	http://www.themesground.com/
 .fullwidthabanner .nav-buttons {
   position: absolute;
   z-index: 999;
-  top: 195px;
+  top: 130px;
   display: flex;
   opacity: .3;
   width: 100%;
@@ -815,7 +813,7 @@ website:   	http://www.themesground.com/
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
   width: 100%;
   height: 45vw;
-  max-height: 380px;
+  max-height: 325px;
   background-color: lightgray;
 }
 
