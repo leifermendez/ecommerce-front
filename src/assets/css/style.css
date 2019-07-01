@@ -15756,6 +15756,12 @@ select#shipping-address-select {
   transform: rotate(-225deg);
 }
 
+.single .ngxImageZoomContainer{
+  height: 500px !important;
+}
+.single .ngxImageZoomContainer img{
+  object-fit: contain;
+}
 html {
   scroll-behavior: smooth;
 

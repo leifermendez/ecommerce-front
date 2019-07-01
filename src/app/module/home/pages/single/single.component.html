@@ -30,8 +30,8 @@
                     <svg:g ngx-rect width="100%" height="100%" y="0" x="0" rx="5" ry="5"></svg:g>
                   </ngx-content-loading>
                   <ngx-image-zoom
-                    class="w-100 cover cursor-zoom"
-                    *ngIf="data && data['gallery'].length"
+                    class="w-100 cover cursor-zoom single"
+                    *ngIf="!loading && data && data['gallery'].length"
                     [thumbImage]="cover['medium']"
                     [fullImage]="cover['large']"
                   ></ngx-image-zoom>
