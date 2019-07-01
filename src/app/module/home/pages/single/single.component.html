@@ -1,6 +1,6 @@
 <section class="main-container col2-right-layout mt-0">
   <div class="page-content">
-    <div class="breadcrumbs">
+    <div class="breadcrumbs mt-2 mb-4">
       <div class="container">
         <div class="row">
           <div>
@@ -20,6 +20,7 @@
           <div class="row m-0">
             <div
               class="col-8 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
+              <div class="ribbon ribbon-top-left"><span>30%</span></div>
               <div class="w-100 p-4">
                 <div class="h-100 min-height-500">
                   <ngx-content-loading
@@ -102,7 +103,7 @@
                   </div>
                   <div class="text-center">
                     <button (click)="addProduct(data)" type="button" [disabled]="loading_save" title="Add to Cart"
-                            class="btn btn-primary btn-block">
+                            class="btn btn-info btn-block">
                       <span *ngIf="!loading_save">Agregar al carrito</span>
                       <span *ngIf="loading_save">
                         <fa name="spinner" animation="spin"></fa>
@@ -114,51 +115,13 @@
                             [routerLink]="['/','shopping-cart']"
                             *ngIf="number_items"
                             type="button" [disabled]="loading_save" title="Add to Cart"
-                            class="btn btn-outline-secondary btn-block">
+                            class="btn btn-primary btn-block">
                       <span *ngIf="!loading_save">Comprar</span>
                       <span *ngIf="loading_save">
                         <fa name="spinner" animation="spin"></fa>
                       </span>
                     </button>
                   </div>
-
-                  <!--                  <div class="add-to-box mt-4">-->
-                  <!--                    <div class="add-to-cart">-->
-                  <!--                      <div class="pull-left">-->
-                  <!--                        <div class="custom pull-left">-->
-                  <!--                          <button (click)="pluscount()" class="increase items-count cursor-pointer" type="button"><i-->
-                  <!--                            class="fa fa-plus"></i></button>-->
-                  <!--                          <input type="text" name="qty" id="qty" [value]="this.count" maxlength="12" value="1"-->
-                  <!--                                 title="Quantity:"-->
-                  <!--                                 class="input-text qty">-->
-                  <!--                          <button (click)="dismis()" class="reduced items-count cursor-pointer" type="button"><i-->
-                  <!--                            class="fa fa-minus"></i></button>-->
-                  <!--                        </div>-->
-                  <!--                        &lt;!&ndash;custom pull-left&ndash;&gt;-->
-                  <!--                      </div>-->
-                  <!--                      &lt;!&ndash;pull-left&ndash;&gt;-->
-                  <!--                      <button (click)="addProduct(data)" type="button" title="Add to Cart"-->
-                  <!--                              class="button btn-cart carbtn">-->
-                  <!--                        <span>Agregar al carrito</span></button>-->
-
-
-                  <!--                    </div>-->
-                  <!--                    <div class="social center-block">-->
-                  <!--                      <ul class="link">-->
-                  <!--                        <li class="fb"><a href="http://www.facebook.com/" rel="nofollow" target="_blank"-->
-                  <!--                                          style="text-decoration:none;"> </a></li>-->
-                  <!--                        <li class="linkedin"><a href="http://www.linkedin.com/" rel="nofollow" target="_blank"-->
-                  <!--                                                style="text-decoration:none;"> </a></li>-->
-                  <!--                        <li class="tw"><a href="http://twitter.com/" rel="nofollow" target="_blank"-->
-                  <!--                                          style="text-decoration:none;"> </a></li>-->
-                  <!--                        <li class="pintrest"><a href="http://pinterest.com/" rel="nofollow" target="_blank"-->
-                  <!--                                                style="text-decoration:none;"> </a></li>-->
-                  <!--                        <li class="googleplus"><a href="https://plus.google.com/" rel="nofollow" target="_blank"-->
-                  <!--                                                  style="text-decoration:none;"> </a></li>-->
-                  <!--                      </ul>-->
-                  <!--                    </div>-->
-                  <!--                    &lt;!&ndash;add-to-cart&ndash;&gt;-->
-                  <!--                  </div>-->
                 </div>
                 <div class="product-shop p-4">
                   <ngx-content-loading
