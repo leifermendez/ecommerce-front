@@ -15172,6 +15172,10 @@ select#shipping-address-select {
   cursor: pointer;
 }
 
+.cursor-zoom {
+  cursor: zoom-out;
+}
+
 .top-modal {
   margin-top: 5%;
 }

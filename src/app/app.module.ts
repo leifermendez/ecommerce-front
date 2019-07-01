@@ -94,9 +94,10 @@ import {DataGalleryProductComponent} from './module/home/pages/products/create-p
 import {DataGalleryProductVariationComponent} from './module/home/pages/products/create-product/data-gallery-product-variation/data-gallery-product-variation.component';
 import {LoadingApatxeeComponent} from './module/home/components/loading-apatxee/loading-apatxee.component';
 import {TruncateModule} from 'ng2-truncate';
-import { GallerySingleComponent } from './module/home/pages/single/gallery-single/gallery-single.component';
-import { LogoutComponent } from './module/auth/pages/logout/logout.component';
+import {GallerySingleComponent} from './module/home/pages/single/gallery-single/gallery-single.component';
+import {LogoutComponent} from './module/auth/pages/logout/logout.component';
 import {NgxContentLoadingModule} from 'ngx-content-loading';
+import {NgxImageZoomModule} from 'ngx-image-zoom';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -216,6 +217,7 @@ export class MyIntl extends TimeagoIntl {
     NgxEpicVideoPlayerModule,
     NgxDaterangepickerMd.forRoot(),
     TabsModule.forRoot(),
+    NgxImageZoomModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
     ModalModule.forRoot(),
     TooltipModule.forRoot(),

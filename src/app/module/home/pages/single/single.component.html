@@ -28,9 +28,12 @@
                     [height]="450">
                     <svg:g ngx-rect width="100%" height="100%" y="0" x="0" rx="5" ry="5"></svg:g>
                   </ngx-content-loading>
-                  <img class="w-100 cover" *ngIf="data && data['gallery'].length"
-                       onError="src='assets/images/nofound.png'"
-                       [src]="cover['large']"/>
+                  <ngx-image-zoom
+                    class="w-100 cover cursor-zoom"
+                    *ngIf="data && data['gallery'].length"
+                    [thumbImage]="cover['medium']"
+                    [fullImage]="cover['large']"
+                  ></ngx-image-zoom>
                 </div>
               </div>
               <div *ngIf="data && !data['gallery']" class="w-100">
@@ -78,7 +81,19 @@
                     </ng-select>
                   </div>
                   <div class="short-description text-dark mt-3">
-                    <p class="mt-2 mb-2 description text-justify">{{data['short_description'] | words: 15 : '...'}}</p>
+                    <div class="mb-4">
+                      <p class="text-muted mb-0">Informacion de la tienda:</p>
+                      <h5 class="font-weight-600 mb-1">
+                        {{data['shop_name'] | words: 15 : '...'}}
+                      </h5>
+                      <p class="m-0">
+                        <fa name="map-marker"></fa> {{data['shop_address'] | words: 15 : '...'}}
+                      </p>
+                      <a [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">
+                        <fa name="bookmark"></fa> Ver más productos
+                      </a>
+                    </div>
+
                     <div class="alert alert-warning mt-4"
                          *ngIf="selectedvariationName &&selectedvariationName['observation']">
                       <fa name="exclamation-triangle"></fa>
@@ -156,8 +171,6 @@
                     <svg:g ngx-rect width="240" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
                   </ngx-content-loading>
                 </div>
-
-
               </div>
             </div>
             <div class="col-8 inline-table  background-solid border-left-solid border-booton-solid">
@@ -165,28 +178,7 @@
                                   class="w-100"></app-gallery-single>
             </div>
             <div class="col-4 inline-table border-rigth-solid border-left-solid background-solid  p-4">
-              <div class="row">
-                <div class="col-12">
-                  <div *ngIf="loading">
-                    <ngx-content-loading
-                      [width]="300"
-                      [height]="450">
-                      <svg:g ngx-rect width="150" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
-                      <svg:g ngx-rect width="90" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
-                      <svg:g ngx-rect width="210" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
-                      <svg:g ngx-rect width="240" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
-                    </ngx-content-loading>
-                  </div>
-                  <div *ngIf="!loading">
-                    <h6 class="font-weight-600">Información de la tienda</h6>
-                    <h5 class="font-weight-600">{{data['shop_name']}}</h5>
-                    <p class="text-muted">
-                      <fa name="map-marker"></fa>
-                      {{data['shop_address']}}</p>
-                    <a [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">Ver más productos</a>
-                  </div>
-                </div>
-              </div>
+
             </div>
             <div class="col-8 inline-table  background-solid border-left-solid
              border-rigth-solid text-dark p-4">
