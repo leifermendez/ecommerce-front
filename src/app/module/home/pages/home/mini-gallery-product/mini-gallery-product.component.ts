@@ -10,7 +10,7 @@ import {OwlCarousel} from 'ngx-owl-carousel';
 export class MiniGalleryProductComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-
+    public data:any = [];
   ngOnInit(): void {
 
       this.galleryOptions = [

@@ -95,6 +95,7 @@ import {DataGalleryProductVariationComponent} from './module/home/pages/products
 import {LoadingApatxeeComponent} from './module/home/components/loading-apatxee/loading-apatxee.component';
 import {TruncateModule} from 'ng2-truncate';
 import { GallerySingleComponent } from './module/home/pages/single/gallery-single/gallery-single.component';
+import { LogoutComponent } from './module/auth/pages/logout/logout.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -111,7 +112,7 @@ const config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('351091138867106')
+    provider: new FacebookLoginProvider('372832750083623')
   }
 ]);
 
@@ -186,6 +187,7 @@ export class MyIntl extends TimeagoIntl {
     DataGalleryProductVariationComponent,
     LoadingApatxeeComponent,
     GallerySingleComponent,
+    LogoutComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

@@ -32,7 +32,7 @@ export class ModalShippingComponent implements OnInit {
 
   constructor(private rest: RestService,
               private fb: FormBuilder,
-              private bsModalRef: BsModalRef) {
+              public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'country': [null, Validators.compose([Validators.required])],
       'state': [null, Validators.compose([Validators.required])],

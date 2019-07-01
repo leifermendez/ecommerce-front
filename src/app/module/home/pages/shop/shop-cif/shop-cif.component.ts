@@ -19,6 +19,7 @@ export class ShopCifComponent implements OnInit {
   loading: boolean;
   id: any;
   public validateFlag: any = false;
+  public data:any = []
 
   constructor(private rest: RestService,
               private fb: FormBuilder,

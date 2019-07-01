@@ -8,9 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./single-sale.component.css']
 })
 export class SingleSaleComponent implements OnInit {
-
-
-  private loading = false;
+  public loading = false;
   public data: any = {};
   public id = null;
 

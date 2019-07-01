@@ -1,0 +1,13 @@
+# [START runtime]
+runtime: python27
+threadsafe: yes
+# [END runtime]
+handlers:
+- url: /(.+)
+  static_files: dist/\1
+  upload: dist/(.*)
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+skip_files:
+- ^(?!dist)  # Skip any files not in the dist folder

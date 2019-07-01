@@ -23,7 +23,7 @@ export class ModalBankComponent implements OnInit {
 
   constructor(private rest: RestService,
               private fb: FormBuilder,
-              private bsModalRef: BsModalRef) {
+              public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'payment_option': [null, Validators.compose([Validators.required])],
       'payment_email': [null, Validators.compose([Validators.required])],

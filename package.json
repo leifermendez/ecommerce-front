@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "qaweb":"gcloud config set project apatxeeweb && gsutil rsync -R ./dist/  gs://qa-apatxee",
     "e2e": "ng e2e"
   },
   "private": true,

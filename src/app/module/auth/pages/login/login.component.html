@@ -19,7 +19,7 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, vitae.
     </p>
     <div class="pt-4">
-      <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login($event)">
+      <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
 
         <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">
           <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
@@ -101,7 +101,7 @@
         <div class="col-md-6 registered-users">
           <strong>Registered Customers</strong>
           <div class="content">
-            <form [formGroup]="form" (submit)="login($event)" id="login-form">
+            <form [formGroup]="form" (submit)="login()" id="login-form">
               <p>If you have an account with us, please log in.</p>
               <ul class="form-list">
                 <li>

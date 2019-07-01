@@ -65,10 +65,45 @@ export class AuthshopService {
     }).bind(this));
   }
 
+  public login_social(data): Promise<boolean> {
+    return new Promise<boolean>(((resolve, reject) => {
+      this.waiting = true;
+      this.rest.post('/auth', data)
+        .then(((response: any) => {
+          console.log(response);
+          if (response.data) {
+            const token = response.data['token'];
+            if (token) {
+              this._currentUser = response.data;
+              this._currentUser['menu_rol'] = 'user';
+              this.emitlogin(this._currentUser);
+              this.cookieService.set(
+                '_currentUser',
+                JSON.stringify(response.data),
+                this.nowCookies,
+                '/'
+              );
+
+              resolve(response.data);
+            }
+            resolve(false);
+          } else {
+            resolve(false);
+          }
+          this.waiting = false;
+        }).bind(this))
+        .catch((e) => {
+          this.waiting = false;
+          reject(e);
+        });
+    }).bind(this));
+  }
+
   public logout(): void {
     localStorage.clear();
     this.waiting = true;
     this.cleanSession();
+    this.cookieService.deleteAll();
     this.utils.openSnackBar('sesión finalizada', 'success');
   }
 
@@ -157,6 +192,6 @@ export class AuthshopService {
     this._currentUser = null;
     this.rest.headers.delete('Authorization');
     localStorage.removeItem('currentUser');
-    this.getLoggedInData.emit('logout');
+    this.getLoggedInData.emit(null);
   }
 }

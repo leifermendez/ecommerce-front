@@ -89,7 +89,7 @@
                     <div class="item-box-hover">
                       <div class="box-inner">
                         <div
-                          *ngIf="dat['is_available']['isAvailable']"
+                          *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
                           class="add_cart mt-1 mr-1">
                           <button class="button btn-cart cursor-pointer"
                                   (click)="addProduct(dat)"
@@ -101,7 +101,7 @@
                     </div>
                   </div>
                 </div>
-                <a [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]">
+                <a *ngIf="dat && dat['name']" [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]">
                   <div class="item-info">
                     <div class="info-inner">
                       <div class="item-title mb-0">
