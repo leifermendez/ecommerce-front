@@ -96,6 +96,7 @@ import {LoadingApatxeeComponent} from './module/home/components/loading-apatxee/
 import {TruncateModule} from 'ng2-truncate';
 import { GallerySingleComponent } from './module/home/pages/single/gallery-single/gallery-single.component';
 import { LogoutComponent } from './module/auth/pages/logout/logout.component';
+import {NgxContentLoadingModule} from 'ngx-content-loading';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -203,6 +204,7 @@ export class MyIntl extends TimeagoIntl {
     HttpClientModule,
     GooglePlaceModule,
     NgxDropzoneModule,
+    NgxContentLoadingModule,
     NgxStarsModule,
     NgxFlagIconCssModule,
     ChartModule,

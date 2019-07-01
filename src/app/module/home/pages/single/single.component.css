@@ -92,3 +92,6 @@
 .cover {
   object-fit: contain;
 }
+.placeholder-cover{
+  background-color: whitesmoke;
+}

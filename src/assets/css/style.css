@@ -15420,6 +15420,10 @@ select#shipping-address-select {
   min-height: 300px;
 }
 
+.min-height-500 {
+  min-height: 500px;
+}
+
 .text-muted {
   color: #a9a9a9 !important;
 }

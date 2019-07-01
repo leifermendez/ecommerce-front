@@ -7,7 +7,7 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "qaweb":"gcloud config set project apatxeeweb && gsutil rsync -R ./dist/  gs://qa-apatxee",
+    "qaweb": "gcloud config set project apatxeeweb && gsutil rsync -R ./dist/  gs://qa-apatxee",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -43,6 +43,7 @@
     "moment": "^2.24.0",
     "ng2-truncate": "^1.3.17",
     "ngx-bootstrap": "^4.2.0",
+    "ngx-content-loading": "^0.1.3",
     "ngx-cookie-service": "^2.2.0",
     "ngx-daterangepicker-material": "^2.1.3",
     "ngx-dropzone": "^1.2.0",

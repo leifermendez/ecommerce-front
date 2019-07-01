@@ -22,33 +22,7 @@ export class GallerySingleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.images = [
-      {
-        small: 'https://via.placeholder.com/400',
-        medium: 'https://via.placeholder.com/400',
-        big: 'https://via.placeholder.com/400'
-      },
-      {
-        small: 'https://via.placeholder.com/400',
-        medium: 'https://via.placeholder.com/400',
-        big: 'https://via.placeholder.com/400'
-      },
-      {
-        small: 'https://via.placeholder.com/400',
-        medium: 'https://via.placeholder.com/400',
-        big: 'https://via.placeholder.com/400'
-      },
-      {
-        small: 'https://via.placeholder.com/400',
-        medium: 'https://via.placeholder.com/400',
-        big: 'https://via.placeholder.com/400'
-      }
-      , {
-        small: 'https://via.placeholder.com/400',
-        medium: 'https://via.placeholder.com/400',
-        big: 'https://via.placeholder.com/400'
-      }
-    ];
+    this.images = [1, 1, 1, 1];
   }
 
 }
