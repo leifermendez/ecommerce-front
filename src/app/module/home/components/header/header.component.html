@@ -31,7 +31,7 @@
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
                 <li class="mega-menu"><a class="level-top">
-                  <span class="cursor-pointer">Categorías</span>
+                  <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
                 </a>
                   <div class="level0-wrapper dropdown-6col">
                     <div class="container">
@@ -128,24 +128,24 @@
 
                 <li class="mega-menu">
                   <a (click)="scrollTop('offers')" class="level-top">
-                    <span class="cursor-pointer">Ofertas</span>
+                    <span class="cursor-pointer">{{"menu.product_features" | translate}}</span>
                   </a>
 
                 </li>
 
                 <li class="mega-menu">
                   <a (click)="scrollTop('official-shops')" lass="level-top">
-                    <span class="cursor-pointer">Tiendas oficiales</span>
+                    <span class="cursor-pointer">{{"menu.shops" | translate}}</span>
                   </a>
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                  <span class="cursor-pointer">Vender</span>
+                  <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
                 </a>
 
                 </li>
                 <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
-                  <span class="cursor-pointer">Ayuda</span>
+                  <span class="cursor-pointer">{{"menu.help" | translate}}</span>
                 </a>
 
                 </li>
@@ -153,7 +153,7 @@
                 <li *ngIf="!user_data" class="mega-menu float-right d-flex">
                   <a routerLink="/login" class="level-top sign">
                     <span>
-                      <fa name="user"></fa> Ingresar
+                      <fa name="user"></fa> {{"menu.signup" | translate}}
                     </span>
                   </a>
 

@@ -1,12 +1,12 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {OwlCarousel} from 'ngx-owl-carousel';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
-import {TimeagoIntl} from 'ngx-timeago';
-import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { OwlCarousel } from 'ngx-owl-carousel';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { TimeagoIntl } from 'ngx-timeago';
+import { strings as englishStrings } from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
-import {UtilsService} from '../../../../../shared/services/util.service';
-import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
+import { UtilsService } from '../../../../../shared/services/util.service';
+import { ShoppingCartComponent } from '../../../components/shopping-cart/shopping-cart.component';
 
 
 @Component({
@@ -17,6 +17,8 @@ import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-
 export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   @Input() title: any = null;
+  @Input() w: any = '245px';
+  @Input() items: any = 4;
   public data: any[];
   public optionsOws: any;
   public loading: any = false;
@@ -24,8 +26,8 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, intl: TimeagoIntl,
-              private util: UtilsService,
-              private shopping: ShoppingCartComponent) {
+    private util: UtilsService,
+    private shopping: ShoppingCartComponent) {
     intl.strings = englishStrings;
     intl.changes.next();
 
@@ -62,11 +64,16 @@ export class BoxFeaturedProductComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
+    this.optionsOws = {
+      dots: false,
+      navigation: true,
+      autoplay: false,
+      items: this.items
+    };
     this.data = [1, 1, 1, 1];
     this.galleryOptions = [
       {
-        width: '270px',
+        width: this.w,
         height: '300px',
         thumbnails: false,
         'preview': false,
@@ -75,7 +82,7 @@ export class BoxFeaturedProductComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
-      {'breakpoint': 500, 'width': '100%', 'height': '200px'}
+      { 'breakpoint': 500, 'width': '100%', 'height': '200px' }
       ,
       // max-width 400
       {

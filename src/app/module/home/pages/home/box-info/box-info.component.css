@@ -18,18 +18,19 @@
 
 .our-features-box .feature-box {
   overflow: hidden;
-  font-size: 100%;
+  font-size: 85%;
   text-align: center;
   color: #ffcaca;
-  line-height: 1.4em;
+  line-height: 1.1rem;
   font-weight: 300;
   margin-right: 15px;
   letter-spacing: 1px;
   border-radius: 3px;
-  padding: 15px 25px;
+  padding: 10px;
   border: 1px rgba(255, 255, 255, 0.14) solid;
   margin-bottom: 25px;
-  background: #fcfcfc00;
+  background: transparent;
+  min-height: 145px;
 }
 
 .icon-main {

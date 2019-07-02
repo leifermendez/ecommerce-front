@@ -63,7 +63,8 @@ export class PurchaseComponent implements OnInit {
         if (result.token) {
           this.pay(result.token.id, this.uuid);
         } else if (result.error) {
-
+          this.loading = false;
+          this.util.openSnackBar('Error tarjeta', 'error');
         }
       });
   }
@@ -81,6 +82,11 @@ export class PurchaseComponent implements OnInit {
         this.router.navigateByUrl(`/thank-you/${response['data']['uuid']}`);
       }).catch((error: any) => {
       this.loading = false;
+      this.util.openModalSnack(
+        'Pago no procesado',
+         'error',
+         JSON.stringify(error)
+        );
     });
   };
 
@@ -92,7 +98,13 @@ export class PurchaseComponent implements OnInit {
         this.uuid = response['data'][0]['uuid'];
         this.buy();
       }).catch((error: any) => {
+        console.log(error)
       this.loading_save = false;
+      this.util.openModalSnack(
+        'Pedido no procesado',
+         'error',
+         JSON.stringify(error)
+        );
     });
   }
 
@@ -103,7 +115,6 @@ export class PurchaseComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data = response['data'];
-
         }
       });
   };

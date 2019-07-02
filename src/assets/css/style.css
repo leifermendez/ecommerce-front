@@ -5587,8 +5587,8 @@ text-transform: uppercase
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-  padding-left: 20px;
-  padding-bottom: 15px
+  padding-left: 10px;
+  padding-bottom: 10px
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-content .no-rating, #best-seller-slider .owl-item .item .item-inner .item-info .info-inner .item-content .ratings {
@@ -5627,10 +5627,13 @@ text-transform: uppercase
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-title a {
   text-decoration: none;
-  font-weight: 600;
+  color: #090809;
+  font-size: 80% !important;
   color: #090809;
 }
-
+.swal2-popup{
+  border-radius: 3px !important;
+}
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-title a:hover {
   color: #ce0000;
 }

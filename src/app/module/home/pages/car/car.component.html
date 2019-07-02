@@ -1,11 +1,11 @@
 <div class="main-container col1-layout wow bounceInUp animated animated">
   <app-side-bar-cart [step]="1"></app-side-bar-cart>
-  <div class="main container container-offset text-dark">
-    <div class="cart wow bounceInUp animated animated">
+  <div class="main text-dark col-md-6 col-lg-8 col-xl-8">
+    <div class="cart wow bounceInUp animated animated pl-4 pr-4">
       <div class="new_title">
         <h2>Carrito</h2>
       </div>
-      <div class="table-responsive shopping-cart-tbl container mt-4">
+      <div class="table-responsive shopping-cart-tbl mt-4">
         <div *ngIf="loading">
           <ngx-content-loading
             [width]="1000"
@@ -92,8 +92,10 @@
           </div>
         </div>
       </div>
-      <div class="container p-0">
+      <div>
         <app-box-featured-product
+        [w]="'250px'"
+        [items]="3"
           [title]="'Recomendados'">
         </app-box-featured-product>
       </div>

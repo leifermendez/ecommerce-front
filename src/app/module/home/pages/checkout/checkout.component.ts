@@ -104,6 +104,9 @@ export class CheckoutComponent implements OnInit {
           this.loading = false;
           this.data = response['data'];
         }
+      }).catch((error: any) => {
+        this.loading = false;
+        this.util.openSnackBar('Ups! algo ocurrio', 'error');
       });
   };
 
@@ -115,7 +118,8 @@ export class CheckoutComponent implements OnInit {
       this.editform = (this.data.data && this.data.data.length) ?
         this.data.data[0] : {};
     }).catch((error: any) => {
-      console.log(error);
+      this.loading = false;
+      this.util.openSnackBar('Ups! algo ocurrio', 'error');
     });
   }
 

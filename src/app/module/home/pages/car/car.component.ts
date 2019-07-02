@@ -32,6 +32,7 @@ export class CarComponent implements OnInit {
       this.loading = false;
     }).catch((error: any) => {
       this.loading = false;
+      this.util.openSnackBar('Ups! algo ocurrio', 'error');
     });
   }
 
@@ -41,6 +42,7 @@ export class CarComponent implements OnInit {
       this.loadData();
     }).catch((error: any) => {
       this.loading = false;
+      this.util.openSnackBar('Ups! algo ocurrio', 'error');
     });
   }
 }

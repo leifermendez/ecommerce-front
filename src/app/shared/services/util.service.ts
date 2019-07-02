@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import {Injectable, EventEmitter, Output} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
-import {settings} from '../settings';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { settings } from '../settings';
 
 declare var $: any;
 
@@ -20,6 +20,30 @@ export class UtilsService {
   @Output() updateProfile: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService) {
+  }
+
+  openModalSnack = (message: string,
+    action: string,
+    details: any = null,
+    duration: number = 5000, ) => {
+    if (action === 'success') {
+      Swal.fire({
+        type: 'success',
+        title: message,
+        showConfirmButton: false,
+        timer: duration,
+        toast: true,
+        background: 'rgba(0, 0, 0, 0.96)',
+      });
+    } else if (action === 'error') {
+      Swal.fire({
+        type: 'error',
+        title: message,
+        text: details,
+        footer: '<a href>Why do I have this issue?</a>'
+      });
+    }
+
   }
 
   openSnackBar(message: string, action: string, duration: number = 5000) {

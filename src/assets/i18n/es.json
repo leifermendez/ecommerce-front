@@ -1,3 +1,13 @@
 {
-  "principal.texto" : "Lista de frutas"
+  "menu.product_features":"Productos destacados",
+  "menu.categories" : "Categorías",
+  "menu.shops" : "Comercios cerca de ti",
+  "menu.sell" : "Soy un pequeño comercio",
+  "menu.help" : "Ayuda",
+  "menu.signup" : "Entrar",
+  "box_info.first":"Ayudamos al pequeño comercio a competir con las grandes superficies con un transporte del producto con recogida y entrega en un tiempo medio de 1 hora.",
+  "box_info.second":"Fomentamos la economía local porque los productos se compran y se venden en tu misma ciudad.",
+  "box_info.third":"Transporte verde porque los productos se entregan a una distancia máxima de 10 Km",
+  "box_info.forth":"Si compras en nuestra plataforma recuerda que estas colaborando con la supervivencia de las pequeñas empresas entregando el dinero a muchos pequeños comercios en vez de a una única empresa.",
+  "box_categories.title" :"Categorías populares"
 }
