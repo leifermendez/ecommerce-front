@@ -18,87 +18,23 @@
           </ngx-content-loading>
         </div>
         <div *ngIf="!loading">
-          <form [formGroup]="form" autocomplete="off" (submit)="saveData()">
-            <div class="form-group col" *ngIf="editform && !editform['id']">
+          <form novalidate (ngSubmit)="purchase()" [formGroup]="stripeTest">
+            <div class="form-group col">
               <div>
-                <label>Ingresa tu dirección</label>
-                <div *ngIf="loading" class="loading-zip">
-                  <fa name="spinner" animation="spin"></fa>
-                </div>
+                <label>Titular de la tarjeta</label>
                 <input type="text" class="form-control"
                        spellcheck="false" autocomplete="off"
-                       [(ngModel)]="editform['country']"
-                       formControlName="country"
-                       placeholder="¿Cual es tu pais?">
+                       [(ngModel)]="editform['name']"
+                       formControlName="name"
+                       placeholder="Carlos Mendoza">
 
               </div>
             </div>
-            <div class="d-flex">
-              <div class="col">
-                <div *ngIf="editform" class="form-group">
-                  <label>País</label>
-                  <input type="text" class="form-control"
-                         readonly
-                         spellcheck="false" autocomplete="off"
-                         [(ngModel)]="editform['country']"
-                         formControlName="country"
-                         placeholder="¿Cual es tu pais?">
-                </div>
-                <div *ngIf="editform" class="form-group">
-                  <label>Provincia</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.state"
-                         formControlName="state"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         placeholder="¿Cual es tu provincia?">
-                </div>
-                <div *ngIf="editform" class="form-group">
-                  <label>Distrito</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.district"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         formControlName="district"
-                         placeholder="¿Cual es tu distrito?">
-                </div>
-              </div>
-
-              <div class="col">
-                <div *ngIf="editform" class="form-group">
-                  <label>Piso, Numero</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.address"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         formControlName="address"
-                         placeholder="¿Piso 2, #2-4?">
-                </div>
-                <div *ngIf="editform" class="form-group">
-                  <label>Codigo postal</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.zip_code"
-                         readonly
-                         spellcheck="false" autocomplete="off"
-                         formControlName="zip_code"
-                         placeholder="¿Cual es tu codigo postañ?">
-                </div>
-                <div *ngIf="editform" class="form-group">
-                  <label>Instrucciones</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.instructions"
-                         [readOnly]="editform && editform['id']"
-                         formControlName="instructions"
-                         spellcheck="false" autocomplete="off"
-                         placeholder="Toca 3 veces el timbre">
-                </div>
-                <div *ngIf="editform && editform['id']" class="form-group text-right mt-4 mb-0">
-                  <button type="button" (click)="purchase()" class="btn btn-primary">Continuar</button>
-                </div>
-                <div *ngIf="editform && !editform['id']" class="form-group text-right mt-4 mb-0">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-              </div>
+            <div class="form-group col">
+              <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+            </div>
+            <div class="form-group col text-right mb-0 mt-4">
+              <button class="btn btn-primary">Pagar</button>
             </div>
           </form>
         </div>

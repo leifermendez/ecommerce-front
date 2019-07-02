@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {WelcomeComponent} from '../../components/welcome/welcome.component';
 import {ModalShippingComponent} from '../profile/modal-shipping/modal-shipping.component';
@@ -35,7 +35,8 @@ export class CheckoutComponent implements OnInit {
   private msg: string;
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute, private modalService: BsModalService, private fb: FormBuilder) {
+              private route: ActivatedRoute, private modalService: BsModalService, private fb: FormBuilder,
+              private router: Router) {
     this.form = fb.group({
       'country': [null, Validators.compose([Validators.required])],
       'state': [null, Validators.compose([Validators.required])],
@@ -140,15 +141,5 @@ export class CheckoutComponent implements OnInit {
       this.addres = e;
     }
   };
-
-  purchase() {
-    this.loading = true;
-    this.rest.post('/rest/purchase', {}).then((response: any) => {
-      console.log(response);
-      console.log(this.data);
-    }).catch((error: any) => {
-      console.log(error);
-    });
-  }
 
 }

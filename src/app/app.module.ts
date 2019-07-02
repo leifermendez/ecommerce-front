@@ -100,6 +100,7 @@ import {NgxContentLoadingModule} from 'ngx-content-loading';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
 import { DiscountNumberComponent } from './module/home/components/discount-number/discount-number.component';
 import { SideBarCartComponent } from './module/home/components/side-bar-cart/side-bar-cart.component';
+import {NgxStripeModule} from 'ngx-stripe';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -220,6 +221,7 @@ export class MyIntl extends TimeagoIntl {
     VgBufferingModule,
     NgxEpicVideoPlayerModule,
     NgxDaterangepickerMd.forRoot(),
+    NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
