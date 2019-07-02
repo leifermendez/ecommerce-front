@@ -4,7 +4,16 @@
       <h6 class="font-weight-600">Resumen de compra</h6>
     </div>
     <div class="block-dashboard mr-3 ml-3 p-4">
-      <h6 class="font-weight-600">Total: 100</h6>
+      <h6 class="font-weight-600" *ngIf="total && total['price_normal']">
+        Total: {{total['price_normal']}}
+      </h6>
+      <h6 class="font-weight-600 text-muted" *ngIf="total && total['price_regular']">
+          Ahorras:  <app-discount-number
+          [decimals]="0"
+          [price_normal]="total['price_normal']"
+          [price_regular]="total['price_regular']">
+             </app-discount-number>%
+        </h6>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, eveniet?</p>
       <div *ngIf="step<2" class="text-center mt-2">
         <button class="btn btn-outline-secondary btn-block">

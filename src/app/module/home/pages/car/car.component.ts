@@ -26,7 +26,7 @@ export class CarComponent implements OnInit {
   loadData() {
     this.loading = true;
     this.rest.get(`/rest/shopping-cart`).then((response: any) => {
-      console.log('respouesta peticion');
+      this.util.refreshShoppingData.emit(response['data']);
       this.data = response.data;
       this.total = response.data.total[0];
       this.loading = false;

@@ -79,7 +79,7 @@ export class PurchaseComponent implements OnInit {
     })
       .then((response: any) => {
         this.loading = false;
-        this.router.navigateByUrl(`/thank-you/${response['data']['uuid']}`);
+        this.router.navigateByUrl(`/thank-you/${response['data']['id']}`);
       }).catch((error: any) => {
       this.loading = false;
       this.util.openModalSnack(

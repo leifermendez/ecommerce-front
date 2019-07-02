@@ -15,6 +15,7 @@ export class UtilsService {
   _settings = settings;
   @Output() getLocation: EventEmitter<any> = new EventEmitter();
   @Output() refreshShopping: EventEmitter<any> = new EventEmitter();
+  @Output() refreshShoppingData: EventEmitter<any> = new EventEmitter();
   @Output() numberShopping: EventEmitter<any> = new EventEmitter();
   @Output() switchBar: EventEmitter<any> = new EventEmitter();
   @Output() updateProfile: EventEmitter<any> = new EventEmitter();
