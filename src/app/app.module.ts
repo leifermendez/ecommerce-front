@@ -98,6 +98,8 @@ import {GallerySingleComponent} from './module/home/pages/single/gallery-single/
 import {LogoutComponent} from './module/auth/pages/logout/logout.component';
 import {NgxContentLoadingModule} from 'ngx-content-loading';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
+import { DiscountNumberComponent } from './module/home/components/discount-number/discount-number.component';
+import { SideBarCartComponent } from './module/home/components/side-bar-cart/side-bar-cart.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -190,6 +192,8 @@ export class MyIntl extends TimeagoIntl {
     LoadingApatxeeComponent,
     GallerySingleComponent,
     LogoutComponent,
+    DiscountNumberComponent,
+    SideBarCartComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

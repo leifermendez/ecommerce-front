@@ -1,11 +1,12 @@
 <div class="container p-0">
-  <div *ngIf="data && data.length" class="col p-2 bar-item-total">
-    <h5 class="m-0 text-white">({{data.length}}) articulos</h5>
+  <div *ngIf="showMenu">
+    <div *ngIf="data && data.length" class="col p-2 bar-item-total">
+      <h5 class="m-0 text-white">({{data.length}}) articulos</h5>
+    </div>
+    <div *ngIf="data && !data.length" class="col p-2 bar-item-total">
+      <h6 class="m-0 text-white">No tienes productos</h6>
+    </div>
   </div>
-  <div *ngIf="data && !data.length" class="col p-2 bar-item-total">
-    <h6 class="m-0 text-white">No tienes productos</h6>
-  </div>
-
   <div class="header-nav-dropdown-wrapper clearer pb-2 mt-2">
     <div *ngIf="loading" class="timeline-wrapper">
       <div class="timeline-item">
@@ -42,14 +43,15 @@
           </div>
           <div class="col-8 pb-2 pl-0 last">
             <div>
+              <span class="d-block item-title">{{dat['name']}}</span>
               <span class="d-block">{{dat['price_normal']}}</span>
-              <span class="d-block">{{dat['name']}}</span>
             </div>
           </div>
         </div>
         <div class="col-12 d-flex pt-2 mb-2 border-bottom-item">
           <div class="col-12" *ngIf="total_shop">
-            <a routerLink="/shopping-cart" routerLinkActive="active" class="btn btn-default price-font">Proceder pago
+            <a routerLink="/shopping-cart"
+               class="btn btn-outline-secondary btn-block">Proceder pago
               ({{total_shop['price_normal']}})</a>
           </div>
         </div>
@@ -62,8 +64,6 @@
                    class="image-item" alt="Retis lapen casen"></a>
             <p class="mb-0 mt-1">Tu carrito esta vacio</p>
           </div>
-
-
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 
@@ -8,6 +8,7 @@ import {UtilsService} from '../../../../shared/services/util.service';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
+  @Input() showMenu = true;
   public data = [1, 2, 3];
   loading = false;
   public total: any;
@@ -28,8 +29,8 @@ export class ShoppingCartComponent implements OnInit {
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
-          this.total = response['data']['total']
-          this.total_shop = response['data']['total_shop']
+          this.total = response['data']['total'];
+          this.total_shop = response['data']['total_shop'];
           this.data = response['data']['list'];
           this.util.numberShopping.emit(response['data']['list'].length);
         }

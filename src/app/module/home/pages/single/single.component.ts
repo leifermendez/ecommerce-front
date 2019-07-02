@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute} from '@angular/router';
+import {DiscountNumberComponent} from '../../components/discount-number/discount-number.component';
 
 @Component({
   selector: 'app-single',
@@ -10,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./single.component.css']
 })
 export class SingleComponent implements OnInit {
+  @ViewChild('discountChild') discountChild: DiscountNumberComponent;
   data: any = {
     gallery: []
   };
@@ -65,15 +67,7 @@ export class SingleComponent implements OnInit {
       });
   };
 
-  pluscount() {
-    this.count = this.count + 1;
-  }
-
-  dismis() {
-    if (this.count > 1) {
-      this.count = this.count - 1;
-    }
-  }
+  changeVariation = () => this.discountChild.init();
 
   addProduct = (obj) => {
     this.loading_save = true;

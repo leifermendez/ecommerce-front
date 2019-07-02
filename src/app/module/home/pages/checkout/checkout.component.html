@@ -1,165 +1,117 @@
-<div class="main-container col2-right-layout">
-  <div class="main container">
-    <div class="row">
-      <section class="col-main col-sm-9 wow bounceInUp animated animated" style="visibility: visible;">
-
-        <ol class="one-page-checkout" id="checkoutSteps">
-          <li class="section allow">
-            <div class="step-title">
-              <h3 class="one_page_heading">Dirección</h3>
-            </div>
-            <div id="checkout-step-billing" class="step a-item">
-
-              <label>Seleccione una dirección de facturación de su libreta de direcciones o ingrese una nueva
-                dirección.</label>
-
-
-              <div *ngIf="data['data'] && !data['data'].length" class="text-center p-img-center">
-                <img src="../../../../../../assets/images/location-gray.svg" width="100px" alt="">
-                <p class="text-muted mt-3">Aun no has agregado ninguna direccion de envio</p>
-              </div>
-              <div *ngIf="data['data'] && data['data'].length">
-                <ng-select [items]="data['data']"
-                           bindLabel="state"
-                           [ngModelOptions]="{standalone: true}"
-                           [clearable]="false"
-                           [clearOnBackspace]="false"
-                           [searchable]="false"
-                           [multiple]="false"
-                           [virtualScroll]="true"
-                           [closeOnSelect]="true"
-                           (change)="selectOptions($event)"
-                           placeholder="Buscar..."
-                           [(ngModel)]="addreselect">
-                  <!--<ng-template ng-label-tmp let-item="item">-->
-                  <!--<img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>-->
-                  <!--<b>&nbsp;{{item.name}}</b>-->
-                  <!--</ng-template>-->
-                  <ng-template ng-option-tmp let-item="item" let-index="index">
-                    <div style="width: 10%">
-                      <div>
-                        <flag-icon country="{{item['country'] | lowercase}}"></flag-icon>
-                      </div>
-                    </div>
-                    <div style="width: 90%">
-                      {{item.state}}, {{item.country}}, {{item.address}}
-                    </div>
-
-                  </ng-template>
-                </ng-select>
-              </div>
-
-              <div class=" text-right">
-                <button *ngIf="data['data'] && !data['data'].length"
-                        [disabled]="data['data'].length"
-                        (click)="openaddres()"
-                        class="btn btn-primary btn-sm" type="button">
-                  <i aria-hidden="true" class="fa fa-plus" ng-reflect-klass="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="text-right">
-              <button
-                (click)="purchase()"
-                type="button"
-                class="btn btn-outline-primary btn-lg">
-                Pagar
-              </button>
-            </div>
-          </li>
-          <li class="section allow">
-            <div class="step-title">
-              <h3 class="one_page_heading">Dirección</h3>
-            </div>
-            <div id="checkout-step-billing" class="step a-item">
-
-              <label>Seleccione una dirección de facturación de su libreta de direcciones o ingrese una nueva
-                dirección.</label>
-
-
-              <div *ngIf="data['data'] && !data['data'].length" class="text-center p-img-center">
-                <img src="../../../../../../assets/images/location-gray.svg" width="100px" alt="">
-                <p class="text-muted mt-3">Aun no has agregado ninguna direccion de envio</p>
-              </div>
-              <div *ngIf="data['data'] && data['data'].length">
-                <ng-select [items]="data['data']"
-                           bindLabel="state"
-                           [ngModelOptions]="{standalone: true}"
-                           [clearable]="false"
-                           [clearOnBackspace]="false"
-                           [searchable]="false"
-                           [multiple]="false"
-                           [virtualScroll]="true"
-                           [closeOnSelect]="true"
-                           (change)="selectOptions($event)"
-                           placeholder="Buscar..."
-                           [(ngModel)]="addreselect">
-                  <!--<ng-template ng-label-tmp let-item="item">-->
-                  <!--<img height="50" width="50"  onError="this.src='assets/images/nofound.png'" [src]="item.avatar"/>-->
-                  <!--<b>&nbsp;{{item.name}}</b>-->
-                  <!--</ng-template>-->
-                  <ng-template ng-option-tmp let-item="item" let-index="index">
-                    <div style="width: 10%">
-                      <div>
-                        <flag-icon country="{{item['country'] | lowercase}}"></flag-icon>
-                      </div>
-                    </div>
-                    <div style="width: 90%">
-                      {{item.state}}, {{item.country}}, {{item.address}}
-                    </div>
-
-                  </ng-template>
-                </ng-select>
-              </div>
-
-              <div class=" text-right">
-                <button *ngIf="data['data'] && !data['data'].length"
-                        [disabled]="data['data'].length"
-                        (click)="openaddres()"
-                        class="btn btn-primary btn-sm" type="button">
-                  <i aria-hidden="true" class="fa fa-plus" ng-reflect-klass="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="text-right">
-              <button
-                (click)="purchase()"
-                type="button"
-                class="btn btn-outline-primary btn-lg">
-                Pagar
-              </button>
-            </div>
-          </li>
-        </ol>
-
-        <br>
-      </section>
-      <aside class="col-right sidebar col-sm-3 wow bounceInUp animated animated">
-        <div id="checkout-progress-wrapper">
-          <div class="block block-progress">
-            <div class="block-title"> tu Checkout</div>
-            <div class="block-content">
-              <div>
-                <div id="billing-progress-opcheckout">
-                  <span> Billing Address</span>
-                </div>
-                <div id="shipping-progress-opcheckout">
-                  <span> Shipping Address</span>
-                </div>
-                <div id="shipping_method-progress-opcheckout">
-                  <span> Shipping Method</span>
-                </div>
-                <div id="payment-progress-opcheckout">
-                  <span> Payment Method</span>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="main-container col1-layout wow bounceInUp animated animated">
+  <app-side-bar-cart [step]="2"></app-side-bar-cart>
+  <div class="main container container-offset text-dark">
+    <div class="cart wow bounceInUp animated animated">
+      <div class="new_title">
+        <h2>Entrega</h2>
+        <h6 *ngIf="editform && editform['id']" class="text-dark mt-2">Esta es tu última dirección registrada en
+          Apatxee</h6>
+      </div>
+      <div class="table-responsive shopping-cart-tbl container  mt-4">
+        <div *ngIf="loading">
+          <ngx-content-loading
+            [width]="1000"
+            [height]="300">
+            <svg:g ngx-rect width="800" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="700" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="600" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="900" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
+          </ngx-content-loading>
         </div>
-      </aside>
-      <!--col-right sidebar-->
+        <div *ngIf="!loading">
+          <form [formGroup]="form" autocomplete="off" (submit)="saveData()">
+            <div class="form-group col" *ngIf="editform && !editform['id']">
+              <div>
+                <label>Ingresa tu dirección</label>
+                <div *ngIf="loading" class="loading-zip">
+                  <fa name="spinner" animation="spin"></fa>
+                </div>
+                <input ngx-google-places-autocomplete
+                       [disabled]="loading"
+                       autocomplete="off"
+                       class="form-control"
+                       [ngModelOptions]="{standalone: true}"
+                       [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
+                       placeholder="Ingresa una dirección de envio"
+                       (onAddressChange)="handleAddressChange($event)"/>
+
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="col">
+                <div *ngIf="editform" class="form-group">
+                  <label>País</label>
+                  <input type="text" class="form-control"
+                         readonly
+                         spellcheck="false" autocomplete="off"
+                         [(ngModel)]="editform['country']"
+                         formControlName="country"
+                         placeholder="¿Cual es tu pais?">
+                </div>
+                <div *ngIf="editform" class="form-group">
+                  <label>Provincia</label>
+                  <input type="text" class="form-control"
+                         [(ngModel)]="editform.state"
+                         formControlName="state"
+                         [readOnly]="editform && editform['id']"
+                         spellcheck="false" autocomplete="off"
+                         placeholder="¿Cual es tu provincia?">
+                </div>
+                <div *ngIf="editform" class="form-group">
+                  <label>Distrito</label>
+                  <input type="text" class="form-control"
+                         [(ngModel)]="editform.district"
+                         [readOnly]="editform && editform['id']"
+                         spellcheck="false" autocomplete="off"
+                         formControlName="district"
+                         placeholder="¿Cual es tu distrito?">
+                </div>
+              </div>
+
+              <div class="col">
+                <div *ngIf="editform" class="form-group">
+                  <label>Piso, Numero</label>
+                  <input type="text" class="form-control"
+                         [(ngModel)]="editform.address"
+                         [readOnly]="editform && editform['id']"
+                         spellcheck="false" autocomplete="off"
+                         formControlName="address"
+                         placeholder="¿Piso 2, #2-4?">
+                </div>
+                <div *ngIf="editform" class="form-group">
+                  <label>Codigo postal</label>
+                  <input type="text" class="form-control"
+                         [(ngModel)]="editform.zip_code"
+                         readonly
+                         spellcheck="false" autocomplete="off"
+                         formControlName="zip_code"
+                         placeholder="¿Cual es tu codigo postañ?">
+                </div>
+                <div *ngIf="editform" class="form-group">
+                  <label>Instrucciones</label>
+                  <input type="text" class="form-control"
+                         [(ngModel)]="editform.instructions"
+                         [readOnly]="editform && editform['id']"
+                         formControlName="instructions"
+                         spellcheck="false" autocomplete="off"
+                         placeholder="Toca 3 veces el timbre">
+                </div>
+                <div *ngIf="editform && editform['id']" class="form-group text-right mt-4 mb-0">
+                  <button type="button" (click)="purchase()" class="btn btn-primary">Continuar</button>
+                </div>
+                <div *ngIf="editform && !editform['id']" class="form-group text-right mt-4 mb-0">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
     </div>
-    <!--row-->
+    <div class="text-center">
+      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sit.</p>
+    </div>
   </div>
-  <!--main-container-inner-->
+
 </div>

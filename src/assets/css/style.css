@@ -12,10 +12,11 @@ website:   	http://www.themesground.com/
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 13px;
   background: #f5f5f5;
   line-height: 1.6em;
+  text-rendering: optimizeLegibility !important;
 }
 
 h2, .h2 {
@@ -145,7 +146,7 @@ header {
   z-index: 100;
   border-bottom-style: solid;
   /*border-bottom-width: 2px;*/
-  border-bottom-color: #ce0000;
+  border-bottom-color: #e2e2e2;
   position: relative;
 }
 
@@ -320,6 +321,10 @@ header {
   vertical-align: middle
 }
 
+.form-control:disabled, .form-control[readonly] {
+  background-color: #f9f9f9;
+  opacity: .8;
+}
 
 .navbar-collapse form[role="search"].active input {
   display: table-cell;
@@ -427,6 +432,17 @@ header {
   margin: 4px 5px;
   font-size: 13px;
   color: #999;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fffbf0;
+  border-color: #eac553;
+  border-left-width: 3px;
+  border-radius: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-top-width: 0;
 }
 
 /* language & currency */
@@ -545,7 +561,7 @@ ul.currencies_list li a:hover {
   font-size: 13px;
   padding: 0px 0px 0px 15px;
   text-transform: none;
-  font-family: 'Open Sans', sans-serif;
+
   text-decoration: none;
 }
 
@@ -659,7 +675,7 @@ ul.currencies_list li a:hover {
   line-height: 17px;
   font-size: 13px;
   padding: 0px 0px;
-  font-family: 'Open Sans', sans-serif;
+
   letter-spacing: 0.5px;
   font-weight: normal;
   display: block;
@@ -780,7 +796,7 @@ ul.currencies_list li a:hover {
   -webkit-transform: scale(1.0) rotate(0deg);
   transform: scale(1.0) rotate(0deg);
   box-shadow: 0 10px 20px -5px;
-  font-family: 'Raleway', sans-serif;
+
 
 }
 
@@ -805,7 +821,7 @@ ul.currencies_list li a:hover {
   padding: 0px 5px;
   text-align: left;
   background: #090809333;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 .fl-mini-cart-content .block-subtitle .price {
@@ -1044,7 +1060,7 @@ background-color: #fff;
   padding: 0;
   margin: auto;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 /* All levels */
@@ -1345,7 +1361,7 @@ ul.vertnav-top li > a > span > .cat-label {
 /* horizontal + mobile menu trigger */
 #nav > li > a {
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 600;
   position: relative;
   letter-spacing: 1px;
@@ -1494,7 +1510,7 @@ ul.level1 {
   padding: 10px 10px;
   letter-spacing: 1px;
   margin-bottom: 0px;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 /* 2nd level+ */
@@ -1808,7 +1824,7 @@ ul.level1 {
   margin-bottom: 10px;
   letter-spacing: 0.5px;
   margin-top: 15px;
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 #nav li.drop-menu ul {
@@ -2091,7 +2107,7 @@ ul.level1 {
 
 .sale-top-left {
   font-size: 11px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #fff;
   background: #dd4b39;
   text-transform: uppercase;
@@ -2162,7 +2178,7 @@ ul.level1 {
 
 .new-label {
   font-size: 11px;
-  font-family: 'Montserrat', sans-serif;
+
   color: #fff;
   background: #fea920;
   text-transform: uppercase;
@@ -2182,7 +2198,7 @@ ul.level1 {
 
 .sale-label {
   font-size: 11px;
-  font-family: 'Montserrat', sans-serif;
+
   color: #fff;
   background: #8acdf1;
   text-transform: uppercase;
@@ -2260,7 +2276,7 @@ ul.level1 {
 
 .product-view #product-img-box .new-label.new-top-left {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #000;
   background: #41bea6;
   text-transform: uppercase;
@@ -2276,7 +2292,7 @@ ul.level1 {
 
 .product-view #product-img-box .new-label.new-top-right {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #000;
   background: #41bea6;
   text-transform: uppercase;
@@ -2292,7 +2308,7 @@ ul.level1 {
 
 .product-view #product-img-box .sale-label.sale-top-left {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #fff;
   background: #dd4b39;
   text-transform: uppercase;
@@ -2308,7 +2324,7 @@ ul.level1 {
 
 .product-view #product-img-box .sale-label.sale-top-right {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #fff;
   background: #dd4b39;
   text-transform: uppercase;
@@ -2346,7 +2362,7 @@ ul.level1 {
 
 .products-grid-home .item .item-inner {
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 .products-grid-home .item .item-inner .actions {
@@ -2500,7 +2516,7 @@ ul.level1 {
 
 .products-grid-home .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button span {
   background: none;
-  font-family: 'Montserrat', sans-serif;
+
   padding: 0px;
   text-transform: uppercase;
   font-size: 13px;
@@ -2648,7 +2664,7 @@ ul.level1 {
   color: #777;
   margin: 0;
   float: none;
-  font-family: 'Open Sans', sans-serif;
+
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 30px;
@@ -2704,7 +2720,7 @@ ul.level1 {
   color: #090809;
   margin: 0;
   float: none;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: normal;
   letter-spacing: 1px;
   line-height: 50px;
@@ -3729,7 +3745,7 @@ ul.pdt-list li.item a img.image-hover {
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .thm-mart-producttabs ul.pdt-list li.item a.thumb span.quick-view span i {
@@ -3859,7 +3875,7 @@ ul.pdt-list li.item a img.image-hover {
 
 .products-grid .item .item-inner {
   position: relative;
-  font-family: 'Raleway', sans-serif;
+
   color: #525252;
   box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
   background: #fff
@@ -4013,7 +4029,7 @@ ul.pdt-list li.item a img.image-hover {
 
 .products-grid .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button span {
   background: none;
-  font-family: 'Montserrat', sans-serif;
+
   padding: 0px;
   text-transform: uppercase;
   font-size: 13px;
@@ -4054,7 +4070,7 @@ ul.pdt-list li.item a img.image-hover {
   right: 0px;
   padding: 10px 15px;
   color: #fff;
-  font-family: 'Raleway', sans-serif;
+
   top: 0px;
 }
 
@@ -4153,7 +4169,7 @@ ul.pdt-list li.item a img.image-hover {
   margin: 0;
   text-decoration: none;
   color: #999;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 12px;
   letter-spacing: 0.5px
 }
@@ -4384,7 +4400,7 @@ ul.pdt-list li.item a img.image-hover {
 }
 
 .products-grid .actions button.button.btn-cart span {
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 11px;
   padding: 0 8px;
   font-weight: bold;
@@ -4429,7 +4445,8 @@ ul.pdt-list li.item a img.image-hover {
 .CollectionGrid {
   overflow-y: auto;
   background-color: white;
-  box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
+  border: solid 1px #e8e8e8 !important;
+  box-shadow: none;
   padding: 0px;
   /* width: 100%; */
   margin-top: 20px
@@ -4449,7 +4466,7 @@ ul.pdt-list li.item a img.image-hover {
   z-index: 1;
   text-align: center;
   padding: 50px 0px 0px 0px;
-  font-family: 'Raleway', sans-serif;
+
   color: #525252;
   font-size: 16px;
   font-weight: normal;
@@ -4547,7 +4564,7 @@ ul.pdt-list li.item a img.image-hover {
   padding: 22px 25px 22px 25px;
   position: relative;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: #090809333;
@@ -4621,7 +4638,7 @@ ul.pdt-list li.item a img.image-hover {
   margin: auto;
   padding: 6px 0px 0px 0px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+
   /* margin: 0px 20px; */
   width: 100%;
 
@@ -4960,7 +4977,7 @@ ul.pdt-list li.item a img.image-hover {
 
 .col-item .info .info-inner .item-title a {
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 14px;
   color: #000;
 }
@@ -5035,7 +5052,7 @@ text-transform: uppercase
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .small-pr-slider span.quick-view span i {
@@ -5102,7 +5119,7 @@ text-transform: uppercase
   border: 1px #090809 solid;
   text-transform: uppercase;
   font-size: 11px;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   font-weight: 700;
   -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
@@ -5165,7 +5182,7 @@ text-transform: uppercase
   -o-transition: all 0.25s ease-in;
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-  font-family: 'Raleway', sans-serif;
+
   position: relative;
   margin: 0 0 5px;
   font-size: 58px;
@@ -5178,7 +5195,7 @@ text-transform: uppercase
   -o-transition: all 0.25s ease-in;
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-  font-family: 'Raleway', sans-serif;
+
   font-size: 20px;
   line-height: 1.55em;
   position: relative;
@@ -5194,7 +5211,7 @@ text-transform: uppercase
 
 #top-deals .item-inner {
   position: relative;
-  font-family: 'Raleway', sans-serif;
+
   color: #525252;
   background: none;
   box-shadow: none
@@ -5363,7 +5380,6 @@ text-transform: uppercase
   padding: 15px 0px 0px 0px;
   position: relative;
   display: inline-block;
-  font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
   margin-top: 0px;
   min-width: 250px;
@@ -5388,7 +5404,7 @@ text-transform: uppercase
 
 #best-seller .owl-item .item .item-inner {
   position: relative;
-  font-family: 'Raleway', sans-serif;
+
   color: #525252;
 }
 
@@ -5540,7 +5556,7 @@ text-transform: uppercase
 
 #best-seller .owl-item .item .item-inner .item-img .item-box-hover .box-inner .add_cart button.button span {
   background: none;
-  font-family: 'Montserrat', sans-serif;
+
   padding: 0px;
   text-transform: uppercase;
   font-size: 13px;
@@ -5594,7 +5610,7 @@ text-transform: uppercase
   right: 0px;
   padding: 10px 15px;
   color: #090809;
-  font-family: 'Raleway', sans-serif;
+
   top: 0px;
 }
 
@@ -5724,7 +5740,6 @@ text-transform: uppercase
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .col-item a.thumb span.quick-view span i {
@@ -5851,10 +5866,8 @@ text-transform: uppercase
 
 .col-item .item-title a {
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   color: #000;
-  font-size: 13px;
 }
 
 /* products page */
@@ -5939,7 +5952,6 @@ text-transform: uppercase
   background: #090809333;
   color: #fff;
   padding: 7px 20px;
-  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   position: absolute;
   right: 25px;
@@ -5968,7 +5980,6 @@ text-transform: uppercase
   padding: 16px 20px 16px 20px;
   position: relative;
   display: block;
-  font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
   background: #fff;
   margin-top: 0px;
@@ -5985,7 +5996,6 @@ text-transform: uppercase
   margin: 0 0 20px;
   font-size: 16px;
   border-left: 5px solid #eee;
-  font-family: georgia;
   font-style: italic;
 }
 
@@ -6037,7 +6047,7 @@ text-transform: uppercase
   font-size: 15px;
   line-height: 1.6em;
   margin-bottom: 0px;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 }
 
@@ -6049,7 +6059,7 @@ text-transform: uppercase
 
 .blog-side .post-meta {
   font-size: 13px;
-  font-family: 'Raleway', sans-serif;
+
   color: #999;
   margin-bottom: 0px;
   font-weight: 300;
@@ -6075,7 +6085,7 @@ text-transform: uppercase
 
 .blog-side .widget_categories .content a {
   font-size: 13px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 300;
   letter-spacing: 1px
 }
@@ -6134,7 +6144,7 @@ text-transform: uppercase
 
 .blog_entry-title {
   margin-top: 0px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 300;
   font-size: 32px;
   padding-bottom: 15px;
@@ -6204,7 +6214,7 @@ text-transform: uppercase
 .latest-blog h3 a {
   font-size: 16px;
   font-weight: bold;
-  font-family: 'Raleway', sans-serif;
+
   padding-bottom: 5px;
   display: block;
   letter-spacing: 1px;
@@ -6219,7 +6229,7 @@ text-transform: uppercase
   display: inline-block;
   color: #fff;
   font-weight: normal;
-  font-family: 'Raleway', sans-serif;
+
   font-size: 11px;
   text-align: center;
   left: 40px;
@@ -6241,7 +6251,7 @@ text-transform: uppercase
   border: 1px #ddd solid;
   text-transform: uppercase;
   font-size: 11px;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   font-weight: 700;
   -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
@@ -6267,7 +6277,7 @@ text-transform: uppercase
   padding: 12px 10px 2px 0px;
   position: relative;
   display: inline-block;
-  font-family: 'Open Sans', sans-serif;
+
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -6280,7 +6290,7 @@ text-transform: uppercase
   padding: 10px 0px 20px 0px;
   position: relative;
   display: inline-block;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   margin-top: 0px;
   min-width: 250px;
@@ -6295,7 +6305,7 @@ text-transform: uppercase
 
 .latest-blog a {
   color: #090809;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 14px;
   font-weight: normal;
   margin: 0px;
@@ -6414,7 +6424,7 @@ text-transform: uppercase
   text-decoration: none;
   padding: 8px 18px;
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: bold;
   font-size: 13px;
   border: 1px #fff solid;
@@ -6437,7 +6447,7 @@ text-transform: uppercase
 
 .footer-banner {
   overflow: hidden;
-  font-family: 'Raleway', sans-serif;
+
   margin-bottom: 30px
 }
 
@@ -6855,7 +6865,7 @@ text-transform: uppercase
   margin: auto;
   font-size: 12px;
   color: #999;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 }
 
@@ -6894,7 +6904,7 @@ text-transform: uppercase
 /* Sidebar */
 
 .button, .btn, .button-inverse, .button-vote, .sidebar .button, .sidebar .btn, .dropdown .dropdown-menu .button, .buttons-set .back-link a, .scrolltop, .button-tabs li a {
-  font-family: 'Open Sans', sans-serif;
+
   border: 1px #ddd solid;
   background: #fff;
   padding: 5px 12px;
@@ -6965,7 +6975,7 @@ text-transform: uppercase
   padding: 16px 25px 16px 25px;
   position: relative;
   display: block;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   background: #fff;
   margin-top: 0px;
@@ -7128,7 +7138,7 @@ margin-right: 3px;
   padding: 12px 25px 10px 25px;
   position: relative;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: #090809333;
@@ -7215,7 +7225,7 @@ margin-right: 3px;
   padding: 15px 0px;
   display: block;
   font-weight: normal;
-  font-family: 'Montserrat', sans-serif;
+
   letter-spacing: 0.5px
 }
 
@@ -7249,7 +7259,7 @@ margin-right: 3px;
 
 .box-category > ul > li a.active {
   font-weight: normal;
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 .box-category > ul > li > a.active {
@@ -7269,7 +7279,7 @@ margin-right: 3px;
 }
 
 .box-category > ul > li ul li a {
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .box-category > ul > li ul > li > a {
@@ -7333,7 +7343,7 @@ margin-right: 3px;
   font-weight: normal;
   color: #000;
   padding: 10px 0px;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   display: block
 
@@ -7354,7 +7364,7 @@ margin-right: 3px;
 }
 
 .page-title h1, .page-title h2 {
-  font-family: 'Raleway', sans-serif;
+
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
@@ -7366,7 +7376,7 @@ margin-right: 3px;
 
 .col-main {
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   margin-top: 15px;
 
 }
@@ -7388,7 +7398,6 @@ margin-right: 3px;
 }
 
 .one-page-checkout .step-title {
-  text-align: right;
   padding: 7px 0;
 }
 
@@ -7398,7 +7407,7 @@ margin-right: 3px;
   padding-top: 0px;
   text-align: left;
   line-height: 30px;
-  font-family: 'Open Sans', sans-serif;
+
   border-top: none;
 }
 
@@ -7410,18 +7419,17 @@ margin-right: 3px;
   padding: 8px 10px;
   background-color: #fff;
   border: #ececec double;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: bold;
   border-radius: 0px;
 }
 
 .one-page-checkout .step-title h3 {
   border-bottom: 0px solid #E4E4E4;
-  margin: 0 0 0 45px;
   text-align: left;
   line-height: 32px;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+
   color: #090809;
   font-weight: bold;
   letter-spacing: 0.5px
@@ -7439,13 +7447,12 @@ margin-right: 3px;
 .one-page-checkout .active .step-title h3 {
   color: #090809333;
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: bold;
 
 }
 
 .one-page-checkout .step {
-  padding: 0px 10px 10px 45px;
   background-color: #FFFFFF;
 }
 
@@ -7506,7 +7513,7 @@ legend {
 
 .group-select .require {
   color: #FF0000;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 13px;
 }
 
@@ -7582,14 +7589,13 @@ button.button.continue:before {
   padding: 10px 15px;
   font-weight: 700;
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
 
 .data-table thead td, .data-table tfoot th, .data-table tfoot td, .cart .totals table th, .cart .totals table td {
   border-top: 0px solid #ddd;
   border-bottom: 1px solid #e5e5e5;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .data-table .price {
@@ -7670,7 +7676,7 @@ button.button.continue:before {
 
 .col2-set h5 {
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: 700;
   margin-bottom: 5px;
   color: #090809;
@@ -7696,7 +7702,7 @@ button.button.continue:before {
 .col2-set h4 {
   font-size: 13px;
   font-weight: normal;
-  font-family: 'Open Sans', sans-serif;
+
   color: #090809;
   margin-bottom: 5px;
 }
@@ -7709,7 +7715,7 @@ button.button.continue:before {
 
 .block-layered-nav .block-subtitle {
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .block-layered-nav dt {
@@ -7749,7 +7755,7 @@ button.button.continue:before {
 
 .sidebar {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   margin-top: 16px;
   padding-left: 0px
 }
@@ -7765,7 +7771,7 @@ button.button.continue:before {
   display: block;
   font-size: 12px;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 .block-layered-nav .currently ol {
@@ -7782,12 +7788,12 @@ button.button.continue:before {
 
 .sidebar .block-layered-nav .price {
   color: #666;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .sidebar .link-cart, .sidebar .link-reorder, .block .actions a {
   color: #CA0000;
-  font-family: 'Open Sans', sans-serif;
+
   font-weight: bold;
   font-size: 14px;
 }
@@ -7798,7 +7804,7 @@ button.button.continue:before {
 }
 
 .block-tags .actions a.view-all {
-  font-family: 'Open Sans', sans-serif;
+
   text-transform: uppercase;
   color: #090809;
   font-weight: 900;
@@ -7867,7 +7873,7 @@ button.button.continue:before {
   font-weight: normal;
   color: #000;
   padding: 10px 10px;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
 
 }
@@ -8016,7 +8022,7 @@ button.button.continue:before {
   color: #FFFFFF;
   font-size: 11px;
   padding: 8px 12px;
-  font-family: 'Montserrat', sans-serif;
+
   text-transform: uppercase;
 }
 
@@ -8035,7 +8041,7 @@ button.button.continue:before {
   border-bottom: 1px solid #eee;
   padding-bottom: 6px;
   margin: 8px 0 8px;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase
@@ -8088,7 +8094,7 @@ button.button.continue:before {
 
 .col-left .block-cart .block-content ul li .product-name a {
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
+
   margin-top: 3px;
   display: block
 }
@@ -8188,7 +8194,7 @@ button.button.continue:before {
 
 .related-slider h2 {
   color: #090809;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 20px;
   margin: 0px 0 20px;
   text-align: left;
@@ -8256,7 +8262,7 @@ button.button.continue:before {
 .block-related .price-box .old-price .price {
   display: inline;
   font-size: 15px;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .block-related a.link-cart {
@@ -8264,7 +8270,7 @@ button.button.continue:before {
   font-size: 14px;
   color: #23AEAC;
   font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .block-related a.link-cart:hover {
@@ -8272,7 +8278,7 @@ button.button.continue:before {
   font-size: 14px;
   color: #CA0000;
   font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 /* Block: Compare Products */
@@ -8291,7 +8297,7 @@ button.button.continue:before {
 
 ol#compare-items li a.product-name {
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
+
   margin-top: 3px;
   display: block;
   display: inline-block;
@@ -8304,7 +8310,7 @@ ol#compare-items li a.product-name span {
   font-weight: 400;
   color: #777;
   line-height: 15px;
-  font-family: 'Open Sans', sans-serif;
+
   margin-bottom: 6px;
 }
 
@@ -8366,7 +8372,7 @@ ol#compare-items li:last-child {
 .block-viewed li span {
   color: #777777;
   float: left;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 20px;
   font-weight: normal;
   line-height: 15px;
@@ -8413,7 +8419,7 @@ ol#compare-items li:last-child {
   font-size: 14px;
   font-weight: normal;
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+
   padding: 0 0px;
 }
 
@@ -8454,7 +8460,7 @@ ol#compare-items li:last-child {
 .block-compared li span {
   color: #777777;
   float: left;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 20px;
   font-weight: normal;
   line-height: 15px;
@@ -8484,7 +8490,7 @@ ol#compare-items li:last-child {
   font-size: 14px;
   font-weight: normal;
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+
   padding: 0 0px;
 }
 
@@ -8506,7 +8512,7 @@ ol#compare-items li:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 14px;
   color: #090809;
   font-weight: normal;
@@ -8527,7 +8533,7 @@ ol#compare-items li:last-child {
   display: block;
   margin-left: 18px;
   text-align: left;
-  font-family: 'Open Sans', sans-serif;
+
   padding: 0.1em 0.3em 0.1em;
 }
 
@@ -8594,7 +8600,7 @@ ol#compare-items li:last-child {
   background: none repeat scroll 0 0 #FFFFFF;
   border: 1px solid #DDDDDD;
   color: #090809333;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 13px;
   outline: medium none;
   padding: 10px 7px;
@@ -8685,7 +8691,7 @@ ol#compare-items li:last-child {
   font-size: 16px;
   color: #aaa;
   line-height: 16px;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .block-company li strong {
@@ -9138,7 +9144,7 @@ ol#compare-items li:last-child {
   padding: 5px 0;
   font-size: 12px;
   font-weight: 300;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 }
 
@@ -9180,7 +9186,7 @@ ol#compare-items li:last-child {
   color: #090809;
   font-weight: 300;
   text-align: left;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 
 }
@@ -9269,7 +9275,7 @@ li .list {
 
 .products-list .product-shop .desc {
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   margin-bottom: 15px;
   margin-top: 15px;
   color: #777
@@ -9277,7 +9283,7 @@ li .list {
 
 .products-list .product-shop p {
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   color: #666;
   line-height: 1.5em;
 }
@@ -9315,7 +9321,7 @@ li .list {
 }
 
 .add-to-links span {
-  font-family: 'Raleway', sans-serif;
+
   font-size: 12px;
   margin-left: 8px;
   text-transform: uppercase;
@@ -9338,7 +9344,7 @@ li .list {
 }
 
 .products-list .product-shop button.button span {
-  font-family: 'Raleway', sans-serif;
+
   font-size: 11px;
   text-transform: uppercase;
   font-weight: bold;
@@ -9518,7 +9524,7 @@ ul.products-grid {
 }
 
 .products-grid .actions button.button.btn-cart span {
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 11px;
   padding: 0px;
   font-weight: bold;
@@ -9527,7 +9533,7 @@ ul.products-grid {
 }
 
 a.button.detail-bnt span {
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 12px;
   text-transform: uppercase;
   padding: 0 2px;
@@ -9928,7 +9934,7 @@ a.button.detail-bnt span {
   padding-bottom: 12px;
   letter-spacing: normal;
   font-weight: 300;
-  font-family: 'Raleway', sans-serif;
+
   color: #000;
 }
 
@@ -9938,7 +9944,7 @@ a.button.detail-bnt span {
 }
 
 .product-view .short-description h2 {
-  font-family: 'Raleway', sans-serif;
+
   font-size: 16px;
   color: #000;
   margin: 0px;
@@ -10049,7 +10055,7 @@ a.button.detail-bnt span {
 }
 
 .product-view .add-to-links span {
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 12px;
   margin-left: 5px;
   font-weight: normal;
@@ -10317,7 +10323,7 @@ a.button.detail-bnt span {
   margin-top: 6px;
   text-align: left;
   text-transform: capitalize;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 15px;
   font-weight: normal;
   margin-right: 15px;
@@ -10329,7 +10335,7 @@ a.button.detail-bnt span {
   margin-bottom: 5px;
   text-align: left;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .button-up:hover, .button-up:focus {
@@ -10375,7 +10381,7 @@ a.button.detail-bnt span {
   cursor: pointer;
   color: #102343;
   text-transform: none;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 #product-tabs > dt.open {
@@ -10421,7 +10427,7 @@ a.button.detail-bnt span {
   text-decoration: none;
   font-size: 13px;
   font-weight: normal;
-  font-family: 'Raleway', sans-serif;
+
   padding: 0 20px;
   letter-spacing: 1px;
   border-radius: 999px
@@ -10430,7 +10436,7 @@ a.button.detail-bnt span {
 .product-tabs li.active a {
   background: rgba(0, 0, 0, 0.25);
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: 700;
   padding: 6px 18px;
 
@@ -10483,7 +10489,7 @@ a.button.detail-bnt span {
 .form-add-tags button.button {
   display: inline;
   background: #fff;
-  font-family: 'Open Sans', sans-serif;
+
   border: 2px solid #eee;
   background: #fff;
   padding: 6px 12px;
@@ -10522,7 +10528,7 @@ button.button.btn-add:before {
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 15px;
-  font-family: 'Montserrat', sans-serif;
+
   text-transform: uppercase;
   margin-top: 0px
 }
@@ -10558,7 +10564,7 @@ button.button.btn-add:before {
   padding: 2px 0px;
   position: relative;
   display: block;
-  font-family: 'Open Sans', sans-serif;
+
   text-transform: uppercase;
   letter-spacing: 1px;
   border-bottom: 1px solid #ccc;
@@ -10644,7 +10650,7 @@ button.button.btn-add:before {
   margin-bottom: 3px;
   padding: 0;
   margin-top: 15px;
-  font-family: 'Montserrat', sans-serif;
+
   text-transform: uppercase;
 }
 
@@ -10661,7 +10667,7 @@ button.button.btn-add:before {
 
 #customer-reviews .form-list li label {
   color: #090809;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 14px;
 }
 
@@ -10691,7 +10697,7 @@ a.button.view-all {
   -webkit-transition: all 0.2s linear;
   vertical-align: top;
   border: 1px solid #ddd;
-  font-family: 'Open Sans', sans-serif;
+
   text-transform: uppercase;
 }
 
@@ -10708,7 +10714,7 @@ a.button.view-all {
 .box-reviews .form-add h3 {
   margin-bottom: 5px;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
   font-weight: 400;
 }
 
@@ -10770,7 +10776,7 @@ a.button.view-all {
 
 #product-review-table th, #product-review-table td {
   text-align: left;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 11px;
   font-weight: bold;
   line-height: 20px;
@@ -10795,7 +10801,7 @@ a.button.view-all {
 
 #customer-reviews .form-list li label {
   color: #090809;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 13px;
 }
 
@@ -11008,7 +11014,7 @@ button.button.submit:before {
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .category-products ul.products-grid li.item a.thumb span.quick-view span i {
@@ -11144,7 +11150,7 @@ button.button.submit:before {
   padding: 0px 0px 0px 0px;
   position: relative;
   display: inline-block;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   margin-top: 0px;
   min-width: 250px;
@@ -11184,7 +11190,7 @@ button.button.submit:before {
 
 .cart {
   padding: 10px 0;
-  margin-top: 25px;
+  margin-top: 70px;
 }
 
 #shopping-cart-table {
@@ -11203,7 +11209,7 @@ button.button span {
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 
 }
@@ -11251,7 +11257,7 @@ button.button#empty_cart_button:before {
   margin: 0px;
   padding-bottom: 0px;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 #shopping-cart-table .product-name a {
@@ -11332,7 +11338,7 @@ a.edit-bnt:hover {
 .totals h3 {
   border-bottom: 1px #ececec solid;
   color: #000;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 12px;
   margin-bottom: 5px;
   padding: 10px 0;
@@ -11357,7 +11363,7 @@ a.edit-bnt:hover {
   margin-bottom: 14px;
   border-bottom: 1px #ececec solid;
   padding: 12px 0px;
-  font-family: 'Montserrat', sans-serif;
+
   text-transform: uppercase;
   font-weight: 700;
   margin: auto;
@@ -11585,7 +11591,7 @@ button.button.btn-proceed-checkout span {
 .crosssel h2 {
   border-bottom: 1px solid #e5e5e5;
   color: #090809;
-  font-family: 'Open Sans', sans-serif;
+
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 0;
@@ -11606,7 +11612,7 @@ button.button.btn-proceed-checkout span {
   text-align: left;
   font-size: 12px;
   line-height: normal;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: 700;
   text-transform: uppercase
 }
@@ -11755,7 +11761,7 @@ button.button.btn-share:before {
   margin-right: 0px;
   padding: 7px 7px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+
   font-size: 11px;
   font-weight: bold;
   display: inline-block;
@@ -11792,7 +11798,7 @@ button.button.btn-share:before {
 .page-title_multi h2 {
   font-size: 18px;
   float: left;
-  font-family: 'Montserrat', sans-serif;
+
   color: #000;
   font-weight: 700;
   text-transform: uppercase;
@@ -11940,7 +11946,7 @@ button.button.new-address:before {
   border-bottom: 1px #e5e5e5 solid;
   padding-bottom: 6px;
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 300;
   letter-spacing: 1px
 }
@@ -11953,7 +11959,7 @@ button.button.new-address:before {
   border-bottom: 1px #e5e5e5 solid;
   padding-bottom: 6px;
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 300;
   letter-spacing: 1px
 }
@@ -12004,7 +12010,7 @@ button.button.new-address:before {
   font-weight: 300;
   margin-bottom: 4em;
   text-transform: none;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 2px
 }
 
@@ -12024,7 +12030,7 @@ button.button.new-address:before {
   background-color: #23debf;
   color: #fff;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+
   font-size: 12px;
   padding: 10px 35px;
   text-decoration: none;
@@ -12124,7 +12130,7 @@ button.button.new-address:before {
   padding: 22px 25px 22px 25px;
   position: relative;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: #ce0000;
@@ -12176,7 +12182,7 @@ button.button.new-address:before {
   border: none;
   padding-left: 10px;
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   border: none;
 }
 
@@ -12222,7 +12228,7 @@ button.subscribe:before {
   background-color: #fff;
   border: none;
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   border: none;
   padding: 8px 10px;
   width: 50% !important;
@@ -12233,7 +12239,7 @@ footer {
   overflow: hidden;
   color: #999;
   background: #fff;
-  font-family: 'Raleway', sans-serif;
+
 
 }
 
@@ -12284,7 +12290,7 @@ footer .footer-inner h3 {
   text-transform: uppercase;
   margin: 0 0 15px;
   padding: 0 0 10px;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 .footer-column-1 {
@@ -12653,7 +12659,7 @@ ul.contact-info li.last {
   border: none;
   padding-left: 10px;
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
+
   margin-right: 0px;
 }
 
@@ -12937,7 +12943,7 @@ button.button span span {
 }
 
 .button, .btn, .button-inverse, .button-vote, .sidebar .button, .sidebar .btn, .dropdown .dropdown-menu .button, .buttons-set .back-link a, .scrolltop, .button-tabs li a {
-  font-family: 'Raleway', sans-serif;
+
   border: 2px #ddd solid;
 
 }
@@ -13488,7 +13494,7 @@ button.button span span {
 
 .header-banner {
   overflow: hidden;
-  font-family: 'Montserrat', sans-serif;
+
   background: #252932
 
 }
@@ -13576,7 +13582,7 @@ button.button span span {
   text-shadow: none;
   color: #000;
   font-size: 32px;
-  font-family: 'Montserrat', sans-serif;
+
   font-weight: 700;
   font-style: normal
 }
@@ -14067,7 +14073,7 @@ button.button span span {
 .title-buttons strong {
   font-size: 13px;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+
   text-transform: uppercase
 }
 
@@ -14309,7 +14315,7 @@ button.button span span {
 
 .newsletter-sign-box h3 {
   color: #090809;
-  font-family: 'Raleway', sans-serif;
+
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -14328,7 +14334,7 @@ button.button span span {
   color: #999;
   text-transform: none;
   line-height: 1.5em;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px;
   margin-top: 0px
 }
@@ -14417,7 +14423,7 @@ button.button span span {
   text-align: center;
   display: block;
   overflow: hidden;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 }
 
@@ -14618,7 +14624,7 @@ select#shipping-address-select {
   padding-bottom: 4px;
   letter-spacing: 1px;
   padding-left: 10px;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 .fl-links .links li:last-child {
@@ -14681,7 +14687,7 @@ select#shipping-address-select {
 
 .top-offer-banner {
   margin: 65px 0px;
-  font-family: 'Montserrat', sans-serif;
+
   margin-top: 0px;
   padding-top: 25px
 }
@@ -14930,7 +14936,7 @@ select#shipping-address-select {
 
 .testimonials {
   color: #090809;
-  font-family: 'Raleway', sans-serif;
+
   font-size: 14px;
   margin-bottom: 15px;
   letter-spacing: 1px;
@@ -14939,7 +14945,7 @@ select#shipping-address-select {
 
 .clients_author {
   font-size: 13px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: 700;
   color: #090809;
   letter-spacing: 1px;
@@ -14947,7 +14953,7 @@ select#shipping-address-select {
 
 .clients_author span {
   font-size: 13px;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: normal;
   color: #090809;
   display: inline-block;
@@ -14993,7 +14999,7 @@ select#shipping-address-select {
   text-align: center;
   margin-bottom: 10px;
   letter-spacing: normal;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 }
 
@@ -15020,7 +15026,7 @@ select#shipping-address-select {
   font-weight: 300;
   text-align: center;
   letter-spacing: 1.5px;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 .offer-slider .shop-now {
@@ -15031,7 +15037,7 @@ select#shipping-address-select {
   letter-spacing: 1px;
   display: inline-block;
   margin-top: 10px;
-  font-family: 'Raleway', sans-serif;
+
   text-decoration: underline;
   float: left
 
@@ -15065,7 +15071,7 @@ select#shipping-address-select {
   margin-top: 4px;
   padding-top: 10px;
   font-weight: normal;
-  font-family: 'Raleway', sans-serif;
+
   letter-spacing: 1px
 
 
@@ -15148,7 +15154,7 @@ select#shipping-address-select {
 
 .deal_info .price_block {
   color: #20d0ad;
-  font-family: 'Raleway', sans-serif;
+
   font-weight: bold;
   font-size: 18px;
   margin-top: 10px
@@ -15198,11 +15204,7 @@ select#shipping-address-select {
   font-weight: 600;
 }
 
-.btn-primary {
-  background-color: #ce0000;
-}
-
-.btn-info{
+.btn-info {
   background-color: #0062cc;
   border-color: #005cbf;
 }
@@ -15244,13 +15246,13 @@ select#shipping-address-select {
 .pac-item {
   height: 40px;
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 .pac-item-query {
   color: #191919;
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+
 }
 
 .btn-outline-primary {
@@ -15441,6 +15443,10 @@ select#shipping-address-select {
   color: #ce0000 !important;
 }
 
+.text-info {
+  color: #008cd2 !important;
+}
+
 .btn-link {
   border: 0px !important;
   color: #5f5f5f;
@@ -15457,6 +15463,11 @@ select#shipping-address-select {
 
 .p-img-center {
   padding-top: 30px;
+}
+
+.btn-primary {
+  background-color: #ce0000;
+  border-color: #bb0909;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -15638,6 +15649,7 @@ select#shipping-address-select {
   position: absolute;
   z-index: 9;
 }
+
 .ribbon::before,
 .ribbon::after {
   position: absolute;
@@ -15646,18 +15658,19 @@ select#shipping-address-select {
   display: block;
   border: 5px solid #a21616;
 }
+
 .ribbon span {
   position: absolute;
   display: block;
   width: 225px;
   padding: 15px 0;
   background-color: #ce0000;
-  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
   color: #fff;
-  font: 700 18px/1 'Lato', sans-serif;
-  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
   text-transform: uppercase;
   text-align: center;
+  font-size: 25px;
 }
 
 /* top left*/
@@ -15665,19 +15678,23 @@ select#shipping-address-select {
   top: -10px;
   left: -10px;
 }
+
 .ribbon-top-left::before,
 .ribbon-top-left::after {
   border-top-color: transparent;
   border-left-color: transparent;
 }
+
 .ribbon-top-left::before {
   top: 0;
   right: 0;
 }
+
 .ribbon-top-left::after {
   bottom: 0;
   left: 0;
 }
+
 .ribbon-top-left span {
   right: -25px;
   top: 30px;
@@ -15689,19 +15706,23 @@ select#shipping-address-select {
   top: -10px;
   right: -10px;
 }
+
 .ribbon-top-right::before,
 .ribbon-top-right::after {
   border-top-color: transparent;
   border-right-color: transparent;
 }
+
 .ribbon-top-right::before {
   top: 0;
   left: 0;
 }
+
 .ribbon-top-right::after {
   bottom: 0;
   right: 0;
 }
+
 .ribbon-top-right span {
   left: -25px;
   top: 30px;
@@ -15713,19 +15734,23 @@ select#shipping-address-select {
   bottom: -10px;
   left: -10px;
 }
+
 .ribbon-bottom-left::before,
 .ribbon-bottom-left::after {
   border-bottom-color: transparent;
   border-left-color: transparent;
 }
+
 .ribbon-bottom-left::before {
   bottom: 0;
   right: 0;
 }
+
 .ribbon-bottom-left::after {
   top: 0;
   left: 0;
 }
+
 .ribbon-bottom-left span {
   right: -25px;
   bottom: 30px;
@@ -15737,31 +15762,37 @@ select#shipping-address-select {
   bottom: -10px;
   right: -10px;
 }
+
 .ribbon-bottom-right::before,
 .ribbon-bottom-right::after {
   border-bottom-color: transparent;
   border-right-color: transparent;
 }
+
 .ribbon-bottom-right::before {
   bottom: 0;
   left: 0;
 }
+
 .ribbon-bottom-right::after {
   top: 0;
   right: 0;
 }
+
 .ribbon-bottom-right span {
   left: -25px;
   bottom: 30px;
   transform: rotate(-225deg);
 }
 
-.single .ngxImageZoomContainer{
-  height: 500px !important;
+.single .ngxImageZoomContainer {
+  height: 450px !important;
 }
-.single .ngxImageZoomContainer img{
+
+.single .ngxImageZoomContainer img {
   object-fit: contain;
 }
+
 html {
   scroll-behavior: smooth;
 

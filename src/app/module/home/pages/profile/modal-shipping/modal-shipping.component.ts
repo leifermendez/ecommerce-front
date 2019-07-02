@@ -25,8 +25,8 @@ export class ModalShippingComponent implements OnInit {
   };
   public deleteMe: any = false;
   public editform: any = {
-
   };
+
   private msg: string;
 
 

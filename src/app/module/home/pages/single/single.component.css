@@ -12,7 +12,7 @@
   background-color: #fff;
 }
 
-.description{
+.description {
   font-size: .9rem;
   line-height: 1.6rem;
   letter-spacing: .02rem;
@@ -31,20 +31,20 @@
   background-color: #ffffff;
 }
 
-.border-rigth-solid {
-  border-right: solid 1px #f5f5f5;
+.border-right-solid {
+  border-right: solid 1px #e8e8e8;
 }
 
 .border-left-solid {
-  border-left: solid 1px #f5f5f5;
+  border-left: solid 1px #e8e8e8;
 }
 
 .border-booton-solid {
-  border-bottom: solid 1px #f5f5f5;
+  border-bottom: solid 1px #e8e8e8;
 }
 
 .border-top-solid {
-  border-top: solid 1px #f5f5f5;
+  border-top: solid 1px #e8e8e8;
 }
 
 .carbtn {
@@ -65,9 +65,7 @@
 
 .price-box {
   margin: 0;
-  padding: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0px;
 }
 
 .price {
@@ -92,6 +90,21 @@
 .cover {
   object-fit: contain;
 }
-.placeholder-cover{
+
+.placeholder-cover {
   background-color: whitesmoke;
+}
+
+.info-shop{
+  box-shadow: 0 0 2px #e4e4e4;
+}
+
+.info-shop img {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  object-fit: cover;
+}
+.discount-text{
+  font-size: 16px;
 }

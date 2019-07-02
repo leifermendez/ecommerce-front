@@ -29,14 +29,12 @@
 .item-price-amount {
   font-size: 16px;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .item-price-amount-unavailable {
   font-size: 18px;
   font-weight: 500;
   opacity: .4;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .item-price-amount-unavailable:hover {
@@ -62,7 +60,6 @@
 
 .time-ago-string {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .time-ago-string:first-letter {

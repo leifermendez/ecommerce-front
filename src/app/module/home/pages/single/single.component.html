@@ -19,9 +19,18 @@
         <div class="">
           <div class="row m-0">
             <div
-              class="col-8 no-paddin product-image inline-table border-booton-solid  background-solid border-left-solid border-top-solid">
-              <div class="ribbon ribbon-top-left"><span>30%</span></div>
-              <div class="w-100 p-4">
+              class="col-8 no-paddin product-image inline-table border-booton-solid
+               background-solid border-left-solid border-top-solid">
+              <div *ngIf="selectedvariationName && selectedvariationName['price_normal']"
+                   class="ribbon ribbon-top-left"><span>
+                   <app-discount-number
+                     *ngIf="selectedvariationName && selectedvariationName['price_normal']"
+                     #discountChild
+                     [decimals]="0"
+                     [price_normal]="selectedvariationName['price_normal']"
+                     [price_regular]="selectedvariationName['price_regular']">
+                        </app-discount-number>%</span></div>
+              <div class="w-100 p-2">
                 <div class="h-100 min-height-500">
                   <ngx-content-loading
                     *ngIf="loading"
@@ -33,8 +42,13 @@
                     class="w-100 cover cursor-zoom single"
                     *ngIf="!loading && data && data['gallery'].length"
                     [thumbImage]="cover['medium']"
-                    [fullImage]="cover['large']"
-                  ></ngx-image-zoom>
+                    [fullImage]="cover['large']">
+                  </ngx-image-zoom>
+                  <app-gallery-single
+                    (callback)="changeCover($event)"
+                    [images]="data['gallery']"
+                    class="w-100 d-block mt-4">
+                  </app-gallery-single>
                 </div>
               </div>
               <div *ngIf="data && !data['gallery']" class="w-100">
@@ -42,25 +56,45 @@
               </div>
             </div>
             <div
-              class="col-4 p-0 inline-table border-left-solid border-top-solid border-rigth-solid background-solid border-booton-solid">
+              class="col-4 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
+                <div class="product-shop p-4" *ngIf="loading">
+                  <ngx-content-loading
+                    [width]="300"
+                    [height]="450">
+                    <svg:g ngx-rect width="150" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
+                    <svg:g ngx-rect width="90" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
+                    <svg:g ngx-rect width="210" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
+                    <svg:g ngx-rect width="240" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
+                  </ngx-content-loading>
+                </div>
+
                 <div *ngIf="!loading" class="product-shop p-4">
                   <div class="product-name">
                     <h2 class="font-weight-bold text-dark">
                       {{data['name']}}
                     </h2>
+                    <ngx-stars [readonly]="true" initialStars="5"
+                               customPadding="2px" color="#FFC400"></ngx-stars>
                   </div>
-                  <!--product-name-->
-
                   <div class="price-block" *ngIf="variation.length">
                     <div class="price-box">
                       <h6 class="m-0 text-muted">
                         <del>{{selectedvariationName['price_regular'] |number:'1.2-2'}}</del>
                       </h6>
                       <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}</h1>
+                      <div class="discount-text">
+                        <app-discount-number
+                          *ngIf="selectedvariationName && selectedvariationName['price_normal']"
+                          #discountChild
+                          [decimals]="0"
+                          [price_normal]="selectedvariationName['price_normal']"
+                          [price_regular]="selectedvariationName['price_regular']">
+                        </app-discount-number>
+                        % descuento
+                      </div>
                     </div>
                   </div>
-                  <!--price-block-->
                   <p class="font-weight-normal text-muted mt-2 mb-0">Variaciones:</p>
                   <div class="list-variations">
                     <ng-select [items]="variation"
@@ -81,73 +115,72 @@
                       </ng-template>
                     </ng-select>
                   </div>
-                  <div class="short-description text-dark mt-3">
-                    <div class="mb-4">
+                  <div class="short-description text-dark mt-2">
+                    <div class="mb-2">
                       <p class="text-muted mb-0">Informacion de la tienda:</p>
-                      <h5 class="font-weight-600 mb-1">
-                        {{data['shop_name'] | words: 15 : '...'}}
-                      </h5>
-                      <p class="m-0">
-                        <fa name="map-marker"></fa> {{data['shop_address'] | words: 15 : '...'}}
-                      </p>
-                      <a [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">
-                        <fa name="bookmark"></fa> Ver más productos
-                      </a>
+                      <div class="p-2 info-shop">
+                        <div class="d-flex mt-1 mb-2">
+                          <img class="mr-2" [src]="data['image_cover_small']" [alt]="data['shop_name']">
+                          <h5 class="font-weight-600 mb-1 mt-1">
+                            {{data['shop_name'] | words: 15 : '...'}}
+                          </h5>
+                        </div>
+                        <div class="mt-1">
+                          <p class="m-0">
+                            <fa name="map-marker"></fa>
+                            {{data['shop_address'] | words: 15 : '...'}}
+                          </p>
+                          <a class="text-info" [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">
+                            <fa name="bookmark"></fa>
+                            Ver más productos
+                          </a>
+                        </div>
+                      </div>
                     </div>
+                    <div class="mb-2">
+                      <p class="text-muted mb-0">Envio:</p>
+                      <div class="p-2 info-shop">
+                        <div class="mt-1">
+                          <p class="m-0">
+                            <fa name="truck"></fa>
+                            El envio se realizara en menos de 120min
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                    <div class="alert alert-warning mt-4"
-                         *ngIf="selectedvariationName &&selectedvariationName['observation']">
-                      <fa name="exclamation-triangle"></fa>
-                      <b class="ml-1">{{selectedvariationName['observation']}}</b>
+                  <div>
+                    <div class="text-center mt-4 d-block">
+                      <button (click)="addProduct(data)" type="button" [disabled]="loading_save" title="Add to Cart"
+                              class="btn btn-info btn-block">
+                        <span *ngIf="!loading_save">Agregar al carrito</span>
+                        <span *ngIf="loading_save">
+                        <fa name="spinner" animation="spin"></fa>
+                      </span>
+                      </button>
+                    </div>
+                    <div class="text-center mt-2">
+                      <button (click)="addProduct(data)"
+                              [routerLink]="['/','shopping-cart']"
+                              *ngIf="number_items"
+                              type="button" [disabled]="loading_save" title="Add to Cart"
+                              class="btn btn-primary btn-block">
+                        <span *ngIf="!loading_save">Comprar</span>
+                        <span *ngIf="loading_save">
+                        <fa name="spinner" animation="spin"></fa>
+                      </span>
+                      </button>
                     </div>
                   </div>
-                  <div class="text-center">
-                    <button (click)="addProduct(data)" type="button" [disabled]="loading_save" title="Add to Cart"
-                            class="btn btn-info btn-block">
-                      <span *ngIf="!loading_save">Agregar al carrito</span>
-                      <span *ngIf="loading_save">
-                        <fa name="spinner" animation="spin"></fa>
-                      </span>
-                    </button>
-                  </div>
-                  <div class="text-center mt-2">
-                    <button (click)="addProduct(data)"
-                            [routerLink]="['/','shopping-cart']"
-                            *ngIf="number_items"
-                            type="button" [disabled]="loading_save" title="Add to Cart"
-                            class="btn btn-primary btn-block">
-                      <span *ngIf="!loading_save">Comprar</span>
-                      <span *ngIf="loading_save">
-                        <fa name="spinner" animation="spin"></fa>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-shop p-4">
-                  <ngx-content-loading
-                    *ngIf="loading"
-                    [width]="300"
-                    [height]="450">
-                    <svg:g ngx-rect width="150" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
-                    <svg:g ngx-rect width="90" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
-                    <svg:g ngx-rect width="210" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
-                    <svg:g ngx-rect width="240" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
-                  </ngx-content-loading>
                 </div>
               </div>
             </div>
-            <div class="col-8 inline-table  background-solid border-left-solid border-booton-solid">
-              <app-gallery-single (callback)="changeCover($event)" [images]="data['gallery']"
-                                  class="w-100"></app-gallery-single>
-            </div>
-            <div class="col-4 inline-table border-rigth-solid border-left-solid background-solid  p-4">
-
-            </div>
-            <div class="col-8 inline-table  background-solid border-left-solid
-             border-rigth-solid text-dark p-4">
+            <div class="col-12 inline-table  background-solid border-left-solid
+             border-right-solid text-dark p-4 border-booton-solid">
               <div class="container">
                 <div class="row">
-                  <div class="col-12 ">
+                  <div class="col-12">
                     <h2 class="font-weight-600 mb-2">Descripción</h2>
                     <p class="description text-justify">{{data.description}}</p>
                   </div>

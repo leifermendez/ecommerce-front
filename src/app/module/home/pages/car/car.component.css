@@ -1,12 +1,14 @@
-.img-product{
+.img-product {
   width: 75px;
   height: 75px;
   object-fit: contain;
 }
-.data-table tbody th, .data-table tbody td{
-  height: 100px;
-  border:0;
+
+.data-table tbody th, .data-table tbody td {
+  min-height: 130px;
+  border: 0;
 }
+
 .new_title h2 {
   color: #000;
   font-size: 24px;
@@ -15,9 +17,17 @@
   padding: 15px 0px 0px 0px;
   position: relative;
   display: inline-block;
-  font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
   margin-top: 0px;
   min-width: 250px;
 
+}
+
+.table-responsive {
+  border: solid 1px #e8e8e8 !important;
+  box-shadow: none;
+}
+
+.container-offset {
+  margin-left: 12vw !important;
 }
