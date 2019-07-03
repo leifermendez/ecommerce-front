@@ -1,20 +1,20 @@
 <section class="main-container col2-right-layout mt-0">
   <div class="page-content">
-    <div class="breadcrumbs mt-2 mb-4">
-      <div class="container">
-        <div class="row">
-          <div>
-            <ul>
-              <li class="home"><a href="index.html" title="Go to Home Page">Home</a> <span>&rsaquo; </span></li>
-              <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
-              <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
-              <li class="category1601"><strong>Retis lapen casen</strong></li>
-            </ul>
+    <div class="container p-0">
+      <div class="breadcrumbs mt-2 mb-4">
+        <div class="container">
+          <div class="row">
+            <div>
+              <ul>
+                <li class="home"><a href="index.html" title="Go to Home Page">Home</a> <span>&rsaquo; </span></li>
+                <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
+                <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
+                <li class="category1601"><strong>Retis lapen casen</strong></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container p-0">
       <div class="inside-body2 mb-4">
         <div class="">
           <div class="row m-0">
@@ -91,11 +91,12 @@
                           [price_normal]="selectedvariationName['price_normal']"
                           [price_regular]="selectedvariationName['price_regular']">
                         </app-discount-number>
-                        % descuento
+                        % <span [innerHTML]="'page.single.discount' | translate"></span>
                       </div>
                     </div>
                   </div>
-                  <p class="font-weight-normal text-muted mt-2 mb-0">Variaciones:</p>
+                  <p class="font-weight-normal text-muted mt-2 mb-0"
+                     [innerHTML]="'page.single.variations' | translate"></p>
                   <div class="list-variations">
                     <ng-select [items]="variation"
                                bindLabel="label"
@@ -117,7 +118,7 @@
                   </div>
                   <div class="short-description text-dark mt-2">
                     <div class="mb-2">
-                      <p class="text-muted mb-0">Informacion de la tienda:</p>
+                      <p class="text-muted mb-0" [innerHTML]="'page.single.info_shop' |translate"></p>
                       <div class="p-2 info-shop">
                         <div class="d-flex mt-1 mb-2">
                           <img class="mr-2" [src]="data['image_cover_small']" [alt]="data['shop_name']">
@@ -132,18 +133,18 @@
                           </p>
                           <a class="text-info" [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">
                             <fa name="bookmark"></fa>
-                            Ver más productos
+                            <span> {{"page.single.more_product_shop" | translate}}</span>
                           </a>
                         </div>
                       </div>
                     </div>
                     <div class="mb-2">
-                      <p class="text-muted mb-0">Envio:</p>
+                      <p class="text-muted mb-0" [innerHTML]="'page.single.shipping' | translate"></p>
                       <div class="p-2 info-shop">
                         <div class="mt-1">
                           <p class="m-0">
                             <fa name="truck"></fa>
-                            El envio se realizara en menos de 120min
+                            <span>{{"page.single.shipping_time" |translate}}</span>
                           </p>
                         </div>
                       </div>
@@ -154,7 +155,7 @@
                     <div class="text-center mt-4 d-block">
                       <button (click)="addProduct(data)" type="button" [disabled]="loading_save" title="Add to Cart"
                               class="btn btn-info btn-block">
-                        <span *ngIf="!loading_save">Agregar al carrito</span>
+                        <span *ngIf="!loading_save">{{"page.single.add_car" |translate}}</span>
                         <span *ngIf="loading_save">
                         <fa name="spinner" animation="spin"></fa>
                       </span>
@@ -166,7 +167,7 @@
                               *ngIf="number_items"
                               type="button" [disabled]="loading_save" title="Add to Cart"
                               class="btn btn-primary btn-block">
-                        <span *ngIf="!loading_save">Comprar</span>
+                        <span *ngIf="!loading_save">{{"page.single.buy" | translate}}</span>
                         <span *ngIf="loading_save">
                         <fa name="spinner" animation="spin"></fa>
                       </span>
@@ -181,7 +182,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-12">
-                    <h2 class="font-weight-600 mb-2">Descripción</h2>
+                    <h2 class="font-weight-600 mb-2">{{"page.single.description" | translate}}</h2>
                     <p class="description text-justify">{{data.description}}</p>
                   </div>
                 </div>

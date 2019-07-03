@@ -20,7 +20,9 @@
 }
 
 .breadcrumbs {
-  padding: 9px 0px 0px 0px;
+  padding: 10px;
+  background: white;
+  border: solid 1px #e8e8e8;
 }
 
 .product-shop {
@@ -95,7 +97,7 @@
   background-color: whitesmoke;
 }
 
-.info-shop{
+.info-shop {
   box-shadow: 0 0 2px #e4e4e4;
 }
 
@@ -105,6 +107,7 @@
   border-radius: 32px;
   object-fit: cover;
 }
-.discount-text{
+
+.discount-text {
   font-size: 16px;
 }

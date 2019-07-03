@@ -1,0 +1,49 @@
+<div class="main-container col1-layout wow bounceInUp animated animated">
+  <app-side-bar-cart [step]="2"></app-side-bar-cart>
+  <div class="main text-dark col-md-6 col-lg-8 col-xl-8">
+    <div class="cart wow bounceInUp animated animated pl-4 pr-4">
+      <div class="new_title">
+        <h2>Pagar</h2>
+        <h6 class="text-dark mt-2">Valido mi pedido y pago</h6>
+      </div>
+      <div class="table-responsive shopping-cart-tbl container  mt-4">
+        <div *ngIf="loading">
+          <ngx-content-loading
+            [width]="1000"
+            [height]="300">
+            <svg:g ngx-rect width="800" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="700" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="600" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
+            <svg:g ngx-rect width="900" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
+          </ngx-content-loading>
+        </div>
+        <div *ngIf="!loading">
+          <form novalidate (ngSubmit)="purchase()" [formGroup]="stripeTest">
+            <div class="form-group col">
+              <div>
+                <label>Titular de la tarjeta</label>
+                <input type="text" class="form-control"
+                       spellcheck="false" autocomplete="off"
+                       [(ngModel)]="editform['name']"
+                       formControlName="name"
+                       placeholder="Carlos Mendoza">
+
+              </div>
+            </div>
+            <div class="form-group col">
+              <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+            </div>
+            <div class="form-group col text-right mb-0 mt-4">
+              <button class="btn btn-primary">Pagar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sit.</p>
+    </div>
+  </div>
+
+</div>

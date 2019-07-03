@@ -1,49 +1,136 @@
-<div class="main-container col1-layout wow bounceInUp animated animated">
-  <app-side-bar-cart [step]="2"></app-side-bar-cart>
-  <div class="main text-dark col-md-6 col-lg-8 col-xl-8">
-    <div class="cart wow bounceInUp animated animated pl-4 pr-4">
-      <div class="new_title">
-        <h2>Pagar</h2>
-        <h6 class="text-dark mt-2">Valido mi pedido y pago</h6>
-      </div>
-      <div class="table-responsive shopping-cart-tbl container  mt-4">
-        <div *ngIf="loading">
-          <ngx-content-loading
-            [width]="1000"
-            [height]="300">
-            <svg:g ngx-rect width="800" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
-            <svg:g ngx-rect width="700" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
-            <svg:g ngx-rect width="600" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
-            <svg:g ngx-rect width="900" height="10" y="100" x="0" rx="5" ry="5"></svg:g>
-          </ngx-content-loading>
-        </div>
-        <div *ngIf="!loading">
-          <form novalidate (ngSubmit)="purchase()" [formGroup]="stripeTest">
-            <div class="form-group col">
-              <div>
-                <label>Titular de la tarjeta</label>
-                <input type="text" class="form-control"
-                       spellcheck="false" autocomplete="off"
-                       [(ngModel)]="editform['name']"
-                       formControlName="name"
-                       placeholder="Carlos Mendoza">
+<section class="main-container col2-right-layout mt-0">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="container p-0">
+      <div class="inside-body mb-4">
+        <div class="pt-2">
+          <div class="row">
+            <div class="col-12">
+              <div *ngIf="loading">
+                <div class="timeline-item ">
+                  <div class="animated-background" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!loading" class="card block-dashboard border-0">
+                <div class="card-header">
+                  <b *ngIf="from !== 'shop'">Compras</b>
+                  <b *ngIf="from === 'shop'">Mis ventas</b>
+                </div>
+                <div class="col p-0 bg-table min-height-300">
+                  <table *ngIf="data && data['data'].length" class="table table-shipment">
+                    <thead>
+                    <tr>
+                      <th scope="col" style="width: 100px"></th>
+                      <th scope="col"></th>
+                      <th scope="col" style="width: 100px">Monto</th>
+                      <th scope="col" style="width: 100px">Envio</th>
+                      <th scope="col" class="text-center" style="width: 100px">Estatus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let dat of data['data'];let i = index"
+                        [routerLink]="['/','purchases',dat['id']]"
+                        class="list-table-item cursor-pointer">
+                      <td>
+                        <img [src]="dat['logo_brand']"
+                             width="100px"
+                             class="image-bran"
+                             height="100px"
+                             alt="">
+                      </td>
+                      <td>
+                        <div>
+                          <h6>
+                            <b>{{dat['shops_name']}}</b>
+                          </h6>
+                        </div>
+                        <small class="text-muted form-text">
+                          <fa name="phone"></fa> {{dat['shops_fixed']}}
+                          <fa name="phone ml-2"></fa> {{dat['shops_mobil']}}</small>
+                      </td>
+                      <td>
+                        <span>
+                          <h6>
+                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
+                          </h6>
+                        </span>
+                      </td>
+                      <td>
+                          <span>
+                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
+                        </span>
+                      </td>
+                      <td class="text-center">
+                        <div [tooltip]="dat['status']">
+                          <fa *ngIf="dat['status']==='success'"
+                              name="check" size="2x" class="text-success"></fa>
+                          <fa *ngIf="dat['status']==='wait'"
+                              name="history" animation="spin" size="2x" class="text-muted"></fa>
+                          <fa *ngIf="dat['status']==='cancel'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <fa *ngIf="dat['status']==='fail'"
+                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
+                          <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+                    <img src="../../../../../assets/images/paper-bag.svg"
+                         class="mt-4"
+                         width="100px" alt="">
+                    <div class="mt-2">
+                      <p class="text-muted">Aun no tienes compras</p>
+                    </div>
+                  </div>
+                </div>
 
               </div>
             </div>
-            <div class="form-group col">
-              <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
-            </div>
-            <div class="form-group col text-right mb-0 mt-4">
-              <button class="btn btn-primary">Pagar</button>
-            </div>
-          </form>
+          </div>
         </div>
-
       </div>
     </div>
-    <div class="text-center">
-      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sit.</p>
-    </div>
-  </div>
 
-</div>
+  </div>
+</section>

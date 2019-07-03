@@ -60,7 +60,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   public checkZip = (zip_code) => {
-    this.loading = true;
     this.rest.get(`/rest/zone-available?src=${zip_code}`)
       .then((response: any) => {
         this.loading = false;
@@ -100,14 +99,15 @@ export class CheckoutComponent implements OnInit {
     this.rest.post(`/rest/shipping`,
       this.editform)
       .then((response: any) => {
+        this.loading = false;
         if (response['status'] === 'success') {
-          this.loading = false;
           this.data = response['data'];
+          this.editform = {...this.editform, ...response['data']};
         }
       }).catch((error: any) => {
-        this.loading = false;
-        this.util.openSnackBar('Ups! algo ocurrio', 'error');
-      });
+      this.loading = false;
+      this.util.openSnackBar('Ups! algo ocurrio', 'error');
+    });
   };
 
   loadData() {

@@ -20,6 +20,9 @@ import {SingleComponent} from './module/home/pages/single/single.component';
 import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
 import {CarComponent} from './module/home/pages/car/car.component';
 import {CheckoutComponent} from './module/home/pages/checkout/checkout.component';
+import {PaymentComponent} from './module/home/pages/payment/payment.component';
+import {ThankYouComponent} from './module/home/pages/thank-you/thank-you.component';
+import {ErrorPaymentComponent} from './module/home/pages/error-payment/error-payment.component';
 
 
 const routes: Routes = [
@@ -127,6 +130,34 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
+      footer: true
+    },
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      subMenu: true,
+      footer: true
+    },
+  },
+  {
+    path: 'thank-you/:uuid',
+    component: ThankYouComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      footer: true
+    },
+  },
+  {
+    path: 'error-payment/:uuid',
+    component: ErrorPaymentComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
       footer: true
     },
   },

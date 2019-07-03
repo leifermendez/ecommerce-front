@@ -65,6 +65,7 @@ website:   	http://www.themesground.com/
 
 .rev_slider {
   overflow: visible;
+  background: black;
 }
 
 .rev_slider img {
@@ -777,7 +778,7 @@ website:   	http://www.themesground.com/
 .fullwidthabanner .nav-buttons {
   position: absolute;
   z-index: 999;
-  top: 90px;
+  top: 15vh;
   display: flex;
   opacity: .3;
   width: 100%;

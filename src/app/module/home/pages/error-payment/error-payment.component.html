@@ -1,0 +1,26 @@
+<div class="main-container col1-layout wow bounceInUp animated animated">
+  <div class="main text-dark container">
+    <div class="mt-4 wow bounceInUp animated animated pl-4 pr-4">
+      <div class="new_title">
+        <h2 class="text-danger">{{"page.error_payment.title" |translate}}</h2>
+        <h6 class="text-dark mt-2">Lorem ipsum dolor sit.</h6>
+      </div>
+      <div class="table-responsive shopping-cart-tbl container  mt-4">
+        <div class="row">
+          <div class="col-3 text-center">
+            <img src="../../../../../assets/images/error.svg" width="120" alt="">
+          </div>
+          <div class="col-9">
+            <h5 class="content-h5" [innerHTML]="'page.error_payment.message' | translate"></h5>
+            <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-muted" [innerHTML]="'global.payment_sentence' | translate"></p>
+    </div>
+  </div>
+
+</div>

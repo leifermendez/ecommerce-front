@@ -76,6 +76,17 @@ export class SingleComponent implements OnInit {
       product_variation_id: obj['variations']['item'][0]['id'],
       shop_id: obj['shop_id']
     };
-    this.shopping.addCart(_data);
+    this.shopping.add(_data)
+      .then(response => {
+        this.loading_save = false;
+        if (response['status'] === 'success') {
+          this.util.refreshShopping.emit(response['data']);
+        }
+      })
+      .catch(err => {
+        this.loading_save = false;
+        const msg = (err && err['error']) ? err['error'] : 'Debes iniciar session';
+        this.util.openSnackBar(msg, 'error');
+      });
   };
 }

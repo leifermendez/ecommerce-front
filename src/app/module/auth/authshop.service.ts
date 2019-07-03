@@ -103,8 +103,9 @@ export class AuthshopService {
     localStorage.clear();
     this.waiting = true;
     this.cleanSession();
-    this.cookieService.deleteAll();
-    this.utils.openSnackBar('sesión finalizada', 'success');
+    this.cookieService.delete('_currentUser');
+    this.cookieService.delete('_wizard_dashboard');
+    this.utils.openSnackBar('Sesión finalizada', 'success');
   }
 
   public validate(): Promise<string> {

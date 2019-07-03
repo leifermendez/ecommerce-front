@@ -101,6 +101,9 @@ import {NgxImageZoomModule} from 'ngx-image-zoom';
 import { DiscountNumberComponent } from './module/home/components/discount-number/discount-number.component';
 import { SideBarCartComponent } from './module/home/components/side-bar-cart/side-bar-cart.component';
 import {NgxStripeModule} from 'ngx-stripe';
+import { PaymentComponent } from './module/home/pages/payment/payment.component';
+import { ThankYouComponent } from './module/home/pages/thank-you/thank-you.component';
+import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-payment.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -195,6 +198,9 @@ export class MyIntl extends TimeagoIntl {
     LogoutComponent,
     DiscountNumberComponent,
     SideBarCartComponent,
+    PaymentComponent,
+    ThankYouComponent,
+    ErrorPaymentComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

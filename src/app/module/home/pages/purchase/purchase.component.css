@@ -1,33 +1,55 @@
-.img-product {
-  width: 75px;
-  height: 75px;
+.title-content {
+  font-weight: bold;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.timeline-item {
+  max-width: 100%;
+}
+
+.card-header, .card-footer {
+  background-color: transparent !important;
+}
+
+.card {
+  border: 0px !important;
+  border-radius: 0px;
+}
+
+.block-dashboard {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0;
+  background-color: white;
+}
+
+.table td, .table th {
+  border: 0px
+}
+
+.img-contain {
   object-fit: contain;
 }
 
-.data-table tbody th, .data-table tbody td {
-  height: 100px;
-  border: 0;
+.list-table-item {
+  background-color: white;
+  box-shadow: 0px 0px 5px #f1f1f1
 }
 
-.new_title h2 {
-  color: #000;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 0px;
-  padding: 15px 0px 0px 0px;
-  position: relative;
-  display: inline-block;
-  letter-spacing: 1px;
-  margin-top: 0px;
-  min-width: 250px;
-
+.bg-table {
+  background: #fbfbfb;
 }
 
-.table-responsive {
-  border: solid 1px #e8e8e8 !important;
-  box-shadow: none;
-}
-
-.container-offset {
-  margin-left: 12vw !important;
+.image-bran {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
 }

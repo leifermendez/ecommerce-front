@@ -1,12 +1,13 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { OwlCarousel } from 'ngx-owl-carousel';
-import { RestService } from '../../../../../shared/services/rest.service';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-import { TimeagoIntl } from 'ngx-timeago';
-import { strings as englishStrings } from 'ngx-timeago/language-strings/es';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {OwlCarousel} from 'ngx-owl-carousel';
+import {RestService} from '../../../../../shared/services/rest.service';
+import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
+import {TimeagoIntl} from 'ngx-timeago';
+import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
-import { UtilsService } from '../../../../../shared/services/util.service';
-import { ShoppingCartComponent } from '../../../components/shopping-cart/shopping-cart.component';
+import {UtilsService} from '../../../../../shared/services/util.service';
+import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
+import {AuthshopService} from '../../../../auth/authshop.service';
 
 
 @Component({
@@ -19,17 +20,23 @@ export class BoxFeaturedProductComponent implements OnInit {
   @Input() title: any = null;
   @Input() w: any = '245px';
   @Input() items: any = 4;
+  @Input() limit: any = 6;
   public data: any[];
   public optionsOws: any;
+  public user_data: any = null;
   public loading: any = false;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, intl: TimeagoIntl,
-    private util: UtilsService,
-    private shopping: ShoppingCartComponent) {
+              private util: UtilsService,
+              private auth: AuthshopService,
+              private shopping: ShoppingCartComponent) {
     intl.strings = englishStrings;
     intl.changes.next();
+    auth.getLoggedInData.subscribe(data => {
+      this.user_data = data;
+    });
 
     util.getLocation.subscribe(data => {
       this.loadData();
@@ -44,7 +51,7 @@ export class BoxFeaturedProductComponent implements OnInit {
 
   loadData = () => {
     this.loading = true;
-    this.rest.get('/rest/products?filters=products.status,=,available')
+    this.rest.get(`/rest/products?filters=products.status,=,available&limit=${this.limit}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
@@ -68,7 +75,9 @@ export class BoxFeaturedProductComponent implements OnInit {
       dots: false,
       navigation: true,
       autoplay: false,
-      items: this.items
+      items: this.items,
+      margin: 5,
+      autoWidth: true,
     };
     this.data = [1, 1, 1, 1];
     this.galleryOptions = [
@@ -82,7 +91,7 @@ export class BoxFeaturedProductComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
-      { 'breakpoint': 500, 'width': '100%', 'height': '200px' }
+      {'breakpoint': 500, 'width': '100%', 'height': '200px'}
       ,
       // max-width 400
       {

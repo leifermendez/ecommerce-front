@@ -57,8 +57,15 @@
 
                   </td>
                   <td class="hidden-table">
-                    <h5 class="font-weight-600 mb-0">{{dat['price_normal'] | number:'1.2-2'}}</h5>
-                    <del class="text-muted"><span>{{dat['price_regular'] | number:'1.2-2'}}</span></del>
+                    <h5 class="font-weight-600 mb-0">{{dat['price_normal'] | number:'1.2-2'}}
+                      <del class="text-muted ml-1">{{dat['price_regular'] | number:'1.2-2'}}</del>
+                    </h5>
+                    <span class="text-muted" *ngIf="dat && dat['feed_amount']">
+                      {{dat['feed_amount']['application_feed_amount'] | number:'1.2-2'}}
+                      <span tooltip="Comision de plataforma" tooltipPlacement="bottom">
+                        <fa name="question-circle"></fa>
+                      </span>
+                    </span>
                   </td>
                   <td class="text-right">
                     <a (click)="delete(dat.id)" class="btn btn-outline-secondary" title="Remove item">
@@ -92,7 +99,7 @@
           </div>
         </div>
       </div>
-  
+
     </div>
   </div>
 </div>

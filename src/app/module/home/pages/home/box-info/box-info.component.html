@@ -2,41 +2,61 @@
   <div class="container">
     <div class="row">
       <div class="our-features-box wow bounceInUp animated animated">
-        <div class="container">
-          <ul>
-            <li>
-              <div class="feature-box free-shipping">
-                <div class="icon-return icon-main"></div>
-                <div>
-                    {{"box_info.first" | translate}}
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="feature-box free-shipping">
-                <div class="icon-return icon-main"></div>
-                <div>
-                  {{"box_info.second" | translate}}
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="feature-box free-shipping">
-                <div class="icon-return icon-main"></div>
-                <div>
-                  {{"box_info.third" | translate}}
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="feature-box free-shipping">
-                <div class="icon-return icon-main"></div>
-                <div>
-                  {{"box_info.forth" | translate}}
-                </div>
-              </div>
-            </li>
-          </ul>
+        <div class="container d-flex mb-3">
+          <div class="col-3 mb-4 text-center">
+            <img class="m-3" src="../../../../../../assets/images/grocery.svg"
+                 width="60" [alt]="'box_info.first' | translate">
+            <div [innerHTML]="'box_info.first' | translate"></div>
+          </div>
+          <div class="col-3 mb-4 text-center">
+            <img class="m-3" src="../../../../../../assets/images/online-shop.svg"
+                 width="60" [alt]="'box_info.second' | translate">
+            <div [innerHTML]="'box_info.second' | translate"></div>
+          </div>
+          <div class="col-3 mb-4 text-center">
+            <img class="m-3" src="../../../../../../assets/images/package.svg"
+                 width="60" [alt]="'box_info.third' | translate">
+            <div [innerHTML]="'box_info.third' | translate"></div>
+          </div>
+          <div class="col-3 mb-4 text-center">
+            <img class="m-3" src="../../../../../../assets/images/manager.svg"
+                 width="60" [alt]="'box_info.forth' | translate">
+            <div [innerHTML]="'box_info.forth' | translate"></div>
+          </div>
+          <!--          <ul>-->
+          <!--            <li>-->
+          <!--              <div class="feature-box free-shipping">-->
+          <!--                <img src="../../../../../../assets/images/grocery.svg" width="50"  alt="">-->
+          <!--                <div>-->
+          <!--                    {{"box_info.first" | translate}}-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </li>-->
+          <!--            <li>-->
+          <!--              <div class="feature-box free-shipping">-->
+          <!--                <img src="../../../../../../assets/images/grocery.svg" width="50"  alt="">-->
+          <!--                <div>-->
+          <!--                  {{"box_info.second" | translate}}-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </li>-->
+          <!--            <li>-->
+          <!--              <div class="feature-box free-shipping">-->
+          <!--                <img src="../../../../../../assets/images/grocery.svg" width="50"  alt="">-->
+          <!--                <div>-->
+          <!--                  {{"box_info.third" | translate}}-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </li>-->
+          <!--            <li>-->
+          <!--              <div class="feature-box free-shipping">-->
+          <!--                <img src="../../../../../../assets/images/grocery.svg" width="50"  alt="">-->
+          <!--                <div>-->
+          <!--                  {{"box_info.forth" | translate}}-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </li>-->
+          <!--          </ul>-->
         </div>
       </div>
     </div>

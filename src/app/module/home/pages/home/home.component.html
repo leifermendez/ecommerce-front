@@ -9,28 +9,30 @@
 
   <!-- best Pro Slider -->
   <app-box-featured-product 
-  class="container d-block"
+  class="container d-block p-0 mt-4 mb-4"
   [w]="'260px'"
   [items]="4"
-  [title]="'Productos destacados'" id='offers'>
+  [limit]="5"
+  [title]="'Productos destacados'">
 </app-box-featured-product>
   <!-- best Pro Slider -->
 
   <!--Category slider Start-->
-  <app-box-shops id='official-shops'></app-box-shops>
+  <app-box-shops id='official-shops' class="mt-4 mb-4 d-block"></app-box-shops>
   <!--Category silder End-->
 
   <!-- best Pro Slider -->
   <app-box-featured-product 
-  class="container d-block"
+  class="container d-block p-0 mt-4 mb-4"
   [w]="'260px'"
   [items]="4"
-  [title]="'Productos recomendados'" id='offers'>
+  [limit]="5"
+  [title]="'Productos recomendados'">
 </app-box-featured-product>
   <!-- best Pro Slider -->
 
   <!--Category slider Start-->
-  <app-box-categories id='myanchor'></app-box-categories>
+  <app-box-categories id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>
   <!--Category silder End-->
 
   <app-box-blog></app-box-blog>

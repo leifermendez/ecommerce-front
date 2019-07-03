@@ -33,7 +33,7 @@ export class ShoppingCartComponent implements OnInit {
           this.total = response['data']['total'];
           this.total_shop = response['data']['total_shop'];
           this.data = response['data']['list'];
-          this.callback.emit(response['data'])
+          this.callback.emit(response['data']);
           this.util.refreshShoppingData.emit(response['data']);
           this.util.numberShopping.emit(response['data']['list'].length);
         }
@@ -42,17 +42,32 @@ export class ShoppingCartComponent implements OnInit {
     });
   };
 
+  add = (r, _this = this) => new Promise(function (resolve, reject) {
+    try {
+      _this.rest.post('/rest/shopping-cart', r)
+        .then((response: any) => {
+          resolve(response);
+        }).catch((err) => {
+        reject((err && err['error']) ? err['error'] : err);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+
   addCart = (obj) => {
 
     this.loading = true;
-    this.rest.post('/rest/shopping-cart', obj)
-      .then((response: any) => {
+    this.add(obj)
+      .then(response => {
         this.loading = false;
         if (response['status'] === 'success') {
           this.util.refreshShopping.emit(response['data']);
         }
-      }).catch((err) => {
+      }).catch(err => {
       this.loading = false;
+      const msg = (err && err['error']) ? err['error'] : 'Debes iniciar session';
+      this.util.openSnackBar(msg, 'error');
     });
   };
 
