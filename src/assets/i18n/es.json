@@ -31,6 +31,6 @@
   "modal.initial.customer.button":"Continuar como cliente",
   "modal.initial.shop.title":"Soy un pequeño comercio",
   "modal.initial.shop.button":"Continuar como pequeño comercio ",
-  "modal.initial.customer.sentence":"Apatxee es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
-  "modal.initial.shop.sentence":"Apatxee es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora "
+  "modal.initial.customer.sentence":"<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
+  "modal.initial.shop.sentence":"<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora "
 }

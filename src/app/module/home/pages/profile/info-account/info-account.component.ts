@@ -86,6 +86,7 @@ export class InfoAccountComponent implements OnInit {
           this.loading = false;
           if (response['status'] === 'success') {
             console.log(response['data']);
+            this.auth.updateUser('confirmed','1');
             if (code) {
               this.saveData();
             }

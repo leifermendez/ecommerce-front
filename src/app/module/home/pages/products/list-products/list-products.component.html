@@ -51,6 +51,9 @@
         Agregar producto
       </button>
     </div>
+    <div class="alert alert-warning" *ngIf="user_data && !user_data['confirmed']">
+      Debes verificar tu <a class="text-info" routerLink="/profile">numero movil.</a> de lo contrario tus productos no seran visibles.
+    </div>
     <div class="card block-dashboard border-0">
       <div class="col p-0 bg-table min-height-300">
         <table *ngIf="data && data['data'].length" class="table table-shipment">

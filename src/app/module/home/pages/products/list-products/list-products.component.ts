@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
+import {AuthshopService} from '../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-list-products',
@@ -10,12 +11,14 @@ export class ListProductsComponent implements OnInit {
   public loading = false;
   @Input() id: any = null;
   public data: any = {data: []};
+  public user_data:any = null;
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService, private auth: AuthshopService) {
   }
 
   ngOnInit() {
     this.loadData();
+    this.user_data = this.auth.getCurrentUser();
   }
 
   loadData = () => {
