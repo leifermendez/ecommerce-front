@@ -104,6 +104,7 @@ import {NgxStripeModule} from 'ngx-stripe';
 import { PaymentComponent } from './module/home/pages/payment/payment.component';
 import { ThankYouComponent } from './module/home/pages/thank-you/thank-you.component';
 import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-payment.component';
+import { SchedulesShopComponent } from './module/home/pages/shop/schedules-shop/schedules-shop.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -201,6 +202,7 @@ export class MyIntl extends TimeagoIntl {
     PaymentComponent,
     ThankYouComponent,
     ErrorPaymentComponent,
+    SchedulesShopComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
