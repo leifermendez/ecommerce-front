@@ -81,29 +81,26 @@
           [items]="data"
           [carouselClasses]="['owl-theme', 'sliding']">
           <div class="item" *ngFor="let dat of data; let i = index">
+            <div
+              *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
+              class="box-buttons-top-product">
+              <button id="btn-car" [ngClass]="{'btn-primary':!loading_save, 'btn-default':loading_save}" class="btn"
+                      [disabled]="loading_save"
+                      type="button" (click)="addProduct(dat)">
+                <fa *ngIf="!loading_save" name="cart-plus" size="lg"></fa>
+                <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
+              </button>
+            </div>
             <div class="item">
               <div class="item-inner">
                 <div class="item-img">
                   <div class="item-img-info">
                     <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
-                    <div class="item-box-hover">
-                      <div class="box-inner">
-                        <div
-                          *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
-                          class="add_cart mt-1 mr-1">
-                          <button class="button btn-cart cursor-pointer"
-                                  (click)="addProduct(dat)"
-                                  type="button">
-                            <span>Add to Cart</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <a *ngIf="dat && dat['name']" [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]">
                   <div class="item-info">
-                    <div class="info-inner">
+                    <div id="info-box" class="info-inner">
                       <div class="item-title mb-0">
                         <a href="#"
                            title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
