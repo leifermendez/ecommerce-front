@@ -1,6 +1,6 @@
 .sidebar-ecommerce {
   background-color: #fff;
-  width: 100px;
+  min-width: 100px;
   position: fixed;
   margin-top: 0;
   height: 100vh;
