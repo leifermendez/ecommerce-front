@@ -15793,7 +15793,9 @@ select#shipping-address-select {
 .single .ngxImageZoomContainer img {
   object-fit: contain;
 }
-
+.swal2-popup.swal2-toast{
+  background: #fff !important;
+}
 html {
   scroll-behavior: smooth;
 

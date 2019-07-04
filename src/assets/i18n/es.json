@@ -26,5 +26,11 @@
   "page.single.add_car": "Añadir al carrito",
   "page.single.description": "Descripción",
   "page.single.shipping_time": "Si compras ahora, antes de 2 horas lo  recibirás",
-  "global.payment_sentence": "La seguridad de las transacciones está asegurada por Adyen, líder europeo de pagos por Internet, que le permite comprar con toda seguridad a través de conexiones seguras (https). El pago es seguro, sus coordenadas bancarias son encriptadas gracias al protocolo SSL. Nosotros no tenemos acceso en ningún momento a sus coordenadas bancarias, ya que no son conservadas. Usted puede pagar con CB, Visa y Mastercard."
+  "global.payment_sentence": "El pago es seguro, sus coordenadas bancarias son encriptadas gracias al protocolo SSL.",
+  "modal.initial.customer.title":"Soy cliente",
+  "modal.initial.customer.button":"Continuar como cliente",
+  "modal.initial.shop.title":"Soy un pequeño comercio",
+  "modal.initial.shop.button":"Continuar como pequeño comercio ",
+  "modal.initial.customer.sentence":"Apatxee es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
+  "modal.initial.shop.sentence":"Apatxee es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora "
 }

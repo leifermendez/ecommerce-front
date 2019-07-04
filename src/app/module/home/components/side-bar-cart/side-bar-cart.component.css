@@ -1,9 +1,11 @@
 .box-right-car {
   position: fixed;
   right: 0;
+  overflow-x: auto;
   top: 70px;
   height: 100vh;
   background: #efefef;
+  padding-bottom: 70px;
 }
 
 .block-dashboard {

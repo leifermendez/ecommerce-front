@@ -3,19 +3,23 @@
     <h2>Bienvenido <b class="text-primary">{{data['name']}}</b></h2>
     <div class="block-dashboard mt-4">
       <tabset>
-        <tab heading="SOY COMPRADOR" id="tab1">
+        <tab heading="{{'modal.initial.customer.title'| translate}}" id="tab1">
           <div class="mt-4 mb-4">
             <img src="../../../../../assets/images/shopping.svg" width="150px" alt="">
-            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
-            <button class="btn btn-primary" (click)="switch('user')">Continuar como comprador</button>
+            <p class="mt-2" [innerHTML]="'modal.initial.customer.sentence' |translate"></p>
+            <button class="btn btn-primary" (click)="switch('user')">
+              <span>{{"modal.initial.customer.button" | translate}}</span>
+            </button>
           </div>
 
         </tab>
-        <tab heading="SOY PEQUEÑO COMERCIO">
+        <tab heading="{{'modal.initial.shop.title'| translate}}">
           <div class="mt-4 mb-4">
             <img src="../../../../../assets/images/store.svg" width="150px" alt="">
-            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quo!</p>
-            <button class="btn btn-primary" (click)="switch('shop')">Continuar como pequeño comercio</button>
+            <p class="mt-2" [innerHTML]="'modal.initial.customer.sentence' |translate"></p>
+            <button class="btn btn-primary" (click)="switch('shop')">
+              <span>{{"modal.initial.shop.button" | translate}}</span>
+            </button>
           </div>
         </tab>
       </tabset>
