@@ -109,7 +109,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
-            this.auth.updateUser('role','shop');
+            this.auth.updateUser('role', 'shop');
             this.router.navigateByUrl('/shop');
           }
         }).catch(err => {

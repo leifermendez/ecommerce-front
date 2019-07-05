@@ -38,71 +38,76 @@
             <tab heading="Informacion" id="tab1">
               <div class="row">
                 <div class="col-12">
-                  <app-info-shop [data_inside]="data_inside" 
-                  [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                  <app-info-shop
+                    [data_inside]="data_inside"
+                    [id]="id" class="block-dashboard mb-2 col-12 p-0">
                   </app-info-shop>
                 </div>
 
               </div>
             </tab>
             <tab heading="Galeria">
-                <div *ngIf="loading">
-                    <div class="timeline-item">
-                      <div class="animated-background" style="height: 40px">
-                        <div class="background-masker header-top"></div>
-                        <div class="background-masker header-left"></div>
-                        <div class="background-masker header-right"></div>
-                        <div class="background-masker header-bottom"></div>
-                        <div class="background-masker subheader-left"></div>
-                        <div class="background-masker subheader-right"></div>
-                        <div class="background-masker subheader-bottom"></div>
-                
-                      </div>
-                      <div class="animated-background mt-3" style="height: 40px">
-                        <div class="background-masker header-top"></div>
-                        <div class="background-masker header-left"></div>
-                        <div class="background-masker header-right"></div>
-                        <div class="background-masker header-bottom"></div>
-                        <div class="background-masker subheader-left"></div>
-                        <div class="background-masker subheader-right"></div>
-                        <div class="background-masker subheader-bottom"></div>
-                
-                      </div>
-                      <div class="animated-background mt-3" style="height: 40px">
-                          <div class="background-masker header-top"></div>
-                          <div class="background-masker header-left"></div>
-                          <div class="background-masker header-right"></div>
-                          <div class="background-masker header-bottom"></div>
-                          <div class="background-masker subheader-left"></div>
-                          <div class="background-masker subheader-right"></div>
-                          <div class="background-masker subheader-bottom"></div>
-                  
-                        </div>
-                    </div>
+              <div *ngIf="loading">
+                <div class="timeline-item">
+                  <div class="animated-background" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
                   </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                  <div class="animated-background mt-3" style="height: 40px">
+                    <div class="background-masker header-top"></div>
+                    <div class="background-masker header-left"></div>
+                    <div class="background-masker header-right"></div>
+                    <div class="background-masker header-bottom"></div>
+                    <div class="background-masker subheader-left"></div>
+                    <div class="background-masker subheader-right"></div>
+                    <div class="background-masker subheader-bottom"></div>
+
+                  </div>
+                </div>
+              </div>
               <div class="row" *ngIf="!loading">
                 <div class="block-dashboard-drop">
-                    <ngx-dropzone [showPreviews]="true"
-                    [accept]="'image/png,image/jpeg'"
-                    #dropzone
-                    [multiple]="true"
-                    (filesAdded)="onFilesAdded($event)"
-                    label="Arrastra y suelta los archivos que deseas subir"
-                    class="custom-drop">
+                  <ngx-dropzone [showPreviews]="true"
+                                [accept]="'image/png,image/jpeg'"
+                                #dropzone
+                                [multiple]="true"
+                                (filesAdded)="onFilesAdded($event)"
+                                label="Arrastra y suelta los archivos que deseas subir"
+                                class="custom-drop">
                   </ngx-dropzone>
                   <button (click)="dropzone.reset()">Reset</button>
                   <button (click)="uploadSave()">sss</button>
                 </div>
               </div>
-              
+
             </tab>
             <tab heading="Horario">
-                <div class="block-dashboard-drop">
-                  <app-schedules-shop></app-schedules-shop>
-                  </div>
+              <div class="row">
+                <div class="col-12">
+                  <app-schedules-shop
+                    [data_inside]="data_inside"
+                    [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                  </app-schedules-shop>
+                </div>
+              </div>
             </tab>
           </tabset>
-
         </div>
       </div>
     </div>
