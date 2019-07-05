@@ -15281,6 +15281,31 @@ select#shipping-address-select {
   font-weight: 600 !important;
 }
 
+.time-picker-css input{
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-top: 0;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: #ececec;
+  border-bottom-width: 1px;
+}
+
+.time-picker-css button{
+  background: transparent;
+  border: 0;
+}
+
 @keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0
