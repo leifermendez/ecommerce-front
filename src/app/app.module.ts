@@ -106,6 +106,7 @@ import { ThankYouComponent } from './module/home/pages/thank-you/thank-you.compo
 import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-payment.component';
 import { SchedulesShopComponent } from './module/home/pages/shop/schedules-shop/schedules-shop.component';
 import { DateTimePickerModule} from 'ngx-datetime-picker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -231,6 +232,7 @@ export class MyIntl extends TimeagoIntl {
     NgxEpicVideoPlayerModule,
     DateTimePickerModule,
     NgxDaterangepickerMd.forRoot(),
+    TimepickerModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),

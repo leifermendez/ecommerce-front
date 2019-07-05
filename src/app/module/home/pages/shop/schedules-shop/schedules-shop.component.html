@@ -1,4 +1,4 @@
-<form >
+<div >
   <div *ngIf="loading">
     <div class="timeline-item">
       <div class="animated-background" style="height: 40px">
@@ -32,20 +32,14 @@
           <div class="mt-2 mb-2" *ngIf="!days['monday'].length">
             <p class="m-0 cursor-pointer" (click)="add_schedule('monday')">Horario no asignado</p>
           </div>
-          <div class="row" *ngIf="days['monday'].length">
+          <div class="row">
             <div class="col-5">
-              <ngx-time-picker
-                [(selectedTime)]="days['monday'][0]"
-                placeholder="Abre"
-                class="time-picker-css">
-              </ngx-time-picker>
+              <timepicker
+              [(ngModel)]="days['monday'][0]"></timepicker>
             </div>
             <div class="col-5">
-              <ngx-time-picker
-                [(selectedTime)]="days['monday'][1]"
-                placeholder="Cierra"
-                class="time-picker-css">
-              </ngx-time-picker>
+              <timepicker
+              [(ngModel)]="days['monday'][1]"></timepicker>
             </div>
             <div class="col-2 text-right">
               <button class="btn btn-default btn-sm">
@@ -58,40 +52,12 @@
           tenetur.
         </small>
       </div>
-      <div class="form-group">
-        <label>Martes</label>
-        <div class="container p-0" *ngIf="days['tuesday']">
-          <div class="mt-2 mb-2" *ngIf="!days['tuesday'].length">
-            <p class="m-0 cursor-pointer" (click)="add_schedule('tuesday')">Horario no asignado</p>
-          </div>
-          <div class="row" *ngIf="days['tuesday'].length">
-            <div class="col-6">
-              <ngx-time-picker
-                [(selectedTime)]="days['tuesday'][0]"
-                placeholder="Abre"
-                class="time-picker-css">
-              </ngx-time-picker>
-            </div>
-            <div class="col-6">
-              <ngx-time-picker
-                [(selectedTime)]="days['tuesday'][1]"
-                placeholder="Cierra"
-                class="time-picker-css">
-              </ngx-time-picker>
-            </div>
-          </div>
-        </div>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
-
     </div>
     <div class="card-footer text-right">
 
-      <button (click)="saveData()" class="btn btn-primary btn-sm" tabindex="0">
+      <button (click)="saveData()" type="button" class="btn btn-primary btn-sm" tabindex="0">
         <fa name="save"></fa>
       </button>
     </div>
   </div>
-</form>
+</div>
