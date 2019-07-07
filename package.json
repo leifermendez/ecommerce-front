@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "qaweb": "gcloud config set project apatxeeweb && gsutil rsync -R ./dist/  gs://qa-apatxee",
+    "qadeploy":"gcloud app deploy --project=apatxeeweb",
     "e2e": "ng e2e"
   },
   "private": true,
