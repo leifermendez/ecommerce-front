@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FileItem, HttpClientUploadService} from '@wkoza/ngx-upload';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {AuthshopService} from '../../../../auth/authshop.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FileItem, HttpClientUploadService } from '@wkoza/ngx-upload';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { AuthshopService } from '../../../../auth/authshop.service';
 
 @Component({
   selector: 'app-media-image-shop',
@@ -10,11 +10,11 @@ import {AuthshopService} from '../../../../auth/authshop.service';
 })
 export class MediaImageShopComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
-  @Input() preview = null;
-
-  constructor(public  uploader: HttpClientUploadService,
-              private rest: RestService,
-              private auth: AuthshopService) {
+  @Input() preview: boolean = false;
+  public loading:any = false;
+  constructor(private uploader: HttpClientUploadService,
+    private rest: RestService,
+    private auth: AuthshopService) {
   }
 
   ngOnInit() {
@@ -41,6 +41,7 @@ export class MediaImageShopComponent implements OnInit {
       (data: any) => {
         const _file = this.uploader.queue[0];
         // _file.remove();
+        this.loading = false;
         const _data = data['body']['data'];
         this.callback.emit(_data);
         console.log(`upload file successful:  ${data.item} ${data.body} ${data.status} ${data.headers}`);
@@ -52,22 +53,24 @@ export class MediaImageShopComponent implements OnInit {
       () => {
         const _file = this.uploader.queue[0];
         if (_file) {
-          this.preview = null;
+          this.change_preview('null')
           this.upload(_file);
         }
       }
     );
   }
 
+  change_preview = (url) => this.preview = url;
 
   upload(item: FileItem) {
+    this.loading = true;
     item['alias'] = 'attached';
     item.formData.append('type_file', 'image');
     item.upload({
-        method: 'POST',
-        url: `${this.rest.url}/rest/media`
-      },
-      {headers: this.rest.getHeadersMedia()});
+      method: 'POST',
+      url: `${this.rest.url}/rest/media`
+    },
+      { headers: this.rest.getHeadersMedia() });
   }
 
 }

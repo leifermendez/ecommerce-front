@@ -1,6 +1,12 @@
 <div class="block-header p-2" [ngStyle]="{'background-image':'url('+preview+')'}">
-  => {{preview}}
-  <span class="btn btn-outline-secondary btn-sm" *ngxInputFile>
-              <fa name="camera"></fa>
+  <span *ngIf="!loading">
+      <span class="btn btn-outline-secondary btn-sm" *ngxInputFile>
+          <fa name="camera"></fa>
+        </span>
   </span>
+  <span  *ngIf="loading" class="btn btn-outline-secondary btn-sm">
+      <fa name="spinner" animation="spin"></fa>
+  </span>
+
+
 </div>

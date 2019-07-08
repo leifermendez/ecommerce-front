@@ -31,16 +31,38 @@
           <div class="row">
             <div class="col-3 p-0">
               <app-media-image-shop
-                #fisrt
-                [preview]="'https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/small_jXqkAK0kXjC7k31PgrNVJZ03vOAc4LcLN9H.jpg'"
+              *ngIf="editform && !editform['image_cover']"
                 (callback)="setMedia('cover',$event)">
               </app-media-image-shop>
+              <div *ngIf="editform && editform['image_cover']" >
+                  <button type="button" (click)="clearImage('cover')" 
+                  [disabled]="editform && !editform['image_header']"
+                  class="btn btn-default position-absolute m-2">
+                      <fa name="trash"></fa>
+                  </button>
+                  <img
+                  width="100px" height="100px" class="cover-image"
+                  [src]="editform['image_cover_medium']">
+               
+              </div>
             </div>
             <div class="col-9 pr-0">
               <app-media-image-shop
-                #second
-               >
+              *ngIf="editform && !editform['image_header']"
+                (callback)="setMedia('header',$event)">
               </app-media-image-shop>
+              <div *ngIf="editform && editform['image_header']" >
+                  <button type="button" (click)="clearImage('header')" 
+                  [disabled]="editform && !editform['image_cover']" 
+                  class="btn btn-default position-absolute m-2">
+                      <fa name="trash"></fa>
+                  </button>
+                  <img
+                  width="100px" height="100px" class="cover-image"
+                  [src]="editform['image_header_medium']">
+              
+              </div>
+          
             </div>
           </div>
         </div>
