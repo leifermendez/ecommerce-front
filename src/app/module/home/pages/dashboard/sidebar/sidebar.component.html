@@ -10,9 +10,9 @@
             height="50px" alt="">
         </div>
 
-        <div tooltip="Cambiar menu" placement="right" (click)="switch()" *ngIf="type"
+        <div (click)="switch()" *ngIf="type"
              class="icon-setting cursor-pointer">
-          <fa [name]="(type==='shop') ? 'toggle-on' : 'toggle-off'"></fa>
+          <fa tooltip="Cambiar menu" placement="top" [name]="(type==='shop') ? 'toggle-on' : 'toggle-off'"></fa>
         </div>
       </li>
 
