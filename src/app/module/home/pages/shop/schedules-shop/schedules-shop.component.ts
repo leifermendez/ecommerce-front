@@ -24,6 +24,7 @@ export class SchedulesShopComponent implements OnInit {
   public data: any = {};
   public editform: any = {};
   public loading: any = false;
+  private has_schedules = false;
 
   public days: any = {
     monday: [null, null],
@@ -63,6 +64,7 @@ export class SchedulesShopComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           const data = response['data'];
+          this.has_schedules = (response['data']);
           const shedule_hours = (data && data['shedule_hours']) ? data['shedule_hours'] : null;
           this.days['monday_tmp'] = (shedule_hours && shedule_hours['monday']) ? shedule_hours['monday'] : [];
           this.days['tuesday_tmp'] = (shedule_hours && shedule_hours['tuesday']) ? shedule_hours['tuesday'] : [];
@@ -160,8 +162,8 @@ export class SchedulesShopComponent implements OnInit {
       };
 
       this.loading = true;
-      const _method = (this.id) ? 'put' : 'post';
-      this.rest[_method](`/rest/schedules/${(this.id) ? this.id : ''}`, data)
+      const _method = (this.has_schedules) ? 'put' : 'post';
+      this.rest[_method](`/rest/schedules/${(this.has_schedules) ? this.has_schedules : ''}`, data)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
