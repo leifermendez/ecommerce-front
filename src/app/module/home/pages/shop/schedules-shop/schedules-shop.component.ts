@@ -129,7 +129,6 @@ export class SchedulesShopComponent implements OnInit {
   };
 
   validationDays = (a: any[], day = null) => {
-    console.log('añañañña', a);
     a[day].push(this.obj_schedule('monday', 2));
     return a;
   };
@@ -163,7 +162,7 @@ export class SchedulesShopComponent implements OnInit {
 
       this.loading = true;
       const _method = (this.has_schedules) ? 'put' : 'post';
-      this.rest[_method](`/rest/schedules/${(this.has_schedules) ? this.has_schedules : ''}`, data)
+      this.rest[_method](`/rest/schedules/${(this.has_schedules) ? this.id : ''}`, data)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
