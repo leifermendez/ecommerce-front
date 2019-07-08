@@ -1,0 +1,36 @@
+<div class="container p-0 mb-3" *ngIf="hours[day]">
+  <div class="mt-2 mb-2" *ngIf="!hours[day].length">
+    <p class="m-0 cursor-pointer">Horario no asignado</p>
+  </div>
+  <div class="row">
+    <div class="col-2 p-4 text-center">
+      <ui-switch
+        [(ngModel)]="hours[day+'_open']">
+      </ui-switch>
+    </div>
+    <div class="col-4">
+      <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][0]"></timepicker>
+      <div class="mt-4" *ngIf="hours[day].length > 2">
+        <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][2]"></timepicker>
+      </div>
+    </div>
+    <div class="col-4">
+      <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][1]"></timepicker>
+      <div class="mt-4" *ngIf="hours[day].length > 2">
+        <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][3]"></timepicker>
+      </div>
+    </div>
+    <div class="col-2 p-4 text-center" *ngIf="hours[day+'_open']">
+      <button class="btn btn-default btn-sm"
+              *ngIf="hours[day].length < 3"
+              (click)="addSchedule()">
+        <fa name="plus"></fa>
+      </button>
+      <button class="btn btn-default btn-sm"
+              *ngIf="hours[day].length > 2"
+              (click)="closeSchedule()">
+        <fa name="times"></fa>
+      </button>
+    </div>
+  </div>
+</div>

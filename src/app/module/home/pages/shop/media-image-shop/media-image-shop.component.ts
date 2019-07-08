@@ -4,11 +4,11 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {AuthshopService} from '../../../../auth/authshop.service';
 
 @Component({
-  selector: 'app-avatar-upload',
-  templateUrl: './avatar-upload.component.html',
-  styleUrls: ['./avatar-upload.component.css']
+  selector: 'app-media-image-shop',
+  templateUrl: './media-image-shop.component.html',
+  styleUrls: ['./media-image-shop.component.css']
 })
-export class AvatarUploadComponent implements OnInit {
+export class MediaImageShopComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() preview = null;
 
@@ -40,8 +40,9 @@ export class AvatarUploadComponent implements OnInit {
     this.uploader.onSuccess$.subscribe(
       (data: any) => {
         const _file = this.uploader.queue[0];
-        _file.remove();
-        this.callback.emit(data['body']);
+        // _file.remove();
+        const _data = data['body']['data'];
+        this.callback.emit(_data);
         console.log(`upload file successful:  ${data.item} ${data.body} ${data.status} ${data.headers}`);
       }
     );
@@ -61,7 +62,6 @@ export class AvatarUploadComponent implements OnInit {
 
   upload(item: FileItem) {
     item['alias'] = 'attached';
-    console.log(item);
     item.formData.append('type_file', 'image');
     item.upload({
         method: 'POST',

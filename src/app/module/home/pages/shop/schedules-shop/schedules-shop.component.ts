@@ -12,42 +12,43 @@ import * as moment from 'moment';
   styleUrls: ['./schedules-shop.component.css']
 })
 export class SchedulesShopComponent implements OnInit {
-  @Input() id: any = null;
-  public user_data: any = null;
-  public form: any = FormGroup;
-  public data: any = {};
-  public editform: any = {};
-  private days_inside: any;
-  mytime: Date = new Date();
-  public dateTimeExample = null;
-  public dateExample = null;
-  public timeExample = null;
-
-  public days: any = {
-    monday: [new Date(), new Date()],
-    monday_tmp: [],
-    tuesday: [new Date(), new Date()],
-    tuesday_tmp: [],
-    wednesday: [new Date(), new Date()],
-    wednesday_tmp: [],
-    thursday: [new Date(), new Date()],
-    thursday_tmp: [],
-    friday: [new Date(), new Date()],
-    friday_tmp: [],
-    saturday: [new Date(), new Date()],
-    saturday_tmp: [],
-    sunday: [new Date(), new Date()],
-    sunday_tmp: []
-  };
-
-  public loading = false;
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
               private rest: RestService, public util: UtilsService,
               private router: Router) {
   }
 
-  a = (a) => console.log('---aaa', a);
+  @Input() id: any = null;
+  public user_data: any = null;
+  public form: any = FormGroup;
+  public data: any = {};
+  public editform: any = {};
+  public loading: any = false;
+
+  public days: any = {
+    monday: [null, null],
+    monday_tmp: [],
+    monday_open: false,
+    tuesday: [null, null],
+    tuesday_tmp: [],
+    tuesday_open: false,
+    wednesday: [null, null],
+    wednesday_tmp: [],
+    wednesday_open: false,
+    thursday: [null, null],
+    thursday_tmp: [],
+    thursday_open: false,
+    friday: [null, null],
+    friday_tmp: [],
+    friday_open: false,
+    saturday: [null, null],
+    saturday_tmp: [],
+    saturday_open: false,
+    sunday: [null, null],
+    sunday_tmp: [],
+    sunday_open: false
+  };
+
 
   ngOnInit() {
     if (this.id) {
@@ -56,103 +57,105 @@ export class SchedulesShopComponent implements OnInit {
   }
 
   loadData = () => {
+    this.loading = true;
     this.rest.get(`/rest/schedules/${this.id}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
           const data = response['data'];
-          const shedule_hours = data['shedule_hours'];
-          this.days['monday_tmp'] = (shedule_hours['monday']) ? shedule_hours['monday'] : [];
-          this.days['tuesday_tmp'] = (shedule_hours['tuesday']) ? shedule_hours['tuesday'] : [];
-          this.days['wednesday_tmp'] = (shedule_hours['wednesday']) ? shedule_hours['wednesday'] : [];
-          this.days['thursday_tmp'] = (shedule_hours['thursday']) ? shedule_hours['thursday'] : [];
-          this.days['friday_tmp'] = (shedule_hours['friday']) ? shedule_hours['friday'] : [];
-          this.days['saturday_tmp'] = (shedule_hours['saturday']) ? shedule_hours['saturday'] : [];
-          this.days['sunday_tmp'] = (shedule_hours['sunday']) ? shedule_hours['sunday'] : [];
+          const shedule_hours = (data && data['shedule_hours']) ? data['shedule_hours'] : null;
+          this.days['monday_tmp'] = (shedule_hours && shedule_hours['monday']) ? shedule_hours['monday'] : [];
+          this.days['tuesday_tmp'] = (shedule_hours && shedule_hours['tuesday']) ? shedule_hours['tuesday'] : [];
+          this.days['wednesday_tmp'] = (shedule_hours && shedule_hours['wednesday']) ? shedule_hours['wednesday'] : [];
+          this.days['thursday_tmp'] = (shedule_hours && shedule_hours['thursday']) ? shedule_hours['thursday'] : [];
+          this.days['friday_tmp'] = (shedule_hours && shedule_hours['friday']) ? shedule_hours['friday'] : [];
+          this.days['saturday_tmp'] = (shedule_hours && shedule_hours['saturday']) ? shedule_hours['saturday'] : [];
+          this.days['sunday_tmp'] = (shedule_hours && shedule_hours['sunday']) ? shedule_hours['sunday'] : [];
           this.format_schedule('monday', this.days['monday_tmp']);
-          this.format_schedule('tuesday', this.days['monday_tmp']);
-          this.format_schedule('wednesday', this.days['monday_tmp']);
-          this.format_schedule('thursday', this.days['monday_tmp']);
-          this.format_schedule('friday', this.days['monday_tmp']);
-          this.format_schedule('saturday', this.days['monday_tmp']);
-          this.format_schedule('sunday', this.days['monday_tmp']);
+          this.format_schedule('tuesday', this.days['tuesday_tmp']);
+          this.format_schedule('wednesday', this.days['wednesday_tmp']);
+          this.format_schedule('thursday', this.days['thursday_tmp']);
+          this.format_schedule('friday', this.days['friday_tmp']);
+          this.format_schedule('saturday', this.days['saturday_tmp']);
+          this.format_schedule('sunday', this.days['sunday_tmp']);
         }
       });
   };
 
   format_schedule = (day = null, obj: []) => {
-    /*[
-      "08:20-23:55",
-      "08:20-23:55",
-    ]*/
-    console.log('------', this.days[day]);
+    let i = 0;
     obj.map((a: any) => {
-      let pop = a.split('-');
-      const tmp_a = moment(pop[0], 'HH:mm').toString();
-      const tmp_b = moment(pop[1], 'HH:mm').toString();
-      this.days[day][0] = tmp_a;
-      this.days[day][1] = tmp_b;
+      const pop = a.split('-');
+
+      if (pop && pop.length) {
+        const tmp_1 = (pop && pop[0]) ? moment(pop[0], 'HH:mm').toString() :
+          null;
+        const tmp_2 = (pop && pop[1]) ? moment(pop[1], 'HH:mm').toString() :
+          null;
+        if (i === 0) {
+          this.days[`${day}_open`] = true;
+          if (tmp_1) {
+            this.days[day][0] = tmp_1;
+          }
+          if (tmp_2) {
+            this.days[day][1] = tmp_2;
+          }
+        } else {
+          if (tmp_1) {
+            this.days[day][2] = tmp_1;
+          }
+          if (tmp_2) {
+            this.days[day][3] = tmp_2;
+          }
+        }
+      }
+
+      i++;
     });
+  };
+
+  obj_schedule = (day, turn = 0) => {
+    if (this.days[`${day}_open`]) {
+      return `${moment(this.days[day][turn])
+        .format('HH')}:${moment(this.days[day][turn])
+        .format('mm')}-${moment(this.days[day][turn + 1])
+        .format('HH')}:${moment(this.days[day][turn + 1])
+        .format('mm')}`;
+    } else {
+      return false;
+    }
+  };
+
+  validationDays = (a: any[], day = null) => {
+    console.log('añañañña', a);
+    a[day].push(this.obj_schedule('monday', 2));
+    return a;
   };
 
   saveData = () => {
     if (event) {
       event.preventDefault();
-      console.log('anmtes--->', this.days);
-      const shedule_hours = {
-        'monday': [
-          `${moment(this.days['monday'][0])
-            .format('HH')}:${moment(this.days['monday'][0])
-            .format('mm')}-${moment(this.days['monday'][1])
-            .format('HH')}:${moment(this.days['monday'][1])
-            .format('mm')}`
-        ],
-        'tuesday': [
-          `${moment(this.days['tuesday'][0])
-            .format('HH')}:${moment(this.days['tuesday'][0])
-            .format('mm')}-${moment(this.days['tuesday'][1])
-            .format('HH')}:${moment(this.days['tuesday'][1])
-            .format('mm')}`
-        ],
-        'wednesday': [
-          `${moment(this.days['wednesday'][0])
-            .format('HH')}:${moment(this.days['wednesday'][0])
-            .format('mm')}-${moment(this.days['wednesday'][1])
-            .format('HH')}:${moment(this.days['wednesday'][1])
-            .format('mm')}`
-        ],
-        'thursday': [
-          `${moment(this.days['thursday'][0])
-            .format('HH')}:${moment(this.days['thursday'][0])
-            .format('mm')}-${moment(this.days['thursday'][1])
-            .format('HH')}:${moment(this.days['thursday'][1])
-            .format('mm')}`
-        ],
-        'friday': [
-          `${moment(this.days['friday'][0])
-            .format('HH')}:${moment(this.days['friday'][0])
-            .format('mm')}-${moment(this.days['friday'][1])
-            .format('HH')}:${moment(this.days['friday'][1])
-            .format('mm')}`
-        ],
-        'saturday': [
-          `${moment(this.days['saturday'][0])
-            .format('HH')}:${moment(this.days['saturday'][0])
-            .format('mm')}-${moment(this.days['saturday'][1])
-            .format('HH')}:${moment(this.days['saturday'][1])
-            .format('mm')}`
-        ],
-        'sunday': [
-          `${moment(this.days['sunday'][0])
-            .format('HH')}:${moment(this.days['sunday'][0])
-            .format('mm')}-${moment(this.days['sunday'][1])
-            .format('HH')}:${moment(this.days['sunday'][1])
-            .format('mm')}`
-        ]
+
+      let shedule_hours = {
+        'monday': (this.obj_schedule('monday')) ? [this.obj_schedule('monday')] : [],
+        'tuesday': (this.obj_schedule('tuesday')) ? [this.obj_schedule('tuesday')] : [],
+        'wednesday': (this.obj_schedule('wednesday')) ? [this.obj_schedule('wednesday')] : [],
+        'thursday': (this.obj_schedule('thursday')) ? [this.obj_schedule('thursday')] : [],
+        'friday': (this.obj_schedule('friday')) ? [this.obj_schedule('friday')] : [],
+        'saturday': (this.obj_schedule('saturday')) ? [this.obj_schedule('saturday')] : [],
+        'sunday': (this.obj_schedule('sunday')) ? [this.obj_schedule('sunday')] : [],
       };
-      console.log('sss-->', shedule_hours);
+
+      Object.keys(shedule_hours).map(a => {
+        if (this.days[a].length > 2) {
+          // @ts-ignore
+          const res = this.validationDays(shedule_hours, a);
+          shedule_hours = {...shedule_hours, ...res};
+        }
+      });
+
       const data = {
-        shop_id: '5',
+        shop_id: this.id,
         shedule_hours
       };
 
@@ -162,28 +165,10 @@ export class SchedulesShopComponent implements OnInit {
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
-
-
+            this.util.openSnackBar('Horario actualizado', 'success');
           }
         });
     }
-  };
-
-  format_hours = async (a: []) => {
-    a.forEach(function (element: string) {
-      element.replace(/am/i, '');
-      element.replace(/pm/i, '');
-    });
-    a.join('-');
-    return a;
-  };
-
-  add_schedule = (day = null) => {
-    this.dateExample = new Date();
-    const start = `${'8'}:${'00'} ${(8 > 11 ? 'am' : 'pm')}`;
-    const finish = `${'20'}:${'00'} ${(20 > 11 ? 'am' : 'pm')}`;
-    this.days[day][0] = start;
-    this.days[day][1] = finish;
   };
 
 }

@@ -19,10 +19,8 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public form: any = FormGroup;
   public data: any = {};
   public editform: any = {};
-  loading = false;
-  public waitCode: any = null;
-  public codeValidation = null;
-  public dataTmp: any = null;
+  public loading = false;
+  public address_gp: any = null;
   public optionsPlaces = {
     types: [],
     componentRestrictions: {country: 'ES'}
@@ -63,6 +61,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   });
 
   public handleAddressChange(address: Address) {
+    this.editform.address = address['formatted_address'];
     this.getZipCode(address['address_components'])
       .then(zip_code => {
         this.editform['zip_code'] = zip_code;
@@ -70,6 +69,14 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       return false;
     });
   }
+
+  setMedia = (type = null, data = null) => {
+    if (type === 'cover') {
+      this.editform['image_cover'] = data['id'];
+    } else {
+      this.editform['image_header'] = data['id'];
+    }
+  };
 
   ngOnInit() {
     if (!this.id) {
@@ -104,6 +111,13 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       this.loading = true;
       const method = (this.id) ? 'put' : 'post';
       event.preventDefault();
+      delete this.editform['image_cover_small'];
+      delete this.editform['image_header_small'];
+      delete this.editform['image_cover_medium'];
+      delete this.editform['image_header_medium'];
+      delete this.editform['image_cover_large'];
+      delete this.editform['image_header_large'];
+
       this.rest[method](`/rest/shop/${(this.id) ? this.id : ''}`,
         this.editform)
         .then((response: any) => {

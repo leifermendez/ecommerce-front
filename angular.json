@@ -26,6 +26,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/flag-icon-css/css/flag-icon.min.css",
               "./node_modules/videogular2/fonts/videogular.css",
+              "./node_modules/ngx-ui-switch/ui-switch.component.css",
               "./node_modules/ngx-datetime-picker/ngx-datetime-picker.css",
               "src/assets/css/responsive.css",
               "src/assets/css/jquery.bxslider.css",

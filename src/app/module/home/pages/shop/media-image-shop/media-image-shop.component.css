@@ -1,0 +1,8 @@
+.block-header {
+  background-color: #f3f3f3;
+  height: 200px;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -107,6 +107,9 @@ import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-p
 import { SchedulesShopComponent } from './module/home/pages/shop/schedules-shop/schedules-shop.component';
 import { DateTimePickerModule} from 'ngx-datetime-picker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import {UiSwitchModule} from 'ngx-ui-switch';
+import { TabDayComponent } from './module/home/pages/shop/tab-day/tab-day.component';
+import { MediaImageShopComponent } from './module/home/pages/shop/media-image-shop/media-image-shop.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -205,6 +208,8 @@ export class MyIntl extends TimeagoIntl {
     ThankYouComponent,
     ErrorPaymentComponent,
     SchedulesShopComponent,
+    TabDayComponent,
+    MediaImageShopComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -229,6 +234,7 @@ export class MyIntl extends TimeagoIntl {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    UiSwitchModule,
     NgxEpicVideoPlayerModule,
     DateTimePickerModule,
     NgxDaterangepickerMd.forRoot(),

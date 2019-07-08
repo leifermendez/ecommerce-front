@@ -82,7 +82,7 @@
                 </div>
               </div>
               <div class="row" *ngIf="!loading">
-                <div class="block-dashboard-drop">
+                <div class="block-dashboard-drop mt-0">
                   <ngx-dropzone [showPreviews]="true"
                                 [accept]="'image/png,image/jpeg'"
                                 #dropzone
@@ -91,15 +91,17 @@
                                 label="Arrastra y suelta los archivos que deseas subir"
                                 class="custom-drop">
                   </ngx-dropzone>
-                  <button (click)="dropzone.reset()">Reset</button>
-                  <button (click)="uploadSave()">sss</button>
+                  <div class="text-right mt-2">
+                    <button class="btn btn-default" (click)="dropzone.reset()">Reset</button>
+                    <button class="btn btn-primary" (click)="uploadSave()">Guardar</button>
+                  </div>
                 </div>
               </div>
 
             </tab>
             <tab heading="Horario">
               <div class="row">
-                <div class="col-12">
+                <div class="col-8 offset-2">
                   <app-schedules-shop
                     [id]="id" class="block-dashboard mb-2 col-12 p-0">
                   </app-schedules-shop>
