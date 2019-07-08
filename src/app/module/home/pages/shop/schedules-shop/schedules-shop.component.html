@@ -28,19 +28,21 @@
     <div class="col p-3">
       <div class="form-group">
         <label>Lunes</label>
-        <div (click)="format_schedule('monday',days['monday_tmp'])">aa</div>
         <div class="container p-0" *ngIf="days['monday']">
           <div class="mt-2 mb-2" *ngIf="!days['monday'].length">
             <p class="m-0 cursor-pointer" (click)="add_schedule('monday')">Horario no asignado</p>
           </div>
           <div class="row">
-            <div class="col-5">
-              <timepicker [(ngModel)]="days['monday'][0]"></timepicker>
+            <div class="col-2 offset-1">
+              <input type="checkbox">
             </div>
-            <div class="col-5">
+            <div class="col-3">
+              <timepicker  [readonlyInput]="days['monday_tmp'].length" [(ngModel)]="days['monday'][0]"></timepicker>
+            </div>
+            <div class="col-3">
               <timepicker [(ngModel)]="days['monday'][1]"></timepicker>
             </div>
-            <div class="col-2 text-right">
+            <div class="col-2">
               <button class="btn btn-default btn-sm">
                 <fa name="plus"></fa>
               </button>
