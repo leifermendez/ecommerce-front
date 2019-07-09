@@ -16,23 +16,23 @@
   <div class="col-6 offset-md-3 block-login p-4">
     <h5 class="text-center font-weight-bold">¡Hola! Ingresa tu e‑mail</h5>
     <p class="text-center mb-4 text-muted">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, vitae.
+      Que esperas! empieza a comprar y vender de todo en Apatxee.
     </p>
     <div class="pt-4">
       <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
 
         <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">
           <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <small id="emailHelp" class="form-text text-muted">Ingresa un email valido..</small>
         </div>
         <div class="form-group" [hidden]="steps!==2" [ngClass]="{'has-danger': submitted && f.password.errors }">
           <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <small id="emailHelp" class="form-text text-muted">Manten segura tu cuenta incluye una contraseña.</small>
         </div>
 
         <div class="form-group" [hidden]="steps!==3" [ngClass]="{'has-danger': submitted && f.name.errors }">
           <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <small id="emailHelp" class="form-text text-muted">Queremos saber como te llamas.</small>
         </div>
 
         <div *ngIf="!loading">
@@ -64,8 +64,7 @@
     <hr>
     <div class="text-center">
 
-      <p class="text-muted">Sign In with Your Google Account,
-        We'll never post anything without your permission.
+      <p class="text-muted">Accede con tu cuenta de Google o Facebook, nunca publicaremos nada sin tu permiso.
       </p>
       <button (click)="signInWithFB()" type="butotn" class="btn btn-lg btn-facebook" title="Login"
         name="send"><span>Facebook</span>

@@ -13,7 +13,7 @@
         <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
           <div class="CollectionGrid-tile hover-overlay-light">
             <div class="CollectionGrid-tileImage align-center">
-              <img class="item-img" [src]="dat['image_small']" alt="bags">
+              <img class="item-img" onerror="style.display='none'" [src]="dat['image_small']" [alt]="dat['name']">
             </div>
             <div class="CollectionGrid-tileName js-dotdotdot">
               {{dat['name']}}

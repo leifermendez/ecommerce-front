@@ -64,7 +64,7 @@
     </div>
     <div class="modal-footer justify-content-md-between">
       <button type="button" (click)="bsModalRef.hide()" class="btn btn-default btn-sm" tabindex="0">Cancelar</button>
-      <button *ngIf="!deleteMe" class="btn btn-primary btn-sm" tabindex="0">Guardar</button>
+      <button *ngIf="!deleteMe" [disabled]="loading" class="btn btn-primary btn-sm" tabindex="0">Guardar</button>
       <button *ngIf="deleteMe" type="button" (click)="deleteBank()"
               class="btn btn-primary btn-sm" tabindex="0">Eliminar
       </button>

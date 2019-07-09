@@ -13,6 +13,7 @@ export class BoxCategoriesComponent implements OnInit {
   @ViewChild('owlCategories') owlElement: OwlCarousel;
   public data: any;
   public optionsOws: any;
+  public loading = false;
 
   constructor(private rest: RestService) {
   }
@@ -20,15 +21,16 @@ export class BoxCategoriesComponent implements OnInit {
   ngOnInit() {
     this.optionsOws = {items: 6, dots: false, navigation: true, autoplay: false};
     this.data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    this.loading = true;
     this.rest.get('/rest/categories')
-    .then((response: any) => {
-      if (response['status'] === 'success') {
-
-        response = response['data'];
-        this.data = response['data'];
-        console.log(this.data);
-      }
-    });
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.loading = false;
+          response = response['data'];
+          this.data = response['data'];
+          console.log(this.data);
+        }
+      });
   }
 
 }

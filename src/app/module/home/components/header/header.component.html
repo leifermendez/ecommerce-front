@@ -10,7 +10,7 @@
 
 
           <div class="custom-select-search-item">
-            <app-search  class="custom-select-search-item"></app-search>
+            <app-search class="custom-select-search-item"></app-search>
           </div>
 
 
@@ -139,12 +139,12 @@
                   </a>
 
                 </li>
-                <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
+                <li class="mega-menu"><a routerLink="/shop" class="level-top">
                   <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
                 </a>
 
                 </li>
-                <li class="mega-menu"><a href="http://themesground.com/flipmart-demo/V5/grid.html" class="level-top">
+                <li class="mega-menu"><a href="" class="level-top">
                   <span class="cursor-pointer">{{"menu.help" | translate}}</span>
                 </a>
 
@@ -153,7 +153,8 @@
                 <li *ngIf="!user_data" class="mega-menu float-right d-flex">
                   <a routerLink="/login" class="level-top sign">
                     <span>
-                      <fa name="user"></fa> {{"menu.signup" | translate}}
+                      <fa name="user"></fa>
+                      {{"menu.signup" | translate}}
                     </span>
                   </a>
 
@@ -162,9 +163,12 @@
 
                 <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
                   <a [routerLink]="['/','dashboard']" class="level-top">
-                    <span >Hola, <b>{{user_data['name']}}</b></span>
+                    <span>{{"menu.hello" | translate}}, <b>{{user_data['name'] | truncate : 10 :  '...' }}</b></span>
+                    <span class="p-0">
+                      <img [src]="user_data['avatar']"
+                           width="30" class="profile-image" height="30" [alt]="user_data['name']"/>
+                    </span>
                   </a>
-
                 </li>
 
                 <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
@@ -175,7 +179,7 @@
                     </span>
                   </a>
                   <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
-                    <app-shopping-cart></app-shopping-cart>
+<!--                    <app-shopping-cart></app-shopping-cart>-->
                   </div>
                 </li>
               </ul>
@@ -289,7 +293,7 @@
     </li>
     <li><span class="expand fa fa-plus"></span><a href="index.html#">Pages</a>
       <ul>
-        <li><a href="http://themesground.com/flipmart-demo/V5/grid.html">Grid</a></li>
+        <li><a href="">Grid</a></li>
         <li><a href="http://themesground.com/flipmart-demo/V5/list.html">List</a></li>
         <li><a href="http://themesground.com/flipmart-demo/V5/product-detail.html">Product Detail</a></li>
         <li><a href="http://themesground.com/flipmart-demo/V5/shopping-cart.html">Shopping Cart</a></li>

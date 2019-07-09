@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-modal-bank',
@@ -23,6 +24,7 @@ export class ModalBankComponent implements OnInit {
 
   constructor(private rest: RestService,
               private fb: FormBuilder,
+              private utils: UtilsService,
               public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'payment_option': [null, Validators.compose([Validators.required])],
@@ -104,7 +106,10 @@ export class ModalBankComponent implements OnInit {
           this.emitBack();
           this.bsModalRef.hide();
         }
-      });
+      }).catch(err => {
+      this.loading = false;
+      this.utils.openSnackBar('Algo ocurrio', 'error');
+    });
   };
 
   getAct = (code) => {
@@ -120,6 +125,8 @@ export class ModalBankComponent implements OnInit {
 
       }).catch(err => {
       this.loading = false;
+      console.log('--->',err)
+      this.utils.openSnackBar(err.error.msg, 'error');
     });
   };
 

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {AuthshopService} from '../../../../auth/authshop.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-list-products',
@@ -13,7 +14,7 @@ export class ListProductsComponent implements OnInit {
   public data: any = {data: []};
   public user_data:any = null;
 
-  constructor(private rest: RestService, private auth: AuthshopService) {
+  constructor(private rest: RestService, private auth: AuthshopService,  private utils: UtilsService) {
   }
 
   ngOnInit() {
@@ -36,14 +37,14 @@ export class ListProductsComponent implements OnInit {
   deleteProduct = (id) => {
     this.rest.put(`/rest/products/${id}`,
       {
-        status: 'unavailable'
+        status: 'delete'
       })
       .then((response: any) => {
         this.loading = false;
-        // if (response['status'] === 'success') {
-        //   this.data = response['data'];
-        //
-        // }
+        if (response['status'] === 'success') {
+          this.data = response['data'];
+          this.utils.openSnackBar('Producto eliminado', 'success');
+        }
       });
   };
 

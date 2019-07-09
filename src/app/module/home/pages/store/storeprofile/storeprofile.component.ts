@@ -38,9 +38,10 @@ export class StoreprofileComponent implements OnInit {
     this.loading = true;
     this.rest.get(`/rest/shop/${id}`)
       .then((response: any) => {
+        console.log('---->',response)
         this.loading = false;
         if (response.status === 'success') {
-          this.data = {...this.data, ...response.data};
+          this.data = response.data;
         }
       });
   };

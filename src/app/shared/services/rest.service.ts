@@ -11,8 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class RestService {
   public headers: HttpHeaders;
   location_zip = '';
-  public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
-  //public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
+  //public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
+  public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 
   constructor(public http: HttpClient,
     private router: Router,

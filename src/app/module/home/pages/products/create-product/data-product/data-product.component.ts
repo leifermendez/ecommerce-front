@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
 import {AuthshopService} from '../../../../../auth/authshop.service';
+import {UtilsService} from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-data-product',
@@ -21,6 +22,7 @@ export class DataProductComponent implements OnInit {
   public user_data: any;
 
   constructor(private fb: FormBuilder, private rest: RestService, private router: Router,
+              private utils: UtilsService,
               private auth: AuthshopService) {
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
@@ -75,9 +77,14 @@ export class DataProductComponent implements OnInit {
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading_save = false;
+          this.utils.openSnackBar('Producto agregado', 'success');
           this.callback.emit(response['data']);
           this.router.navigateByUrl(`/products/edit/${response['data']['id']}/categories`);
         }
-      });
+      }).catch(err => {
+      this.loading = false;
+      this.loading_save = false;
+      this.utils.openModalSnack(err.error.error, 'error');
+    });
   };
 }

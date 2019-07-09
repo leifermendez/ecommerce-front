@@ -67,7 +67,13 @@
   left: 70% !important;
 }
 
-
+.profile-image{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
 .menu-account h5, .fl-links .no-js:hover .fl-nav-links .links a {
   color: black !important;

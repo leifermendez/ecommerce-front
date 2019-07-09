@@ -14,8 +14,6 @@ export class AuthshopService {
   public waiting: boolean;
   @Output() getLoggedInData: EventEmitter<any> = new EventEmitter();
 
-  nowCookies = moment().add(15, 'days').toDate();
-
   constructor(private rest: RestService,
               private utils: UtilsService,
               private router: Router,
@@ -31,6 +29,10 @@ export class AuthshopService {
 
   }
 
+  setExpirationTime = (minutes: any = 10) => {
+    return moment().add(minutes, 'minutes').toDate();
+  };
+
   public login(email: string, password: string, name: string = null): Promise<boolean> {
     return new Promise<boolean>(((resolve, reject) => {
       this.waiting = true;
@@ -42,14 +44,14 @@ export class AuthshopService {
             if (token) {
               this._currentUser = response.data;
               this._currentUser['menu_rol'] = 'user';
+              this._currentUser['exp_time'] = this.setExpirationTime(response.data['exp']);
               this.emitlogin(this._currentUser);
               this.cookieService.set(
                 '_currentUser',
                 JSON.stringify(response.data),
-                this.nowCookies,
+                this.setExpirationTime(response.data['exp']),
                 '/'
               );
-
               resolve(response.data);
             }
             resolve(false);
@@ -80,7 +82,7 @@ export class AuthshopService {
               this.cookieService.set(
                 '_currentUser',
                 JSON.stringify(response.data),
-                this.nowCookies,
+                this.setExpirationTime(response.data['exp']),
                 '/'
               );
 
@@ -111,29 +113,32 @@ export class AuthshopService {
   public validate(): Promise<string> {
     return new Promise<string>(((resolve, reject) => {
       this.waiting = true;
-      if (this.localtoken) {
+      const _tmp_current = this.getCurrentUser();
+      const _check = (_tmp_current['exp_time']) ? moment().isAfter(_tmp_current['exp_time']) : true;
+      console.log('--1--', _tmp_current);
+      console.log('--2--', _check);
+      if (_check) {
         this.rest.get('/auth').then(((response: any) => {
-          const _tmp_current = this.getCurrentUser();
-          _tmp_current['token'] = response.data;
+          _tmp_current['token'] = response.data['token'];
           this.cookieService.set(
             '_currentUser',
             JSON.stringify(_tmp_current),
-            this.nowCookies,
+            this.setExpirationTime(response.data['exp']),
             '/'
           );
-
+          this.utils.openSnackBar('Bienvenido de vuelta', 'success');
           this.waiting = false;
-          console.log('Second Validation');
-          resolve(response.message);
+          resolve(response);
+
         }).bind(this)).catch((error) => {
-          this.cleanSession();
+          this.logout();
           this.router.navigateByUrl('/login');
           this.waiting = false;
           reject(error.message);
         });
+
       } else {
-        this.cleanSession();
-        this.router.navigateByUrl('/login');
+        resolve(_tmp_current);
       }
     }).bind(this));
   }
@@ -174,7 +179,7 @@ export class AuthshopService {
       this.cookieService.set(
         '_currentUser',
         JSON.stringify(_parseCurrent),
-        this.nowCookies,
+        this.setExpirationTime(_parseCurrent['exp']),
         '/'
       );
 

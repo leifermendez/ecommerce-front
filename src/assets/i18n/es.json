@@ -5,6 +5,7 @@
   "menu.sell": "Soy un pequeño comercio",
   "menu.help": "Ayuda",
   "menu.signup": "Entrar",
+  "menu.hello": "Hola",
   "box_info.first": "<b>Ayudamos al</b> <b class='text-primary'>pequeño comercio</b> a competir con las grandes superficies con un transporte del producto con recogida y entrega en un tiempo medio de 1 hora.",
   "box_info.second": "<b>Fomentamos la economía</b> <b class='text-primary'>local</b> porque los productos se compran y se venden en tu misma ciudad.",
   "box_info.third": "<b>Transporte verde</b> porque los productos se entregan a una distancia máxima de <b class='text-primary'>10 Km</b>",
@@ -27,10 +28,10 @@
   "page.single.description": "Descripción",
   "page.single.shipping_time": "Si compras ahora, antes de 2 horas lo  recibirás",
   "global.payment_sentence": "El pago es seguro, sus coordenadas bancarias son encriptadas gracias al protocolo SSL.",
-  "modal.initial.customer.title":"Soy cliente",
-  "modal.initial.customer.button":"Continuar como cliente",
-  "modal.initial.shop.title":"Soy un pequeño comercio",
-  "modal.initial.shop.button":"Continuar como pequeño comercio ",
-  "modal.initial.customer.sentence":"<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
-  "modal.initial.shop.sentence":"<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora "
+  "modal.initial.customer.title": "Soy cliente",
+  "modal.initial.customer.button": "Continuar como cliente",
+  "modal.initial.shop.title": "Soy un pequeño comercio",
+  "modal.initial.shop.button": "Continuar como pequeño comercio ",
+  "modal.initial.customer.sentence": "<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
+  "modal.initial.shop.sentence": "<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora "
 }
