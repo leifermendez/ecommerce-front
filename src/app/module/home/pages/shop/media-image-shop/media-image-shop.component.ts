@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FileItem, HttpClientUploadService } from '@wkoza/ngx-upload';
+import {FileItem, HttpClientUploadService, InputFileOptions, MineTypeEnum} from '@wkoza/ngx-upload';
 import { RestService } from '../../../../../shared/services/rest.service';
 import { AuthshopService } from '../../../../auth/authshop.service';
 
@@ -16,7 +16,10 @@ export class MediaImageShopComponent implements OnInit {
     private rest: RestService,
     private auth: AuthshopService) {
   }
-
+  public optionsInput: InputFileOptions = {
+    multiple: true,
+    accept: [MineTypeEnum.Image]
+  };
   ngOnInit() {
     this.uploader.queue = [];
 

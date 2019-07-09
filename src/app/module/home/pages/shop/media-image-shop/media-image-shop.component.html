@@ -1,6 +1,6 @@
 <div class="block-header p-2" [ngStyle]="{'background-image':'url('+preview+')'}">
   <span *ngIf="!loading">
-      <span class="btn btn-outline-secondary btn-sm" *ngxInputFile>
+      <span class="btn btn-outline-secondary btn-sm" *ngxInputFile="optionsInput">
           <fa name="camera"></fa>
         </span>
   </span>

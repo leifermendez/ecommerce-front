@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FileItem, HttpClientUploadService} from '@wkoza/ngx-upload';
+import {FileItem, HttpClientUploadService, InputFileOptions, MineTypeEnum} from '@wkoza/ngx-upload';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {AuthshopService} from '../../../../auth/authshop.service';
 
@@ -11,13 +11,19 @@ import {AuthshopService} from '../../../../auth/authshop.service';
 export class AvatarUploadComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() preview = null;
+  public optionsInput: InputFileOptions = {
+    multiple: true,
+    accept: [MineTypeEnum.Image]
+  };
 
   constructor(public  uploader: HttpClientUploadService,
               private rest: RestService,
               private auth: AuthshopService) {
+
   }
 
   ngOnInit() {
+
     this.uploader.queue = [];
 
     this.uploader.onCancel$.subscribe(

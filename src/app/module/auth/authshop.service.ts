@@ -78,6 +78,7 @@ export class AuthshopService {
             if (token) {
               this._currentUser = response.data;
               this._currentUser['menu_rol'] = 'user';
+              this._currentUser['exp_time'] = this.setExpirationTime(response.data['exp']);
               this.emitlogin(this._currentUser);
               this.cookieService.set(
                 '_currentUser',
@@ -196,7 +197,6 @@ export class AuthshopService {
 
   public cleanSession() {
     this._currentUser = null;
-    this.rest.headers.delete('Authorization');
     localStorage.removeItem('currentUser');
     this.getLoggedInData.emit(null);
   }

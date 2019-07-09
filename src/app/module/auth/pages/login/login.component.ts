@@ -104,8 +104,6 @@ export class LoginComponent implements OnInit {
   }
 
   socialloginrest(data) {
-    delete data['avatar'];
-
     this.loading = true;
 
     this.auth.login_social(data).then(loged => {
