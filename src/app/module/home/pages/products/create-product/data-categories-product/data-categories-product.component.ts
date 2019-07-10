@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
+import {UtilsService} from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-data-categories-product',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 export class DataCategoriesProductComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() id: any = null;
+  @Input() data: any = {};
   public loading = false;
   public form: any = FormGroup;
   public loading_save = false;
@@ -19,11 +21,12 @@ export class DataCategoriesProductComponent implements OnInit {
   public categories: any = [];
 
   constructor(private fb: FormBuilder, private rest: RestService,
-    private router: Router) {
+              private router: Router, private utils: UtilsService) {
   }
 
   ngOnInit() {
     this.getCategories();
+    this.select_categories = this.data['categories'];
   }
 
   save_categories = () => {
@@ -36,9 +39,13 @@ export class DataCategoriesProductComponent implements OnInit {
         this.loading_save = false;
         if (response['status'] === 'success') {
           this.callback.emit(response['data']);
+          this.utils.openSnackBar('Actualizado', 'success');
           this.router.navigateByUrl(`/products/edit/${this.id}/gallery`);
         }
-      });
+      }).catch(err => {
+      this.loading = false;
+      this.utils.openSnackBar(err.error.msg, 'error');
+    });
   };
 
 

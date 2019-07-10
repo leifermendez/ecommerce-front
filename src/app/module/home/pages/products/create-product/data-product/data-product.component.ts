@@ -13,6 +13,7 @@ import {UtilsService} from '../../../../../../shared/services/util.service';
 export class DataProductComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() id: any = null;
+  @Input() data: any = {};
   public loading = false;
   public loading_save = false;
   public form: any = FormGroup;
@@ -34,8 +35,8 @@ export class DataProductComponent implements OnInit {
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.getShops();
-    if (this.id) {
-      this.loadData();
+    if (this.data) {
+      this.editform = {...this.editform, ...this.data};
     }
   }
 

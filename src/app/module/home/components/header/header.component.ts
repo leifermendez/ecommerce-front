@@ -21,11 +21,18 @@ export class HeaderComponent implements OnInit {
   public user_data: any = null;
   public number_items = 0;
   public activeLang = 'es';
+  private lat: any = null;
+  private lng: any = null;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
-      this.location = data[0];
+      console.log('headerrr', data);
+      this.location = data['zip_code'][0];
+      this.lat = data['customer_lat'];
+      this.lng = data['customer_lng'];
+      console.log('lat', this.lat);
+      console.log('lng', this.lng);
     });
 
     util.numberShopping.subscribe(data => {

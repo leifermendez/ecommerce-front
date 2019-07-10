@@ -185,6 +185,16 @@
         </owl-carousel>
       </div>
     </div>
+    <div *ngIf="data && !data.length" class="product-flexslider hidden-buttons">
+      <div class="not-results text-lg-center p-4 mt-4">
+
+        <div class="pt-4">
+          <img class="mr-3" src="../../../../../../assets/images/loupe.svg" width="30" height="30px" alt="">
+          <span class="title">No hay publicaciones que coincidan con tu ubicacion.</span>
+          <p class="text-muted">Se el primero en tu barrio en publicar!</p>
+        </div>
+      </div>
+    </div>
   </div>
 
 </section>

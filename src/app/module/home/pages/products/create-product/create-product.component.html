@@ -8,15 +8,18 @@
             <tabset #staticTabs>
               <tab heading="Producto" id="tab1">
                 <app-data-product
+                  *ngIf="data"
                   [id]="id"
+                  [data]="data"
                   (callback)="callback_data_categories($event)"
                   class="row">
                 </app-data-product>
               </tab>
               <tab heading="Categorias">
                 <app-data-categories-product
-                  *ngIf="id"
+                  *ngIf="data"
                   [id]="id"
+                  [data]="data"
                   (callback)="callback_data_variations($event)"
                   class="row">
                 </app-data-categories-product>

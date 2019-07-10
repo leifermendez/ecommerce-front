@@ -105,10 +105,10 @@ export class AuthshopService {
   public logout(): void {
     localStorage.clear();
     this.waiting = true;
-    this.cleanSession();
-    this.cookieService.delete('_currentUser');
-    this.cookieService.delete('_wizard_dashboard');
+    this.cookieService.delete('_currentUser', '/');
+    this.cookieService.delete('_wizard_dashboard', '/');
     this.utils.openSnackBar('Sesión finalizada', 'success');
+    this.cleanSession();
   }
 
   public validate(): Promise<string> {

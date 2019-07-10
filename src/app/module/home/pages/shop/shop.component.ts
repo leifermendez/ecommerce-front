@@ -31,7 +31,7 @@ export class ShopComponent implements OnInit {
   loadData = () => {
     this.user_data = this.auth.getCurrentUser();
     this.loading = true;
-    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
+    this.rest.get(`/rest/shop?limit=50&filters=users_id,=,${this.user_data['id']}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

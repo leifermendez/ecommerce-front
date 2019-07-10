@@ -110,3 +110,15 @@
   padding: 0 0 0 0;
   width: 25%;
 }
+
+.not-results{
+  background: white;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+}
+
+.not-results .title{
+  font-size: 1rem;
+}
+

@@ -17,6 +17,7 @@ export class ZipLocationComponent implements OnInit {
   public data: any[];
   public address: any;
   public msg: any;
+  private coordenades = {lat: null, lng: null};
   public buttonAvailable = false;
   loading = false;
   public optionsPlaces = {
@@ -47,6 +48,10 @@ export class ZipLocationComponent implements OnInit {
   });
 
   public handleAddressChange(address: Address) {
+    console.log('---->', address);
+    this.coordenades['lat'] = address.geometry.location.lat();
+    this.coordenades['lng'] = address.geometry.location.lng();
+
     this.getZipCode(address['address_components'])
       .then(zip_code => {
         this.zip_code = zip_code;
@@ -74,7 +79,21 @@ export class ZipLocationComponent implements OnInit {
               _cookie_data,
               this.nowCookies,
               '/');
-            this.util.getLocation.emit(this.data);
+            this.cookieService.set(
+              'customer_lat',
+              this.coordenades['lat'],
+              this.nowCookies,
+              '/');
+            this.cookieService.set(
+              'customer_lng',
+              this.coordenades['lng'],
+              this.nowCookies,
+              '/');
+            this.util.getLocation.emit({
+              zip_code: this.data,
+              customer_lat: this.coordenades['lat'],
+              customer_lng: this.coordenades['lng']
+            });
             this.bsModalRef.hide();
           } else {
             this.address = '';
