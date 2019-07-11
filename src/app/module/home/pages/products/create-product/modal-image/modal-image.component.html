@@ -1,0 +1,29 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Imagen</h5>
+    <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--      <span aria-hidden="true">&times;</span>-->
+    <!--    </button>-->
+  </div>
+
+  <div class="modal-body image">
+        <span *ngIf="!preview" class="position-absolute">
+              <span class="btn btn-outline-secondary btn-sm" *ngxInputFile="optionsInput">
+              Cambiar foto
+            </span>
+        </span>
+
+    <div *ngIf="preview" class="m-2" [ngxThumbnail]="preview"></div>
+    <img *ngIf="!preview" class="m-2" [src]="data['large']" alt="">
+  </div>
+  <div class="modal-footer">
+    <div class="container-fluid justify-content-between d-flex">
+      <button [disabled]="!preview" class="btn btn-outline-secondary btn-sm" (click)="remove()">Deshacer</button>
+      <button *ngIf="!loading_save" [disabled]="!preview" class="btn btn-primary btn-sm" (click)="save()">Guardar
+      </button>
+      <button *ngIf="loading_save" disabled class="btn btn-primary btn-sm">
+        <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+      </button>
+    </div>
+  </div>
+</div>

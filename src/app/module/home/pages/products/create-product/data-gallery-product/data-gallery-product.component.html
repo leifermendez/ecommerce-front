@@ -1,18 +1,43 @@
-<div class="block-dashboard-drop">
-  <ngx-dropzone [showPreviews]="true"
-                [accept]="'image/png,image/jpeg'"
-                #dropzone
-                [multiple]="true"
-                (filesAdded)="onFilesAdded($event)"
-                label="Arrastra y suelta los archivos que deseas subir"
-                class="custom-drop">
-  </ngx-dropzone>
-  <div class="text-right p-2">
-    <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>
-    <button class="btn btn-primary btn-sm" 
-    (click)="uploadSave()" [disabled]="loading_save" tabindex="0">
+<div class="block-dashboard">
+  <div class="card-header"><b>Agregar producto</b></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3 p-2 over-img" *ngFor="let img of data['gallery']">
+        <div class="d-flex m-1 position-absolute">
+          <button class="btn btn-link bg-transparent" (click)="open(img)" type="button">
+              <fa name="edit"></fa>
+          </button>
+          <button class="ml-1 btn btn-link bg-transparent" type="button">
+            <fa name="trash"></fa>
+          </button>
+        </div>
+        <img class="gallery-image" [src]="img['medium']" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-primary btn-sm" type="button" (click)="clear()" [disabled]="loading_save" tabindex="0">
       <fa *ngIf="!loading_save" name="save"></fa>
       <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
     </button>
   </div>
 </div>
+
+<!--<div class="block-dashboard-drop">-->
+<!--  <ngx-dropzone [showPreviews]="true"-->
+<!--                [accept]="'image/png,image/jpeg'"-->
+<!--                #dropzone-->
+<!--                [multiple]="true"-->
+<!--                (filesAdded)="onFilesAdded($event)"-->
+<!--                label="Arrastra y suelta los archivos que deseas subir"-->
+<!--                class="custom-drop">-->
+<!--  </ngx-dropzone>-->
+<!--  <div class="text-right p-2">-->
+<!--    <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>-->
+<!--    <button class="btn btn-primary btn-sm" -->
+<!--    (click)="uploadSave()" [disabled]="loading_save" tabindex="0">-->
+<!--      <fa *ngIf="!loading_save" name="save"></fa>-->
+<!--      <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->

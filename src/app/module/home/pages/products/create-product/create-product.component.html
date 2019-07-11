@@ -26,7 +26,8 @@
               </tab>
               <tab heading="Galeria">
                 <app-data-gallery-product
-                  *ngIf="id"
+                  *ngIf="data"
+                  [data]="data"
                   [id]="id">
                 </app-data-gallery-product>
               </tab>

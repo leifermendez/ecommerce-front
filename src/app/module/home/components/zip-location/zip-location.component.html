@@ -1,6 +1,6 @@
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title">Ubicación</h5>
+    <h5 class="modal-title">{{"modal.location.title" |translate}}</h5>
     <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
     <!--      <span aria-hidden="true">&times;</span>-->
     <!--    </button>-->
@@ -12,7 +12,7 @@
           <img src="../../../../../assets/images/scooter.svg" height="70px" alt="">
         </div>
         <div class="col-6 text-center text-muted">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, veritatis!</p>
+          <p>{{"modal.location.sentence" | translate}}</p>
         </div>
       </div>
 
@@ -34,9 +34,9 @@
 
 
 
-    <p class="text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, pariatur!</p>
-    <small *ngIf="msg" class="text-mute text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
-      tempora?
+    <p class="text-muted mt-2 form-text">{{"modal.location.label" |translate}}</p>
+    <small *ngIf="msg" class="text-mute text-danger font-weight-bold">
+      {{"modal.location.error1" | translate}}
     </small>
   </div>
   <div class="modal-footer">
@@ -44,13 +44,13 @@
       <div class="col-6 text-center">
         <a href="#" class="text-muted">
           <fa size="2x" name="map-marker"></fa>
-          <div>¿Lorem, ipsum.?</div>
+          <div>¿Necesitas ayuda?</div>
         </a>
       </div>
       <div class="col-6 text-center">
         <a href="#" class=" text-muted">
           <fa size="2x" name="question-circle"></fa>
-          <div>¿Lorem, ipsum.?</div>
+          <div>¿Como funciona?</div>
         </a>
       </div>
     </div>

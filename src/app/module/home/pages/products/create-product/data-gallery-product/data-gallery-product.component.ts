@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
+import {ZipLocationComponent} from '../../../../components/zip-location/zip-location.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ModalImageComponent} from '../modal-image/modal-image.component';
 
 @Component({
   selector: 'app-data-gallery-product',
@@ -11,21 +14,66 @@ import {Router} from '@angular/router';
 export class DataGalleryProductComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() id: any = null;
+  @Input() data: any = {gallery: []};
   public loading = false;
   public filesReady: any = [];
   public responseData: any = [];
   public loading_save = false;
+  modalRef: BsModalRef;
+  config = {
+    ignoreBackdropClick: false,
+    keyboard: true
+  };
 
   constructor(private httpClient: HttpClient, private rest: RestService,
-    private router: Router) {
+              private router: Router, private modalService: BsModalService) {
   }
 
   ngOnInit() {
   }
 
+  emitBack = () => this.ngOnInit();
+
+  setPreview = (data) => {
+    if (this.data) {
+      this.data['gallery'].find(a => {
+        if (a.id === data['id']) {
+          a = data;
+          return a;
+        }
+      });
+
+    }
+  };
+
+  open(data) {
+    const initialState = {
+      ignoreBackdropClick: false,
+      emitBack: this.emitBack,
+      data
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalImageComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
+
+  clear = () => {
+    this.loading_save = true;
+    this.rest.post(`/rest/clear-cache`, {})
+      .then((response: any) => {
+        this.loading_save = false;
+      });
+  };
+
   uploadSave = (variation_id = null) => {
 
-    if(this.filesReady.length){
+    if (this.filesReady.length) {
       this.loading = true;
       this.loading_save = true;
       this.filesReady.forEach(file => {

@@ -3,10 +3,28 @@
 }
 
 .block-dashboard {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  border: solid 1px #e6e6e6;
   display: block;
   padding: 0;
   background-color: white;
+}
+
+.gallery-image{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border: solid 1px #f3f3f3;
+}
+
+.panel-image{
+  z-index: 9;
+}
+
+.over-img:hover .gallery-image::after{
+  content: " ";
+  position: absolute;
+  top:0;
+  opacity: .4;
 }
 
 .timeline-item {

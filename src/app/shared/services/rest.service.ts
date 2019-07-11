@@ -84,6 +84,11 @@ export class RestService {
       {headers: this.getHeadersMedia()}).toPromise());
   }
 
+  putMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
+    return this.check(this.http.put(this.getUrl(endpoint, params), body,
+      {headers: this.getHeadersMedia()}).toPromise());
+  }
+
   put(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
     return this.check(this.http.put(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
   }

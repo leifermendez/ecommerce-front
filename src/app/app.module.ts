@@ -110,6 +110,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import {UiSwitchModule} from 'ngx-ui-switch';
 import { TabDayComponent } from './module/home/pages/shop/tab-day/tab-day.component';
 import { MediaImageShopComponent } from './module/home/pages/shop/media-image-shop/media-image-shop.component';
+import { ModalImageComponent } from './module/home/pages/products/create-product/modal-image/modal-image.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -210,6 +211,7 @@ export class MyIntl extends TimeagoIntl {
     SchedulesShopComponent,
     TabDayComponent,
     MediaImageShopComponent,
+    ModalImageComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -283,7 +285,8 @@ export class MyIntl extends TimeagoIntl {
     ZipLocationComponent,
     ModalBankComponent,
     ModalShippingComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ModalImageComponent
   ],
   bootstrap: [AppComponent]
 })
