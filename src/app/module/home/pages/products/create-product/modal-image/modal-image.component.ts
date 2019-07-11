@@ -11,6 +11,8 @@ export class ModalImageComponent implements OnInit {
   @Output() callback: EventEmitter<any> = new EventEmitter();
   public loading = false;
   public data: any = null;
+  public setPreview: any = null;
+  public index = null;
   public preview = null;
   public loading_save = false;
   public optionsInput: InputFileOptions = {
@@ -86,9 +88,9 @@ export class ModalImageComponent implements OnInit {
     this.uploader.onSuccess$.subscribe(
       (data: any) => {
         const _file = this.uploader.queue[0];
-        _file.remove();
+        if(_file) _file.remove();
         this.loading_save = false;
-        this.callback.emit(data['body']);
+        this.setPreview(data['body']['data'],this.index);
         console.log(`upload file successful:  ${data.item} ${data.body} ${data.status} ${data.headers}`);
       }
     );

@@ -44,7 +44,7 @@ website:   	http://www.themesground.com/
 }
 
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
-  height: 45vw;
+  /*height: 45vw;*/
 
 }
 
@@ -649,7 +649,7 @@ website:   	http://www.themesground.com/
   max-width: 100%;
   left: 0 !important;
   margin: auto !important;
-  height: 20vw;
+/*  height: 20vw;*/
 }
 
 #tmg-slideshow .col-lg-8 {

@@ -19,6 +19,7 @@ export class UtilsService {
   @Output() numberShopping: EventEmitter<any> = new EventEmitter();
   @Output() switchBar: EventEmitter<any> = new EventEmitter();
   @Output() updateProfile: EventEmitter<any> = new EventEmitter();
+  @Output() modeVideo: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService) {
   }

@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   public activeLang = 'es';
   private lat: any = null;
   private lng: any = null;
+  public modeOffset:any = false;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
@@ -33,6 +34,10 @@ export class HeaderComponent implements OnInit {
       this.lng = data['customer_lng'];
       console.log('lat', this.lat);
       console.log('lng', this.lng);
+    });
+
+    util.modeVideo.subscribe(data => {
+      this.modeOffset = data;
     });
 
     util.numberShopping.subscribe(data => {

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { RestService } from '../../../../../shared/services/rest.service';
+import { UtilsService } from '../../../../../shared/services/util.service';
 import { OwlCarousel } from 'ngx-owl-carousel';
 import { NgxEpicVideoPlayerComponent } from 'ngx-epic-video-player';
 import { VgAPI } from 'videogular2/core';
@@ -9,19 +10,33 @@ import { VgAPI } from 'videogular2/core';
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent implements OnInit, AfterViewInit {
   @ViewChild('owlElement') owlElement: OwlCarousel;
   @ViewChild('evp') evp: NgxEpicVideoPlayerComponent;
   public data: any;
   public optionsGallery: any;
+  public modeOffset: any = false;
+  public initialized: any = false;
+  public resized: any = false;
+  public videoApi: any = [];
   api: VgAPI;
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService, private util: UtilsService,
+    private elem: ElementRef) {
+    util.modeVideo.subscribe(data => {
+      this.modeOffset = data;
+    });
   }
 
+  modeVideo = (a) => this.util.modeVideo.emit(a);
 
   ngOnInit() {
-    this.optionsGallery = { items: 1, dots: false, navigation: true, autoplay: false, loop: false };
+    this.optionsGallery = {
+      items: 1,
+      dots: false, navigation: true, autoplay: false, loop: false,
+      onInitialized: this.onInitialized.bind(this),
+      onTranslated: this.onChanged.bind(this)
+    };
     this.rest.get('/rest/banners')
       .then((response: any) => {
         if (response['status'] === 'success') {
@@ -31,15 +46,40 @@ export class BannerComponent implements OnInit {
       });
   }
 
-  onPlayerReady(api: VgAPI) {
-    this.api = api;
+  ngAfterViewInit() {
+    // you'll get your through 'elements' below code
 
-  this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(
-    () => {
-      this.api.getDefaultMedia()['volume'] = 0;
-      this.api.play();
-      console.log(this.api)
-    });
+  }
+
+  onPlayerReady(api: VgAPI, index = null) {
+    if (index) {
+      this.videoApi[index] = api;
+      this.videoApi[index].getDefaultMedia().subscriptions.loadedMetadata.subscribe(
+        () => {
+          this.videoApi[index].getDefaultMedia()['volume'] = 0;
+          console.log(this.videoApi[index])
+        });
+    }
+  }
+
+  onResized = () => this.resized = true;
+
+  onInitialized = () => this.initialized = true;
+
+  onChanged = (a) => {
+    if (this.initialized) {
+      let elements = this.elem.nativeElement.querySelectorAll('.rev_slider .owl-stage-outer .owl-stage .active .item');
+      elements = (elements && elements[0]) ? elements[0] : null;
+      if (elements && elements.dataset) {
+        if(elements.dataset['mediaType'] === 'video'){
+          const index = elements.dataset['index'];
+          if(this.videoApi[index]) this.videoApi[index].play();
+        }else{
+          this.videoApi.map(a => a.pause())
+        }
+      }
+
+    }
   }
 
   play = () => this.evp.play();

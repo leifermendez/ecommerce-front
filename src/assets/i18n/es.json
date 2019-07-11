@@ -4,7 +4,7 @@
   "menu.shops": "Comercios cerca de ti",
   "menu.sell": "Soy un pequeño comercio",
   "menu.help": "Ayuda",
-  "menu.signup": "Entrar",
+  "menu.signup": "Entra / Registrate",
   "menu.hello": "Hola",
   "page.auth.login.hello": "Hola! Introduce tu email",
   "page.auth.login.subtitle": "Empieza a comprar y a vender de todo en apatxee. En 1 hora lo tendrás en tu casa !",
@@ -39,10 +39,11 @@
   "modal.initial.customer.sentence": "<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
   "modal.initial.shop.sentence": "<b>Apatxee</b> es la plataforma que le permite al pequeño comercio entregar los productos en un tiempo medio de 1 hora ",
   "page.shop.create.title": "Si eres un pequeño comercio empieza a vender en apatxee",
-  "page.shop.create.sentence": " introduce tu NIF de empresa  y nosotros lo verificaremos . Recibirás tus pagos a través de nuestra cuenta stripe para marketplace. Recuerda que te ofrecemos un servicio de recogida y entrega del  producto en 1 hora ! Tus clientes recibirán lo comprado en 1 hora !! Ánimo empieza!!",
-  "page.shop.create.label": "Introduce NIF",
+  "page.shop.create.sentence": "Introduce tu NIF de empresa  y nosotros lo verificaremos . Recibirás tus pagos a través de nuestra cuenta stripe para marketplace. Recuerda que te ofrecemos un servicio de recogida y entrega del  producto en 1 hora ! Tus clientes recibirán lo comprado en 1 hora !! Ánimo empieza!!",
+  "page.shop.create.label": "Introduce CIF o NIF",
+  "page.shop.create.header":"CIF o NIF",
   "modal.location.title": " Introduce tu calle , plaza, avenida etc",
   "modal.location.sentence": "Nos tienes que proporcionar tu calle para que te podamos mostrar los productos a la venta que tienes a tu alrededor ",
-  "modal.location.label": " Introduce una de las direcciones que te aparecen cuando empiezas a escribir . Tú dirección después ya te pediremos más datos de entrega.",
+  "modal.location.label": " Introduce una de las direcciones que te aparecen en el desplegable. Después te pediremos más datos de entrega",
   "modal.location.error1": "Ups, debes proporcionar una direccion valida."
 }

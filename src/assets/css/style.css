@@ -15612,6 +15612,31 @@ select#shipping-address-select {
   object-fit: cover;
 }
 
+.rev_slider vg-player{
+  height: 40vh; /*70*/
+}
+
+/*transform: translate(0, -70px);*/
+
+.tap-play-video-banner{
+  position: absolute;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  text-align: center;
+}
+
+.tap-play-video-banner .in{
+  background: white;
+  width: 100px;
+  margin: auto;
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+  min-height: 40px;
+}
+
 .select-create-product .ng-select-container, .select-create-category .ng-select-container {
   border-radius: 0px;
   border: 0px !important;

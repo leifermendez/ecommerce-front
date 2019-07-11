@@ -34,22 +34,21 @@ export class DataGalleryProductComponent implements OnInit {
 
   emitBack = () => this.ngOnInit();
 
-  setPreview = (data) => {
+  setPreview = (data,i) => {
+    console.log('index',i)
+    console.log('data',data)
     if (this.data) {
-      this.data['gallery'].find(a => {
-        if (a.id === data['id']) {
-          a = data;
-          return a;
-        }
-      });
-
+      this.data['gallery'][i] = data
     }
   };
 
-  open(data) {
+  open(data,i) {
+    console.log('index',i)
     const initialState = {
       ignoreBackdropClick: false,
       emitBack: this.emitBack,
+      setPreview:this.setPreview,
+      index:i,
       data
     };
 

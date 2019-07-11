@@ -15,12 +15,31 @@
       [options]="optionsGallery"
       [items]="data"
       [carouselClasses]="['owl-theme', 'sliding']">
-      <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
+      <div class="item cursor-pointer" [attr.data-media-type]="dat['media_type']"
+      [attr.data-index]="i"
+      *ngFor="let dat of data;let i = index">
+          <div class="tap-play-video-banner" *ngIf="dat['media_type'] === 'video'">
+              <div *ngIf="!modeOffset" class="in" (click)="modeVideo(true)">
+                <span>
+                  Vista 
+                  <fa name="play" size="2x"></fa>
+                </span>
+              </div>
+              <div *ngIf="modeOffset" class="in" (click)="modeVideo(false)">
+                  <span>
+                    NO 
+                    <fa name="play" size="2x"></fa>
+                  </span>
+                </div>
+            </div>
         <a [href]="dat['url']" target="_blank">
           <div class="thumbnail-image">
-            <vg-player *ngIf="dat['media_type']==='video'" class="video-banner" (onPlayerReady)="onPlayerReady($event)">
+            <vg-player *ngIf="dat['media_type']==='video'" 
+            data="video"
+            [style.height]="modeOffset ? '70vh' : auto"
+            class="video-banner" (onPlayerReady)="onPlayerReady($event, i)">
               <video controls [vgMedia]="media" muted #media id="singleVideo" class="video-box"
-                     preload="auto" autoplay="true">
+                     preload="auto">
                 <source
                   src="https://storage.googleapis.com/ecommerce-apatxee-v2.appspot.com/public/upload/products/video_mQvpOQzdDOqdTb57IF7V3DWSoNVDqSd4mBl.mp4/Ff48WwMRoIQRE30k9WUz7birrxzmmqcOVDxhA0t4.mp4"
                   type="video/mp4">

@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
+import {UtilsService} from '../../../../shared/services/util.service';
 import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {BannerComponent} from './banner/banner.component';
@@ -14,13 +15,16 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public modeOffset:any = false;
   public images: any;
   public data: any;
   public optionsGallery: any;
   bsModalRef: BsModalRef;
   constructor(private rest: RestService, private modalService: BsModalService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private util: UtilsService) {
+      util.modeVideo.subscribe(data => {
+        this.modeOffset = data;
+      });
   }
   modal() {
     const initialState = {
