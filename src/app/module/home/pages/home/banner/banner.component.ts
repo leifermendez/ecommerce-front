@@ -28,7 +28,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
     });
   }
 
-  modeVideo = (a) => this.util.modeVideo.emit(a);
+  modeVideo = (a = false) => this.util.modeVideo.emit(a);
 
   ngOnInit() {
     this.optionsGallery = {
@@ -37,6 +37,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
       onInitialized: this.onInitialized.bind(this),
       onTranslated: this.onChanged.bind(this),
       onRefreshed: this.onChanged.bind(this),
+      onTranslate : this.modeOffset = false,
     };
     this.rest.get('/rest/banners')
       .then((response: any) => {
@@ -74,19 +75,21 @@ export class BannerComponent implements OnInit, AfterViewInit {
       const _this = this;
       let elements = this.elem.nativeElement.querySelectorAll('.rev_slider .owl-stage-outer .owl-stage .active .item');
       setTimeout(function () {
-        console.log('aa', elements)
+      
         elements = (elements && elements[0]) ? elements[0] : null;
         if (elements && elements.dataset) {
           if (elements.dataset['mediaType'] === 'video') {
             const index = elements.dataset['index']; 
             console.log('aui',_this.videoApi)
-            if (_this.videoApi && _this.videoApi[index]) _this.videoApi[index].play();
+            _this.videoApi[index].play();
+            _this.modeVideo(true)
           } else {
             if (_this.videoApi) _this.videoApi.map(a => a.pause())
+           _this.modeVideo(false)
 
           }
-        }
-      }, 800); 
+        } 
+      }, 300);
     }
   }
 
