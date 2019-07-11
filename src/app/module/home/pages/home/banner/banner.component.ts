@@ -24,7 +24,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
   constructor(private rest: RestService, private util: UtilsService,
     private elem: ElementRef) {
     util.modeVideo.subscribe(data => {
-      this.modeOffset = data;
+      this.modeOffset = data; 
     });
   }
 
@@ -35,7 +35,8 @@ export class BannerComponent implements OnInit, AfterViewInit {
       items: 1,
       dots: false, navigation: true, autoplay: false, loop: false,
       onInitialized: this.onInitialized.bind(this),
-      onTranslated: this.onChanged.bind(this)
+      onTranslated: this.onChanged.bind(this),
+      onRefreshed: this.onChanged.bind(this),
     };
     this.rest.get('/rest/banners')
       .then((response: any) => {
@@ -52,33 +53,40 @@ export class BannerComponent implements OnInit, AfterViewInit {
   }
 
   onPlayerReady(api: VgAPI, index = null) {
-    if (index) {
+    console.log('read',typeof index)
+    if ((typeof index) === 'number') {
+      console.log('entre')
       this.videoApi[index] = api;
       this.videoApi[index].getDefaultMedia().subscriptions.loadedMetadata.subscribe(
         () => {
-          this.videoApi[index].getDefaultMedia()['volume'] = 0;
+          this.videoApi[index].getDefaultMedia()['volume'] = 0; 
           console.log(this.videoApi[index])
         });
     }
   }
 
-  onResized = () => this.resized = true;
+  onResized = () => this.resized = true; 
 
   onInitialized = () => this.initialized = true;
 
   onChanged = (a) => {
     if (this.initialized) {
+      const _this = this;
       let elements = this.elem.nativeElement.querySelectorAll('.rev_slider .owl-stage-outer .owl-stage .active .item');
-      elements = (elements && elements[0]) ? elements[0] : null;
-      if (elements && elements.dataset) {
-        if(elements.dataset['mediaType'] === 'video'){
-          const index = elements.dataset['index'];
-          if(this.videoApi[index]) this.videoApi[index].play();
-        }else{
-          this.videoApi.map(a => a.pause())
-        }
-      }
+      setTimeout(function () {
+        console.log('aa', elements)
+        elements = (elements && elements[0]) ? elements[0] : null;
+        if (elements && elements.dataset) {
+          if (elements.dataset['mediaType'] === 'video') {
+            const index = elements.dataset['index']; 
+            console.log('aui',_this.videoApi)
+            if (_this.videoApi && _this.videoApi[index]) _this.videoApi[index].play();
+          } else {
+            if (_this.videoApi) _this.videoApi.map(a => a.pause())
 
+          }
+        }
+      }, 800); 
     }
   }
 
