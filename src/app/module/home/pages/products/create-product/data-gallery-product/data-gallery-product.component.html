@@ -1,17 +1,22 @@
-<div class="block-dashboard">
+<div class="block-dashboard" *ngIf="!show_drag">
   <div class="card-header"><b>Agregar producto</b></div>
   <div class="container">
     <div class="row">
       <div class="col-3 p-2 over-img" *ngFor="let img of data['gallery']; let index = index">
         <div class="d-flex m-1 position-absolute">
           <button class="btn btn-link bg-transparent" (click)="open(img, index)" type="button">
-              <fa name="edit"></fa>
+            <fa name="edit"></fa>
           </button>
-          <button class="ml-1 btn btn-link bg-transparent" type="button">
+          <button class="ml-1 btn btn-link bg-transparent pull-left"
+                  (click)="confirmDelete(img['id'], index)" type="button">
             <fa name="trash"></fa>
           </button>
         </div>
         <img class="gallery-image" [src]="img['medium']" alt="">
+      </div>
+      <div class="col-3 p-2 over-img">
+        <div class="placeholder-add" (click)="switchDrag(true)">
+        </div>
       </div>
     </div>
   </div>
@@ -23,21 +28,31 @@
   </div>
 </div>
 
-<!--<div class="block-dashboard-drop">-->
-<!--  <ngx-dropzone [showPreviews]="true"-->
-<!--                [accept]="'image/png,image/jpeg'"-->
-<!--                #dropzone-->
-<!--                [multiple]="true"-->
-<!--                (filesAdded)="onFilesAdded($event)"-->
-<!--                label="Arrastra y suelta los archivos que deseas subir"-->
-<!--                class="custom-drop">-->
-<!--  </ngx-dropzone>-->
-<!--  <div class="text-right p-2">-->
-<!--    <button class="btn btn-default btn-sm" (click)="dropzone.reset()">Reset</button>-->
-<!--    <button class="btn btn-primary btn-sm" -->
-<!--    (click)="uploadSave()" [disabled]="loading_save" tabindex="0">-->
-<!--      <fa *ngIf="!loading_save" name="save"></fa>-->
-<!--      <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="block-dashboard " *ngIf="show_drag">
+  <div class="card-header"><b>Agregar producto</b></div>
+  <div class="container">
+    <ngx-dropzone [showPreviews]="true"
+                  [accept]="'image/png,image/jpeg'"
+                  #dropzone
+                  [multiple]="true"
+                  (filesAdded)="onFilesAdded($event)"
+                  label="Arrastra y suelta los archivos que deseas subir"
+                  class="custom-drop">
+    </ngx-dropzone>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-default pull-left" (click)="switchDrag(false)" type="button">
+      Volver
+    </button>
+    <button class="btn btn-default ml-2"
+            *ngIf="this.filesReady && this.filesReady.length"
+            (click)="clearImages()">Limpiar
+    </button>
+    <button class="btn btn-primary ml-2"
+            (click)="uploadSave()" [disabled]="loading_save" tabindex="0">
+      <fa *ngIf="!loading_save" name="save"></fa>
+      <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+    </button>
+  </div>
+
+</div>

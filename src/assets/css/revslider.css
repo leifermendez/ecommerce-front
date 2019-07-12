@@ -788,10 +788,14 @@ website:   	http://www.themesground.com/
 .fullwidthabanner .nav-buttons {
   position: absolute;
   z-index: 999;
-  top: 15vh;
+  top: 10rem;
   display: flex;
   opacity: .3;
   width: 100%;
+}
+
+.offset-margin-video .fullwidthabanner .nav-buttons{
+  top: 15rem !important;
 }
 
 .fullwidthabanner .nav-buttons .btn{
@@ -823,8 +827,12 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
   width: 100%;
-  height: 45vw;
-  max-height: 20vw;
+  height: 25rem;
+  max-height: 35rem;
   background-color: lightgray;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 

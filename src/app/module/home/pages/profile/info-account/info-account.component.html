@@ -24,23 +24,23 @@
     </div>
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
-    <div class="card-header"><b>Datos de cuenta</b></div>
+    <div class="card-header"><b>{{"block.profile.info.account.title" | translate}}</b></div>
     <div class="col p-3 min-height-300">
       <div class="form-group">
-        <label>Email</label>
+        <label>{{"block.profile.info.account.email" | translate}}</label>
         <input type="text" formControlName="email" readonly class="form-control" [(ngModel)]="editform.email"
                placeholder="¿Como es tu email?">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+          {{"block.profile.info.account.email.label" | translate}}
         </small>
       </div>
 
       <div class="form-group">
-        <label>Código referido</label>
+        <label>{{"block.profile.info.account.referer" |translate}}</label>
         <input type="text" formControlName="referer_code" readonly class="form-control"
                [(ngModel)]="editform.referer_code">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+          {{"block.profile.info.account.referer.label" |translate}}
         </small>
       </div>
       <div *ngIf="!waitCode" class="form-group">
@@ -50,7 +50,7 @@
           <ng-template #tolTemplate>
             <button class="d-none button-hide-tooltip" type="button" (click)="pop.hide()">close</button>
             <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, facere?</p>
+              <p>{{"block.profile.info.account.code.label" | translate}}</p>
             </div>
           </ng-template>
           <span [tooltip]="tolTemplate"
@@ -61,10 +61,10 @@
                 (onHidden)="util.hiddenTool()">
             <fa name="exclamation-triangle" class="text-danger"></fa>
           </span>
-          Telefono</label>
-        <label *ngIf="editform['confirmed']">Telefono</label>
+          {{"block.profile.info.account.mobi" | translate}}</label>
+        <label *ngIf="editform['confirmed']">{{"block.profile.info.account.mobil" | translate}}</label>
         <input type="tel"
-               formControlName="phone" [(ngModel)]="editform.phone" class="form-control"
+               formControlName="phone" [(ngModel)]="editform['phone']" class="form-control"
                placeholder="+34 Ingresa un numero de movil válido">
         <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
           tenetur.

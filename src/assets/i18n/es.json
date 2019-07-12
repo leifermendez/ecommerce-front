@@ -41,9 +41,16 @@
   "page.shop.create.title": "Si eres un pequeño comercio empieza a vender en apatxee",
   "page.shop.create.sentence": "Introduce tu NIF de empresa  y nosotros lo verificaremos . Recibirás tus pagos a través de nuestra cuenta stripe para marketplace. Recuerda que te ofrecemos un servicio de recogida y entrega del  producto en 1 hora ! Tus clientes recibirán lo comprado en 1 hora !! Ánimo empieza!!",
   "page.shop.create.label": "Introduce CIF o NIF",
-  "page.shop.create.header":"CIF o NIF",
+  "page.shop.create.header": "CIF o NIF",
   "modal.location.title": " Introduce tu calle , plaza, avenida etc",
   "modal.location.sentence": "Nos tienes que proporcionar tu calle para que te podamos mostrar los productos a la venta que tienes a tu alrededor ",
   "modal.location.label": " Introduce una de las direcciones que te aparecen en el desplegable. Después te pediremos más datos de entrega",
-  "modal.location.error1": "Ups, debes proporcionar una direccion valida."
+  "modal.location.error1": "Ups, debes proporcionar una direccion valida.",
+  "block.profile.info.account.title": "Datos de cuenta",
+  "block.profile.info.account.email": "Email",
+  "block.profile.info.account.email.label": "Introduce un email valido",
+  "block.profile.info.account.referer": "Código de comercial",
+  "block.profile.info.account.code.label": "Introduce el código SMS",
+  "block.profile.info.account.mobil": "Número movil",
+  "block.profile.info.account.referer.label": "Este código de comercial..."
 }

@@ -86,6 +86,10 @@
 header {
   box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
   border-bottom-width: 2px;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 .offset-margin-video{

@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { RestService } from '../../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../../shared/services/util.service';
-import { OwlCarousel } from 'ngx-owl-carousel';
-import { NgxEpicVideoPlayerComponent } from 'ngx-epic-video-player';
-import { VgAPI } from 'videogular2/core';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
+import {OwlCarousel} from 'ngx-owl-carousel';
+import {NgxEpicVideoPlayerComponent} from 'ngx-epic-video-player';
+import {VgAPI} from 'videogular2/core';
 
 @Component({
   selector: 'app-banner',
@@ -22,9 +22,9 @@ export class BannerComponent implements OnInit, AfterViewInit {
   api: VgAPI;
 
   constructor(private rest: RestService, private util: UtilsService,
-    private elem: ElementRef) {
+              private elem: ElementRef) {
     util.modeVideo.subscribe(data => {
-      this.modeOffset = data; 
+      this.modeOffset = data;
     });
   }
 
@@ -37,7 +37,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
       onInitialized: this.onInitialized.bind(this),
       onTranslated: this.onChanged.bind(this),
       onRefreshed: this.onChanged.bind(this),
-      onTranslate : this.modeOffset = false,
+      onTranslate: this.modeOffset = false,
     };
     this.rest.get('/rest/banners')
       .then((response: any) => {
@@ -54,19 +54,19 @@ export class BannerComponent implements OnInit, AfterViewInit {
   }
 
   onPlayerReady(api: VgAPI, index = null) {
-    console.log('read',typeof index)
+    console.log('read', typeof index);
     if ((typeof index) === 'number') {
-      console.log('entre')
+      console.log('entre');
       this.videoApi[index] = api;
       this.videoApi[index].getDefaultMedia().subscriptions.loadedMetadata.subscribe(
         () => {
-          this.videoApi[index].getDefaultMedia()['volume'] = 0; 
-          console.log(this.videoApi[index])
+          this.videoApi[index].getDefaultMedia()['volume'] = 0;
+          console.log(this.videoApi[index]);
         });
     }
   }
 
-  onResized = () => this.resized = true; 
+  onResized = () => this.resized = true;
 
   onInitialized = () => this.initialized = true;
 
@@ -75,23 +75,25 @@ export class BannerComponent implements OnInit, AfterViewInit {
       const _this = this;
       let elements = this.elem.nativeElement.querySelectorAll('.rev_slider .owl-stage-outer .owl-stage .active .item');
       setTimeout(function () {
-      
+
         elements = (elements && elements[0]) ? elements[0] : null;
         if (elements && elements.dataset) {
           if (elements.dataset['mediaType'] === 'video') {
-            const index = elements.dataset['index']; 
-            console.log('aui',_this.videoApi)
+            const index = elements.dataset['index'];
+            console.log('aui', _this.videoApi);
             _this.videoApi[index].play();
-            _this.modeVideo(true)
+            _this.modeVideo(true);
           } else {
-            if (_this.videoApi) _this.videoApi.map(a => a.pause())
-           _this.modeVideo(false)
+            if (_this.videoApi) {
+              _this.videoApi.map(a => a.pause());
+            }
+            _this.modeVideo(false);
 
           }
-        } 
-      }, 300);
+        }
+      }, 800);
     }
-  }
+  };
 
   play = () => this.evp.play();
 

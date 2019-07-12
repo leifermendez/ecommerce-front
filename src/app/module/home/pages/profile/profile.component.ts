@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   };
   public data: any = {};
   public welcome: any = false;
+  currentUser: any = null;
 
   constructor(private modalService: BsModalService,
               private cookieService: CookieService,
@@ -44,6 +45,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.welcome = this.cookieService.get('_wizard_dashboard');
+    this.currentUser = this.auth.getCurrentUser();
     if (!this.welcome) {
       this.open();
     }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
-import { ZipLocationComponent } from './module/home/components/zip-location/zip-location.component';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
+import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
+import {TranslateService} from '@ngx-translate/core';
+import {UtilsService} from './shared/services/util.service';
 
 
 @Component({
@@ -22,9 +23,12 @@ export class AppComponent implements OnInit {
   cookie_zip_code = null;
   loading = false;
   public activeLang = 'es';
-  constructor(private modalService: BsModalService, private router: Router, private translate: TranslateService,
-    private cookieService: CookieService) {
+
+  constructor(private modalService: BsModalService, private util: UtilsService,
+              private router: Router, private translate: TranslateService,
+              private cookieService: CookieService) {
     router.events.subscribe((event: RouterEvent) => {
+      this.util.modeVideo.emit(false)
       this.navigationInterceptor(event);
     });
 
@@ -42,9 +46,9 @@ export class AppComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       ZipLocationComponent,
-      Object.assign({ initialState }, {
-        class: 'gray modal-lg top-modal box-shadow-modal'
-      },
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';

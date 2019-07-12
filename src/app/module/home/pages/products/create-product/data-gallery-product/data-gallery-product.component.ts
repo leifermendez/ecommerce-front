@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
 import {ZipLocationComponent} from '../../../../components/zip-location/zip-location.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalImageComponent} from '../modal-image/modal-image.component';
+import {UtilsService} from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-data-gallery-product',
@@ -12,6 +13,7 @@ import {ModalImageComponent} from '../modal-image/modal-image.component';
   styleUrls: ['./data-gallery-product.component.css']
 })
 export class DataGalleryProductComponent implements OnInit {
+  @ViewChild('dropzone') dropzone: ElementRef;
   @Output() callback = new EventEmitter<any>();
   @Input() id: any = null;
   @Input() data: any = {gallery: []};
@@ -19,6 +21,7 @@ export class DataGalleryProductComponent implements OnInit {
   public filesReady: any = [];
   public responseData: any = [];
   public loading_save = false;
+  public show_drag = false;
   modalRef: BsModalRef;
   config = {
     ignoreBackdropClick: false,
@@ -26,7 +29,8 @@ export class DataGalleryProductComponent implements OnInit {
   };
 
   constructor(private httpClient: HttpClient, private rest: RestService,
-              private router: Router, private modalService: BsModalService) {
+              private router: Router, private modalService: BsModalService,
+              private util: UtilsService) {
   }
 
   ngOnInit() {
@@ -34,21 +38,41 @@ export class DataGalleryProductComponent implements OnInit {
 
   emitBack = () => this.ngOnInit();
 
-  setPreview = (data,i) => {
-    console.log('index',i)
-    console.log('data',data)
+  setPreview = (data, i) => {
     if (this.data) {
-      this.data['gallery'][i] = data
+      this.data['gallery'][i] = data;
     }
   };
 
-  open(data,i) {
-    console.log('index',i)
+  clearImages = () => {
+    // @ts-ignore
+    this.dropzone.reset();
+    this.filesReady = [];
+  };
+
+  switchDrag = (a) => this.show_drag = a;
+
+  confirmDelete = (id = null, index = null) => {
+    this.util.openConfirm('¿Estas seguro?')
+      .then(a => {
+        this.rest.delete(`/rest/media/${id}`)
+          .then((response: any) => {
+            this.loading_save = false;
+            this.data['gallery'].splice(index, 1);
+          });
+      })
+      .catch(e => {
+        console.log('ERRO');
+      });
+  };
+
+  open(data, i) {
+    console.log('index', i);
     const initialState = {
       ignoreBackdropClick: false,
       emitBack: this.emitBack,
-      setPreview:this.setPreview,
-      index:i,
+      setPreview: this.setPreview,
+      index: i,
       data
     };
 
@@ -87,7 +111,7 @@ export class DataGalleryProductComponent implements OnInit {
             (res) => {
               this.loading = false;
               this.loading_save = true;
-              // this.responseData.push(res['data']['id']);
+              this.data['gallery'].push(res['data']);
               this.updateItem(res['data']['id'], variation_id);
             },
             (err) => {
@@ -111,7 +135,8 @@ export class DataGalleryProductComponent implements OnInit {
     this.rest.post(`/rest/product-media`, _data)
       .then((response: any) => {
         this.loading_save = false;
-        this.router.navigateByUrl(`/products/edit/${this.id}/variations`);
+        this.show_drag = false;
+        // this.router.navigateByUrl(`/products/edit/${this.id}/variations`);
       });
   };
 

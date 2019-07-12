@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { settings } from '../settings';
+import {Injectable, EventEmitter, Output} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
+import {settings} from '../settings';
 
 declare var $: any;
 
@@ -25,9 +25,9 @@ export class UtilsService {
   }
 
   openModalSnack = (message: string,
-    action: string,
-    details: any = null,
-    duration: number = 5000, ) => {
+                    action: string,
+                    details: any = null,
+                    duration: number = 5000,) => {
     if (action === 'success') {
       Swal.fire({
         type: 'success',
@@ -46,7 +46,29 @@ export class UtilsService {
       });
     }
 
-  }
+  };
+
+  openConfirm = (title = null) => new Promise((resolve, reject) => {
+    Swal.fire({
+      title,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Eliminado!',
+          '',
+          'success'
+        );
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    }).catch(e => reject(false));
+  });
 
   openSnackBar(message: string, action: string, duration: number = 5000) {
 

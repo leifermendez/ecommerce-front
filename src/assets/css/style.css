@@ -1108,6 +1108,7 @@ background-color: #fff;
 #nav > li > a > span {
   display: inline-block;
   padding: 0 15px;
+  text-shadow: 0 0 5px white;
 }
 
 #nav > li > a:hover > span {
@@ -1200,6 +1201,15 @@ classic: custom block drop-down box */
   margin: 10px 0;
 }
 
+.swal2-modal {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 10% !important;
+}
+
+.swal2-container.swal2-shown {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
 /* Caret */
 #nav a.level-top .caret {
   display: inline-block;
@@ -5630,9 +5640,11 @@ text-transform: uppercase
   font-size: 80% !important;
   color: #090809;
 }
-.swal2-popup{
+
+.swal2-popup {
   border-radius: 3px !important;
 }
+
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-title a:hover {
   color: #ce0000;
 }
@@ -13678,6 +13690,13 @@ button.button span span {
   margin: 0px;
 }
 
+.owl-theme {
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
 .category-description .small-tag {
   font-size: 15px;
   display: block;
@@ -15281,7 +15300,7 @@ select#shipping-address-select {
   font-weight: 600 !important;
 }
 
-.time-picker-css input{
+.time-picker-css input {
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -15292,7 +15311,7 @@ select#shipping-address-select {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   border-top: 0;
   border-radius: 0;
   border-left: 0;
@@ -15301,7 +15320,7 @@ select#shipping-address-select {
   border-bottom-width: 1px;
 }
 
-.time-picker-css button{
+.time-picker-css button {
   background: transparent;
   border: 0;
 }
@@ -15612,13 +15631,13 @@ select#shipping-address-select {
   object-fit: cover;
 }
 
-.rev_slider vg-player{
+.rev_slider vg-player {
   height: 40vh; /*70*/
 }
 
 /*transform: translate(0, -70px);*/
 
-.tap-play-video-banner{
+.tap-play-video-banner {
   position: absolute;
   bottom: 0;
   z-index: 9;
@@ -15626,7 +15645,7 @@ select#shipping-address-select {
   text-align: center;
 }
 
-.tap-play-video-banner .in{
+.tap-play-video-banner .in {
   background: white;
   width: 100px;
   margin: auto;
@@ -15843,9 +15862,11 @@ select#shipping-address-select {
 .single .ngxImageZoomContainer img {
   object-fit: contain;
 }
-.swal2-popup.swal2-toast{
+
+.swal2-popup.swal2-toast {
   background: #fff !important;
 }
+
 html {
   scroll-behavior: smooth;
 
