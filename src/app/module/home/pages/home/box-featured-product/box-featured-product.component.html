@@ -69,7 +69,7 @@
     </div>
   </div>
   <div *ngIf="!loading" class="best-pro slider-items-products">
-    <div class="new_title">
+    <div class="new_title" *ngIf="title">
       <h2>{{title}}</h2>
     </div>
     <div *ngIf="data && data.length" id="best-seller" class="product-flexslider hidden-buttons">
@@ -86,7 +86,7 @@
               class="box-buttons-top-product">
               <button id="btn-car" [ngClass]="{'btn-primary':!loading_save, 'btn-default':loading_save}" class="btn"
                       [disabled]="loading_save"
-                      type="button" (click)="addProduct(dat)">
+                      type="button" (click)="open(dat)">
                 <fa *ngIf="!loading_save" name="cart-plus" size="lg"></fa>
                 <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
               </button>

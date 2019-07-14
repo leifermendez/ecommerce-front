@@ -8,6 +8,8 @@ import * as moment from 'moment';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
 import {AuthshopService} from '../../../../auth/authshop.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ModalShoppingComponent } from '../../../components/modal-shopping/modal-shopping.component';
 
 
 @Component({
@@ -19,6 +21,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   @Input() title: any = null;
   @Input() w: any = '245px';
+  @Input() h: any = '300px';
   @Input() items: any = 4;
   @Input() limit: any = 6;
   public data: any[];
@@ -26,13 +29,15 @@ export class BoxFeaturedProductComponent implements OnInit {
   public user_data: any = null;
   public loading: any = false;
   public loading_save: any = false;
+  config = {};
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-
+  modalRef: BsModalRef;
   constructor(private rest: RestService, intl: TimeagoIntl,
               private util: UtilsService,
               private auth: AuthshopService,
-              private shopping: ShoppingCartComponent) {
+              private shopping: ShoppingCartComponent,
+              private modalService: BsModalService) {
     intl.strings = englishStrings;
     intl.changes.next();
     auth.getLoggedInData.subscribe(data => {
@@ -61,6 +66,25 @@ export class BoxFeaturedProductComponent implements OnInit {
         }
       });
   };
+
+  emitBack = () => this.ngOnInit();
+
+  open(data) {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      data
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalShoppingComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
 
   addProduct = (obj) => {
     const _data = {
@@ -98,7 +122,7 @@ export class BoxFeaturedProductComponent implements OnInit {
     this.galleryOptions = [
       {
         width: this.w,
-        height: '300px',
+        height: this.h,
         thumbnails: false,
         'preview': false,
         'arrowPrevIcon': 'fa fa-angle-left',

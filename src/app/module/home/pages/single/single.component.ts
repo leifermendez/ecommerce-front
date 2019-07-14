@@ -1,9 +1,11 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute} from '@angular/router';
 import {DiscountNumberComponent} from '../../components/discount-number/discount-number.component';
+import { ModalShoppingComponent } from '../../components/modal-shopping/modal-shopping.component';
 
 @Component({
   selector: 'app-single',
@@ -15,6 +17,8 @@ export class SingleComponent implements OnInit {
   data: any = {
     gallery: []
   };
+  config = {};
+  modalRef: BsModalRef;
   loading = false;
   loading_save = false;
   cover: any = null;
@@ -26,7 +30,8 @@ export class SingleComponent implements OnInit {
 
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private modalService: BsModalService) {
     this.util.refreshShopping.subscribe(data => {
       if (data) {
         this.loading_save = false;
@@ -66,6 +71,25 @@ export class SingleComponent implements OnInit {
         }
       });
   };
+
+  emitBack = () => this.ngOnInit();
+
+  open(data) {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      data
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalShoppingComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
 
   changeVariation = () => this.discountChild.init();
 

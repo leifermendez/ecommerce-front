@@ -1,0 +1,147 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div *ngIf="!loading_save">
+      <h5 class="modal-title" *ngIf="!error">
+        <fa name="check-circle" class="text-success"></fa>
+        Item agregado
+      </h5>
+      <h5 class="modal-title" *ngIf="error">
+        <fa name="exclamation" class="text-danger"></fa>
+        {{error | translate}}
+      </h5>
+    </div>
+
+    <button type="button" class="close" data-dismiss="modal" (click)="bsModalRef.hide()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div *ngIf="loading_save" class="best-pro slider-items-products container">
+      <div class="CollectionGrid container min-height-300">
+        <div class="CollectionGrid-tile hover-overlay-light">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 150px">
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="CollectionGrid-tile hover-overlay-light">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 150px">
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="CollectionGrid-tile hover-overlay-light">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 150px">
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="CollectionGrid-tile hover-overlay-light">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 150px">
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="CollectionGrid-tile hover-overlay-light">
+          <div class="timeline-item">
+            <div class="animated-background" style="height: 150px">
+            </div>
+            <div class="animated-background mt-3" style="height: 40px">
+              <div class="background-masker header-top"></div>
+              <div class="background-masker header-left"></div>
+              <div class="background-masker header-right"></div>
+              <div class="background-masker header-bottom"></div>
+              <div class="background-masker subheader-left"></div>
+              <div class="background-masker subheader-right"></div>
+              <div class="background-masker subheader-bottom"></div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="!loading_save">
+      <div class="container" *ngIf="error === 'user not confirmed'">
+        <div class="row pt-2 pb-2">
+          <div class="col-6 text-center">
+            <img src="../../../../../assets/images/message-on-phone.svg" height="70px" alt="">
+          </div>
+          <div class="col-6 text-center text-muted">
+            <p [innerHTML]="'modal.cart.shopping.not_confirmed' |translate"></p>
+          </div>
+        </div>
+      </div>
+      <div class="container" *ngIf="error === 'not available'">
+          <div class="row pt-2 pb-2">
+            <div class="col-6 text-center">
+              <img src="../../../../../assets/images/calendar.svg" height="70px" alt="">
+            </div>
+            <div class="col-6 text-center text-muted">
+              <p [innerHTML]="'modal.cart.shopping.not_available' |translate"></p>
+            </div>
+          </div>
+        </div>
+      <app-box-featured-product *ngIf="!error" [title]="'People also bought'" w="200px" h="220px" id='offers'>
+      </app-box-featured-product>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="container-fluid d-flex">
+      <div class="col-6 text-center">
+        <a href="#" class="text-muted">
+          <fa size="2x" name="map-marker"></fa>
+          <div>¿Necesitas ayuda?</div>
+        </a>
+      </div>
+      <div class="col-6 text-center">
+        <a href="#" class=" text-muted">
+          <fa size="2x" name="question-circle"></fa>
+          <div>¿Como funciona?</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

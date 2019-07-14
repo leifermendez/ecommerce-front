@@ -15867,6 +15867,18 @@ select#shipping-address-select {
   background: #fff !important;
 }
 
+app-modal-shopping #best-seller .owl-item .item {
+  border-width: 0px !important;
+}
+
+app-modal-shopping .CollectionGrid-tile, app-modal-shopping .CollectionGrid{
+  border-width: 0px !important;
+  margin-top: 0px !important;
+}
+app-modal-shopping .CollectionGrid-tile{
+  padding: 0px !important
+}
+
 html {
   scroll-behavior: smooth;
 

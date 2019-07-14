@@ -61,13 +61,13 @@
                 (onHidden)="util.hiddenTool()">
             <fa name="exclamation-triangle" class="text-danger"></fa>
           </span>
-          {{"block.profile.info.account.mobi" | translate}}</label>
+          {{"block.profile.info.account.mobil" | translate}}</label>
         <label *ngIf="editform['confirmed']">{{"block.profile.info.account.mobil" | translate}}</label>
         <input type="tel"
                formControlName="phone" [(ngModel)]="editform['phone']" class="form-control"
                placeholder="+34 Ingresa un numero de movil válido">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+          {{"block.profile.info.account.mobil.label" | translate}}
         </small>
       </div>
 

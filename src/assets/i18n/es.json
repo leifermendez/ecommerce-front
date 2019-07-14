@@ -52,5 +52,11 @@
   "block.profile.info.account.referer": "Código de comercial",
   "block.profile.info.account.code.label": "Introduce el código SMS",
   "block.profile.info.account.mobil": "Número movil",
-  "block.profile.info.account.referer.label": "Este código de comercial..."
+  "block.profile.info.account.referer.label": "Comparte tu codigo de comercial comienza a ganar",
+  "block.profile.info.account.mobil.label": "Introduce un número valido",
+  "modal.cart.shopping.item_add":"Item añadido",
+  "modal.cart.shopping.not_confirmed":"Ups! aún no haz confirmador tu cuenta. Para continuar deberás <a href='/profile'>confirmar tu cuenta</a>",
+  "modal.cart.shopping.not_available":"El producto no se encuentra disponible en este momento. Puedes intentarlo en otro momento",
+  "user not confirmed" :"Usuario no confirmado",
+  "not available": "No disponible"
 }
