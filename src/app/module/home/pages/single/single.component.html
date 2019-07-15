@@ -5,12 +5,12 @@
         <div class="container">
           <div class="row">
             <div>
-              <ul>
-                <li class="home"><a href="index.html" title="Go to Home Page">Home</a> <span>&rsaquo; </span></li>
-                <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
-                <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
-                <li class="category1601"><strong>Retis lapen casen</strong></li>
-              </ul>
+              <ul *ngIf="data && data['categories']">
+                <li class="category1599"><a href="grid.html" title="">Inicio</a> <span>&rsaquo; </span></li>
+              <li *ngFor="let c of data['categories']" class="home">
+                <a href="index.html" title="Go to Home Page">{{c['name']}}</a> <span>&rsaquo; </span>
+              </li>
+            </ul>
             </div>
           </div>
         </div>
