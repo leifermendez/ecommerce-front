@@ -1,0 +1,100 @@
+<form [formGroup]="form" (submit)="save_variation()">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h5 class="modal-title">
+          Agregar variacion
+        </h5>
+      </div>
+
+      <button type="button" class="close" data-dismiss="modal" (click)="bsModalRef.hide()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <div>
+        <div class="form-group">
+          <label>Etiqueta</label>
+          <input type="text" formControlName="label" class="form-control" [(ngModel)]="editform.label"
+                 placeholder="Talla Media">
+          <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit.
+            Sequi,
+            tenetur.
+          </small>
+        </div>
+        <div class="d-flex">
+          <div class="form-group pl-0 col-6">
+            <label>Precio</label>
+            <input type="text" formControlName="price_normal" class="form-control"
+                   [(ngModel)]="editform.price_normal"
+                   placeholder="100">
+            <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
+              elit.
+              Sequi,
+              tenetur.
+            </small>
+          </div>
+          <div class="form-group pl-0 col-6">
+            <label>Precio comparación</label>
+            <input type="text" formControlName="price_regular" class="form-control"
+                   [(ngModel)]="editform.price_regular"
+                   placeholder="150">
+            <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
+              elit.
+              Sequi,
+              tenetur.
+            </small>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="col-3 pl-0 form-group">
+            <label>Peso (gr)</label>
+            <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.weight"
+                   placeholder="Peso de tu producto en gramos">
+          </div>
+          <div class="col-3 pl-0 form-group">
+            <label>Ancho (cm)</label>
+            <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.width"
+                   placeholder="Ancho del producto en centimetros">
+          </div>
+          <div class="col-3 pl-0 form-group">
+            <label>Altura (cm)</label>
+            <input type="text" formControlName="height" class="form-control" [(ngModel)]="editform.height"
+                   placeholder="Altura del prodcuto en centimetros">
+          </div>
+          <div class="col-3 pl-0 form-group">
+            <label>Profundidad (cm)</label>
+            <input type="text" formControlName="length" class="form-control" [(ngModel)]="editform.length"
+                   placeholder="Profundidad del prodcuto en centimetros">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Observacion</label>
+          <input type="text" formControlName="observation" class="form-control" [(ngModel)]="editform.observation"
+                 placeholder="Edicion especial color rojo">
+          <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit.
+            Sequi,
+            tenetur.
+          </small>
+        </div>
+
+      </div>
+      <app-data-gallery-product-variation
+        (api)="dropzoneApiCallback($event)"
+        (callback)="addMedia($event)"
+        [controls]="false">
+      </app-data-gallery-product-variation>
+
+    </div>
+    <div class="modal-footer text-right">
+      <button class="btn btn-primary btn-sm" [disabled]="loading_save" tabindex="0">
+        <fa *ngIf="!loading_save" name="save"></fa>
+        <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+      </button>
+    </div>
+  </div>
+</form>

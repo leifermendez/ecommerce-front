@@ -4,6 +4,9 @@ import {RestService} from '../../../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
 import {AuthshopService} from '../../../../../auth/authshop.service';
 import {UtilsService} from '../../../../../../shared/services/util.service';
+import {ModalShoppingComponent} from '../../../../components/modal-shopping/modal-shopping.component';
+import {ModalProductBankComponent} from '../modal-product-bank/modal-product-bank.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-data-product',
@@ -15,6 +18,8 @@ export class DataProductComponent implements OnInit {
   @Input() id: any = null;
   @Input() data: any = {};
   public loading = false;
+  modalRef: BsModalRef;
+  config = {};
   public loading_save = false;
   public form: any = FormGroup;
   public editform: any = {};
@@ -24,7 +29,8 @@ export class DataProductComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private rest: RestService, private router: Router,
               private utils: UtilsService,
-              private auth: AuthshopService) {
+              private auth: AuthshopService,
+              private modalService: BsModalService) {
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
       'short_description': [null, Validators.compose([Validators.required])],
@@ -36,7 +42,7 @@ export class DataProductComponent implements OnInit {
     this.user_data = this.auth.getCurrentUser();
     this.getShops();
     if (this.data) {
-      this.editform = {...this.editform, ...this.data};
+      this.editform = this.data;
     }
   }
 
@@ -66,6 +72,25 @@ export class DataProductComponent implements OnInit {
       });
   };
 
+  emitBack = () => this.ngOnInit();
+
+  open(data) {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      data
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalProductBankComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
+
   save = () => {
     this.loading_save = true;
     this.editform = {
@@ -83,9 +108,11 @@ export class DataProductComponent implements OnInit {
           this.router.navigateByUrl(`/products/edit/${response['data']['id']}/categories`);
         }
       }).catch(err => {
+
       this.loading = false;
       this.loading_save = false;
-      this.utils.openModalSnack(err.error.error, 'error');
+      this.open({})
+      // this.utils.openSnackBar(err.error.error, 'error');
     });
   };
 }

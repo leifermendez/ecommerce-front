@@ -64,3 +64,21 @@
 .image-td {
   width: 100px;
 }
+
+.list-table-item:hover{
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  border-left: solid 5px #dedede;
+  background-color: #f9f9f9;
+}
+
+.list-table-item.active{
+  border-left: solid 5px #ce0000;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  background-color: #fff5f5;
+}

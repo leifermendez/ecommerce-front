@@ -64,7 +64,7 @@
       </div>
     </div>
   </div>
-  <tabset>
+  <tabset #staticTabs>
     <tab heading="Variaciones" id="tab1">
       <div class="card block-dashboard">
         <div *ngIf="list_variations && !list_variations['item'].length" class="text-center pb-4">
@@ -78,51 +78,49 @@
       </div>
       <table *ngIf="list_variations && list_variations['item'].length" class="table table-shipment">
         <tbody>
-        <tr *ngFor="let dat of list_variations['item'];let i = index"
-            [routerLink]="['/','products','edit',dat['id']]"
+        <ng-container *ngFor="let dat of list_variations['item'];let i = index">
+          <tr *ngIf="dat['status']!=='delete'"
             class="list-table-item cursor-pointer">
-          <td class="table-width-limit">
-            <img
-              [src]="dat['attacheds_small']"
-              width="100px"
-              class="image-bran"
-              height="100px"
-              alt="">
-          </td>
-          <td>
-            <div>
-              <span>{{dat['label']}}</span>
-            </div>
-            <span class="text-muted form-text">
-              variaciones
+            <td class="table-width-limit">
+              <img
+                [src]="dat['attacheds_small']"
+                width="100px"
+                class="image-bran"
+                height="100px"
+                alt="">
+            </td>
+            <td>
+              <div>
+                <span>{{dat['label']}}</span>
+              </div>
+              <span class="text-muted form-text">
+              {{dat['observation']}}
             </span>
-          </td>
-          <td>
+            </td>
+            <td [style.width]="'100px'">
           <span>
             <h6>
               <b>{{dat['price_normal'] |number:'1.2-2'}}</b>
             </h6>
           </span>
-          </td>
-          <td>
+            </td>
+            <td [style.width]="'100px'">
               <span>
               <h6>{{dat['price_regular'] |number:'1.2-2'}}</h6>
             </span>
-          </td>
-          <td class="text-center">
-            <div [tooltip]="dat['status']">
-              <fa *ngIf="dat['status']==='success'"
-                  name="check" size="2x" class="text-success"></fa>
-              <fa *ngIf="dat['status']==='wait'"
-                  name="history" animation="spin" size="2x" class="text-muted"></fa>
-              <fa *ngIf="dat['status']==='cancel'"
-                  name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-              <fa *ngIf="dat['status']==='fail'"
-                  name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-              <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
-            </div>
-          </td>
-        </tr>
+            </td>
+            <td [style.width]="'150px'" class="text-center">
+              <button
+                (click)="open(dat, i)"
+                class="btn btn-link btn-sm mr-1">
+                <fa name="edit"></fa>
+              </button>
+              <button class="btn btn-link btn-sm" (click)="deleteProduct(dat, i)">
+                <fa name="trash"></fa>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
         </tbody>
       </table>
     </tab>

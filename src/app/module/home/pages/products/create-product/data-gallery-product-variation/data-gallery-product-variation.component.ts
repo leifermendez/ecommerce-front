@@ -22,9 +22,14 @@ export class DataGalleryProductVariationComponent implements OnInit {
   ngOnInit() {
     this.api.emit({
       uploadSave: this.uploadSave,
+      checkFiles: this.checkFiles,
       dropzone: this.dropzone
     });
   }
+
+  checkFiles = () => {
+    return this.filesReady;
+  };
 
   uploadSave = () => {
     this.loading = true;

@@ -32,15 +32,15 @@
                placeholder="Email asociado">
       </div>
 
-      <div class="form-group">
+      <div class="form-group" [hidden]="true">
         <label>ID</label>
-        <input type="text" readonly class="form-control"
+        <input type="text"  class="form-control"
                formControlName="iban"
                [(ngModel)]="editform.iban"
                placeholder="ID Stripe">
       </div>
       <div *ngIf="editform && !editform.iban" class="form-group text-center">
-        <button *ngIf="!loading" (click)="loadData()" class="btn btn-outline-secondary btn-sm text-center">
+        <button *ngIf="!loading" (click)="loadData()" class="btn btn-outline-secondary text-center">
           Vincular Stripe
         </button>
         <div *ngIf="loading">

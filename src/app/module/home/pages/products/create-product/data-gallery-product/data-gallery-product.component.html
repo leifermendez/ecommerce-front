@@ -1,6 +1,6 @@
 <div class="block-dashboard" *ngIf="!show_drag">
   <div class="card-header"><b>Agregar producto</b></div>
-  <div class="container">
+  <div class="pr-3 pl-3">
     <div class="row">
       <div class="col-3 p-2 over-img" *ngFor="let img of data['gallery']; let index = index">
         <div class="d-flex m-1 position-absolute">
@@ -30,7 +30,7 @@
 
 <div class="block-dashboard " *ngIf="show_drag">
   <div class="card-header"><b>Agregar producto</b></div>
-  <div class="container">
+  <div>
     <ngx-dropzone [showPreviews]="true"
                   [accept]="'image/png,image/jpeg'"
                   #dropzone

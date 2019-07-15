@@ -7,7 +7,8 @@
     <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
 
       <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">
-        <input type="email" class="form-control" formControlName="email" placeholder="miemail@dominio.com">
+        <input type="email" (keydown)="onKeydown($event,2)" class="form-control" formControlName="email"
+               placeholder="miemail@dominio.com">
         <small class="form-text text-muted">{{"page.auth.login.label" | translate}}</small>
       </div>
       <div class="form-group" [hidden]="steps!==2" [ngClass]="{'has-danger': submitted && f.password.errors }">
@@ -16,8 +17,20 @@
       </div>
 
       <div class="form-group" [hidden]="steps!==3" [ngClass]="{'has-danger': submitted && f.name.errors }">
-        <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+        <input type="text" class="form-control" (keydown)="onKeydown($event,4)" formControlName="name" placeholder="Enter name">
         <small class="form-text text-muted">Queremos saber como te llamas.</small>
+      </div>
+
+      <div class="form-group" [hidden]="steps!==4"  [ngClass]="{'has-danger': submitted && f.name.errors }">
+        <div class="text-center">
+          <button class="btn btn-outline-secondary btn-lg btn-block">
+            Soy cliente
+          </button>
+          <button class="btn btn-outline-secondary btn-lg btn-block">
+            Soy un pequeño comercio
+          </button>
+        </div>
+        <small class="form-text text-muted">Solo falta un paso.</small>
       </div>
 
       <div *ngIf="!loading">
@@ -31,10 +44,14 @@
             Continuar
           </button>
         </div>
-        <div class="text-center" *ngIf="steps===3">
-          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.name.errors" type="submit">
+        <div class="text-center" *ngIf="steps===3" (click)="steps = 4">
+          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.name.errors" type="button">
             Continuar
           </button>
+        </div>
+
+        <div *ngIf="steps>1" class="p-1" >
+          <span class="cursor-pointer" (click)="goBackStep()">Volver</span>
         </div>
       </div>
       <div *ngIf="loading">

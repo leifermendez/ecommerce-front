@@ -1,16 +1,22 @@
 <section class="main-container col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
   <div class="page-content">
-    <div class="container p-0">
+    <div class="p-0 m-0">
       <div class="inside-body mb-4">
         <div class="pt-2">
           <div>
             <tabset #staticTabs>
               <tab heading="Producto" id="tab1">
                 <app-data-product
-                  *ngIf="data"
                   [id]="id"
+                  *ngIf="data"
                   [data]="data"
+                  (callback)="callback_data_categories($event)"
+                  class="row">
+                </app-data-product>
+                <app-data-product
+                  [id]="id"
+                  *ngIf="!data"
                   (callback)="callback_data_categories($event)"
                   class="row">
                 </app-data-product>

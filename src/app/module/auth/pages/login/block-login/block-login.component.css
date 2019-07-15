@@ -21,6 +21,10 @@
   min-height: 100px;
 }
 
+.back-button{
+  font-size: 12px;
+}
+
 .btn-facebook{
   background-color: #3b5998;
   color:white;

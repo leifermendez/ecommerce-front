@@ -12,9 +12,9 @@ export class ListProductsComponent implements OnInit {
   public loading = false;
   @Input() id: any = null;
   public data: any = {data: []};
-  public user_data:any = null;
+  public user_data: any = null;
 
-  constructor(private rest: RestService, private auth: AuthshopService,  private utils: UtilsService) {
+  constructor(private rest: RestService, private auth: AuthshopService, private utils: UtilsService) {
   }
 
   ngOnInit() {
@@ -34,18 +34,22 @@ export class ListProductsComponent implements OnInit {
       });
   };
 
-  deleteProduct = (id) => {
-    this.rest.put(`/rest/products/${id}`,
-      {
-        status: 'delete'
-      })
-      .then((response: any) => {
-        this.loading = false;
-        if (response['status'] === 'success') {
-          this.data = response['data'];
-          this.utils.openSnackBar('Producto eliminado', 'success');
-        }
-      });
+  deleteProduct = (id, index = null) => {
+    this.utils.openConfirm('¿Seguro?').then(r => {
+      this.rest.put(`/rest/products/${id}`,
+        {
+          status: 'delete'
+        })
+        .then((response: any) => {
+          this.loading = false;
+          if (response['status'] === 'success') {
+            this.utils.openSnackBar('Producto eliminado', 'success');
+            this.data['data'].splice(index, 1);
+          }
+        });
+    }).catch(e => {
+    });
+
   };
 
 }

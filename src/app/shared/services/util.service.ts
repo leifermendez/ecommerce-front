@@ -29,7 +29,6 @@ export class UtilsService {
 
   closeAllModals() {
     for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
-      console.log('cerrando')
       this.modalService.hide(i);
     }
   }

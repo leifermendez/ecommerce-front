@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, AfterViewInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthshopService } from '../../../../auth/authshop.service';
-import { RestService } from '../../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../../shared/services/util.service';
-import { Router } from '@angular/router';
-import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import {Component, OnInit, Input, AfterViewInit, EventEmitter, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthshopService} from '../../../../auth/authshop.service';
+import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
+import {Router} from '@angular/router';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-info-shop',
@@ -23,12 +23,12 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public address_gp: any = null;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: { country: 'ES' }
+    componentRestrictions: {country: 'ES'}
   };
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
-    private rest: RestService, public util: UtilsService,
-    private router: Router) {
+              private rest: RestService, public util: UtilsService,
+              private router: Router) {
 
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
@@ -62,12 +62,15 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
 
   public handleAddressChange(address: Address) {
     this.editform.address = address['formatted_address'];
+    this.editform['lat'] = address.geometry.location.lat();
+    this.editform['lng'] = address.geometry.location.lng();
+
     this.getZipCode(address['address_components'])
       .then(zip_code => {
         this.editform['zip_code'] = zip_code;
       }).catch(error => {
-        return false;
-      });
+      return false;
+    });
   }
 
   setMedia = (type = null, data = null) => {
@@ -82,15 +85,15 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
 
   clearImage = (type = null) => {
     if (type === 'cover') {
-        this.editform['image_cover'] = null;
-    }else{
+      this.editform['image_cover'] = null;
+    } else {
       this.editform['image_header'] = null;
     }
-  }
+  };
 
   ngOnInit() {
     if (!this.id) {
-      this.editform = { ...this.editform, ...this.data_inside };
+      this.editform = {...this.editform, ...this.data_inside};
     } else {
       this.loadData(this.id);
     }
@@ -109,7 +112,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
-          this.editform = { ...response['data'] };
+          this.editform = {...response['data']};
           console.log(this.editform);
         }
       });
@@ -137,8 +140,8 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
             this.router.navigateByUrl('/shop');
           }
         }).catch(err => {
-          this.loading = false;
-        });
+        this.loading = false;
+      });
     }
   };
 

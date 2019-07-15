@@ -45,26 +45,46 @@
   </div>
 
   <div *ngIf="!loading">
-    <div class="text-right">
-      <button class="btn btn-primary btn-sm mb-2"
-              [routerLink]="['/','products','create']">
-        Agregar producto
-      </button>
-    </div>
+    <!--    <div class="text-right">-->
+    <!--      <button class="btn btn-primary btn-sm mb-2"-->
+    <!--              [routerLink]="['/','products','create']">-->
+    <!--        Agregar producto-->
+    <!--      </button>-->
+    <!--    </div>-->
     <div class="alert alert-warning" *ngIf="user_data && !user_data['confirmed']">
-      Debes verificar tu <a class="text-info" routerLink="/profile">numero movil.</a> de lo contrario tus productos no seran visibles.
+      Debes verificar tu <a class="text-info" routerLink="/profile">numero movil.</a> de lo contrario tus productos no
+      seran visibles.
     </div>
     <div class="card block-dashboard border-0">
       <div class="col p-0 bg-table min-height-300">
         <table *ngIf="data && data['data'].length" class="table table-shipment">
           <thead>
           <tr class="d-none">
-            <th scope="col" style="width: 100px"></th>
+            <th scope="col" [style.width]="'100px'"></th>
             <th scope="col"></th>
-            <th scope="col" class="text-center" style="width: 150px"></th>
+            <th scope="col" class="text-center" [style.width]="'150px'"></th>
           </tr>
           </thead>
           <tbody>
+          <tr class="list-table-item cursor-pointer active">
+            <td class="image-td">
+              <div class="item-image">
+              </div>
+            </td>
+            <td>
+              <div>
+                <h6 class="font-weight-600">Añadir producto</h6>
+              </div>
+              <span class="text-muted form-text">Lorem ipsum dolor sit.
+            </span>
+            </td>
+            <td class="align-middle text-right">
+              <button class="btn btn-lg btn-primary" [routerLink]="['/','products','create']">
+                <fa name="plus"></fa>
+              </button>
+
+            </td>
+          </tr>
           <tr *ngFor="let dat of data['data'];let i = index"
               class="list-table-item cursor-pointer">
             <td class="image-td">
@@ -101,19 +121,20 @@
                 class="btn btn-link btn-sm mr-1">
                 <fa name="edit"></fa>
               </button>
-              <button class="btn btn-link btn-sm" (click)="deleteProduct(dat['id'])">
+              <button class="btn btn-link btn-sm" (click)="deleteProduct(dat['id'], i)">
                 <fa name="trash"></fa>
               </button>
             </td>
           </tr>
           </tbody>
         </table>
-        <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+        <div *ngIf="data && !data['data'].length" class="text-center pb-4 cursor-pointer"
+             [routerLink]="['/','products','create']">
           <img src="../../../../../assets/images/paper-bag.svg"
                class="mt-4"
                width="100px" alt="">
           <div class="mt-2">
-            <p class="text-muted">Aun no tienes compras</p>
+            <p class="text-muted">Aun no tienes compras <br> <b>Agregar</b></p>
           </div>
         </div>
       </div>

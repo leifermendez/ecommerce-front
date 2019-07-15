@@ -31,38 +31,38 @@
           <div class="row">
             <div class="col-3 p-0">
               <app-media-image-shop
-              *ngIf="editform && !editform['image_cover']"
+                *ngIf="editform && !editform['image_cover']"
                 (callback)="setMedia('cover',$event)">
               </app-media-image-shop>
-              <div *ngIf="editform && editform['image_cover']" >
-                  <button type="button" (click)="clearImage('cover')" 
-                  [disabled]="editform && !editform['image_header']"
-                  class="btn btn-default position-absolute m-2">
-                      <fa name="trash"></fa>
-                  </button>
-                  <img
+              <div *ngIf="editform && editform['image_cover']">
+                <button type="button" (click)="clearImage('cover')"
+                        [disabled]="editform && !editform['image_header']"
+                        class="btn btn-default position-absolute m-2">
+                  <fa name="trash"></fa>
+                </button>
+                <img
                   width="100px" height="100px" class="cover-image"
                   [src]="editform['image_cover_medium']">
-               
+
               </div>
             </div>
             <div class="col-9 pr-0">
               <app-media-image-shop
-              *ngIf="editform && !editform['image_header']"
+                *ngIf="editform && !editform['image_header']"
                 (callback)="setMedia('header',$event)">
               </app-media-image-shop>
-              <div *ngIf="editform && editform['image_header']" >
-                  <button type="button" (click)="clearImage('header')" 
-                  [disabled]="editform && !editform['image_cover']" 
-                  class="btn btn-default position-absolute m-2">
-                      <fa name="trash"></fa>
-                  </button>
-                  <img
+              <div *ngIf="editform && editform['image_header']">
+                <button type="button" (click)="clearImage('header')"
+                        [disabled]="editform && !editform['image_cover']"
+                        class="btn btn-default position-absolute m-2">
+                  <fa name="trash"></fa>
+                </button>
+                <img
                   width="100px" height="100px" class="cover-image"
                   [src]="editform['image_header_medium']">
-              
+
               </div>
-          
+
             </div>
           </div>
         </div>
@@ -126,10 +126,13 @@
                [disabled]="loading"
                *ngIf="!editform.address"
                class="form-control"
+               [ngModelOptions]="{standalone: true}"
                [ngModel]="address_gp" [options]='optionsPlaces' #placesRef="ngx-places"
                placeholder="Direccion de la tienda"
                (onAddressChange)="handleAddressChange($event)"/>
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+        <small class="text-muted mt-2 ml-2 mr-2">
+          <span (click)="editform.address = null">Cambiar</span>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
           tenetur.
         </small>
       </div>

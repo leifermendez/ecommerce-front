@@ -40,6 +40,18 @@ export class BlockLoginComponent implements OnInit {
 
   }
 
+  goBackStep = () => {
+    this.steps = this.steps - 1;
+  };
+
+  onKeydown(event, step = 2) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+    if (event.key === 'Enter' && !(this.f.email.errors)) {
+      this.steps = step;
+    }
+  }
 
   get f() {
     return this.form.controls;

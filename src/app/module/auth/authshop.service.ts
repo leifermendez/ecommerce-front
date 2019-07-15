@@ -38,7 +38,6 @@ export class AuthshopService {
       this.waiting = true;
       this.rest.post('/auth', {email, password, name})
         .then(((response: any) => {
-          console.log(response);
           if (response.data) {
             const token = response.data['token'];
             if (token) {

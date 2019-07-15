@@ -110,7 +110,7 @@
         class="block-login-modal"
         [modalPadding]="'p-0'">
       </app-block-login>
-      <div class="container" *ngIf="error === 'user not confirmed'">
+      <div class="container" *ngIf="error === 'user_not_confirmed'">
         <div class="row pt-2 pb-2">
           <div class="col-6 text-center">
             <img src="../../../../../assets/images/message-on-phone.svg" height="70px" alt="">
@@ -120,18 +120,33 @@
           </div>
         </div>
       </div>
-      <div class="container" *ngIf="error === 'not available'">
-          <div class="row pt-2 pb-2">
-            <div class="col-6 text-center">
-              <img src="../../../../../assets/images/calendar.svg" height="70px" alt="">
-            </div>
-            <div class="col-6 text-center text-muted">
-              <p [innerHTML]="'modal.cart.shopping.not_available' |translate"></p>
-            </div>
+      <div class="container" *ngIf="error === 'not_available'">
+        <div class="row pt-2 pb-2">
+          <div class="col-6 text-center">
+            <img src="../../../../../assets/images/calendar.svg" height="70px" alt="">
+          </div>
+          <div class="col-6 text-center text-muted">
+            <p [innerHTML]="'modal.cart.shopping.not_available' |translate"></p>
           </div>
         </div>
-      <app-box-featured-product *ngIf="!error" [title]="'Otros productos de interes'" w="200px" h="220px" id='offers'>
-      </app-box-featured-product>
+      </div>
+      <div class="container" *ngIf="error === 'not_allowed_is_my_product'">
+        <div class="row pt-2 pb-2">
+          <div class="col-6 text-center">
+            <img src="../../../../../assets/images/remove-friend.svg" height="70px" alt="">
+          </div>
+          <div class="col-6 text-center text-muted">
+            <p [innerHTML]="'modal.cart.shopping.not_allowed_is_my_product' |translate"></p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!error">
+        <div>
+          <span class="text-muted">Otros productos de interes</span>
+        </div>
+        <app-box-featured-product w="200px" h="220px" id='offers'>
+        </app-box-featured-product>
+      </div>
     </div>
   </div>
   <div class="modal-footer">
