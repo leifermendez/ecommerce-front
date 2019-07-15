@@ -2,6 +2,7 @@ import Swal from 'sweetalert2';
 import {Injectable, EventEmitter, Output} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {settings} from '../settings';
+import {BsModalService} from 'ngx-bootstrap';
 
 declare var $: any;
 
@@ -21,8 +22,18 @@ export class UtilsService {
   @Output() updateProfile: EventEmitter<any> = new EventEmitter();
   @Output() modeVideo: EventEmitter<any> = new EventEmitter();
 
-  constructor(private cookieService: CookieService) {
+  constructor(private cookieService: CookieService,
+              private modalService: BsModalService,) {
   }
+
+
+  closeAllModals() {
+    for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
+      console.log('cerrando')
+      this.modalService.hide(i);
+    }
+  }
+
 
   openModalSnack = (message: string,
                     action: string,

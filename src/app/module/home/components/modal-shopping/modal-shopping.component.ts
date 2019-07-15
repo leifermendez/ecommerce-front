@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap';
-import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
-import { UtilsService } from '../../../../shared/services/util.service';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef} from 'ngx-bootstrap';
+import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+import {UtilsService} from '../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-modal-shopping',
@@ -39,8 +39,7 @@ export class ModalShoppingComponent implements OnInit {
       })
       .catch(err => {
         this.loading_save = false;
-        const msg = (err && err['error']) ? err['error'] : 'Debes iniciar session';
-        this.error = msg;
+        this.error = (err && err['error']) ? err['error'] : 'not_session';
       });
   };
 

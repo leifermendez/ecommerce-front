@@ -1,0 +1,62 @@
+<div class="block-login" [ngClass]="modalPadding">
+  <h5 class="text-center font-weight-bold">{{"page.auth.login.hello" | translate}}</h5>
+  <p class="text-center mb-4 text-muted">
+    {{"page.auth.login.subtitle" | translate}}
+  </p>
+  <div class="pt-4">
+    <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
+
+      <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">
+        <input type="email" class="form-control" formControlName="email" placeholder="miemail@dominio.com">
+        <small class="form-text text-muted">{{"page.auth.login.label" | translate}}</small>
+      </div>
+      <div class="form-group" [hidden]="steps!==2" [ngClass]="{'has-danger': submitted && f.password.errors }">
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+        <small class="form-text text-muted">Manten segura tu cuenta incluye una contraseña.</small>
+      </div>
+
+      <div class="form-group" [hidden]="steps!==3" [ngClass]="{'has-danger': submitted && f.name.errors }">
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+        <small class="form-text text-muted">Queremos saber como te llamas.</small>
+      </div>
+
+      <div *ngIf="!loading">
+        <div class="text-center" *ngIf="steps===1" (click)="steps = 2">
+          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.email.errors" type="button">
+            Continuar
+          </button>
+        </div>
+        <div class="text-center" *ngIf="steps===2">
+          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.password.errors" type="submit">
+            Continuar
+          </button>
+        </div>
+        <div class="text-center" *ngIf="steps===3">
+          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.name.errors" type="submit">
+            Continuar
+          </button>
+        </div>
+      </div>
+      <div *ngIf="loading">
+        <div class="btn btn-default btn-block disabled">
+          <fa name="spinner" animation="spin"></fa>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+  <hr>
+  <div class="text-center">
+
+    <p class="text-muted">
+      {{"page.auth.login.social.label" | translate}}
+    </p>
+    <button (click)="signInWithFB()" type="butotn" class="btn btn-lg btn-facebook" title="Login"
+            name="send"><span>Facebook</span>
+    </button>
+    <button (click)="signInWithGoogle()" type="butotn" class="btn btn-lg ml-2 btn-google" title="Login"
+            name="send"><span>Google</span>
+    </button>
+  </div>
+</div>

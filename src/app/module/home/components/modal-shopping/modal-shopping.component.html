@@ -104,6 +104,12 @@
       </div>
     </div>
     <div *ngIf="!loading_save">
+      <app-block-login
+        *ngIf="error === 'not_session'"
+        [redirect]="false"
+        class="block-login-modal"
+        [modalPadding]="'p-0'">
+      </app-block-login>
       <div class="container" *ngIf="error === 'user not confirmed'">
         <div class="row pt-2 pb-2">
           <div class="col-6 text-center">
@@ -124,7 +130,7 @@
             </div>
           </div>
         </div>
-      <app-box-featured-product *ngIf="!error" [title]="'People also bought'" w="200px" h="220px" id='offers'>
+      <app-box-featured-product *ngIf="!error" [title]="'Otros productos de interes'" w="200px" h="220px" id='offers'>
       </app-box-featured-product>
     </div>
   </div>

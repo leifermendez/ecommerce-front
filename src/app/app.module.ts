@@ -112,6 +112,7 @@ import { TabDayComponent } from './module/home/pages/shop/tab-day/tab-day.compon
 import { MediaImageShopComponent } from './module/home/pages/shop/media-image-shop/media-image-shop.component';
 import { ModalImageComponent } from './module/home/pages/products/create-product/modal-image/modal-image.component';
 import { ModalShoppingComponent } from './module/home/components/modal-shopping/modal-shopping.component';
+import { BlockLoginComponent } from './module/auth/pages/login/block-login/block-login.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -214,6 +215,7 @@ export class MyIntl extends TimeagoIntl {
     MediaImageShopComponent,
     ModalImageComponent,
     ModalShoppingComponent,
+    BlockLoginComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

@@ -58,5 +58,6 @@
   "modal.cart.shopping.not_confirmed":"Ups! aún no haz confirmador tu cuenta. Para continuar deberás <a href='/profile'>confirmar tu cuenta</a>",
   "modal.cart.shopping.not_available":"El producto no se encuentra disponible en este momento. Puedes intentarlo en otro momento",
   "user not confirmed" :"Usuario no confirmado",
-  "not available": "No disponible"
+  "not available": "No disponible",
+  "not_session": "Debes iniciar session"
 }

@@ -166,18 +166,6 @@
                       </span>
                       </button>
                     </div>
-                    <div class="text-center mt-2">
-                      <button 
-                              [routerLink]="['/','shopping-cart']"
-                              *ngIf="number_items"
-                              type="button" [disabled]="loading_save" title="Add to Cart"
-                              class="btn btn-primary btn-block">
-                        <span *ngIf="!loading_save">{{"page.single.buy" | translate}}</span>
-                        <span *ngIf="loading_save">
-                        <fa name="spinner" animation="spin"></fa>
-                      </span>
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
