@@ -6,9 +6,10 @@
           <div class="row">
             <div>
               <ul *ngIf="data && data['categories']">
-                <li class="category1599"><a href="grid.html" title="">Inicio</a> <span>&rsaquo; </span></li>
+                <li class="category1599">
+                  <a [routerLink]="['/','home']" title="">Inicio</a> <span>&rsaquo; </span></li>
               <li *ngFor="let c of data['categories']" class="home">
-                <a href="index.html" title="Go to Home Page">{{c['name']}}</a> <span>&rsaquo; </span>
+                <a [routerLink]="['/','categories',c['name']]" title="Go to Home Page">{{c['name']}}</a> <span>&rsaquo; </span>
               </li>
             </ul>
             </div>
