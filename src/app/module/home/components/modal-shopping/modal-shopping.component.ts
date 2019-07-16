@@ -34,7 +34,8 @@ export class ModalShoppingComponent implements OnInit {
       .then(response => {
         this.loading_save = false;
         if (response['status'] === 'success') {
-          this.util.refreshShopping.emit(response['data']);
+          this.util.numberShopping.emit(1);
+          this.util.openSnackBar('Item agregado', 'success');
         }
       })
       .catch(err => {

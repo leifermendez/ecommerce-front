@@ -10,12 +10,24 @@ import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-
 import {AuthshopService} from '../../../../auth/authshop.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ModalShoppingComponent } from '../../../components/modal-shopping/modal-shopping.component';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
   selector: 'app-box-featured-product',
   templateUrl: './box-featured-product.component.html',
-  styleUrls: ['./box-featured-product.component.css']
+  styleUrls: ['./box-featured-product.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+      ])
+    ])
+  ]
 })
 export class BoxFeaturedProductComponent implements OnInit {
   @ViewChild('owlFeatured') owlElement: OwlCarousel;

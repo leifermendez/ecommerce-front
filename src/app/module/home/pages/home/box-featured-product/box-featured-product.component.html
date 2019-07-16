@@ -1,5 +1,5 @@
 <section class=" wow bounceInUp animated CollectionGrid-container">
-  <div *ngIf="loading" class="best-pro slider-items-products container">
+  <div @tijl *ngIf="loading" class="best-pro slider-items-products container">
     <div class="CollectionGrid container min-height-300">
       <div class="CollectionGrid-tile hover-overlay-light">
         <div class="timeline-item">
@@ -68,7 +68,7 @@
 
     </div>
   </div>
-  <div *ngIf="!loading" class="best-pro slider-items-products">
+  <div @tijl *ngIf="!loading" class="best-pro slider-items-products">
     <div class="new_title" *ngIf="title">
       <h2>{{title}}</h2>
     </div>

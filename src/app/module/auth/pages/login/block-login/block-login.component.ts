@@ -7,15 +7,27 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {BsModalService} from 'ngx-bootstrap';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-block-login',
   templateUrl: './block-login.component.html',
-  styleUrls: ['./block-login.component.css']
+  styleUrls: ['./block-login.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+      ])
+    ])
+  ]
 })
 export class BlockLoginComponent implements OnInit {
   @Input() modalPadding: any = 'p-4';
-  @Input() redirect: any = '/home';
+  @Input() redirect: any = false;
   public form: any = FormGroup;
   public user: any;
   private _currentUser: UserModel;
@@ -128,7 +140,9 @@ export class BlockLoginComponent implements OnInit {
     this.auth.login_social(data).then(loged => {
       this.loading = false;
       if (loged['confirmed'] === 1) {
-        this.router.navigateByUrl('/home');
+        if (this.redirect) {
+          this.router.navigateByUrl(`${this.redirect}`);
+        }
       } else if (loged['confirmed'] === 0) {
         this.router.navigateByUrl('/profile');
       } else {

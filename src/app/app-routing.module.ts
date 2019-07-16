@@ -23,6 +23,7 @@ import {CheckoutComponent} from './module/home/pages/checkout/checkout.component
 import {PaymentComponent} from './module/home/pages/payment/payment.component';
 import {ThankYouComponent} from './module/home/pages/thank-you/thank-you.component';
 import {ErrorPaymentComponent} from './module/home/pages/error-payment/error-payment.component';
+import {SingleBlogComponent} from './module/home/pages/single-blog/single-blog.component';
 
 
 const routes: Routes = [
@@ -71,10 +72,12 @@ const routes: Routes = [
   {
     path: 'single/:id/:slug',
     component: SingleComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'blog/:id/:slug',
+    component: SingleBlogComponent,
     pathMatch: 'full',
-    data: {
-      footer: true
-    }
   },
   {
     path: 'single/:id',
@@ -273,7 +276,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
+    onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })

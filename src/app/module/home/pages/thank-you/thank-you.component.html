@@ -1,6 +1,6 @@
 <div class="main-container col1-layout wow bounceInUp animated animated">
   <div class="main text-dark container">
-    <div class="mt-4 wow bounceInUp animated animated pl-4 pr-4">
+    <div @tijl class="mt-4 wow bounceInUp animated animated pl-4 pr-4">
       <div class="new_title">
         <h2 class="text-success">{{"page.thank_you.title" |translate}}</h2>
         <h6 class="text-dark mt-2">Gracias por tu pago</h6>
@@ -11,7 +11,7 @@
             <img src="../../../../../assets/images/positive-vote.svg" width="120" alt="">
           </div>
           <div class="col-9 p-4">
-            <h5 class="content-h5" [innerHTML]="'page.error_payment.message' | translate"></h5>
+            <h5 class="content-h5" [innerHTML]="'thankyou.sentence.first' | translate"></h5>
             <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
           </div>
         </div>
@@ -20,7 +20,7 @@
             <img src="../../../../../assets/images/scooter.svg" width="120" alt="">
           </div>
           <div class="col-9 p-4">
-            <h5 class="content-h5" [innerHTML]="'page.error_payment.message' | translate"></h5>
+            <h5 class="content-h5" [innerHTML]="'thankyou.sentence.second' | translate"></h5>
             <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
           </div>
         </div>

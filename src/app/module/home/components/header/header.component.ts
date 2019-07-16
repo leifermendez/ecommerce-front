@@ -4,6 +4,8 @@ import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
 import {AppComponent} from '../../../../app.component';
 import {TranslateService} from '@ngx-translate/core';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 
 
 declare var $: any;
@@ -11,7 +13,18 @@ declare var $: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({transform: 'translateY(-20%)', opacity: '0'}),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+      ])
+    ])
+  ]
 })
 
 export class HeaderComponent implements OnInit {
@@ -23,9 +36,10 @@ export class HeaderComponent implements OnInit {
   public activeLang = 'es';
   private lat: any = null;
   private lng: any = null;
-  public modeOffset:any = false;
+  public modeOffset: any = false;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
+              private cart: ShoppingCartComponent,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
       console.log('headerrr', data);
@@ -42,7 +56,9 @@ export class HeaderComponent implements OnInit {
 
     util.numberShopping.subscribe(data => {
       if (data) {
-        this.number_items = data;
+        // tslint:disable-next-line:radix
+        this.number_items = this.number_items + parseInt(data);
+        console.log('--->aaaa',this.number_items)
       }
     });
 
@@ -68,6 +84,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
+    this.cart.loadData();
 
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {

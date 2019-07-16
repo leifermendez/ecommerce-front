@@ -19,6 +19,7 @@ export class DataCategoriesProductComponent implements OnInit {
   public editform: any = {};
   public select_categories: any = [];
   public categories: any = [];
+  public categories_multiple: any = false;
 
   constructor(private fb: FormBuilder, private rest: RestService,
               private router: Router, private utils: UtilsService) {
@@ -26,13 +27,14 @@ export class DataCategoriesProductComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    this.select_categories = this.data['categories'];
+    this.select_categories = (this.categories_multiple) ? this.data['categories'] : this.data['categories'][0];
   }
 
   save_categories = () => {
     this.loading_save = true;
     this.rest.post('/rest/product-category', {
-      'category_id': this.select_categories.map(a => a.id),
+      'category_id': (this.categories_multiple) ?
+        this.select_categories.map(a => a.id) : this.select_categories['id'],
       'product_id': this.id
     })
       .then((response: any) => {
@@ -50,7 +52,7 @@ export class DataCategoriesProductComponent implements OnInit {
 
 
   getCategories = () => {
-    this.rest.get('/rest/categories?limit=50')
+    this.rest.get('/rest/categories?limit=100&filters=categories.child,<>,null')
       .then((response: any) => {
         if (response['status'] === 'success') {
           response = response['data'];

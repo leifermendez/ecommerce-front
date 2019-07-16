@@ -1,10 +1,10 @@
-<header *ngIf="!header" [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
+<header @tijl *ngIf="!header" [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
 
   <div id="header">
     <div class="header-container container">
       <div class="row">
-        <div class="logo"><a [routerLink]="['/','']" title="Home" title="Flavours HTML">
-          <div><img src="assets/images/logo-apatxee.png" height="50" alt="Flavours Store"></div>
+        <div class="logo"><a [routerLink]="['/','']" title="Home" title="Apatxee">
+          <div><img src="assets/images/logo-apatxee.png" height="50" alt="Apatxee"></div>
         </a></div>
         <div class="fl-nav-menu-search">
 
@@ -174,8 +174,8 @@
                 <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
                   <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
                     <span class="pr-0">
-                      <fa name="shopping-cart"></fa>
-                      <span class="ml-1"><b>{{number_items}}</b></span>
+                      <fa name="shopping-cart" size="lg"></fa>
+                      <span class="icon-bell" *ngIf="number_items"><b>{{number_items}}</b></span>
                     </span>
                   </a>
                   <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">

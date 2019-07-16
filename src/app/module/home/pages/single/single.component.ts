@@ -6,11 +6,32 @@ import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-car
 import {ActivatedRoute} from '@angular/router';
 import {DiscountNumberComponent} from '../../components/discount-number/discount-number.component';
 import { ModalShoppingComponent } from '../../components/modal-shopping/modal-shopping.component';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-single',
   templateUrl: './single.component.html',
-  styleUrls: ['./single.component.css']
+  styleUrls: ['./single.component.css'],
+  animations: [
+    trigger('breadcrumbs', [
+      transition(':enter', [
+        style({ transform: 'translateX(-40%)', opacity: '0' }),
+        animate('0.3s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.3s ease-out', style({ transform: 'translateX(40%)', opacity: '1' }))
+      ])
+    ]),
+    trigger('details', [
+      transition(':enter', [
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+      ])
+    ])
+  ]
 })
 export class SingleComponent implements OnInit {
   @ViewChild('discountChild') discountChild: DiscountNumberComponent;

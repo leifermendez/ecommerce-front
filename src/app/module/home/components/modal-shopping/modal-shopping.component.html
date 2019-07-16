@@ -146,6 +146,12 @@
         </div>
         <app-box-featured-product w="200px" h="220px" id='offers'>
         </app-box-featured-product>
+        <div class="text-center">
+          <button class="btn-outline-secondary btn" type="buttom" (click)="bsModalRef.hide()">Continuar</button>
+          <button class="btn-outline-primary btn ml-4" (click)="bsModalRef.hide()" [routerLink]="['/','shopping-cart']">
+            Finalizar compra
+          </button>
+        </div>
       </div>
     </div>
   </div>

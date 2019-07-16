@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter} from 'ngx-timeago';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -115,6 +116,7 @@ import { ModalShoppingComponent } from './module/home/components/modal-shopping/
 import { BlockLoginComponent } from './module/auth/pages/login/block-login/block-login.component';
 import { ModalVariationsProductComponent } from './module/home/pages/products/create-product/modal-variations-product/modal-variations-product.component';
 import { ModalProductBankComponent } from './module/home/pages/products/create-product/modal-product-bank/modal-product-bank.component';
+import { SingleBlogComponent } from './module/home/pages/single-blog/single-blog.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -220,6 +222,7 @@ export class MyIntl extends TimeagoIntl {
     BlockLoginComponent,
     ModalVariationsProductComponent,
     ModalProductBankComponent,
+    SingleBlogComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -247,6 +250,7 @@ export class MyIntl extends TimeagoIntl {
     UiSwitchModule,
     NgxEpicVideoPlayerModule,
     DateTimePickerModule,
+    BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot(),
     TimepickerModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),

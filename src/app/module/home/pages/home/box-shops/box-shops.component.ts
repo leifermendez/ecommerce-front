@@ -2,11 +2,23 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {UtilsService} from '../../../../../shared/services/util.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-box-shops',
   templateUrl: './box-shops.component.html',
-  styleUrls: ['./box-shops.component.css']
+  styleUrls: ['./box-shops.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+      ])
+    ])
+  ]
 })
 export class BoxShopsComponent implements OnInit {
   @ViewChild('owlCategories') owlElement: OwlCarousel;

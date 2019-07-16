@@ -1,4 +1,4 @@
-<section class="main-container col2-right-layout mt-0">
+<section class="main-container col2-right-layout mt-0 mb-4">
   <div class="page-content">
     <div class="container p-0">
       <div class="breadcrumbs mt-2 mb-4">
@@ -8,8 +8,8 @@
               <ul *ngIf="data && data['categories']">
                 <li class="category1599">
                   <a [routerLink]="['/','home']" title="">Inicio</a> <span>&rsaquo; </span></li>
-              <li *ngFor="let c of data['categories']" class="home">
-                <a [routerLink]="['/','categories',c['name']]" title="Go to Home Page">{{c['name']}}</a> <span>&rsaquo; </span>
+              <li @breadcrumbs *ngFor="let c of data['categories']" class="home">
+                <a [routerLink]="['/','categories',util.slug(c['name'])]" title="Ver más">{{c['name']}}</a>
               </li>
             </ul>
             </div>
@@ -59,7 +59,7 @@
                 <img class="w-100 cover" [src]="'assets/images/nofound.png'"/>
               </div>
             </div>
-            <div
+            <div @details
               class="col-4 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
                 <div class="product-shop p-4" *ngIf="loading">

@@ -1,0 +1,6 @@
+<section class="main-container col2-right-layout mt-0 mb-4">
+  <div class="container p-4 inside-body mt-0">
+    <h2 class="mt-2 mb-4" *ngIf="data && data['title']"><b [innerHTML]="data['title']"></b></h2>
+    <p *ngIf="data && data['content']" [innerHTML]="data['content']"></p>
+  </div>
+</section>

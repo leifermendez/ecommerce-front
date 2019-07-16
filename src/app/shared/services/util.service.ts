@@ -23,7 +23,7 @@ export class UtilsService {
   @Output() modeVideo: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-              private modalService: BsModalService,) {
+              private modalService: BsModalService) {
   }
 
 
@@ -37,7 +37,7 @@ export class UtilsService {
   openModalSnack = (message: string,
                     action: string,
                     details: any = null,
-                    duration: number = 5000,) => {
+                    duration: number = 5000) => {
     if (action === 'success') {
       Swal.fire({
         type: 'success',

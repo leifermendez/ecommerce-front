@@ -649,7 +649,7 @@ website:   	http://www.themesground.com/
   max-width: 100%;
   left: 0 !important;
   margin: auto !important;
-/*  height: 20vw;*/
+  min-height: 20rem;
 }
 
 #tmg-slideshow .col-lg-8 {

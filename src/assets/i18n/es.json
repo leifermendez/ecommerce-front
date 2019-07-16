@@ -11,9 +11,9 @@
   "page.auth.login.label": "Introduce un email valido",
   "page.auth.login.social.label": "Accede con tu cuenta de Google o Facebook, nunca publicaremos nada sin tu permiso.",
   "box_info.first": "<b>Ayudamos al</b> <b class='text-primary'>pequeño comercio</b> a competir con las grandes superficies con un transporte del producto con recogida y entrega en un tiempo medio de 1 hora.",
-  "box_info.second": "<b>Fomentamos la economía</b> <b class='text-primary'>local</b> porque los productos se compran y se venden en tu misma ciudad.",
-  "box_info.third": "<b>Transporte verde</b> porque los productos se entregan a una distancia máxima de <b class='text-primary'>10 Km</b>",
-  "box_info.forth": "Si compras en nuestra plataforma recuerda que estas colaborando con la <b>supervivencia de las pequeñas</b> <b class='text-primary'>empresas</b> entregando el dinero a muchos pequeños comercios en vez de a una única empresa.",
+  "box_info.second": "<b>Fomentamos la economía</b> <b class='text-primary'>local</b> porque los productos se compran y se venden en tu misma ciudad fomentando la economía local y el comercio de cercanía",
+  "box_info.third": "<b>Transporte verde</b> porque los productos se entregan a una distancia máxima de <b class='text-primary'>10 Km</b> y así colaboramos con la reducción de contaminantes a la atmósfera.",
+  "box_info.forth": "Si compras en nuestra plataforma estas colaborando con la <b>supervivencia de las pequeñas</b> <b class='text-primary'>empresas</b> entregando el dinero a muchos pequeños comercios.",
   "box_categories.title": "Categorías populares",
   "box_shops.title": "Estos comercios están cerca de ti",
   "page.error_payment.message": "Ups algo ocurrio con tu pago, revisa los datos de tu tarjeta si el problema persiste contacte a su banco.",
@@ -61,5 +61,11 @@
   "user_not_confirmed" :"Usuario no confirmado",
   "not_available": "No disponible",
   "not_session": "Debes iniciar session",
-  "not_allowed_is_my_product": "Producto no disponible"
+  "not_allowed_is_my_product": "Producto no disponible",
+  "footer.label.tap": "Contacto, Terminos, Condiciones y más",
+  "footer.item.terms": "Terminos y Condiciones",
+  "footer.item.cookie": "Politicas de Cookies",
+  "footer.item.contact": "Contacto",
+  "thankyou.sentence.first": "Gracias por  colaborar con la <b>supervivencia</b> de las pequeñas empresas entregandoel dinero a muchos pequeños comercios.",
+  "thankyou.sentence.second": "<b>Transporte verde</b> porque los productos se entregan a una distancia máxima de 10 Km"
 }
