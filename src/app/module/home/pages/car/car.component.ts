@@ -48,10 +48,13 @@ export class CarComponent implements OnInit {
     });
   }
 
-  delete(id) {
+  delete(id , i = null) {
     this.loading = true;
     this.rest.delete(`/rest/shopping-cart/${id}`).then((response: any) => {
-      this.loadData();
+      this.loading = false;
+      if (response['status'] === 'success') {
+        this.data.list.splice(i, 1)
+      }
     }).catch((error: any) => {
       this.loading = false;
       this.util.openSnackBar('Ups! algo ocurrio', 'error');

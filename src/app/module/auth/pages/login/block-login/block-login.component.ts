@@ -8,6 +8,7 @@ import {UtilsService} from '../../../../../shared/services/util.service';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {BsModalService} from 'ngx-bootstrap';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {ShoppingCartComponent} from '../../../../home/components/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-block-login',
@@ -38,7 +39,8 @@ export class BlockLoginComponent implements OnInit {
   constructor(private auth: AuthshopService, private rest: RestService,
               private router: Router, private utils: UtilsService,
               private fb: FormBuilder, private authService: AuthService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private cart: ShoppingCartComponent
   ) {
     this.form = fb.group({
       'email': [null, Validators.compose([Validators.required, Validators.email])],
@@ -82,6 +84,7 @@ export class BlockLoginComponent implements OnInit {
       ).then(loged => {
         this.loading = false;
         this.utils.closeAllModals();
+        this.cart.loadData();
 
         if (loged['confirmed'] === 1) {
           if (this.redirect) {
@@ -137,6 +140,7 @@ export class BlockLoginComponent implements OnInit {
   socialloginrest(data) {
     this.loading = true;
     this.utils.closeAllModals();
+    this.cart.loadData();
     this.auth.login_social(data).then(loged => {
       this.loading = false;
       if (loged['confirmed'] === 1) {
