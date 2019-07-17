@@ -9,7 +9,11 @@
     "lint": "ng lint",
     "qaweb": "gcloud config set project apatxeeweb && gsutil rsync -R ./dist/  gs://qa-apatxee",
     "qadeploy": "gcloud app deploy --project=apatxeeweb",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run apatxee:server:production"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +25,11 @@
     "@angular/http": "~7.0.0",
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/platform-server": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@ng-select/ng-select": "^2.20.0",
+    "@nguniversal/express-engine": "0.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/http-client": "^4.2.0",
     "@ngx-translate/core": "^11.0.1",
@@ -36,6 +43,7 @@
     "bootstrap": "4.2.1",
     "core-js": "^2.5.4",
     "css-raw-loader": "^0.1.2",
+    "express": "^4.15.2",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
@@ -86,8 +94,10 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.1"
+    "typescript": "~3.1.1",
+    "webpack-cli": "^3.1.0"
   }
 }
