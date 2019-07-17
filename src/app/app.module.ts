@@ -231,7 +231,7 @@ export class MyIntl extends TimeagoIntl {
   ],
   imports: [
     LoadingBarHttpClientModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgxGalleryModule,
     AngularFontAwesomeModule,

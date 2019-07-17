@@ -14,7 +14,7 @@ import {TimeagoIntl} from 'ngx-timeago';
   templateUrl: './listproduct.component.html',
   styleUrls: ['./listproduct.component.css']
 })
-export class ListproductComponent implements OnInit {
+export class ListproductComponent implements OnInit { //ListproductComponent
   loading = false;
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any[];
