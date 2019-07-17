@@ -1,10 +1,11 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable, Output, Inject} from '@angular/core';
 import {RestService} from '../../shared/services/rest.service';
 import {UtilsService} from '../../shared/services/util.service';
 import {Router} from '@angular/router';
 import {UserModel} from '../../shared/models/base.model';
 import {CookieService} from 'ngx-cookie-service';
 import * as moment from 'moment';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthshopService {
   public waiting: boolean;
   @Output() getLoggedInData: EventEmitter<any> = new EventEmitter();
 
-  constructor(private rest: RestService,
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private rest: RestService,
               private utils: UtilsService,
               private router: Router,
               private cookieService: CookieService
@@ -102,7 +103,7 @@ export class AuthshopService {
   }
 
   public logout(): void {
-    localStorage.clear();
+    this.localStorage.clear();
     this.waiting = true;
     this.cookieService.delete('_currentUser', '/');
     this.cookieService.delete('_wizard_dashboard', '/');
@@ -197,7 +198,7 @@ export class AuthshopService {
 
   public cleanSession() {
     this._currentUser = null;
-    localStorage.removeItem('currentUser');
+    this.localStorage.removeItem('currentUser');
     this.getLoggedInData.emit(null);
   }
 }

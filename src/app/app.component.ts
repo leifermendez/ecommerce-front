@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {UtilsService} from './shared/services/util.service';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
+import { LOCAL_STORAGE, WINDOW } from '@ng-toolkit/universal';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
   public activeLang = 'es';
   public computer: any = true;
 
-  constructor(private modalService: BsModalService, private util: UtilsService,
+  constructor(@Inject(WINDOW) private window: Window, @Inject(LOCAL_STORAGE) private localStorage: any, private modalService: BsModalService, private util: UtilsService,
               private router: Router, private translate: TranslateService,
               private cookieService: CookieService,
               private deviceService: DeviceDetectorService) {
@@ -94,9 +95,9 @@ export class AppComponent implements OnInit {
     if (!this.computer) {
       this.openWarning();
     }
-    const _location = localStorage.getItem('_location');
+    const _location = this.localStorage.getItem('_location');
     if (!_location) {
-      window.scrollTo(0, 0);
+      this.window.scrollTo(0, 0);
       if (this.computer && !this.cookie_zip_code) {
         this.open();
       }

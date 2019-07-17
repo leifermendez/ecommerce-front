@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap';
 import {UtilsService} from '../../../../../shared/services/util.service';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-modal-bank',
@@ -22,7 +23,7 @@ export class ModalBankComponent implements OnInit {
   };
   public win = {};
 
-  constructor(private rest: RestService,
+  constructor(@Inject(WINDOW) private window: Window, private rest: RestService,
               private fb: FormBuilder,
               private utils: UtilsService,
               public bsModalRef: BsModalRef) {
@@ -70,7 +71,7 @@ export class ModalBankComponent implements OnInit {
     try {
       const endPoint = url;
       const strWindowFeatures = 'location=yes,height=620,width=520,scrollbars=no,resizable=no,status=yes';
-      const win = window.open(endPoint,
+      const win = this.window.open(endPoint,
         'stripeConnect',
         strWindowFeatures
       );

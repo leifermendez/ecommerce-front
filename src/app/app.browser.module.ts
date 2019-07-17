@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -120,9 +120,7 @@ import {SingleBlogComponent} from './module/home/pages/single-blog/single-blog.c
 import {AddressShoppingCartComponent} from './module/home/components/address-shopping-cart/address-shopping-cart.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { AppModule } from './app.module';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -152,89 +150,9 @@ export class MyIntl extends TimeagoIntl {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    BannerComponent,
-    BoxCategoriesComponent,
-    BoxFeaturedProductComponent,
-    BoxShopsComponent,
-    ZipLocationComponent,
-    BoxInfoComponent,
-    BoxBlogComponent,
-    BoxNewsComponent,
-    MiniGalleryProductComponent,
-    ProfileComponent,
-    DashboardComponent,
-    SidebarComponent,
-    ChartsResumenComponent,
-    LastSellComponent,
-    LastOrderComponent,
-    LastTicketsComponent,
-    ShoppingCartComponent,
-    InfoProfileComponent,
-    InfoAccountComponent,
-    InfoAddressComponent,
-    InfoBankComponent,
-    ModalBankComponent,
-    AvatarUploadComponent,
-    ModalShippingComponent,
-    WizardOverlayComponent,
-    ShopCifComponent,
-    ShopComponent,
-    InfoShopComponent,
-    InfoShopsComponent,
-    CreateShopComponent,
-    DashboardTotalComponent,
-    DashboardReviewsComponent,
-    ShipmentsComponent,
-    TransactionsComponent,
-    PurchaseComponent,
-    SinglePurchaseComponent,
-    ShippingBoxComponent,
-    SingleSaleComponent,
-    WelcomeComponent,
-    SalesComponent,
-    ProductsComponent,
-    CreateProductComponent,
-    DataProductComponent,
-    DataCategoriesProductComponent,
-    DataVariationsProductComponent,
-    ListProductsComponent,
-    SingleComponent,
-    SearchComponent,
-    StoreprofileComponent,
-    ListproductComponent,
-    CarComponent,
-    CheckoutComponent,
-    DataGalleryProductComponent,
-    DataGalleryProductVariationComponent,
-    LoadingApatxeeComponent,
-    GallerySingleComponent,
-    LogoutComponent,
-    DiscountNumberComponent,
-    SideBarCartComponent,
-    PaymentComponent,
-    ThankYouComponent,
-    ErrorPaymentComponent,
-    SchedulesShopComponent,
-    TabDayComponent,
-    MediaImageShopComponent,
-    ModalImageComponent,
-    ModalShoppingComponent,
-    BlockLoginComponent,
-    ModalVariationsProductComponent,
-    ModalProductBankComponent,
-    SingleBlogComponent,
-    AddressShoppingCartComponent,
-    ModalWarningComponent,
-  ],
   imports: [
     LoadingBarHttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     AppRoutingModule,
     NgxGalleryModule,
     AngularFontAwesomeModule,
@@ -283,9 +201,8 @@ export class MyIntl extends TimeagoIntl {
         deps: [HttpClient]
       }
     }),
-    CommonModule,
-    TransferHttpCacheModule,
-    NgtUniversalModule
+    AppModule,
+    BrowserTransferStateModule
   ],
 
   providers: [
@@ -318,5 +235,5 @@ export class MyIntl extends TimeagoIntl {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppBrowserModule {
 }

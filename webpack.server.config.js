@@ -7,7 +7,8 @@ module.exports = {
   mode: 'none',
   entry: {
     // This is our Express server for Dynamic universal
-    server: './server.ts'
+    server: './server.ts',
+	prerender: './prerender.ts'
   },
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
@@ -15,6 +16,7 @@ module.exports = {
     minimize: false
   },
   output: {
+	libraryTarget: 'commonjs2',
     // Puts the output at the root of the dist folder
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'

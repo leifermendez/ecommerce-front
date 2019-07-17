@@ -11,9 +11,13 @@
     "qadeploy": "gcloud app deploy --project=apatxeeweb",
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
+    "serve:ssr": "node local.js",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run apatxee:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run apatxee:server:production",
+    "server": "node local.js",
+    "build:prod": "npm run build:ssr",
+    "serve:prerender": "node static.js",
+    "build:prerender": "npm run build:prod && node dist/prerender.js"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +32,8 @@
     "@angular/platform-server": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@ng-select/ng-select": "^2.20.0",
+    "@ng-toolkit/universal": "^7.1.2",
+    "@nguniversal/common": "0.0.0",
     "@nguniversal/express-engine": "0.0.0",
     "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "@ngx-loading-bar/core": "^4.2.0",
@@ -43,6 +49,7 @@
     "bootstrap": "4.2.1",
     "core-js": "^2.5.4",
     "css-raw-loader": "^0.1.2",
+    "domino": "^2.1.3",
     "express": "^4.15.2",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
