@@ -1,0 +1,20 @@
+<div class="app-modal-warning p-4 text-center">
+  <div class="mt-4 pt-4">
+    <img src="../../../../../assets/images/smartphone.svg" width="100px" alt="">
+    <p class="text-muted pt-4">
+      Seguimos trabajando para vosotros, te avisaremos!
+    </p>
+    <form novalidate (ngSubmit)="send()" [formGroup]="form" *ngIf="!delivered">
+      <div class="form-group mt-4">
+        <label for="exampleInputEmail1">Email</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+               aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="editform['email']">
+        <small id="emailHelp" class="form-text text-muted">Introduce un email valido</small>
+      </div>
+      <button type="submit" [disabled]="f.email.errors" class="btn btn-primary">
+        <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+        <span *ngIf="!loading_save">Avisarme</span>
+      </button>
+    </form>
+  </div>
+</div>

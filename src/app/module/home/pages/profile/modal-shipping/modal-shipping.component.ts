@@ -19,6 +19,7 @@ export class ModalShippingComponent implements OnInit {
   public id: any = null;
   public buttonAvailable = false;
   public address: any;
+  public address_single: any;
   public optionsPlaces = {
     types: [],
     componentRestrictions: {country: 'ES'}
@@ -58,6 +59,7 @@ export class ModalShippingComponent implements OnInit {
 
   public handleAddressChange(address: Address) {
     console.log(address)
+    this.address_single = address['formatted_address']
     this.getZipCode(address['address_components'])
       .then(zip_code => {
         this.zip_code = zip_code;
@@ -87,6 +89,7 @@ export class ModalShippingComponent implements OnInit {
   saveData = () => {
     this.loading = true;
     const method = (this.id) ? 'put' : 'post';
+    this.editform['address'] = this.address_single + this.editform['address'];
     this.rest[method](`/rest/shipping/${(this.id) ? this.id : ''}`,
       this.editform)
       .then((response: any) => {

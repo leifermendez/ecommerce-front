@@ -1,41 +1,30 @@
-<div @tijl class="box-right-car col-lg-4 col-md-4">
+<div @tijl class="box-right-car col-lg-3 col-md-4">
   <div>
     <div *ngIf="step>0" class="p-2 mt-3 ml-2 mr-2">
       <h6 class="font-weight-600">Resumen de compra</h6>
     </div>
     <div class="block-dashboard mr-3 ml-3 p-4">
-      <h6 class="font-weight-600" *ngIf="total && total['price_normal']">
-        Total: {{total['price_normal'] | number:'1.2-2'}}
+      <h6 *ngIf="total && total['price_normal']" class="d-flex justify-content-between">
+        <span>{{"shopping.car.total_items" |translate}}:</span>
+        <span>{{total['price_normal'] | number:'1.2-2'}}
+          <span>{{"currency" | translate}}</span></span>
       </h6>
-      <h6 class="font-weight-600 text-success" *ngIf="total && total['price_regular']">
-        Ahorras:
-        <app-discount-number
-          [decimals]="0"
-          [price_normal]="total['price_normal']"
-          [price_regular]="total['price_regular']">
-        </app-discount-number>
-        %
+      <h6 *ngIf="total && total['price_normal']" class="d-flex justify-content-between">
+        <span>{{"shopping.car.total_shipping" | translate}}:</span>
+        <span>{{shipping | number:'1.2-2'}} <span>{{"currency" | translate}}</span></span>
       </h6>
-      <div>
-        <b class="font-weight-normal" *ngIf="total && total['price_normal']">
-          Envio: {{shipping | number:'1.2-2'}}
-        </b>
-      </div>
-      <div>
-        <b class="text-muted font-weight-normal" *ngIf="total && total['price_normal']">
-          Plataforma: {{total_feed | number:'1.2-2'}}
-        </b>
-      </div>
+      <h6 *ngIf="total && total['price_normal']" class="d-flex justify-content-between">
+        <span>{{"shopping.car.total" |translate}}:</span>
+        <span>{{(total['price_normal'] + shipping) | number:'1.2-2'}}
+          <span>{{"currency" | translate}}</span></span>
+      </h6>
 
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, eveniet?</p>
-<!--      <div *ngIf="step<2" class="text-center mt-2">-->
-<!--        <button class="btn btn-outline-secondary btn-block">-->
-<!--          Hacer pedido-->
-<!--        </button>-->
-<!--      </div>-->
     </div>
   </div>
   <div *ngIf="step>1" class="m-3 block-dashboard pt-1">
     <app-shopping-cart [showMenu]="false"></app-shopping-cart>
+  </div>
+  <div *ngIf="step>2" class="m-3 block-dashboard pt-1">
+    <app-address-shopping-cart></app-address-shopping-cart>
   </div>
 </div>

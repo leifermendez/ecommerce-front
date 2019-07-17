@@ -1,6 +1,6 @@
 <div class="main-container col1-layout wow bounceInUp animated animated">
   <app-side-bar-cart [step]="1"></app-side-bar-cart>
-  <div class="main text-dark col-md-6 col-lg-8 col-xl-8">
+  <div class="main text-dark col-md-6 col-lg-9 col-xl-9">
     <div @tijl class="cart wow bounceInUp animated animated pl-4 pr-4">
       <div class="new_title">
         <h2>Carrito</h2>
@@ -22,9 +22,8 @@
               <img src="../../../../../assets/images/shopping-cart-empty-side-view.svg"
                    width="100"
                    alt="Carrito Vacio">
-              <h6 class="font-weight-600 mt-4">It looks like your cart is empty...</h6>
-              <p class="mt-3 text-muted">Need a few ideas? Check out your special member offers and today's hottest
-                deals.</p>
+              <h6 class="font-weight-600 mt-4">{{"shopping.car.first" |translate}}</h6>
+              <p class="mt-3 text-muted">{{"shopping.car.second" |translate}}.</p>
             </div>
           </div>
           <div *ngIf="data['list'] && data['list'].length">
@@ -32,8 +31,8 @@
               <table id="shopping-cart-table" class="data-table cart-table table-striped">
                 <thead>
                 <tr class="first last">
-                  <th colspan="1"><span class="nobr">Nombre del producto</span></th>
-                  <th colspan="1"><span class="nobr"> Precio</span></th>
+                  <th colspan="1"><span class="nobr">{{"shopping.car.product_name" |translate}}</span></th>
+                  <th colspan="1"><span class="nobr"> {{"shopping.car.product_price" |translate}}</span></th>
                   <th colspan="1" class="a-center">&nbsp;</th>
                 </tr>
                 </thead>
@@ -58,19 +57,22 @@
                   </td>
                   <td class="hidden-table">
                     <h5 class="font-weight-600 mb-0">{{dat['price_normal'] | number:'1.2-2'}}
-                      <del class="text-muted ml-1">{{dat['price_regular'] | number:'1.2-2'}}</del>
+                      <span>{{"currency" | translate}}</span>
                     </h5>
-                    <span class="text-muted" *ngIf="dat && dat['feed_amount']">
-                      {{dat['feed_amount']['application_feed_amount'] | number:'1.2-2'}}
-                      <span tooltip="Comision de plataforma" tooltipPlacement="bottom">
-                        <fa name="question-circle"></fa>
-                      </span>
-                    </span>
+                    <del class="text-muted">{{dat['price_regular'] | number:'1.2-2'}}</del>
+                    <!--                    <span class="text-muted" *ngIf="dat && dat['feed_amount']">-->
+                    <!--                      <span tooltip="Comision de plataforma" tooltipPlacement="bottom">-->
+                    <!--                        <fa name="question-circle"></fa>-->
+                    <!--                      </span>-->
+                    <!--                    </span>-->
                   </td>
                   <td class="text-right">
-                    <a (click)="delete(dat.id, i)" class="btn btn-outline-secondary" title="Remove item">
-                      <fa name="trash"></fa>
-                    </a>
+                    <button (click)="delete(dat.id, i)" type="button"
+                            [disabled]="loading_single === i"
+                            class="btn btn-outline-secondary" title="Remove item">
+                      <fa *ngIf="loading_single !== i" name="trash"></fa>
+                      <fa *ngIf="loading_single === i" name="spinner" animation="spin"></fa>
+                    </button>
                   </td>
                 </tr>
                 </tbody>

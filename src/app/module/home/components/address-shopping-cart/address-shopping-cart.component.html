@@ -1,0 +1,6 @@
+<div class="block-dashboard p-4">
+  <div *ngIf="data && data.length">
+    <div>{{data[0]['state']}}, {{data[0]['district']}}</div>
+    <div>{{data[0]['address']}} {{data[0]['zip_code']}}</div>
+  </div>
+</div>

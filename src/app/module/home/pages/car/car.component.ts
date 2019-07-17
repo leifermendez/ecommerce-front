@@ -12,11 +12,11 @@ import {animate, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        style({transform: 'translateY(-20%)', opacity: '0'}),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
       ])
     ])
   ]
@@ -26,6 +26,7 @@ export class CarComponent implements OnInit {
   loading = false;
   total: any;
   total_shop: any;
+  public loading_single: any = false;
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
               private route: ActivatedRoute) {
@@ -48,15 +49,17 @@ export class CarComponent implements OnInit {
     });
   }
 
-  delete(id , i = null) {
-    this.loading = true;
+  delete(id, i = null) {
+    this.loading_single = i;
     this.rest.delete(`/rest/shopping-cart/${id}`).then((response: any) => {
-      this.loading = false;
+      this.loading_single = false;
       if (response['status'] === 'success') {
-        this.data.list.splice(i, 1)
+        this.data.list.splice(i, 1);
+        this.util.numberShopping.emit(-1);
+        this.util.removeItemShopping.emit(i);
       }
     }).catch((error: any) => {
-      this.loading = false;
+      this.loading_single = false;
       this.util.openSnackBar('Ups! algo ocurrio', 'error');
     });
   }

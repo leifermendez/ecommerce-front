@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
   private lat: any = null;
   private lng: any = null;
   public modeOffset: any = false;
+  public animationBell: any = false;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
               private cart: ShoppingCartComponent,
@@ -58,8 +59,15 @@ export class HeaderComponent implements OnInit {
       if (data) {
         // tslint:disable-next-line:radix
         this.number_items = this.number_items + parseInt(data);
-        console.log('--->aaaa',this.number_items)
+        this.animationBell = true;
+        setTimeout(() => {
+          this.animationBell = false;
+        }, 1500);
       }
+    });
+
+    util.setNumberShopping.subscribe(a => {
+      this.number_items = a;
     });
 
     auth.getLoggedInData.subscribe(data => {

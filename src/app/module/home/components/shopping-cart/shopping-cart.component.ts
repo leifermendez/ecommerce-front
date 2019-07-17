@@ -21,7 +21,11 @@ export class ShoppingCartComponent implements OnInit {
         this.loadData();
       }
     });
-
+    this.util.removeItemShopping.subscribe(i => {
+      if (i) {
+        this.data.splice(i, 1);
+      }
+    });
   }
 
   loadData = () => {

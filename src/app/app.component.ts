@@ -5,6 +5,8 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 import {CookieService} from 'ngx-cookie-service';
 import {TranslateService} from '@ngx-translate/core';
 import {UtilsService} from './shared/services/util.service';
+import {DeviceDetectorService} from 'ngx-device-detector';
+import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
 
 
 @Component({
@@ -23,12 +25,14 @@ export class AppComponent implements OnInit {
   cookie_zip_code = null;
   loading = false;
   public activeLang = 'es';
+  public computer: any = true;
 
   constructor(private modalService: BsModalService, private util: UtilsService,
               private router: Router, private translate: TranslateService,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private deviceService: DeviceDetectorService) {
     router.events.subscribe((event: RouterEvent) => {
-      this.util.modeVideo.emit(false)
+      this.util.modeVideo.emit(false);
       this.navigationInterceptor(event);
     });
 
@@ -54,6 +58,21 @@ export class AppComponent implements OnInit {
     this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
+  openWarning = () => {
+    const initialState = {
+      ignoreBackdropClick: true,
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalWarningComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal m-0'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  };
+
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
       this.loading = true;
@@ -71,10 +90,14 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.computer = this.deviceService.isDesktop();
+    if (!this.computer) {
+      this.openWarning();
+    }
     const _location = localStorage.getItem('_location');
     if (!_location) {
       window.scrollTo(0, 0);
-      if (!this.cookie_zip_code) {
+      if (this.computer && !this.cookie_zip_code) {
         this.open();
       }
     }

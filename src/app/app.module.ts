@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter} from 'ngx-timeago';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -99,24 +99,27 @@ import {GallerySingleComponent} from './module/home/pages/single/gallery-single/
 import {LogoutComponent} from './module/auth/pages/logout/logout.component';
 import {NgxContentLoadingModule} from 'ngx-content-loading';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
-import { DiscountNumberComponent } from './module/home/components/discount-number/discount-number.component';
-import { SideBarCartComponent } from './module/home/components/side-bar-cart/side-bar-cart.component';
+import {DiscountNumberComponent} from './module/home/components/discount-number/discount-number.component';
+import {SideBarCartComponent} from './module/home/components/side-bar-cart/side-bar-cart.component';
 import {NgxStripeModule} from 'ngx-stripe';
-import { PaymentComponent } from './module/home/pages/payment/payment.component';
-import { ThankYouComponent } from './module/home/pages/thank-you/thank-you.component';
-import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-payment.component';
-import { SchedulesShopComponent } from './module/home/pages/shop/schedules-shop/schedules-shop.component';
-import { DateTimePickerModule} from 'ngx-datetime-picker';
-import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import {PaymentComponent} from './module/home/pages/payment/payment.component';
+import {ThankYouComponent} from './module/home/pages/thank-you/thank-you.component';
+import {ErrorPaymentComponent} from './module/home/pages/error-payment/error-payment.component';
+import {SchedulesShopComponent} from './module/home/pages/shop/schedules-shop/schedules-shop.component';
+import {DateTimePickerModule} from 'ngx-datetime-picker';
+import {TimepickerModule} from 'ngx-bootstrap/timepicker';
 import {UiSwitchModule} from 'ngx-ui-switch';
-import { TabDayComponent } from './module/home/pages/shop/tab-day/tab-day.component';
-import { MediaImageShopComponent } from './module/home/pages/shop/media-image-shop/media-image-shop.component';
-import { ModalImageComponent } from './module/home/pages/products/create-product/modal-image/modal-image.component';
-import { ModalShoppingComponent } from './module/home/components/modal-shopping/modal-shopping.component';
-import { BlockLoginComponent } from './module/auth/pages/login/block-login/block-login.component';
-import { ModalVariationsProductComponent } from './module/home/pages/products/create-product/modal-variations-product/modal-variations-product.component';
-import { ModalProductBankComponent } from './module/home/pages/products/create-product/modal-product-bank/modal-product-bank.component';
-import { SingleBlogComponent } from './module/home/pages/single-blog/single-blog.component';
+import {TabDayComponent} from './module/home/pages/shop/tab-day/tab-day.component';
+import {MediaImageShopComponent} from './module/home/pages/shop/media-image-shop/media-image-shop.component';
+import {ModalImageComponent} from './module/home/pages/products/create-product/modal-image/modal-image.component';
+import {ModalShoppingComponent} from './module/home/components/modal-shopping/modal-shopping.component';
+import {BlockLoginComponent} from './module/auth/pages/login/block-login/block-login.component';
+import {ModalVariationsProductComponent} from './module/home/pages/products/create-product/modal-variations-product/modal-variations-product.component';
+import {ModalProductBankComponent} from './module/home/pages/products/create-product/modal-product-bank/modal-product-bank.component';
+import {SingleBlogComponent} from './module/home/pages/single-blog/single-blog.component';
+import {AddressShoppingCartComponent} from './module/home/components/address-shopping-cart/address-shopping-cart.component';
+import {DeviceDetectorModule} from 'ngx-device-detector';
+import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -223,6 +226,8 @@ export class MyIntl extends TimeagoIntl {
     ModalVariationsProductComponent,
     ModalProductBankComponent,
     SingleBlogComponent,
+    AddressShoppingCartComponent,
+    ModalWarningComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -251,6 +256,7 @@ export class MyIntl extends TimeagoIntl {
     NgxEpicVideoPlayerModule,
     DateTimePickerModule,
     BrowserAnimationsModule,
+    DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
     TimepickerModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
@@ -301,7 +307,8 @@ export class MyIntl extends TimeagoIntl {
     ModalImageComponent,
     ModalShoppingComponent,
     ModalVariationsProductComponent,
-    ModalProductBankComponent
+    ModalProductBankComponent,
+    ModalWarningComponent
   ],
   bootstrap: [AppComponent]
 })

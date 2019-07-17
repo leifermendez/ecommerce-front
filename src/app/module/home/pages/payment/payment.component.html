@@ -1,5 +1,5 @@
 <div class="main-container col1-layout wow bounceInUp animated animated">
-  <app-side-bar-cart [step]="2"></app-side-bar-cart>
+  <app-side-bar-cart [step]="3"></app-side-bar-cart>
   <div class="main text-dark col-md-6 col-lg-8 col-xl-8">
     <div class="cart wow bounceInUp animated animated pl-4 pr-4">
       <div class="new_title">
@@ -34,7 +34,10 @@
               <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
             </div>
             <div class="form-group col text-right mb-0 mt-4">
-              <button class="btn btn-primary">Pagar</button>
+              <button [disabled]="loading_save" class="btn btn-primary">
+                <span *ngIf="!loading_save">Pagar</span>
+                <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+              </button>
             </div>
           </form>
         </div>

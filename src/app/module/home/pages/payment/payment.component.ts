@@ -57,14 +57,15 @@ export class PaymentComponent implements OnInit {
 
   buy() {
     const name = this.stripeTest.get('name').value;
-    console.log('lleueueue');
     this.stripeService
       .createToken(this.card.getCard(), {name})
       .subscribe(result => {
         if (result.token) {
           this.pay(result.token.id, this.uuid);
+          this.loading_save = false;
         } else if (result.error) {
           this.loading = false;
+          this.loading_save = false;
           this.util.openSnackBar('Error tarjeta', 'error');
         }
       });
@@ -72,8 +73,6 @@ export class PaymentComponent implements OnInit {
 
   pay = (source = null, purchase_uuid = null) => {
     this.loading = true;
-    console.log('a->', source);
-    console.log('b->', purchase_uuid);
     this.rest.post('/rest/payment', {
       source,
       purchase_uuid
@@ -95,7 +94,6 @@ export class PaymentComponent implements OnInit {
     this.loading_save = true;
     this.rest.post('/rest/purchase', {})
       .then((response: any) => {
-        this.loading_save = false;
         this.uuid = response['data'][0]['uuid'];
         this.buy();
       }).catch((error: any) => {

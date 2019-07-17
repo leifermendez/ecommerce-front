@@ -36,12 +36,12 @@
       <div *ngIf="data && data.length">
         <div class="col-12 d-flex p-0 mb-2 border-bottom-item"
              *ngFor="let dat of data;let i = index">
-          <div class="col-4 pb-2 text-center">
+          <div class="col-4 pb-2 pt-2 text-center">
             <a href="#" title="Retis lapen casen" class="product-image">
               <img *ngIf="dat['cover_image']" [src]="dat['cover_image']['small']"
                    class="image-item" alt="Retis lapen casen"></a>
           </div>
-          <div class="col-8 pb-2 pl-0 last">
+          <div class="col-8 pt-2 pb-2 pl-0 last">
             <div>
               <span class="d-block item-title">{{dat['name']}}</span>
               <span class="d-block">{{dat['price_normal'] | number:'1.2-2'}}</span>

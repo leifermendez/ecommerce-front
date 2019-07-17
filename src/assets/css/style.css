@@ -1108,7 +1108,7 @@ background-color: #fff;
 #nav > li > a > span {
   display: inline-block;
   padding: 0 15px;
-  text-shadow: 0 0 5px white;
+  /*text-shadow: 0 0 5px rgba(0, 0, 0, 0.15);*/
 }
 
 #nav > li > a:hover > span {
@@ -15632,7 +15632,7 @@ select#shipping-address-select {
 }
 
 .rev_slider vg-player {
-  height: 20rem; /*70*/
+  height: 25rem; /*70*/
 }
 
 /*transform: translate(0, -70px);*/

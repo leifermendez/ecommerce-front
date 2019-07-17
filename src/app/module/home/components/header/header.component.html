@@ -163,7 +163,7 @@
 
                 <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
                   <a [routerLink]="['/','dashboard']" class="level-top">
-                    <span>{{"menu.hello" | translate}}, <b>{{user_data['name'] | truncate : 10 :  '...' }}</b></span>
+                    <span><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
                     <span class="p-0">
                       <img [src]="user_data['avatar']"
                            width="30" class="profile-image" height="30" [alt]="user_data['name']"/>
@@ -175,11 +175,12 @@
                   <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
                     <span class="pr-0">
                       <fa name="shopping-cart" size="lg"></fa>
-                      <span class="icon-bell" *ngIf="number_items"><b>{{number_items}}</b></span>
+                      <span class="icon-bell" [ngClass]="{'icon-add-number':(animationBell)}"
+                            *ngIf="number_items"><b>{{number_items}}</b></span>
                     </span>
                   </a>
                   <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
-<!--                    <app-shopping-cart></app-shopping-cart>-->
+                    <!--                    <app-shopping-cart></app-shopping-cart>-->
                   </div>
                 </li>
               </ul>

@@ -82,6 +82,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   emitBack = () => this.ngOnInit();
 
   open(data) {
+    this.util.closeAllModals();
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,

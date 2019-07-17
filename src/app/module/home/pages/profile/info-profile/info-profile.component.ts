@@ -68,6 +68,7 @@ export class InfoProfileComponent implements OnInit {
           this.loading = false;
           if (response['status'] === 'success') {
             this.auth.updateUser('avatar', this.editform['avatar']);
+            this.auth.updateUser('name', this.editform['name']);
             // this.editform['email'] = this.user_data['email'];
             // this.editform = {...response['data'], ...{email: this.user_data['email']}};
             // this.auth.updateUser(,data);

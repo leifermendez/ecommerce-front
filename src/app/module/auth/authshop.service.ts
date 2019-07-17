@@ -107,6 +107,7 @@ export class AuthshopService {
     this.cookieService.delete('_currentUser', '/');
     this.cookieService.delete('_wizard_dashboard', '/');
     this.utils.openSnackBar('Sesión finalizada', 'success');
+    this.utils.setNumberShopping.emit(0);
     this.cleanSession();
   }
 
