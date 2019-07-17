@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {BsModalRef} from 'ngx-bootstrap';
+import { UtilsService } from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-modal-variations-product',
@@ -17,7 +18,9 @@ export class ModalVariationsProductComponent implements OnInit {
   public loading_save = false;
   public apiDropzone: any;
 
-  constructor(private fb: FormBuilder, private rest: RestService, public bsModalRef: BsModalRef) {
+  constructor(private fb: FormBuilder, private rest: RestService,
+    public util: UtilsService,
+    public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'label': [null, Validators.compose([Validators.required])],
       'price_normal': [null, Validators.compose([Validators.required])],
@@ -37,6 +40,22 @@ export class ModalVariationsProductComponent implements OnInit {
   save = () => {
     this.loading_save = true;
     this.apiDropzone.uploadSave();
+  };
+
+  confirmDelete = (id = null) => {
+    this.util.openConfirm('¿Estas seguro?')
+      .then(a => {
+        this.rest.delete(`/rest/media/${id}`)
+          .then((response: any) => {
+            this.loading_save = false;
+            delete this.editform['attacheds_large'];
+            delete this.editform['attacheds_medium'];
+            delete this.editform['attacheds_small'];
+          });
+      })
+      .catch(e => {
+        console.log('ERRO');
+      });
   };
 
   save_variation = () => {
