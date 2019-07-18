@@ -84,7 +84,7 @@ import {ListProductsComponent} from './module/home/pages/products/list-products/
 import {SingleComponent} from './module/home/pages/single/single.component';
 import {SearchComponent} from './module/home/components/search/search.component';
 import {StoreprofileComponent} from './module/home/pages/store/storeprofile/storeprofile.component';
-import {ListproductComponent} from './module/home/pages/store/listproduct/listproduct.component';
+import {ListProductStoreComponent} from './module/home/pages/store/listproduct/listproduct.component';
 import {CarComponent} from './module/home/pages/car/car.component';
 import {CheckoutComponent} from './module/home/pages/checkout/checkout.component';
 import {VgCoreModule} from 'videogular2/core';
@@ -207,7 +207,7 @@ export class MyIntl extends TimeagoIntl {
     SingleComponent,
     SearchComponent,
     StoreprofileComponent,
-    ListproductComponent,
+    ListProductStoreComponent,
     CarComponent,
     CheckoutComponent,
     DataGalleryProductComponent,

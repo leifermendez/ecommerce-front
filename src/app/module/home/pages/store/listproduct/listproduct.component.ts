@@ -10,11 +10,11 @@ import * as moment from 'moment';
 import {TimeagoIntl} from 'ngx-timeago';
 
 @Component({
-  selector: 'app-listproduct',
+  selector: 'app-list-product-store',
   templateUrl: './listproduct.component.html',
   styleUrls: ['./listproduct.component.css']
 })
-export class ListproductComponent implements OnInit {
+export class ListProductStoreComponent implements OnInit {
   loading = false;
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any[];
