@@ -90,7 +90,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
-    this.cart.loadData();
+    if(this.user_data){
+      this.cart.loadData();
+    }
 
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {

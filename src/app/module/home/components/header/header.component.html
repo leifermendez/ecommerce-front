@@ -3,10 +3,10 @@
   <div id="header">
     <div class="header-container"
       [ngClass]="{'full-mode-header logo-full-mode-header':(fullMenu), 'container': (!fullMenu)}">
-      <div class="row">
+      <div class="row m-0">
         <div class="d-flex justify-content-between w-100">
           <div class="logo">
-            <a [routerLink]="['/','']" title="Home" title="Apatxee">
+            <a [routerLink]="['/']" title="Home" title="Apatxee">
               <div><img src="assets/images/logo-apatxee.png" height="50" alt="Apatxee"></div>
             </a>
           </div>
@@ -38,7 +38,7 @@
           </div>
         </div>
 
-        <div *ngIf="!subMenu" class="fl-nav-menu mt-2">
+        <div *ngIf="!subMenu" class="fl-nav-menu mt-2 mb-1">
 
           <nav>
             <div class="mm-toggle-wrap">
@@ -47,7 +47,7 @@
             <div class="nav-inner">
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
-                <li class="mega-menu"><a class="level-top">
+                <li class="mega-menu mega-menu-hover"><a class="level-top">
                     <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
                   </a>
                   <!--                  <div class="level0-wrapper dropdown-6col">-->
@@ -143,43 +143,53 @@
                   <!--                  </div>-->
                 </li>
 
-                <li class="mega-menu">
+                <li class="mega-menu mega-menu-hover">
                   <a (click)="scrollTop('offers')" class="level-top">
                     <span class="cursor-pointer">{{"menu.product_features" | translate}}</span>
                   </a>
 
                 </li>
 
-                <li class="mega-menu">
+                <li class="mega-menu mega-menu-hover">
                   <a (click)="scrollTop('official-shops')" lass="level-top">
                     <span class="cursor-pointer">{{"menu.shops" | translate}}</span>
                   </a>
 
                 </li>
-                <li class="mega-menu">
+                <li class="mega-menu mega-menu-hover">
                   <a routerLink="/shop" class="level-top">
                     <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
                   </a>
                 </li>
-
-
-                <li *ngIf="!user_data" class="mega-menu float-right d-flex">
+                <li *ngIf="!user_data" class="mega-menu mega-menu-hover float-right d-flex">
                   <a routerLink="/login" class="level-top sign">
                     <span>
-                      {{"menu.signup" | translate}}
+                      {{"menu.signup" | translate}} / {{"menu.signin" | translate}}
                     </span>
                   </a>
+                </li>
 
+                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-2 pl-0">
+                  <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
+                    <span class="pr-0">
+                      <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="25px"
+                        alt="">
+                      <span class="icon-bell pulse" [ngClass]="{'icon-add-number':(animationBell)}"
+                        *ngIf="number_items"><b>{{number_items}}</b></span>
+                    </span>
+                  </a>
+                  <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
 
+                  </div>
                 </li>
 
                 <li *ngIf="user_data" class="mega-menu cursor-pointer float-right d-flex pr-0 btn-group" dropdown>
                   <div class="level-top" dropdownToggle>
-                    <span class="pl-1 pr-1"><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
                     <span class="p-0">
                       <img [src]="user_data['avatar']" width="30" class="profile-image" height="30"
                         [alt]="user_data['name']" />
                     </span>
+                    <span class="pl-2 pr-1"><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
                   </div>
                   <ul *dropdownMenu class="dropdown-menu drop-menu-profile dropdown-menu-right pt-0 pb-0" role="menu">
                     <li role="menuitem">
@@ -194,24 +204,17 @@
                         Mis ventas
                       </a>
                     </li>
+                    <li role="menuitem">
+                      <a class="dropdown-item pl-3" [routerLink]="['/','logout']">
+                        <img src="../../../../../assets/images/menu-logout.svg" width="14px" alt="">
+                        Salir
+                      </a>
+                    </li>
                     <li class="divider dropdown-divider m-0 p-0"></li>
                     <li role="menuitem">
                       <a class="dropdown-item pl-3" [routerLink]="['/','profile']">Ver más</a>
                     </li>
                   </ul>
-                </li>
-
-                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-2">
-                  <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
-                    <span class="pr-0">
-                        <img src="../../../../../assets/images/shopping-cart.svg" width="25px" alt="">
-                      <span class="icon-bell pulse" [ngClass]="{'icon-add-number':(animationBell)}"
-                        *ngIf="number_items"><b>{{number_items}}</b></span>
-                    </span>
-                  </a>
-                  <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
-
-                  </div>
                 </li>
               </ul>
               <!--nav-->
