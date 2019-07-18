@@ -15241,7 +15241,7 @@ select#shipping-address-select {
 }
 
 .custom-select-search-item .ng-select-container {
-  background: #fdfdfd;
+  background: #f5f5f5 !important;
   height: 40px !important;
   border: solid 1px #f1f1f1 !important;
   border-radius: 2px;
@@ -15938,4 +15938,11 @@ html {
     -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
     box-shadow: 0 0 0 0 rgba(204,169,44, 0);
   }
+}
+
+.dropdown-menu.show {
+  border: 0 !important;
+  font-size: 100%;
+  border-radius: 3px !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

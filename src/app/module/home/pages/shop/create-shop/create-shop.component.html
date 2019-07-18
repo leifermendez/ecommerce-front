@@ -1,10 +1,10 @@
 <section class="main-container  col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
   <div class="page-content">
-    <div class="container p-0">
+    <div class="p-0">
       <div class="inside-body mb-4">
         <div *ngIf="!id">
-          <div class="row" *ngIf="!cif_flag">
+          <div *ngIf="!cif_flag">
             <div class="col-8 offset-2">
               <div class="mt-4">
                 <h3><b [innerHTML]="'page.shop.create.title' | translate"></b></h3>
@@ -20,8 +20,8 @@
 
           </div>
 
-          <div class="row" *ngIf="cif_flag">
-            <div class="col-12">
+          <div *ngIf="cif_flag">
+            <div class="col-12 p-0">
               <app-info-shop [data_inside]="data_inside" class="block-dashboard mb-2 col-12 p-0">
               </app-info-shop>
             </div>
@@ -30,24 +30,44 @@
         </div>
         <div *ngIf="id">
           <tabset>
-            <tab heading="Informacion" id="tab1">
-              <div class="row">
-                <div class="col-12">
-                  <app-info-shop
-                    [data_inside]="data_inside"
-                    [id]="id" class="block-dashboard mb-2 col-12 p-0">
-                  </app-info-shop>
+            <tab (selectTab)="tabs['dashboard'] = true" heading="Informe">
+              <div class="col-12 row p-0 m-0" *ngIf="tabs['dashboard']">
+                <div class="col-6">
+
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  ventas
+                </div>
+                <div class="col-6">
+
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  productos mas vendidos
                 </div>
 
+                <div class="col-12">
+
+                  <app-dashboard-total class="block-dashboard min-height-300">
+                  </app-dashboard-total>
+                  inbox
+                </div>
               </div>
             </tab>
-            <tab heading="Horario">
-              <div class="row">
-                <div class="col-8 offset-2">
-                  <app-schedules-shop
-                    [id]="id" class="block-dashboard mb-2 col-12 p-0">
-                  </app-schedules-shop>
-                </div>
+            <tab (selectTab)="tabs['products'] = true" heading="Productos">
+              <div class="col-12 row p-0 m-0" *ngIf="tabs['products']">
+                <app-list-products class="w-100" [id]="id"></app-list-products>
+              </div>
+            </tab>
+            <tab (selectTab)="tabs['information'] = true" heading="Informacion">
+              <div class="col-12" *ngIf="tabs['information']">
+                <app-info-shop [data_inside]="data_inside" [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                </app-info-shop>
+              </div>
+            </tab>
+            <tab (selectTab)="tabs['schedule'] = true" heading="Horario">
+              <div class="col-8 offset-2" *ngIf="tabs['schedule']">
+                <app-schedules-shop [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                </app-schedules-shop>
               </div>
             </tab>
           </tabset>

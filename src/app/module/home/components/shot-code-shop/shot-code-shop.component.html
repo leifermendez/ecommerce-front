@@ -1,3 +1,24 @@
-<ul class="h-100" *ngIf="data_shops && data_shops.length">
-  <li *ngFor="let shop of data_shops">{{shop['name']}}</li>
+<ul class="h-100" *ngIf="loading">
+  <li role="menuitem">
+    <div class="timeline-item">
+      <div class="animated-background" style="height: 20px">
+      </div>
+    </div>
+  </li>
 </ul>
+<div *ngIf="!loading">
+  <ul class="h-100" *ngIf="data_shops && data_shops.length">
+    <li [routerLink]="['/','shop','edit',shop['id']]"
+    class="cursor-pointer" *ngFor="let shop of data_shops" role="menuitem">
+      <div class="dropdown-item d-flex">
+        <div class="mr-2">
+          <img [src]="shop['image_cover_small']" width="30px" alt="">
+        </div>
+        <div>
+          <h6 class="m-0">{{shop['name']}}</h6>
+          <small>{{shop['address']  | words: 5: '...'}}</small>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

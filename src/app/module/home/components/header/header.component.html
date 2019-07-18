@@ -2,7 +2,7 @@
 
   <div id="header">
     <div class="header-container"
-         [ngClass]="{'full-mode-header logo-full-mode-header':(fullMenu), 'container': (!fullMenu)}">
+      [ngClass]="{'full-mode-header logo-full-mode-header':(fullMenu), 'container': (!fullMenu)}">
       <div class="row">
         <div class="d-flex justify-content-between w-100">
           <div class="logo">
@@ -15,28 +15,26 @@
               <app-search class="custom-select-search-item"></app-search>
             </div>
             <small *ngIf="location">
-                      <span class="cursor-pointer" (click)="openZip()">
-                            <fa name="map-marker"></fa>
-                        Enviar a  <b>{{location['name']}}</b> {{location['zip_code']}}
-                          </span>
+              <span class="cursor-pointer" (click)="openZip()">
+                <fa name="map-marker"></fa>
+                Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
+              </span>
             </small>
           </div>
-          <div *ngIf="fullMenu && user_data">
-            <app-shot-code-shop>
-            </app-shot-code-shop>
-          </div>
 
-
-          <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2" [routerLinkActive]="['is-active']"
-               *ngIf="fullMenu && user_data">
-            <div class="button-shop cursor-pointer" [routerLink]="['/','shop']">
-              <span class="point-shop"></span>
+          <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown
+            [routerLinkActive]="['is-active']" *ngIf="fullMenu && user_data">
+            <div class="button-shop cursor-pointer" dropdownToggle>
+              <span class="point-shop pulse"></span>
               <img src="../../../../../assets/images/shop.svg" width="30px" alt="">
-              <!--              <img src="../../../../../assets/images/shop.svg" width="30px" alt="">-->
               <div>
                 <span>Mi comercio</span>
               </div>
             </div>
+            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+              <app-shot-code-shop>
+              </app-shot-code-shop>
+            </ul>
           </div>
         </div>
 
@@ -50,8 +48,8 @@
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
                 <li class="mega-menu"><a class="level-top">
-                  <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
-                </a>
+                    <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
+                  </a>
                   <!--                  <div class="level0-wrapper dropdown-6col">-->
                   <!--                    <div class="container">-->
                   <!--                      <div class="level0-wrapper2">-->
@@ -175,26 +173,44 @@
 
                 </li>
 
-                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
-                  <a [routerLink]="['/','dashboard']" class="level-top">
-                    <span><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
+                <li *ngIf="user_data" class="mega-menu cursor-pointer float-right d-flex pr-0 btn-group" dropdown>
+                  <div class="level-top" dropdownToggle>
+                    <span class="pl-1 pr-1"><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
                     <span class="p-0">
-                      <img [src]="user_data['avatar']"
-                           width="30" class="profile-image" height="30" [alt]="user_data['name']"/>
+                      <img [src]="user_data['avatar']" width="30" class="profile-image" height="30"
+                        [alt]="user_data['name']" />
                     </span>
-                  </a>
+                  </div>
+                  <ul *dropdownMenu class="dropdown-menu drop-menu-profile dropdown-menu-right pt-0 pb-0" role="menu">
+                    <li role="menuitem">
+                      <a class="dropdown-item pl-3" [routerLink]="['/','purchases']">
+                        <img src="../../../../../assets/images/menu-shopping-bag.svg" width="14px" alt="">
+                        Mis compras
+                      </a>
+                    </li>
+                    <li role="menuitem">
+                      <a class="dropdown-item pl-3" [routerLink]="['/','sales']">
+                        <img src="../../../../../assets/images/menu-sale.svg" width="14px" alt="">
+                        Mis ventas
+                      </a>
+                    </li>
+                    <li class="divider dropdown-divider m-0 p-0"></li>
+                    <li role="menuitem">
+                      <a class="dropdown-item pl-3" [routerLink]="['/','profile']">Ver más</a>
+                    </li>
+                  </ul>
                 </li>
 
-                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-0">
+                <li *ngIf="user_data" class="mega-menu float-right d-flex pr-2">
                   <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
                     <span class="pr-0">
-                      <fa name="shopping-cart" size="lg"></fa>
-                      <span class="icon-bell" [ngClass]="{'icon-add-number':(animationBell)}"
-                            *ngIf="number_items"><b>{{number_items}}</b></span>
+                        <img src="../../../../../assets/images/shopping-cart.svg" width="25px" alt="">
+                      <span class="icon-bell pulse" [ngClass]="{'icon-add-number':(animationBell)}"
+                        *ngIf="number_items"><b>{{number_items}}</b></span>
                     </span>
                   </a>
                   <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
-                    <!--                    <app-shopping-cart></app-shopping-cart>-->
+
                   </div>
                 </li>
               </ul>

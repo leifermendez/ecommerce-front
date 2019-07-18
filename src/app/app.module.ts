@@ -16,6 +16,7 @@ import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
 import {ChartModule} from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
@@ -266,6 +267,7 @@ export class MyIntl extends TimeagoIntl {
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
     TimepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),

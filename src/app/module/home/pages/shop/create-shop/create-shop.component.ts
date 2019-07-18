@@ -16,6 +16,7 @@ export class CreateShopComponent implements OnInit {
   public loading = false;
   public data_inside: any = {}
   public filesReady: any;
+  public tabs: any = { dashboard: true };
   constructor(private route: ActivatedRoute,
     private rest: RestService,
     private formBuilder: FormBuilder,
@@ -36,7 +37,7 @@ export class CreateShopComponent implements OnInit {
       const formData = new FormData();
       formData.append('attached', file);
       formData.append('type_file', 'image');
-  
+
       this.httpClient.post<any>(
         `${this.rest.url}/rest/media`, formData,
         { headers: this.rest.getHeadersMedia() })
