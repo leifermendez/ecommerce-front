@@ -1,7 +1,7 @@
 <section class="main-container col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
   <div class="page-content">
-    <div class="container p-0">
+    <div class="p-0">
       <div class="inside-body mb-4">
         <div class="pt-2">
           <div class="row">
@@ -52,8 +52,7 @@
               </div>
               <div *ngIf="!loading" class="card block-dashboard border-0">
                 <div class="card-header">
-                  <b *ngIf="from !== 'shop'">Compras</b>
-                  <b *ngIf="from === 'shop'">Mis ventas</b>
+                  <b>Compras</b>
                 </div>
                 <div class="col p-0 bg-table min-height-300">
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
@@ -84,8 +83,11 @@
                           </h6>
                         </div>
                         <small class="text-muted form-text">
-                          <fa name="phone"></fa> {{dat['shops_fixed']}}
-                          <fa name="phone ml-2"></fa> {{dat['shops_mobil']}}</small>
+                          <span>{{dat['uuid']}}</span>
+                          <fa name="phone"></fa>
+                          {{dat['shops_fixed']}}
+                          <fa name="phone ml-2"></fa>
+                          {{dat['shops_mobil']}}</small>
                       </td>
                       <td>
                         <span>
@@ -120,7 +122,8 @@
                          class="mt-4"
                          width="100px" alt="">
                     <div class="mt-2">
-                      <p class="text-muted">Aun no tienes compras</p>
+                      <p class="text-muted p-4">¿Sin compras? ¡No hay problema! Explora Apatxee y encuentra productos
+                        increíbles.</p>
                     </div>
                   </div>
                 </div>

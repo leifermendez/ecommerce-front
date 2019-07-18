@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {UserModel} from '../../shared/models/base.model';
 import {CookieService} from 'ngx-cookie-service';
 import * as moment from 'moment';
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import {LOCAL_STORAGE} from '@ng-toolkit/universal';
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +34,10 @@ export class AuthshopService {
     return moment().add(minutes, 'minutes').toDate();
   };
 
-  public login(email: string, password: string, name: string = null): Promise<boolean> {
+  public login(data: any = {}): Promise<boolean> {
     return new Promise<boolean>(((resolve, reject) => {
       this.waiting = true;
-      this.rest.post('/auth', {email, password, name})
+      this.rest.post('/auth', data)
         .then(((response: any) => {
           if (response.data) {
             const token = response.data['token'];

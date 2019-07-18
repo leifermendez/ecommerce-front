@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   public location: any = null;
   public header = false;
   public subMenu = false;
+  public fullMenu = false;
   public user_data: any = null;
   public number_items = 0;
   public activeLang = 'es';
@@ -43,12 +44,9 @@ export class HeaderComponent implements OnInit {
               private cart: ShoppingCartComponent,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
-      console.log('headerrr', data);
       this.location = data['zip_code'][0];
       this.lat = data['customer_lat'];
       this.lng = data['customer_lng'];
-      console.log('lat', this.lat);
-      console.log('lng', this.lng);
     });
 
     util.modeVideo.subscribe(data => {
@@ -99,6 +97,7 @@ export class HeaderComponent implements OnInit {
         const _data = data.state.root.firstChild.data;
         this.header = (_data['header']);
         this.subMenu = (_data['subMenu']);
+        this.fullMenu = (_data['fullMenu']);
       }
     });
   }

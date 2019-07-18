@@ -1,10 +1,11 @@
 .logo {
   padding-top: 10px;
-  padding-left: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .fl-nav-menu-search {
-  width: 75%;
+  width: 100%;
 }
 
 .custom-select-search-item {
@@ -14,11 +15,11 @@
 
 .fl-nav-menu {
   width: 100%;
-  height: 45px;
+  height: 35px;
 }
 
 #nav > li > a {
-  line-height: 45px;
+  line-height: 30px;
   font-weight: normal;
   letter-spacing: 0px;
 }
@@ -151,6 +152,17 @@
   }
 }
 
+.button-shop {
+  width: 120px;
+  text-align: center;
+  margin-top: .2rem;
+  color: #212529
+}
+
+.button-shop small {
+  color: #222;
+}
+
 .icon-bell {
   position: absolute;
   background: rgb(236, 47, 77);
@@ -163,6 +175,36 @@
   text-align: center;
   font-size: 12px;
   border-radius: 40px;
+}
+
+.header-container {
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.menu-shop-line:hover, .is-active {
+  border-bottom: solid 3px #ce0000
+}
+
+.point-shop{
+  background: #ce0000;
+  position: absolute;
+  margin-left: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 30px;
+  margin-top: -5px;
+}
+
+.full-mode-header {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 header {

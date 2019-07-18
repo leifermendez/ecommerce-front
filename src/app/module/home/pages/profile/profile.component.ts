@@ -46,9 +46,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.welcome = this.cookieService.get('_wizard_dashboard');
     this.currentUser = this.auth.getCurrentUser();
-    if (!this.welcome) {
-      this.open();
-    }
+    // if (!this.welcome) {
+    //   this.open();
+    // }
   }
 
 }

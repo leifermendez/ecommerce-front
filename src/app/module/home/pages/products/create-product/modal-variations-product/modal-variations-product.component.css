@@ -1,6 +1,14 @@
-.gallery-image{
+.gallery-image {
   object-fit: cover;
   border: solid 1px #eceaea;
   width: 100%;
   height: 150px;
+}
+
+.gallery-image:hover {
+  opacity: 0.5;
+}
+
+.buttons-options{
+  z-index: 9
 }

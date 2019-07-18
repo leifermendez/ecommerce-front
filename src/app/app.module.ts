@@ -123,6 +123,8 @@ import {ModalWarningComponent} from './module/home/components/modal-warning/moda
 import { CommonModule } from '@angular/common';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { DetailProductSaleComponent } from './module/home/pages/single-sale/detail-product-sale/detail-product-sale.component';
+import { ShotCodeShopComponent } from './module/home/components/shot-code-shop/shot-code-shop.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -231,6 +233,8 @@ export class MyIntl extends TimeagoIntl {
     SingleBlogComponent,
     AddressShoppingCartComponent,
     ModalWarningComponent,
+    DetailProductSaleComponent,
+    ShotCodeShopComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

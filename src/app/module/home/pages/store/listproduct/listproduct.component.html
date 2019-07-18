@@ -126,12 +126,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="item-info" (click)="detail(dat.id)">
+                <div class="item-info">
                   <div class="info-inner">
                     <div class="item-title mb-0">
-                      <a href="#"
+                      <a [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]"
                          class="font-weight-600"
-                         title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
+                         [title]="util.slug(dat['name'])">{{dat['name'] | truncate : 25 :  '...' }}</a>
                     </div>
                     <div>
                       <a class="text-muted">

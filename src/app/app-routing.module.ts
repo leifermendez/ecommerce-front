@@ -48,7 +48,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -57,7 +58,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -66,7 +68,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -93,7 +96,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -103,7 +107,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -133,7 +138,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -171,7 +177,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -181,7 +188,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -191,7 +199,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -201,7 +210,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -211,7 +221,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -221,7 +232,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -231,7 +243,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {

@@ -1,69 +1,40 @@
 <div class="sidebar-ecommerce">
-  <div class="inside">
-    <ul>
-      <li class="mb-4 first-item">
-        <div class="cursor-pointer">
-          <img
-            [routerLink]="['/','profile']"
-            class="img-profile-radius"
-            [src]="data['avatar']" width="50px"
-            height="50px" alt="">
-        </div>
-
-        <div (click)="switch()" *ngIf="type"
-             class="icon-setting cursor-pointer">
-          <fa tooltip="Cambiar menu" placement="top" [name]="(type==='shop') ? 'toggle-on' : 'toggle-off'"></fa>
-        </div>
-      </li>
-
-      <li [routerLink]="['/',(type==='shop')? 'sales' : 'purchases']">
-        <div class="btn btn-default btn-block border-0">
+  <div class="inside d-flex flex-column justify-content-between h-100">
+    <ul class="pl-0 pr-0">
+      <li [routerLink]="['/','purchases']">
+        <div class="btn btn-default btn-block border-0 pt-2 pb-2">
           <div>
-            <fa name="shopping-basket" size="2x"></fa>
-
+            <img class="line-item-menu"
+                 src="../../../../../../assets/images/menu-shopping-bag.svg"
+                 width="20px" alt="">
           </div>
           <div>
             <span class="font-weight-bold">
-              <span *ngIf="type==='shop'">Ventas</span>
-              <span *ngIf="type==='user'">Compras</span>
+              <span>Compras</span>
             </span>
           </div>
         </div>
       </li>
-      <li *ngIf="type === 'shop'" [routerLink]="['/','products']">
-        <div class="btn btn-default btn-block border-0">
+      <li [routerLink]="['/','sales']">
+        <div class="btn btn-default btn-block border-0 pt-2 pb-2">
           <div>
-            <fa name="inbox" size="2x"></fa>
+            <img class="line-item-menu"
+                 src="../../../../../../assets/images/menu-sale.svg"
+                 width="20px" alt="">
           </div>
           <div>
-            <span class="font-weight-bold">Productos</span>
-          </div>
-        </div>
-      </li>
-      <li *ngIf="type === 'shop'" [routerLink]="['/','transactions']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="hashtag" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Transaciones</span>
-          </div>
-        </div>
-      </li>
-      <li *ngIf="type === 'shop'" [routerLink]="['/','shop']">
-        <div class="btn btn-default btn-block border-0">
-          <div>
-            <fa name="shopping-cart" size="2x"></fa>
-          </div>
-          <div>
-            <span class="font-weight-bold">Tienda</span>
+            <span class="font-weight-bold">
+              <span>Ventas</span>
+            </span>
           </div>
         </div>
       </li>
       <li [routerLink]="['/','profile']">
-        <div class="btn btn-default btn-block border-0">
+        <div class="btn btn-default btn-block border-0 pt-2 pb-2">
           <div>
-            <fa name="cogs" size="2x"></fa>
+            <img class="line-item-menu"
+                 src="../../../../../../assets/images/menu-settings.svg"
+                 width="20px" alt="">
           </div>
           <div>
             <span class="font-weight-bold">Ajustes</span>
@@ -71,9 +42,11 @@
         </div>
       </li>
       <li>
-        <div class="btn btn-default btn-block border-0">
+        <div class="btn btn-default btn-block border-0 pt-2 pb-2">
           <div>
-            <fa name="question-circle" size="2x"></fa>
+            <img class="line-item-menu"
+                 src="../../../../../../assets/images/menu-help.svg"
+                 width="20px" alt="">
           </div>
           <div>
             <span class="font-weight-bold">Ayuda</span>
@@ -81,9 +54,11 @@
         </div>
       </li>
       <li [routerLink]="['/','logout']">
-        <div class="btn btn-default btn-block border-0">
+        <div class="btn btn-default btn-block border-0 pt-2 pb-2">
           <div>
-            <fa name="sign-in" size="2x"></fa>
+            <img class="line-item-menu"
+                 src="../../../../../../assets/images/menu-logout.svg"
+                 width="20px" alt="">
           </div>
           <div>
             <span class="font-weight-bold">Salir</span>
@@ -91,5 +66,12 @@
         </div>
       </li>
     </ul>
+    <div class="cursor-pointer text-center p-2 mb-4">
+      <img
+        [routerLink]="['/','profile']"
+        class="img-profile-radius"
+        [src]="data['avatar']" width="50px"
+        height="50px" alt="">
+    </div>
   </div>
 </div>

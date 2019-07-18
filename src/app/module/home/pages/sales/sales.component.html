@@ -1,7 +1,7 @@
 <section class="main-container col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
   <div class="page-content">
-    <div class="container p-0">
+    <div class="p-0">
       <div class="inside-body mb-4">
         <div class="pt-2">
           <div class="row">
@@ -52,23 +52,21 @@
               </div>
               <div *ngIf="!loading" class="card block-dashboard border-0">
                 <div class="card-header">
-                  <b *ngIf="from !== 'shop'">Compras</b>
-                  <b *ngIf="from === 'shop'">Mis ventas</b>
+                  <b>Ventas</b>
                 </div>
                 <div class="col p-0 bg-table min-height-300">
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
                     <thead>
                     <tr>
-                      <th scope="col" style="width: 100px"></th>
+                      <th scope="col" style="width: 80px"></th>
                       <th scope="col"></th>
                       <th scope="col" style="width: 100px">Monto</th>
-                      <th scope="col" style="width: 100px">Envio</th>
                       <th scope="col" class="text-center" style="width: 100px">Estatus</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr *ngFor="let dat of data['data'];let i = index"
-                        [routerLink]="['/','sales',dat['id']]"
+                        [routerLink]="['/','sales',dat['uuid']]"
                         class="list-table-item cursor-pointer">
                       <td>
                         <img [src]="dat['users_avatar']"
@@ -80,23 +78,33 @@
                       <td>
                         <div>
                           <h6>
-                            <b>{{dat['users_name']}}</b>
+                            Pedido #({{dat['id']}})
                           </h6>
                         </div>
-                        <small class="text-muted form-text">
-                          <fa name="phone"></fa> {{dat['users_phone']}}
-                          <fa name="phone ml-2"></fa> {{dat['users_email']}}</small>
+                        <div>
+                          <span class="form-text text-color-gray">
+                            <fa name="user"></fa>
+                            {{dat['users_name']}}
+                          </span>
+                        </div>
+                        <div>
+                          <span class="form-text text-color-gray">
+                            <fa name="phone"></fa>
+                            {{dat['users_phone']}}
+                          </span>
+                        </div>
+                        <div>
+                          <span class="form-text text-color-gray">
+                            <fa name="envelope"></fa>
+                            {{dat['users_email']}}
+                          </span>
+                        </div>
                       </td>
                       <td>
                         <span>
                           <h6>
                             <b>{{dat['amount'] |number:'1.2-2'}}</b>
                           </h6>
-                        </span>
-                      </td>
-                      <td>
-                          <span>
-                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
                         </span>
                       </td>
                       <td class="text-center">
@@ -116,11 +124,11 @@
                     </tbody>
                   </table>
                   <div *ngIf="data && !data['data'].length" class="text-center pb-4">
-                    <img src="../../../../../assets/images/paper-bag.svg"
+                    <img src="../../../../../assets/images/sale.svg"
                          class="mt-4"
                          width="100px" alt="">
                     <div class="mt-2">
-                      <p class="text-muted">Aun no tienes compras</p>
+                      <p class="text-muted p-4">Aun no tienes ventas</p>
                     </div>
                   </div>
                 </div>

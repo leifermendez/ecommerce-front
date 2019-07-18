@@ -82,12 +82,12 @@ export class BannerComponent implements OnInit, AfterViewInit {
             const index = elements.dataset['index'];
             console.log('aui', _this.videoApi);
             _this.videoApi[index].play();
-            _this.modeVideo(true);
+           // _this.modeVideo(true);
           } else {
             if (_this.videoApi) {
               _this.videoApi.map(a => a.pause());
             }
-            _this.modeVideo(false);
+           // _this.modeVideo(false);
 
           }
         }

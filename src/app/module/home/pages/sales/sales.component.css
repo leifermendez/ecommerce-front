@@ -49,7 +49,12 @@
 .image-bran {
   width: 60px;
   height: 60px;
+  -o-object-fit: contain;
   object-fit: contain;
   border: solid 1px #e8e8e8;
-  border-radius: 3px;
+  border-radius: 50px;
+}
+
+.text-color-gray{
+  color: gray !important;
 }

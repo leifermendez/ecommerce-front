@@ -17,11 +17,11 @@ import {ShoppingCartComponent} from '../../../../home/components/shopping-cart/s
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        style({transform: 'translateY(-20%)', opacity: '0'}),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
       ])
     ])
   ]
@@ -78,19 +78,22 @@ export class BlockLoginComponent implements OnInit {
       event.preventDefault();
 
       this.auth.login(
-        this.form.value['email'],
-        this.form.value['password'],
-        this.form.value['name']
-      ).then(loged => {
+        {
+          'email': this.form.value['email'],
+          'password': this.form.value['password'],
+          'name': this.form.value['name'],
+          'role': this.form.value['role'],
+        }
+      ).then(logged => {
         this.loading = false;
         this.utils.closeAllModals();
         this.cart.loadData();
 
-        if (loged['confirmed'] === 1) {
+        if (logged['confirmed'] === 1) {
           if (this.redirect) {
             this.router.navigateByUrl(`${this.redirect}`);
           }
-        } else if (loged['confirmed'] === 0) {
+        } else if (logged['confirmed'] === 0) {
           this.router.navigateByUrl('/profile');
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
@@ -141,13 +144,13 @@ export class BlockLoginComponent implements OnInit {
     this.loading = true;
     this.utils.closeAllModals();
     this.cart.loadData();
-    this.auth.login_social(data).then(loged => {
+    this.auth.login_social(data).then(logged => {
       this.loading = false;
-      if (loged['confirmed'] === 1) {
+      if (logged['confirmed'] === 1) {
         if (this.redirect) {
           this.router.navigateByUrl(`${this.redirect}`);
         }
-      } else if (loged['confirmed'] === 0) {
+      } else if (logged['confirmed'] === 0) {
         this.router.navigateByUrl('/profile');
       } else {
         this.utils.openSnackBar('Login Fail', 'try again');

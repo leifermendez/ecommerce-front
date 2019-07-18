@@ -84,17 +84,17 @@
 
       </div>
       <div class="col-3 p-2 over-img" *ngIf="editform && editform['attacheds_small']">
-          <div class="d-flex m-1 position-absolute">
-            <button class="btn btn-link bg-transparent" (click)="open(editform['attached_id'])" type="button">
-              <fa name="edit"></fa>
-            </button>
-            <button class="ml-1 btn btn-link bg-transparent pull-left"
-                    (click)="confirmDelete(editform['attached_id'])" type="button">
-              <fa name="trash"></fa>
-            </button>
-          </div>
-          <img class="gallery-image" [src]="editform['attacheds_small']" alt="">
+        <div class="d-flex m-1 position-absolute buttons-options">
+          <button class="btn btn-link bg-transparent" (click)="open(editform['attached_id'])" type="button">
+            <fa name="edit"></fa>
+          </button>
+          <button class="ml-1 btn btn-link bg-transparent pull-left"
+                  (click)="confirmDelete(editform['attached_id'])" type="button">
+            <fa name="trash"></fa>
+          </button>
         </div>
+        <img class="gallery-image" [src]="editform['attacheds_small']" alt="">
+      </div>
       <app-data-gallery-product-variation
         *ngIf="editform && !editform['attacheds_small']"
         (api)="dropzoneApiCallback($event)"
