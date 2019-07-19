@@ -51,30 +51,13 @@
                 </div>
               </div>
               <div *ngIf="!loading" class="card block-dashboard border-0">
-                <div class="card-header">
-                  <b>Ventas</b>
-                </div>
                 <div class="col p-0 bg-table min-height-300">
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
-                    <thead>
-                    <tr>
-                      <th scope="col" style="width: 80px"></th>
-                      <th scope="col"></th>
-                      <th scope="col" style="width: 100px">Monto</th>
-                      <th scope="col" class="text-center" style="width: 100px">Estatus</th>
-                    </tr>
-                    </thead>
                     <tbody>
                     <tr *ngFor="let dat of data['data'];let i = index"
                         [routerLink]="['/','sales',dat['uuid']]"
                         class="list-table-item cursor-pointer">
-                      <td>
-                        <img [src]="dat['users_avatar']"
-                             width="100px"
-                             class="image-bran"
-                             height="100px"
-                             alt="">
-                      </td>
+                  
                       <td>
                         <div>
                           <h6>
@@ -100,24 +83,20 @@
                           </span>
                         </div>
                       </td>
-                      <td>
+                      <td [style.width]="'200px'">
                         <span>
                           <h6>
-                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
+                            <b>{{dat['amount'] |number:'1.2-2'}} {{"currency" | translate}}</b>
                           </h6>
                         </span>
                       </td>
-                      <td class="text-center">
+                      <td class="text-right" [style.width]="'100px'">
                         <div [tooltip]="dat['status']">
-                          <fa *ngIf="dat['status']==='success'"
-                              name="check" size="2x" class="text-success"></fa>
-                          <fa *ngIf="dat['status']==='wait'"
-                              name="history" animation="spin" size="2x" class="text-muted"></fa>
-                          <fa *ngIf="dat['status']==='cancel'"
-                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-                          <fa *ngIf="dat['status']==='fail'"
-                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-                          <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
+                            <span class="badge p-1" 
+                            [ngClass]="{'badge-success':(dat['status']==='success'),
+                            'badge-danger':(dat['status']!=='success')}">
+                              {{dat['status']}}
+                            </span>  
                         </div>
                       </td>
                     </tr>

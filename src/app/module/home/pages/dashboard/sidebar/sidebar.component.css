@@ -41,6 +41,14 @@ ul li {
   border-radius: 0 !important;
 }
 
+.is-active {
+  background: transparent !important;
+  color: #2b2b2b !important;
+  opacity: .8 !important;
+  border-left: solid 4px #ce0000 !important;
+  border-radius: 0 !important;
+}
+
 .img-profile-radius{
   width: 40px;
   height: 40px;
