@@ -91,13 +91,13 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.window.URL);
     this.computer = this.deviceService.isDesktop();
     if (!this.computer) {
       this.openWarning();
     }
     const _location = this.localStorage.getItem('_location');
     if (!_location) {
-      this.window.scrollTo(0, 0);
       if (this.computer && !this.cookie_zip_code) {
         this.open();
       }

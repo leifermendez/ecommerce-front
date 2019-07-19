@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node local.js",
+    "deploy": "ng build --prod && npm run build:ssr && gcloud app deploy",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

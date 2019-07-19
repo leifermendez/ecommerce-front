@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-inside-filter-nav',
@@ -7,9 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InsideFilterNavComponent implements OnInit {
   @Input() placeholder: any = '';
-  constructor() { }
+  public form: any = FormGroup;
+  constructor(private fb: FormBuilder) { 
+    this.form = fb.group({
+      'src': [null, Validators.compose([Validators.required, Validators.email])],
+    });
+  }
 
   ngOnInit() {
   }
+
+  find = () => {}
 
 }

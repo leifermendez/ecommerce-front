@@ -13,6 +13,7 @@ enableProdMode();
 
 // Express server
 export const app = express();
+
 global['DragEvent'] = null;
 global['Event'] = null;
 const PORT = process.env.PORT || 4000;
