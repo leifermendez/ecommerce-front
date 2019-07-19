@@ -58,7 +58,7 @@
                         [routerLink]="['/','sales',dat['uuid']]"
                         class="list-table-item cursor-pointer">
                   
-                      <td>
+                      <td [style.width]="'35%'" [style.borderRight]="'1px solid #e4e4e4'">
                         <div>
                           <h6>
                             Pedido #({{dat['id']}})
@@ -83,14 +83,17 @@
                           </span>
                         </div>
                       </td>
-                      <td [style.width]="'200px'">
+                      <td [style.width]="'35%'" [style.borderRight]="'1px solid #e4e4e4'">
+                        Lorem ipsum dolor.
+                      </td>
+                      <td class="text-right"  [style.width]="'20%'">
                         <span>
                           <h6>
                             <b>{{dat['amount'] |number:'1.2-2'}} {{"currency" | translate}}</b>
                           </h6>
                         </span>
                       </td>
-                      <td class="text-right" [style.width]="'100px'">
+                      <td class="text-right"[style.width]="'10%'">
                         <div [tooltip]="dat['status']">
                             <span class="badge p-1" 
                             [ngClass]="{'badge-success':(dat['status']==='success'),
