@@ -33,6 +33,10 @@
   border: 0px
 }
 
+.list-items li{
+  border-bottom: solid 1px #f7f6f6;
+}
+
 .img-contain {
   object-fit: contain;
 }

@@ -44,7 +44,7 @@ website:   	http://www.themesground.com/
 }
 
 .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
-  /*height: 45vw;*/
+
 
 }
 
@@ -788,7 +788,7 @@ website:   	http://www.themesground.com/
 .fullwidthabanner .nav-buttons {
   position: absolute;
   z-index: 999;
-  top: 10rem;
+  top: 8rem;
   display: flex;
   opacity: .3;
   width: 100%;
@@ -827,7 +827,7 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
   width: 100%;
-  height: 25rem;
+  height: 20rem;
   max-height: 35rem;
   background-color: lightgray;
   -webkit-transition: .3s ease-in-out;

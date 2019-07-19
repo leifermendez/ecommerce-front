@@ -23,7 +23,7 @@
 }
 
 .block-dashboard {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.0);
   display: block;
   padding: 0;
   background-color: white;
@@ -33,13 +33,18 @@
   border: 0px
 }
 
+.list-items li{
+  border-bottom: solid 1px #f7f6f6;
+}
+
 .img-contain {
   object-fit: contain;
 }
 
 .list-table-item {
   background-color: white;
-  box-shadow: 0px 0px 5px #f1f1f1
+  box-shadow: 0px 0px 5px #f1f1f1;
+  border-bottom: solid 10px whitesmoke;
 }
 
 .bg-table {
@@ -49,7 +54,12 @@
 .image-bran {
   width: 60px;
   height: 60px;
+  -o-object-fit: contain;
   object-fit: contain;
   border: solid 1px #e8e8e8;
-  border-radius: 3px;
+  border-radius: 50px;
+}
+
+.text-color-gray{
+  color: gray !important;
 }

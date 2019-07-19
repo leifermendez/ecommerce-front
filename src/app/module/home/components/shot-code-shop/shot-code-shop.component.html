@@ -21,4 +21,14 @@
       </div>
     </li>
   </ul>
+  <ul class="h-100" *ngIf="data_shops && !data_shops.length">
+      <li [routerLink]="['/','shop']"
+      class="cursor-pointer" role="menuitem">
+        <div class="dropdown-item d-flex">
+          <div>
+            <h6 class="m-0">Comienza a vender</h6>
+          </div>
+        </div>
+      </li>
+    </ul>
 </div>

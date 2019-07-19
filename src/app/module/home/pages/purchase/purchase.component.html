@@ -1,139 +1,147 @@
 <section class="main-container col2-right-layout mt-0">
-  <app-sidebar></app-sidebar>
-  <div class="page-content">
-    <div class="p-0">
-      <div class="inside-body mb-4">
-        <div class="pt-2">
-          <div class="row">
-            <div class="col-12">
-              <div *ngIf="loading">
-                <div class="timeline-item ">
-                  <div class="animated-background" style="height: 40px">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-
-                  </div>
-                  <div class="animated-background mt-3" style="height: 40px">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-
-                  </div>
-                  <div class="animated-background mt-3" style="height: 40px">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-
-                  </div>
-                  <div class="animated-background mt-3" style="height: 40px">
-                    <div class="background-masker header-top"></div>
-                    <div class="background-masker header-left"></div>
-                    <div class="background-masker header-right"></div>
-                    <div class="background-masker header-bottom"></div>
-                    <div class="background-masker subheader-left"></div>
-                    <div class="background-masker subheader-right"></div>
-                    <div class="background-masker subheader-bottom"></div>
-
-                  </div>
-                </div>
-              </div>
-              <div *ngIf="!loading" class="card block-dashboard border-0">
-                <div class="card-header">
-                  <b>Compras</b>
-                </div>
-                <div class="col p-0 bg-table min-height-300">
-                  <table *ngIf="data && data['data'].length" class="table table-shipment">
-                    <thead>
-                    <tr>
-                      <th scope="col" style="width: 100px"></th>
-                      <th scope="col"></th>
-                      <th scope="col" style="width: 100px">Monto</th>
-                      <th scope="col" style="width: 100px">Envio</th>
-                      <th scope="col" class="text-center" style="width: 100px">Estatus</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let dat of data['data'];let i = index"
-                        [routerLink]="['/','purchases',dat['id']]"
-                        class="list-table-item cursor-pointer">
-                      <td>
-                        <img [src]="dat['logo_brand']"
-                             width="100px"
-                             class="image-bran"
-                             height="100px"
-                             alt="">
-                      </td>
-                      <td>
-                        <div>
-                          <h6>
-                            <b>{{dat['shops_name']}}</b>
-                          </h6>
-                        </div>
-                        <small class="text-muted form-text">
-                          <span>{{dat['uuid']}}</span>
-                          <fa name="phone"></fa>
-                          {{dat['shops_fixed']}}
-                          <fa name="phone ml-2"></fa>
-                          {{dat['shops_mobil']}}</small>
-                      </td>
-                      <td>
-                        <span>
-                          <h6>
-                            <b>{{dat['amount'] |number:'1.2-2'}}</b>
-                          </h6>
-                        </span>
-                      </td>
-                      <td>
-                          <span>
-                          <h6>{{dat['amount_shipping'] |number:'1.2-2'}}</h6>
-                        </span>
-                      </td>
-                      <td class="text-center">
-                        <div [tooltip]="dat['status']">
-                          <fa *ngIf="dat['status']==='success'"
-                              name="check" size="2x" class="text-success"></fa>
-                          <fa *ngIf="dat['status']==='wait'"
-                              name="history" animation="spin" size="2x" class="text-muted"></fa>
-                          <fa *ngIf="dat['status']==='cancel'"
-                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-                          <fa *ngIf="dat['status']==='fail'"
-                              name="exclamation-circle" animation="spin" size="2x" class="text-danger"></fa>
-                          <!--                          <img src="../../../../../assets/images/time-left.svg" width="20px" alt="">-->
-                        </div>
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                  <div *ngIf="data && !data['data'].length" class="text-center pb-4">
-                    <img src="../../../../../assets/images/paper-bag.svg"
-                         class="mt-4"
-                         width="100px" alt="">
-                    <div class="mt-2">
-                      <p class="text-muted p-4">¿Sin compras? ¡No hay problema! Explora Apatxee y encuentra productos
-                        increíbles.</p>
+    <app-sidebar></app-sidebar>
+    <div class="page-content pl-3 pr-3">
+      <div class="p-0">
+        <div class="inside-body mb-4 mt-3">
+          <div class="p-0">
+            <div class="row m-0">
+              <div class="col-12 p-0">
+                <div *ngIf="loading">
+                  <div class="timeline-item ">
+                    <div class="animated-background" style="height: 40px">
+                      <div class="background-masker header-top"></div>
+                      <div class="background-masker header-left"></div>
+                      <div class="background-masker header-right"></div>
+                      <div class="background-masker header-bottom"></div>
+                      <div class="background-masker subheader-left"></div>
+                      <div class="background-masker subheader-right"></div>
+                      <div class="background-masker subheader-bottom"></div>
+  
+                    </div>
+                    <div class="animated-background mt-3" style="height: 40px">
+                      <div class="background-masker header-top"></div>
+                      <div class="background-masker header-left"></div>
+                      <div class="background-masker header-right"></div>
+                      <div class="background-masker header-bottom"></div>
+                      <div class="background-masker subheader-left"></div>
+                      <div class="background-masker subheader-right"></div>
+                      <div class="background-masker subheader-bottom"></div>
+  
+                    </div>
+                    <div class="animated-background mt-3" style="height: 40px">
+                      <div class="background-masker header-top"></div>
+                      <div class="background-masker header-left"></div>
+                      <div class="background-masker header-right"></div>
+                      <div class="background-masker header-bottom"></div>
+                      <div class="background-masker subheader-left"></div>
+                      <div class="background-masker subheader-right"></div>
+                      <div class="background-masker subheader-bottom"></div>
+  
+                    </div>
+                    <div class="animated-background mt-3" style="height: 40px">
+                      <div class="background-masker header-top"></div>
+                      <div class="background-masker header-left"></div>
+                      <div class="background-masker header-right"></div>
+                      <div class="background-masker header-bottom"></div>
+                      <div class="background-masker subheader-left"></div>
+                      <div class="background-masker subheader-right"></div>
+                      <div class="background-masker subheader-bottom"></div>
+  
                     </div>
                   </div>
                 </div>
+                <div *ngIf="!loading" class="card block-dashboard border-0">
+                  <div class="col p-0 bg-table min-height-300">
+                    <app-inside-filter-nav [placeholder]="'Busca número de pedido, nombre de comercio'" 
+                    class="p-2 text-muted d-block"></app-inside-filter-nav>
+                    <table *ngIf="data && data['data'].length" class="table table-shipment">
+                      <tbody>
+                        <tr *ngFor="let dat of data['data'];let i = index" [routerLink]="['/','sales',dat['uuid']]"
+                          class="list-table-item cursor-pointer">
 
+                          <td [style.width]="'30%'" [style.borderRight]="'1px dashed #e4e4e4'">
+                            <div>
+                              <small class="text-muted">
+                                  {{ dat['created_at'] | date }} 
+                              </small>
+                              <h6>
+                                Pedido #({{dat['id']}})
+                              </h6>
+                            </div>
+                            <div>
+                              <span class="form-text text-color-gray">
+                                <fa name="tag"></fa>
+                                {{dat['shops_name']}}
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-text text-color-gray">
+                                <fa name="phone"></fa>
+                                {{dat['shops_mobil']}} / {{dat['shops_fixed']}}
+                              </span>
+                            </div>
+                            <div>
+                              <span class="form-text text-color-gray">
+                                <fa name="envelope"></fa>
+                                {{dat['users_email']}}
+                              </span>
+                            </div>
+                          </td>
+                          <td [style.width]="'50%'" class="p-0" [style.borderRight]="'1px dashed #e4e4e4'">
+                            <ul class="list-unstyled m-0 list-items">
+                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">
+                                <span>Botas deportivas</span>
+                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>
+                              </li>
+                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">
+                                <span>Botas deportivas</span>
+                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>
+                              </li>
+                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">
+                                <span>Botas deportivas</span>
+                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>
+                              </li>
+                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">
+                                <span>Botas deportivas</span>
+                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="text-right" [style.width]="'20%'">
+                            <div [tooltip]="dat['status']" class="mb-1">
+                              <span class="badge p-1" [ngClass]="{'badge-success':(dat['status']==='success'),
+                                'badge-danger':(dat['status']!=='success')}">
+                                <span *ngIf="dat['status']==='success'">Pagado</span>
+                                <span *ngIf="dat['status']!=='success'">Esperando pago</span>
+                              </span>
+                            </div>
+                            <span>Total</span>
+                            <h6 class="m-0">
+                              {{dat['amount'] |number:'1.2-2'}} {{"currency" | translate}}
+                            </h6>
+                            <p class="text-muted">
+                              {{dat['amount_shipping'] |number:'1.2-2'}} {{"currency" | translate}}
+                            </p>
+                          </td>
+  
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div *ngIf="data && !data['data'].length" class="text-center pb-4">
+                      <img src="../../../../../assets/images/paper-bag.svg" class="mt-4" width="100px" alt="">
+                      <div class="mt-2">
+                        <p class="text-muted p-4">¿Sin compras? ¡No hay problema! Explora Apatxee y encuentra productos
+                            increíbles</p>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+  
     </div>
-
-  </div>
-</section>
+  </section>
