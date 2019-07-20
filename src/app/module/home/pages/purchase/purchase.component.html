@@ -56,7 +56,7 @@
                     class="p-2 text-muted d-block"></app-inside-filter-nav>
                     <table *ngIf="data && data['data'].length" class="table table-shipment">
                       <tbody>
-                        <tr *ngFor="let dat of data['data'];let i = index" [routerLink]="['/','sales',dat['uuid']]"
+                        <tr *ngFor="let dat of data['data'];let i = index" [routerLink]="['/','purchase',dat['uuid']]"
                           class="list-table-item cursor-pointer">
 
                           <td [style.width]="'30%'" [style.borderRight]="'1px dashed #e4e4e4'">

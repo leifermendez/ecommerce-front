@@ -70,7 +70,7 @@ export class SingleComponent implements OnInit {
   }
 
   addTags = (data) => {
-    this.titleService.setTitle(data['name']);
+    this.titleService.setTitle(`${data['name']} | Apatxee.com`);
     this.meta.updateTag({ name: 'keywords', content: data['short_description'] });
     this.meta.updateTag({ name: 'description', content: data['short_description'] });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
