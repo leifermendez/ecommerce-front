@@ -156,7 +156,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -165,7 +166,8 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard],
     data: {
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -261,7 +263,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -271,7 +274,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       subMenu: true,
-      footer: true
+      footer: true,
+      fullMenu: true
     },
   },
   {
@@ -279,7 +283,8 @@ const routes: Routes = [
     component: StoreprofileComponent,
     pathMatch: 'full',
     data: {
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   {
@@ -287,7 +292,8 @@ const routes: Routes = [
     component: StoreprofileComponent,
     pathMatch: 'full',
     data: {
-      footer: true
+      footer: true,
+      fullMenu: true
     }
   },
   { path: '**', component: HomeComponent },
