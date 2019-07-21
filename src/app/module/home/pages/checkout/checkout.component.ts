@@ -8,11 +8,23 @@ import {WelcomeComponent} from '../../components/welcome/welcome.component';
 import {ModalShippingComponent} from '../profile/modal-shipping/modal-shipping.component';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({transform: 'translateY(-20%)', opacity: '0'}),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+      ])
+    ])
+  ]
 })
 export class CheckoutComponent implements OnInit {
   data: any = [];

@@ -170,6 +170,7 @@ header {
   /*width: 45px !important;*/
   object-fit: cover !important;
   object-position: left !important;
+  height: 42px;
 }
 
 .header-container .fl-nav-menu {

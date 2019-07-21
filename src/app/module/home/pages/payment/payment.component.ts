@@ -6,11 +6,23 @@ import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BsModalService} from 'ngx-bootstrap';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  styleUrls: ['./payment.component.css'],
+  animations: [
+    trigger('tijl', [
+      transition(':enter', [
+        style({transform: 'translateY(-20%)', opacity: '0'}),
+        animate('0.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+      ])
+    ])
+  ]
 })
 
 export class PaymentComponent implements OnInit {

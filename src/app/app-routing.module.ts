@@ -32,7 +32,6 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
     data: {
-      fullMenu: true
     }
   },
   {
@@ -56,7 +55,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -66,7 +64,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -76,7 +73,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -104,7 +100,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -115,7 +110,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -146,7 +140,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -167,7 +160,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -187,7 +179,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -198,7 +189,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -209,7 +199,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -220,7 +209,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -231,7 +219,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -242,7 +229,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -253,7 +239,6 @@ const routes: Routes = [
     data: {
       subMenu: true,
       footer: true,
-      fullMenu: true
     },
   },
   {
@@ -284,7 +269,6 @@ const routes: Routes = [
     pathMatch: 'full',
     data: {
       footer: true,
-      fullMenu: true
     }
   },
   {
@@ -293,7 +277,6 @@ const routes: Routes = [
     pathMatch: 'full',
     data: {
       footer: true,
-      fullMenu: true
     }
   },
   { path: '**', component: HomeComponent },
