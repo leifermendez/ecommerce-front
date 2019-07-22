@@ -71,6 +71,36 @@
   display: block;
   -webkit-transition: -webkit-transform .3s ease-out;
 }
+
+.item:hover .bubble-shipping{
+
+}
+
+.bubble-shipping{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  margin-top: -30px;
+  border-radius: 30px;
+  border: solid 1px #e6e6e6;
+  background-image: url("../../../../../../assets/images/delivery-truck-green.svg");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: white;
+  z-index: 9999;
+}
+
+.btn-add-cart-shopping{
+  border: solid 1px #e4e4e4;
+  padding: .3rem .5rem .3rem .5rem;
+}
+.btn-add-cart-shopping:hover{
+  background-color: whitesmoke;
+  transform: scale(1.1);
+}
+
 .euro-sign {
   font-size: 18px
 }

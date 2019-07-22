@@ -1,10 +1,13 @@
 <section class="main-container col2-right-layout mt-0">
   <app-sidebar></app-sidebar>
-  <div class="page-content">
-    <div class="p-0 m-0">
+  <div class="page-content pl-3 m-0 pr-0 row m-0">
+    <div class="p-0 m-0 col-9">
       <div class="inside-body mb-4">
-        <div class="pt-2">
+        <div class="pt-0">
           <div>
+            <div [style.position]="'absolute'" [style.right]="'0px'">
+              <button [routerLink]="['/','shop','edit',id]"  type="button" class="btn btn-link btn-sm">Volver</button>
+            </div>
             <tabset #staticTabs>
               <tab heading="Producto" id="tab1">
                 <app-data-product
@@ -37,17 +40,20 @@
                   [id]="id">
                 </app-data-gallery-product>
               </tab>
-              <tab heading="Variaciones">
+              <tab heading="Precio">
                 <app-data-variations-product
                   *ngIf="id"
                   [id]="id"
                   class="row">
                 </app-data-variations-product>
               </tab>
+          
             </tabset>
           </div>
         </div>
       </div>
     </div>
+    <app-preview-product class="col-3">
+      </app-preview-product> 
   </div>
 </section>

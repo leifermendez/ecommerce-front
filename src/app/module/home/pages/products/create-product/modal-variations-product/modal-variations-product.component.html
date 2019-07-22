@@ -18,7 +18,7 @@
         <div class="form-group">
           <label>Etiqueta</label>
           <input type="text" formControlName="label" class="form-control" [(ngModel)]="editform.label"
-                 placeholder="Talla Media">
+                 placeholder="Talla Media, Potencia, Color, Modelo...">
           <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
             elit.
             Sequi,
@@ -95,12 +95,15 @@
         </div>
         <img class="gallery-image" [src]="editform['attacheds_small']" alt="">
       </div>
+      <!--
       <app-data-gallery-product-variation
         *ngIf="editform && !editform['attacheds_small']"
         (api)="dropzoneApiCallback($event)"
         (callback)="addMedia($event)"
         [controls]="false">
       </app-data-gallery-product-variation>
+      -->
+
 
     </div>
     <div class="modal-footer text-right">

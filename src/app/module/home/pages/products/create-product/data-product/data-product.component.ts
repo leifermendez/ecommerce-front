@@ -74,6 +74,16 @@ export class DataProductComponent implements OnInit {
 
   emitBack = () => this.ngOnInit();
 
+  emitPreview = () => {
+    const _this = this;
+    setTimeout(function(){
+      _this.utils.previewP.emit(_this.editform);
+    }, 200);
+  }
+  
+  
+
+
   open(data) {
     const initialState = {
       ignoreBackdropClick: true,

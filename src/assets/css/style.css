@@ -51,6 +51,11 @@ small {
   color: #090809
 }
 
+.item:hover .btn-link {
+  color: #c40901;
+  text-decoration: none;
+}
+
 /* Layout */
 .main-col {
   margin: auto;
@@ -5593,6 +5598,8 @@ text-transform: uppercase
 
 #best-seller .owl-item .item .item-inner .item-info {
   text-align: left;
+  border-top: solid 1px #f1f1f1;
+  padding-top: .7rem;
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner {

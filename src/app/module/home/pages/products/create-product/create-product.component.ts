@@ -19,6 +19,7 @@ export class CreateProductComponent implements OnInit {
   public variations = false;
   public id: any = false;
   public data: any = null;
+  public shop: any = null;
 
 
   constructor(private route: ActivatedRoute,

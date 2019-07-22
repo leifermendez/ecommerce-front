@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {RestService} from '../../../../../../shared/services/rest.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ModalShoppingComponent} from '../../../../components/modal-shopping/modal-shopping.component';
-import {BsModalRef, BsModalService, TabsetComponent} from 'ngx-bootstrap';
-import {ModalVariationsProductComponent} from '../modal-variations-product/modal-variations-product.component';
-import {UtilsService} from '../../../../../../shared/services/util.service';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
+import { RestService } from '../../../../../../shared/services/rest.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalShoppingComponent } from '../../../../components/modal-shopping/modal-shopping.component';
+import { BsModalRef, BsModalService, TabsetComponent } from 'ngx-bootstrap';
+import { ModalVariationsProductComponent } from '../modal-variations-product/modal-variations-product.component';
+import { UtilsService } from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-data-variations-product',
@@ -15,8 +15,9 @@ import {UtilsService} from '../../../../../../shared/services/util.service';
 export class DataVariationsProductComponent implements OnInit {
   @Output() callback = new EventEmitter<any>();
   @Input() id: any = null;
+  @ViewChild('panel') public panel: ElementRef;
   // @ts-ignore
-  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent;
+  @ViewChild('staticTabs', { static: false }) staticTabs: TabsetComponent;
   modalRef: BsModalRef;
   config = {};
   public form: any = FormGroup;
@@ -33,9 +34,9 @@ export class DataVariationsProductComponent implements OnInit {
   };
 
   constructor(private rest: RestService, private fb: FormBuilder,
-              private router: Router,
-              private modalService: BsModalService,
-              private utils: UtilsService) {
+    private router: Router,
+    private modalService: BsModalService,
+    private utils: UtilsService) {
     this.form = fb.group({
       'label': [null, Validators.compose([Validators.required])],
       'price_normal': [null, Validators.compose([Validators.required])],
@@ -56,6 +57,15 @@ export class DataVariationsProductComponent implements OnInit {
   selectTab(tabId: number) {
     this.staticTabs.tabs[tabId].disabled = false;
     this.staticTabs.tabs[tabId].active = true;
+    this.moveToSpecificView()
+  }
+
+  public moveToSpecificView(): void {
+
+
+    setTimeout(() => {
+      this.panel.nativeElement.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
+    }, 250);
   }
 
   dropzoneApiCallback = (a) => this.apiDropzone = a;
@@ -75,20 +85,21 @@ export class DataVariationsProductComponent implements OnInit {
     };
   };
 
-  open(data, i) {
+  open(data = null, i = null) {
     const initialState = {
       ignoreBackdropClick: false,
       emitBack: this.emitBack,
       setValue: this.setValue,
       index: i,
+      product_id: this.id,
       data
     };
 
     this.modalRef = this.modalService.show(
       ModalVariationsProductComponent,
-      Object.assign({initialState}, {
-          class: 'gray modal-lg top-modal box-shadow-modal'
-        },
+      Object.assign({ initialState }, {
+        class: 'gray modal-lg top-modal box-shadow-modal'
+      },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
@@ -101,10 +112,9 @@ export class DataVariationsProductComponent implements OnInit {
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.data_product = response['data'];
-          this.list_variations = {
-            ...this.list_variations,
-            ...this.data_product['variations']
-          };
+          this.list_variations = this.data_product['variations']
+          console.log('aaaaaa')
+          this.utils.previewP.emit({ variations: this.list_variations });
         }
       });
   };
@@ -139,7 +149,7 @@ export class DataVariationsProductComponent implements OnInit {
 
   save_variation = () => {
     this.loading_save = true;
-    this.editform = {...this.editform, ...{product_id: this.id}};
+    this.editform = { ...this.editform, ...{ product_id: this.id } };
 
     this.rest.post(`/rest/products-variations`, this.editform)
       .then((response: any) => {

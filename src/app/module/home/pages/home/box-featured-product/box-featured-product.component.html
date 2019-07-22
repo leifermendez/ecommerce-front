@@ -84,12 +84,29 @@
             <div
               *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
-              <button id="btn-car" [ngClass]="{'btn-primary':!loading_save, 'btn-default':loading_save}" class="btn"
+              <button id="btn-car" [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}" 
+              class="btn btn-add-cart-shopping"
                       [disabled]="loading_save"
                       type="button" (click)="open(dat)">
-                <fa *ngIf="!loading_save" name="cart-plus" size="lg"></fa>
+                <span *ngIf="!loading_save">
+                    <img class="mega-menu-hover" alt="" 
+                    src="../../../../../../assets/images/shopping-cart.svg" [style.width]="'20px'">
+                </span>
                 <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
               </button>
+              <button id="btn-car" 
+              [style.left]="'45px'"
+              [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}" 
+              [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]"
+              class="btn btn-add-cart-shopping"
+                      [disabled]="loading_save"
+                      type="button">
+                <span *ngIf="!loading_save">
+                    <img  alt="" 
+                    src="../../../../../../assets/images/visibility.svg" [style.width]="'20px'">
+                </span>
+                <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
+              </button>             
             </div>
             <div class="item">
               <div class="item-inner">
@@ -101,13 +118,15 @@
                 <a *ngIf="dat && dat['name']" [routerLink]="['/','single',dat['id'],util.slug(dat['name'])]">
                   <div class="item-info">
                     <div id="info-box" class="info-inner">
+                      <div *ngIf="dat['is_available']['nextOpen']" class="bubble-shipping">
+                      </div>
                       <div class="item-title mb-0">
-                        <a href="#"
-                           title="Retis lapen casen">{{dat['name'] | truncate : 25 :  '...' }}</a>
-
+                        <span class="btn-link">
+                            {{dat['name'] | truncate : 25 :  '...' }}
+                        </span>  
                       </div>
                       <div>
-                        <a class="text-muted" href="#">
+                        <a class="text-muted" [routerLink]="['/','store',dat['shop_id'],util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </div>

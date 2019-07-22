@@ -14,9 +14,11 @@ export class ModalVariationsProductComponent implements OnInit {
   public form: any = FormGroup;
   public data: any = {};
   public setValue: any;
+  public emitBack:any;
   public index: any = null;
   public loading_save = false;
   public apiDropzone: any;
+  public product_id:any;
 
   constructor(private fb: FormBuilder, private rest: RestService,
     public util: UtilsService,
@@ -64,8 +66,8 @@ export class ModalVariationsProductComponent implements OnInit {
     delete this.editform['attacheds_medium'];
     delete this.editform['attacheds_small'];
     delete this.editform['gallery'];
+    this.editform['product_id'] = this.product_id
 
-    console.log('->', this.editform);
     this.loading_save = true;
     const _method = (this.editform['id']) ? 'put' : 'post';
     this.rest[_method](`/rest/products-variations/${(this.editform['id']) ? this.editform['id'] : ''}`, this.editform)
@@ -74,6 +76,7 @@ export class ModalVariationsProductComponent implements OnInit {
           this.loading_save = false;
           this.setValue(this.index, response['data']);
           this.bsModalRef.hide();
+          this.emitBack();
           // this.variations = response['data'];
           // this.router.navigateByUrl(`/products`);
         }

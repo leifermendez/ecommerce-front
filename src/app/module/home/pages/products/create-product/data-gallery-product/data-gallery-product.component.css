@@ -21,10 +21,10 @@
   height: 200px;
   -o-object-fit: contain;
   object-fit: contain;
-  border: solid 1px #f3f3f3;
+  border: solid 0px #f3f3f3;
   background-image: url("../../../../../../../assets/images/add-photo.svg");
   cursor: pointer;
-  background-size: 70px;
+  background-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -108,5 +108,5 @@
   background-repeat: no-repeat;
   height: inherit;
   background-position: center 30px;
-  background-size: 80px;
+  background-size: 50px;
 }

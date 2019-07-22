@@ -1,0 +1,45 @@
+<div class="box">
+        <div class="mt-2 p-1 mb-1 text-right"><small>Vista previa</small></div>
+    <div class="preview-image" 
+    [style.backgroundColor]="(data['cover_image'] && data['cover_image']['medium']) ? 'white':'auto'">
+        <img *ngIf=" data['cover_image'] && data['cover_image']['medium']" [src]="data['cover_image']['medium']">
+    </div>
+    <div class="box-section">
+        <div class="p-2">
+            <h6 class="m-0">{{data['name']  | truncate : 60 :  '...'}}</h6>
+        </div>
+        <div class="pl-2 pr-2">
+            <span class="badge badge-info"
+             *ngIf="data['categories'] && data['categories']['name']">{{data['categories']['name']}}</span>
+        </div>
+        <div *ngIf="data['variations']['item'].length" class="pl-2 pr-2 pt-1 pb-1">
+            <h6 *ngIf="data['variations']['item'].length > 1">
+                Desde {{data['variations']['item'][0]['price_normal']| number:'1.2-2'}} {{"currency" | translate}}
+            </h6>
+            <h6 *ngIf="data['variations']['item'].length < 2">
+                {{data['variations']['item'][0]['price_normal']| number:'1.2-2'}} {{"currency" | translate}}
+            </h6>
+        </div>
+        <div class="pl-2 pr-2 pt-1 pb-1">
+            <small>
+                {{data['short_description']  | truncate : 70 :  '...'}}
+            </small>
+        </div>
+        <div class="pl-2 pr-2 pt-1 pb-1">
+            <small>
+                {{data['description']  | truncate : 120 :  '...'}}
+            </small>
+        </div>
+        <div *ngIf="data['variations']['item']" class="pl-2 pr-2 pt-2 pb-1 list-variations">
+            <ul>
+                <li *ngFor="let i of data['variations']['item']" class="d-flex justify-content-between">
+                    <div>{{i['label']}}</div>
+                    <div>{{i['price_normal'] | number:'1.2-2'}} {{"currency" | translate}}</div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>

@@ -68,14 +68,13 @@
           <tbody>
           <tr class="list-table-item cursor-pointer active">
             <td class="image-td">
-              <div class="item-image">
-              </div>
+
             </td>
             <td>
               <div>
                 <h6 class="font-weight-600">Añadir producto</h6>
               </div>
-              <span class="text-muted form-text">Lorem ipsum dolor sit.
+              <span class="text-muted form-text">Comienza a generar dinero
             </span>
             </td>
             <td class="align-middle text-right">
@@ -98,17 +97,17 @@
             </td>
             <td>
               <div>
-                <span class="font-weight-600">{{dat['name']}}</span>
+                <span class="font-weight-600">{{dat['name'] | truncate : 70 :  '...'}}</span>
               </div>
               <span class="text-muted form-text">
             <span class="badge mr-1"
                   [ngClass]="{
-                'badge-success':(dat['status'] === 'available'),
-                'badge-danger':(dat['status']!=='available')}">
-                <span *ngIf="dat['status'] === 'available'">
+                'badge-success':(dat['variations']['length'] > 0),
+                'badge-danger':(dat['variations']['length'] < 1)}">
+                <span *ngIf="(dat['variations']['length'] > 0)">
                   <fa name="check"></fa>
                 </span>
-                <span *ngIf="dat['status'] !== 'available'">
+                <span *ngIf="(dat['variations']['length'] < 1)">
                    <fa name="times"></fa>
                 </span>
               </span>

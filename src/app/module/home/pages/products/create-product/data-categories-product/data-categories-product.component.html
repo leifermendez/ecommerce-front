@@ -59,6 +59,7 @@
             [ngModelOptions]="{standalone: true}"
             bindLabel="name"
             placeholder=""
+            (ngModelChange)="emitPreview($event)" 
             [(ngModel)]="select_categories">
           </ng-select>
           <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing

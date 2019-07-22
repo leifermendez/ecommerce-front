@@ -127,6 +127,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DetailProductSaleComponent } from './module/home/pages/single-sale/detail-product-sale/detail-product-sale.component';
 import { ShotCodeShopComponent } from './module/home/components/shot-code-shop/shot-code-shop.component';
 import { InsideFilterNavComponent } from './module/home/components/inside-filter-nav/inside-filter-nav.component';
+import { PreviewProductComponent } from './module/home/components/preview-product/preview-product.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -238,6 +239,7 @@ export class MyIntl extends TimeagoIntl {
     DetailProductSaleComponent,
     ShotCodeShopComponent,
     InsideFilterNavComponent,
+    PreviewProductComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

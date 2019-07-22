@@ -50,6 +50,14 @@ export class DataCategoriesProductComponent implements OnInit {
     });
   };
 
+  emitPreview = () => {
+
+    const _this = this;
+    setTimeout(function(){
+      _this.utils.previewP.emit({categories:_this.select_categories});
+      console.log(_this.select_categories)
+    }, 200);
+  }
 
   getCategories = () => {
     this.rest.get('/rest/categories?limit=100&filters=categories.child,<>,null')
@@ -57,6 +65,7 @@ export class DataCategoriesProductComponent implements OnInit {
         if (response['status'] === 'success') {
           response = response['data'];
           this.categories = response['data'];
+          this.utils.previewP.emit({categories:this.select_categories});
         }
       });
   };
