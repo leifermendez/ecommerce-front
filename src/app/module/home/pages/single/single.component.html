@@ -84,10 +84,14 @@
                   <div class="price-block" *ngIf="variation.length">
                     <div class="price-box">
                       <h6 class="m-0 text-muted">
-                        <del>{{selectedvariationName['price_regular'] |number:'1.2-2'}}</del>
+                        <del>{{selectedvariationName['price_regular'] |number:'1.2-2'}}
+                            {{"currency" | translate}}
+                        </del>
                       </h6>
-                      <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}</h1>
-                      <div class="discount-text" 
+                      <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}
+                        {{"currency" | translate}}
+                      </h1>
+                      <div class="discount-text text-success" 
                       *ngIf="selectedvariationName 
                           && selectedvariationName['price_normal']
                           && selectedvariationName['price_regular']">
@@ -101,9 +105,10 @@
                       </div>
                     </div>
                   </div>
-                  <p class="font-weight-normal text-muted mt-2 mb-0"
+                  <p *ngIf="variation && variation.length > 1" 
+                    class="font-weight-normal text-muted mt-2 mb-0"
                      [innerHTML]="'page.single.variations' | translate"></p>
-                  <div class="list-variations">
+                  <div class="list-variations" *ngIf="variation && variation.length > 1">
                     <ng-select [items]="variation"
                                bindLabel="label"
                                [searchable]="false"

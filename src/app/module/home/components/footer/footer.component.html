@@ -1,10 +1,15 @@
 <footer *ngIf="!footer">
-  <div class="tab-float cursor-pointer"
-       (click)="showSwitch()"
-       [style.marginBottom]="(show) ? '35px' : ''">{{"footer.label.tap" |translate}}
+  <div class="tab-float cursor-pointer" (click)="showSwitch()" [style.marginBottom]="(show) ? '35px' : ''">
+    {{"footer.label.tap" |translate}}
     <span class="ml-2">
-    <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
-  </span>
+      <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
+    </span>
+  </div>
+  <div class="tab-float-right cursor-pointer" (click)="showSwitch()" [style.marginBottom]="(show) ? '35px' : ''">
+    {{"footer.label.language" |translate}}
+    <span class="ml-2">
+      <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
+    </span>
   </div>
   <div class="footer-line text-center" *ngIf="show">
     <div>
@@ -19,4 +24,3 @@
     </div>
   </div>
 </footer>
-

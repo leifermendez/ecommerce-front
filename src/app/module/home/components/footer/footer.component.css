@@ -16,6 +16,21 @@ footer .tab-float {
   transition: .1s ease-in-out;
 }
 
+footer .tab-float-right {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  right: 0;
+  padding: .7rem;
+  border-top-left-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+
 footer .footer-line {
   background: white;
   padding: .6rem;
