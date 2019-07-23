@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   @Input() type = null;
   public data: any = null;
   public icon = 'toggle-on';
+  public modeFocus: any = false;
 
   constructor(private auth: AuthshopService,
               private cookieService: CookieService,
@@ -25,8 +26,9 @@ export class SidebarComponent implements OnInit {
 
     this.util.updateProfile.subscribe(data => {
       this.data = this.auth.getCurrentUser();
-      console.log('------', this.data);
     });
+
+    // this.util.modeFocusProduct.subscribe(a => this.modeFocus = a);
 
   }
 

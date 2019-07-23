@@ -4,6 +4,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {TabsetComponent} from 'ngx-bootstrap';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-create-product',
@@ -30,6 +31,7 @@ export class CreateProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private rest: RestService,
+              private util: UtilsService,
               private formBuilder: FormBuilder,
               private httpClient: HttpClient) {
 
@@ -45,7 +47,6 @@ export class CreateProductComponent implements OnInit {
 
   loadTab = (tab = null) => {
     this.tabs[tab] = true;
-    console.log(this.tabs);
   };
 
 
@@ -74,6 +75,7 @@ export class CreateProductComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.util.modeFocusProduct.emit(true)
     this.route.params.subscribe(params => {
       this.id = params['id'];
       if (this.id) {

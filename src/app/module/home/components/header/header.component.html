@@ -1,4 +1,6 @@
-<header @tijl *ngIf="!header" [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
+<header @tijl *ngIf="!header"
+        [style.opacity]="(modeFocus) ? '.4' : '1'"
+        [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
 
   <div id="header">
     <div class="header-container full-mode-header logo-full-mode-header">

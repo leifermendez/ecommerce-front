@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../../../shared/services/rest.service';
 import {BsModalRef} from 'ngx-bootstrap';
-import { UtilsService } from '../../../../../../shared/services/util.service';
+import {UtilsService} from '../../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-modal-variations-product',
@@ -14,15 +14,16 @@ export class ModalVariationsProductComponent implements OnInit {
   public form: any = FormGroup;
   public data: any = {};
   public setValue: any;
-  public emitBack:any;
+  public emitBack: any;
   public index: any = null;
   public loading_save = false;
   public apiDropzone: any;
-  public product_id:any;
+  public product_id: any;
+  public enableOffer: any = false;
 
   constructor(private fb: FormBuilder, private rest: RestService,
-    public util: UtilsService,
-    public bsModalRef: BsModalRef) {
+              public util: UtilsService,
+              public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'label': [null, Validators.compose([Validators.required])],
       'price_normal': [null, Validators.compose([Validators.required])],
@@ -37,6 +38,9 @@ export class ModalVariationsProductComponent implements OnInit {
 
   ngOnInit() {
     this.editform = {...this.editform, ...this.data};
+    if (this.editform && (this.editform['price_regular'] > 0)) {
+      this.enableOffer = true;
+    }
   }
 
   save = () => {
@@ -66,7 +70,8 @@ export class ModalVariationsProductComponent implements OnInit {
     delete this.editform['attacheds_medium'];
     delete this.editform['attacheds_small'];
     delete this.editform['gallery'];
-    this.editform['product_id'] = this.product_id
+    this.editform['product_id'] = this.product_id;
+    this.editform['price_regular'] = (this.enableOffer) ? this.editform['price_regular'] : 0;
 
     this.loading_save = true;
     const _method = (this.editform['id']) ? 'put' : 'post';

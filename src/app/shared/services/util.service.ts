@@ -24,6 +24,7 @@ export class UtilsService {
   @Output() updateProfile: EventEmitter<any> = new EventEmitter();
   @Output() modeVideo: EventEmitter<any> = new EventEmitter();
   @Output() previewP: EventEmitter<any> = new EventEmitter();
+  @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
               private modalService: BsModalService) {

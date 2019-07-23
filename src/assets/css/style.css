@@ -15285,7 +15285,9 @@ select#shipping-address-select {
 .modal-footer{
   border-top-width: 0px;
 }
-
+.table{
+  margin-bottom: 0px;
+}
 .pac-item {
   height: 40px;
   font-size: 14px;

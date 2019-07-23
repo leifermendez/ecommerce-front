@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
   private lat: any = null;
   private lng: any = null;
   public modeOffset: any = false;
+  public modeFocus: any = false;
   public animationBell: any = false;
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
@@ -48,6 +49,8 @@ export class HeaderComponent implements OnInit {
       this.lat = data['customer_lat'];
       this.lng = data['customer_lng'];
     });
+
+    // util.modeFocusProduct.subscribe(a => this.modeFocus = a);
 
     util.modeVideo.subscribe(data => {
       this.modeOffset = data;

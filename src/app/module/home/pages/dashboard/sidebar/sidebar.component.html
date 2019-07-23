@@ -1,4 +1,4 @@
-<div class="sidebar-ecommerce">
+<div class="sidebar-ecommerce" [style.opacity]="(modeFocus)? '.4': '1'">
   <div class="inside d-flex flex-column justify-content-between h-100">
     <ul class="pl-0 pr-0">
       <li [routerLink]="['/','purchases']" [routerLinkActive]="['is-active']">

@@ -50,69 +50,59 @@
         <img src="../../../../../../../assets/images/price-tag.svg" class="mt-4" width="100px" alt="">
         <div class="mt-2">
           <p class="text-muted cursor-pointer">Aun no tienes variaciones <br>
-            <b class="text-dark" (click)="open()">Agregar</b> </p>
+            <b class="text-dark" (click)="open()">Agregar</b></p>
         </div>
       </div>
     </div>
     <table *ngIf="list_variations && list_variations['item'].length" class="table table-shipment">
       <tbody>
-        <ng-container>
-          <tr class="list-table-item active cursor-pointer">
-            <td>
-              <div>
-                <b>Añadir variacion</b>
-              </div>
-              <span class="text-muted form-text">
+      <ng-container>
+        <tr class="list-table-item active cursor-pointer">
+          <td>
+            <div>
+              <b>Añadir variacion</b>
+            </div>
+            <span class="text-muted form-text">
                 Establece un precio a tu variacion
               </span>
-            </td>
-            <td [style.width]="'100px'">
+          </td>
+          <td>
 
-            </td>
-            <td [style.width]="'100px'">
+          </td>
+          <td [style.width]="'150px'" class="text-right">
+            <button (click)="open()" class="btn btn-primary btn-sm mr-1">
+              <fa name="plus"></fa>
+            </button>
 
-            </td>
-            <td [style.width]="'150px'" class="text-right">
-              <button (click)="open()" class="btn btn-primary btn-sm mr-1">
-                <fa name="plus"></fa>
-              </button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngFor="let dat of list_variations['item'];let i = index">
+        <tr *ngIf="dat['status']!=='delete'" class="list-table-item cursor-pointer">
 
-            </td>
-          </tr>
-        </ng-container>
-        <ng-container *ngFor="let dat of list_variations['item'];let i = index">
-          <tr *ngIf="dat['status']!=='delete'" class="list-table-item cursor-pointer">
-
-            <td>
-              <div>
-                <span>{{dat['label']}}</span>
-              </div>
-              <span class="text-muted form-text">
+          <td>
+            <div>
+              <span>{{dat['label']}}</span>
+            </div>
+            <span class="text-muted form-text">
                 {{dat['observation']}}
               </span>
-            </td>
-            <td [style.width]="'100px'">
-              <span>
-                <h6>
-                  <b>{{dat['price_normal'] |number:'1.2-2'}}</b>
-                </h6>
-              </span>
-            </td>
-            <td [style.width]="'100px'">
-              <span>
-                <h6>{{dat['price_regular'] |number:'1.2-2'}}</h6>
-              </span>
-            </td>
-            <td [style.width]="'150px'" class="text-right">
-              <button (click)="open(dat, i)" class="btn btn-link btn-sm mr-1">
-                <fa name="edit"></fa>
-              </button>
-              <button class="btn btn-link btn-sm" (click)="deleteProduct(dat, i)">
-                <fa name="trash"></fa>
-              </button>
-            </td>
-          </tr>
-        </ng-container>
+          </td>
+
+          <td class="text-right" [style.width]="'250px'">
+            <h6>{{dat['price_normal'] |number:'1.2-2'}} {{"currency" | translate}}</h6>
+            <del class="text-muted">{{dat['price_regular'] |number:'1.2-2'}} {{"currency" | translate}}</del>
+          </td>
+          <td [style.width]="'150px'" class="text-right">
+            <button (click)="open(dat, i)" class="btn btn-link btn-sm mr-1">
+              <fa name="edit"></fa>
+            </button>
+            <button class="btn btn-link btn-sm" (click)="deleteProduct(dat, i)">
+              <fa name="trash"></fa>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
       </tbody>
     </table>
   </div>
