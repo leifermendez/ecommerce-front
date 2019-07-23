@@ -15928,7 +15928,7 @@ app-filter-attributes .panel .card,app-filter-attributes .panel .card-header{
 app-filter-attributes .panel .card-body{
   background: #fbfbfb;
   padding: .7rem .7rem .5rem .7rem;
-  font-size: .7rem;
+  font-size: .75rem;
   color: #676565;
 }
 app-filter-attributes .panel .card-header .panel-title .btn{

@@ -10,6 +10,7 @@ import {HeaderComponent} from './module/home/components/header/header.component'
 import {FooterComponent} from './module/home/components/footer/footer.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NgxStarsModule} from 'ngx-stars';
+import { NgxPrettyCheckboxModule } from 'ngx-pretty-checkbox';
 import {OwlModule} from 'ngx-owl-carousel';
 import {RestService} from './shared/services/rest.service';
 import {UtilsService} from './shared/services/util.service';
@@ -269,6 +270,7 @@ export class MyIntl extends TimeagoIntl {
     VgBufferingModule,
     UiSwitchModule,
     NgxEpicVideoPlayerModule,
+    NgxPrettyCheckboxModule,
     DateTimePickerModule,
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot(),
