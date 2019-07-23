@@ -5,10 +5,11 @@
       <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
     </span>
   </div>
-  <div class="tab-float-right cursor-pointer" (click)="showSwitch()" [style.marginBottom]="(show) ? '35px' : ''">
-    {{"footer.label.language" |translate}}
+  <div class="tab-float-right cursor-pointer" (click)="showSwitchLanguage()"
+    [style.marginBottom]="(showLanguage) ? '35px' : ''">
+    {{"footer.label.language" |translate}} <flag-icon country="{{flagLanguage}}"></flag-icon>
     <span class="ml-2">
-      <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
+      <fa [name]="(showLanguage) ? 'angle-down' : 'angle-up'" size="lg"></fa>
     </span>
   </div>
   <div class="footer-line text-center" *ngIf="show">
@@ -19,6 +20,21 @@
         </li>
         <li *ngFor="let c of data">
           <a [routerLink]="['/','blog',c['id'],util.slug(c['title'])]">{{c['title']}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-line text-center" *ngIf="showLanguage">
+    <div>
+      <ul class="list-ul">
+        <li (click)="chooseLanguage('es','es')" class="cursor-pointer">
+          {{"footer.item.language.es" | translate}} <flag-icon country="es"></flag-icon>
+        </li>
+        <li (click)="chooseLanguage('en','us')" class="cursor-pointer">
+          {{"footer.item.language.en" | translate}} <flag-icon country="us"></flag-icon>
+        </li>
+        <li (click)="chooseLanguage('fr','fr')" class="cursor-pointer">
+          {{"footer.item.language.fr" | translate}} <flag-icon country="fr"></flag-icon>
         </li>
       </ul>
     </div>

@@ -104,11 +104,4 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  public editLenguaje(lang) {
-    console.log('clickee idioma');
-    this.activeLang = lang;
-    this.translate.use(lang);
-  }
-
-
 }
