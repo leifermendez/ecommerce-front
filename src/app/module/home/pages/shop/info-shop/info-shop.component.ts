@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthshopService} from '../../../../auth/authshop.service';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
@@ -28,7 +28,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
               private rest: RestService, public util: UtilsService,
-              private router: Router) {
+              private router: Router, private route: ActivatedRoute) {
 
     this.form = fb.group({
       'name': [null, Validators.compose([Validators.required])],
@@ -92,11 +92,15 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit() {
-    if (!this.id) {
-      this.editform = {...this.editform, ...this.data_inside};
-    } else {
-      this.loadData(this.id);
-    }
+    this.route.params.subscribe(routeParams => {
+      this.id = routeParams['id'];
+      if (!this.id) {
+        this.editform = {...this.editform, ...this.data_inside};
+      } else {
+        this.loadData(this.id);
+      }
+    });
+
 
   }
 
@@ -137,7 +141,8 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
           this.loading = false;
           if (response['status'] === 'success') {
             this.auth.updateUser('role', 'shop');
-            this.router.navigateByUrl('/shop');
+            console.log('herere', response['data']);
+            this.router.navigateByUrl(`/shop/edit/${response['data']['id']}`);
           }
         }).catch(err => {
         this.loading = false;

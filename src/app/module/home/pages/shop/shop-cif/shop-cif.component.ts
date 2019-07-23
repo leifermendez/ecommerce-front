@@ -19,7 +19,7 @@ export class ShopCifComponent implements OnInit {
   loading: boolean;
   id: any;
   public validateFlag: any = false;
-  public data:any = []
+  public data: any = [];
 
   constructor(private rest: RestService,
               private fb: FormBuilder,
@@ -40,7 +40,7 @@ export class ShopCifComponent implements OnInit {
           this.loading = false;
           if (response['data']) {
             this.validateFlag = true;
-            this.callback.emit(this.editform['cif']);
+            this.callback.emit({legal_id: this.editform['cif'], name: response['data']['denominacion']});
             this.clickElementHidden();
           }
         }

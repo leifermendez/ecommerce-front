@@ -59,11 +59,15 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
 }
 
-input.form-control::placeholder {
+.form-control::placeholder {
   color: #dadada;
   letter-spacing: 1px;
 }
 
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
   display: flex !important;
+}
+
+.card-footer{
+  border-top-width: 0px !important;
 }

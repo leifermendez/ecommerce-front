@@ -1,5 +1,4 @@
 <div class="block-dashboard" *ngIf="!show_drag">
-  <div class="card-header"><b>Agregar producto</b></div>
   <div class="pr-3 pl-3">
     <div class="row">
       <div class="col-3 p-2 over-img" *ngFor="let img of data['gallery']; let index = index">
@@ -19,9 +18,11 @@
         </div>
       </div>
     </div>
+    <small>{{"page.create.product.gallery.label" |translate}}</small>
   </div>
   <div class="card-footer text-right">
-    <button class="btn btn-primary btn-sm" type="button" (click)="continueVariations()" [disabled]="loading_save" tabindex="0">
+    <button class="btn btn-primary btn-sm" type="button" (click)="continueVariations()" [disabled]="loading_save"
+            tabindex="0">
       <fa *ngIf="!loading_save" name="save"></fa>
       <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
     </button>
@@ -29,23 +30,23 @@
 </div>
 
 <div class="block-dashboard " *ngIf="show_drag">
-  <div class="card-header"><b>Agregar producto</b></div>
   <div>
     <ngx-dropzone [showPreviews]="true"
                   [accept]="'image/png,image/jpeg'"
                   #dropzone
                   [multiple]="true"
                   (filesAdded)="onFilesAdded($event)"
-                  label="Arrastra y suelta los archivos que deseas subir"
+                  label="Arrastra y suelta las imagenes que deseas subir"
                   class="custom-drop">
     </ngx-dropzone>
   </div>
   <div class="card-footer text-right">
-    <button class="btn btn-default pull-left" (click)="switchDrag(false)" type="button">
+    <button *ngIf="!loading_save" class="btn btn-default pull-left" (click)="switchDrag(false)" type="button">
       Volver
     </button>
+
     <button class="btn btn-default ml-2"
-            *ngIf="this.filesReady && this.filesReady.length"
+            *ngIf="this.filesReady && this.filesReady.length && !loading_save"
             (click)="clearImages()">Limpiar
     </button>
     <button class="btn btn-primary ml-2"

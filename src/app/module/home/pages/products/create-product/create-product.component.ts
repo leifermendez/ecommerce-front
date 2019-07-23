@@ -20,6 +20,12 @@ export class CreateProductComponent implements OnInit {
   public id: any = false;
   public data: any = null;
   public shop: any = null;
+  public tabs: any = {
+    product: true,
+    categories: false,
+    gallery: false,
+    variations: false
+  };
 
 
   constructor(private route: ActivatedRoute,
@@ -31,10 +37,16 @@ export class CreateProductComponent implements OnInit {
   }
 
 
-  selectTab(tabId: number) {
+  selectTab(tabId: any) {
     this.staticTabs.tabs[tabId].disabled = false;
     this.staticTabs.tabs[tabId].active = true;
+
   }
+
+  loadTab = (tab = null) => {
+    this.tabs[tab] = true;
+    console.log(this.tabs);
+  };
 
 
   callback_data_categories = (e) => {

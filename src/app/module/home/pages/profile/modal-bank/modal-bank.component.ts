@@ -23,7 +23,7 @@ export class ModalBankComponent implements OnInit {
   };
   public win = {};
 
-  constructor(@Inject(WINDOW) private window: Window, private rest: RestService,
+  constructor(@Inject(WINDOW) private _window: Window, private rest: RestService,
               private fb: FormBuilder,
               private utils: UtilsService,
               public bsModalRef: BsModalRef) {
@@ -71,7 +71,7 @@ export class ModalBankComponent implements OnInit {
     try {
       const endPoint = url;
       const strWindowFeatures = 'location=yes,height=620,width=520,scrollbars=no,resizable=no,status=yes';
-      const win = this.window.open(endPoint,
+      const win = window.open(endPoint,
         'stripeConnect',
         strWindowFeatures
       );

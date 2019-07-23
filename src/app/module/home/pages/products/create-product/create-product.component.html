@@ -6,25 +6,25 @@
         <div class="pt-0">
           <div>
             <div [style.position]="'absolute'" [style.right]="'0px'">
-              <button [routerLink]="['/','shop','edit',id]"  type="button" class="btn btn-link btn-sm">Volver</button>
+              <button [routerLink]="['/','shop','edit',id]" type="button" class="btn btn-link btn-sm">Volver</button>
             </div>
             <tabset #staticTabs>
-              <tab heading="Producto" id="tab1">
+              <tab heading="Producto" (selectTab)="loadTab('product')" id="tab1">
                 <app-data-product
                   [id]="id"
-                  *ngIf="data"
+                  *ngIf="data && tabs['product']"
                   [data]="data"
                   (callback)="callback_data_categories($event)"
                   class="row">
                 </app-data-product>
                 <app-data-product
                   [id]="id"
-                  *ngIf="!data"
+                  *ngIf="!data && tabs['product']"
                   (callback)="callback_data_categories($event)"
                   class="row">
                 </app-data-product>
               </tab>
-              <tab heading="Categorias">
+              <tab heading="Categorias" (selectTab)="loadTab('categories')">
                 <app-data-categories-product
                   *ngIf="data"
                   [id]="id"
@@ -33,27 +33,27 @@
                   class="row">
                 </app-data-categories-product>
               </tab>
-              <tab heading="Galeria">
+              <tab heading="Galeria" (selectTab)="loadTab('gallery')">
                 <app-data-gallery-product
-                  *ngIf="data"
+                  *ngIf="data && tabs['gallery']"
                   [data]="data"
                   [id]="id">
                 </app-data-gallery-product>
               </tab>
-              <tab heading="Precio">
+              <tab heading="Precios y Variaciones" (selectTab)="loadTab('variations')">
                 <app-data-variations-product
-                  *ngIf="id"
+                  *ngIf="id && tabs['variations']"
                   [id]="id"
                   class="row">
                 </app-data-variations-product>
               </tab>
-          
+
             </tabset>
           </div>
         </div>
       </div>
     </div>
     <app-preview-product class="col-3">
-      </app-preview-product> 
+    </app-preview-product>
   </div>
 </section>

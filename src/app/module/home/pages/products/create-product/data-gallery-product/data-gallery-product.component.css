@@ -53,7 +53,7 @@
 }
 
 .card {
-  border: 0px !important;
+  border: solid 1px #e8e8e8 !important;
   border-radius: 0px;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .block-dashboard .custom-drop{
-  border: 0 !important;
+  /*border: 0 !important;*/
 }
 
 .table td, .table th {
@@ -101,10 +101,10 @@
   width:100%;
 }
 .custom-drop{
-  border: solid 1px #e6e6e6;
+  border: dashed 2px #e6e6e6;
+  margin:1rem;
   border-radius: 3px;
   min-height: 265px;
-  background-image: url(../../../../../../../assets/images/gallery.svg);
   background-repeat: no-repeat;
   height: inherit;
   background-position: center 30px;

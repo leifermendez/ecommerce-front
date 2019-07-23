@@ -45,10 +45,9 @@
   </div>
   <div *ngIf="!loading" class="card block-dashboard border-0">
     <form (submit)="save_categories()">
-      <div class="card-header"><b>Agregar categorias</b></div>
       <div class="col p-3">
         <div class="form-group">
-          <label>Categoria</label>
+          <label>{{"page.create.product.categories" | translate}}</label>
           <ng-select
             [items]="categories"
             [multiple]="categories_multiple"
@@ -59,13 +58,10 @@
             [ngModelOptions]="{standalone: true}"
             bindLabel="name"
             placeholder=""
-            (ngModelChange)="emitPreview($event)" 
+            (ngModelChange)="emitPreview($event)"
             [(ngModel)]="select_categories">
           </ng-select>
-          <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit.
-            Sequi,
-            tenetur.
+          <small class="text-muted mt-2 ml-2 mr-2">{{"page.create.product.categories.label" | translate}}
           </small>
         </div>
 

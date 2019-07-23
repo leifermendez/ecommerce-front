@@ -127,13 +127,13 @@
           </tr>
           </tbody>
         </table>
-        <div *ngIf="data && !data['data'].length" class="text-center pb-4 cursor-pointer"
+        <div *ngIf="data && !data['data'].length" class="text-center p-4 cursor-pointer"
              [routerLink]="['/','products','create']">
-          <img src="../../../../../assets/images/paper-bag.svg"
+          <img src="../../../../../assets/images/new-product.svg"
                class="mt-4"
                width="100px" alt="">
           <div class="mt-2">
-            <p class="text-muted">Aun no tienes productos <br> <b>Agregar</b></p>
+            <p ><span class="text-muted">Aun no tienes productos</span> <br> <b>Agregar</b></p>
           </div>
         </div>
       </div>

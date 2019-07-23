@@ -67,7 +67,7 @@ export class CreateShopComponent implements OnInit {
 
   cif_callback = (e) => {
     this.cif_flag = e;
-    this.data_inside['legal_id'] = e;
+    this.data_inside = e;
   }
 
 }

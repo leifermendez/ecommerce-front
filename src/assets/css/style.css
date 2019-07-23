@@ -171,7 +171,7 @@ header {
   padding-top: 20px
 }
 
-.logo-full-mode-header .logo img{
+.logo-full-mode-header .logo img {
   /*width: 45px !important;*/
   object-fit: cover !important;
   object-position: left !important;
@@ -1221,6 +1221,7 @@ classic: custom block drop-down box */
 .swal2-container.swal2-shown {
   background-color: rgba(255, 255, 255, 0.4) !important;
 }
+
 /* Caret */
 #nav a.level-top .caret {
   display: inline-block;
@@ -10834,7 +10835,7 @@ a.button.view-all {
 
 label {
   font-weight: 600;
-  color: #a7a7a7;
+  color: #212529;
 }
 
 .box-reviews .form-list input.input-text {
@@ -15235,7 +15236,8 @@ select#shipping-address-select {
 }
 
 .modal-title {
-  font-weight: 600;
+  font-weight: 400;
+  opacity: .5;
 }
 
 .btn-info {
@@ -15278,6 +15280,10 @@ select#shipping-address-select {
 
 .pac-container {
   background-color: #fefefe
+}
+
+.modal-footer{
+  border-top-width: 0px;
 }
 
 .pac-item {
@@ -15602,11 +15608,12 @@ select#shipping-address-select {
 
 .custom-drop .preview img {
   max-height: 120px !important;
-  border-radius: 0px !important;
-  border: solid 1px #e0e0e0;
+  border-radius: 3px !important;
+  border: solid 1px #f5f5f5;
   opacity: 1 !important;
+  -o-object-fit: contain !important;
   object-fit: contain !important;
-  background: #ececec !important;
+  background: #fcfcfc !important;
   width: 120px;
   height: 120px;
 }
@@ -15621,9 +15628,10 @@ select#shipping-address-select {
 .custom-drop .dropzone p {
   margin: 10px auto;
   text-align: center;
-  padding-top: 110px;
-  font-size: .8rem;
+  padding-top: 5rem;
+  font-size: 1rem;
   color: #b9b9b9;
+
 }
 
 .custom-drop .preview {
@@ -15633,13 +15641,25 @@ select#shipping-address-select {
   padding-bottom: 10px !important;
 }
 
+.custom-drop .preview:hover {
+  opacity: .7;
+}
+
+.custom-drop .preview:first-child:before {
+  content: "Foto principal";
+  position: absolute;
+  background: whitesmoke;
+  font-size: .6rem;
+  padding: 0 .5rem 0 .5rem;
+}
+
 .custom-drop .preview span {
   display: none !important;
 }
 
 .custom-drop .preview:first-child img {
   max-height: 250px !important;
-  width: 30rem;
+  width: 25rem;
   height: 250px;
 }
 
@@ -15888,11 +15908,12 @@ app-modal-shopping #best-seller .owl-item .item {
   border-width: 0px !important;
 }
 
-app-modal-shopping .CollectionGrid-tile, app-modal-shopping .CollectionGrid{
+app-modal-shopping .CollectionGrid-tile, app-modal-shopping .CollectionGrid {
   border-width: 0px !important;
   margin-top: 0px !important;
 }
-app-modal-shopping .CollectionGrid-tile{
+
+app-modal-shopping .CollectionGrid-tile {
   padding: 0px !important
 }
 
@@ -15905,6 +15926,7 @@ html {
   width: 0px; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
 }
+
 .pulse {
   /* margin: 100px; */
   display: block;
@@ -15917,6 +15939,7 @@ html {
   -webkit-animation: pulse 1s infinite !important;
   animation: pulse 1s infinite !important;
 }
+
 .pulse:hover {
   animation: none;
 }
@@ -15929,21 +15952,22 @@ html {
     -webkit-box-shadow: 0 0 0 10px rgba(204, 0, 12, 0);
   }
   100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
   }
 }
+
 @keyframes pulse {
   0% {
     -moz-box-shadow: 0 0 0 0 rgba(204, 0, 12, 0.4);
     box-shadow: 0 0 0 0 rgba(204, 0, 12, 0.4);
   }
   70% {
-    -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-    box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
   }
   100% {
-    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
   }
 }
 

@@ -1,14 +1,14 @@
 <div class="modal-content">
   <div class="modal-header">
     <div *ngIf="!loading_save">
-      <h5 class="modal-title" *ngIf="!error">
+      <h6 class="modal-title" *ngIf="!error">
         <fa name="check-circle" class="text-success"></fa>
         Item agregado
-      </h5>
-      <h5 class="modal-title" *ngIf="error">
+      </h6>
+      <h6 class="modal-title" *ngIf="error">
         <fa name="exclamation" class="text-danger"></fa>
         {{error | translate}}
-      </h5>
+      </h6>
     </div>
 
     <button type="button" class="close" data-dismiss="modal" (click)="bsModalRef.hide()" aria-label="Close">

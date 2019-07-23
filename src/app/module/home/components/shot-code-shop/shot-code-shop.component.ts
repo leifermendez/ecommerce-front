@@ -31,6 +31,9 @@ export class ShotCodeShopComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data_shops = response['data']['data'];
+          if (!this.data_shops.length) {
+            this.router.navigateByUrl(`/shop`);
+          }
         }
       });
   };

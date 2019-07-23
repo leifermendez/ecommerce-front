@@ -1,20 +1,5 @@
 <div>
   <form>
-      <div class="card block-dashboard border-0" *ngIf="!loading">
-          <div class="card-header"><b>Total de ventas</b></div>
-          <div class="col p-3">
-            <div class="form-group">
-              <h2 class="ml-3 mb-0">100 €</h2>
-              <div [chart]="chart"></div>
-              <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-                tenetur.
-              </small>
-            </div>    
-          </div>
-     
-        </div>
-
-
     <div *ngIf="loading" class="p-2">
       <div class="timeline-item">
         <div class="animated-background" style="height: 40px">
@@ -39,6 +24,17 @@
         </div>
       </div>
     </div>
-
+    <div class="card block-dashboard border-0" *ngIf="!loading">
+      <div class="card-header"><b>Total de ventas</b></div>
+      <div class="col p-3">
+        <div class="form-group">
+          <h2 class="ml-3 mb-0">0 €</h2>
+          <div [chart]="chart"></div>
+          <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+            tenetur.
+          </small>
+        </div>
+      </div>
+    </div>
   </form>
 </div>

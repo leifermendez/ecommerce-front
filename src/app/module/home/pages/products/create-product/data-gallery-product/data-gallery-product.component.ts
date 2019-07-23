@@ -34,6 +34,9 @@ export class DataGalleryProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.data.gallery.length) {
+      this.switchDrag(true);
+    }
   }
 
   emitBack = () => this.ngOnInit();
@@ -94,7 +97,7 @@ export class DataGalleryProductComponent implements OnInit {
       });
   };
 
-  continueVariations = () =>  this.router.navigateByUrl(`/products/edit/${this.id}/variations`);
+  continueVariations = () => this.router.navigateByUrl(`/products/edit/${this.id}/variations`);
 
   uploadSave = (variation_id = null) => {
 
@@ -126,7 +129,7 @@ export class DataGalleryProductComponent implements OnInit {
 
   };
 
-  updateItem = (id, variation = null, obj:null) => {
+  updateItem = (id, variation = null, obj: null) => {
     this.loading_save = true;
     const _data = {
       'attached_id': id,
@@ -134,7 +137,7 @@ export class DataGalleryProductComponent implements OnInit {
       'product_id': this.id
     };
 
-    this.util.previewP.emit({cover_image:obj});
+    this.util.previewP.emit({cover_image: obj});
     this.rest.post(`/rest/product-media`, _data)
       .then((response: any) => {
         this.loading_save = false;
