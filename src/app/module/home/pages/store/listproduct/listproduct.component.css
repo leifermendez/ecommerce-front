@@ -18,24 +18,6 @@
   padding: 0 32px;
 }
 
-.imgstore {
-  border: solid 1px;
-  border-radius: 10px;
-  width: 150px;
-  position: absolute;
-  margin-top: 100px;
-  z-index: 999;
-}
-
-.add45 {
-  margin-top: 45px;
-}
-
-.slider-items-products .item {
-  text-align: center;
-  padding: 10px;
-}
-
 
 /*store single*/
 .product-image img {
@@ -57,9 +39,10 @@
   padding-top: 0px !important;
 }
 
-.CollectionGrid .CollectionGrid-tile{
-  width: 33.333333333%;
+.item-title a {
+  font-weight: 600 !important;
 }
+
 .item-price-avalible-on {
   font-size: 14px;
   font-weight: 600;
@@ -71,7 +54,7 @@
 }
 
 .item-price-amount-unavailable {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   opacity: .4;
 }
@@ -85,8 +68,60 @@
 }
 
 .btn-cart:before {
-  padding: 11px 12px !important;
-  border-radius: 20px;
+  padding: 5px 10px !important;
+  border-radius: 3px;
+}
+.item:hover .item-inner{
+  /*transform: translateY(1em);*/
+  -webkit-transition: -webkit-transform .3s ease-out;
+}
+.item:hover .item-img{
+  transform: translateY(2em);
+  -webkit-transition: -webkit-transform .3s ease-out;
+}
+.item:hover #info-box{
+  /*display: none;*/
+  -webkit-transition: -webkit-transform .3s ease-out;
+}
+.item .box-buttons-top-product #btn-car{
+  display: none;
+  position: absolute;
+  z-index: 9;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.item:hover .box-buttons-top-product #btn-car{
+  display: block;
+  -webkit-transition: -webkit-transform .3s ease-out;
+}
+
+.item:hover .bubble-shipping{
+
+}
+
+.bubble-shipping{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  margin-top: -30px;
+  border-radius: 30px;
+  border: solid 1px #e6e6e6;
+  background-image: url("../../../../../../assets/images/delivery-truck-green.svg");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: white;
+  z-index: 9999;
+}
+
+.btn-add-cart-shopping{
+  border: solid 1px #e4e4e4;
+  padding: .3rem .5rem .3rem .5rem;
+}
+.btn-add-cart-shopping:hover{
+  background-color: whitesmoke;
+  transform: scale(1.1);
 }
 
 .euro-sign {
@@ -99,7 +134,6 @@
 
 .time-ago-string {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .time-ago-string:first-letter {
@@ -115,5 +149,29 @@
   padding-left: 5px;
   padding-right: 5px;
   text-decoration: line-through;
+  color: #b5b5b5;
+}
+
+.ngx-gallery-icon .a {
+  color: red !important;
+}
+.timeline-item{
+  max-width: 100%;
+  min-height: 300px;
+}
+.CollectionGrid-tile{
+  padding: 0 0 0 0;
+  width: 25%;
+}
+
+.not-results{
+  background: white;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+}
+
+.not-results .title{
+  font-size: 1rem;
 }
 

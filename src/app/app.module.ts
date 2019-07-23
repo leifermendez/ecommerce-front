@@ -15,6 +15,7 @@ import {RestService} from './shared/services/rest.service';
 import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
@@ -128,6 +129,7 @@ import { DetailProductSaleComponent } from './module/home/pages/single-sale/deta
 import { ShotCodeShopComponent } from './module/home/components/shot-code-shop/shot-code-shop.component';
 import { InsideFilterNavComponent } from './module/home/components/inside-filter-nav/inside-filter-nav.component';
 import { PreviewProductComponent } from './module/home/components/preview-product/preview-product.component';
+import { FilterAttributesComponent } from './module/home/pages/store/filter-attributes/filter-attributes.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -240,6 +242,7 @@ export class MyIntl extends TimeagoIntl {
     ShotCodeShopComponent,
     InsideFilterNavComponent,
     PreviewProductComponent,
+    FilterAttributesComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -270,6 +273,7 @@ export class MyIntl extends TimeagoIntl {
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
+    AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
@@ -304,6 +308,7 @@ export class MyIntl extends TimeagoIntl {
     AuthGuard,
     BsModalService,
     BsModalRef,
+    BoxFeaturedProductComponent,
     ZipLocationComponent,
     ShoppingCartComponent,
     ModalBankComponent,
@@ -324,7 +329,7 @@ export class MyIntl extends TimeagoIntl {
     ModalShoppingComponent,
     ModalVariationsProductComponent,
     ModalProductBankComponent,
-    ModalWarningComponent
+    ModalWarningComponent,
   ],
   bootstrap: [AppComponent]
 })

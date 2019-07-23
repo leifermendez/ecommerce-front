@@ -76,7 +76,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'single/:id/:slug',
+    path: 'single/:id',
     component: SingleComponent,
     pathMatch: 'full'
   },
@@ -84,14 +84,6 @@ const routes: Routes = [
     path: 'blog/:id/:slug',
     component: SingleBlogComponent,
     pathMatch: 'full',
-  },
-  {
-    path: 'single/:id',
-    component: SingleComponent,
-    pathMatch: 'full',
-    data: {
-      footer: true
-    }
   },
   {
     path: 'shop/create',

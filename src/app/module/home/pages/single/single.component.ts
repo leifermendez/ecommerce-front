@@ -56,6 +56,7 @@ export class SingleComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     private modalService: BsModalService) {
+      
     this.util.refreshShopping.subscribe(data => {
       if (data) {
         this.loading_save = false;
@@ -65,6 +66,14 @@ export class SingleComponent implements OnInit {
       if (data) {
         this.number_items = data;
         console.log('--', data);
+      }
+    });
+
+    route.params.subscribe(params => {
+      const [id] = params.id.split('-');
+      if (id) {
+        this.idparam = id.toString();
+        this.loadData(this.idparam);
       }
     });
   }
@@ -82,12 +91,7 @@ export class SingleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.idparam = params['id'].toString();
-        this.loadData(this.idparam);
-      }
-    });
+
   }
 
   changeCover = (a) => this.cover = a;

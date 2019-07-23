@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
+import {BoxFeaturedProductComponent} from '../../../pages/home/box-featured-product/box-featured-product.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {OwlCarousel} from 'ngx-owl-carousel';
@@ -26,6 +27,7 @@ export class ListProductStoreComponent implements OnInit {
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
               intl: TimeagoIntl,
+              private boxFeatured: BoxFeaturedProductComponent,
               private route: ActivatedRoute, private router: Router) {
     intl.strings = englishStrings;
     intl.changes.next();
@@ -97,6 +99,8 @@ export class ListProductStoreComponent implements OnInit {
     const date = moment().add(minutes, 'minutes');
     return date;
   };
+
+  open = (a) => this.boxFeatured.open(a)
 
   addProduct = (obj) => {
     const _data = {

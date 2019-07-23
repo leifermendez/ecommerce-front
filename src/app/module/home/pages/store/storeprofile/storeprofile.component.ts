@@ -21,6 +21,8 @@ export class StoreprofileComponent implements OnInit {
     name: null
   };
 
+  public meta_key:any = []
+
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
               private route: ActivatedRoute, private router: Router) {
   }
@@ -42,6 +44,7 @@ export class StoreprofileComponent implements OnInit {
         this.loading = false;
         if (response.status === 'success') {
           this.data = response.data;
+          this.meta_key = this.data['meta_key'].split(',');
         }
       });
   };

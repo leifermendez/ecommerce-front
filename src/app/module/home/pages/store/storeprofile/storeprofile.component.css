@@ -1,7 +1,7 @@
 .page-heading {
   padding: 20px 0 20px 0;
   border-bottom: none;
-  min-height: 200px;
+  min-height: 150px;
   text-align: left;
   background-repeat: no-repeat;
   overflow: inherit;
@@ -16,6 +16,15 @@
   width: calc(100% - 0px);
   overflow: auto;
   padding: 0 32px;
+}
+
+.breadcrumbs ul li small:last-child:after {
+  content: " " !important;
+}
+
+.breadcrumbs ul li small:after {
+  content: "-";
+  margin-left: 1rem;
 }
 
 .imgstore {

@@ -1,4 +1,4 @@
-<div class="page-heading mb-3" [style.backgroundImage]="'url('+data['image_header_large']+')'">
+<div class="page-heading mb-3" [hidden]="true" [style.backgroundImage]="'url('+data['image_header_large']+')'">
   <div class="breadcrumbs">
     <div class="container">
       <div class="row">
@@ -15,47 +15,29 @@
 </div>
 
 <section class="main-container col2-left-layout bounceInUp animated">
-  <div class="container">
-    <div class="breadcrumbs">
+  <div class="container mt-2">
+    <div class="breadcrumbs mb-2">
       <div class="container">
         <div class="row">
           <div>
             <ul>
-              <li class="home"><a [routerLink]="['/']">Home</a> <span>&rsaquo; </span></li>
-              <li class="category1599"><a href="grid.html" title="">Women</a> <span>&rsaquo; </span></li>
-              <li class="category1600"><a href="grid.html" title="">Handbags</a> <span>&rsaquo; </span></li>
-              <li class="category1601"><strong>Retis lapen casen</strong></li>
+              <small>Busquedas relacionadas:</small>
+              <li class="home">
+                <small *ngFor="let m of meta_key" class="ml-2 mr-2">#{{m}}</small>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="row mt-2">
+    <div class="row mt-4">
       <div class="col-sm-3">
-        <div class="mt-4">
-          <h4 class="font-weight-600">{{data['name']}}</h4>
-          <div class="text-dark">
-            <ul class="styleno">
-              <li>
-                <span class="fontweight">Ordenar publicaciones</span>
-              </li>
-              <li>
-                Más relevantes
-              </li>
-              <li>
-                <span class="fontweight"> Categorías</span><br>
-              </li>
-              <li>
-                Lorem ipsum dolor.
-              </li>
-              <span class="fontweight">Precio</span>
-              <br>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, ullam.
-
-              <li>
-                <span class="fontweight">Detalles de la publicación</span>
-              </li>
-            </ul>
+        <div class="mt-0">
+          <h4 class="font-weight-600" [hidden]="true">{{data['name']}}</h4>
+          <div>
+            <app-filter-attributes>
+            </app-filter-attributes>
+           
           </div>
         </div>
       </div>

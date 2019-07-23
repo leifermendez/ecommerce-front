@@ -15919,6 +15919,33 @@ app-modal-shopping .CollectionGrid-tile {
   padding: 0px !important
 }
 
+app-filter-attributes .panel .card,app-filter-attributes .panel .card-header{
+  padding: 0 0 .5rem 0;
+  border: 0px;
+  background-color: #ffffff;
+  border-radius: 0px;
+}
+app-filter-attributes .panel .card-body{
+  background: #fbfbfb;
+  padding: .7rem .7rem .5rem .7rem;
+  font-size: .7rem;
+  color: #676565;
+}
+app-filter-attributes .panel .card-header .panel-title .btn{
+  font-size: .85rem;
+}
+app-filter-attributes .panel .card-header .panel-title .btn:hover{
+  color: #5f5f5f
+}
+
+
+app-filter-attributes .panel .btn{
+  background-color: transparent;
+}
+app-filter-attributes .panel .card{
+  background-color: transparent;
+}
+
 html {
   scroll-behavior: smooth;
 
