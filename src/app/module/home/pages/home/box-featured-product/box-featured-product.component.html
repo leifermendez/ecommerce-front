@@ -126,7 +126,7 @@
                         </span>  
                       </div>
                       <div>
-                        <a class="text-muted" [routerLink]="['/','store',dat['shop_id'],util.slug(dat['shop_name'])]">
+                        <a class="text-muted" [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </div>

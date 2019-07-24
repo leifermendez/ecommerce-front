@@ -142,7 +142,7 @@
                             <fa name="map-marker"></fa>
                             {{data['shop_address'] | words: 15 : '...'}}
                           </p>
-                          <a class="text-info" [routerLink]="['/','store',data['shop_id'],data['shop_slug']]">
+                          <a class="text-info" [routerLink]="['/','store',data['shop_id']+'-'+data['shop_slug']]">
                             <fa name="bookmark"></fa>
                             <span> {{"page.single.more_product_shop" | translate}}</span>
                           </a>

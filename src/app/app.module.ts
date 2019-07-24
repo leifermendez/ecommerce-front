@@ -131,6 +131,7 @@ import { ShotCodeShopComponent } from './module/home/components/shot-code-shop/s
 import { InsideFilterNavComponent } from './module/home/components/inside-filter-nav/inside-filter-nav.component';
 import { PreviewProductComponent } from './module/home/components/preview-product/preview-product.component';
 import { FilterAttributesComponent } from './module/home/pages/store/filter-attributes/filter-attributes.component';
+import { SearchPageComponent } from './module/home/pages/search-page/search-page.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -244,6 +245,7 @@ export class MyIntl extends TimeagoIntl {
     InsideFilterNavComponent,
     PreviewProductComponent,
     FilterAttributesComponent,
+    SearchPageComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -316,6 +318,7 @@ export class MyIntl extends TimeagoIntl {
     ModalBankComponent,
     SidebarComponent,
     CookieService,
+    ListProductStoreComponent,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig

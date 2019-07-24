@@ -1,32 +1,31 @@
 <accordion [isAnimated]="true">
-    <accordion-group [isOpen]="true" heading="Categorías">
+  <div *ngFor="let cat of filters | keyvalue">
+    <accordion-group
+      *ngIf="cat['key'] !== 'product_attr'"
+      [isOpen]="true" [heading]="cat['key'] | translate">
       <div>
-      <ul>
-        <li>
+        <ul>
+          <li *ngFor="let c of cat['value']">
             <p-checkbox shape="round" color="primary" outline="true" plain="true" animation="smooth">
-                Default
-              </p-checkbox>
-        </li>
-        <li>
-            <p-checkbox shape="round" color="primary" outline="true" plain="true" animation="smooth">
-                Default
-              </p-checkbox>
-        </li>
-        <li>
-            <p-checkbox shape="round" color="primary" outline="true" plain="true" animation="smooth">
-                Default
-              </p-checkbox>
-        </li>
-      </ul>
+              {{c['name']}}
+            </p-checkbox>
+          </li>
+        </ul>
       </div>
     </accordion-group>
-    <accordion-group [isOpen]="true"  heading="Color">
-      <p>Some content</p>
+  </div>
+  <div *ngFor="let cat of filters['product_attr'] | keyvalue">
+    <accordion-group
+      [isOpen]="true" [heading]="cat['key'] | translate">
+      <div>
+        <ul>
+          <li *ngFor="let c of cat['value']">
+            <p-checkbox shape="round" color="primary" outline="true" plain="true" animation="smooth">
+              {{c['value']}}
+            </p-checkbox>
+          </li>
+        </ul>
+      </div>
     </accordion-group>
-    <accordion-group [isOpen]="true"  heading="Numero">
-      <p>Some content</p>
-    </accordion-group>
-    <accordion-group [isOpen]="true"  heading="Another group">
-      <p>Some content</p>
-    </accordion-group>
-  </accordion>
+  </div>
+</accordion>

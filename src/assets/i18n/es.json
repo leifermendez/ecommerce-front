@@ -91,5 +91,7 @@
   "page.create.product.description.label": "Complementa la información con datos más técnicos...",
   "page.create.product.categories": "Categoria",
   "page.create.product.categories.label": "Selecciona la categoria de tu producto",
-  "page.create.product.gallery.label": "Una foto dice más que mil palabras, agrega espectaculares imagenes de tu prodcuto"
+  "page.create.product.gallery.label": "Una foto dice más que mil palabras, agrega espectaculares imagenes de tu prodcuto",
+  "categories" : "Categorias",
+  "product_attr" : "Atributos"
 }

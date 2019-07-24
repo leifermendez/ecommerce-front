@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-filter-attributes',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-attributes.component.css']
 })
 export class FilterAttributesComponent implements OnInit {
+  @Input() filters: any = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

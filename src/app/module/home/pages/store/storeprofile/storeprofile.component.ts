@@ -4,7 +4,6 @@ import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OwlCarousel} from 'ngx-owl-carousel';
-import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
 
 @Component({
   selector: 'app-storeprofile',
@@ -14,6 +13,7 @@ import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-galle
 export class StoreprofileComponent implements OnInit {
   loading = false;
   idparam: any;
+
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
   public data: any = {
     image_header_large: null,
@@ -21,26 +21,31 @@ export class StoreprofileComponent implements OnInit {
     name: null
   };
 
-  public meta_key:any = []
+  public filters: any = [];
+  public meta_key: any = [];
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
               private route: ActivatedRoute, private router: Router) {
-  }
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.idparam = params['id'].toString();
+    route.params.subscribe(params => {
+      const [id] = params.id.split('-');
+      if (id) {
+        this.idparam = id.toString();
         this.loadData(this.idparam);
       }
     });
   }
 
-  loadData = (id) => {
+  ngOnInit() {
+
+  }
+
+  setVariable = (a) => this.filters = a;
+
+  loadData = (src) => {
     this.loading = true;
-    this.rest.get(`/rest/shop/${id}`)
+    this.rest.get(`/rest/search?src=${encodeURI(src)}&all_filters=all`)
       .then((response: any) => {
-        console.log('---->',response)
+        console.log('---->', response);
         this.loading = false;
         if (response.status === 'success') {
           this.data = response.data;

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
@@ -17,12 +17,20 @@ import {TimeagoIntl} from 'ngx-timeago';
 })
 export class ListProductStoreComponent implements OnInit {
   loading = false;
+  @Output() callback: EventEmitter<any> = new EventEmitter();
   @ViewChild('owlFeatured') owlElement: OwlCarousel;
-  public data: any[];
+  public data: any = {
+    list: {
+      data: []
+    }
+  };
   public optionsOws: any;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   @Input() id: any = null;
+  @Input() src: any = null;
+  @Input() type: any = 'search';
+  public loading_save: any = false;
 
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
@@ -34,17 +42,13 @@ export class ListProductStoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.id) {
+    if (this.type === 'search') {
+      this.loadSrc(this.src);
+    } else {
       this.loadData();
     }
-    // this.route.params.subscribe(params => {
-    //   if (params['id']) {
-    //     this.idm = params['id'].toString();
-    //     this.loadData(this.idm);
-    //   }
-    // });
-    this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
 
+    this.optionsOws = {items: 4, dots: false, navigation: true, autoplay: false};
     this.galleryOptions = [
       {
         width: '100%',
@@ -85,14 +89,29 @@ export class ListProductStoreComponent implements OnInit {
 
   loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/seller/${this.id}?limit=15&filters=products.status,=,available`)
+    this.rest.get(`/rest/seller/${this.id}?limit=15&filters=products.status,=,available&all_filters=all`)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
-          this.data = response.data.data;
+          this.data = response.data;
+          this.callback.emit(this.data['filter']);
         }
       });
   };
+
+  loadSrc = (src) => {
+    console.log('entre aqio');
+    this.loading = true;
+    this.rest.get(`/rest/search?src=${encodeURI(src)}&all_filters=all&pagination=full`)
+      .then((response: any) => {
+        this.loading = false;
+        if (response.status === 'success') {
+          this.data = response.data;
+          this.callback.emit(this.data['filter']);
+        }
+      });
+  };
+
 
   timeAgoNext = (minutes = 0) => {
 
@@ -100,18 +119,6 @@ export class ListProductStoreComponent implements OnInit {
     return date;
   };
 
-  open = (a) => this.boxFeatured.open(a)
+  open = (a) => this.boxFeatured.open(a);
 
-  addProduct = (obj) => {
-    const _data = {
-      product_id: obj['id'],
-      product_variation_id: obj['variations']['item'][0]['id'],
-      shop_id: obj['shop_id']
-    };
-    this.shopping.addCart(_data);
-  };
-
-  detail(id) {
-    this.router.navigateByUrl(`/single/${id}`);
-  }
 }

@@ -12,7 +12,7 @@
         [carouselClasses]="['owl-theme', 'sliding']">
         <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
           <a class="CollectionGrid-tile hover-overlay-light" *ngIf="dat && dat['name']"
-             [routerLink]="['/','store',dat['id'],util.slug(dat['name'])]">
+             [routerLink]="['/','store',dat['id']+'-'+util.slug(dat['name'])]">
             <div class="CollectionGrid-tileImage align-center">
               <img class="item-img" [src]="dat['image_cover_medium']" [alt]="dat['name']">
             </div>
