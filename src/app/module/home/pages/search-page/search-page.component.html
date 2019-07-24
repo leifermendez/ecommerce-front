@@ -25,11 +25,8 @@
         </div>
       </div>
       <div class="col-sm-9 p-0">
-
-        <app-list-product-store
-          class="mt-2"
-          (callback)="setVariable($event)">
-        </app-list-product-store>
+          <app-list-product-global [data]="data">
+            </app-list-product-global>
       </div>
     </div>
   </div>

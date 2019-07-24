@@ -132,6 +132,7 @@ import { InsideFilterNavComponent } from './module/home/components/inside-filter
 import { PreviewProductComponent } from './module/home/components/preview-product/preview-product.component';
 import { FilterAttributesComponent } from './module/home/pages/store/filter-attributes/filter-attributes.component';
 import { SearchPageComponent } from './module/home/pages/search-page/search-page.component';
+import { ListProductGlobalComponent } from './module/home/components/list-product-global/list-product-global.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -182,6 +183,7 @@ export class MyIntl extends TimeagoIntl {
     ChartsResumenComponent,
     LastSellComponent,
     LastOrderComponent,
+    ListProductGlobalComponent,
     LastTicketsComponent,
     ShoppingCartComponent,
     InfoProfileComponent,

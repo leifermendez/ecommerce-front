@@ -41,15 +41,14 @@ export class StoreprofileComponent implements OnInit {
 
   setVariable = (a) => this.filters = a;
 
-  loadData = (src) => {
+  loadData = (id) => {
     this.loading = true;
-    this.rest.get(`/rest/search?src=${encodeURI(src)}&all_filters=all`)
+    this.rest.get(`/rest/seller/${id}?limit=15&filters=products.status,=,available&all_filters=all`)
       .then((response: any) => {
-        console.log('---->', response);
         this.loading = false;
         if (response.status === 'success') {
           this.data = response.data;
-          this.meta_key = this.data['meta_key'].split(',');
+          this.filters = this.data['filter']
         }
       });
   };

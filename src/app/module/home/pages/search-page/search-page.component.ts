@@ -27,12 +27,22 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.src = (params.src) ? params.src : null;
-      this.list.loadSrc(this.src);
+      this.loadData(params.src);
     });
   }
 
   setVariable = (a) => this.filters = a;
 
+  loadData = (src) => {
+    this.loading = true;
+    this.rest.get(`/rest/search?src=${encodeURI(src)}&all_filters=all&pagination=full`)
+      .then((response: any) => {
+        this.loading = false;
+        if (response.status === 'success') {
+          this.data = response.data;
+          this.filters = this.data['filter']
+        }
+      });
+  };
 
 }
