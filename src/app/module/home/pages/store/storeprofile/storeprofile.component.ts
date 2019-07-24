@@ -20,33 +20,37 @@ export class StoreprofileComponent implements OnInit {
     image_cover_medium: null,
     name: null
   };
-
+  public queryParams: any = {
+    limit: 5,
+    filters: 'products.status,=,available',
+    all_filters: 'all'
+  }
   public filters: any = [];
   public meta_key: any = [];
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
     private route: ActivatedRoute, private router: Router) {
-    route.params.subscribe(params => {
-      const [id] = params.id.split('-');
-      if (id) {
-        this.idparam = id.toString();
-        this.loadData(this.idparam);
-      }
-    });
+
   }
 
   ngOnInit() {
 
+    const [id] = this.route.snapshot.params.id.split('-');
+    this.idparam = id.toString();
+    this.route.queryParams.subscribe(params => {
+      this.queryParams = { ...this.queryParams, ...params };
+      this.loadData(this.idparam);
+    });
+
   }
 
-  setVariable = (a) => this.filters = a;
+  setVariable = (a) => {
+    this.queryParams = { ...this.queryParams, ...{ category: a.id } }
+  }
 
-  loadData = (id = null, url = null) => {
-    url = (url) ?
-      `/rest/seller/${this.idparam}${url}&limit=5&filters=products.status,=,available&all_filters=all` :
-      `/rest/seller/${id}?limit=5&filters=products.status,=,available&all_filters=all`;
+  loadData = (id = null) => {
     this.loading = true;
-    this.rest.get(url)
+    this.rest.get(`/rest/seller/${id}`, this.queryParams)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {

@@ -35,7 +35,9 @@
         <div class="mt-0">
           <h4 class="font-weight-600" [hidden]="true">{{data['name']}}</h4>
           <div>
-            <app-filter-attributes [filters]="filters">
+            <app-filter-attributes
+            (callback)="setVariable($event)"
+            [filters]="filters">
             </app-filter-attributes>
 
           </div>

@@ -26,6 +26,12 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.route);
+    console.log(this.route.snapshot.params)
+
+    this.route.queryParams.subscribe(params => {
+      console.log('q',params)
+  });
     this.route.params.subscribe(params => {
       this.loadData(params.src);
     });
