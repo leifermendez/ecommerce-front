@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {Router} from '@angular/router';
 import {NgSelectConfig} from '@ng-select/ng-select';
+import { UtilsService } from '../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,9 @@ import {NgSelectConfig} from '@ng-select/ng-select';
 export class SearchComponent implements OnInit {
   datafilter = [];
   public src: any = null;
-  constructor(private rest: RestService, private router: Router, private config: NgSelectConfig) {
+  constructor(private rest: RestService, 
+    private util: UtilsService,
+    private router: Router, private config: NgSelectConfig) {
     this.config.notFoundText = 'Sin resultado, asegurate de elegir la opción correcta.';
   }
 
@@ -20,7 +23,7 @@ export class SearchComponent implements OnInit {
   selectOptions = (e) => {
     if (e && e['id']) {
       this.src = {}
-      this.router.navigateByUrl(`/single/${e['id']}`);
+      this.router.navigateByUrl(`/single/${e['id']}-${this.util.slug(e['name'])}`);
     }
   }
 

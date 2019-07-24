@@ -10,7 +10,7 @@
 }
 
 .box {
-  border-left: solid 1px #f5f5f5;
+  border-left: solid 1px #eaeaea;
   height: calc(100% - 68px);
   position: fixed;
   background-color: #fcfcfc;
