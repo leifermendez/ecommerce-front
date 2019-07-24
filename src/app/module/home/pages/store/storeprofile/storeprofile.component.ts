@@ -21,7 +21,7 @@ export class StoreprofileComponent implements OnInit {
     name: null
   };
   public queryParams: any = {
-    limit: 5,
+    limit: 15,
     filters: 'products.status,=,available',
     all_filters: 'all'
   }
