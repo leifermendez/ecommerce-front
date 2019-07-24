@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {UtilsService} from '../../../../../shared/services/util.service';
-import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
-import {ActivatedRoute, Router} from '@angular/router';
-import {OwlCarousel} from 'ngx-owl-carousel';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { UtilsService } from '../../../../../shared/services/util.service';
+import { ShoppingCartComponent } from '../../../components/shopping-cart/shopping-cart.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OwlCarousel } from 'ngx-owl-carousel';
 
 @Component({
   selector: 'app-storeprofile',
@@ -25,7 +25,7 @@ export class StoreprofileComponent implements OnInit {
   public meta_key: any = [];
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-              private route: ActivatedRoute, private router: Router) {
+    private route: ActivatedRoute, private router: Router) {
     route.params.subscribe(params => {
       const [id] = params.id.split('-');
       if (id) {
@@ -41,9 +41,12 @@ export class StoreprofileComponent implements OnInit {
 
   setVariable = (a) => this.filters = a;
 
-  loadData = (id) => {
+  loadData = (id = null, url = null) => {
+    url = (url) ?
+      `/rest/seller/${this.idparam}${url}&limit=5&filters=products.status,=,available&all_filters=all` :
+      `/rest/seller/${id}?limit=5&filters=products.status,=,available&all_filters=all`;
     this.loading = true;
-    this.rest.get(`/rest/seller/${id}?limit=15&filters=products.status,=,available&all_filters=all`)
+    this.rest.get(url)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {

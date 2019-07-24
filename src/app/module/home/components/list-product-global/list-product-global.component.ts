@@ -56,6 +56,14 @@ export class ListProductGlobalComponent implements OnInit {
     ];
   }
 
+  pageChanged = (a, url) => {
+    console.log('problem',url)
+    let _url = url.replace(/(page=.?)/gm, `page=${a.page}`);
+    const querys = /([^\?]+)(\?.*)?/i;
+    const match = _url.match(querys);
+    console.log('heree',_url)
+    this.callback.emit(match[2])
+  }
 
   timeAgoNext = (minutes = 0) => {
 

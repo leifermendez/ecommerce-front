@@ -226,6 +226,14 @@
             </div>
           </div>
         </div>
+        <div class="row">
+            <pagination [totalItems]="data?.list?.total" 
+            [(ngModel)]="currentPage" 
+            [rotate]="rotate" 
+            [itemsPerPage]="data?.list?.per_page"
+            [maxSize]="7"
+            (pageChanged)="pageChanged($event,data?.list?.first_page_url)"></pagination>
+        </div>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ import {RestService} from './shared/services/rest.service';
 import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -279,6 +280,7 @@ export class MyIntl extends TimeagoIntl {
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
+    PaginationModule.forRoot(),
     AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
