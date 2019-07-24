@@ -24,6 +24,7 @@ import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
 import {ChartModule} from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { QuillModule } from 'ngx-quill'
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BannerComponent} from './module/home/pages/home/banner/banner.component';
 import {BoxCategoriesComponent} from './module/home/pages/home/box-categories/box-categories.component';
@@ -278,6 +279,7 @@ export class MyIntl extends TimeagoIntl {
     NgxPrettyCheckboxModule,
     DateTimePickerModule,
     BrowserAnimationsModule,
+    QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
     PaginationModule.forRoot(),

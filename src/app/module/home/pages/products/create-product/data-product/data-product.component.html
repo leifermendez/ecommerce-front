@@ -82,14 +82,13 @@
                     [(ngModel)]="editform.short_description"
           ></textarea>
 
+
         </div>
         <div class="form-group">
           <label>{{"page.create.product.description" | translate}}</label>
-          <textarea type="text" (ngModelChange)="emitPreview($event)" formControlName="description" rows="10"
-                    class="form-control"
-                    [placeholder]="'page.create.product.description.label' | translate"
-                    [(ngModel)]="editform.description"
-          ></textarea>
+          <quill-editor [(ngModel)]="editform.description"
+          (ngModelChange)="emitPreview($event)" formControlName="description">
+          </quill-editor>
 
         </div>
       </div>
