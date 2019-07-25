@@ -26,6 +26,7 @@ export class DataProductComponent implements OnInit {
   public list_shops: any = [];
   public select_shop: any = null;
   public user_data: any;
+  public fullModeDescription:any = false;
 
   constructor(private fb: FormBuilder, private rest: RestService, private router: Router,
               private utils: UtilsService,

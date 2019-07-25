@@ -84,8 +84,15 @@
 
 
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'full-size-description':(fullModeDescription)}">
           <label>{{"page.create.product.description" | translate}}</label>
+          <div class="icon-full-size" 
+          [style.transform]="(fullModeDescription) ? 'rotate(180deg)':'rotate(0deg)'"
+          [style.right]="(fullModeDescription) ? '2.5rem':''"
+          [style.marginTop]="(fullModeDescription) ? '3rem':''"
+          (click)="fullModeDescription = !fullModeDescription">
+            <img src="../../../../../../../assets/images/expand.svg" width="15px" alt="">
+          </div>
           <quill-editor [(ngModel)]="editform.description"
           (ngModelChange)="emitPreview($event)" formControlName="description">
           </quill-editor>
