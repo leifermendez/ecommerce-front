@@ -25,6 +25,7 @@ import { ThankYouComponent } from './module/home/pages/thank-you/thank-you.compo
 import { ErrorPaymentComponent } from './module/home/pages/error-payment/error-payment.component';
 import { SingleBlogComponent } from './module/home/pages/single-blog/single-blog.component';
 import {SearchPageComponent} from './module/home/pages/search-page/search-page.component';
+import {SearchPageCategoryComponent} from './module/home/pages/search-page-category/search-page-category.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,11 @@ const routes: Routes = [
   {
     path: 'search/:src',
     component: SearchPageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'category/:id',
+    component: SearchPageCategoryComponent,
     pathMatch: 'full'
   },
   {

@@ -182,7 +182,7 @@
                 <div class="row">
                   <div class="col-12">
                     <h2 class="font-weight-600 mb-2">{{"page.single.description" | translate}}</h2>
-                    <p class="description text-justify">{{data.description}}</p>
+                    <p class="description text-justify" [innerHTML]="data.description"></p>
                   </div>
                 </div>
               </div>

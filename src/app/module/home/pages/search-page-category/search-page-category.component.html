@@ -1,0 +1,33 @@
+<section class="main-container col2-left-layout bounceInUp animated">
+  <div class="container mt-2">
+    <div class="breadcrumbs mb-2">
+      <div class="container">
+        <div class="row">
+          <div>
+            <ul>
+              <small>Busquedas relacionadas:</small>
+              <li class="home">
+                <small *ngFor="let m of meta_key" class="ml-2 mr-2">{{m}}</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm-3">
+        <div class="mt-0">
+          <div>
+            <app-filter-attributes [filters]="filters">
+            </app-filter-attributes>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 p-0">
+        <app-list-product-global [data]="data">
+        </app-list-product-global>
+      </div>
+    </div>
+  </div>
+</section>

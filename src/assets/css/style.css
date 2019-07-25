@@ -15308,7 +15308,9 @@ select#shipping-address-select {
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
   color: #D44638;
 }
-
+.ql-editor{
+  height: 20rem;
+}
 .btn-outline-primary.disabled:hover {
   color: white !important;
 }
@@ -15570,6 +15572,10 @@ select#shipping-address-select {
   text-transform: uppercase;
   font-weight: 600;
   border-left: solid 1px #ececec;
+}
+
+app-single .description p{
+  margin: 0px;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {

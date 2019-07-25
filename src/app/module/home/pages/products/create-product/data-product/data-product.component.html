@@ -78,7 +78,7 @@
         <div class="form-group">
           <label>{{"page.create.product.short_description" | translate}}</label>
           <textarea type="text" (ngModelChange)="emitPreview($event)" formControlName="short_description"
-                    class="form-control" [placeholder]="'page.create.product.short_description.label' | translate"
+                    class="form-control"  rows="4" [placeholder]="'page.create.product.short_description.label' | translate"
                     [(ngModel)]="editform.short_description"
           ></textarea>
 
