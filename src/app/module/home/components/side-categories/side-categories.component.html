@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="pt-4 pb-2 pr-3 pl-3">
+    <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
+  </div>
+  <ul class="pt-4 pb-4 mb-4">
+    <li *ngFor="let c of data | keyvalue">
+      <div class="parent">
+        <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="20px"
+             alt=""> <span class="ml-2">{{c['key']}}</span>
+      </div>
+      <div>
+        <ul>
+          <li (click)="bsModalRef.hide()" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]"
+              class="child-li" *ngFor="let i of c['value']">
+            <span>{{i['name']}}</span>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+</div>

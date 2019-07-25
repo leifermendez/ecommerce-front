@@ -1,13 +1,12 @@
 <header @tijl *ngIf="!header"
         [style.opacity]="(modeFocus) ? '.4' : '1'"
         [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
-
   <div id="header">
     <div class="header-container full-mode-header logo-full-mode-header">
       <div class="row m-0">
         <div class="d-flex justify-content-between w-100">
           <div class="logo">
-            <a [routerLink]="['/']" title="Home" title="Apatxee">
+            <a [routerLink]="['/']" title="Apatxee">
               <div><img src="assets/images/logo-apatxee.png" height="50" alt="Apatxee"></div>
             </a>
           </div>
@@ -93,9 +92,10 @@
             <div class="nav-inner">
               <!-- BEGIN NAV -->
               <ul id="nav" class="hidden-xs">
-                <li class="mega-menu mega-menu-hover"><a class="level-top">
-                  <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
-                </a>
+                <li class="mega-menu mega-menu-hover" (click)="openCategory()">
+                  <a class="level-top">
+                    <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
+                  </a>
                   <!--                  <div class="level0-wrapper dropdown-6col">-->
                   <!--                    <div class="container">-->
                   <!--                      <div class="level0-wrapper2">-->

@@ -6,6 +6,9 @@ import {AppComponent} from '../../../../app.component';
 import {TranslateService} from '@ngx-translate/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+import {ZipLocationComponent} from '../zip-location/zip-location.component';
+import {SideCategoriesComponent} from '../side-categories/side-categories.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 
 declare var $: any;
@@ -40,9 +43,12 @@ export class HeaderComponent implements OnInit {
   public modeOffset: any = false;
   public modeFocus: any = false;
   public animationBell: any = false;
+  modalRef: BsModalRef;
+  config = {};
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
               private cart: ShoppingCartComponent,
+              private modalService: BsModalService,
               private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
     util.getLocation.subscribe(data => {
       this.location = data['zip_code'][0];
@@ -90,10 +96,28 @@ export class HeaderComponent implements OnInit {
 
   openZip = () => this.app.open();
 
+  emitBack = () => this.ngOnInit();
+
+  openCategory() {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+    };
+
+    this.modalRef = this.modalService.show(
+      SideCategoriesComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal side-categories'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
+
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
-    if(this.user_data){
+    if (this.user_data) {
       this.cart.loadData();
     }
 

@@ -1,0 +1,41 @@
+.box {
+  display: block;
+  background: white;
+  position: fixed;
+  height: 100vh;
+  min-width: 15.5rem;
+  transform: translateX(0rem);
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  z-index: 9;
+  box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.17);
+  overflow-y: auto;
+}
+
+.parent {
+  padding: 0 .5rem 1rem .5rem;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding: .5rem .3rem .5rem .7rem;
+  border-bottom: solid 1px #f1f1f1;
+  cursor: pointer;
+}
+
+ul li:last-child {
+  border-bottom: solid 0px #f1f1f1;
+}
+
+ul .child-li:hover {
+  border-left: solid 3px #ce0000;
+  background-color: #f3f3f3;
+}

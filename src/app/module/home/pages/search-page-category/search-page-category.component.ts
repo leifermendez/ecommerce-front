@@ -34,13 +34,16 @@ export class SearchPageCategoryComponent implements OnInit {
 
   ngOnInit() {
 
-    const [id] = this.route.snapshot.params.id.split('-');
-    this.route.queryParams.subscribe(params => {
-      this.queryParams = {...this.queryParams, ...params};
-      this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
-      this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
-      this.loadData(id);
+    this.route.params.subscribe(routeParams => {
+      const id = routeParams.id;
+      this.route.queryParams.subscribe(params => {
+        this.queryParams = {...this.queryParams, ...params};
+        this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
+        this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
+        this.loadData(id);
+      });
     });
+
 
   }
 

@@ -15574,6 +15574,11 @@ select#shipping-address-select {
   border-left: solid 1px #ececec;
 }
 
+.side-categories{
+  margin-top: 0;
+  margin-left: 0;
+}
+
 app-single .description p{
   margin: 0px;
 }

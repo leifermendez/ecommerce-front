@@ -136,6 +136,7 @@ import { FilterAttributesComponent } from './module/home/pages/store/filter-attr
 import { SearchPageComponent } from './module/home/pages/search-page/search-page.component';
 import { ListProductGlobalComponent } from './module/home/components/list-product-global/list-product-global.component';
 import { SearchPageCategoryComponent } from './module/home/pages/search-page-category/search-page-category.component';
+import { SideCategoriesComponent } from './module/home/components/side-categories/side-categories.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -252,6 +253,7 @@ export class MyIntl extends TimeagoIntl {
     FilterAttributesComponent,
     SearchPageComponent,
     SearchPageCategoryComponent,
+    SideCategoriesComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -343,6 +345,7 @@ export class MyIntl extends TimeagoIntl {
     ModalVariationsProductComponent,
     ModalProductBankComponent,
     ModalWarningComponent,
+    SideCategoriesComponent
   ],
   bootstrap: [AppComponent]
 })
