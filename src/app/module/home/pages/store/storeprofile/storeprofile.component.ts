@@ -47,25 +47,17 @@ export class StoreprofileComponent implements OnInit {
   }
 
   setVariable = (a) => {
-
-    console.log('here', a);
-
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
         filters: `product_categories.category_id,=,${a.id}`
       },
       queryParamsHandling: 'merge',
-      // preserve the existing query params in the route
       skipLocationChange: false
     });
-
   };
 
   setAttribute = (a) => {
-
-    console.log('here', a);
-
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
@@ -75,7 +67,6 @@ export class StoreprofileComponent implements OnInit {
       // preserve the existing query params in the route
       skipLocationChange: false
     });
-
   };
 
 
@@ -87,9 +78,6 @@ export class StoreprofileComponent implements OnInit {
         if (response.status === 'success') {
           this.data = response.data;
           this.filters = this.data['filter'];
-          console.log('--filters', this.util.isEmpty(this.filters));
-          // this.filters = (this.util.isEmpty(this.filters)) ? this.data['filter'] :
-          //   {...this.filters, ...{categories: this.data['filter']['categories']}};
         }
       });
   };

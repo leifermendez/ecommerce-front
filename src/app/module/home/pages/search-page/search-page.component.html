@@ -18,9 +18,11 @@
       <div class="col-sm-3">
         <div class="mt-0">
           <div>
-            <app-filter-attributes [filters]="filters">
+            <app-filter-attributes
+              (callbackCategory)="setVariable($event)"
+              (callbackAttr)="setAttribute($event)"
+              [filters]="filters">
             </app-filter-attributes>
-
           </div>
         </div>
       </div>

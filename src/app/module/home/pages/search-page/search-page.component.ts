@@ -17,8 +17,9 @@ export class SearchPageComponent implements OnInit {
   public meta_key: any = [];
   public src: any = null;
   public queryParams: any = {
-    limit: 1,
+    limit: 15,
     all_filters: 'all',
+    filters: {},
     pagination: 'all'
   };
 
@@ -30,22 +31,47 @@ export class SearchPageComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
-    console.log(this.route);
-    console.log(this.route.snapshot.params);
 
     const src = this.route.snapshot.params.src;
     this.route.queryParams.subscribe(params => {
       this.queryParams = {...this.queryParams, ...params};
-      this.loadData(src);
+      this.queryParams = {...this.queryParams, ...{src: (src) ? src : ''}};
+      this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
+      this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
+      this.loadData();
     });
+
   }
 
-  setVariable = (a) => this.filters = a;
+  setVariable = (a) => {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        filters: `product_categories.category_id,=,${a.id}`
+      },
+      queryParamsHandling: 'merge',
+      skipLocationChange: false
+    });
+  };
 
-  loadData = (src) => {
+  setAttribute = (a) => {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        attributes_filter: `att.value,=,${a.value}?att.attributes_id,=,${a.attr_id}`
+      },
+      queryParamsHandling: 'merge',
+      // preserve the existing query params in the route
+      skipLocationChange: false
+    });
+  };
+
+
+  loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/search`, {...this.queryParams, ...{src}})
+    this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {

@@ -9,7 +9,7 @@
                 <li class="category1599">
                   <a [routerLink]="['/','home']" title="">Inicio</a> <span>&rsaquo; </span></li>
               <li @breadcrumbs *ngFor="let c of data['categories']" class="home">
-                <a [routerLink]="['/','categories',util.slug(c['name'])]" title="Ver más">{{c['name']}}</a>
+                <a [routerLink]="['/','category',c['id']+'-'+util.slug(c['name'])]" title="Ver más">{{c['name']}}</a>
               </li>
             </ul>
             </div>

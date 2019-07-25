@@ -88,6 +88,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'search',
+    component: SearchPageComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'category/:id',
     component: SearchPageCategoryComponent,
     pathMatch: 'full'
