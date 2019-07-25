@@ -6,9 +6,9 @@
       <div>
         <ul>
           <li *ngFor="let c of cat['value']">
-            <p-checkbox shape="round" color="primary" 
-            (click)="selectOption(c)"
-            outline="true" plain="true" animation="smooth">
+            <p-checkbox shape="round" color="primary"
+                        (click)="selectOption(c)"
+                        outline="true" plain="true" animation="smooth">
               {{c['name']}}
             </p-checkbox>
           </li>
@@ -22,7 +22,9 @@
       <div>
         <ul>
           <li *ngFor="let c of cat['value']">
-            <p-checkbox shape="round" color="primary" outline="true" plain="true" animation="smooth">
+            <p-checkbox
+              (click)="selectAttr(c)"
+              shape="round" color="primary" outline="true" plain="true" animation="smooth">
               {{c['value']}}
             </p-checkbox>
           </li>

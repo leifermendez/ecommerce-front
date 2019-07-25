@@ -106,7 +106,7 @@
       <div class="container p-0">
         <div class="row">
           <div class="item col-sm-4 pr-0 mb-3" *ngFor="let dat of data?.list?.data; let i = index">
-              <div
+            <div
               *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
               <button id="btn-car" [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}"
@@ -151,7 +151,8 @@
                             </span>
                       </div>
                       <div>
-                        <a class="text-muted" [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
+                        <a class="text-muted"
+                           [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </div>
@@ -226,13 +227,12 @@
             </div>
           </div>
         </div>
-        <div class="row">
-            <pagination [totalItems]="data?.list?.total" 
-            [(ngModel)]="currentPage" 
-            [rotate]="rotate" 
-            [itemsPerPage]="data?.list?.per_page"
-            [maxSize]="7"
-            (pageChanged)="pageChanged($event,data?.list?.first_page_url)"></pagination>
+        <div class="row m-0">
+          <pagination [totalItems]="data?.list?.total"
+                      [(ngModel)]="currentPage"
+                      [itemsPerPage]="data?.list?.per_page"
+                      [maxSize]="7"
+                      (pageChanged)="pageChanged($event,data?.list?.first_page_url)"></pagination>
         </div>
       </div>
     </div>

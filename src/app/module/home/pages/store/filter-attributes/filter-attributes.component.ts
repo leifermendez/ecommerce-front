@@ -7,13 +7,16 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class FilterAttributesComponent implements OnInit {
   @Input() filters: any = [];
-  @Output() callback: EventEmitter<any> = new EventEmitter();
+  @Output() callbackCategory: EventEmitter<any> = new EventEmitter();
+  @Output() callbackAttr: EventEmitter<any> = new EventEmitter();
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
-  selectOption = (a) => this.callback.emit(a);
+  selectOption = (a) => this.callbackCategory.emit(a);
 
+  selectAttr = (a) => this.callbackAttr.emit(a);
 }

@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { RestService } from '../../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../../shared/services/util.service';
-import { ShoppingCartComponent } from '../../../components/shopping-cart/shopping-cart.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { OwlCarousel } from 'ngx-owl-carousel';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {RestService} from '../../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../../shared/services/util.service';
+import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
+import {ActivatedRoute, Router} from '@angular/router';
+import {OwlCarousel} from 'ngx-owl-carousel';
 
 @Component({
   selector: 'app-storeprofile',
@@ -22,14 +22,14 @@ export class StoreprofileComponent implements OnInit {
   };
   public queryParams: any = {
     limit: 1,
-    filters: 'products.status,=,available',
-    all_filters: 'all'
-  }
-  public filters: any = [];
+    all_filters: 'all',
+    filters: {}
+  };
+  public filters: any = {};
   public meta_key: any = [];
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
-    private route: ActivatedRoute, private router: Router) {
+              private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -38,15 +38,46 @@ export class StoreprofileComponent implements OnInit {
     const [id] = this.route.snapshot.params.id.split('-');
     this.idparam = id.toString();
     this.route.queryParams.subscribe(params => {
-      this.queryParams = { ...this.queryParams, ...params };
+      this.queryParams = {...this.queryParams, ...params};
+      this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
+      this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
       this.loadData(this.idparam);
     });
 
   }
 
   setVariable = (a) => {
-    this.queryParams = { ...this.queryParams, ...{ category: a.id } }
-  }
+
+    console.log('here', a);
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        filters: `product_categories.category_id,=,${a.id}`
+      },
+      queryParamsHandling: 'merge',
+      // preserve the existing query params in the route
+      skipLocationChange: false
+    });
+
+  };
+
+  setAttribute = (a) => {
+
+    console.log('here', a);
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        attributes_filter: `att.value,=,${a.value}?att.attributes_id,=,${a.attr_id}`
+      },
+      queryParamsHandling: 'merge',
+      // preserve the existing query params in the route
+      skipLocationChange: false
+    });
+
+  };
+
 
   loadData = (id = null) => {
     this.loading = true;
@@ -55,7 +86,10 @@ export class StoreprofileComponent implements OnInit {
         this.loading = false;
         if (response.status === 'success') {
           this.data = response.data;
-          this.filters = this.data['filter']
+          this.filters = this.data['filter'];
+          console.log('--filters', this.util.isEmpty(this.filters));
+          // this.filters = (this.util.isEmpty(this.filters)) ? this.data['filter'] :
+          //   {...this.filters, ...{categories: this.data['filter']['categories']}};
         }
       });
   };

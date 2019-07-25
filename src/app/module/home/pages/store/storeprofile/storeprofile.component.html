@@ -36,7 +36,8 @@
           <h4 class="font-weight-600" [hidden]="true">{{data['name']}}</h4>
           <div>
             <app-filter-attributes
-            (callback)="setVariable($event)"
+            (callbackCategory)="setVariable($event)"
+            (callbackAttr)="setAttribute($event)"
             [filters]="filters">
             </app-filter-attributes>
 
