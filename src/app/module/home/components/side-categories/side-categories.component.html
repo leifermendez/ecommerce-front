@@ -1,24 +1,34 @@
 <div class="box">
-  <div class="pt-4 pb-2 pr-3 pl-3">
-    <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
-  </div>
-  <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
-         autocomplete="off"
-         placeholder="¿Necesitas ayuda?">
-  <ul class="pt-4 pb-4 mb-4">
-    <li *ngFor="let c of data | keyvalue | filter:searchText">
-      <div class="parent" *ngIf="!searchText?.length">
-        <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="20px"
-             alt=""> <span class="ml-2">{{c['key']}}</span>
+    <div class="container row ml-auto mr-auto">
+      <div class="pt-4 pb-2 pr-3 pl-3">
+        <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
       </div>
-      <div>
-        <ul>
-          <li (click)="bsModalRef.hide()" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]"
-              class="child-li" *ngFor="let i of c['value'] | filter:searchText">
-            <span>{{i['name']}}</span>
-          </li>
-        </ul>
+      <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
+             autocomplete="off"
+             placeholder="¿Necesitas ayuda?">
+    <div class="text-center mb-4 mt-4 w-100">
+      <h5>Tenemos una gran coleccion de categorias</h5>
+    </div>
+    </div>
+  <ul class="pt-0 ml-auto mr-auto container row">
+    <li class="col-3" *ngFor="let c of data | keyvalue | filter:searchText">
+      <div class="box-category-parent">
+        <div>
+          <img class="cover-category" [src]="c['value'][0]['parent_image']" alt="">
+        </div>
+        <div class="parent" *ngIf="!searchText?.length">
+          <span>{{c['key']}}</span>
+        </div>
+        <div>
+          <ul class="row m-0">
+            <li (click)="bsModalRef.hide()" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]"
+                class="child-li" *ngFor="let i of c['value'] | filter:searchText">
+              <span>{{i['name']}} <small *ngIf="i['number_items']>1">({{i['number_items']}})</small>,</span>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </li>
 
   </ul>

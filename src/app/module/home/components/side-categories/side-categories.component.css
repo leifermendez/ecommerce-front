@@ -3,7 +3,7 @@
   background: white;
   position: fixed;
   height: 100vh;
-  min-width: 15.5rem;
+  width: 100%;
   transform: translateX(0rem);
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
@@ -15,7 +15,9 @@
 }
 
 .parent {
-  padding: 0 .5rem 1rem .5rem;
+  padding: .5rem;
+  background-color: whitesmoke;
+  font-size: .9rem;
   font-weight: 600;
 }
 
@@ -27,7 +29,7 @@ ul {
 
 ul li {
   padding: .5rem .3rem .5rem .7rem;
-  border-bottom: solid 1px #f1f1f1;
+  /*border-bottom: solid 1px #f1f1f1;*/
   cursor: pointer;
 }
 
@@ -36,6 +38,18 @@ ul li:last-child {
 }
 
 ul .child-li:hover {
-  border-left: solid 3px #ce0000;
-  background-color: #f3f3f3;
+  /*border-left: solid 3px #ce0000;*/
+  /*background-color: #f3f3f3;*/
+  font-weight: 600;
+}
+
+.cover-category{
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+}
+
+.box-category-parent{
+  border: solid 1px whitesmoke;
+  background-color: #fdfdfd;
 }
