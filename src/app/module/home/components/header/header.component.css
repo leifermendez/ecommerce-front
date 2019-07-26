@@ -342,7 +342,7 @@ header {
   position: absolute;
   height: 60%;
   width: 100%;
-  border-bottom: solid 1px #d8d6d6;
+  border-bottom: solid 1px #f3f3f3;
 }
 .header-mobile .first-nav .block-logo{
   width: 15%;
