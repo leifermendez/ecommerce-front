@@ -276,9 +276,6 @@ const routes: Routes = [
     path: 'store/:id',
     component: StoreprofileComponent,
     pathMatch: 'full',
-    data: {
-      footer: true,
-    }
   },
   { path: '**', component: HomeComponent },
   { path: '**', component: HomeComponent },

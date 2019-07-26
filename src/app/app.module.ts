@@ -137,6 +137,7 @@ import { SearchPageComponent } from './module/home/pages/search-page/search-page
 import { ListProductGlobalComponent } from './module/home/components/list-product-global/list-product-global.component';
 import { SearchPageCategoryComponent } from './module/home/pages/search-page-category/search-page-category.component';
 import { SideCategoriesComponent } from './module/home/components/side-categories/side-categories.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -283,6 +284,7 @@ export class MyIntl extends TimeagoIntl {
     NgxPrettyCheckboxModule,
     DateTimePickerModule,
     BrowserAnimationsModule,
+    Ng2SearchPipeModule,
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),

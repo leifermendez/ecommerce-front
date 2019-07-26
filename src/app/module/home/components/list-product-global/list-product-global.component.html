@@ -1,4 +1,4 @@
-<div *ngIf="loading" class="best-pro slider-items-products container">
+<div *ngIf="loading" [style.opacity]="'.6'" class="best-pro slider-items-products container">
   <div class="CollectionGrid container min-height-300 mt-0">
     <div class="CollectionGrid-tile hover-overlay-light">
       <div class="timeline-item">
@@ -100,7 +100,8 @@
     </div>
   </div>
 </div>
-<div *ngIf="!loading" class="best-pro slider-items-products container">
+<div *ngIf="!loading && (data?.list?.data?.length)"
+     class="best-pro slider-items-products container">
   <div id="best-seller" class="product-flexslider hidden-buttons">
     <div class="slider-items  products-grid">
       <div class="container p-0">
@@ -231,10 +232,20 @@
           <pagination [totalItems]="data?.list?.total"
                       [(ngModel)]="currentPage"
                       [itemsPerPage]="data?.list?.per_page"
-                      [maxSize]="7"
+                      [maxSize]="10"
+                      [style.marginTop]="'3rem'"
+                      class="ml-auto mb-4"
+                      previousText="Anterior" nextText="Siguiente"
                       (pageChanged)="pageChanged($event,data?.list?.first_page_url)"></pagination>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div *ngIf="!loading && !(data?.list?.data?.length)" class="p-4 text-center">
+  <div class="col-8 pr-0 pl-0 pt-4">
+    <img src="../../../../../assets/images/loupe.svg" width="50px" alt="">
+    <h5 class="mt-4">En esta categoría no hay publicaciones que coincidan con tu búsqueda.</h5>
+    <p><a [routerLink]="['/','search']">Ver más</a></p>
   </div>
 </div>

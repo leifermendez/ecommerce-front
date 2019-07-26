@@ -10493,8 +10493,8 @@ a.button.detail-bnt span {
 
 }
 
-.nav-tabs .nav-link.active span{
-  color:#2b2b2b
+.nav-tabs .nav-link.active span {
+  color: #2b2b2b
 }
 
 .nav-tabs .nav-item span {
@@ -15294,12 +15294,14 @@ select#shipping-address-select {
   background-color: #fefefe
 }
 
-.modal-footer{
+.modal-footer {
   border-top-width: 0px;
 }
-.table{
+
+.table {
   margin-bottom: 0px;
 }
+
 .pac-item {
   height: 40px;
   font-size: 14px;
@@ -15320,10 +15322,12 @@ select#shipping-address-select {
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
   color: #D44638;
 }
-.ql-editor{
+
+.ql-editor {
   min-height: 20rem;
   height: 93%;
 }
+
 .btn-outline-primary.disabled:hover {
   color: white !important;
 }
@@ -15550,6 +15554,31 @@ select#shipping-address-select {
   padding-top: 30px;
 }
 
+.pagination .page-link, .pagination .page-item.disabled .page-link {
+  background-color: transparent;
+  border: 0;
+  color: #9a9a9a;
+}
+
+.pagination .page-item {
+  padding: 0 .5rem 0 .5rem;
+}
+
+.pagination .page-link:hover {
+  background-color: #fff !important;
+  color: #2b2b2b !important;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+
+.pagination .page-item.active .page-link {
+  background: #d2d2d2;
+  color: #2b2b2b;
+  font-weight: 600 !important;
+}
+
 .btn-primary {
   background-color: #ce0000;
   border-color: #bb0909;
@@ -15587,12 +15616,12 @@ select#shipping-address-select {
   border-left: solid 1px #ececec;
 }
 
-.side-categories{
+.side-categories {
   margin-top: 0;
   margin-left: 0;
 }
 
-app-single .description p{
+app-single .description p {
   margin: 0px;
 }
 
@@ -15603,7 +15632,7 @@ app-single .description p{
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
-  background-color: rgba(255,255,255, .7);
+  background-color: rgba(255, 255, 255, .7);
   color: #8c9399;
   /* background: rgba(0, 0, 0, 0.25); */
   /* color: #fff; */
@@ -15612,12 +15641,15 @@ app-single .description p{
 .nav-tabs > li > a:hover {
   background-color: transparent;
 }
-.ql-snow{
-  border:0px !important;
+
+.ql-snow {
+  border: 0px !important;
 }
+
 .ql-toolbar {
   opacity: .6
 }
+
 .slide-hidden {
   height: 0px;
   opacity: 0;
@@ -15949,30 +15981,34 @@ app-modal-shopping .CollectionGrid-tile {
   padding: 0px !important
 }
 
-app-filter-attributes .panel .card,app-filter-attributes .panel .card-header{
+app-filter-attributes .panel .card, app-filter-attributes .panel .card-header {
   padding: 0 0 .5rem 0;
   border: 0px;
   background-color: #ffffff;
   border-radius: 0px;
 }
-app-filter-attributes .panel .card-body{
+
+app-filter-attributes .panel .card-body {
   background: #fbfbfb;
   padding: .7rem .7rem .5rem .7rem;
   font-size: .75rem;
   color: #676565;
 }
-app-filter-attributes .panel .card-header .panel-title .btn{
+
+app-filter-attributes .panel .card-header .panel-title .btn {
   font-size: .85rem;
 }
-app-filter-attributes .panel .card-header .panel-title .btn:hover{
+
+app-filter-attributes .panel .card-header .panel-title .btn:hover {
   color: #5f5f5f
 }
 
 
-app-filter-attributes .panel .btn{
+app-filter-attributes .panel .btn {
   background-color: transparent;
 }
-app-filter-attributes .panel .card{
+
+app-filter-attributes .panel .card {
   background-color: transparent;
 }
 

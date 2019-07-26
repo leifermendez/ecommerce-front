@@ -52,11 +52,14 @@
               </div>
               <div *ngIf="!loading" class="card block-dashboard border-0">
                 <div class="col p-0 bg-table min-height-300">
-                  <app-inside-filter-nav [placeholder]="'Busca número de pedido, nombre de comercio'"
-                                         class="p-2 text-muted d-block"></app-inside-filter-nav>
+                  <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
+                         autocomplete="off"
+                         placeholder="Busca número de pedido, nombre de comercio">
+
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
                     <tbody>
-                    <tr *ngFor="let dat of data['data'];let i = index" [routerLink]="['/','purchases',dat['uuid']]"
+                    <tr *ngFor="let dat of data['data']  | filter:searchText ;let i = index"
+                        [routerLink]="['/','purchases',dat['uuid']]"
                         class="list-table-item cursor-pointer">
 
                       <td [style.width]="'30%'" [style.borderRight]="'1px dashed #e4e4e4'">
@@ -89,26 +92,14 @@
                           </div>
                         </div>
                       </td>
-                      <!--                          <td [style.width]="'50%'" class="p-0" [style.borderRight]="'1px dashed #e4e4e4'">-->
-                      <!--                            <ul class="list-unstyled m-0 list-items">-->
-                      <!--                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">-->
-                      <!--                                <span>Botas deportivas</span>-->
-                      <!--                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>-->
-                      <!--                              </li>-->
-                      <!--                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">-->
-                      <!--                                <span>Botas deportivas</span>-->
-                      <!--                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>-->
-                      <!--                              </li>-->
-                      <!--                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">-->
-                      <!--                                <span>Botas deportivas</span>-->
-                      <!--                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>-->
-                      <!--                              </li>-->
-                      <!--                              <li class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">-->
-                      <!--                                <span>Botas deportivas</span>-->
-                      <!--                                <span>{{'100' |number:'1.2-2'}} {{"currency" | translate}}</span>-->
-                      <!--                              </li>-->
-                      <!--                            </ul>-->
-                      <!--                          </td>-->
+                      <td [style.width]="'50%'" class="p-0 list-detail-products" [style.borderRight]="'1px dashed #e4e4e4'">
+                        <ul class="list-unstyled m-0 list-items">
+                          <li *ngFor="let i of dat.list?.detail" class="pl-3 pr-3 pt-1 pb-1 form-text text-color-gray d-flex justify-content-between">
+                            <span>{{i['product_label']}}</span>
+                            <span>{{i['product_amount'] |number:'1.2-2'}} {{"currency" | translate}}</span>
+                          </li>
+                        </ul>
+                      </td>
                       <td class="text-right" [style.width]="'15%'">
                         <div [tooltip]="dat['status']" class="mb-1">
                               <span class="badge p-1" [ngClass]="{'badge-success':(dat['status']==='success'),

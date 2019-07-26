@@ -17,15 +17,13 @@ export class ListProductGlobalComponent implements OnInit {
       data: []
     }
   };
+  @Input() loading = false;
   @Output() callback: EventEmitter<any> = new EventEmitter();
-  public loading = false;
   public filters: any = [];
-  public meta_key: any = [];
   public src: any = null;
   public loading_save = false;
   public currentPage: any = 1;
   galleryOptions: NgxGalleryOptions[];
-  galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
@@ -35,8 +33,11 @@ export class ListProductGlobalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentPage = (this.data['list'] && this.data['list']['current_page']) ?
-      this.data['list']['current_page'] : 0;
+    this.route.queryParams.subscribe(params => {
+      // tslint:disable-next-line:radix
+      this.currentPage = parseInt(params.page);
+    });
+
     this.galleryOptions = [
       {
         width: '100%',
@@ -58,7 +59,7 @@ export class ListProductGlobalComponent implements OnInit {
     ];
   }
 
-  pageChanged = (a) => {
+  pageChanged = (a, first_page_url: any) => {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {

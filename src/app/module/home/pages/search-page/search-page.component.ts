@@ -34,14 +34,18 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit() {
 
-    const src = this.route.snapshot.params.src;
-    this.route.queryParams.subscribe(params => {
-      this.queryParams = {...this.queryParams, ...params};
-      this.queryParams = {...this.queryParams, ...{src: (src) ? src : ''}};
-      this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
-      this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
-      this.loadData();
-    });
+    // const src = this.route.snapshot.params.src;
+    this.route.params.subscribe(routeParams => {
+      const src = routeParams.src;
+      this.route.queryParams.subscribe(params => {
+        this.queryParams = {...this.queryParams, ...params};
+        this.queryParams = {...this.queryParams, ...{src: (src) ? src : ''}};
+        this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
+        this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
+        this.loadData();
+      });
+    })
+
 
   }
 

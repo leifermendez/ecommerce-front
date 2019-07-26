@@ -10,7 +10,7 @@
            [searchable]="true"
            [multiple]="false"
            [virtualScroll]="true"
-           [closeOnSelect]="true"
+           [closeOnSelect]="false"
            (change)="selectOptions($event)"
            (keydown.enter)="srcSend($event);select.close()"
            placeholder="Buscar..."

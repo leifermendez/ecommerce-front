@@ -11,6 +11,7 @@ export class PurchaseComponent implements OnInit {
   public from: any = 'user';
   public data: any = {data: []};
   public loading = false;
+  public searchText: any;
 
   constructor(private rest: RestService,
               private util: UtilsService) {

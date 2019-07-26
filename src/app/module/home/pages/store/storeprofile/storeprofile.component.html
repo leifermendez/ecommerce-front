@@ -30,12 +30,13 @@
         </div>
       </div>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4 mb-4 pb-4">
       <div class="col-sm-3">
         <div class="mt-0">
           <h4 class="font-weight-600" [hidden]="true">{{data['name']}}</h4>
           <div>
             <app-filter-attributes
+              [loading]="loading"
             (callbackCategory)="setVariable($event)"
             (callbackAttr)="setAttribute($event)"
             [filters]="filters">
@@ -44,7 +45,9 @@
         </div>
       </div>
       <div class="col-sm-9 p-0">
-        <app-list-product-global (callback)="loadData()" [data]="data">
+        <app-list-product-global
+          [loading]="loading"
+          (callback)="loadData()" [data]="data">
         </app-list-product-global>
       </div>
     </div>

@@ -19,6 +19,7 @@
         <div class="mt-0">
           <div>
             <app-filter-attributes
+              [loading]="loading"
               (callbackCategory)="setVariable($event)"
               (callbackAttr)="setAttribute($event)"
               [filters]="filters">
@@ -27,7 +28,7 @@
         </div>
       </div>
       <div class="col-sm-9 p-0">
-        <app-list-product-global [data]="data">
+        <app-list-product-global  [loading]="loading" [data]="data">
         </app-list-product-global>
       </div>
     </div>
