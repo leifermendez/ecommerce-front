@@ -6,7 +6,7 @@
     </p>
     <form novalidate (ngSubmit)="send()" [formGroup]="form" *ngIf="!delivered">
       <div class="form-group mt-4">
-        <label for="exampleInputEmail1">Email</label>
+        <label for="exampleInputEmail1" (click)="bsModalRef.hide()">Email</label>
         <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
                aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="editform['email']">
         <small id="emailHelp" class="form-text text-muted">Introduce un email valido</small>

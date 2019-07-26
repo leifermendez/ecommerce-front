@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
-import {AuthshopService} from '../../../auth/authshop.service';
-import {AppComponent} from '../../../../app.component';
-import {TranslateService} from '@ngx-translate/core';
-import {animate, style, transition, trigger} from '@angular/animations';
-import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
-import {ZipLocationComponent} from '../zip-location/zip-location.component';
-import {SideCategoriesComponent} from '../side-categories/side-categories.component';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
+import { AuthshopService } from '../../../auth/authshop.service';
+import { AppComponent } from '../../../../app.component';
+import { TranslateService } from '@ngx-translate/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ZipLocationComponent } from '../zip-location/zip-location.component';
+import { SideCategoriesComponent } from '../side-categories/side-categories.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 declare var $: any;
@@ -20,11 +21,11 @@ declare var $: any;
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({transform: 'translateY(-20%)', opacity: '0'}),
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
       ])
     ])
   ]
@@ -32,6 +33,9 @@ declare var $: any;
 
 export class HeaderComponent implements OnInit {
   public location: any = null;
+  public computer: any;
+  public mobile: any;
+  public tablet: any;
   public header = false;
   public subMenu = false;
   public fullMenu = false;
@@ -47,9 +51,11 @@ export class HeaderComponent implements OnInit {
   config = {};
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
-              private cart: ShoppingCartComponent,
-              private modalService: BsModalService,
-              private auth: AuthshopService, private app: AppComponent, private translate: TranslateService) {
+    private cart: ShoppingCartComponent,
+    private modalService: BsModalService,
+    private deviceService: DeviceDetectorService,
+    private auth: AuthshopService, private app: AppComponent,
+    private translate: TranslateService) {
     util.getLocation.subscribe(data => {
       this.location = data['zip_code'][0];
       this.lat = data['customer_lat'];
@@ -81,12 +87,15 @@ export class HeaderComponent implements OnInit {
       this.user_data = data;
     });
 
+    this.computer = this.deviceService.isDesktop();
+    this.mobile = this.deviceService.isMobile();
+    this.tablet = this.deviceService.isTablet();
 
   }
 
   scrollTop = (aid) => {
     const aTag = $(`#${aid}`);
-    $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
+    $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
 
   };
 
@@ -106,9 +115,9 @@ export class HeaderComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       SideCategoriesComponent,
-      Object.assign({initialState}, {
-          class: 'gray modal-lg top-modal box-shadow-modal side-categories'
-        },
+      Object.assign({ initialState }, {
+        class: 'gray modal-lg top-modal box-shadow-modal side-categories'
+      },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';

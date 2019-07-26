@@ -19,7 +19,7 @@
           <span class="brand"><b>Apatxee on time 2019</b></span>
         </li>
         <li *ngFor="let c of data">
-          <a [routerLink]="['/','blog',c['id'],util.slug(c['title'])]">{{c['title']}}</a>
+          <a target="_blank" [routerLink]="['/','blog',c['id'],util.slug(c['title'])]">{{c['title']}}</a>
         </li>
       </ul>
     </div>

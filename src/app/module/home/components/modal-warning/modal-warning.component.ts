@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-modal-warning',
@@ -14,7 +15,8 @@ export class ModalWarningComponent implements OnInit {
   public editform: any = {};
   public delivered: any = false;
 
-  constructor(private rest: RestService, private util: UtilsService, private fb: FormBuilder) {
+  constructor(private rest: RestService, private util: UtilsService, private fb: FormBuilder,
+    public bsModalRef: BsModalRef) {
     this.form = fb.group({
       'email': [null, Validators.compose([Validators.required, Validators.email])]
     });

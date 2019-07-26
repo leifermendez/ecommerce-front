@@ -330,3 +330,80 @@ header {
   -o-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
+
+
+/*MOBIL*/
+.header-mobile{
+  min-height: 87px;
+  position: relative;
+}
+.header-mobile .first-nav{
+  background-color: white;
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  border-bottom: solid 1px #d8d6d6;
+}
+.header-mobile .first-nav .block-logo{
+  width: 15%;
+  line-height: 1.6rem;
+}
+.block-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.header-mobile .first-nav .block-search{
+  width: 63%;
+  padding: .4rem .3rem .5rem .2rem;
+}
+.block-search .input-search{
+  height: 2rem;
+  font-size: .9rem;
+  line-height: .9rem;
+  padding: .2rem .4rem .2rem .4rem;
+
+}
+.block-search .input-search:focus{
+  border:0;
+}
+.input-search::-webkit-input-placeholder,
+.input-search:-moz-placeholder,
+.input-search::-moz-placeholder ,
+.input-search:-ms-input-placeholder 
+ {
+  font-size: .9rem;
+}
+.block-search .input-group{
+  height: 1.93rem;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+.block-search .btn{
+  border: 0;
+  color: #dadada;
+    height: 1.9rem;
+    margin: 0;
+}
+.header-mobile .first-nav .block-menu{
+  width: 9.25%;
+  line-height: 2.3rem;
+}
+.block-menu img{
+  width: 100%;
+}
+.header-mobile .first-nav .block-cart{
+  line-height: 2.3rem;
+  width: 9.25%;
+}
+.block-cart img{
+  width: 100%
+}
+.header-mobile .second-nav{
+  background-color: white;
+  top: 60%;
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 2rem;
+}

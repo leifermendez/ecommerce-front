@@ -3,7 +3,6 @@
   position: relative;
   top: 0px;
   left: 0px;
-  height: calc(100vh);
   overflow: auto;
   border-left: solid 1px #e8e8e8;
   border-right: solid 1px #e8e8e8;
