@@ -63,3 +63,7 @@
 .text-color-gray{
   color: gray !important;
 }
+
+.table td, .table th{
+  padding: .5rem;
+}

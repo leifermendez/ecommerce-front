@@ -13,6 +13,33 @@
   max-width: 100%;
 }
 
+.icon-full-size{
+  position: absolute;
+  right: 1.3rem;
+  margin-top: 4.2rem;
+  z-index: 9;
+  cursor: pointer;
+}
+.icon-full-size:hover{
+  opacity: .7;
+  transform: scale(1.1)
+}
+
+.full-size-description{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: white;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
 .card-header, .card-footer {
   background-color: transparent !important;
 }

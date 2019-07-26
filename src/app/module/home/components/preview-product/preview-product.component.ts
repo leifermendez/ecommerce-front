@@ -21,7 +21,7 @@ export class PreviewProductComponent implements OnInit {
       item: []
     }
   }
-  constructor(private util: UtilsService, ) {
+  constructor(public util: UtilsService, ) {
     this.util.previewP.subscribe(data => {
       if (data) {
         if (data['categories'] && (Array.isArray(data['categories']))) {

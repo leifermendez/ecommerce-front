@@ -24,13 +24,12 @@
     </div>
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
-    <div class="card-header"><b>Datos de tienda</b></div>
     <div class="col p-3">
       <div class="form-group">
         <div class="">
           <div class="row m-0">
             <div class="col-3 p-0">
-              <label>Logo comercio</label>
+              <label>{{"page.shop.logo"|translate}}</label>
               <app-media-image-shop
                 *ngIf="editform && !editform['image_cover']"
                 (callback)="setMedia('cover',$event)">
@@ -48,7 +47,7 @@
               </div>
             </div>
             <div class="col-9 pr-0">
-              <label>Banner comercio</label>
+              <label>{{"page.shop.banner"|translate}}</label>
               <app-media-image-shop
                 *ngIf="editform && !editform['image_header']"
                 (callback)="setMedia('header',$event)">
@@ -70,60 +69,53 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Nombre</label>
+        <label>{{"page.shop.name"|translate}}</label>
         <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
                placeholder="¿Como es el nombre de tu tienda?">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
       </div>
 
       <div class="form-group">
-        <label>CIF</label>
+        <label>{{"page.shop.cif"|translate}}</label>
         <input type="text" formControlName="legal_id" class="form-control" [(ngModel)]="editform.legal_id"
                placeholder="¿Cual tu CIF?">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+            {{"page.shop.cif.label"|translate}}
         </small>
       </div>
 
       <div class="form-group">
-        <label>Email corporativo</label>
+        <label>{{"page.shop.corporate.email"|translate}}</label>
         <input type="email" formControlName="email_corporate" class="form-control"
                [(ngModel)]="editform.email_corporate"
                placeholder="Ingresa email corporativo">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+            {{"page.shop.corporate.email.label"|translate}}
         </small>
       </div>
 
       <div class="form-group">
-        <label>Telefono movil</label>
+        <label>{{"page.shop.phone.mobil" | translate}}</label>
         <input type="text" formControlName="phone_mobil" class="form-control"
                [(ngModel)]="editform.phone_mobil"
-               placeholder="Ingresa telefono movil">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
+               placeholder="Introduce telefono movil">
+
       </div>
 
       <div class="form-group">
-        <label>Telefono fijo</label>
+        <label>{{"page.shop.phone.fixed" | translate}}</label>
         <input type="text" formControlName="phone_fixed" class="form-control"
                [(ngModel)]="editform.phone_fixed"
-               placeholder="Ingresa telefono fijo">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
+               placeholder="Introduce telefono fijo">
+    
       </div>
 
       <div class="form-group">
-        <label>Dirección</label>
+        <label>{{"page.shop.address" | translate}}</label>
         <input type="text" formControlName="address" class="form-control"
                [(ngModel)]="editform.address"
                readonly
                *ngIf="(editform.address)"
-               placeholder="Ingresa código postal">
+               placeholder="Introduce código postal">
         <input ngx-google-places-autocomplete
                [disabled]="loading"
                *ngIf="!editform.address"
@@ -132,39 +124,36 @@
                [ngModel]="address_gp" [options]='optionsPlaces' #placesRef="ngx-places"
                placeholder="Direccion de la tienda"
                (onAddressChange)="handleAddressChange($event)"/>
-        <small class="text-muted mt-2 ml-2 mr-2">
+        <small class="text-muted mt-2 ml-2 mr-2 cursor-pointer">
           <span (click)="editform.address = null">Cambiar</span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
         </small>
       </div>
 
       <div class="form-group">
-        <label>Codigo postal</label>
+        <label>{{"page.shop.zipcode" | translate}}</label>
         <input type="text" formControlName="zip_code" class="form-control"
                [(ngModel)]="editform.zip_code"
                readonly
                placeholder="Ingresa código postal">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
+      
       </div>
-
       <div class="form-group">
-        <label>Palabras clave</label>
+          <label>{{"page.shop.referer" | translate}}</label>
+          <input type="text" formControlName="referer" class="form-control"
+                 [(ngModel)]="editform.referer">
+          <small class="text-muted mt-2 ml-2 mr-2">
+              {{"page.shop.referer.label" | translate}}
+          </small>
+        </div>
+      <div class="form-group">
+        <label>{{"page.shop.metas" | translate}}</label>
         <input type="text" formControlName="meta_key" class="form-control"
                [(ngModel)]="editform.meta_key"
                placeholder="Palabras clave separada por comas">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">
+            {{"page.shop.metas.label" | translate}}
         </small>
       </div>
-      <!--      <div class="form-group">-->
-      <!--        <label>Contraseña</label>-->
-      <!--        <input type="tel" formControlName="password" [(ngModel)]="editform.password" class="form-control"-->
-      <!--               placeholder="Ingresa un numero de movil válido">-->
-      <!--      </div>-->
-
     </div>
     <div class="card-footer text-right">
 

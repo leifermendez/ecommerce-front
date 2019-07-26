@@ -39,7 +39,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       'address': [null, Validators.compose([Validators.required])],
       'zip_code': [null, Validators.compose([Validators.required])],
       'meta_key': [null, Validators.compose([Validators.required])],
-
+      'referer': ''
     });
   }
 
