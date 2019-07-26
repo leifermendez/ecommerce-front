@@ -11,6 +11,7 @@ import {BsModalRef} from 'ngx-bootstrap';
 export class SideCategoriesComponent implements OnInit {
   public loading = false;
   public data: any = {};
+  public searchText: any = '';
 
   constructor(private rest: RestService,
               private util: UtilsService,

@@ -2,16 +2,19 @@
   <div class="pt-4 pb-2 pr-3 pl-3">
     <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
   </div>
+  <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
+         autocomplete="off"
+         placeholder="¿Necesitas ayuda?">
   <ul class="pt-4 pb-4 mb-4">
-    <li *ngFor="let c of data | keyvalue">
-      <div class="parent">
+    <li *ngFor="let c of data | keyvalue | filter:searchText">
+      <div class="parent" *ngIf="!searchText?.length">
         <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="20px"
              alt=""> <span class="ml-2">{{c['key']}}</span>
       </div>
       <div>
         <ul>
           <li (click)="bsModalRef.hide()" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]"
-              class="child-li" *ngFor="let i of c['value']">
+              class="child-li" *ngFor="let i of c['value'] | filter:searchText">
             <span>{{i['name']}}</span>
           </li>
         </ul>
