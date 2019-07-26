@@ -4,10 +4,23 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {TabsetComponent} from 'ngx-bootstrap';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import { trigger, transition, style, animate } from '@angular/animations';
 import {UtilsService} from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-create-product',
+  animations: [
+    trigger('fadeInOutTranslate', [
+      transition(':enter', [
+        style({opacity:0}),
+        animate(300, style({opacity:1}))
+      ]),
+      transition(':leave', [
+        style({transform: 'translate(0)'}),
+        animate(300, style({opacity:0}))
+      ])
+    ])
+  ],
   templateUrl: './create-product.component.html',
   styleUrls: ['./create-product.component.css']
 })

@@ -111,3 +111,30 @@
 .discount-text {
   font-size: 16px;
 }
+
+@media screen 
+  and (max-width: 360px) {
+    .page-content{
+      padding: 0px !important;
+    }
+    .breadcrumbs {
+      margin-bottom: 0px !important;
+    }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .description p img{
+      width: 100% !important;
+    }
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+
+}

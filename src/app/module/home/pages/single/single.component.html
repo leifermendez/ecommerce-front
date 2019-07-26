@@ -1,9 +1,9 @@
 <section class="main-container col2-right-layout mt-0 mb-4">
   <div class="page-content">
     <div class="container p-0">
-      <div class="breadcrumbs mt-2 mb-4">
+      <div class="breadcrumbs mt-2 mb-4 mb-sm-0">
         <div class="container">
-          <div class="row">
+          <div class="row m-0">
             <div>
               <ul *ngIf="data && data['categories']">
                 <li class="category1599">
@@ -20,7 +20,7 @@
         <div class="">
           <div class="row m-0">
             <div
-              class="col-8 no-paddin product-image inline-table border-booton-solid
+              class="col-lg-8 col-sm-12 p-0 product-image inline-table border-booton-solid
                background-solid border-left-solid border-top-solid">
               <div *ngIf="selectedvariationName 
               && selectedvariationName['price_normal']
@@ -60,7 +60,7 @@
               </div>
             </div>
             <div @details
-              class="col-4 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
+              class="col-lg-4  col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
                 <div class="product-shop p-4" *ngIf="loading">
                   <ngx-content-loading
