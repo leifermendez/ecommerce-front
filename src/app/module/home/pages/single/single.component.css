@@ -119,6 +119,11 @@
     }
     .breadcrumbs {
       margin-bottom: 0px !important;
+      background-color: transparent;
+      margin-top: 0px !important;
+      border: 0;
+      padding-bottom: .2rem;
+      padding-top: .4rem;
     }
     .container {
       padding-left: 0;
@@ -128,13 +133,14 @@
     .description p img{
       width: 100% !important;
     }
-}
 
-/* Portrait */
-@media screen 
-  and (device-width: 320px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) 
-  and (orientation: portrait) {
+    .responsive-title{
+      width: 100%;
+      background: whitesmoke;
+      padding: 0rem .4rem .7rem;
+    }
 
+    .product-name{
+      display: none;
+    }
 }

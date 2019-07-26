@@ -358,10 +358,12 @@ header {
   padding: .4rem .3rem .5rem .2rem;
 }
 .block-search .input-search{
-  height: 2rem;
+  height: 2.3rem;
   font-size: .9rem;
   line-height: .9rem;
   padding: .2rem .4rem .2rem .4rem;
+  background-color: transparent;
+  border: 0;
 
 }
 .block-search .input-search:focus{
@@ -375,15 +377,18 @@ header {
   font-size: .9rem;
 }
 .block-search .input-group{
-  height: 1.93rem;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  height: 2.23rem;
+  background-color: #fcfcfc;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
   margin: 0;
 }
 .block-search .btn{
+  background-color: transparent;
   border: 0;
   color: #dadada;
     height: 1.9rem;
     margin: 0;
+    margin-top: .3rem;
 }
 .header-mobile .first-nav .block-menu{
   width: 9.25%;
