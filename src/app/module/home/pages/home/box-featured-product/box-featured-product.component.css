@@ -152,3 +152,32 @@
   font-size: 1rem;
 }
 
+@media screen 
+  and (max-width: 450px) {
+
+      .new_title h2 {
+        padding: 0 0 0 .6rem !important;
+        font-size: 1rem;
+        font-weight: 400;
+        color: gray;
+      }
+      #best-seller .owl-item .item{
+        margin-top: 0px !important;
+      }
+
+
+      .name-product{
+        display: none;
+      }
+
+      .item:hover .item-img{
+        transform: translateY(0em) !important;
+        -webkit-transition: -webkit-transform .3s ease-out;
+      }
+
+      .name-shop{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+  }

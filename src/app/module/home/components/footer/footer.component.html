@@ -1,11 +1,11 @@
 <footer *ngIf="!footer">
-  <div class="tab-float cursor-pointer" (click)="showSwitch()" [style.marginBottom]="(show) ? '35px' : ''">
+  <div class="tab-float cursor-pointer box-copyright" (click)="showSwitch()" [style.marginBottom]="(show) ? '35px' : ''">
     {{"footer.label.tap" |translate}}
     <span class="ml-2">
       <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
     </span>
   </div>
-  <div class="tab-float-right cursor-pointer" (click)="showSwitchLanguage()"
+  <div class="tab-float-right cursor-pointer box-languages" (click)="showSwitchLanguage()"
     [style.marginBottom]="(showLanguage) ? '35px' : ''">
     {{"footer.label.language" |translate}} <flag-icon country="{{flagLanguage}}"></flag-icon>
     <span class="ml-2">

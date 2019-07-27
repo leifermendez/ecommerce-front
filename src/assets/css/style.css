@@ -32,9 +32,6 @@ a:hover {
   text-decoration: none;
 }
 
-:hover {
-}
-
 small {
   font-size: 85%;
   font-weight: normal;
@@ -5398,7 +5395,7 @@ text-transform: uppercase
 }
 
 .best-pro .new_title h2 {
-  color: #000;
+  color: #2b2b2b;
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 0px;
@@ -5604,7 +5601,6 @@ text-transform: uppercase
 #best-seller .owl-item .item .item-inner .item-info {
   text-align: left;
   border-top: solid 1px #f1f1f1;
-  padding-top: .7rem;
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner {

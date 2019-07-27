@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {animate, style, transition, trigger} from '@angular/animations';
@@ -23,6 +23,7 @@ export class BoxCategoriesComponent implements OnInit {
 
 
   @ViewChild('owlCategories') owlElement: OwlCarousel;
+  @Input() items: any = 4;
   public data: any;
   public optionsOws: any;
   public loading = false;
@@ -31,14 +32,20 @@ export class BoxCategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.optionsOws = {items: 6, dots: false, navigation: true, autoplay: false};
+    this.optionsOws = {
+      dots: false,
+      navigation: true,
+      autoplay: false,
+      items: this.items,
+      margin: 5,
+      autoWidth: true,
+    };
     this.data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     this.loading = true;
-    this.rest.get('/rest/categories')
+    this.rest.get('/rest/categories?group=all')
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading = false;
-          response = response['data'];
           this.data = response['data'];
           console.log(this.data);
         }

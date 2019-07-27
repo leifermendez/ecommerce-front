@@ -7,7 +7,7 @@
 }
 
 .CollectionGrid-tile {
-  padding: 10px 0px 10px 0px !important;
+  padding: .3rem .3rem .3rem .3rem !important;
   width: 100% !important;
   float: auto !important;
   font-size: 100%;
@@ -16,6 +16,30 @@
 .item {
   margin: 0 !important;
 }
-.CollectionGrid{
-  /*height: 140px !important;*/
-}
+
+@media screen 
+  and (max-width: 450px) {
+      .new_title h2 {
+        padding: 0 0 0 .6rem !important;
+        font-size: 1rem;
+        font-weight: 400;
+        color: gray;
+      }
+      #best-seller .owl-item .item{
+        margin-top: 0px !important;
+      }
+      .CollectionGrid-tile{
+        border:0 !important;
+      }
+      .CollectionGrid{
+        margin-top: .5rem !important;
+      }
+
+      .CollectionGrid-tileName{
+        padding: .5rem 0 .5rem 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+  }

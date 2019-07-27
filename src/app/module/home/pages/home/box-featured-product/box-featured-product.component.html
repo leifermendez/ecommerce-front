@@ -1,4 +1,4 @@
-<section class=" wow bounceInUp animated CollectionGrid-container">
+<section class="wow bounceInUp animated CollectionGrid-container">
   <div @tijl *ngIf="loading" class="best-pro slider-items-products container">
     <div class="CollectionGrid container min-height-300">
       <div class="CollectionGrid-tile hover-overlay-light">
@@ -121,12 +121,12 @@
                       <div *ngIf="dat['is_available']['nextOpen']" class="bubble-shipping">
                       </div>
                       <div class="item-title mb-0">
-                        <span class="btn-link">
+                        <span class="btn-link name-product">
                             {{dat['name'] | truncate : 25 :  '...' }}
                         </span>  
                       </div>
                       <div>
-                        <a class="text-muted" [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
+                        <a class="text-muted name-shop" [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </div>
@@ -143,7 +143,7 @@
                                     {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
                                     <span class="euro-sign">€</span></span>
                           </div>
-                          <div class="price-regular">
+                          <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
                                   <span class="item-price-amount text-muted">
                                       {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                       </span>
@@ -157,7 +157,7 @@
                                         {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
                                       <span class="euro-sign">€</span></span>
                           </div>
-                          <div class="price-regular">
+                          <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
                                     <span class="item-price-amount text-muted">
                                         {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
                                         </span>

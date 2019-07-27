@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.computer = this.deviceService.isDesktop();
     if (!this.computer) {
-      this.openWarning();
+      //this.openWarning();
     }
     const _location = this.localStorage.getItem('_location');
     if (!_location) {

@@ -5,7 +5,9 @@
   display: initial !important;
   object-fit: contain;
 }
-
+.category-box-responsive{
+  display: none;
+}
 .CollectionGrid-tile {
   padding: 10px 0px 10px 0px !important;
   width: 100% !important;
@@ -16,6 +18,49 @@
 .item {
   margin: 0 !important;
 }
-.CollectionGrid{
-  /*height: 140px !important;*/
-}
+
+@media screen 
+  and (max-width: 450px) {
+      .new_title h2 {
+        padding: 0 0 0 .6rem !important;
+        font-size: 1rem;
+        font-weight: 400;
+        color: gray;
+        margin-bottom: .8rem;
+        width: 100%;
+      }
+      .category-box{
+        display: none;
+      }
+      .category-box-responsive{
+        display: block;
+      }
+
+      #best-seller .owl-item .item{
+        margin-top: 0px !important;
+      }
+      .CollectionGrid-tile{
+        border:0 !important;
+      }
+      .CollectionGrid{
+        margin-top: .5rem !important;
+      }
+      .list-categories{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .list-categories li{
+        padding: .2rem 0 .2rem 0;
+        color: #949494;
+        font-weight: 300;
+      }
+
+      .CollectionGrid-tileName{
+        padding: .5rem 0 .5rem 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+  }

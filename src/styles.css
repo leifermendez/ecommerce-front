@@ -71,24 +71,3 @@ body {
 .card-footer{
   border-top-width: 0px !important;
 }
-
-
-@media screen 
-  and (max-width: 360px) {
-    .ngxImageZoomContainer{
-      width: 100% !important;
-    }
-    .description  img{
-      width: 100%;
-    }
-    .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container{
-      min-height: 15rem;
-    }
-    .fullwidthabanner .nav-buttons{
-      top:6.3rem;
-    }
-    .CollectionGrid-container{
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }

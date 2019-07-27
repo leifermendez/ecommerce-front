@@ -37,3 +37,9 @@
 .icon-main {
   color: #ce0000;
 }
+@media screen 
+  and (max-width: 450px) {
+    .box-info{
+      display: none
+    }
+  }

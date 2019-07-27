@@ -63,3 +63,12 @@ footer .brand {
   font-size: 100%;
   font-weight: 600;
 }
+
+
+@media screen 
+  and (max-width: 450px) {
+    .box-languages,.box-copyright{
+      display: none;
+    }
+
+  }
