@@ -5602,7 +5602,9 @@ text-transform: uppercase
   text-align: left;
   border-top: solid 1px #f1f1f1;
 }
-
+.ngx-gallery-image.ngx-gallery-active{
+  z-index: 0 !important;
+}
 #best-seller .owl-item .item .item-inner .item-info .info-inner {
   border: 0px solid #fff;
   border-top: none;

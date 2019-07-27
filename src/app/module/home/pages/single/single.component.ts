@@ -68,12 +68,11 @@ export class SingleComponent implements OnInit {
     util.numberShopping.subscribe(data => {
       if (data) {
         this.number_items = data;
-        console.log('--', data);
       }
     });
 
     route.params.subscribe(params => {
-      const [id] = params.id.split('-');
+      const [id] = params.id.split('-').reverse();
       if (id) {
         this.idparam = id.toString();
         this.loadData(this.idparam);

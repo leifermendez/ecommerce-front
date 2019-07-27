@@ -10,6 +10,7 @@ import { ZipLocationComponent } from '../zip-location/zip-location.component';
 import { SideCategoriesComponent } from '../side-categories/side-categories.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 declare var $: any;
@@ -48,11 +49,13 @@ export class HeaderComponent implements OnInit {
   public modeFocus: any = false;
   public animationBell: any = false;
   modalRef: BsModalRef;
+  public form: any = FormGroup;
   config = {};
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
     private cart: ShoppingCartComponent,
     private modalService: BsModalService,
+    private fb: FormBuilder,
     private deviceService: DeviceDetectorService,
     private auth: AuthshopService, private app: AppComponent,
     private translate: TranslateService) {
@@ -63,6 +66,9 @@ export class HeaderComponent implements OnInit {
     });
 
     // util.modeFocusProduct.subscribe(a => this.modeFocus = a);
+    this.form = fb.group({
+      'src': '',
+    });
 
     util.modeVideo.subscribe(data => {
       this.modeOffset = data;
@@ -91,6 +97,11 @@ export class HeaderComponent implements OnInit {
     this.mobile = this.deviceService.isMobile();
     this.tablet = this.deviceService.isTablet();
 
+  }
+
+  searchMobile = (e) => {
+    e.stopPropagation();
+    this.router.navigateByUrl(`/search/${encodeURI(this.form.value['src'])}`);
   }
 
   scrollTop = (aid) => {

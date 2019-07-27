@@ -83,6 +83,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'p/:id',
+    component: SingleComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'search/:src',
     component: SearchPageComponent,
     pathMatch: 'full'

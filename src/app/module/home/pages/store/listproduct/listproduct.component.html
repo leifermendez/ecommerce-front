@@ -122,7 +122,7 @@
               <button id="btn-car"
                       [style.left]="'60px'"
                       [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}"
-                      [routerLink]="['/','single',dat['id']+'-'+util.slug(dat['name'])]"
+                      [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]"
                       class="btn btn-add-cart-shopping"
                       [disabled]="loading_save"
                       type="button">
@@ -140,7 +140,7 @@
                     <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                   </div>
                 </div>
-                <a *ngIf="dat && dat['name']" [routerLink]="['/','single',dat['id']+'-'+util.slug(dat['name'])]">
+                <a *ngIf="dat && dat['name']" [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]">
                   <div class="item-info">
                     <div id="info-box" class="info-inner">
                       <div *ngIf="dat['is_available']['nextOpen']" class="bubble-shipping">

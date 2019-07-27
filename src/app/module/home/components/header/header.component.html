@@ -185,44 +185,42 @@
     </div>
   </header>
 </div>
+
 <div class="header-mobile" *ngIf="mobile">
   <div class="first-nav d-flex justify-content-between">
-   <div class="block-logo p-1" [routerLink]="['/']" title="Apatxee">
-     <img src="../../../../../assets/images/apatxee-logo-sqaure.png" alt="Apatxee">
-   </div>
-   <div class="block-search">
-
-      <div class="input-group">
+    <div class="block-logo p-1" [routerLink]="['/']" title="Apatxee">
+      <img src="../../../../../assets/images/apatxee-logo-sqaure.png" alt="Apatxee">
+    </div>
+    <div class="block-search">
+      <form [formGroup]="form" (ngSubmit)="searchMobile($event)">
+        <div class="input-group">
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary" type="button">
               <fa name="search"></fa>
             </button>
           </div>
-          <input type="text" class="form-control input-search" placeholder="Estoy buscando..."
-           aria-label="" aria-describedby="basic-addon1">
+          <input type="text" formControlName="src" class="form-control input-search" placeholder="Estoy buscando..." aria-label=""
+            aria-describedby="basic-addon1">
         </div>
-        
-    
-   
-   </div>
-   <div class="block-menu p-1">
-      <img class="mega-menu-hover" src="../../../../../assets/images/menu-button.svg"
-      alt="">
-   </div>
-   <div class="block-cart p-1">
-      <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg"
-      alt="">
-   </div>
+      </form>
+    </div>
+    <div class="block-menu p-2">
+      <img class="mega-menu-hover" src="../../../../../assets/images/menu-button.svg" alt="">
+    </div>
+    <div class="block-cart p-2">
+      <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" alt="">
+    </div>
   </div>
   <div class="second-nav p-2">
-      <small *ngIf="location">
-          <span class="cursor-pointer" (click)="openZip()">
-            <fa name="map-marker"></fa>
-            Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
-          </span>
-        </small>
-    </div>
+    <small *ngIf="location">
+      <span class="cursor-pointer" (click)="openZip()">
+        <fa name="map-marker"></fa>
+        Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
+      </span>
+    </small>
+  </div>
 </div>
+
 <div *ngIf="tablet">
   es_tablet
 </div>

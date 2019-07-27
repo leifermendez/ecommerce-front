@@ -142,3 +142,9 @@ li {
   margin-top: 10px !important;
   margin-bottom: 15px !important;
 }
+
+
+@media screen 
+  and (max-width: 450px) {
+
+}

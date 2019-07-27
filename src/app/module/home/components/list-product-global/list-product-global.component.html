@@ -105,8 +105,8 @@
   <div id="best-seller" class="product-flexslider hidden-buttons">
     <div class="slider-items  products-grid">
       <div class="container p-0">
-        <div class="row">
-          <div class="item col-sm-4 pr-0 mb-3" *ngFor="let dat of data?.list?.data; let i = index">
+        <div class="row m-0">
+          <div class="item col-sm-4 pr-0 mb-3 pl-0" *ngFor="let dat of data?.list?.data; let i = index">
             <div
               *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
@@ -123,7 +123,7 @@
               <button id="btn-car"
                       [style.left]="'60px'"
                       [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}"
-                      [routerLink]="['/','single',dat['id']+'-'+util.slug(dat['name'])]"
+                      [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]"
                       class="btn btn-add-cart-shopping"
                       [disabled]="loading_save"
                       type="button">
@@ -141,7 +141,7 @@
                     <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                   </div>
                 </div>
-                <a *ngIf="dat && dat['name']" [routerLink]="['/','single',dat['id']+'-'+util.slug(dat['name'])]">
+                <a *ngIf="dat && dat['name']" [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]">
                   <div class="item-info">
                     <div id="info-box" class="info-inner">
                       <div *ngIf="dat['is_available']['nextOpen']" class="bubble-shipping">
