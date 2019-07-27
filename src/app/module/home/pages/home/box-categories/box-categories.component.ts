@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {animate, style, transition, trigger} from '@angular/animations';
+import { UtilsService } from '../../../../../shared/services/util.service';
 
 @Component({
   selector: 'app-box-categories',
@@ -28,7 +29,8 @@ export class BoxCategoriesComponent implements OnInit {
   public optionsOws: any;
   public loading = false;
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService,
+    private util: UtilsService,) {
   }
 
   ngOnInit() {

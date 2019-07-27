@@ -8,6 +8,7 @@ import { DiscountNumberComponent } from '../../components/discount-number/discou
 import { ModalShoppingComponent } from '../../components/modal-shopping/modal-shopping.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Title, Meta } from '@angular/platform-browser';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 @Component({
   selector: 'app-single',
@@ -49,6 +50,8 @@ export class SingleComponent implements OnInit {
   number_items: any = false;
   selectedvariationName: any;
   idparam: any;
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, private util: UtilsService,
     private shopping: ShoppingCartComponent,
@@ -56,7 +59,7 @@ export class SingleComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     private modalService: BsModalService) {
-      
+
     this.util.refreshShopping.subscribe(data => {
       if (data) {
         this.loading_save = false;
@@ -84,14 +87,47 @@ export class SingleComponent implements OnInit {
     this.meta.updateTag({ name: 'description', content: data['short_description'] });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
     this.meta.addTags([
-      { name: 'og:title', content: data['name']},
-      { name: 'og:description', content: data['short_description']},
-      { name: 'og:image', content: data['cover_image']['large']}
+      { name: 'og:title', content: data['name'] },
+      { name: 'og:description', content: data['short_description'] },
+      { name: 'og:image', content: data['cover_image']['large'] }
     ]);
   }
 
   ngOnInit() {
-
+    this.galleryOptions = [
+      {
+        width: '245px',
+        height: '300px',
+        thumbnails: false,
+        'preview': false,
+        'arrowPrevIcon': 'fa fa-angle-left',
+        'arrowNextIcon': 'fa fa-angle-right',
+        imageAnimation: NgxGalleryAnimation.Slide
+      },
+      // max-width 800
+      {
+        'breakpoint': 500,
+        'width': '100%',
+        'height': '22rem',
+        'preview': false,
+        thumbnails: false,
+        'arrowPrevIcon': 'fa fa-angle-left',
+        'arrowNextIcon': 'fa fa-angle-right',
+        imageAnimation: NgxGalleryAnimation.Slide
+      }
+      ,
+      // max-width 400
+      {
+        breakpoint: 400,
+        'width': '100%',
+        'height': '20rem',
+        'preview': false,
+        thumbnails: false,
+        'arrowPrevIcon': 'fa fa-angle-left',
+        'arrowNextIcon': 'fa fa-angle-right',
+        imageAnimation: NgxGalleryAnimation.Slide
+      }
+    ];
   }
 
   changeCover = (a) => this.cover = a;

@@ -8,10 +8,10 @@
   <div class="image-block">
     <div class="container">
       <div class="row pt-2 pb-2">
-        <div class="col-6 text-center">
+        <div class="col-lg-6 text-center">
           <img src="../../../../../assets/images/scooter.svg" height="70px" alt="">
         </div>
-        <div class="col-6 text-center text-muted">
+        <div class="col-lg-6 text-center text-muted">
           <p>{{"modal.location.sentence" | translate}}</p>
         </div>
       </div>
@@ -31,10 +31,6 @@
              (onAddressChange)="handleAddressChange($event)"/>
 
     </div>
-
-
-
-    <p class="text-muted mt-2 form-text">{{"modal.location.label" |translate}}</p>
     <small *ngIf="msg" class="text-mute text-danger font-weight-bold">
       {{"modal.location.error1" | translate}}
     </small>

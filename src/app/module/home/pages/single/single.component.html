@@ -42,7 +42,7 @@
                      [price_regular]="selectedvariationName['price_regular']">
                         </app-discount-number>%</span></div>
               <div class="w-100 p-2">
-                <div class="h-100 min-height-500">
+                <div class="h-100 min-height-500 gallery-product">
                   <ngx-content-loading
                     *ngIf="loading"
                     [width]="1000"
@@ -60,6 +60,9 @@
                     [images]="data['gallery']"
                     class="w-100 d-block mt-4">
                   </app-gallery-single>
+                </div>
+                <div class="gallery-product-responsive">
+                    <ngx-gallery [options]="galleryOptions" [images]="data['gallery']"></ngx-gallery>
                 </div>
               </div>
               <div *ngIf="data && !data['gallery']" class="w-100">
@@ -90,7 +93,7 @@
                   </div>
                   <div class="price-block" *ngIf="variation.length">
                     <div class="price-box">
-                      <h6 class="m-0 text-muted">
+                      <h6 class="m-0 text-muted" *ngIf="selectedvariationName['price_regular']>0">
                         <del>{{selectedvariationName['price_regular'] |number:'1.2-2'}}
                             {{"currency" | translate}}
                         </del>
@@ -183,11 +186,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 inline-table  background-solid border-left-solid
+            <div class="col-12 inline-table description-content background-solid border-left-solid
              border-right-solid text-dark p-4 border-booton-solid">
               <div class="container">
-                <div class="row">
-                  <div class="col-12">
+                <div class="row m-0">
+                  <div class="col-12 p-0">
                     <h2 class="font-weight-600 mb-2">{{"page.single.description" | translate}}</h2>
                     <p class="description text-justify" [innerHTML]="data.description"></p>
                   </div>

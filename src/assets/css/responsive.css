@@ -13,12 +13,18 @@
     .description  img{
       width: 100%;
     }
+    .modal-dialog.box-shadow-modal.responsive{
+      margin:0px !important;
+      height: 100%;
+    }
+    .modal-dialog.box-shadow-modal.responsive .modal-content{
+      height: 100%;
+    }
 	.forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container,
 	.fullwidthabanner .image-banner, .fullwidthabanner .container-banner{
 		min-height: 12rem !important;
 		border-bottom: solid .1rem white;
 		height: 12rem !important;
-
     }
 
     .category-box-responsive .card-header{
@@ -47,6 +53,9 @@
       margin-left: 0;
       margin-right: 0;
   }	
+  app-single .ngx-gallery-arrow{
+    color:#ad0000 !important;
+  }
   
   /*box-feature-product*/
   app-box-featured-product, app-box-shops {

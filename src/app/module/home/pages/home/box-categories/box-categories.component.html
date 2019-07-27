@@ -30,7 +30,9 @@
       <accordion [isAnimated]="true">
         <accordion-group [heading]="c['key']" *ngFor="let c of data | keyvalue">
           <ul class="list-categories">
-            <li *ngFor="let i of c['value']">{{i['name']}}</li>
+            <li *ngFor="let i of c['value']" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]">
+              {{i['name']}}
+            </li>
           </ul>
         </accordion-group>
       </accordion>
