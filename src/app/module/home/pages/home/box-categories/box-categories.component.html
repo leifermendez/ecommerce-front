@@ -28,7 +28,7 @@
     </div>
     <div>
       <accordion [isAnimated]="true">
-        <accordion-group [heading]="c['key']" *ngFor="let c of data | keyvalue">
+        <accordion-group [heading]="c['key']" *ngFor="let c of data?.data | keyvalue">
           <ul class="list-categories">
             <li *ngFor="let i of c['value']" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]">
               {{i['name']}}

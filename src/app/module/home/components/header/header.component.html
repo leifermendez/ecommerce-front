@@ -187,9 +187,10 @@
 </div>
 
 <div class="header-mobile" *ngIf="mobile">
-  <div class="overlay" [style.display]="(menuResponsive) ? 'block' : 'none'">overlay</div>
+  <div class="overlay" (click)="menuResponsive = false" [style.display]="(menuResponsive) ? 'block' : 'none'"></div>
   <div class="first-nav d-flex justify-content-between">
-    <div class="block-logo p-1" (click)="menuResponsive = false" [routerLink]="['/']" title="Apatxee">
+    <div class="block-logo p-1" (click)="menuResponsive = false"
+         [routerLink]="['/']" title="Apatxee">
       <img src="../../../../../assets/images/apatxee-logo-sqaure.png" alt="Apatxee">
     </div>
     <div class="block-search">
@@ -230,9 +231,9 @@
   <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">
     <div class="responsive-profile-block pt-2 pr-2 pl-2 pb-4">
       <div class="col-12 pt-2 pr-0 pl-0 row m-0">
-        <div class="col-3 p-0 text-center">
+        <div class="col-3 p-0 text-center" (click)="menuResponsive = false"  [routerLink]="['/','profile']">
           <img
-            src="../../../../../assets/images/blank-profile-picture.png"
+            [src]="(user_data)? user_data['avatar'] :'../../../../../assets/images/blank-profile-picture.png'"
             width="40px" alt="">
         </div>
         <div class="col-9 p-0">
@@ -244,7 +245,7 @@
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-between row m-0 pt-3 pl-0 pr-0">
+      <div *ngIf="!user_data" class="d-flex justify-content-between row m-0 pt-3 pl-0 pr-0">
         <div class="col-6">
           <button type="button" (click)="menuResponsive = false" routerLink="/login"
                   class="btn btn-sm btn-primary btn-block"> {{"menu.signup" | translate}}
@@ -260,13 +261,23 @@
     </div>
     <div class="block-section pr-0 pl-0">
       <ul class="list-menu list-menu pt-2 pb-2">
-        <li>
+        <li *ngIf="user_data" (click)="menuResponsive = false" [routerLink]="['/','sales']">
           <div class="d-flex">
             <div>
-              <img class="mega-menu-hover" src="../../../../../assets/images/list.svg" width="20px" alt="">
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-shopping-bag.svg" width="20px" alt="">
             </div>
-            <div class="ml-4" (click)="menuResponsive = false" [routerLink]="['/','categories']">
-              <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.my.sell" | translate}}</span>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="user_data" (click)="menuResponsive = false" [routerLink]="['/','purchases']">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-sale.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.my.purchases" | translate}}</span>
             </div>
           </div>
         </li>
@@ -288,6 +299,26 @@
             </div>
             <div class="ml-4">
               <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
+            </div>
+          </div>
+        </li>
+        <li (click)="menuResponsive = false" [routerLink]="['/','categories']">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-settings.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.my.settings" | translate}}</span>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="user_data" (click)="menuResponsive = false" [routerLink]="['/','logout']">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-logout.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.logout" | translate}}</span>
             </div>
           </div>
         </li>

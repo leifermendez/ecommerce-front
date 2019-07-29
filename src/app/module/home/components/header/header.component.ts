@@ -102,6 +102,10 @@ export class HeaderComponent implements OnInit {
       this.user_data = data;
     });
 
+    util.updateProfile.subscribe(data => {
+      this.user_data = this.auth.getCurrentUser();
+    });
+
     this.computer = this.deviceService.isDesktop();
     this.mobile = this.deviceService.isMobile();
     this.tablet = this.deviceService.isTablet();

@@ -15221,6 +15221,10 @@ select#shipping-address-select {
   border-radius: 5px;
 }
 
+.modal{
+  z-index: 9999;
+}
+
 .modal-content {
   border: 0;
   border-radius: 5px;
@@ -15271,6 +15275,7 @@ select#shipping-address-select {
 
 .modal-backdrop {
   background-color: white;
+  z-index: 9999;
 }
 
 .pac-container {

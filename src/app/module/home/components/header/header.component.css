@@ -388,7 +388,10 @@ header {
 /*MOBIL*/
 .header-mobile {
   min-height: 87px;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top:0;
+  z-index: 9999;
 }
 
 .header-mobile .first-nav {
@@ -396,7 +399,7 @@ header {
   position: absolute;
   height: 60%;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
   border-bottom: solid 1px #f3f3f3;
 }
 
@@ -478,13 +481,14 @@ header {
   width: 100%;
   display: block;
   height: 2rem;
-  z-index: 9;
+  z-index: 999;
+  border-bottom: solid 1px #f1f1f1;
 }
 
 .header-mobile .overlay{
   background: rgba(34, 34, 34, 0.85);
   position: fixed;
-  z-index: 3;
+  z-index: 999;
   width: 100%;
   height: 100%;
   display: none;
@@ -497,7 +501,7 @@ header {
   position: absolute;
   width: 100%;
   top: 3.3rem;
-  z-index: 9;
+  z-index: 9999;
 }
 
 .menu-open-responsive .block-section{

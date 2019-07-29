@@ -111,61 +111,82 @@
 .discount-text {
   font-size: 16px;
 }
-.gallery-product-responsive{
+
+.gallery-product-responsive {
   display: none;
 }
-.responsive-title{
+
+.responsive-title {
   display: none;
 }
 
-@media screen 
-  and (max-width: 450px) {
-    .gallery-product-responsive{
-      display: block;
-    }
-    .page-content{
-      padding: 0px !important;
-    }
-    .breadcrumbs {
-      margin-bottom: 0px !important;
-      background-color: transparent;
-      margin-top: 0px !important;
-      border: 0;
-      padding-bottom: .2rem;
-      padding-top: .4rem;
-    }
-    .container {
-      padding-left: 0;
-      padding-right: 0;
-    }
+.call-action-buy {
+  background: #0c0c0c;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 3.5rem;
+  z-index: 9;
+  padding: .4rem;
+  color: white;
+  display: none;
+}
 
-    .description p img{
-      width: 100% !important;
-    }
-    .responsive-title{
-      display: block;
-    }
+@media screen
+and (max-width: 450px) {
+  .gallery-product-responsive, .call-action-buy {
+    display: block;
+  }
 
-    .responsive-title{
-      width: 100%;
-      background: whitesmoke;
-      padding: 0rem .4rem .7rem;
-    }
-    .responsive-title h2{
-      padding-bottom: .2rem;
-    }
+  .gallery-product, .add-cart, .ribbon {
+    display: none;
+  }
 
-    .description-content, .product-shop{
-      padding-left: .9rem !important;
-      padding-right: .9rem !important;
-      padding-top: .3rem !important;
-    }
+  .product-name {
+    display: none;
+  }
 
-    .gallery-product{
-      display: none;
-    }
+  .page-content {
+    padding: 0px !important;
+  }
 
-    .product-name{
-      display: none;
-    }
+  .breadcrumbs {
+    margin-bottom: 0px !important;
+    background-color: transparent;
+    margin-top: 0px !important;
+    border: 0;
+    padding-bottom: .2rem;
+    padding-top: .4rem;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .description p img {
+    width: 100% !important;
+  }
+
+  .responsive-title {
+    display: block;
+  }
+
+  .responsive-title {
+    width: 100%;
+    background: whitesmoke;
+    padding: 0rem .4rem .7rem;
+  }
+
+  .responsive-title h2 {
+    padding-bottom: .2rem;
+  }
+
+  .description-content, .product-shop {
+    padding-left: .9rem !important;
+    padding-right: .9rem !important;
+    padding-top: .3rem !important;
+  }
+
+
 }

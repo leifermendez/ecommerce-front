@@ -1,78 +1,93 @@
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   select,
   textarea,
   input {
     font-size: 16px !important;
   }
 }
-@media screen 
-  and (max-width: 450px) {
-    .ngxImageZoomContainer{
-      width: 100% !important;
-    }
-    .description  img{
-      width: 100%;
-    }
-    .modal-dialog.box-shadow-modal.responsive{
-      margin:0px !important;
-      height: 100%;
-    }
-    .modal-dialog.box-shadow-modal.responsive .modal-content{
-      height: 100%;
-    }
-	.forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container,
-	.fullwidthabanner .image-banner, .fullwidthabanner .container-banner{
-		min-height: 12rem !important;
-		border-bottom: solid .1rem white;
-		height: 12rem !important;
-    }
 
-    .category-box-responsive .card-header{
-      background-color: white;
-      padding: .2rem 0 .2rem 0;
-      border-bottom: 1px solid #f1f1f1;
-    }
-    .category-box-responsive .card-header .btn{
-      font-size: .9rem !important;
-      font-weight: lighter;
-      background-color: transparent;
-      color: #2b2b2b;
-      text-decoration: none;
-    }
-    .category-box-responsive .card-block{
-      padding: .3rem .9rem .9rem 1rem;
-    }
-    .category-box-responsive  .card{
-      border:0px;
-    }
-    
-    .fullwidthabanner .nav-buttons{
-      top: 4.5rem !important;
-      opacity: 1 !important;
-    }
-    .CollectionGrid-container{
-      margin-left: 0;
-      margin-right: 0;
-  }	
-  app-single .ngx-gallery-arrow{
-    color:#ad0000 !important;
+@media screen
+and (max-width: 450px) {
+  .main-container-fixed {
+    margin-top: 85px !important;
   }
-  
+
+  .ngxImageZoomContainer {
+    width: 100% !important;
+  }
+
+  .description img {
+    width: 100%;
+  }
+
+  .modal-dialog.box-shadow-modal.responsive {
+    margin: 0px !important;
+    height: 100%;
+  }
+
+  .modal-dialog.box-shadow-modal.responsive .modal-content {
+    height: 100%;
+  }
+
+  .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container,
+  .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
+    min-height: 12rem !important;
+    border-bottom: solid .1rem white;
+    height: 12rem !important;
+  }
+
+  .category-box-responsive .card-header {
+    background-color: white;
+    padding: .2rem 0 .2rem 0;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .category-box-responsive .card-header .btn {
+    font-size: .9rem !important;
+    font-weight: lighter;
+    background-color: transparent;
+    color: #2b2b2b;
+    text-decoration: none;
+  }
+
+  .category-box-responsive .card-block {
+    padding: .3rem .9rem .9rem 1rem;
+  }
+
+  .category-box-responsive .card {
+    border: 0px;
+  }
+
+  .fullwidthabanner .nav-buttons {
+    top: 4.5rem !important;
+    opacity: 1 !important;
+  }
+
+  .CollectionGrid-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  app-single .ngx-gallery-arrow {
+    color: #ad0000 !important;
+  }
+
   /*box-feature-product*/
   app-box-featured-product, app-box-shops {
     margin-bottom: 0px !important;
   }
-  app-box-featured-product .owl-item{
+
+  app-box-featured-product .owl-item {
     width: 10rem !important;
   }
 
-  app-box-featured-product .owl-item .item{
+  app-box-featured-product .owl-item .item {
     width: 100%;
     margin-top: .3rem !important;
     margin-bottom: .1rem !important;
   }
 
-  app-box-featured-product ngx-gallery{
+  app-box-featured-product ngx-gallery {
     height: 10rem !important;
   }
 
@@ -82,7 +97,8 @@
     min-height: 5rem !important;
 
   }
-  app-box-featured-product .item-info{
+
+  app-box-featured-product .item-info {
     min-height: 5rem !important;
   }
 }

@@ -31,3 +31,21 @@
 .container-offset {
   margin-left: 12vw !important;
 }
+
+@media screen
+and (max-width: 450px) {
+  .cart, .main{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .new_title{
+    display: none;
+  }
+  
+  .item-responsive{
+    background-color: white;
+    padding: .3rem .6rem .3rem .6rem;
+    border-top: solid 1px #e6e6e6;
+  }
+}

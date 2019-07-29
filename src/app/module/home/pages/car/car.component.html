@@ -5,7 +5,7 @@
       <div class="new_title">
         <h2>Carrito</h2>
       </div>
-      <div class="table-responsive shopping-cart-tbl mt-4">
+      <div [hidden]="true" class="table-responsive shopping-cart-tbl mt-4">
         <div *ngIf="loading">
           <ngx-content-loading
             [width]="1000"
@@ -101,7 +101,28 @@
           </div>
         </div>
       </div>
-
+      <div class="item-responsive" *ngFor="let dat of data?.list">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex w-75">
+            <div class="mr-2">
+              <img
+                width="60px"
+                height="60px"
+                [src]="dat['cover_image']['small']" alt="">
+            </div>
+            <div class="w-100 ml-2 pt-2 pr-2 pb-2">
+              <div>{{dat.name  | words : 4 :  '...'}}</div>
+              <span class="text-muted">{{dat.label}}</span>
+            </div>
+          </div>
+          <div class="w-25 text-right pt-2">
+            <div class="font-weight-600">{{dat['price_normal'] | number:'1.2-2'}} {{"currency" | translate}}</div>
+            <small>
+              <del>{{dat['price_regular'] | number:'1.2-2'}} {{"currency" | translate}}</del>
+            </small>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
