@@ -5,6 +5,7 @@ import {RestService} from '../../../../shared/services/rest.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {BannerComponent} from './banner/banner.component';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 declare var jQuery: any;
 declare var $: any;
@@ -15,13 +16,20 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public computer: any = false;
+  public mobile: any = false;
+  public tablet: any = false;
   public modeOffset:any = false;
   public images: any;
   public data: any;
   public optionsGallery: any;
   bsModalRef: BsModalRef;
   constructor(private rest: RestService, private modalService: BsModalService,
-    private route: ActivatedRoute, private util: UtilsService) {
+    private route: ActivatedRoute, private util: UtilsService,
+    private deviceService: DeviceDetectorService,) {
+      this.computer = this.deviceService.isDesktop();
+      this.mobile = this.deviceService.isMobile();
+      this.tablet = this.deviceService.isTablet();
       util.modeVideo.subscribe(data => {
         this.modeOffset = data;
       });

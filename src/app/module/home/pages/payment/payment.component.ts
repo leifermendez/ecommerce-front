@@ -7,6 +7,7 @@ import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-car
 import {ActivatedRoute, Router} from '@angular/router';
 import {BsModalService} from 'ngx-bootstrap';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-payment',
@@ -27,7 +28,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 export class PaymentComponent implements OnInit {
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
-
+  public computer: any = false;
+  public mobile: any = false;
+  public tablet: any = false;
   cardOptions: ElementOptions = {
     style: {
       base: {
@@ -58,7 +61,11 @@ export class PaymentComponent implements OnInit {
 
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
               private route: ActivatedRoute, private modalService: BsModalService, private fb: FormBuilder,
-              private stripeService: StripeService, private router: Router) {
+              private stripeService: StripeService, private router: Router,
+              private deviceService: DeviceDetectorService) {
+                this.computer = this.deviceService.isDesktop();
+                this.mobile = this.deviceService.isMobile();
+                this.tablet = this.deviceService.isTablet();
   }
 
   ngOnInit() {
@@ -86,15 +93,18 @@ export class PaymentComponent implements OnInit {
 
   pay = (source = null, purchase_uuid = null) => {
     this.loading = true;
+    this.loading_save = true;
     this.rest.post('/rest/payment', {
       source,
       purchase_uuid
     })
       .then((response: any) => {
         this.loading = false;
+        this.loading_save = false;
         this.router.navigateByUrl(`/thank-you/${response['data']['uuid']}`);
       }).catch((error: any) => {
       this.loading = false;
+      this.loading_save = false;
       this.util.openModalSnack(
         'Pago no procesado',
         'error',

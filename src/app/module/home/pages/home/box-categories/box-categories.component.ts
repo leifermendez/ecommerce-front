@@ -3,6 +3,7 @@ import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import { UtilsService } from '../../../../../shared/services/util.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-box-categories',
@@ -28,9 +29,16 @@ export class BoxCategoriesComponent implements OnInit {
   public data: any;
   public optionsOws: any;
   public loading = false;
+  public computer: any = false;
+  public mobile: any = false;
+  public tablet: any = false;
 
   constructor(private rest: RestService,
+    private deviceService: DeviceDetectorService,
     private util: UtilsService,) {
+      this.computer = this.deviceService.isDesktop();
+      this.mobile = this.deviceService.isMobile();
+      this.tablet = this.deviceService.isTablet();
   }
 
   ngOnInit() {
@@ -44,7 +52,7 @@ export class BoxCategoriesComponent implements OnInit {
     };
     this.data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     this.loading = true;
-    this.rest.get('/rest/categories?group=all')
+    this.rest.get(`/rest/categories${(!this.computer) ? '?group=all' : ''}`)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading = false;

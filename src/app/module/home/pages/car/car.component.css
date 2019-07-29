@@ -45,6 +45,10 @@
   border-top: solid 1px #bfbfbf;
 }
 
+.block-item-responsive{
+  display: none;
+}
+
 @media screen
 and (max-width: 450px) {
   .cart, .main{
@@ -55,7 +59,7 @@ and (max-width: 450px) {
   .new_title, .table-responsive{
     display: none;
   }
-  .call-action-buy {
+  .call-action-buy, .block-item-responsive {
     display:block;
   }
   

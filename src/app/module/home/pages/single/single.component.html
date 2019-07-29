@@ -205,19 +205,21 @@
       <app-box-featured-product id='offers'></app-box-featured-product>
     </div>
   </div>
-  <div class="call-action-buy row m-0 d-flex container">
-    <div class="col-7 pt-1">
-      <h6 class="m-0">
-        {{selectedvariationName?.price_normal |number:'1.2-2'}} {{"currency" |translate}}
-      </h6>
-      <small *ngIf="selectedvariationName?.price_normal">
-       <del> {{selectedvariationName?.price_regular |number:'1.2-2'}} {{"currency" |translate}}</del>
-      </small>
-    </div>
-    <div class="col-5">
-      <button (click)="open(data)"  type="button" class="btn btn-primary btn-block h-100">
-        {{"page.single.buy" |translate}}
-      </button>
+  <div *ngIf="data && data.id" class="call-action-buy row m-0 container">
+    <div class="d-flex">
+        <div class="col-7 pt-1">
+            <h6 class="m-0">
+              {{selectedvariationName?.price_normal |number:'1.2-2'}} {{"currency" |translate}}
+            </h6>
+            <small *ngIf="selectedvariationName?.price_normal">
+             <del> {{selectedvariationName?.price_regular |number:'1.2-2'}} {{"currency" |translate}}</del>
+            </small>
+          </div>
+          <div class="col-5">
+            <button (click)="open(data)"  type="button" class="btn btn-primary btn-block h-100">
+              {{"page.single.buy" |translate}}
+            </button>
+          </div>
     </div>
   </div>
 </section>

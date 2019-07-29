@@ -1,11 +1,14 @@
 <div class="box">
     <div class="container row ml-auto mr-auto">
-      <div class="pt-4 pb-2 pr-3 pl-3">
-        <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
+      <div *ngIf="searchInput">
+          <div class="pt-4 pb-2 pr-3 pl-3">
+              <h6 class="font-weight-bold">{{"categories" | translate}}</h6>
+            </div>
+            <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
+                   autocomplete="off"
+                   placeholder="¿Necesitas ayuda?">
       </div>
-      <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
-             autocomplete="off"
-             placeholder="¿Necesitas ayuda?">
+
     <div class="text-center mb-4 mt-4 w-100">
       <h5>Tenemos una gran coleccion de categorias</h5>
     </div>

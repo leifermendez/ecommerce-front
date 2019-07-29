@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {RestService} from '../../../../shared/services/rest.service';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {BsModalRef} from 'ngx-bootstrap';
+import { Component, OnInit, Input } from '@angular/core';
+import { RestService } from '../../../../shared/services/rest.service';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-side-categories',
@@ -9,13 +9,14 @@ import {BsModalRef} from 'ngx-bootstrap';
   styleUrls: ['./side-categories.component.css']
 })
 export class SideCategoriesComponent implements OnInit {
+  @Input() search: any = true;
   public loading = false;
   public data: any = {};
   public searchText: any = '';
 
   constructor(private rest: RestService,
-              private util: UtilsService,
-              public bsModalRef: BsModalRef) {
+    private util: UtilsService,
+    public bsModalRef: BsModalRef) {
   }
 
   ngOnInit() {

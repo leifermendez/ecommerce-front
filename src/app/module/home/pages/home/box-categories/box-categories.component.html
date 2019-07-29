@@ -4,9 +4,9 @@
       <h2>{{"box_categories.title" | translate}}</h2>
     </div>
     <div class="CollectionGrid container">
-      <owl-carousel #owlCategories *ngIf="data && data.length" [options]="optionsOws" [items]="data"
+      <owl-carousel #owlCategories *ngIf="data && data?.data?.length" [options]="optionsOws" [items]="data['data']"
         [carouselClasses]="['owl-theme', 'sliding']">
-        <div class="item cursor-pointer" *ngFor="let dat of data;let i = index">
+        <div class="item cursor-pointer" *ngFor="let dat of data['data'];let i = index">
           <div class="CollectionGrid-tile hover-overlay-light">
             <div class="CollectionGrid-tileImage align-center">
               <img class="item-img" onerror="style.display='none'" [src]="dat['image_small']" [alt]="dat['name']">
@@ -21,14 +21,14 @@
     </div>
   </div>
 </div>
-<div @tijl class="category-box-responsive">
+<div @tijl class="category-box-responsive" *ngIf="!computer">
   <div class="best-pro slider-items-products container">
     <div class="new_title">
       <h2>{{"box_categories.title" | translate}}</h2>
     </div>
     <div>
       <accordion [isAnimated]="true">
-        <accordion-group [heading]="c['key']" *ngFor="let c of data?.data | keyvalue">
+        <accordion-group [heading]="c['key']" *ngFor="let c of data | keyvalue">
           <ul class="list-categories">
             <li *ngFor="let i of c['value']" [routerLink]="['/','category',i['id']+'-'+util.slug(i['name'])]">
               {{i['name']}}

@@ -47,4 +47,7 @@ and (max-width: 450px) {
       padding-left: 0px !important;
       padding-right: 0px !important;
   }
+  .logo-container{
+    display: none
+  }
 }

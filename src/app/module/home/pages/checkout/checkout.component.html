@@ -166,8 +166,8 @@
     </div>
   </div>
     <!-- call to action responsive-->
-    <div *ngIf="editform && editform['id']" class="call-action-buy row m-0 d-flex container">
-        <div class="col-12 p-0">
+    <div *ngIf="editform && editform['id']" class="call-action-buy row m-0  container">
+        <div class="d-flex col-12 p-0">
           <button   [routerLink]="['/','payment']" type="button" class="btn btn-primary btn-block">
             {{"page.single.buy" |translate}}
           </button>

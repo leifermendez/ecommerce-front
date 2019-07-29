@@ -32,7 +32,9 @@
   <!-- best Pro Slider -->
 
   <!--Category slider Start-->
-  <app-box-categories id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>
+  <app-side-categories *ngIf="computer" [search]="false" id='myanchor' class="mt-4 mb-4 d-block">
+  </app-side-categories>
+  <app-box-categories *ngIf="mobile" id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>
   <!--Category silder End-->
 
 <!--  <app-box-blog></app-box-blog>-->
