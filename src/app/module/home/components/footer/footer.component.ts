@@ -48,7 +48,6 @@ export class FooterComponent implements OnInit {
         const _data = data.state.root.firstChild.data;
         this.footer = (_data['footer']);
         if (this.footer) this.loadData();
-
       }
     });
 

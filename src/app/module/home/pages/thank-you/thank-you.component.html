@@ -26,9 +26,32 @@
         </div>
 
       </div>
-    </div>
-    <div class="text-center">
+        <div class="text-center payment_sentence">
       <p class="text-muted" [innerHTML]="'global.payment_sentence' | translate"></p>
+    </div> 
+    </div>
+    <div>
+        <div class="row ml-0 mr-0 mb-4">
+            <div class="col-lg-3 text-center">
+              <img src="../../../../../assets/images/positive-vote.svg" width="120" alt="">
+            </div>
+            <div class="col-lg-9 p-4">
+              <h5 class="content-h5" [innerHTML]="'thankyou.sentence.first' | translate"></h5>
+              <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
+            </div>
+          </div>
+          <div class="row ml-0 mr-0 mt-4 pt-4">
+            <div class="col-lg-3 text-center">
+              <img src="../../../../../assets/images/scooter.svg" width="120" alt="">
+            </div>
+            <div class="col-lg-9 p-4">
+              <h5 class="content-h5" [innerHTML]="'thankyou.sentence.second' | translate"></h5>
+              <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
+            </div>
+          </div>
+          <div class="row ml-0 mr-0 mt-4 pt-4 pr-4 pl-4 text-center">
+              <button [routerLink]="['/','purchases',referer]"  class="btn btn-primary btn-block">Ver compra</button>
+          </div>
     </div>
   </div>
 

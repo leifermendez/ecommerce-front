@@ -31,3 +31,24 @@
 .container-offset {
   margin-left: 12vw !important;
 }
+@media screen
+and (max-width: 450px) {
+  .cart, .main{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .new_title, .table-responsive, .payment_sentence{
+    display: none;
+  }
+  
+  .item-responsive{
+    display: block;
+  }
+  
+  .main-container{
+    margin-bottom: 100px;
+    margin-top: 110px;
+  }
+}
+

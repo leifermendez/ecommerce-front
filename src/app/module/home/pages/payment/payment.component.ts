@@ -82,7 +82,6 @@ export class PaymentComponent implements OnInit {
         console.log('herere',result)
         if (result.token) {
           this.pay(result.token.id, this.uuid);
-          this.loading_save = false;
         } else if (result.error) {
           this.loading = false;
           this.loading_save = false;
