@@ -1,7 +1,7 @@
 <section class="wow bounceInUp animated CollectionGrid-container">
   <div @tijl *ngIf="loading" class="best-pro slider-items-products container">
     <div class="CollectionGrid container min-height-300">
-      <div class="CollectionGrid-tile hover-overlay-light">
+      <div *ngFor="let a of [1,2,3,4]" class="CollectionGrid-tile hover-overlay-light">
         <div class="timeline-item">
           <div class="animated-background" style="height: 150px">
           </div>
@@ -17,55 +17,6 @@
           </div>
         </div>
       </div>
-      <div class="CollectionGrid-tile hover-overlay-light">
-        <div class="timeline-item">
-          <div class="animated-background" style="height: 150px">
-          </div>
-          <div class="animated-background mt-3" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="CollectionGrid-tile hover-overlay-light">
-        <div class="timeline-item">
-          <div class="animated-background" style="height: 150px">
-          </div>
-          <div class="animated-background mt-3" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="CollectionGrid-tile hover-overlay-light">
-        <div class="timeline-item">
-          <div class="animated-background" style="height: 150px">
-          </div>
-          <div class="animated-background mt-3" style="height: 40px">
-            <div class="background-masker header-top"></div>
-            <div class="background-masker header-left"></div>
-            <div class="background-masker header-right"></div>
-            <div class="background-masker header-bottom"></div>
-            <div class="background-masker subheader-left"></div>
-            <div class="background-masker subheader-right"></div>
-            <div class="background-masker subheader-bottom"></div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
   <div @tijl *ngIf="!loading" class="best-pro slider-items-products">
@@ -82,31 +33,31 @@
           [carouselClasses]="['owl-theme', 'sliding']">
           <div class="item" *ngFor="let dat of data; let i = index">
             <div
-              *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
+              *ngIf="dat &&  dat['is_avaiclocklable'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
-              <button id="btn-car" [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}" 
-              class="btn btn-add-cart-shopping"
+              <button id="btn-car" [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}"
+                      class="btn btn-add-cart-shopping"
                       [disabled]="loading_save"
                       type="button" (click)="open(dat)">
                 <span *ngIf="!loading_save">
-                    <img class="mega-menu-hover" alt="" 
-                    src="../../../../../../assets/images/shopping-cart.svg" [style.width]="'20px'">
+                    <img class="mega-menu-hover" alt=""
+                         src="../../../../../../assets/images/shopping-cart.svg" [style.width]="'20px'">
                 </span>
                 <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
               </button>
-              <button id="btn-car" 
-              [style.left]="'45px'"
-              [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}" 
-              [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]"
-              class="btn btn-add-cart-shopping"
+              <button id="btn-car"
+                      [style.left]="'45px'"
+                      [ngClass]="{'btn-default':!loading_save, 'btn-default':loading_save}"
+                      [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]"
+                      class="btn btn-add-cart-shopping"
                       [disabled]="loading_save"
                       type="button">
                 <span *ngIf="!loading_save">
-                    <img  alt="" 
-                    src="../../../../../../assets/images/visibility.svg" [style.width]="'20px'">
+                    <img alt=""
+                         src="../../../../../../assets/images/visibility.svg" [style.width]="'20px'">
                 </span>
                 <fa *ngIf="loading_save" name="spinner" animation="spin" size="lg"></fa>
-              </button>             
+              </button>
             </div>
             <div class="item">
               <div class="item-inner">
@@ -123,10 +74,11 @@
                       <div class="item-title mb-0">
                         <span class="btn-link name-product">
                             {{dat['name'] | truncate : 25 :  '...' }}
-                        </span>  
+                        </span>
                       </div>
                       <div>
-                        <a class="text-muted name-shop" [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
+                        <a class="text-muted name-shop"
+                           [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </div>
@@ -178,7 +130,6 @@
                               <span
                                 tooltip="Disponible"
                                 class="item-price-avalible-on">
-                                  <fa name="clock" animation="spin" rotate="180" class="mr-1"></fa>
                                   <span class="time-ago-string" timeago
                                         [date]="timeAgoNext(dat['is_available']['minutes'])"></span>
 

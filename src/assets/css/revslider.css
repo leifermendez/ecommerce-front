@@ -787,7 +787,7 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .nav-buttons {
   position: absolute;
-  z-index: 999;
+  z-index: 2;
   top: 8rem;
   display: flex;
   opacity: .3;

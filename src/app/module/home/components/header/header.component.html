@@ -1,6 +1,6 @@
 <div *ngIf="computer">
   <header @tijl *ngIf="!header" [style.opacity]="(modeFocus) ? '.4' : '1'"
-    [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
+          [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
     <div id="header">
       <div class="header-container full-mode-header logo-full-mode-header">
         <div class="row m-0">
@@ -26,7 +26,7 @@
                 <li class="p-2 cursor-pointer">
                   <div [routerLink]="['/','shopping-cart']" [routerLinkActive]="['is-active']">
                     <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="25px"
-                      alt="">
+                         alt="">
                     <div>Carro</div>
                   </div>
                 </li>
@@ -45,7 +45,7 @@
                 <li class="p-2 cursor-pointer">
                   <div>
                     <img class="mega-menu-hover" src="../../../../../assets/images/scooter-2b2b2b.svg" width="25px"
-                      alt="">
+                         alt="">
                     <div>Confirmacion</div>
                   </div>
                 </li>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown
-              [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">
+                 [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">
               <div class="button-shop cursor-pointer" dropdownToggle>
                 <span class="point-shop pulse"></span>
                 <img src="../../../../../assets/images/shop.svg" width="30px" alt="">
@@ -68,14 +68,14 @@
             </div>
 
             <div class="menu-shop-line ml-2 mr-2 pb-0 pl-2 pr-2 btn-group" [routerLinkActive]="['is-active']"
-              *ngIf="fullMenu && user_data">
+                 *ngIf="fullMenu && user_data">
               <div class="button-shop cursor-pointer pt-1">
                 <div>
                   <img src="../../../../../assets/images/visa.svg" class="mr-2 border-solid-circle" width="30px" alt="">
                   <img src="../../../../../assets/images/mastercard.svg" class="mr-2 border-solid-circle" width="30px"
-                    alt="">
+                       alt="">
                   <img src="../../../../../assets/images/discover.svg" class="mr-2 border-solid-circle" width="30px"
-                    alt="">
+                       alt="">
                 </div>
                 <div class="p-1">
                   <small>Pago seguro</small>
@@ -102,7 +102,7 @@
 
                   <li class="mega-menu mega-menu-hover">
                     <a [routerLink]="['/','search']" [queryParams]="{filters: 'products.featured,!=,not'}"
-                      class="level-top">
+                       class="level-top">
                       <span class="cursor-pointer">{{"menu.product_features" | translate}}</span>
                     </a>
 
@@ -131,9 +131,9 @@
                     <a [routerLink]="['/','shopping-cart']" class="level-top cursor-pointer">
                       <span class="pr-0">
                         <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="25px"
-                          alt="">
+                             alt="">
                         <span class="icon-bell pulse" [ngClass]="{'icon-add-number':(animationBell)}"
-                          *ngIf="number_items"><b>{{number_items}}</b></span>
+                              *ngIf="number_items"><b>{{number_items}}</b></span>
                       </span>
                     </a>
                     <div class="level0-wrapper fl-custom-tabmenu menu-account-shopping">
@@ -145,7 +145,7 @@
                     <div class="level-top" dropdownToggle>
                       <span class="p-0">
                         <img [src]="user_data['avatar']" width="30" class="profile-image" height="30"
-                          [alt]="user_data['name']" />
+                             [alt]="user_data['name']"/>
                       </span>
                       <span class="pl-2 pr-1"><b>{{user_data['name'] | words : 2 :  '' }}</b></span>
                     </div>
@@ -187,8 +187,9 @@
 </div>
 
 <div class="header-mobile" *ngIf="mobile">
+  <div class="overlay" [style.display]="(menuResponsive) ? 'block' : 'none'">overlay</div>
   <div class="first-nav d-flex justify-content-between">
-    <div class="block-logo p-1" [routerLink]="['/']" title="Apatxee">
+    <div class="block-logo p-1" (click)="menuResponsive = false" [routerLink]="['/']" title="Apatxee">
       <img src="../../../../../assets/images/apatxee-logo-sqaure.png" alt="Apatxee">
     </div>
     <div class="block-search">
@@ -199,13 +200,20 @@
               <fa name="search"></fa>
             </button>
           </div>
-          <input type="text" formControlName="src" class="form-control input-search" placeholder="Estoy buscando..." aria-label=""
-            aria-describedby="basic-addon1">
+          <input type="text" formControlName="src" class="form-control input-search" placeholder="Estoy buscando..."
+                 aria-label=""
+                 aria-describedby="basic-addon1">
         </div>
       </form>
     </div>
-    <div class="block-menu p-2">
-      <img class="mega-menu-hover" src="../../../../../assets/images/menu-button.svg" alt="">
+    <div class="block-menu pl-1 pr-1 pt-2 pb-2">
+      <div class="wrapper-menu" (click)="menuResponsive = !menuResponsive">
+        <div class="main-item menu" [ngClass]="{'close':(menuResponsive)}">
+          <span class="line line01"></span>
+          <span class="line line02"></span>
+          <span class="line line03"></span>
+        </div>
+      </div>
     </div>
     <div class="block-cart p-2">
       <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" alt="">
@@ -218,6 +226,87 @@
         Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
       </span>
     </small>
+  </div>
+  <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">
+    <div class="responsive-profile-block pt-2 pr-2 pl-2 pb-4">
+      <div class="col-12 pt-2 pr-0 pl-0 row m-0">
+        <div class="col-3 p-0 text-center">
+          <img
+            src="../../../../../assets/images/blank-profile-picture.png"
+            width="40px" alt="">
+        </div>
+        <div class="col-9 p-0">
+          <div>
+            <b>{{"menu.hello" | translate}}</b>
+          </div>
+          <div>
+            <small>{{"page.auth.login.subtitle" |translate}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between row m-0 pt-3 pl-0 pr-0">
+        <div class="col-6">
+          <button type="button" (click)="menuResponsive = false" routerLink="/login"
+                  class="btn btn-sm btn-primary btn-block"> {{"menu.signup" | translate}}
+          </button>
+        </div>
+        <div class="col-6">
+          <button type="button" (click)="menuResponsive = false" routerLink="/login"
+                  class="btn btn-sm btn-default btn-block">
+            {{"menu.signin" | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="block-section pr-0 pl-0">
+      <ul class="list-menu list-menu pt-2 pb-2">
+        <li>
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/list.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4" (click)="menuResponsive = false" [routerLink]="['/','categories']">
+              <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
+            </div>
+          </div>
+        </li>
+        <li (click)="menuResponsive = false" [routerLink]="['/','search']"
+            [queryParams]="{filters: 'products.featured,!=,not'}">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/discount.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.product_features" | translate}}</span>
+            </div>
+          </div>
+        </li>
+        <li (click)="menuResponsive = false" routerLink="/shop">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/shop.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="block-section pr-0 pl-0">
+      <ul class="list-menu list-menu pt-2 pb-2">
+        <li (click)="menuResponsive = false">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-help.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span class="cursor-pointer">{{"menu.help" | translate}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 

@@ -10,7 +10,7 @@
   -o-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
   z-index: 9;
-  box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.17);
+  /*box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.17);*/
   overflow-y: auto;
 }
 
@@ -52,4 +52,11 @@ ul .child-li:hover {
 .box-category-parent{
   border: solid 1px whitesmoke;
   background-color: #fdfdfd;
+}
+
+@media screen
+and (max-width: 450px) {
+  .cover-category{
+    display: none;
+  }
 }

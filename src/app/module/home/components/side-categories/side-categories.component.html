@@ -11,7 +11,7 @@
     </div>
     </div>
   <ul class="pt-0 ml-auto mr-auto container row">
-    <li class="col-3" *ngFor="let c of data | keyvalue | filter:searchText">
+    <li class="col-lg-3" *ngFor="let c of data | keyvalue | filter:searchText">
       <div class="box-category-parent">
         <div>
           <img class="cover-category" [src]="c['value'][0]['parent_image']" alt="">

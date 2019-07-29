@@ -47,7 +47,8 @@
     }
     
     .fullwidthabanner .nav-buttons{
-      top: 4.5rem !important
+      top: 4.5rem !important;
+      opacity: 1 !important;
     }
     .CollectionGrid-container{
       margin-left: 0;

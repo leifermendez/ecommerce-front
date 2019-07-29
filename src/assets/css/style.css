@@ -12095,22 +12095,7 @@ button.button.new-address:before {
 }
 
 #toTop {
-  color: #fff;
-  text-align: center;
-  bottom: 60px;
   display: none;
-  height: 40px;
-  line-height: 40px;
-  overflow: hidden;
-  position: fixed;
-  right: 10px;
-  text-decoration: none;
-  width: 45px;
-  background: url(../images/to-top-arrow.png) no-repeat center;
-  background-color: #090809333;
-  text-transform: uppercase;
-  z-index: 100;
-  border-radius: 0px;
 }
 
 #toTop:hover {

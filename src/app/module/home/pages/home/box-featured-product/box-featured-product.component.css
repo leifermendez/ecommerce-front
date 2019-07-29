@@ -180,4 +180,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+
+      .CollectionGrid-tile{
+        width: 100% !important;
+      }
   }
