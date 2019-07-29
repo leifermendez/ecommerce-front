@@ -22,6 +22,9 @@
   min-width: 250px;
 
 }
+.item-responsive{
+  display: none;
+}
 
 .table-responsive {
   border: solid 1px #e8e8e8 !important;
@@ -34,8 +37,24 @@
 
 @media screen
 and (max-width: 450px) {
-  .cart{
+  .cart, .main{
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  .new_title, .table-responsive, .payment_sentence{
+    display: none;
+  }
+  
+  .item-responsive{
+    display: block;
+  }
+  .call-action-buy {
+    display:block;
+  }
+
+  .main-container{
+    margin-bottom: 100px;
+  }
 }
+

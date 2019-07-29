@@ -475,8 +475,9 @@ header {
 }
 
 .header-mobile .second-nav {
-  background-color: white;
+  background-color: #fbfbfb;
   top: 60%;
+  line-height: 1rem;
   position: absolute;
   width: 100%;
   display: block;

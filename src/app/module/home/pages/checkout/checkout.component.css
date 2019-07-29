@@ -31,11 +31,44 @@
 .container-offset {
   margin-left: 12vw !important;
 }
+.call-action-buy {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 3.5rem;
+  z-index: 9;
+  padding: .4rem;
+  color: #2b2b2b;
+  display: none;
+  border-top: solid 1px #bfbfbf;
+}
+
+.item-responsive{
+  display: none;
+}
+
 
 @media screen
 and (max-width: 450px) {
-  .cart{
+  .cart, .main{
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  .new_title, .table-responsive, .payment_sentence{
+    display: none;
+  }
+  
+  .item-responsive{
+    display: block;
+  }
+  .call-action-buy {
+    display:block;
+  }
+
+  .main-container{
+    margin-bottom: 100px;
+  }
 }
+

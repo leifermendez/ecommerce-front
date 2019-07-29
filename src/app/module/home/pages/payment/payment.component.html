@@ -8,9 +8,7 @@
       </div>
       <div class="table-responsive shopping-cart-tbl container  mt-4">
         <div *ngIf="loading">
-          <ngx-content-loading
-            [width]="1000"
-            [height]="300">
+          <ngx-content-loading [width]="1000" [height]="300">
             <svg:g ngx-rect width="800" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
             <svg:g ngx-rect width="700" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
             <svg:g ngx-rect width="600" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
@@ -22,11 +20,8 @@
             <div class="form-group col">
               <div>
                 <label>Titular de la tarjeta</label>
-                <input type="text" class="form-control"
-                       spellcheck="false" autocomplete="off"
-                       [(ngModel)]="editform['name']"
-                       formControlName="name"
-                       placeholder="Carlos Mendoza">
+                <input type="text" class="form-control" spellcheck="false" autocomplete="off"
+                  [(ngModel)]="editform['name']" formControlName="name" placeholder="Carlos Mendoza">
 
               </div>
             </div>
@@ -43,10 +38,38 @@
         </div>
 
       </div>
-    </div>
-    <div class="text-center">
+      <div class="text-center payment_sentence">
         <p class="text-muted" [innerHTML]="'global.payment_sentence' | translate"></p>
+      </div>
+
+      <div class="item-responsive">
+        <div class="new_title_responsive mt-3 mb-3 ml-2 mr-2">
+          <p>
+            <b>{{"page.payment.title" | translate}}</b>
+          </p>
+        </div>
+        <div class="bg-white pb-3 pt-3">
+            <form novalidate (ngSubmit)="purchase()" [formGroup]="stripeTest">
+                <div class="form-group col">
+                  <div>
+                    <label>Titular de la tarjeta</label>
+                    <input type="text" class="form-control" spellcheck="false" autocomplete="off"
+                      [(ngModel)]="editform['name']" formControlName="name" placeholder="Carlos Mendoza">
+    
+                  </div>
+                </div>
+                <div class="form-group col">
+                  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+                </div>
+                <div class="form-group col text-right mb-0 mt-4">
+                  <button [disabled]="loading_save" class="btn btn-primary">
+                    <span *ngIf="!loading_save">Pagar</span>
+                    <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+                  </button>
+                </div>
+              </form>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>

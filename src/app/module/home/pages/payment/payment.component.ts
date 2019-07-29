@@ -72,6 +72,7 @@ export class PaymentComponent implements OnInit {
     this.stripeService
       .createToken(this.card.getCard(), {name})
       .subscribe(result => {
+        console.log('herere',result)
         if (result.token) {
           this.pay(result.token.id, this.uuid);
           this.loading_save = false;

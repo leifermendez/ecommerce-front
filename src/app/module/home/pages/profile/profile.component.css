@@ -17,3 +17,10 @@
   border: solid 1px #e8e8e8 !important;
   border-radius: 0px;
 }
+@media screen
+and (max-width: 450px) {
+  .col-lg-6{
+    padding: 0 !important;
+  }
+}
+

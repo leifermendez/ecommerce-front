@@ -5,16 +5,16 @@
       <div class="inside-body mb-4">
         <div class="pt-2">
           <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6">
               <app-info-profile class="block-dashboard mb-2"></app-info-profile>
             </div>
-            <div class="col-6 pl-0">
+            <div class="col-lg-6 pl-0">
               <app-info-account class="block-dashboard mb-2"></app-info-account>
             </div>
-            <div class="col-6 ">
+            <div class="col-lg-6 ">
               <app-info-address class="block-dashboard mb-2 mt-2"></app-info-address>
             </div>
-            <div class="col-6 pl-0" *ngIf="currentUser['role']==='shop'">
+            <div class="col-lg-6 pl-0" *ngIf="currentUser['role']==='shop'">
               <app-info-bank class="block-dashboard mb-2 mt-2"></app-info-bank>
             </div>
           </div>

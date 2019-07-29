@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
@@ -11,7 +11,7 @@ import {UtilsService} from '../../../../shared/services/util.service';
 export class AddressShoppingCartComponent implements OnInit {
   public loading: any = false;
   public data: any = {};
-
+  @Output() callback: EventEmitter<any> = new EventEmitter();
   constructor(private modalService: BsModalService,
               private rest: RestService,
               public util: UtilsService) {
@@ -28,7 +28,7 @@ export class AddressShoppingCartComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data = response['data']['data'];
-          console.log('-------', this.data);
+          this.callback.emit(this.data)
         }
       });
   };

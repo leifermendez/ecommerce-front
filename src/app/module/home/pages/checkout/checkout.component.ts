@@ -29,6 +29,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class CheckoutComponent implements OnInit {
   data: any = [];
   public loading = false;
+  public loading_save = false;
   public zip_code = null;
   addres: any;
   addreselect: any = null;
@@ -72,9 +73,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   public checkZip = (zip_code) => {
+    this.loading_save = true;
     this.rest.get(`/rest/zone-available?src=${zip_code}`)
       .then((response: any) => {
-        this.loading = false;
+        this.loading_save = false;
         if (response['status'] === 'success') {
           response = response['data'];
           this.data = response['data'];
@@ -107,18 +109,19 @@ export class CheckoutComponent implements OnInit {
   }
 
   saveData = () => {
-    this.loading = true;
+    this.loading_save = true;
     this.rest.post(`/rest/shipping`,
       this.editform)
       .then((response: any) => {
-        this.loading = false;
+        this.loading_save = false;
         if (response['status'] === 'success') {
           this.data = response['data'];
           this.editform = {...this.editform, ...response['data']};
         }
       }).catch((error: any) => {
-      this.loading = false;
-      this.util.openSnackBar('Ups! algo ocurrio', 'error');
+      this.loading_save = false;
+      console.log('entro en el error')
+      this.util.openSnackBar('Ups! algo ocurrio, llena todos los campos', 'error');
     });
   };
 

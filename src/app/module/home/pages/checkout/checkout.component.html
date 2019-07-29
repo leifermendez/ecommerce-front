@@ -9,9 +9,7 @@
       </div>
       <div class="table-responsive shopping-cart-tbl container  mt-4">
         <div *ngIf="loading">
-          <ngx-content-loading
-            [width]="1000"
-            [height]="300">
+          <ngx-content-loading [width]="1000" [height]="300">
             <svg:g ngx-rect width="800" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
             <svg:g ngx-rect width="700" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
             <svg:g ngx-rect width="600" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
@@ -26,14 +24,10 @@
                 <div *ngIf="loading" class="loading-zip">
                   <fa name="spinner" animation="spin"></fa>
                 </div>
-                <input ngx-google-places-autocomplete
-                       [disabled]="loading"
-                       autocomplete="off"
-                       class="form-control"
-                       [ngModelOptions]="{standalone: true}"
-                       [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"
-                       placeholder="Ingresa una dirección de envio"
-                       (onAddressChange)="handleAddressChange($event)"/>
+                <input ngx-google-places-autocomplete [disabled]="loading" autocomplete="off" class="form-control"
+                  [ngModelOptions]="{standalone: true}" [ngModel]="address" [options]='optionsPlaces'
+                  #placesRef="ngx-places" placeholder="Ingresa una dirección de envio"
+                  (onAddressChange)="handleAddressChange($event)" />
 
               </div>
             </div>
@@ -41,66 +35,49 @@
               <div class="col">
                 <div *ngIf="editform" class="form-group">
                   <label>País</label>
-                  <input type="text" class="form-control"
-                         readonly
-                         spellcheck="false" autocomplete="off"
-                         [(ngModel)]="editform['country']"
-                         formControlName="country"
-                         placeholder="¿Cual es tu pais?">
+                  <input type="text" class="form-control" readonly spellcheck="false" autocomplete="off"
+                    [(ngModel)]="editform['country']" formControlName="country" placeholder="¿Cual es tu pais?">
                 </div>
                 <div *ngIf="editform" class="form-group">
                   <label>Provincia</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.state"
-                         formControlName="state"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         placeholder="¿Cual es tu provincia?">
+                  <input type="text" class="form-control" [(ngModel)]="editform.state" formControlName="state"
+                    [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                    placeholder="¿Cual es tu provincia?">
                 </div>
                 <div *ngIf="editform" class="form-group">
                   <label>Distrito</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.district"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         formControlName="district"
-                         placeholder="¿Cual es tu distrito?">
+                  <input type="text" class="form-control" [(ngModel)]="editform.district"
+                    [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                    formControlName="district" placeholder="¿Cual es tu distrito?">
                 </div>
               </div>
 
               <div class="col">
                 <div *ngIf="editform" class="form-group">
                   <label>Piso, Numero</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.address"
-                         [readOnly]="editform && editform['id']"
-                         spellcheck="false" autocomplete="off"
-                         formControlName="address"
-                         placeholder="¿Piso 2, #2-4?">
+                  <input type="text" class="form-control" [(ngModel)]="editform.address"
+                    [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                    formControlName="address" placeholder="¿Piso 2, #2-4?">
                 </div>
                 <div *ngIf="editform" class="form-group">
                   <label>Codigo postal</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.zip_code"
-                         readonly
-                         spellcheck="false" autocomplete="off"
-                         formControlName="zip_code"
-                         placeholder="¿Cual es tu codigo postañ?">
+                  <input type="text" class="form-control" [(ngModel)]="editform.zip_code" readonly spellcheck="false"
+                    autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postañ?">
                 </div>
                 <div *ngIf="editform" class="form-group">
                   <label>Instrucciones</label>
-                  <input type="text" class="form-control"
-                         [(ngModel)]="editform.instructions"
-                         [readOnly]="editform && editform['id']"
-                         formControlName="instructions"
-                         spellcheck="false" autocomplete="off"
-                         placeholder="Toca 3 veces el timbre">
+                  <input type="text" class="form-control" [(ngModel)]="editform.instructions"
+                    [readOnly]="editform && editform['id']" formControlName="instructions" spellcheck="false"
+                    autocomplete="off" placeholder="Toca 3 veces el timbre">
                 </div>
                 <div *ngIf="editform && editform['id']" class="form-group text-right mt-4 mb-0">
                   <button type="button" [routerLink]="['/','payment']" class="btn btn-primary">Continuar</button>
                 </div>
                 <div *ngIf="editform && !editform['id']" class="form-group text-right mt-4 mb-0">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button [disabled]="loading_save" type="submit" class="btn btn-primary">
+                      <span *ngIf="!loading_save">Guardar</span>
+                      <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+                  </button>
                 </div>
               </div>
             </div>
@@ -108,10 +85,98 @@
         </div>
 
       </div>
-    </div>
-    <div class="text-center">
+      <div class="text-center payment_sentence">
         <p class="text-muted" [innerHTML]="'global.payment_sentence' | translate"></p>
+      </div>
+
+      <div class="item-responsive">
+        <div class="new_title_responsive mt-3 mb-3 ml-2 mr-2">
+          <p>
+            <b>{{"page.checkout.shipping" | translate}}</b>
+          </p>
+        </div>
+
+        <div class="bg-white pb-3 pt-3">
+          <div *ngIf="!loading">
+            <form [formGroup]="form" autocomplete="off" (submit)="saveData()">
+              <div class="form-group col" *ngIf="editform && !editform['id']">
+                <div>
+                  <label>Ingresa tu dirección</label>
+                  <div *ngIf="loading" class="loading-zip">
+                    <fa name="spinner" animation="spin"></fa>
+                  </div>
+                  <input ngx-google-places-autocomplete [disabled]="loading" autocomplete="off" class="form-control"
+                    [ngModelOptions]="{standalone: true}" [ngModel]="address" [options]='optionsPlaces'
+                    #placesRef="ngx-places" placeholder="Ingresa una dirección de envio"
+                    (onAddressChange)="handleAddressChange($event)" />
+
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="col">
+                  <div *ngIf="editform" class="form-group">
+                    <label>País</label>
+                    <input type="text" class="form-control" readonly spellcheck="false" autocomplete="off"
+                      [(ngModel)]="editform['country']" formControlName="country" placeholder="¿Cual es tu pais?">
+                  </div>
+                  <div *ngIf="editform" class="form-group">
+                    <label>Provincia</label>
+                    <input type="text" class="form-control" [(ngModel)]="editform.state" formControlName="state"
+                      [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                      placeholder="¿Cual es tu provincia?">
+                  </div>
+                  <div *ngIf="editform" class="form-group">
+                    <label>Distrito</label>
+                    <input type="text" class="form-control" [(ngModel)]="editform.district"
+                      [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                      formControlName="district" placeholder="¿Cual es tu distrito?">
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div *ngIf="editform" class="form-group">
+                    <label>Piso, Numero</label>
+                    <input type="text" class="form-control" [(ngModel)]="editform.address"
+                      [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
+                      formControlName="address" placeholder="¿Piso 2, #2-4?">
+                  </div>
+                  <div *ngIf="editform" class="form-group">
+                    <label>Codigo postal</label>
+                    <input type="text" class="form-control" [(ngModel)]="editform.zip_code" readonly spellcheck="false"
+                      autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postañ?">
+                  </div>
+                  <div *ngIf="editform" class="form-group">
+                    <label>Instrucciones</label>
+                    <input type="text" class="form-control" [(ngModel)]="editform.instructions"
+                      [readOnly]="editform && editform['id']" formControlName="instructions" spellcheck="false"
+                      autocomplete="off" placeholder="Toca 3 veces el timbre">
+                  </div>
+                  <div *ngIf="editform && !editform['id']" class="form-group text-right mt-4 mb-0">
+                    <button [disabled]="loading_save" type="submit" class="btn btn-primary">
+                        <span *ngIf="!loading_save">Guardar</span>
+                        <fa *ngIf="loading_save" name="spinner" animation="spin"></fa>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
+    <!-- call to action responsive-->
+    <div *ngIf="editform && editform['id']" class="call-action-buy row m-0 d-flex container">
+        <div class="col-12 p-0">
+          <button   [routerLink]="['/','payment']" type="button" class="btn btn-primary btn-block">
+            {{"page.single.buy" |translate}}
+          </button>
+          <div class="pl-0 pr-0 pt-1">
+              <small>
+                  {{"global.payment_sentence" | translate}}
+              </small>
+          </div>
+        </div>
+    </div>
+    <!-- end call to action-->
 </div>
