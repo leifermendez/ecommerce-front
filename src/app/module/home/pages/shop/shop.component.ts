@@ -21,12 +21,6 @@ export class ShopComponent implements OnInit {
               private auth: AuthshopService) {
   }
 
-  /*data_shops_callback = (e) => {
-    this.data_shops = (e.length);
-    if(!this.data_shops){
-      this.router.navigateByUrl('/shop/create');
-    }
-  }*/
 
   loadData = () => {
     this.user_data = this.auth.getCurrentUser();
@@ -38,6 +32,8 @@ export class ShopComponent implements OnInit {
           this.data_shops = response['data']['data'];
           if (!this.data_shops.length) {
             this.router.navigateByUrl('/shop/create');
+          }else{
+            this.router.navigateByUrl(`/shop/edit/${this.data_shops[0]['id']}`);
           }
         }
       });

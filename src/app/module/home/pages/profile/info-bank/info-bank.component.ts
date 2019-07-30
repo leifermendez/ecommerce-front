@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalBankComponent} from '../modal-bank/modal-bank.component';
 import {RestService} from '../../../../../shared/services/rest.service';
@@ -11,6 +11,7 @@ import {AuthshopService} from '../../../../auth/authshop.service';
   styleUrls: ['./info-bank.component.css']
 })
 export class InfoBankComponent implements OnInit {
+  @Output() callback = new EventEmitter<any>();
 
   constructor(private modalService: BsModalService,
               private rest: RestService,
@@ -42,7 +43,7 @@ export class InfoBankComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.data = response['data']['data'];
-          console.log('-------', this.data);
+          this.callback.emit(this.data);
         }
       });
   };

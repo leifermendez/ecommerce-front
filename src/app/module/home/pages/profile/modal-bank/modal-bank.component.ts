@@ -3,7 +3,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap';
 import {UtilsService} from '../../../../../shared/services/util.service';
-import { WINDOW } from '@ng-toolkit/universal';
+import {WINDOW} from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-modal-bank',
@@ -41,6 +41,8 @@ export class ModalBankComponent implements OnInit {
   ngOnInit() {
     if (this.id) {
       this.getDetail();
+    } else {
+      this.loadData();
     }
   }
 
@@ -70,7 +72,7 @@ export class ModalBankComponent implements OnInit {
   openStripe = (url) => new Promise(function (resolve, reject) {
     try {
       const endPoint = url;
-      const strWindowFeatures = 'location=yes,height=620,width=520,scrollbars=no,resizable=no,status=yes';
+      const strWindowFeatures = 'location=yes,height=620,width=800,scrollbars=no,resizable=no,status=yes';
       const win = window.open(endPoint,
         'stripeConnect',
         strWindowFeatures
@@ -122,11 +124,12 @@ export class ModalBankComponent implements OnInit {
         this.loading = false;
         if (response['status'] === 'success') {
           this.editform['iban'] = response['data']['stripe_user_id'];
+          this.editform['payment_email'] = response['data']['extra_data']['email'];
         }
 
       }).catch(err => {
       this.loading = false;
-      console.log('--->',err)
+      console.log('--->', err);
       this.utils.openSnackBar(err.error.msg, 'error');
     });
   };
@@ -141,10 +144,9 @@ export class ModalBankComponent implements OnInit {
 
           this.openStripe(this.data)
             .then(res => {
-              this.getAct(res['token'])
+              this.getAct(res['token']);
               // @ts-ignore
               res.win.close();
-              this.loading = false;
             });
         }
       });

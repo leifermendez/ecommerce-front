@@ -2,25 +2,25 @@
   <div class="mt-2 mb-2" *ngIf="!hours[day].length">
     <p class="m-0 cursor-pointer">Horario no asignado</p>
   </div>
-  <div class="row">
-    <div class="col-2 p-4 text-center">
+  <div class="row m-0">
+    <div class="col-1 pt-4 pr-0 pl-0 pb-4 text-center">
       <ui-switch
         [(ngModel)]="hours[day+'_open']">
       </ui-switch>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][0]"></timepicker>
       <div class="mt-4" *ngIf="hours[day].length > 2">
         <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][2]"></timepicker>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][1]"></timepicker>
       <div class="mt-4" *ngIf="hours[day].length > 2">
         <timepicker [readonlyInput]="!hours[day+'_open']" [(ngModel)]="hours[day][3]"></timepicker>
       </div>
     </div>
-    <div class="col-2 p-4 text-center" *ngIf="hours[day+'_open']">
+    <div class="col-1 pt-4 pr-0 pl-0 pb-4 text-center" *ngIf="hours[day+'_open']">
       <button class="btn btn-default btn-sm"
               *ngIf="hours[day].length < 3"
               (click)="addSchedule()">

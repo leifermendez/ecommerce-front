@@ -5614,7 +5614,8 @@ text-transform: uppercase
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   padding-left: 10px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-content .no-rating, #best-seller-slider .owl-item .item .item-inner .item-info .info-inner .item-content .ratings {
@@ -15218,7 +15219,7 @@ select#shipping-address-select {
 }
 
 .box-shadow-modal {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
 
@@ -15235,6 +15236,10 @@ select#shipping-address-select {
   /*margin: 0 auto !important;*/
 }
 
+.modal-header{
+  background-color: #f7f7f7;
+}
+
 .modal-title {
   font-weight: 400;
   opacity: .5;
@@ -15247,6 +15252,13 @@ select#shipping-address-select {
 
 .pac-container {
   z-index: 9999;
+}
+
+timepicker a.btn.btn-link.disabled {
+  opacity: .07;
+}
+timepicker table{
+  width: 100%;
 }
 
 .custom-select-search-item .ng-select-container {
@@ -15275,7 +15287,7 @@ select#shipping-address-select {
 }
 
 .modal-backdrop {
-  background-color: white;
+  background-color: #585858;
   z-index: 9999;
 }
 

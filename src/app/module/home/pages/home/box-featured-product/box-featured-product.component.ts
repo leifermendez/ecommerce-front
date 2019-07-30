@@ -8,8 +8,8 @@ import * as moment from 'moment';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
 import {AuthshopService} from '../../../../auth/authshop.service';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
-import { ModalShoppingComponent } from '../../../components/modal-shopping/modal-shopping.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ModalShoppingComponent} from '../../../components/modal-shopping/modal-shopping.component';
 import {animate, style, transition, trigger} from '@angular/animations';
 
 
@@ -20,11 +20,11 @@ import {animate, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        style({transform: 'translateY(-20%)', opacity: '0'}),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
       ])
     ])
   ]
@@ -45,6 +45,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   modalRef: BsModalRef;
+
   constructor(private rest: RestService, intl: TimeagoIntl,
               private util: UtilsService,
               private auth: AuthshopService,
@@ -57,6 +58,7 @@ export class BoxFeaturedProductComponent implements OnInit {
     });
 
     util.getLocation.subscribe(data => {
+
       this.loadData();
     });
   }
@@ -68,9 +70,11 @@ export class BoxFeaturedProductComponent implements OnInit {
   };
 
   loadData = () => {
+
     this.loading = true;
-    this.rest.get(`/rest/products?filters=products.status,=,available&limit=${this.limit}`)
+    this.rest.get(`/rest/products?filters=products.status,=,available&limit=${this.limit}&timestamp=${Date.now()}`)
       .then((response: any) => {
+        console.log('change__', response);
         this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];

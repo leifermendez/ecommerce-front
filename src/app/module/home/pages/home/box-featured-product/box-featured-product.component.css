@@ -56,7 +56,7 @@
 }
 
 .item:hover .item-img {
-  transform: translateY(2em);
+  transform: translateY(0em);
   -webkit-transition: -webkit-transform .3s ease-out;
 }
 

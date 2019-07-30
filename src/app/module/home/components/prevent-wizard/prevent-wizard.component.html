@@ -1,0 +1,45 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h6 class="modal-title">{{"modal.prevent.wizard.title" |translate}}</h6>
+    <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--      <span aria-hidden="true">&times;</span>-->
+    <!--    </button>-->
+  </div>
+
+  <div class="modal-body pt-0">
+    <div class="image-block">
+      <div class="container p-0">
+        <div class="row m-0 pt-4 pb-4 item-prevent" [style.opacity]="(data.bank) ? '.2' : '1'">
+          <div class="col-lg-3 text-center">
+            <img src="../../../../../assets/images/digital-wallet.svg" height="70px" alt="">
+          </div>
+          <div class="col-lg-9 text-left">
+            <p>{{"modal.prevent.wizard.bank_account" | translate}}</p>
+            <button [disabled]="data.bank"
+                    (click)="openModalBank();bsModalRef.hide()"
+                    [routerLink]="['/','shop','edit',id]" [queryParams]="{step: 3}"
+                    class="btn btn-default btn-sm">Configurar
+            </button>
+          </div>
+        </div>
+        <div class="row m-0 pt-4 pb-4 item-prevent" [style.opacity]="(data.schedule) ? '.2' : '1'">
+          <div class="col-lg-3 text-center">
+            <img src="../../../../../assets/images/schedule.svg" height="70px" alt="">
+          </div>
+          <div class="col-lg-9 text-left">
+            <p>{{"modal.prevent.wizard.shop_schedule" | translate}}</p>
+            <button
+              (click)="bsModalRef.hide()"
+              [routerLink]="['/','shop','edit',id]" [queryParams]="{step: 3}"
+              [disabled]="data.schedule" class="btn btn-default btn-sm">Configurar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</div>

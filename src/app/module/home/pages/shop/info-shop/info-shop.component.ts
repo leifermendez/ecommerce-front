@@ -117,7 +117,6 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
         if (response['status'] === 'success') {
           this.editform['email'] = this.user_data['email'];
           this.editform = {...response['data']};
-          console.log(this.editform);
         }
       });
   };

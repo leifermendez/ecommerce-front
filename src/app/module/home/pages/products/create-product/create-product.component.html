@@ -6,7 +6,7 @@
         <div class="pt-0">
           <div>
             <div [style.position]="'absolute'" [style.right]="'0px'">
-              <button [routerLink]="['/','shop','edit',id]" type="button" class="btn btn-link btn-sm">Volver</button>
+              <button [routerLink]="['/','shop']" type="button" class="btn btn-link btn-sm">Volver</button>
             </div>
             <tabset #staticTabs>
               <tab heading="Producto" (selectTab)="loadTab('product')" id="tab1">

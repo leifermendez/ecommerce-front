@@ -48,7 +48,6 @@ export class ZipLocationComponent implements OnInit {
   });
 
   public handleAddressChange(address: Address) {
-    console.log('---->', address);
     this.coordenades['lat'] = address.geometry.location.lat();
     this.coordenades['lng'] = address.geometry.location.lng();
 

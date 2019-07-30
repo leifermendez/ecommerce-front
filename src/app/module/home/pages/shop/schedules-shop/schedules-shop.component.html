@@ -25,56 +25,48 @@
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
     <div class="card-header"><b>Horario de tienda</b></div>
-    <div class="col p-3">
-      <div class="form-group">
-        <label>Lunes</label>
-        <app-tab-day day="monday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
+    <div class="col p-2 row m-0">
+      <div class="col-lg-3 p-3">
+        <h6>Configura tu horario</h6>
+        <p class="mt-4">Recuerda, establecer un horario diario de disponibilidad para tus productos. Ten en cuenta que el servicio de entrega a domicilio puede tomar un tiempo en llegar a tu establecimiento.</p>
       </div>
-      <div class="form-group">
-        <label>Martes</label>
-        <app-tab-day day="tuesday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
+      <div class="col-lg-9 pt-3 row m-0 pr-0 pl-0">
+        <div class="col-lg-6 form-group">
+          <label>Lunes</label>
+          <app-tab-day day="monday" [hours]="days"></app-tab-day>
+
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Martes</label>
+          <app-tab-day day="tuesday" [hours]="days"></app-tab-day>
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Miercoles</label>
+          <app-tab-day day="wednesday" [hours]="days"></app-tab-day>
+
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Jueves</label>
+          <app-tab-day day="thursday" [hours]="days"></app-tab-day>
+
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Viernes</label>
+          <app-tab-day day="friday" [hours]="days"></app-tab-day>
+
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Sabado</label>
+          <app-tab-day day="saturday" [hours]="days"></app-tab-day>
+
+        </div>
+        <div class="col-lg-6 form-group">
+          <label>Domingo</label>
+          <app-tab-day day="sunday" [hours]="days"></app-tab-day>
+
+        </div>
       </div>
-      <div class="form-group">
-        <label>Miercoles</label>
-        <app-tab-day day="wednesday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
-      <div class="form-group">
-        <label>Jueves</label>
-        <app-tab-day day="thursday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
-      <div class="form-group">
-        <label>Viernes</label>
-        <app-tab-day day="friday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
-      <div class="form-group">
-        <label>Sabado</label>
-        <app-tab-day day="saturday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
-      <div class="form-group">
-        <label>Domingo</label>
-        <app-tab-day day="sunday" [hours]="days"></app-tab-day>
-        <small class="text-muted mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
-        </small>
-      </div>
+
     </div>
     <div class="card-footer text-right">
 

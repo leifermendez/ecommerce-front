@@ -76,12 +76,12 @@
                             {{dat['name'] | truncate : 25 :  '...' }}
                         </span>
                       </div>
-                      <div>
+                      <small>
                         <a class="text-muted name-shop"
                            [routerLink]="['/','store',dat['shop_id']+'-'+util.slug(dat['shop_name'])]">
                           {{dat['shop_name']|  words : 4 }}
                         </a>
-                      </div>
+                      </small>
                       <div class="item-content d-flex">
                         <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
                                    customPadding="2px" color="#FFC400"></ngx-stars>
@@ -159,8 +159,8 @@
 
         <div class="pt-4">
           <img class="mr-3" src="../../../../../../assets/images/loupe.svg" width="30" height="30px" alt="">
-          <span class="title">No hay publicaciones que coincidan con tu ubicacion.</span>
-          <p class="text-muted">Se el primero en tu barrio en publicar!</p>
+          <span class="title">{{"box_featured.product.not_found" |translate}}</span>
+          <p class="text-muted">{{"box_featured.product.post" | translate}}</p>
         </div>
       </div>
     </div>

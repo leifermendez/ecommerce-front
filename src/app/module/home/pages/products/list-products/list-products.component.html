@@ -84,7 +84,7 @@
 
             </td>
           </tr>
-          <tr *ngFor="let dat of data['data'];let i = index"
+          <tr *ngFor="let dat of data?.data;let i = index"
               class="list-table-item cursor-pointer">
             <td class="image-td">
               <img
@@ -115,6 +115,11 @@
             </span>
             </td>
             <td class="align-middle text-right">
+              <a target="_blank"
+                [routerLink]="['/','single',utils.slug(dat['name'])+'-'+dat['id']]"
+                class="btn btn-link btn-sm mr-1">
+                <fa name="eye"></fa>
+              </a>
               <button
                 [routerLink]="['/','products','edit',dat['id']]"
                 class="btn btn-link btn-sm mr-1">

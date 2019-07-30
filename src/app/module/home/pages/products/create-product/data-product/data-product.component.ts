@@ -7,6 +7,8 @@ import {UtilsService} from '../../../../../../shared/services/util.service';
 import {ModalShoppingComponent} from '../../../../components/modal-shopping/modal-shopping.component';
 import {ModalProductBankComponent} from '../modal-product-bank/modal-product-bank.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ZipLocationComponent} from '../../../../components/zip-location/zip-location.component';
+import {PreventWizardComponent} from '../../../../components/prevent-wizard/prevent-wizard.component';
 
 @Component({
   selector: 'app-data-product',
@@ -26,7 +28,7 @@ export class DataProductComponent implements OnInit {
   public list_shops: any = [];
   public select_shop: any = null;
   public user_data: any;
-  public fullModeDescription:any = false;
+  public fullModeDescription: any = false;
 
   constructor(private fb: FormBuilder, private rest: RestService, private router: Router,
               private utils: UtilsService,
@@ -77,12 +79,10 @@ export class DataProductComponent implements OnInit {
 
   emitPreview = () => {
     const _this = this;
-    setTimeout(function(){
+    setTimeout(function () {
       _this.utils.previewP.emit(_this.editform);
     }, 200);
-  }
-  
-  
+  };
 
 
   open(data) {
@@ -122,7 +122,7 @@ export class DataProductComponent implements OnInit {
 
       this.loading = false;
       this.loading_save = false;
-      this.open({})
+      this.open({});
       // this.utils.openSnackBar(err.error.error, 'error');
     });
   };

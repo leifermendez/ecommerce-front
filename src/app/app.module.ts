@@ -139,6 +139,7 @@ import { SearchPageCategoryComponent } from './module/home/pages/search-page-cat
 import { SideCategoriesComponent } from './module/home/components/side-categories/side-categories.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ClickOutsideModule} from 'ng-click-outside';
+import { PreventWizardComponent } from './module/home/components/prevent-wizard/prevent-wizard.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -256,6 +257,7 @@ export class MyIntl extends TimeagoIntl {
     SearchPageComponent,
     SearchPageCategoryComponent,
     SideCategoriesComponent,
+    PreventWizardComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -348,6 +350,7 @@ export class MyIntl extends TimeagoIntl {
     ModalShoppingComponent,
     ModalVariationsProductComponent,
     ModalProductBankComponent,
+    PreventWizardComponent,
     ModalWarningComponent,
     SideCategoriesComponent
   ],

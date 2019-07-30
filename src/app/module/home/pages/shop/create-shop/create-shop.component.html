@@ -29,7 +29,12 @@
           </div>
         </div>
         <div *ngIf="id">
-          <tabset>
+          <tabset #staticTabs>
+            <tab (selectTab)="tabs['products'] = true" heading="Productos">
+              <div class="col-12 row p-0 m-0" *ngIf="tabs['products']">
+                <app-list-products class="w-100" [id]="id"></app-list-products>
+              </div>
+            </tab>
             <tab (selectTab)="tabs['dashboard'] = true" heading="Estadisticas">
               <div class="col-12 row p-0 m-0" *ngIf="tabs['dashboard']">
                 <div class="col-4 pl-0">
@@ -59,11 +64,6 @@
                 </div>
               </div>
             </tab>
-            <tab (selectTab)="tabs['products'] = true" heading="Productos">
-              <div class="col-12 row p-0 m-0" *ngIf="tabs['products']">
-                <app-list-products class="w-100" [id]="id"></app-list-products>
-              </div>
-            </tab>
             <tab (selectTab)="tabs['information'] = true" heading="Informacion">
               <div class="col-12" *ngIf="tabs['information']">
                 <app-info-shop [data_inside]="data_inside" [id]="id" class="block-dashboard mb-2 col-12 p-0">
@@ -71,7 +71,7 @@
               </div>
             </tab>
             <tab (selectTab)="tabs['schedule'] = true" heading="Horario">
-              <div class="col-8 offset-2" *ngIf="tabs['schedule']">
+              <div class="col-12" *ngIf="tabs['schedule']">
                 <app-schedules-shop [id]="id" class="block-dashboard mb-2 col-12 p-0">
                 </app-schedules-shop>
               </div>
