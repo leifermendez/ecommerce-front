@@ -4500,7 +4500,7 @@ ul.pdt-list li.item a img.image-hover {
 
 .CollectionGrid-tileName {
   color: #090809;
-  font-weight: 600;
+  font-weight: 300;
   /* opacity: .6; */
   padding: 12px 0px;
 }
@@ -5397,7 +5397,7 @@ text-transform: uppercase
 
 .best-pro .new_title h2 {
   color: #2b2b2b;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0px;
   padding: 15px 0px 0px 0px;
@@ -15790,6 +15790,17 @@ app-single .description p {
   background: rgba(247, 247, 247, 0.8);
   padding: 0px 5px;
   border-radius: 3px;
+
+}
+.item .ngx-gallery-arrow-wrapper {
+  opacity: .1;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+.item:hover .ngx-gallery-arrow-wrapper {
+opacity: 1 !important;
 }
 
 .slider-items-products .ngx-gallery-arrow.ngx-gallery-disabled {

@@ -3,6 +3,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {animate, style, transition, trigger} from '@angular/animations';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-box-shops',
@@ -26,8 +27,16 @@ export class BoxShopsComponent implements OnInit {
   public data: any = [];
   public optionsOws: any;
   public loading = false;
+  public computer: any = false;
+  public mobile: any = false;
+  public tablet: any = false;
 
-  constructor(private rest: RestService, private util: UtilsService) {
+  constructor(private rest: RestService, private util: UtilsService,
+    private deviceService: DeviceDetectorService) {
+    this.computer = this.deviceService.isDesktop();
+    this.mobile = this.deviceService.isMobile();
+    this.tablet = this.deviceService.isTablet();
+
     util.getLocation.subscribe(data => {
       this.loadData();
     });
@@ -42,6 +51,8 @@ export class BoxShopsComponent implements OnInit {
       margin: 5,
       autoWidth: true,
     };
+
+    this.loadData();
   }
 
   loadData = () => {

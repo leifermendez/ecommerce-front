@@ -11,6 +11,7 @@ import {AuthshopService} from '../../../../auth/authshop.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalShoppingComponent} from '../../../components/modal-shopping/modal-shopping.component';
 import {animate, style, transition, trigger} from '@angular/animations';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 @Component({
@@ -45,11 +46,15 @@ export class BoxFeaturedProductComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   modalRef: BsModalRef;
+  public computer: any = false;
+  public mobile: any = false;
+  public tablet: any = false;
 
   constructor(private rest: RestService, intl: TimeagoIntl,
               private util: UtilsService,
               private auth: AuthshopService,
               private shopping: ShoppingCartComponent,
+              private deviceService: DeviceDetectorService,
               private modalService: BsModalService) {
     intl.strings = englishStrings;
     intl.changes.next();
@@ -60,6 +65,10 @@ export class BoxFeaturedProductComponent implements OnInit {
     util.getLocation.subscribe(data => {
       this.loadData();
     });
+
+    this.computer = this.deviceService.isDesktop();
+    this.mobile = this.deviceService.isMobile();
+    this.tablet = this.deviceService.isTablet();
   }
 
   timeAgoNext = (minutes = 0) => {
@@ -140,10 +149,13 @@ export class BoxFeaturedProductComponent implements OnInit {
         width: this.w,
         height: this.h,
         thumbnails: false,
+        imageAutoPlay: !(this.computer),
+        imageAutoPlayInterval:5000,
+        imageInfinityMove:true,
         'preview': false,
         'arrowPrevIcon': 'fa fa-angle-left',
         'arrowNextIcon': 'fa fa-angle-right',
-        imageAnimation: NgxGalleryAnimation.Slide
+        imageAnimation: NgxGalleryAnimation.Fade
       },
       // max-width 800
       {'breakpoint': 500, 'width': '100%', 'height': '200px'}

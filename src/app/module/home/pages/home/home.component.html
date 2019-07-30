@@ -16,25 +16,25 @@
   [title]="'Productos destacados'">
 </app-box-featured-product>
   <!-- best Pro Slider -->
+    <!-- best Pro Slider -->
+    <app-box-featured-product 
+    class="container d-block p-0 mt-4 mb-4"
+    [w]="'260px'"
+    [items]="4"
+    [limit]="5"
+    [title]="'Productos recomendados'">
+  </app-box-featured-product>
+    <!-- best Pro Slider -->
 
   <!--Category slider Start-->
   <app-box-shops id='official-shops' class="mt-4 mb-4 d-block"></app-box-shops>
   <!--Category silder End-->
 
-  <!-- best Pro Slider -->
-  <app-box-featured-product 
-  class="container d-block p-0 mt-4 mb-4"
-  [w]="'260px'"
-  [items]="4"
-  [limit]="5"
-  [title]="'Productos recomendados'">
-</app-box-featured-product>
-  <!-- best Pro Slider -->
-
   <!--Category slider Start-->
-  <app-side-categories *ngIf="computer" [search]="false" id='myanchor' class="mt-4 mb-4 d-block">
+  <app-side-categories [search]="false" id='myanchor' class="mt-4 mb-4 d-block">
   </app-side-categories>
-  <app-box-categories *ngIf="mobile" id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>
+  <!--   <app-box-categories *ngIf="mobile" id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>-->
+
   <!--Category silder End-->
 
 <!--  <app-box-blog></app-box-blog>-->

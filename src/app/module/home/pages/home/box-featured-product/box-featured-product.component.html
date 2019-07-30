@@ -31,7 +31,8 @@
           [options]="optionsOws"
           [items]="data"
           [carouselClasses]="['owl-theme', 'sliding']">
-          <div class="item" *ngFor="let dat of data; let i = index">
+          <div class="item"  [routerLink]="(!computer) ? ['/','single',util.slug(dat['name'])+'-'+dat['id']] : []" 
+          *ngFor="let dat of data; let i = index">
             <div
               *ngIf="dat &&  dat['is_avaiclocklable'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
@@ -82,13 +83,16 @@
                           {{dat['shop_name']|  words : 4 }}
                         </a>
                       </small>
-                      <div class="item-content d-flex">
-                        <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
-                                   customPadding="2px" color="#FFC400"></ngx-stars>
-                        <span class="text-muted">({{dat['score_shop']['count']}})</span>
+                      <div class="starts">
+                          <div class="item-content d-flex">
+                              <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
+                                         customPadding="2px" color="#FFC400"></ngx-stars>
+                              <span class="text-muted">({{dat['score_shop']['count']}})</span>
+                            </div>
                       </div>
+                   
                       <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
-                        <div class="d-flex"
+                        <div [ngClass]="{'d-flex':!(mobile)}"
                              *ngIf="dat['variations'] && (dat['variations']['length']>1)">
                           <div class="price-normal">
                                   <span class="item-price-amount">Desde
@@ -102,7 +106,7 @@
                           </div>
                         </div>
 
-                        <div class="d-flex"
+                        <div [ngClass]="{'d-flex':!(mobile)}"
                              *ngIf="dat['variations'] && (dat['variations']['length']===1)">
                           <div class="price-normal">
                                     <span class="item-price-amount">
