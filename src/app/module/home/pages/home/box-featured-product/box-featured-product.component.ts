@@ -58,7 +58,6 @@ export class BoxFeaturedProductComponent implements OnInit {
     });
 
     util.getLocation.subscribe(data => {
-
       this.loadData();
     });
   }

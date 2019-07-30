@@ -5742,6 +5742,9 @@ text-transform: uppercase
   cursor: pointer;
 }
 
+.not-results{
+  min-height: 15rem;
+}
 
 .col-item a.thumb:hover {
   border-color: #999;

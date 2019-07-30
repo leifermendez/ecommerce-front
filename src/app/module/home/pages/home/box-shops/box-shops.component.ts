@@ -11,11 +11,11 @@ import {animate, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        style({transform: 'translateY(-20%)', opacity: '0'}),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
       ])
     ])
   ]
@@ -23,11 +23,14 @@ import {animate, style, transition, trigger} from '@angular/animations';
 export class BoxShopsComponent implements OnInit {
   @ViewChild('owlCategories') owlElement: OwlCarousel;
   @Input() items: any = 4;
-  public data: any;
+  public data: any = [];
   public optionsOws: any;
   public loading = false;
 
   constructor(private rest: RestService, private util: UtilsService) {
+    util.getLocation.subscribe(data => {
+      this.loadData();
+    });
   }
 
   ngOnInit() {
@@ -39,18 +42,20 @@ export class BoxShopsComponent implements OnInit {
       margin: 5,
       autoWidth: true,
     };
+  }
+
+  loadData = () => {
     this.loading = true;
-    this.data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    this.rest.get('/rest/shop')
+    this.rest.get(`/rest/shop?timestamp=${Date.now()}`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
 
           response = response['data'];
           this.data = response['data'];
-          console.log(this.data);
+          console.log('--', this.data);
         }
       });
-  }
+  };
 
 }

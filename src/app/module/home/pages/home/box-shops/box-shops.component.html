@@ -1,12 +1,11 @@
 <div @tijl class="CollectionGrid-container category-box">
-  <div class="best-pro slider-items-products container">
-    <div class="new_title">
+  <div class="best-pro slider-items-products container ">
+    <div class="new_title mb-4">
       <h2>{{"box_shops.title" | translate}}</h2>
     </div>
-    <div class="CollectionGrid container">
+    <div *ngIf="data && data.length" class="CollectionGrid container ">
       <owl-carousel
         #owlCategories
-        *ngIf="data && data.length"
         [options]="optionsOws"
         [items]="data"
         [carouselClasses]="['owl-theme', 'sliding']">
@@ -23,6 +22,16 @@
         </div>
       </owl-carousel>
 
+    </div>
+    <div *ngIf="data && !data.length" class="product-flexslider hidden-buttons bg-white">
+      <div class="not-results text-lg-center p-4">
+
+        <div class="pt-4">
+          <img class="mr-3" src="../../../../../../assets/images/loupe.svg" width="30" height="30px" alt="">
+          <span class="title">{{"box_featured.product.not_found" |translate}}</span>
+          <p class="text-muted">{{"box_featured.product.post" | translate}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
