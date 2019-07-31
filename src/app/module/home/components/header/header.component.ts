@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostBinding, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
@@ -11,21 +11,9 @@ import {SideCategoriesComponent} from '../side-categories/side-categories.compon
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {fromEvent} from 'rxjs';
-import {distinctUntilChanged, filter, map, pairwise, share, throttleTime} from 'rxjs/operators';
 
 
 declare var $: any;
-
-enum VisibilityState {
-  Visible = 'visible',
-  Hidden = 'hidden'
-}
-
-enum Direction {
-  Up = 'Up',
-  Down = 'Down'
-}
 
 @Component({
   selector: 'app-header',
@@ -49,26 +37,12 @@ enum Direction {
       transition(':leave', [
         animate(100, style({transform: 'translateY(-20%)', opacity: '1'}))
       ])
-    ]),
-    trigger('toggle', [
-      state(
-        VisibilityState.Hidden,
-        style({opacity: 0, transform: 'translateY(-100%)'})
-      ),
-      state(
-        VisibilityState.Visible,
-        style({opacity: 1, transform: 'translateY(0)'})
-      ),
-      transition('* => *', animate('200ms ease-in'))
     ])
   ]
 })
 
-export class HeaderComponent implements OnInit, AfterViewInit {
-  private isVisible = true;
+export class HeaderComponent implements OnInit {
   public location: any = null;
-  private lat: any = null;
-  private lng: any = null;
   public computer: any;
   public mobile: any;
   public tablet: any;
@@ -77,6 +51,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public fullMenu = false;
   public user_data: any = null;
   public number_items = 0;
+  private lat: any = null;
+  private lng: any = null;
   public modeOffset: any = false;
   public modeFocus: any = false;
   public animationBell: any = false;
@@ -188,31 +164,4 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     });
   }
 
-
-  @HostBinding('@toggle')
-  get toggle(): VisibilityState {
-    return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
-  }
-
-  ngAfterViewInit() {
-    const scroll$ = fromEvent(window, 'scroll').pipe(
-      throttleTime(10),
-      map(() => window.pageYOffset),
-      pairwise(),
-      map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),
-      distinctUntilChanged(),
-      share()
-    );
-
-    const scrollUp$ = scroll$.pipe(
-      filter(direction => direction === Direction.Up)
-    );
-
-    const scrollDown = scroll$.pipe(
-      filter(direction => direction === Direction.Down)
-    );
-
-    scrollUp$.subscribe(() => (this.isVisible = true));
-    scrollDown.subscribe(() => (this.isVisible = false));
-  }
 }
