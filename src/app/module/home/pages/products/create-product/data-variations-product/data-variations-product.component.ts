@@ -68,13 +68,6 @@ export class DataVariationsProductComponent implements OnInit {
     }, 250);
   }
 
-  dropzoneApiCallback = (a) => this.apiDropzone = a;
-
-  addMedia = (a) => {
-    this.loading_save = false;
-    this.editform['attached_id'] = a;
-    this.save_variation();
-  };
 
   emitBack = () => this.ngOnInit();
 
@@ -85,14 +78,15 @@ export class DataVariationsProductComponent implements OnInit {
     };
   };
 
-  open(data = null, i = null) {
+  open(categories = {}, data = null, i = null) {
     const initialState = {
       ignoreBackdropClick: false,
       emitBack: this.emitBack,
       setValue: this.setValue,
       index: i,
       product_id: this.id,
-      data
+      data,
+      categories
     };
 
     this.modalRef = this.modalService.show(

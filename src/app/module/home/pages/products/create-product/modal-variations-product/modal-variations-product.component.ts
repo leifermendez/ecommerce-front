@@ -13,6 +13,8 @@ export class ModalVariationsProductComponent implements OnInit {
   public editform: any = {};
   public form: any = FormGroup;
   public data: any = {};
+  public categories: any = {};
+  public data_attributes: {};
   public setValue: any;
   public emitBack: any;
   public index: any = null;
@@ -20,6 +22,7 @@ export class ModalVariationsProductComponent implements OnInit {
   public apiDropzone: any;
   public product_id: any;
   public enableOffer: any = false;
+  public loading = false;
 
   constructor(private fb: FormBuilder, private rest: RestService,
               public util: UtilsService,
@@ -41,6 +44,11 @@ export class ModalVariationsProductComponent implements OnInit {
     if (this.editform && (this.editform['price_regular'] > 0)) {
       this.enableOffer = true;
     }
+    console.log('--', this.categories);
+    if (this.categories && this.categories[0]) {
+      this.loadData(this.categories[0]['id']);
+    }
+
   }
 
   save = () => {
@@ -61,6 +69,21 @@ export class ModalVariationsProductComponent implements OnInit {
       })
       .catch(e => {
         console.log('ERRO');
+      });
+  };
+
+  loadData = (id) => {
+
+    this.loading = true;
+    this.rest.get(
+      `/rest/attributes-category?filters=category_attributes.category_id,=,${id}`)
+      .then((response: any) => {
+        if (response['status'] === 'success') {
+          this.loading = false;
+          if (response['data']) {
+            this.data_attributes = response['data']['data'];
+          }
+        }
       });
   };
 
