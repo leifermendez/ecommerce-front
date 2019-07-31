@@ -15,6 +15,24 @@
 </div>
 
 <section class="main-container col2-left-layout bounceInUp animated main-container-fixed">
+  <div *ngIf="!loading" class="second-nav">
+    <div class="d-flex justify-content-between">
+      <div class="p-2 text-left w-75">
+        <small>Enviar a <b>{{location?.name}}</b> {{location?.zip_code}}</small>
+      </div>
+      <div class="p-2 text-center w-25 border-right-solid" (click)="open()">
+        <img src="../../../../../assets/images/controls.svg" class="mr-2 border-solid-circle" width="15px"
+             alt="">
+        <small>Filtrar</small>
+      </div>
+    </div>
+    <!--    <small *ngIf="location">-->
+    <!--      <span class="cursor-pointer" (click)="openZip()">-->
+    <!--        <fa name="map-marker"></fa>-->
+    <!--        Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}-->
+    <!--      </span>-->
+    <!--    </small>-->
+  </div>
   <div class="container mt-2">
     <div class="breadcrumbs mb-2">
       <div class="container">
@@ -30,21 +48,22 @@
         </div>
       </div>
     </div>
-    <div class="row mt-4 mb-0 mr-0 ml-0">
-      <div class="col-sm-3 p-0">
+
+    <div class="row mb-0 mr-0 ml-0 ">
+      <div class="col-sm-2 p-0 sidebar-attribute">
         <div class="mt-0">
           <h4 class="font-weight-600" [hidden]="true">{{data['name']}}</h4>
           <div>
             <app-filter-attributes
               [loading]="loading"
-            (callbackCategory)="setVariable($event)"
-            (callbackAttr)="setAttribute($event)"
-            [filters]="filters">
+              (callbackCategory)="setVariable($event)"
+              (callbackAttr)="setAttribute($event)"
+              [filters]="filters">
             </app-filter-attributes>
           </div>
         </div>
       </div>
-      <div class="col-sm-9 p-0">
+      <div class="col-sm-10 p-0">
         <app-list-product-global
           [loading]="loading"
           (callback)="loadData()" [data]="data">

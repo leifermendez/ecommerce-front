@@ -78,7 +78,7 @@
 }
 
 .item:hover .item-img {
-  transform: translateY(2em);
+  transform: translateY(0em);
   -webkit-transition: -webkit-transform .3s ease-out;
 }
 
@@ -88,47 +88,62 @@
 }
 
 .item .box-buttons-top-product #btn-car {
-  display: none;
+  left: 0;
+  opacity: 0;
   position: absolute;
   z-index: 9;
   margin-left: 10px;
   margin-top: 10px;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
 }
 
 .item:hover .box-buttons-top-product #btn-car {
-  display: block;
-  -webkit-transition: -webkit-transform .3s ease-out;
+  opacity: 1;
 }
 
 .item:hover .bubble-shipping {
 
 }
 
+.badge-warning {
+  color: #2b2b2b !important;
+  padding: .2rem;
+  background-color: #ffe38f;
+}
+
+.slider-items-products .item {
+  padding-right: .2rem;
+}
+
 .item-info {
   text-align: left;
   border-top: solid 1px #f1f1f1;
-  padding-top: .7rem;
+  padding-top: .2rem;
 }
 
 .bubble-shipping {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   position: absolute;
   right: 10px;
-  margin-top: -30px;
+  margin-top: -25px;
   border-radius: 30px;
-  border: solid 1px #e6e6e6;
+  border: solid 1px #f1f1f1;
   background-image: url("../../../../../assets/images/delivery-truck-green.svg");
   background-position: center;
   background-size: 70%;
   background-repeat: no-repeat;
   background-color: white;
-  z-index: 9999;
+  z-index: 9;
 }
 
 .btn-add-cart-shopping {
-  border: solid 1px #e4e4e4;
+  border: solid 0px #e4e4e4;
   padding: .3rem .5rem .3rem .5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.22);
 }
 
 .btn-add-cart-shopping:hover {
@@ -193,7 +208,25 @@
   font-size: 1rem;
 }
 
-@media screen 
-  and (max-width: 450px) {
+.slider-items-products {
+  padding: 0 .3rem 0 .4rem;
+}
 
+@media screen
+and (max-width: 450px) {
+  .slider-items-products {
+    padding: 0 !important;
+  }
+
+  .item-price-amount, .euro-sign {
+    font-size: .8rem;
+  }
+
+  .item-title {
+    display: none;
+  }
+
+  .item-info {
+    min-height: 65px;
+  }
 }

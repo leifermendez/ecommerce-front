@@ -4084,8 +4084,7 @@ ul.pdt-list li.item a img.image-hover {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-  padding-left: 20px;
-  padding-bottom: 15px;
+  padding: 0 .4rem .2rem .4rem;
 }
 
 .products-grid .item .item-inner .item-info .info-inner .item-content .item-price {
@@ -4114,7 +4113,7 @@ ul.pdt-list li.item a img.image-hover {
 .products-grid .item .item-inner .item-info .info-inner .item-title {
   margin-bottom: 7px;
   padding-top: 20px;
-  font-size: 15px;
+  font-size: .8rem;
   white-space: nowrap;
   overflow: hidden;
   letter-spacing: 1px;

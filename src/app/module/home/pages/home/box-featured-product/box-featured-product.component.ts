@@ -11,7 +11,7 @@ import {AuthshopService} from '../../../../auth/authshop.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ModalShoppingComponent} from '../../../components/modal-shopping/modal-shopping.component';
 import {animate, style, transition, trigger} from '@angular/animations';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 
 @Component({
@@ -149,9 +149,9 @@ export class BoxFeaturedProductComponent implements OnInit {
         width: this.w,
         height: this.h,
         thumbnails: false,
-        imageAutoPlay: !(this.computer),
-        imageAutoPlayInterval:5000,
-        imageInfinityMove:true,
+        imageAutoPlay: false,
+        imageAutoPlayInterval: 5000,
+        imageInfinityMove: true,
         'preview': false,
         'arrowPrevIcon': 'fa fa-angle-left',
         'arrowNextIcon': 'fa fa-angle-right',

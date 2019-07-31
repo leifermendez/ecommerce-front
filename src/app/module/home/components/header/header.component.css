@@ -164,8 +164,12 @@
 }
 
 .border-solid-circle {
-  border: solid 1px #e4e4e4;
-  border-radius: 20px;
+  /*border: solid 1px #e4e4e4;*/
+  /*border-radius: 20px;*/
+}
+
+.border-right-solid{
+  border-left: solid 1px #efefef;
 }
 
 .menu-account {
@@ -387,7 +391,7 @@ header {
 
 /*MOBIL*/
 .header-mobile {
-  min-height: 87px;
+  min-height: 52px;
   position: fixed;
   width: 100%;
   top:0;
@@ -397,7 +401,7 @@ header {
 .header-mobile .first-nav {
   background-color: white;
   position: absolute;
-  height: 60%;
+  height: 100%;
   width: 100%;
   z-index: 999;
   border-bottom: solid 1px #f3f3f3;
@@ -501,7 +505,7 @@ header {
   background: white;
   position: absolute;
   width: 100%;
-  top: 3.3rem;
+  top: 3.25rem;
   z-index: 9999;
 }
 

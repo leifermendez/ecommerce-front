@@ -134,6 +134,11 @@
   padding-left: 0px;
 }
 
+.second-nav{
+  display: none;
+}
+
+
 .fontweight {
   font-weight: bold;
 }
@@ -146,5 +151,23 @@ li {
 
 @media screen 
   and (max-width: 450px) {
+  .breadcrumbs{
+    display: none;
+  }
 
+  .second-nav{
+    display: block;
+  }
+
+  .container{
+    padding-right: 0;
+    padding-left: .4rem;
+    padding-top: .1rem;
+  }
+
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
 }

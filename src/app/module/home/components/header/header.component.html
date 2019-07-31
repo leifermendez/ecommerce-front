@@ -220,14 +220,6 @@
       <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" alt="">
     </div>
   </div>
-  <div class="second-nav p-2">
-    <small *ngIf="location">
-      <span class="cursor-pointer" (click)="openZip()">
-        <fa name="map-marker"></fa>
-        Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
-      </span>
-    </small>
-  </div>
   <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">
     <div class="responsive-profile-block pt-2 pr-2 pl-2 pb-4">
       <div class="col-12 pt-2 pr-0 pl-0 row m-0">

@@ -4,6 +4,9 @@ import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ListProductStoreComponent} from '../store/listproduct/listproduct.component';
+import {ZipLocationComponent} from '../../components/zip-location/zip-location.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ModalFilterAttributesComponent} from '../../components/modal-filter-attributes/modal-filter-attributes.component';
 
 @Component({
   selector: 'app-search-page',
@@ -11,13 +14,21 @@ import {ListProductStoreComponent} from '../store/listproduct/listproduct.compon
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
+  public location: any = null;
+  private lat: any = null;
+  private lng: any = null;
   public loading = false;
   public filters: any = [];
   public data: any = [];
   public meta_key: any = [];
   public src: any = null;
+  modalRef: BsModalRef;
+  config = {
+    ignoreBackdropClick: true,
+    keyboard: false
+  };
   public queryParams: any = {
-    limit: 15,
+    limit: 16,
     all_filters: 'all',
     filters: {},
     pagination: 'all'
@@ -26,14 +37,39 @@ export class SearchPageComponent implements OnInit {
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
               private list: ListProductStoreComponent,
+              private modalService: BsModalService,
               private route: ActivatedRoute, private router: Router) {
 
+    util.getLocation.subscribe(data => {
+      this.location = data['zip_code'][0];
+      this.lat = data['customer_lat'];
+      this.lng = data['customer_lng'];
+    });
+  }
 
+
+  emitBack = () => this.ngOnInit();
+
+  open() {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      filters: this.filters
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalFilterAttributesComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal responsive'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
 
   ngOnInit() {
-
+    this.location = this.util.getZipCookie();
     // const src = this.route.snapshot.params.src;
     this.route.params.subscribe(routeParams => {
       const src = routeParams.src;
@@ -44,9 +80,7 @@ export class SearchPageComponent implements OnInit {
         this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
         this.loadData();
       });
-    })
-
-
+    });
   }
 
   setVariable = (a) => {

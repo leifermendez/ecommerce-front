@@ -9,9 +9,11 @@
 @media screen
 and (max-width: 450px) {
   .main-container-fixed {
-    margin-top: 85px !important;
+    margin-top: 50px !important;
   }
-
+  .sidebar-attribute{
+    display: none;
+  }
   .ngxImageZoomContainer {
     width: 100% !important;
   }
@@ -60,7 +62,7 @@ and (max-width: 450px) {
 
   .fullwidthabanner .nav-buttons {
     top: 4.5rem !important;
-    opacity: 1 !important;
+    opacity: .3 !important;
   }
 
   .CollectionGrid-container {

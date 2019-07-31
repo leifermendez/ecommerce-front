@@ -4,6 +4,8 @@ import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ListProductStoreComponent} from '../store/listproduct/listproduct.component';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ModalFilterAttributesComponent} from '../../components/modal-filter-attributes/modal-filter-attributes.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-search-page-category',
@@ -11,13 +13,21 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./search-page-category.component.css']
 })
 export class SearchPageCategoryComponent implements OnInit {
+  public location: any = null;
+  private lat: any = null;
+  private lng: any = null;
   public loading = false;
   public filters: any = [];
   public data: any = [];
   public meta_key: any = [];
   public id: any = null;
+  modalRef: BsModalRef;
+  config = {
+    ignoreBackdropClick: true,
+    keyboard: false
+  };
   public queryParams: any = {
-    limit: 15,
+    limit: 16,
     all_filters: 'all',
     filters: {},
     pagination: 'all'
@@ -27,13 +37,18 @@ export class SearchPageCategoryComponent implements OnInit {
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
               private list: ListProductStoreComponent,
+              private modalService: BsModalService,
               private route: ActivatedRoute, private router: Router) {
-
+    util.getLocation.subscribe(data => {
+      this.location = data['zip_code'][0];
+      this.lat = data['customer_lat'];
+      this.lng = data['customer_lng'];
+    });
 
   }
 
   ngOnInit() {
-
+    this.location = this.util.getZipCookie();
     this.route.params.subscribe(routeParams => {
       const id = routeParams.id;
       this.route.queryParams.subscribe(params => {
@@ -43,8 +58,25 @@ export class SearchPageCategoryComponent implements OnInit {
         this.loadData(id);
       });
     });
+  }
 
+  emitBack = () => this.ngOnInit();
 
+  open() {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      filters: this.filters
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalFilterAttributesComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal responsive'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
   setVariable = (a) => {

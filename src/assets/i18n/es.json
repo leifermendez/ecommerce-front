@@ -45,6 +45,7 @@
   "page.single.description": "Descripción",
   "page.single.shipping_time": "Si compras ahora, antes de 2 horas lo  recibirás",
   "global.payment_sentence": "El pago es seguro, sus coordenadas bancarias son encriptadas gracias al protocolo SSL.",
+  "modal.filter.title": "Filtrar por",
   "modal.initial.customer.title": "Soy cliente",
   "modal.initial.customer.button": "Continuar como cliente",
   "modal.initial.shop.title": "Soy un pequeño comercio",
