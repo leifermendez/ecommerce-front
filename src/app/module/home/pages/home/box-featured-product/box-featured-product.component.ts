@@ -154,8 +154,7 @@ export class BoxFeaturedProductComponent implements OnInit {
         imageInfinityMove: true,
         'preview': false,
         'arrowPrevIcon': 'fa fa-angle-left',
-        'arrowNextIcon': 'fa fa-angle-right',
-        imageAnimation: NgxGalleryAnimation.Fade
+        'arrowNextIcon': 'fa fa-angle-right'
       },
       // max-width 800
       {'breakpoint': 500, 'width': '100%', 'height': '200px'}

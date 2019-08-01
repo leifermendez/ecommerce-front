@@ -3948,6 +3948,7 @@ ul.pdt-list li.item a img.image-hover {
   transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
+  height: 250px;
 }
 
 .products-grid .item .item-inner .item-img .item-img-info a.product-image {
@@ -5473,6 +5474,7 @@ text-transform: uppercase
   transition: all 0.2s ease-out;
   position: relative;
   overflow: hidden;
+  height: 300px;
 
 }
 
@@ -15776,7 +15778,7 @@ app-single .description p {
 }
 
 .ngx-gallery-image {
-  background-size: contain !important;
+  background-size: cover !important;
 }
 
 .select-create-category .ng-dropdown-panel .scroll-host {
