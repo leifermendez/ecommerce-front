@@ -33,7 +33,8 @@ export class StoreprofileComponent implements OnInit {
   public queryParams: any = {
     limit: 16,
     all_filters: 'all',
-    filters: {}
+    filters: {},
+    with_variations: 'all'
   };
   public filters: any = {};
   public meta_key: any = [];

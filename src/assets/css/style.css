@@ -15779,6 +15779,10 @@ app-single .description p {
 
 .ngx-gallery-image {
   background-size: cover !important;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
 }
 
 .select-create-category .ng-dropdown-panel .scroll-host {
@@ -15806,6 +15810,11 @@ opacity: 1 !important;
 
 .slider-items-products .ngx-gallery-arrow.ngx-gallery-disabled {
   opacity: .2 !important;
+}
+
+.item-inner:hover .ngx-gallery-image {
+  /* opacity: .3; */
+  background-size: contain !important;
 }
 
 .list-variations .ng-select-container {

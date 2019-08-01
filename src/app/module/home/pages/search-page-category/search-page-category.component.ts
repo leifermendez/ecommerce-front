@@ -30,7 +30,8 @@ export class SearchPageCategoryComponent implements OnInit {
     limit: 16,
     all_filters: 'all',
     filters: {},
-    pagination: 'all'
+    pagination: 'all',
+    with_variations: 'all'
   };
 
 

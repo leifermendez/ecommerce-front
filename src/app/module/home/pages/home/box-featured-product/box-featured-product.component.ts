@@ -80,7 +80,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   loadData = () => {
 
     this.loading = true;
-    this.rest.get(`/rest/products?filters=products.status,=,available&limit=${this.limit}&timestamp=${Date.now()}`)
+    this.rest.get(`/rest/products?filters=products.status,=,available&with_variations=all&limit=${this.limit}&timestamp=${Date.now()}`)
       .then((response: any) => {
         console.log('change__', response);
         this.loading = false;
