@@ -37,6 +37,12 @@ export class UtilsService {
     }
   }
 
+  toParse = (a) => {
+    if (a && JSON.parse(a)) {
+      return JSON.parse(a);
+    }
+  };
+
   isEmpty(obj) {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {

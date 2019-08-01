@@ -16,7 +16,7 @@
             <span class="badge badge-info"
                   *ngIf="data['categories'] && data['categories']['name']">{{data['categories']['name']}}</span>
     </div>
-    <div *ngIf="data['variations']['item'].length" class="pl-2 pr-2 pt-1 pb-1">
+    <div *ngIf="data && data?.variations?.item?.length" class="pl-2 pr-2 pt-1 pb-1">
       <h6 *ngIf="data['variations']['item'].length > 1">
         Desde {{data['variations']['item'][0]['price_normal']| number:'1.2-2'}} {{"currency" | translate}}
       </h6>

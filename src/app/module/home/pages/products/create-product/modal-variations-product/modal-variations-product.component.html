@@ -26,14 +26,14 @@
                 <div class="form-group pl-0 col-6" [ngClass]="{'col-11':(!enableOffer), 'col-6':(enableOffer)}">
                   <label>Precio <span *ngIf="enableOffer" class="text-success">oferta</span></label>
                   <input type="number" formControlName="price_normal" class="form-control" min="0"
-                    [max]="(enableOffer) ? editform.price_regular : 'auto'" [(ngModel)]="editform.price_normal"
-                    placeholder="100">
+                         [max]="(enableOffer) ? editform.price_regular : 'auto'" [(ngModel)]="editform.price_normal"
+                         placeholder="100">
                 </div>
                 <div class="form-group pl-0 col-5" [hidden]="!enableOffer">
                   <label>Precio habitual</label>
                   <input type="number" formControlName="price_regular" class="form-control"
-                    [(ngModel)]="editform.price_regular" [min]="(enableOffer) ? editform.price_normal : 'auto'"
-                    placeholder="150">
+                         [(ngModel)]="editform.price_regular" [min]="(enableOffer) ? editform.price_normal : 'auto'"
+                         placeholder="150">
                 </div>
                 <div class="form-group p-0 text-center col-1">
                   <small>En oferta</small>
@@ -42,53 +42,19 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Etiqueta</label>
-                <input type="text" formControlName="label" class="form-control" [(ngModel)]="editform.label"
-                  placeholder="Talla Media, Potencia, Color, Modelo...">
-              </div>
-              <div class="d-flex">
-                <div class="col-3 pl-0 form-group">
-                  <label>Peso (gr)</label>
-                  <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.weight"
-                    placeholder="0gr">
-                </div>
-                <div class="col-3 pl-0 form-group">
-                  <label>Ancho (cm)</label>
-                  <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.width"
-                    placeholder="0cm">
-                </div>
-                <div class="col-3 pl-0 form-group">
-                  <label>Altura (cm)</label>
-                  <input type="text" formControlName="height" class="form-control" [(ngModel)]="editform.height"
-                    placeholder="0cm">
-                </div>
-                <div class="col-3 pl-0 form-group">
-                  <label>Profundidad (cm)</label>
-                  <input type="text" formControlName="length" class="form-control" [(ngModel)]="editform.length"
-                    placeholder="0cm">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Observacion</label>
-                <input type="text" formControlName="observation" class="form-control" [(ngModel)]="editform.observation"
-                  placeholder="Edicion especial color rojo">
-
-              </div>
-
             </div>
-            <div class="col-3 p-2 over-img" *ngIf="editform && editform['attacheds_small']">
-              <div class="d-flex m-1 position-absolute buttons-options">
-                <button class="btn btn-link bg-transparent" (click)="open(editform['attached_id'])" type="button">
-                  <fa name="edit"></fa>
-                </button>
-                <button class="ml-1 btn btn-link bg-transparent pull-left"
-                  (click)="confirmDelete(editform['attached_id'])" type="button">
-                  <fa name="trash"></fa>
-                </button>
-              </div>
-              <img class="gallery-image" [src]="editform['attacheds_small']" alt="">
-            </div>
+            <!--            <div class="col-3 p-2 over-img" *ngIf="editform && editform['attacheds_small']">-->
+            <!--              <div class="d-flex m-1 position-absolute buttons-options">-->
+            <!--                <button class="btn btn-link bg-transparent" (click)="open(editform['attached_id'])" type="button">-->
+            <!--                  <fa name="edit"></fa>-->
+            <!--                </button>-->
+            <!--                <button class="ml-1 btn btn-link bg-transparent pull-left"-->
+            <!--                  (click)="confirmDelete(editform['attached_id'])" type="button">-->
+            <!--                  <fa name="trash"></fa>-->
+            <!--                </button>-->
+            <!--              </div>-->
+            <!--              <img class="gallery-image" [src]="editform['attacheds_small']" alt="">-->
+            <!--            </div>-->
             <!--
             <app-data-gallery-product-variation
               *ngIf="editform && !editform['attacheds_small']"
@@ -103,11 +69,57 @@
         </tab>
         <tab heading="Variantes de producto">
           <div class="modal-body">
-            <div *ngFor="let a of data_attributes" class="form-group">
-              <label>{{a['attributes_name']}}</label>
-              <input [type]="a['attributes_element_type']"
-              class="form-control" [ngModelOptions]="{standalone: true}" 
-              [(ngModel)]="editform['attributes_values']['attr_'+a['attributes_id']]">
+            <div class="form-group">
+              <label>SKU</label>
+              <input type="text" formControlName="label" class="form-control" [(ngModel)]="editform.label"
+                     placeholder="Talla Media, Potencia, Color, Modelo...">
+            </div>
+            <div class="d-flex">
+              <div *ngFor="let a of data_attributes" class="col-3 pl-0 form-group">
+                <label>{{a['attributes_name']}}</label>
+                <select class="form-control"
+                        [ngModelOptions]="{standalone: true}"
+                        *ngIf="a['attributes_element_type'] === 'select'"
+                        [(ngModel)]="editform['attributes_values_tmp']['attr_'+a['attributes_id']]">
+                  <option class="form-control"
+                          *ngFor="let operator of util.toParse(a['values_attributes']); let i = index;"
+                          [selected]="operator===editform['attributes_values_tmp']['attr_'+a['attributes_id']]">
+                    {{operator}}
+                  </option>
+                </select>
+
+                <input [type]="a['attributes_element_type']"
+                       *ngIf="a['attributes_element_type'] !== 'select'"
+                       class="form-control" [ngModelOptions]="{standalone: true}"
+                       [(ngModel)]="editform['attributes_values_tmp']['attr_'+a['attributes_id']]">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="col-3 pl-0 form-group">
+                <label>Peso (gr)</label>
+                <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.weight"
+                       placeholder="0gr">
+              </div>
+              <div class="col-3 pl-0 form-group">
+                <label>Ancho (cm)</label>
+                <input type="text" formControlName="weight" class="form-control" [(ngModel)]="editform.width"
+                       placeholder="0cm">
+              </div>
+              <div class="col-3 pl-0 form-group">
+                <label>Altura (cm)</label>
+                <input type="text" formControlName="height" class="form-control" [(ngModel)]="editform.height"
+                       placeholder="0cm">
+              </div>
+              <div class="col-3 pl-0 form-group">
+                <label>Profundidad (cm)</label>
+                <input type="text" formControlName="length" class="form-control" [(ngModel)]="editform.length"
+                       placeholder="0cm">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Observacion</label>
+              <input type="text" formControlName="observation" class="form-control" [(ngModel)]="editform.observation"
+                     placeholder="Edicion especial color rojo">
             </div>
           </div>
         </tab>

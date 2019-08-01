@@ -82,19 +82,19 @@
 }
 
 .bubble-shipping {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   position: absolute;
   right: 10px;
-  margin-top: -30px;
+  margin-top: -25px;
   border-radius: 30px;
-  border: solid 1px #e6e6e6;
+  border: solid 1px #f1f1f1;
   background-image: url("../../../../../../assets/images/delivery-truck-green.svg");
   background-position: center;
   background-size: 70%;
   background-repeat: no-repeat;
   background-color: white;
-  z-index: 9999;
+  z-index: 9;
 }
 
 .btn-add-cart-shopping {
@@ -163,11 +163,11 @@
 @media screen
 and (max-width: 450px) {
 
-  .price-regular{
+  .price-regular {
     padding-left: 0px;
     margin-left: 0px;
   }
-  
+
   .new_title h2 {
     padding: 0 0 0 .6rem !important;
     font-size: 1rem;
@@ -179,8 +179,9 @@ and (max-width: 450px) {
     margin-top: 0px !important;
   }
 
-  .item-price-amount {
+  .item-price-amount, .euro-sign {
     font-weight: 400;
+    font-size: .8rem;
   }
 
   .name-product, .starts {
@@ -198,6 +199,9 @@ and (max-width: 450px) {
     text-overflow: ellipsis;
   }
 
+  .item-info{
+    min-height: 65px;
+  }
   .CollectionGrid-tile {
     width: 100% !important;
   }

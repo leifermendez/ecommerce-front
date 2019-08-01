@@ -46,17 +46,18 @@
 
   <div *ngIf="!loading" class="card block-dashboard">
     <div>
-      <div *ngIf="list_variations && !list_variations['item'].length" class="text-center pb-4">
+      <div *ngIf="list_variations && !list_variations?.length" class="text-center pb-4">
         <img src="../../../../../../../assets/images/price-tag.svg" class="mt-4" width="100px" alt="">
         <div class="mt-2">
           <p class="text-muted cursor-pointer">Aun no tienes variaciones <br>
-            <b class="text-dark" (click)="open(data_product?.categories)">Agregar</b></p>
+
+            <b class="text-dark" (click)="open(list_variations)">Agregar</b></p>
         </div>
       </div>
     </div>
-    <table *ngIf="list_variations && list_variations['item'].length" class="table table-shipment">
+    <table class="table table-shipment">
       <tbody>
-      <ng-container>
+      <ng-container *ngIf="list_variations?.length">
         <tr class="list-table-item active cursor-pointer">
           <td>
             <div>
@@ -70,14 +71,14 @@
 
           </td>
           <td [style.width]="'150px'" class="text-right">
-            <button (click)="open(data_product?.categories)" class="btn btn-primary btn-sm mr-1">
+            <button (click)="open(list_variations)" class="btn btn-primary btn-sm mr-1">
               <fa name="plus"></fa>
             </button>
 
           </td>
         </tr>
       </ng-container>
-      <ng-container *ngFor="let dat of list_variations['item'];let i = index">
+      <ng-container *ngFor="let dat of list_variations;let i = index">
         <tr *ngIf="dat['status']!=='delete'" class="list-table-item cursor-pointer">
 
           <td>
@@ -91,10 +92,11 @@
 
           <td class="text-right" [style.width]="'250px'">
             <h6>{{dat['price_normal'] |number:'1.2-2'}} {{"currency" | translate}}</h6>
-            <del class="text-muted">{{dat['price_regular'] |number:'1.2-2'}} {{"currency" | translate}}</del>
+            <del class="text-muted"
+                 *ngIf="dat['price_regular']">{{dat['price_regular'] |number:'1.2-2'}} {{"currency" | translate}}</del>
           </td>
           <td [style.width]="'150px'" class="text-right">
-            <button (click)="open(data_product?.categories, dat, i)" class="btn btn-link btn-sm mr-1">
+            <button (click)="open(list_variations, dat, i)" class="btn btn-link btn-sm mr-1">
               <fa name="edit"></fa>
             </button>
             <button class="btn btn-link btn-sm" (click)="deleteProduct(dat, i)">

@@ -97,7 +97,7 @@
                           <div class="price-normal">
                                   <span class="item-price-amount">Desde
                                     {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
-                                    <span class="euro-sign">€</span></span>
+                                    <span class="euro-sign">{{"currency" |translate}}</span></span>
                           </div>
                           <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
                                   <span class="item-price-amount text-muted">
@@ -111,7 +111,7 @@
                           <div class="price-normal">
                                     <span class="item-price-amount">
                                         {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
-                                      <span class="euro-sign">€</span></span>
+                                      <span class="euro-sign">{{"currency" |translate}}</span></span>
                           </div>
                           <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
                                     <span class="item-price-amount text-muted">

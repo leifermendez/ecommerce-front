@@ -29,9 +29,7 @@ export class DataVariationsProductComponent implements OnInit {
   public apiDropzone: any;
   public editform: any = {};
   public loading_save = false;
-  public list_variations: any = {
-    item: []
-  };
+  public list_variations: any = [];
 
   constructor(private rest: RestService, private fb: FormBuilder,
               private router: Router,
@@ -102,11 +100,11 @@ export class DataVariationsProductComponent implements OnInit {
   reset = () => this.apiDropzone.dropzone.reset();
 
   loadData = () => {
-    this.rest.get(`/rest/products/${this.id}`)
+    this.rest.get(`/rest/products-variations?filters=variation_products.product_id,=,${this.id}&limit=100`)
       .then((response: any) => {
         if (response['status'] === 'success') {
-          this.data_product = response['data'];
-          this.list_variations = this.data_product['variations'];
+          this.list_variations = response['data']['data'];
+          console.log('--->', this.list_variations);
           if (this.list_variations.length) {
             this.utils.previewP.emit({variations: this.list_variations});
           } else {

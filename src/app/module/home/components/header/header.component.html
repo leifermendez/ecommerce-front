@@ -223,7 +223,7 @@
   <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">
     <div class="responsive-profile-block pt-2 pr-2 pl-2 pb-4">
       <div class="col-12 pt-2 pr-0 pl-0 row m-0">
-        <div class="col-3 p-0 text-center" (click)="menuResponsive = false"  [routerLink]="['/','profile']">
+        <div class="col-3 p-0 text-center" (click)="menuResponsive = false" [routerLink]="['/','profile']">
           <img
             [src]="(user_data)? user_data['avatar'] :'../../../../../assets/images/blank-profile-picture.png'"
             width="40px" alt="">
@@ -318,6 +318,18 @@
     </div>
     <div class="block-section pr-0 pl-0">
       <ul class="list-menu list-menu pt-2 pb-2">
+        <li (click)="menuResponsive = false;openZip()">
+          <div class="d-flex">
+            <div>
+              <img class="mega-menu-hover" src="../../../../../assets/images/marker.svg" width="20px" alt="">
+            </div>
+            <div class="ml-4">
+              <span
+                class="cursor-pointer">{{"menu.send_to" | translate}}
+                <b>{{location['name']}} {{location['zip_code']}}</b></span>
+            </div>
+          </div>
+        </li>
         <li (click)="menuResponsive = false">
           <div class="d-flex">
             <div>
