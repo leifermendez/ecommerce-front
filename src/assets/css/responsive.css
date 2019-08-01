@@ -30,6 +30,9 @@ and (max-width: 450px) {
   .modal-dialog.box-shadow-modal.responsive .modal-content {
     height: 100%;
   }
+  .products-grid .item .item-inner .item-img .item-img-info{
+    height: 160px !important;
+  }
 
   .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container,
   .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
