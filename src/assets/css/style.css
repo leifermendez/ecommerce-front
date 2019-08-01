@@ -15797,6 +15797,14 @@ app-single .description p {
   border-radius: 3px;
 
 }
+
+.badge-warning {
+  color: #2b2b2b !important;
+  padding: .2rem;
+  background-color: #ffe38f;
+}
+
+
 .item .ngx-gallery-arrow-wrapper {
   opacity: .1;
   -webkit-transition: .1s ease-in-out;

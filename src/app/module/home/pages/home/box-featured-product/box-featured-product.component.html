@@ -129,16 +129,15 @@
 
                       <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']===false)">
                         <div *ngIf="dat['is_available']['nextOpen']">
+                            <div>
+                                <span
+                                  tooltip="Disponible"
+                                  class="item-price-avalible-on">
+                                    <small class="time-ago-string badge badge-warning" timeago
+                                           [date]="timeAgoNext(dat['is_available']['minutes'])"></small>
 
-                          <div>
-                              <span
-                                tooltip="Disponible"
-                                class="item-price-avalible-on">
-                                  <span class="time-ago-string" timeago
-                                        [date]="timeAgoNext(dat['is_available']['minutes'])"></span>
-
-                              </span>
-                          </div>
+                                </span>
+                        </div>
                         </div>
                         <div *ngIf="!dat['is_available']['nextOpen']">
                             <span class="item-price-amount-unavailable text-muted">
