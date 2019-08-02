@@ -7784,6 +7784,12 @@ button.button.continue:before {
   right: 15px;
 }
 
+.ngx-gallery-arrow-right .ngx-gallery-arrow, .ngx-gallery-arrow-left .ngx-gallery-arrow {
+    width: 2rem !important;            
+    height: 2rem !important;   
+    text-align: center !important; 
+}
+
 #narrow-by-list2 dd {
   display: block !important;
 
