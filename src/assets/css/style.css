@@ -15784,7 +15784,7 @@ app-single .description p {
 }
 
 .ngx-gallery-image {
-  background-size: cover !important;
+  background-size: 100% !important;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
@@ -15833,10 +15833,10 @@ opacity: 1 !important;
 
 .item-inner:hover .ngx-gallery-image {
   /* opacity: .3; */
-  -webkit-transition: .1s ease-in-out;
-  -moz-transition: .1s ease-in-out;
-  -o-transition: .1s ease-in-out;
-  transition: .1s ease-in-out;
+  -webkit-transition: .1s ease-in-out !important;
+  -moz-transition: .1s ease-in-out !important;
+  -o-transition: .1s ease-in-out !important;
+  transition: .1s ease-in-out !important;
   background-size: 65% !important;
 }
 
@@ -15858,6 +15858,10 @@ opacity: 1 !important;
   height: 33px;
   object-fit: contain;
   margin-right: 10px;
+}
+
+.box-shadow-banner .fullwidthbanner-container{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12);
 }
 
 /* common */
