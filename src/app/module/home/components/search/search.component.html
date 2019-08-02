@@ -2,6 +2,7 @@
            bindLabel="name"
            bindValue="id"
            #select
+           highlightColor="#9575cd"
            (search)="search($event)"
            [ngModelOptions]="{standalone: true}"
            [clearable]="true"
@@ -17,23 +18,8 @@
            [ngModel]="src">
 
   <ng-template ng-option-tmp let-item="item" let-index="index">
-    <div style="width: 10%">
-      <div *ngIf="item.variations.item[0]">
-        <img height="50" width="50" onError="this.src='assets/images/nofound.png'"
-             [src]="item.variations.item[0].attacheds_small"/>
-      </div>
-    </div>
-    <div style="width: 90%">
-      {{item.name}} <br>
-      <div itemprop="aggregateRating" itemscope="">
-        <div class="rating">
-          <div class="ratings">
-            <div class="rating-box">
-              <div class="rating" style="width:50%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      {{item.name  | truncate : 25 :  '...'}}
     </div>
 
   </ng-template>

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {RestService} from '../../../../shared/services/rest.service';
-import {Router} from '@angular/router';
-import {NgSelectConfig} from '@ng-select/ng-select';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { RestService } from '../../../../shared/services/rest.service';
+import { Router } from '@angular/router';
+import { NgSelectConfig } from '@ng-select/ng-select';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -14,11 +14,15 @@ export class SearchComponent implements OnInit {
   datafilter = [];
   public form: any = FormGroup;
   public src: any = null;
+  public queryParams = {
+    limit: 5,
+    src: ''
+  }
 
   constructor(private rest: RestService,
-              private fb: FormBuilder,
-              private util: UtilsService,
-              private router: Router, private config: NgSelectConfig) {
+    private fb: FormBuilder,
+    private util: UtilsService,
+    private router: Router, private config: NgSelectConfig) {
     this.config.notFoundText = 'Sin resultado, asegurate de elegir la opción correcta.';
     this.form = fb.group({
       'src': '',
@@ -37,22 +41,23 @@ export class SearchComponent implements OnInit {
   selectOptions = (e) => {
     if (e && e['id']) {
       // this.src = {};
-      this.router.navigateByUrl(`/single/${e['id']}-${this.util.slug(e['name'])}`);
+      this.router.navigateByUrl(`/search/${encodeURI(this.src)}`);
     }
   };
 
   search(src: any) {
     this.src = src.term;
-    if (src.term.length > 4) {
-      // this.rest.get(`/rest/search?src=${src.term}`)
-      //   .then((response: any) => {
-      //     console.log(response);
-      //     if (response.data.products.length > 0) {
-      //       this.datafilter = response.data.products;
-      //     }
-      //   }).catch(error => {
-      //   console.log(error);
-      // });
+    console.log(this.src)
+    if (src.term.length > 2) {
+      this.queryParams['src'] = src.term;
+      this.rest.get(`/rest/suggestions`, this.queryParams)
+        .then((response: any) => {
+          if (response.data.length) {
+            this.datafilter = response.data;
+          }
+        }).catch(error => {
+          console.log(error);
+        });
     }
   }
 
