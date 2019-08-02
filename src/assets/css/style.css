@@ -15822,7 +15822,11 @@ opacity: 1 !important;
 
 .item-inner:hover .ngx-gallery-image {
   /* opacity: .3; */
-  background-size: contain !important;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  background-size: 65% !important;
 }
 
 .list-variations .ng-select-container {

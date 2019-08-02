@@ -49,6 +49,12 @@ export class BoxFeaturedProductComponent implements OnInit {
   public computer: any = false;
   public mobile: any = false;
   public tablet: any = false;
+  public queryParams: any = {
+    limit: 5,
+    all_filters: 'all',
+    pagination: 'all',
+    with_variations: 'all'
+  };
 
   constructor(private rest: RestService, intl: TimeagoIntl,
               private util: UtilsService,
@@ -80,13 +86,13 @@ export class BoxFeaturedProductComponent implements OnInit {
   loadData = () => {
 
     this.loading = true;
-    this.rest.get(`/rest/products?filters=products.status,=,available&with_variations=all&limit=${this.limit}&timestamp=${Date.now()}`)
+    this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {
         console.log('change__', response);
         this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];
-          this.data = response['items']['data'];
+          this.data = response['list']['data'];
         }
       });
   };
@@ -110,29 +116,6 @@ export class BoxFeaturedProductComponent implements OnInit {
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
   }
-
-  addProduct = (obj) => {
-    const _data = {
-      product_id: obj['id'],
-      product_variation_id: obj['variations']['item'][0]['id'],
-      shop_id: obj['shop_id']
-    };
-
-    this.loading_save = true;
-    this.shopping.add(_data)
-      .then(response => {
-        this.loading_save = false;
-        if (response['status'] === 'success') {
-          // this.util.refreshShopping.emit(response['data']);
-          this.util.openSnackBar('Articulo agregado', 'success');
-        }
-      }).catch(err => {
-      this.loading_save = false;
-      const msg = (err && err['error']) ? err['error'] : 'Debes iniciar session';
-      this.util.openSnackBar(msg, 'error');
-    });
-
-  };
 
   ngOnInit() {
     this.optionsOws = {

@@ -85,42 +85,42 @@
                       </small>
                       <div class="starts">
                           <div class="item-content d-flex">
-                              <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']['score']}}"
+                              <ngx-stars [readonly]="true" initialStars="{{dat['score_score']}}"
                                          customPadding="2px" color="#FFC400"></ngx-stars>
-                              <span class="text-muted">({{dat['score_shop']['count']}})</span>
+                              <span class="text-muted">({{dat['score_count']}})</span>
                             </div>
                       </div>
                    
                       <div *ngIf="dat['is_available'] && ( dat['is_available']['isAvailable']!==false)">
                         <div [ngClass]="{'d-flex':!(mobile)}"
-                             *ngIf="dat['variations'] && (dat['variations']['length']>1)">
+                             *ngIf="dat['variations'] && (dat?.variations?.length>1)">
                           <div class="price-normal">
                                   <span class="item-price-amount">Desde
-                                    {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
+                                    {{dat['variations'][0]['price_normal'] |number:'1.2-2'}}
                                     <span class="euro-sign">{{"currency" |translate}}</span></span>
                           </div>
-                          <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
+                          <div class="price-regular" *ngIf="dat['variations'][0]['price_regular']>0">
                                   <span class="item-price-amount text-muted">
-                                      {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
+                                      {{dat['variations'][0]['price_regular'] |number:'1.2-2'}}
                                       </span>
                           </div>
                         </div>
 
                         <div [ngClass]="{'d-flex':!(mobile)}"
-                             *ngIf="dat['variations'] && (dat['variations']['length']===1)">
+                             *ngIf="dat['variations'] && (dat?.variations?.length===1)">
                           <div class="price-normal">
                                     <span class="item-price-amount">
-                                        {{dat['variations']['item'][0]['price_normal'] |number:'1.2-2'}}
+                                        {{dat['variations'][0]['price_normal'] |number:'1.2-2'}}
                                       <span class="euro-sign">{{"currency" |translate}}</span></span>
                           </div>
-                          <div class="price-regular" *ngIf="dat['variations']['item'][0]['price_regular']>0">
+                          <div class="price-regular" *ngIf="dat['variations'][0]['price_regular']>0">
                                     <span class="item-price-amount text-muted">
-                                        {{dat['variations']['item'][0]['price_regular'] |number:'1.2-2'}}
+                                        {{dat['variations'][0]['price_regular'] |number:'1.2-2'}}
                                         </span>
                           </div>
                         </div>
 
-                        <div *ngIf="dat['variations'] && (dat['variations']['length']===0)">
+                        <div *ngIf="dat['variations'] && (dat?.variations?.length===0)">
                               <span class="item-price-amount-unavailable text-muted">
                                   <fa name="history"></fa>
                                No stock</span>
