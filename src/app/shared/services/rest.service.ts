@@ -13,8 +13,8 @@ export class RestService {
   location_zip = '';
   public lat = '';
   public lng = '';
-  //public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
-   public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
+  public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
+  //public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 
   constructor(public http: HttpClient,
               private router: Router,
@@ -24,7 +24,7 @@ export class RestService {
 
   }
 
-  getHeaders = () => {
+  getHeaders = (ignoreLoading = false) => {
     const _cookie_data = this.cookieService.get('_location_zip_code');
     this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
       JSON.parse(_cookie_data) : null;
@@ -34,15 +34,19 @@ export class RestService {
     this.lng = this.cookieService.get('customer_lng') ? this.cookieService.get('customer_lng') : null;
     const timezone = new Date().getTimezoneOffset();
     // @ts-ignore
-    this.headers = new HttpHeaders({
+    let _header = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'TIME-ZONE': `${timezone}`,
       'LOCATION-ZIP': (this.location_zip) ? this.location_zip : '',
       'LAT': (this.lat) ? this.lat : '',
       'LNG': (this.lng) ? this.lng : '',
-      'Authorization': `Bearer ${this.localtoken}`
-    });
+      'Authorization': `Bearer ${this.localtoken}`,
+    }
+    if(ignoreLoading){
+      _header['ignoreLoadingBar'] = '';
+    }
+    this.headers = new HttpHeaders(_header);
     return this.headers;
   };
 
@@ -71,8 +75,8 @@ export class RestService {
     }
   }
 
-  get(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+  get(endpoint: string, params?: IUrlParams, ignoreLoading: any = false): Promise<object> {
+    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders(ignoreLoading)}).toPromise());
   }
 
   post(endpoint: string, body: object, params?: IUrlParams): Promise<object> {

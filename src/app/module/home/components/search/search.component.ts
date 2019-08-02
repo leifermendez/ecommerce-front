@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit {
     console.log(this.src)
     if (src.term.length > 2) {
       this.queryParams['src'] = src.term;
-      this.rest.get(`/rest/suggestions`, this.queryParams)
+      this.rest.get(`/rest/suggestions`, this.queryParams ,true)
         .then((response: any) => {
           if (response.data.length) {
             this.datafilter = response.data;

@@ -38,6 +38,7 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {MiniGalleryProductComponent} from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {NgSelectModule} from '@ng-select/ng-select';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {CookieService} from 'ngx-cookie-service';
 import {ProfileComponent} from './module/home/pages/profile/profile.component';
@@ -272,6 +273,7 @@ export class MyIntl extends TimeagoIntl {
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgOptionHighlightModule,
     HttpClientModule,
     GooglePlaceModule,
     NgxDropzoneModule,

@@ -15798,6 +15798,11 @@ app-single .description p {
 
 }
 
+.highlighted{
+  color: #ce0100 !important;
+  font-weight: 800 !important;
+}
+
 .badge-warning {
   color: #2b2b2b !important;
   padding: .2rem;

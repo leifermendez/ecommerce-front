@@ -32,6 +32,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/platform-server": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@ng-select/ng-option-highlight": "0.0.2",
     "@ng-select/ng-select": "^2.20.0",
     "@ng-toolkit/universal": "^7.1.2",
     "@nguniversal/common": "0.0.0",

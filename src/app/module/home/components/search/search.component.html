@@ -1,26 +1,10 @@
-<ng-select [items]="datafilter"
-           bindLabel="name"
-           bindValue="id"
-           #select
-           highlightColor="#9575cd"
-           (search)="search($event)"
-           [ngModelOptions]="{standalone: true}"
-           [clearable]="true"
-           [openOnEnter]="false"
-           [clearOnBackspace]="false"
-           [searchable]="true"
-           [multiple]="false"
-           [virtualScroll]="true"
-           [closeOnSelect]="false"
-           (change)="selectOptions($event)"
-           (keydown.enter)="srcSend($event);select.close()"
-           placeholder="Buscar..."
-           [ngModel]="src">
-
-  <ng-template ng-option-tmp let-item="item" let-index="index">
-    <div>
-      {{item.name  | truncate : 25 :  '...'}}
-    </div>
-
+<ng-select [items]="datafilter" bindLabel="name" bindValue="id" #select highlightColor="#9575cd"
+  (search)="search($event)" [ngModelOptions]="{standalone: true}" [clearable]="true" [openOnEnter]="false"
+  [clearOnBackspace]="false" [searchable]="true" [multiple]="false" [virtualScroll]="true" [closeOnSelect]="false"
+  (change)="selectOptions($event)" (keydown.enter)="srcSend($event);select.close()" placeholder="Buscar..."
+  [ngModel]="src">
+  <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+    <b [ngOptionHighlight]="search">{{item.name  | truncate : 25 :  '...'}}</b>
   </ng-template>
+
 </ng-select>
