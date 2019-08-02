@@ -34,6 +34,7 @@ export class StoreprofileComponent implements OnInit {
     limit: 16,
     all_filters: 'all',
     filters: {},
+    pagination: 'all',
     with_variations: 'all'
   };
   public filters: any = {};
@@ -55,7 +56,7 @@ export class StoreprofileComponent implements OnInit {
     this.idparam = id.toString();
     this.route.queryParams.subscribe(params => {
       this.queryParams = {...this.queryParams, ...params};
-      this.queryParams['filters'] = (params['filters']) ? params['filters'] : '';
+      this.queryParams['filters'] = (params['filters']) ? params['filters'] : `shops.id,=,${this.idparam}`;
       this.queryParams['attributes_filter'] = (params['attributes_filter']) ? params['attributes_filter'] : '';
       this.loadData(this.idparam);
     });
@@ -106,7 +107,7 @@ export class StoreprofileComponent implements OnInit {
 
   loadData = (id = null) => {
     this.loading = true;
-    this.rest.get(`/rest/seller/${id}`, this.queryParams)
+    this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
