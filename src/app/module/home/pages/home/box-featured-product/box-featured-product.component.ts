@@ -5,6 +5,7 @@ import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-galle
 import {TimeagoIntl} from 'ngx-timeago';
 import {strings as englishStrings} from 'ngx-timeago/language-strings/es';
 import * as moment from 'moment';
+import {CookieService} from 'ngx-cookie-service';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../../components/shopping-cart/shopping-cart.component';
 import {AuthshopService} from '../../../../auth/authshop.service';
@@ -37,6 +38,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   @Input() h: any = '300px';
   @Input() items: any = 4;
   @Input() limit: any = 6;
+  @Input() relation: any = false;
   public data: any[];
   public optionsOws: any;
   public user_data: any = null;
@@ -59,6 +61,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   constructor(private rest: RestService, intl: TimeagoIntl,
               private util: UtilsService,
               private auth: AuthshopService,
+              private cookieService: CookieService,
               private shopping: ShoppingCartComponent,
               private deviceService: DeviceDetectorService,
               private modalService: BsModalService) {
@@ -166,6 +169,14 @@ export class BoxFeaturedProductComponent implements OnInit {
         big: 'https://via.placeholder.com/400'
       }
     ];
+
+    const _label = this.cookieService.get('_check_session_label');
+    const _label_exists = this.cookieService.get('_check_session_label_exists');
+
+    if(this.relation) {
+      this.queryParams['_check_session_label'] = _label;
+      this.queryParams['_check_session_label_exists'] = _label_exists;
+    }
 
     if (this.util.getZipCookie()) {
       this.loadData();

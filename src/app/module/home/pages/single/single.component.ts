@@ -4,11 +4,13 @@ import { RestService } from '../../../../shared/services/rest.service';
 import { UtilsService } from '../../../../shared/services/util.service';
 import { ShoppingCartComponent } from '../../components/shopping-cart/shopping-cart.component';
 import { ActivatedRoute } from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 import { DiscountNumberComponent } from '../../components/discount-number/discount-number.component';
 import { ModalShoppingComponent } from '../../components/modal-shopping/modal-shopping.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Title, Meta } from '@angular/platform-browser';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-single',
@@ -36,6 +38,8 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   ]
 })
 export class SingleComponent implements OnInit {
+  nowCookies = moment().add(15, 'days').toDate();
+  dayCookies = moment().add(1, 'days').toDate();
   @ViewChild('discountChild') discountChild: DiscountNumberComponent;
   data: any = {
     gallery: []
@@ -56,6 +60,7 @@ export class SingleComponent implements OnInit {
   constructor(private rest: RestService, private util: UtilsService,
     private shopping: ShoppingCartComponent,
     private route: ActivatedRoute,
+    private cookieService: CookieService,
     private meta: Meta,
     private titleService: Title,
     private modalService: BsModalService) {
@@ -127,23 +132,40 @@ export class SingleComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide
       }
     ];
+  
+  
   }
 
   changeCover = (a) => this.cover = a;
 
   loadData = (id) => {
     this.loading = true;
-    this.rest.get(`/rest/products/${id}`)
+    this.rest.get(`/rest/products/${id}?timestamp=${Date.now()}`)
       .then((response: any) => {
         this.loading = false;
         if (response.status === 'success') {
-          console.log('--->', response['data']['variations']);
           this.data = response.data;
           this.addTags(this.data);
           this.variation = response['data']['variations']['item'];
           this.selectedvariationName = response['data']['variations']['item'][0];
           this.cover = (response['data']['gallery'] && response['data']['gallery'].length)
             ? response['data']['gallery'][0] : null;
+
+          if(this.data && this.data.labels && this.data.labels['label']){
+            this.cookieService.set(
+              '_check_session_label',
+              this.data.labels['label'],
+              this.nowCookies,
+              '/');
+          }
+
+          if(this.data && this.data.labels){
+            this.cookieService.set(
+              '_check_session_label_exists',
+              this.data.labels['exists'],
+              this.dayCookies,
+              '/');
+          }
         }
       });
   };

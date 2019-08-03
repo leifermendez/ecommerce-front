@@ -201,8 +201,8 @@
         </div>
       </div>
     </div>
-    <div class="container p-0">
-      <app-box-featured-product id='offers'></app-box-featured-product>
+    <div class="container p-0" *ngIf="!loading">
+      <app-box-featured-product [relation]="true" id='offers'></app-box-featured-product>
     </div>
   </div>
   <div *ngIf="data && data.id" class="call-action-buy row m-0 container">
