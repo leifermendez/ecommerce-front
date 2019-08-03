@@ -15767,6 +15767,18 @@ app-single .description p {
   padding: 5px;
   min-height: 40px;
 }
+/*
+ALTER_
+.custom-select-search-item .ng-select-container {
+  border-radius: 5px !important;
+  border: solid 1px rgb(185, 44, 43) !important;
+}
+
+.custom-select-search-item .ng-arrow {
+  border-color: rgb(175, 0, 0) transparent transparent !important;
+}
+
+*/
 
 .select-create-product .ng-select-container, .select-create-category .ng-select-container {
   border-radius: 0px;
