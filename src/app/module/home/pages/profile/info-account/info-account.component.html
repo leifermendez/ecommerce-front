@@ -63,24 +63,30 @@
           </span>
           {{"block.profile.info.account.mobil" | translate}}</label>
         <label *ngIf="editform['confirmed']">{{"block.profile.info.account.mobil" | translate}}</label>
-        <input type="tel"
-               formControlName="phone" [(ngModel)]="editform['phone']" class="form-control"
-               placeholder="+34 Ingresa un numero de movil válido">
-        <small class="text-muted mt-2 ml-2 mr-2">
-          {{"block.profile.info.account.mobil.label" | translate}}
-        </small>
+
+        <input type="text"
+        ng2TelInput
+        class="form-control"
+        formControlName="phone"
+        [(ngModel)]="editform.phone"
+        [ng2TelInputOptions]="{initialCountry: 'es'}"
+        (hasError)="hasError($event)"
+        (ng2TelOutput)="getNumber($event)"
+        (intlTelInputObject)="telInputObject($event)"
+        (countryChange)="onCountryChange($event)" />
+        <small class="text-danger" 
+        *ngIf="editform['phone_valid']==false">
+            <span>Numero no valido</span>
+          </small>
       </div>
 
       <div *ngIf="waitCode" class="form-group">
-
-
-        <label>Código</label>
+        <label class="text-success">Código enviado</label>
         <input type="tel"
                [ngModelOptions]="{standalone: true}"
                [(ngModel)]="codeValidation" class="form-control"
                placeholder="Ingresa el codigo de verificacion enviado a tu movil">
-        <small class="text-muted mt-2 ml-2 mr-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-          tenetur.
+        <small class="text-muted mt-2 ml-2 mr-2">Ingresa el código enviado a tu movil
         </small>
       </div>
 

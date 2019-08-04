@@ -41,6 +41,19 @@ export class InfoAccountComponent implements OnInit {
     this.loadData(_data['id']);
   }
 
+  getNumber = (a) => {
+    this.editform[`phone`] = a;
+  }
+
+  telInputObject = (a) => {
+    console.log('-->',a)
+  }
+
+  hasError = (a) => {
+    this.editform[`phone_valid`] = a;
+  }
+
+  onCountryChange = (a) => console.log('--->',a)
 
   loadData = (id) => {
     this.loading = true;
@@ -57,6 +70,7 @@ export class InfoAccountComponent implements OnInit {
 
   saveData = () => {
     if (event) {
+      delete this.editform['phone_valid'];
       this.loading = true;
       event.preventDefault();
       this.rest.put(`/rest/user/me`, this.editform)
