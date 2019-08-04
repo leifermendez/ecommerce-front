@@ -15780,6 +15780,12 @@ ALTER_
 
 */
 
+.form-group .iti--allow-dropdown{
+  width: 100%;
+}
+.iti__country-list{
+  width: inherit !important;
+}
 .select-create-product .ng-select-container, .select-create-category .ng-select-container {
   border-radius: 0px;
   border: 0px !important;

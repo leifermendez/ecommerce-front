@@ -29,6 +29,7 @@
               "./node_modules/ngx-ui-switch/ui-switch.component.css",
               "./node_modules/pretty-checkbox/src/pretty-checkbox.scss",
               "./node_modules/ngx-datetime-picker/ngx-datetime-picker.css",
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css",
               "./node_modules/quill/dist/quill.core.css",
               "./node_modules/quill/dist/quill.snow.css",
               "src/assets/css/responsive.css",
@@ -51,7 +52,8 @@
               "src/assets/js/jquery.bxslider.min.js",
               "src/assets/js/owl.carousel.min.js",
               "./node_modules/owl.carousel/dist/owl.carousel.js",
-              "src/assets/js/jquery.mobile-menu.min.js"
+              "./node_modules/intl-tel-input/build/js/intlTelInput.min.js",
+              "src/assets/js/jquery.mobile-menu.min.js",
             ]
           },
           "configurations": {

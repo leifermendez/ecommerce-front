@@ -49,23 +49,40 @@
             {{"page.shop.corporate.email.label"|translate}}
         </small>
       </div>
-
       <div class="form-group">
         <label>{{"page.shop.phone.mobil" | translate}}</label>
-        <input type="text" formControlName="phone_mobil" class="form-control"
-               [(ngModel)]="editform.phone_mobil"
-               placeholder="Introduce telefono movil">
-
+        <input type="text"
+        ng2TelInput
+        class="form-control"
+        formControlName="phone_mobil"
+        [(ngModel)]="editform.phone_mobil"
+        [ng2TelInputOptions]="{initialCountry: 'es'}"
+        (hasError)="hasError('mobil',$event)"
+        (ng2TelOutput)="getNumber('mobil',$event)"
+        (intlTelInputObject)="telInputObject($event)"
+        (countryChange)="onCountryChange($event)" />
+        <small class="text-danger" 
+        *ngIf="editform['phone_mobil_valid']==false">
+            <span>Numero no valido</span>
+          </small>
       </div>
-
       <div class="form-group">
-        <label>{{"page.shop.phone.fixed" | translate}}</label>
-        <input type="text" formControlName="phone_fixed" class="form-control"
-               [(ngModel)]="editform.phone_fixed"
-               placeholder="Introduce telefono fijo">
-    
-      </div>
-
+          <label>{{"page.shop.phone.fixed" | translate}}</label>
+          <input type="text"
+          ng2TelInput
+          class="form-control"
+          formControlName="phone_fixed"
+          [(ngModel)]="editform.phone_fixed"
+          [ng2TelInputOptions]="{initialCountry: 'es'}"
+          (hasError)="hasError('fixed',$event)"
+          (ng2TelOutput)="getNumber('fixed',$event)"
+          (intlTelInputObject)="telInputObject($event)"
+          (countryChange)="onCountryChange($event)" />
+          <small class="text-danger" 
+          *ngIf="editform['phone_fixed_valid']==false">
+              <span>Numero no valido</span>
+            </small>
+        </div>
       <div class="form-group">
         <label>{{"page.shop.address" | translate}}</label>
         <input type="text" formControlName="address" class="form-control"

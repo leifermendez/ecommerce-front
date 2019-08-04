@@ -83,6 +83,20 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
     }
   };
 
+  getNumber = (e,a) => {
+    this.editform[`phone_${e}`] = a;
+  }
+
+  telInputObject = (a) => {
+    console.log('-->',a)
+  }
+
+  hasError = (e,a) => {
+    this.editform[`phone_${e}_valid`] = a;
+  }
+
+  onCountryChange = (a) => console.log('--->',a)
+
   clearImage = (type = null) => {
     if (type === 'cover') {
       this.editform['image_cover'] = null;
@@ -133,6 +147,9 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       delete this.editform['image_header_medium'];
       delete this.editform['image_cover_large'];
       delete this.editform['image_header_large'];
+      delete this.editform['prevent_check'];
+      delete this.editform['phone_fixed_valid'];
+      delete this.editform['phone_mobil_valid'];
 
       this.rest[method](`/rest/shop/${(this.id) ? this.id : ''}`,
         this.editform)

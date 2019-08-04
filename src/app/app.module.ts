@@ -20,6 +20,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
 import {ChartModule} from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
@@ -293,6 +294,7 @@ export class MyIntl extends TimeagoIntl {
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
     ClickOutsideModule,
+    Ng2TelInputModule,
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
