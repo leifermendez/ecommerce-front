@@ -26,49 +26,6 @@
   <div class="card block-dashboard border-0" *ngIf="!loading">
     <div class="col p-3">
       <div class="form-group">
-        <div class="">
-          <div class="row m-0">
-            <div class="col-3 p-0">
-              <label>{{"page.shop.logo"|translate}}</label>
-              <app-media-image-shop
-                *ngIf="editform && !editform['image_cover']"
-                (callback)="setMedia('cover',$event)">
-              </app-media-image-shop>
-              <div *ngIf="editform && editform['image_cover']">
-                <button type="button" (click)="clearImage('cover')"
-                        [disabled]="editform && !editform['image_header']"
-                        class="btn btn-default position-absolute m-2">
-                  <fa name="trash"></fa>
-                </button>
-                <img
-                  width="100px" height="100px" class="cover-image"
-                  [src]="editform['image_cover_medium']">
-
-              </div>
-            </div>
-            <div class="col-9 pr-0">
-              <label>{{"page.shop.banner"|translate}}</label>
-              <app-media-image-shop
-                *ngIf="editform && !editform['image_header']"
-                (callback)="setMedia('header',$event)">
-              </app-media-image-shop>
-              <div *ngIf="editform && editform['image_header']">
-                <button type="button" (click)="clearImage('header')"
-                        [disabled]="editform && !editform['image_cover']"
-                        class="btn btn-default position-absolute m-2">
-                  <fa name="trash"></fa>
-                </button>
-                <img
-                  width="100px" height="100px" class="cover-image"
-                  [src]="editform['image_header_medium']">
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
         <label>{{"page.shop.name"|translate}}</label>
         <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
                placeholder="¿Como es el nombre de tu tienda?">
@@ -114,6 +71,7 @@
         <input type="text" formControlName="address" class="form-control"
                [(ngModel)]="editform.address"
                readonly
+               (click)="editform.address = null;editform.zip_code = null"
                *ngIf="(editform.address)"
                placeholder="Introduce código postal">
         <input ngx-google-places-autocomplete
@@ -124,8 +82,9 @@
                [ngModel]="address_gp" [options]='optionsPlaces' #placesRef="ngx-places"
                placeholder="Direccion de la tienda"
                (onAddressChange)="handleAddressChange($event)"/>
-        <small class="text-muted mt-2 ml-2 mr-2 cursor-pointer">
-          <span (click)="editform.address = null">Cambiar</span>
+        <small *ngIf="(editform.address) && !(editform.zip_code)" 
+        class="text-danger mt-2 ml-2 mr-2 cursor-pointer">
+          <span>{{"modal.location.error1" | translate}}</span>
         </small>
       </div>
 
@@ -154,6 +113,50 @@
             {{"page.shop.metas.label" | translate}}
         </small>
       </div>
+
+      <div class="form-group">
+          <div class="">
+            <div class="row m-0">
+              <div class="col-3 p-0">
+                <label>{{"page.shop.logo"|translate}}</label>
+                <app-media-image-shop
+                  *ngIf="editform && !editform['image_cover']"
+                  (callback)="setMedia('cover',$event)">
+                </app-media-image-shop>
+                <div *ngIf="editform && editform['image_cover']">
+                  <button type="button" (click)="clearImage('cover')"
+                          [disabled]="editform && !editform['image_header']"
+                          class="btn btn-default position-absolute m-2">
+                    <fa name="trash"></fa>
+                  </button>
+                  <img
+                    width="100px" height="100px" class="cover-image"
+                    [src]="editform['image_cover_medium']">
+  
+                </div>
+              </div>
+              <div class="col-9 pr-0">
+                <label>{{"page.shop.banner"|translate}}</label>
+                <app-media-image-shop
+                  *ngIf="editform && !editform['image_header']"
+                  (callback)="setMedia('header',$event)">
+                </app-media-image-shop>
+                <div *ngIf="editform && editform['image_header']">
+                  <button type="button" (click)="clearImage('header')"
+                          [disabled]="editform && !editform['image_cover']"
+                          class="btn btn-default position-absolute m-2">
+                    <fa name="trash"></fa>
+                  </button>
+                  <img
+                    width="100px" height="100px" class="cover-image"
+                    [src]="editform['image_header_medium']">
+  
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <div class="card-footer text-right">
 
