@@ -25,6 +25,8 @@ export class RestService {
   }
 
   getHeaders = (ignoreLoading = false) => {
+    const _label = this.cookieService.get('_check_session_label');
+    const _label_exists = this.cookieService.get('_check_session_label_exists');
     const _cookie_data = this.cookieService.get('_location_zip_code');
     this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
       JSON.parse(_cookie_data) : null;
@@ -45,6 +47,9 @@ export class RestService {
     }
     if(ignoreLoading){
       _header['ignoreLoadingBar'] = '';
+    }
+    if(_label){
+      _header['COOKIES-REF'] = _label;
     }
     this.headers = new HttpHeaders(_header);
     return this.headers;
