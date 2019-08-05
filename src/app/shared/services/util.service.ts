@@ -1,8 +1,9 @@
 import Swal from 'sweetalert2';
-import {Injectable, EventEmitter, Output} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
-import {settings} from '../settings';
-import {BsModalService} from 'ngx-bootstrap';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { settings } from '../settings';
+import { BsModalService } from 'ngx-bootstrap';
+import { RestService } from './rest.service';
 
 declare var $: any;
 
@@ -27,7 +28,7 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-              private modalService: BsModalService) {
+    private modalService: BsModalService) {
   }
 
 
@@ -53,9 +54,9 @@ export class UtilsService {
   }
 
   openModalSnack = (message: string,
-                    action: string,
-                    details: any = null,
-                    duration: number = 5000) => {
+    action: string,
+    details: any = null,
+    duration: number = 5000) => {
     if (action === 'success') {
       Swal.fire({
         type: 'success',
@@ -172,4 +173,45 @@ export class UtilsService {
       a: 1
     };
   };
+
+  getZipCode = (data) => new Promise((resolve, reject) => {
+    if (data && (typeof data) === 'object') {
+      const res = data.find(b => b.types[0] === 'postal_code');
+      if (res) {
+        resolve(res['short_name']);
+      } else {
+        reject(new Error('Not valid address object'));
+      }
+    } else {
+      reject(new Error('Not valid address object'));
+    }
+  });
+
+  getCountry = (data) => new Promise((resolve, reject) => {
+    if (data && (typeof data) === 'object') {
+      const res = data.find(b => b.types[0] === 'country');
+      if (res) {
+        resolve(res['short_name']);
+      } else {
+        reject(new Error('Not valid address object'));
+      }
+    } else {
+      reject(new Error('Not valid address object'));
+    }
+  });
+
+  getLocality = (data) => new Promise((resolve, reject) => {
+    if (data && (typeof data) === 'object') {
+      const res = data.find(b => b.types[0] === 'locality');
+      if (res) {
+        resolve(res['short_name']);
+      } else {
+        reject(new Error('Not valid address object'));
+      }
+    } else {
+      reject(new Error('Not valid address object'));
+    }
+  });
+
+
 }

@@ -1,0 +1,36 @@
+.block-dashboard {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    display: block;
+    padding: 0;
+    background-color: white;
+  }
+  
+  .card-header, .card-footer {
+    background-color: transparent !important;
+  }
+  
+  .card {
+    border: solid 1px #e8e8e8 !important;
+  }
+  .card-footer {
+    border-top: 0px solid rgba(0,0,0,.125);
+  }
+  
+  .timeline-item{
+    min-height: 405px;
+    margin: 0;
+    max-width: inherit
+  }
+  
+  .cover-image{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 3px;
+    border: solid 1px #e6e6e6;
+  }
+  
+  .list-address{
+    border-left: solid 3px #e0e0e0;
+    background: #f7f7f7;
+  }

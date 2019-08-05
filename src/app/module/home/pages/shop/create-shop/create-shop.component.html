@@ -65,10 +65,17 @@
               </div>
             </tab>
             <tab (selectTab)="tabs['information'] = true" heading="Informacion">
-              <div class="col-12" *ngIf="tabs['information']">
-                <app-info-shop [data_inside]="data_inside" [id]="id" class="block-dashboard mb-2 col-12 p-0">
-                </app-info-shop>
+              <div class="row m-0 p-0">
+                  <div *ngIf="tabs['information']" [ngClass]="(id) ? 'col-lg-8 pl-0' : 'col-lg-12'">
+                      <app-info-shop [data_inside]="data_inside" [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                      </app-info-shop>
+                    </div>
+                    <div *ngIf="tabs['information']" [ngClass]="(id) ? 'col-lg-4 pl-0' : 'hidden'">
+                        <app-pickup-address [id]="id" class="block-dashboard mb-2 col-12 p-0">
+                        </app-pickup-address>
+                      </div>
               </div>
+        
             </tab>
             <tab (selectTab)="tabs['schedule'] = true" heading="Horario">
               <div class="col-12" *ngIf="tabs['schedule']">

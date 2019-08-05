@@ -143,6 +143,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ClickOutsideModule} from 'ng-click-outside';
 import { PreventWizardComponent } from './module/home/components/prevent-wizard/prevent-wizard.component';
 import { ModalFilterAttributesComponent } from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
+import { PickupAddressComponent } from './module/home/components/pickup-address/pickup-address.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -262,6 +263,7 @@ export class MyIntl extends TimeagoIntl {
     SideCategoriesComponent,
     PreventWizardComponent,
     ModalFilterAttributesComponent,
+    PickupAddressComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
