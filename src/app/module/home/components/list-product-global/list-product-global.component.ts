@@ -5,6 +5,8 @@ import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import * as moment from 'moment';
+import {ModalShoppingComponent} from '../modal-shopping/modal-shopping.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-list-product-global',
@@ -23,10 +25,13 @@ export class ListProductGlobalComponent implements OnInit {
   public src: any = null;
   public loading_save = false;
   public currentPage: any = 1;
+  modalRef: BsModalRef;
+  config = {};
   galleryOptions: NgxGalleryOptions[];
 
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
+              private modalService: BsModalService,
               private route: ActivatedRoute, private router: Router) {
 
 
@@ -57,6 +62,26 @@ export class ListProductGlobalComponent implements OnInit {
         preview: false
       }
     ];
+  }
+
+  emitBack = () => this.ngOnInit();
+
+  open(data) {
+    this.util.closeAllModals();
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+      data
+    };
+
+    this.modalRef = this.modalService.show(
+      ModalShoppingComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
   pageChanged = (a, first_page_url: any) => {

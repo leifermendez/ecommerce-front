@@ -60,10 +60,26 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
     }
   });
 
+
+  getCountry = (data) => new Promise((resolve, reject) => {
+    if (data && (typeof data) === 'object') {
+      const res = data.find(b => b.types[0] === 'country');
+      if (res) {
+        resolve(res['short_name']);
+      } else {
+        reject(new Error('Not valid address object'));
+      }
+    } else {
+      reject(new Error('Not valid address object'));
+    }
+  });
+
+
   public handleAddressChange(address: Address) {
     this.editform.address = address['formatted_address'];
     this.editform['lat'] = address.geometry.location.lat();
     this.editform['lng'] = address.geometry.location.lng();
+    console.log(address)
 
     this.getZipCode(address['address_components'])
       .then(zip_code => {

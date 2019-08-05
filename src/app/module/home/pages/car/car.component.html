@@ -26,70 +26,75 @@
             <fieldset>
               <table id="shopping-cart-table" class="data-table cart-table table-striped">
                 <thead>
-                  <tr class="first last">
-                    <th colspan="1"><span class="nobr">{{"shopping.car.product_name" |translate}}</span></th>
-                    <th colspan="1"><span class="nobr"> {{"shopping.car.product_price" |translate}}</span></th>
-                    <th colspan="1" class="a-center">&nbsp;</th>
-                  </tr>
+                <tr class="first last">
+                  <th colspan="1"><span class="nobr">{{"shopping.car.product_name" |translate}}</span></th>
+                  <th colspan="1"><span class="nobr"> {{"shopping.car.product_price" |translate}}</span></th>
+                  <th colspan="1" class="a-center">&nbsp;</th>
+                </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let dat of data.list; let i = index">
-                    <td class="image hidden-table d-flex">
-                      <div class="d-flex">
-                        <div class="mr-1">
-                          <img class="img-product" [src]="dat['cover_image']['small']" alt="">
-                        </div>
-                        <div class="p-2">
-                          <a [routerLink]="['/','single',dat['product_id'],util.slug(dat['name'])]">
-                            <h6 class="mb-0 font-weight-600 text-dark">{{dat.name}}</h6>
-                            <h6 class="mb-0 font-weight-600 text-dark">{{dat.label}}</h6>
-                          </a>
-                          <div>
-                            <span class="text-muted">{{dat['shop_name']}}</span>
-                          </div>
+                <tr *ngFor="let dat of data.list; let i = index">
+                  <td class="image hidden-table d-flex">
+                    <div class="d-flex">
+                      <div class="mr-1">
+                        <img class="img-product" [src]="dat['cover_image']['small']" alt="">
+                      </div>
+                      <div class="p-2">
+                        <a
+                          target="_blank"
+                          [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['product_id']]">
+                          <h6 class="mb-0 font-weight-600 text-dark">{{dat.name}}</h6>
+                          <h6 class="mb-0 font-weight-600 text-dark">{{dat.label}}</h6>
+                        </a>
+                        <div>
+                          <span class="text-muted">{{dat['shop_name']}}</span>
                         </div>
                       </div>
+                    </div>
 
-                    </td>
-                    <td class="hidden-table">
-                      <h5 class="font-weight-600 mb-0">{{dat['price_normal'] | number:'1.2-2'}}
-                        <span>{{"currency" | translate}}</span>
-                      </h5>
-                      <del class="text-muted">{{dat['price_regular'] | number:'1.2-2'}}</del>
-                      <!--                    <span class="text-muted" *ngIf="dat && dat['feed_amount']">-->
-                      <!--                      <span tooltip="Comision de plataforma" tooltipPlacement="bottom">-->
-                      <!--                        <fa name="question-circle"></fa>-->
-                      <!--                      </span>-->
-                      <!--                    </span>-->
-                    </td>
-                    <td class="text-right">
-                      <button (click)="delete(dat.id, i)" type="button" [disabled]="loading_single === i"
-                        class="btn btn-outline-secondary" title="Remove item">
-                        <fa *ngIf="loading_single !== i" name="trash"></fa>
-                        <fa *ngIf="loading_single === i" name="spinner" animation="spin"></fa>
-                      </button>
-                    </td>
-                  </tr>
+                  </td>
+                  <td class="hidden-table">
+                    <h5
+                      class="font-weight-600 mb-0">{{(dat['price_normal'] * dat['shopping_carts_qty']) | number:'1.2-2'}}
+                      <span>{{"currency" | translate}}</span>
+                    </h5>
+                    <span class="text-muted">{{dat['shopping_carts_qty']}}
+                      x {{dat['price_normal'] | number:'1.2-2'}} {{"currency" | translate}}</span>
+                    <!--                    <del class="text-muted">{{dat['price_regular'] | number:'1.2-2'}}</del>-->
+                    <!--                    <span class="text-muted" *ngIf="dat && dat['feed_amount']">-->
+                    <!--                      <span tooltip="Comision de plataforma" tooltipPlacement="bottom">-->
+                    <!--                        <fa name="question-circle"></fa>-->
+                    <!--                      </span>-->
+                    <!--                    </span>-->
+                  </td>
+                  <td class="text-right">
+                    <button (click)="delete(dat.id, i)" type="button" [disabled]="loading_single === i"
+                            class="btn btn-outline-secondary" title="Remove item">
+                      <fa *ngIf="loading_single !== i" name="trash"></fa>
+                      <fa *ngIf="loading_single === i" name="spinner" animation="spin"></fa>
+                    </button>
+                  </td>
+                </tr>
                 </tbody>
                 <tfoot>
-                  <tr class="first last">
-                    <td colspan="7" class="last">
-                      <div class="text-right pl-3 pr-3 mt-3">
+                <tr class="first last">
+                  <td colspan="7" class="last">
+                    <div class="text-right pl-3 pr-3 mt-3">
 
-                        <button [routerLink]="['/','checkout']" class="btn btn-primary">
-                          Hacer pedido
-                        </button>
-                      </div>
+                      <button [routerLink]="['/','checkout']" class="btn btn-primary">
+                        Hacer pedido
+                      </button>
+                    </div>
 
-                      <!--                  <button (click)="loadData()" type="submit" name="update_cart_action" value="update_qty"-->
-                      <!--                          title="Update Cart"-->
-                      <!--                          class="button btn-update">-->
-                      <!--                    <span>-->
-                      <!--                      <span>Update Cart</span>-->
-                      <!--                    </span>-->
-                      <!--                  </button>-->
-                    </td>
-                  </tr>
+                    <!--                  <button (click)="loadData()" type="submit" name="update_cart_action" value="update_qty"-->
+                    <!--                          title="Update Cart"-->
+                    <!--                          class="button btn-update">-->
+                    <!--                    <span>-->
+                    <!--                      <span>Update Cart</span>-->
+                    <!--                    </span>-->
+                    <!--                  </button>-->
+                  </td>
+                </tr>
                 </tfoot>
               </table>
             </fieldset>
@@ -128,16 +133,16 @@
 
   <!-- call to action responsive-->
   <div class="call-action-buy row m-0 container">
-      <div class="col-12 p-0">
-        <button   [routerLink]="['/','checkout']" type="button" class="btn btn-primary btn-block">
-          {{"page.single.buy" |translate}}
-        </button>
-        <div class="pl-0 pr-0 pt-1">
-            <small>
-                {{"global.payment_sentence" | translate}}
-            </small>
-        </div>
+    <div class="col-12 p-0">
+      <button [routerLink]="['/','checkout']" type="button" class="btn btn-primary btn-block">
+        {{"page.single.buy" |translate}}
+      </button>
+      <div class="pl-0 pr-0 pt-1">
+        <small>
+          {{"global.payment_sentence" | translate}}
+        </small>
       </div>
+    </div>
   </div>
   <!-- end call to action-->
 </div>

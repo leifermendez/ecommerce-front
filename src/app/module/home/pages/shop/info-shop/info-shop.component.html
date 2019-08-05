@@ -25,64 +25,85 @@
   </div>
   <div class="card block-dashboard border-0" *ngIf="!loading">
     <div class="col p-3">
-      <div class="form-group">
-        <label>{{"page.shop.name"|translate}}</label>
-        <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
-               placeholder="¿Como es el nombre de tu tienda?">
-      </div>
-
-      <div class="form-group">
-        <label>{{"page.shop.cif"|translate}}</label>
-        <input type="text" formControlName="legal_id" class="form-control" [(ngModel)]="editform.legal_id"
-               placeholder="¿Cual tu CIF?">
-        <small class="text-muted mt-2 ml-2 mr-2">
+      <div class="row m-0">
+        <div class="form-group col-lg-4 pl-0">
+          <label>{{"page.shop.name"|translate}}</label>
+          <input type="text" formControlName="name" class="form-control" [(ngModel)]="editform.name"
+                 placeholder="¿Como es el nombre de tu tienda?">
+        </div>
+        <div class="form-group col-lg-4 pl-0">
+          <label>{{"page.shop.cif"|translate}}</label>
+          <input type="text" formControlName="legal_id" class="form-control" [(ngModel)]="editform.legal_id"
+                 placeholder="¿Cual tu CIF?">
+          <small class="text-muted mt-2 ml-2 mr-2">
             {{"page.shop.cif.label"|translate}}
-        </small>
+          </small>
+        </div>
+        <div class="form-group col-lg-4 pl-0">
+          <label>{{"page.shop.referer" | translate}}</label>
+          <input type="text" formControlName="referer" class="form-control"
+                 [(ngModel)]="editform.referer">
+          <small class="text-muted mt-2 ml-2 mr-2">
+            {{"page.shop.referer.label" | translate}}
+          </small>
+        </div>
+<!--        <div class="form-group col-lg-4 pl-0" [hidden]="true">-->
+<!--          <label>{{"page.shop.zipcode" | translate}}</label>-->
+<!--          <input type="text" formControlName="zip_code" class="form-control"-->
+<!--                 [(ngModel)]="editform.zip_code"-->
+<!--                 readonly-->
+<!--                 placeholder="Ingresa código postal">-->
+
+<!--        </div>-->
       </div>
 
-      <div class="form-group">
-        <label>{{"page.shop.corporate.email"|translate}}</label>
-        <input type="email" formControlName="email_corporate" class="form-control"
-               [(ngModel)]="editform.email_corporate"
-               placeholder="Ingresa email corporativo">
-        <small class="text-muted mt-2 ml-2 mr-2">
+      <div class="row m-0">
+        <div class="form-group col-lg-4 pl-0">
+          <label>{{"page.shop.corporate.email"|translate}}</label>
+          <input type="email" formControlName="email_corporate" class="form-control"
+                 [(ngModel)]="editform.email_corporate"
+                 placeholder="Ingresa email corporativo">
+          <small class="text-muted mt-2 ml-2 mr-2">
             {{"page.shop.corporate.email.label"|translate}}
-        </small>
-      </div>
-      <div class="form-group">
-        <label>{{"page.shop.phone.mobil" | translate}}</label>
-        <input type="text"
-        ng2TelInput
-        class="form-control"
-        formControlName="phone_mobil"
-        [(ngModel)]="editform.phone_mobil"
-        [ng2TelInputOptions]="{initialCountry: 'es'}"
-        (hasError)="hasError('mobil',$event)"
-        (ng2TelOutput)="getNumber('mobil',$event)"
-        (intlTelInputObject)="telInputObject($event)"
-        (countryChange)="onCountryChange($event)" />
-        <small class="text-danger" 
-        *ngIf="editform['phone_mobil_valid']==false">
+          </small>
+        </div>
+        <div class="form-group col-lg-4 pl-0">
+          <label>{{"page.shop.phone.mobil" | translate}}</label>
+          <input type="text"
+                 ng2TelInput
+                 class="form-control"
+                 formControlName="phone_mobil"
+                 [(ngModel)]="editform.phone_mobil"
+                 [ng2TelInputOptions]="{initialCountry: 'es'}"
+                 (hasError)="hasError('mobil',$event)"
+                 (ng2TelOutput)="getNumber('mobil',$event)"
+                 (intlTelInputObject)="telInputObject($event)"
+                 (countryChange)="onCountryChange($event)"/>
+          <small class="text-danger"
+                 *ngIf="editform['phone_mobil_valid']==false">
             <span>Numero no valido</span>
           </small>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group col-lg-4 pl-0">
           <label>{{"page.shop.phone.fixed" | translate}}</label>
           <input type="text"
-          ng2TelInput
-          class="form-control"
-          formControlName="phone_fixed"
-          [(ngModel)]="editform.phone_fixed"
-          [ng2TelInputOptions]="{initialCountry: 'es'}"
-          (hasError)="hasError('fixed',$event)"
-          (ng2TelOutput)="getNumber('fixed',$event)"
-          (intlTelInputObject)="telInputObject($event)"
-          (countryChange)="onCountryChange($event)" />
-          <small class="text-danger" 
-          *ngIf="editform['phone_fixed_valid']==false">
-              <span>Numero no valido</span>
-            </small>
+                 ng2TelInput
+                 class="form-control"
+                 formControlName="phone_fixed"
+                 [(ngModel)]="editform.phone_fixed"
+                 [ng2TelInputOptions]="{initialCountry: 'es'}"
+                 (hasError)="hasError('fixed',$event)"
+                 (ng2TelOutput)="getNumber('fixed',$event)"
+                 (intlTelInputObject)="telInputObject($event)"
+                 (countryChange)="onCountryChange($event)"/>
+          <small class="text-danger"
+                 *ngIf="editform['phone_fixed_valid']==false">
+            <span>Numero no valido</span>
+          </small>
         </div>
+      </div>
+
+
       <div class="form-group">
         <label>{{"page.shop.address" | translate}}</label>
         <input type="text" formControlName="address" class="form-control"
@@ -99,81 +120,65 @@
                [ngModel]="address_gp" [options]='optionsPlaces' #placesRef="ngx-places"
                placeholder="Direccion de la tienda"
                (onAddressChange)="handleAddressChange($event)"/>
-        <small *ngIf="(editform.address) && !(editform.zip_code)" 
-        class="text-danger mt-2 ml-2 mr-2 cursor-pointer">
-          <span>{{"modal.location.error1" | translate}}</span>
+        <small *ngIf="(editform.address) && !(editform.zip_code)"
+               class="text-danger mt-2 ml-2 mr-2 cursor-pointer">
+          <span>{{"modal.location.error1" | translate}}</span>
         </small>
       </div>
 
-      <div class="form-group" [hidden]="true">
-        <label>{{"page.shop.zipcode" | translate}}</label>
-        <input type="text" formControlName="zip_code" class="form-control"
-               [(ngModel)]="editform.zip_code"
-               readonly
-               placeholder="Ingresa código postal">
-      
-      </div>
-      <div class="form-group">
-          <label>{{"page.shop.referer" | translate}}</label>
-          <input type="text" formControlName="referer" class="form-control"
-                 [(ngModel)]="editform.referer">
-          <small class="text-muted mt-2 ml-2 mr-2">
-              {{"page.shop.referer.label" | translate}}
-          </small>
-        </div>
+
+
       <div class="form-group">
         <label>{{"page.shop.metas" | translate}}</label>
         <input type="text" formControlName="meta_key" class="form-control"
                [(ngModel)]="editform.meta_key"
                placeholder="Palabras clave separada por comas">
         <small class="text-muted mt-2 ml-2 mr-2">
-            {{"page.shop.metas.label" | translate}}
+          {{"page.shop.metas.label" | translate}}
         </small>
       </div>
 
       <div class="form-group">
-          <div class="">
-            <div class="row m-0">
-              <div class="col-3 p-0">
-                <label>{{"page.shop.logo"|translate}}</label>
-                <app-media-image-shop
-                  *ngIf="editform && !editform['image_cover']"
-                  (callback)="setMedia('cover',$event)">
-                </app-media-image-shop>
-                <div *ngIf="editform && editform['image_cover']">
-                  <button type="button" (click)="clearImage('cover')"
-                          [disabled]="editform && !editform['image_header']"
-                          class="btn btn-default position-absolute m-2">
-                    <fa name="trash"></fa>
-                  </button>
-                  <img
-                    width="100px" height="100px" class="cover-image"
-                    [src]="editform['image_cover_medium']">
-  
-                </div>
-              </div>
-              <div class="col-9 pr-0">
-                <label>{{"page.shop.banner"|translate}}</label>
-                <app-media-image-shop
-                  *ngIf="editform && !editform['image_header']"
-                  (callback)="setMedia('header',$event)">
-                </app-media-image-shop>
-                <div *ngIf="editform && editform['image_header']">
-                  <button type="button" (click)="clearImage('header')"
-                          [disabled]="editform && !editform['image_cover']"
-                          class="btn btn-default position-absolute m-2">
-                    <fa name="trash"></fa>
-                  </button>
-                  <img
-                    width="100px" height="100px" class="cover-image"
-                    [src]="editform['image_header_medium']">
-  
-                </div>
-  
-              </div>
+        <div class="row m-0">
+          <div class="col-3 p-0">
+            <label>{{"page.shop.logo"|translate}}</label>
+            <app-media-image-shop
+              *ngIf="editform && !editform['image_cover']"
+              (callback)="setMedia('cover',$event)">
+            </app-media-image-shop>
+            <div *ngIf="editform && editform['image_cover']">
+              <button type="button" (click)="clearImage('cover')"
+                      [disabled]="editform && !editform['image_header']"
+                      class="btn btn-default position-absolute m-2">
+                <fa name="trash"></fa>
+              </button>
+              <img
+                width="100px" height="100px" class="cover-image"
+                [src]="editform['image_cover_medium']">
+
             </div>
           </div>
+          <div class="col-9 pr-0">
+            <label>{{"page.shop.banner"|translate}}</label>
+            <app-media-image-shop
+              *ngIf="editform && !editform['image_header']"
+              (callback)="setMedia('header',$event)">
+            </app-media-image-shop>
+            <div *ngIf="editform && editform['image_header']">
+              <button type="button" (click)="clearImage('header')"
+                      [disabled]="editform && !editform['image_cover']"
+                      class="btn btn-default position-absolute m-2">
+                <fa name="trash"></fa>
+              </button>
+              <img
+                width="100px" height="100px" class="cover-image"
+                [src]="editform['image_header_medium']">
+
+            </div>
+
+          </div>
         </div>
+      </div>
     </div>
     <div class="card-footer text-right">
 

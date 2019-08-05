@@ -74,7 +74,7 @@ and (max-width: 450px) {
   }
 
   app-single .ngx-gallery-arrow {
-    color: #ad0000 !important;
+    color: white !important;
   }
 
   /*box-feature-product*/

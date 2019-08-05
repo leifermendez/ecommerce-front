@@ -1,3 +1,21 @@
 .block-login-modal .block-login {
   padding: .5rem !important;
 }
+
+.product_image .product-img{
+  width: 100%;
+}
+
+.block-qty{
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen
+and (max-width: 450px) {
+  .block-qty{
+    width: 100%;
+  }
+
+}

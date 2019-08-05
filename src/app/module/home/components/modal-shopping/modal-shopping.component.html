@@ -15,8 +15,26 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <div *ngIf="!finish" class="modal-body product_image">
+    <div class="col-12 p-0 row m-0">
+      <h6 class="mb-2 font-weight-600">{{data?.name}}</h6>
+      <p class="mb-2">{{data?.short_description |words:12 }}</p>
+    </div>
+    <div class="block-qty mt-4 mb-4">
+      <label>Cantidad</label>
+      <owl-carousel
+        #owlElement
+        *ngIf="qty_list?.length" [options]="owlOption"
+        [items]="qty_list"
+        [carouselClasses]="['owl-theme', 'row', 'sliding']">
+        <div class="item text-center" *ngFor="let a of qty_list;let i = index">
+          <h1 [attr.data-index]="a">{{a}}</h1>
+        </div>
+      </owl-carousel>
+    </div>
 
-  <div class="modal-body">
+  </div>
+  <div *ngIf="finish" class="modal-body">
     <div *ngIf="loading_save" class="best-pro slider-items-products container">
       <div class="CollectionGrid container min-height-300">
         <div class="CollectionGrid-tile hover-overlay-light">
@@ -155,19 +173,17 @@
       </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <div class="container-fluid d-flex">
-      <div class="col-6 text-center">
-        <a href="#" class="text-muted">
-          <fa size="2x" name="map-marker"></fa>
-          <div>¿Necesitas ayuda?</div>
-        </a>
+  <div class="modal-footer" *ngIf="!finish">
+    <div class="container d-flex justify-content-between">
+      <div class="text-center">
+        <button type="button" class="btn btn-default">
+          Cancelar
+        </button>
       </div>
-      <div class="col-6 text-center">
-        <a href="#" class=" text-muted">
-          <fa size="2x" name="question-circle"></fa>
-          <div>¿Como funciona?</div>
-        </a>
+      <div class="text-center">
+        <button type="button" (click)="addProduct()" class="btn btn-primary">
+          Continuar
+        </button>
       </div>
     </div>
   </div>

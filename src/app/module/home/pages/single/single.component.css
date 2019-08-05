@@ -21,8 +21,8 @@
 
 .breadcrumbs {
   padding: 10px;
-  background: white;
-  border: solid 1px #e8e8e8;
+  background: transparent;
+  border: solid 0px #e8e8e8;
 }
 
 .product-shop {
@@ -34,19 +34,19 @@
 }
 
 .border-right-solid {
-  border-right: solid 1px #e8e8e8;
+  border-right: solid 1px #f3f3f3;
 }
 
 .border-left-solid {
-  border-left: solid 1px #e8e8e8;
+  border-left: solid 1px #f3f3f3;
 }
 
 .border-booton-solid {
-  border-bottom: solid 1px #e8e8e8;
+  border-bottom: solid 1px #f3f3f3;
 }
 
 .border-top-solid {
-  border-top: solid 1px #e8e8e8;
+  border-top: solid 1px #f3f3f3;
 }
 
 .carbtn {

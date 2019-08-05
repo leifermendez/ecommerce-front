@@ -1,15 +1,15 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
-import { RestService } from '../../../../shared/services/rest.service';
-import { UtilsService } from '../../../../shared/services/util.service';
-import { ShoppingCartComponent } from '../../components/shopping-cart/shopping-cart.component';
-import { ActivatedRoute } from '@angular/router';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {RestService} from '../../../../shared/services/rest.service';
+import {UtilsService} from '../../../../shared/services/util.service';
+import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
+import {ActivatedRoute} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-import { DiscountNumberComponent } from '../../components/discount-number/discount-number.component';
-import { ModalShoppingComponent } from '../../components/modal-shopping/modal-shopping.component';
-import { animate, style, transition, trigger } from '@angular/animations';
-import { Title, Meta } from '@angular/platform-browser';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import {DiscountNumberComponent} from '../../components/discount-number/discount-number.component';
+import {ModalShoppingComponent} from '../../components/modal-shopping/modal-shopping.component';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {Title, Meta} from '@angular/platform-browser';
+import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryImageSize} from 'ngx-gallery';
 import * as moment from 'moment';
 
 @Component({
@@ -19,20 +19,20 @@ import * as moment from 'moment';
   animations: [
     trigger('breadcrumbs', [
       transition(':enter', [
-        style({ transform: 'translateX(-40%)', opacity: '0' }),
+        style({transform: 'translateX(-40%)', opacity: '0'}),
         animate('0.3s ease-in')
       ]),
       transition(':leave', [
-        animate('0.3s ease-out', style({ transform: 'translateX(40%)', opacity: '1' }))
+        animate('0.3s ease-out', style({transform: 'translateX(40%)', opacity: '1'}))
       ])
     ]),
     trigger('details', [
       transition(':enter', [
-        style({ transform: 'translateY(-20%)', opacity: '0' }),
+        style({transform: 'translateY(-20%)', opacity: '0'}),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
+        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
       ])
     ])
   ]
@@ -58,12 +58,12 @@ export class SingleComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
 
   constructor(private rest: RestService, private util: UtilsService,
-    private shopping: ShoppingCartComponent,
-    private route: ActivatedRoute,
-    private cookieService: CookieService,
-    private meta: Meta,
-    private titleService: Title,
-    private modalService: BsModalService) {
+              private shopping: ShoppingCartComponent,
+              private route: ActivatedRoute,
+              private cookieService: CookieService,
+              private meta: Meta,
+              private titleService: Title,
+              private modalService: BsModalService) {
 
     this.util.refreshShopping.subscribe(data => {
       if (data) {
@@ -87,25 +87,32 @@ export class SingleComponent implements OnInit {
 
   addTags = (data) => {
     this.titleService.setTitle(`${data['name']} | Apatxee.com`);
-    this.meta.updateTag({ name: 'keywords', content: data['short_description'] });
-    this.meta.updateTag({ name: 'description', content: data['short_description'] });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({name: 'keywords', content: data['short_description']});
+    this.meta.updateTag({name: 'description', content: data['short_description']});
+    this.meta.updateTag({name: 'robots', content: 'index, follow'});
     this.meta.addTags([
-      { name: 'og:title', content: data['name'] },
-      { name: 'og:description', content: data['short_description'] },
-      { name: 'og:image', content: data['cover_image']['large'] }
+      {name: 'og:title', content: data['name']},
+      {name: 'og:description', content: data['short_description']},
+      {name: 'og:image', content: data['cover_image']['large']}
     ]);
-  }
+  };
 
   ngOnInit() {
     this.galleryOptions = [
       {
-        width: '245px',
-        height: '300px',
-        thumbnails: false,
-        'preview': false,
-        'arrowPrevIcon': 'fa fa-angle-left',
-        'arrowNextIcon': 'fa fa-angle-right',
+        width: '100%',
+        height: '100%',
+        thumbnails: true,
+        thumbnailsColumns: 6,
+        imagePercent: 83,
+        thumbnailsRemainingCount: true,
+        thumbnailsPercent: 17,
+        thumbnailsSwipe: true,
+        preview: true,
+        thumbnailSize: NgxGalleryImageSize.Contain,
+        arrowPrevIcon: 'fa fa-angle-left',
+        arrowNextIcon: 'fa fa-angle-right',
+        imageSize: NgxGalleryImageSize.Contain,
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
@@ -113,8 +120,8 @@ export class SingleComponent implements OnInit {
         'breakpoint': 500,
         'width': '100%',
         'height': '22rem',
-        'preview': false,
         thumbnails: false,
+        preview: true,
         'arrowPrevIcon': 'fa fa-angle-left',
         'arrowNextIcon': 'fa fa-angle-right',
         imageAnimation: NgxGalleryAnimation.Slide
@@ -125,15 +132,15 @@ export class SingleComponent implements OnInit {
         breakpoint: 400,
         'width': '100%',
         'height': '20rem',
-        'preview': false,
+        preview: true,
         thumbnails: false,
         'arrowPrevIcon': 'fa fa-angle-left',
         'arrowNextIcon': 'fa fa-angle-right',
         imageAnimation: NgxGalleryAnimation.Slide
       }
     ];
-  
-  
+
+
   }
 
   changeCover = (a) => this.cover = a;
@@ -151,7 +158,7 @@ export class SingleComponent implements OnInit {
           this.cover = (response['data']['gallery'] && response['data']['gallery'].length)
             ? response['data']['gallery'][0] : null;
 
-          if(this.data && this.data.labels && this.data.labels['label']){
+          if (this.data && this.data.labels && this.data.labels['label']) {
             this.cookieService.set(
               '_check_session_label',
               this.data.labels['label'],
@@ -159,7 +166,7 @@ export class SingleComponent implements OnInit {
               '/');
           }
 
-          if(this.data && this.data.labels){
+          if (this.data && this.data.labels) {
             this.cookieService.set(
               '_check_session_label_exists',
               this.data.labels['exists'],
@@ -173,17 +180,18 @@ export class SingleComponent implements OnInit {
   emitBack = () => this.ngOnInit();
 
   open(data) {
+    console.log('--d--d-d-',data)
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,
-      data
+      data: data
     };
 
     this.modalRef = this.modalService.show(
       ModalShoppingComponent,
-      Object.assign({ initialState }, {
-        class: 'gray modal-lg top-modal box-shadow-modal'
-      },
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal'
+        },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
