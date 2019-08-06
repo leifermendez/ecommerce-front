@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
   letter-spacing: .7px;
+  font-size: 14px;
 }
 
 .page-loader {

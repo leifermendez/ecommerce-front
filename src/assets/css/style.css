@@ -12,8 +12,6 @@ website:   	http://www.themesground.com/
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
-
-  font-size: 13px;
   background: #f5f5f5;
   line-height: 1.6em;
   text-rendering: optimizeLegibility !important;
@@ -1437,7 +1435,7 @@ ul.level1 {
 }
 
 #nav > li > a {
-  color: #090809;
+  color: #282828;
 }
 
 #nav > li.mega-menu {
@@ -5397,7 +5395,7 @@ text-transform: uppercase
 }
 
 .best-pro .new_title h2 {
-  color: #2b2b2b;
+  color: #282828;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0px;
@@ -7838,7 +7836,7 @@ button.button.continue:before {
   position: absolute !important;
   left: .75rem !important;
   top: .5rem !important;
-  color: #2b2b2b !important;
+  color: #282828 !important;
 }
 
 .description img {
@@ -10554,7 +10552,7 @@ a.button.detail-bnt span {
 }
 
 .nav-tabs .nav-link.active span {
-  color: #2b2b2b
+  color: #282828
 }
 
 .nav-tabs .nav-item span {
@@ -15599,7 +15597,11 @@ timepicker table {
 }
 
 .text-primary {
-  color: #6e3d50 !important;
+  color: #8c4d66 !important;
+}
+
+.text-secondary {
+  color: #f45e3b !important;
 }
 
 .text-info {
@@ -15636,7 +15638,7 @@ timepicker table {
 
 .pagination .page-link:hover {
   background-color: #fff !important;
-  color: #2b2b2b !important;
+  color: #282828 !important;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
@@ -15645,7 +15647,7 @@ timepicker table {
 
 .pagination .page-item.active .page-link {
   background: #d2d2d2;
-  color: #2b2b2b;
+  color: #282828;
   font-weight: 600 !important;
 }
 
@@ -15887,7 +15889,7 @@ app-single .description p {
 }
 
 .badge-warning {
-  color: #2b2b2b !important;
+  color: #282828 !important;
   padding: .2rem;
   background-color: #ffe38f;
 }
@@ -15965,7 +15967,7 @@ app-single .description p {
   display: block;
   width: 225px;
   padding: 15px 0;
-  background-color: #6e3d50;
+  background-color: #f45e3b;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .2);

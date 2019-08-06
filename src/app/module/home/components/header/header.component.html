@@ -2,9 +2,9 @@
   <header @tijl *ngIf="!header" [style.opacity]="(modeFocus) ? '.4' : '1'"
           [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
     <div id="header">
-      <div class="header-container full-mode-header logo-full-mode-header">
+      <div class="header-container header-pc full-mode-header logo-full-mode-header">
         <div class="row m-0">
-          <div class="d-flex justify-content-between w-100">
+          <div class="d-flex first-nav justify-content-between w-100">
             <div class="logo">
               <a [routerLink]="['/']" title="Alterhome Shop">
                 <div><img src="assets/images/ah_logo_header.png" height="50" alt="Alterhome Shop"></div>
@@ -15,7 +15,7 @@
                 <app-search class="custom-select-search-item"></app-search>
               </div>
               <small *ngIf="location">
-                <span class="cursor-pointer text-primary" (click)="openZip()">
+                <span class="cursor-pointer text-secondary" (click)="openZip()">
                   <fa name="home"></fa>
                   Enviar a piso <b>{{location['name']}}</b> {{location['zip_code']}}
                 </span>
@@ -84,7 +84,7 @@
             </div>
           </div>
 
-          <div *ngIf="!subMenu" class="fl-nav-menu mt-2 mb-1">
+          <div *ngIf="!subMenu" class="fl-nav-menu mt-2 mb-0">
 
             <nav>
               <div class="mm-toggle-wrap">
