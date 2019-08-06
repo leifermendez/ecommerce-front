@@ -1,4 +1,66 @@
 /*MENU ICON*/
+
+
+/*RESPONSIVE*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .block-logo {
+    width: 5rem !important;
+  }
+
+  .block-cart {
+    width: 2.8rem !important;
+    line-height: 2.08rem !important;
+  }
+
+  .block-menu {
+    width: 2.3rem !important
+  }
+
+  .block-menu .wrapper-menu {
+    padding: .2rem .1rem !important;
+  }
+
+  .block-search {
+    width: 75% !important;
+  }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  .block-logo {
+    width: 5rem !important;
+  }
+
+  .block-cart {
+    width: 2.8rem !important;
+    line-height: 2.08rem !important;
+  }
+
+  .block-menu {
+    width: 2.3rem !important
+  }
+
+  .block-menu .wrapper-menu {
+    padding: .2rem .1rem !important;
+  }
+
+  .block-search {
+    width: 75% !important;
+  }
+
+}
+
+
+/*FIN RESPONSIVE*/
+
 .wrapper-menu {
   display: inline-block;
   margin: 0px;
@@ -45,7 +107,8 @@
   transform: rotate(-45deg);
   top: 49%;
 }
-.menu.close .line02{
+
+.menu.close .line02 {
   display: none;
 }
 
@@ -168,7 +231,7 @@
   /*border-radius: 20px;*/
 }
 
-.border-right-solid{
+.border-right-solid {
   border-left: solid 1px #efefef;
 }
 
@@ -394,7 +457,7 @@ header {
   min-height: 52px;
   position: fixed;
   width: 100%;
-  top:0;
+  top: 0;
   z-index: 9999;
 }
 
@@ -490,7 +553,7 @@ header {
   border-bottom: solid 1px #f1f1f1;
 }
 
-.header-mobile .overlay{
+.header-mobile .overlay {
   background: rgba(34, 34, 34, 0.85);
   position: fixed;
   z-index: 999;
@@ -509,33 +572,42 @@ header {
   z-index: 9999;
 }
 
-.menu-open-responsive .block-section{
+.menu-open-responsive .block-section {
   border-bottom: solid 1px #f3f3f3;
 }
 
-.menu-open-responsive .list-menu{
+.menu-open-responsive .list-menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.list-menu li{
+.list-menu li {
   padding: .7rem 1rem;
 }
-.list-menu li:hover{
+
+.list-menu li:hover {
   font-weight: 600;
   background-color: #efefef;
 }
 
-.menu-open-responsive .responsive-profile-block{
+.menu-open-responsive .responsive-profile-block {
   min-height: 6rem;
   border-bottom: solid 1px #f3f3f3;
 }
-.responsive-profile-block img{
+
+.responsive-profile-block img {
   width: 60px;
   border-radius: 100px;
   height: 60px;
   object-fit: cover;
   border: solid 1px #cacaca;
 }
+
 /*---*/
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+

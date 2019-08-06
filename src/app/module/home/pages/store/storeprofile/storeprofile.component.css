@@ -171,3 +171,11 @@ li {
     max-width: 1400px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .wrap {
+    padding-right: 0px !important;
+    padding-left: .5rem !important;
+    margin-top: 3.3rem !important;
+  }
+}

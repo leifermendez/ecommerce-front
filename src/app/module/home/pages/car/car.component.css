@@ -73,3 +73,9 @@ and (max-width: 450px) {
     margin-bottom: 100px;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px){
+  .cart {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}

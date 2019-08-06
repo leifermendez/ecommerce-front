@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UtilsService } from '../../../../shared/services/util.service';
-import { RestService } from '../../../../shared/services/rest.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import {Component, OnInit, Input} from '@angular/core';
+import {UtilsService} from '../../../../shared/services/util.service';
+import {RestService} from '../../../../shared/services/rest.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-pickup-address',
@@ -15,11 +15,18 @@ export class PickupAddressComponent implements OnInit {
   public address_id: any = null;
   public loading: any = false;
   public form: any = FormGroup;
-  public data: any = []
+  public data: any = [];
+  public address_gp: any = null;
+;
+  public optionsPlaces = {
+    types: [],
+    componentRestrictions: {country: 'ES'}
+  };
   public editform: any = {};
+
   constructor(private rest: RestService, private util: UtilsService,
-    private fb: FormBuilder,
-    private router: Router, private route: ActivatedRoute) {
+              private fb: FormBuilder,
+              private router: Router, private route: ActivatedRoute) {
     this.form = fb.group({
       'shop_id': [null, Validators.compose([Validators.required])],
       'state': [null, Validators.compose([Validators.required])],
@@ -49,27 +56,27 @@ export class PickupAddressComponent implements OnInit {
           this.data = response['data'];
         }
       }).catch((err) => {
-        this.loading = false;
-      });
+      this.loading = false;
+    });
   };
 
   public handleAddressChange(address: Address) {
     this.editform.address = address['formatted_address'];
     this.editform['lat'] = address.geometry.location.lat();
     this.editform['lng'] = address.geometry.location.lng();
-    console.log(address)
+    console.log(address);
     this.getCountry(address['address_components'])
-      .then((a) => this.editform['country'] = a)
+      .then((a) => this.editform['country'] = a);
 
     this.getLocality(address['address_components'])
-      .then((a) => this.editform['state'] = a)
+      .then((a) => this.editform['state'] = a);
 
     this.getZipCode(address['address_components'])
       .then(zip_code => {
         this.editform['zip_code'] = zip_code;
       }).catch(error => {
-        return false;
-      });
+      return false;
+    });
   }
 
   getZipCode = (data) => new Promise((resolve, reject) => {
@@ -111,6 +118,12 @@ export class PickupAddressComponent implements OnInit {
     }
   });
 
+  clickEdit = (a) => {
+    this.data = [];
+    this.address_id = a['id'];
+    this.editform = {...this.editform, ...a};
+  };
+
   save = () => {
     if (event) {
       this.loading = true;
@@ -123,16 +136,17 @@ export class PickupAddressComponent implements OnInit {
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
-            this.data.push(response['data'])
+            this.data.push(response['data']);
+            this.util.openSnackBar('Direccion actualizada', 'success');
           }
         }).catch(err => {
-          this.loading = false;
-        });
+        this.loading = false;
+      });
     }
   };
 
   countryLower = (a) => {
     return a.toLowerCase();
-  }
+  };
 
 }

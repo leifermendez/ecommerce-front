@@ -5,6 +5,17 @@
     font-size: .8rem !important
   }
 }
+@media (min-width: 768px) and (max-width: 1024px){
+  .container {
+    max-width: 768px !important;
+  }
+
+  .tmg-slideshow .container{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%!important;
+  }
+}
 
 @media screen
 and (max-width: 450px) {

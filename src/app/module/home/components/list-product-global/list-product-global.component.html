@@ -72,7 +72,7 @@
     <div class="slider-items  products-grid">
       <div class="container p-0">
         <div class="row m-0">
-          <div class="item col-sm-3 col-6 mb-2 pl-0" *ngFor="let dat of data?.list?.data; let i = index">
+          <div class="item col-lg-3 col-6 mb-2 pl-0" *ngFor="let dat of data?.list?.data; let i = index">
             <div
               *ngIf="dat &&  dat['is_available'] && dat['is_available']['isAvailable']"
               class="box-buttons-top-product">
@@ -209,7 +209,7 @@
   </div>
 </div>
 <div *ngIf="!loading && !(data?.list?.data?.length)" class="p-4 text-center">
-  <div class="col-8 pr-0 pl-0 pt-4">
+  <div class="col-9 pr-0 pl-0 pt-4">
     <img src="../../../../../assets/images/loupe.svg" width="50px" alt="">
     <h5 class="mt-4">En esta categoría no hay publicaciones que coincidan con tu búsqueda.</h5>
     <p><a [routerLink]="['/','search']">Ver más</a></p>

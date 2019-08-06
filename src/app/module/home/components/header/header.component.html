@@ -185,8 +185,7 @@
     </div>
   </header>
 </div>
-
-<div class="header-mobile" *ngIf="mobile">
+<div class="header-mobile" *ngIf="!computer">
   <div class="overlay" (click)="menuResponsive = false" [style.display]="(menuResponsive) ? 'block' : 'none'"></div>
   <div class="first-nav d-flex justify-content-between">
     <div class="block-logo p-1" (click)="menuResponsive = false"
@@ -343,8 +342,4 @@
       </ul>
     </div>
   </div>
-</div>
-
-<div *ngIf="tablet">
-  es_tablet
 </div>

@@ -2,18 +2,18 @@
   <div class="p-3">
     <div *ngIf="!data?.length">
       <div class="alert alert-warning">
-        {{"block.pickup.addess.not_found" | translate}}
+        {{"block.pickup.addess.not_found" | translate}}
       </div>
       <form [formGroup]="form" (submit)="save()">
         <div class="form-group">
           <label>{{"block.pickup.addess.address" | translate}}</label>
           <input type="text" formControlName="address" class="form-control" [(ngModel)]="editform.address" readonly
-            (click)="editform.address = null;editform.zip_code = null" *ngIf="(editform.address)"
-            placeholder="Introduce código postal">
+                 (click)="editform.address = null;editform.zip_code = null" *ngIf="(editform.address)"
+                 placeholder="Introduce código postal">
           <input ngx-google-places-autocomplete [disabled]="loading" *ngIf="!editform.address" class="form-control"
-            [ngModelOptions]="{standalone: true}" [ngModel]="address_gp" [options]='optionsPlaces'
-            #placesRef="ngx-places" placeholder="Direccion de la tienda"
-            (onAddressChange)="handleAddressChange($event)" />
+                 [ngModelOptions]="{standalone: true}" [ngModel]="address_gp" [options]='optionsPlaces'
+                 #placesRef="ngx-places" placeholder="Direccion de la tienda"
+                 (onAddressChange)="handleAddressChange($event)"/>
           <small *ngIf="(editform.address) && !(editform.zip_code)" class="text-danger mt-2 ml-2 mr-2 cursor-pointer">
             <span>{{"modal.location.error1" | translate}}</span>
           </small>
@@ -21,18 +21,18 @@
         <div class="form-group">
           <label>{{"block.pickup.addess.state"|translate}}</label>
           <input type="text" formControlName="state" class="form-control" [(ngModel)]="editform.state"
-            placeholder="¿Como es el nombre de tu tienda?">
+                 placeholder="¿Como es el nombre de tu tienda?">
         </div>
         <div class="form-group">
           <label>{{"block.pickup.addess.district"|translate}}</label>
           <input type="text" formControlName="district" class="form-control" [(ngModel)]="editform.district"
-            placeholder="¿Como es el nombre de tu tienda?">
+                 placeholder="¿Como es el nombre de tu tienda?">
         </div>
 
         <div class="form-group">
           <label>{{"block.pickup.addess.instructions"|translate}}</label>
           <input type="text" formControlName="instructions" class="form-control" [(ngModel)]="editform.instructions"
-            placeholder="Instrucciones">
+                 placeholder="Instrucciones">
         </div>
 
         <div class="form-group text-right mb-0 mt-2">
@@ -44,8 +44,8 @@
     </div>
 
     <div *ngIf="data?.length">
-        <label>{{"block.pickup.addess.title" | translate}}</label>
-      <div *ngFor="let d of data" class="list-address p-2">
+      <label>{{"block.pickup.addess.title" | translate}}</label>
+      <div *ngFor="let d of data" (click)="clickEdit(d)" class="list-address p-2 cursor-pointer">
         <flag-icon [country]="countryLower(d['country'])" squared></flag-icon>
         <span class="ml-1">{{d.state}}</span>
         <div>{{d['zip_code']}}, {{d['state']}} {{d['district']}}</div>
