@@ -13,8 +13,9 @@ export class RestService {
   location_zip = '';
   public lat = '';
   public lng = '';
-  // public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
-  public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
+  public readonly url: string = 'https://ecommerce-apatxee-v2.appspot.com/api/1.0';
+
+  // public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 
   constructor(public http: HttpClient,
               private router: Router,
@@ -44,11 +45,11 @@ export class RestService {
       'LAT': (this.lat) ? this.lat : '',
       'LNG': (this.lng) ? this.lng : '',
       'Authorization': `Bearer ${this.localtoken}`,
-    }
-    if(ignoreLoading){
+    };
+    if (ignoreLoading) {
       _header['ignoreLoadingBar'] = '';
     }
-    if(_label){
+    if (_label) {
       _header['COOKIES-REF'] = _label;
     }
     this.headers = new HttpHeaders(_header);
