@@ -61,6 +61,7 @@
   "modal.prevent.wizard.bank_account": "Vincula una cuenta de banco con stripe para poder recibir tus pagos, de lo contrario no podras publicar productos.",
   "modal.prevent.wizard.shop_schedule": "Debes establecer un horario de disponibilidad del producto, recuerda que el servicio de envió se vincula con tu tienda y buscara el producto.",
   "modal.location.title": " Introduce tu calle , plaza, avenida etc",
+  "modal.location.description": "Bienvenido a <span class='text-secondary'>Alterhome Shop </span>la tienda exclusiva para nuestros huéspedes, obtendrás descuentos y ofertas exclusivas. Necesitamos que nos indique en cual piso estas hospedado.",
   "modal.location.sentence": "Nos tienes que proporcionar tu calle para que te podamos mostrar los productos a la venta que tienes a tu alrededor ",
   "modal.location.label": " Introduce una de las direcciones que te aparecen en el desplegable. Después te pediremos más datos de entrega",
   "modal.location.error1": "Ups, debes proporcionar una direccion más específica valida. Prueba ingresando número de calle",

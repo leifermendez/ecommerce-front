@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
     limit: 5,
     src: ''
   }
-
+  public focus = false;
   constructor(private rest: RestService,
     private fb: FormBuilder,
     private util: UtilsService,

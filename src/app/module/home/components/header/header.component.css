@@ -132,7 +132,7 @@
   width: 100%;
   min-height: 35px;
   border-top: solid 1px #f3f3f3;
-  padding: .4rem 0rem .4rem 0rem;
+  padding: .4rem 1rem .4rem 1rem;
 }
 
 #nav > li > a {
@@ -380,7 +380,7 @@ ul.dropdown-menu.drop-menu-profile li:hover {
 
 .icon-bell {
   position: absolute;
-  background: rgb(236, 47, 77);
+  background: rgb(244, 94, 59);
   right: -10px;
   top: -5px;
   width: 20px;

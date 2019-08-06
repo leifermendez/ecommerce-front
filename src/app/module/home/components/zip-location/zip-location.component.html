@@ -1,28 +1,33 @@
 <div class="modal-content">
-  <div class="modal-header">
-    <h6 class="modal-title">{{"modal.location.title" |translate}}</h6>
+  <div class="modal-header" [style.padding]="'.5rem 1rem'">
+    <div>
+      <img src="../../../../../assets/images/ah_logo_header.png" height="40" alt="">
+    </div>
     <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+       <!-- <h6 class="modal-title">{{"modal.location.title" |translate}}</h6> -->
     <!--      <span aria-hidden="true">&times;</span>-->
     <!--    </button>-->
   </div>
-  <div class="image-block">
-    <div class="container">
-      <div class="row pt-2 pb-2">
-        <div class="col-lg-6 text-center">
-          <img src="../../../../../assets/images/scooter.svg" height="70px" alt="">
-        </div>
-        <div class="col-lg-6 text-center text-muted">
-          <p>{{"modal.location.sentence" | translate}}</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
   <div class="modal-body">
+    <div class="p-3 text-center">
+      <p [innerHTML]="'modal.location.description' | translate"></p>
+    </div>
     <div>
+        <ng-select [items]="list_accommodation"
+        bindLabel="name"
+        class="select-create-category"
+        placeholder="¿Cual es tu piso?"
+        autofocus
+        [clearable]="false"
+        (ngModelChange)="emitPreview($event)"
+        [(ngModel)]="selectedPersonId">
+</ng-select>
+    </div>
+   <!--<div>
       <div *ngIf="loading" class="loading-zip">
         <fa name="spinner" animation="spin"></fa>
       </div>
+      <label>Piso</label>
       <input ngx-google-places-autocomplete
              [disabled]="loading"
              class="form-control"
@@ -30,10 +35,11 @@
              placeholder="Ingresa una dirección de envio"
              (onAddressChange)="handleAddressChange($event)"/>
 
-    </div>
+    </div>  --> 
     <small *ngIf="msg" class="text-mute text-danger font-weight-bold">
       {{"modal.location.error1" | translate}}
     </small>
+
   </div>
   <div class="modal-footer">
     <div class="container-fluid d-flex">

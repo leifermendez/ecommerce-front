@@ -15323,7 +15323,6 @@ timepicker table {
 .custom-select-search-item .ng-select-container {
   background: #f5f5f5 !important;
   height: 40px !important;
-  border: solid 1px #f1f1f1 !important;
   border-radius: 2px;
 }
 
@@ -15334,6 +15333,7 @@ timepicker table {
 .custom-select-search-item .ng-dropdown-panel.ng-select-bottom {
   border-radius: 2px !important;
   border-color: #f1f1f1;
+  margin-top: 1px;
 }
 
 .custom-select-search-item .ng-dropdown-panel {
@@ -15346,8 +15346,13 @@ timepicker table {
 }
 
 .modal-backdrop {
-  background-color: #585858;
+  background-color: #282828;
   z-index: 9999;
+}
+
+.modal-open app-root{
+  display: block;
+  filter: blur(9px)
 }
 
 .pac-container {
@@ -15833,6 +15838,10 @@ app-single .description p {
 .custom-select-search-item .ng-select-container {
   border-radius: 5px !important;
   border: solid 1px #6e3d50 !important;
+}
+.custom-select-search-item-focus .ng-select-container {
+  border-radius: 5px !important;
+  border: solid 1px #f45e3b !important;
 }
 
 .custom-select-search-item .ng-arrow {
