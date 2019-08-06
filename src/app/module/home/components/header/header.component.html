@@ -6,8 +6,8 @@
         <div class="row m-0">
           <div class="d-flex justify-content-between w-100">
             <div class="logo">
-              <a [routerLink]="['/']" title="Apatxee">
-                <div><img src="assets/images/logo-apatxee.png" height="50" alt="Apatxee"></div>
+              <a [routerLink]="['/']" title="Alterhome Shop">
+                <div><img src="assets/images/ah_logo_header.png" height="50" alt="Alterhome Shop"></div>
               </a>
             </div>
             <div *ngIf="!fullMenu" class="fl-nav-menu-search">
@@ -15,9 +15,9 @@
                 <app-search class="custom-select-search-item"></app-search>
               </div>
               <small *ngIf="location">
-                <span class="cursor-pointer" (click)="openZip()">
-                  <fa name="map-marker"></fa>
-                  Enviar a <b>{{location['name']}}</b> {{location['zip_code']}}
+                <span class="cursor-pointer text-primary" (click)="openZip()">
+                  <fa name="home"></fa>
+                  Enviar a piso <b>{{location['name']}}</b> {{location['zip_code']}}
                 </span>
               </small>
             </div>
@@ -52,20 +52,20 @@
               </ul>
             </div>
 
-            <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown
-                 [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">
-              <div class="button-shop cursor-pointer" dropdownToggle>
-                <span class="point-shop pulse"></span>
-                <img src="../../../../../assets/images/shop.svg" width="30px" alt="">
-                <div>
-                  <span>Mi comercio</span>
-                </div>
-              </div>
-              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-                <app-shot-code-shop>
-                </app-shot-code-shop>
-              </ul>
-            </div>
+<!--            <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown-->
+<!--                 [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">-->
+<!--              <div class="button-shop cursor-pointer" dropdownToggle>-->
+<!--                <span class="point-shop pulse"></span>-->
+<!--                <img src="../../../../../assets/images/shop.svg" width="30px" alt="">-->
+<!--                <div>-->
+<!--                  <span>Mi comercio</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">-->
+<!--                <app-shot-code-shop>-->
+<!--                </app-shot-code-shop>-->
+<!--              </ul>-->
+<!--            </div>-->
 
             <div class="menu-shop-line ml-2 mr-2 pb-0 pl-2 pr-2 btn-group" [routerLinkActive]="['is-active']"
                  *ngIf="fullMenu && user_data">
