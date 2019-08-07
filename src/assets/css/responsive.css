@@ -5,26 +5,33 @@
     font-size: .8rem !important
   }
 }
-@media (min-width: 768px) and (max-width: 1024px){
+
+@media (min-width: 768px) and (max-width: 1024px) {
   .container {
     max-width: 768px !important;
   }
 
-  .tmg-slideshow .container{
+  .tmg-slideshow .container {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    max-width: 100%!important;
+    max-width: 100% !important;
   }
 }
 
 @media screen
 and (max-width: 450px) {
+  #best-seller .owl-item .item {
+    /*width: 10rem !important;*/
+  }
+
   .main-container-fixed {
     margin-top: 50px !important;
   }
-  .sidebar-attribute{
+
+  .sidebar-attribute {
     display: none;
   }
+
   .ngxImageZoomContainer {
     width: 100% !important;
   }
@@ -41,15 +48,25 @@ and (max-width: 450px) {
   .modal-dialog.box-shadow-modal.responsive .modal-content {
     height: 100%;
   }
-  .products-grid .item .item-inner .item-img .item-img-info{
+
+  .products-grid .item .item-inner .item-img .item-img-info {
     height: 160px !important;
   }
 
   .forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container,
-  .fullwidthabanner .image-banner, .fullwidthabanner .container-banner {
+  .fullwidthabanner .container-banner {
     min-height: 12rem !important;
     border-bottom: solid .1rem white;
-    height: 12rem !important;
+    height: 14rem !important;
+  }
+
+  .fullwidthabanner .image-banner{
+    height: 13.15rem !important;
+    border-radius: 5px !important;
+  }
+
+  .rev_slider{
+    background-color: #6d3c4f !important;
   }
 
   .category-box-responsive .card-header {
@@ -79,6 +96,10 @@ and (max-width: 450px) {
     opacity: .3 !important;
   }
 
+  .rev_slider .thumbnail-image {
+    padding: .4rem .4rem 1rem .4rem;;
+  }
+
   .CollectionGrid-container {
     margin-left: 0;
     margin-right: 0;
@@ -94,7 +115,7 @@ and (max-width: 450px) {
   }
 
   app-box-featured-product .owl-item {
-    width: 10rem !important;
+    /*width: 10rem !important;*/
   }
 
   app-box-featured-product .owl-item .item {
@@ -104,14 +125,18 @@ and (max-width: 450px) {
   }
 
   app-box-featured-product ngx-gallery {
-    height: 10rem !important;
+    height: 8.5rem !important;
   }
 
   app-box-featured-product .owl-item .item .item-inner .item-info .info-inner {
-    width: 100%;
+    width: 8.5rem !important;
     padding: .5rem .5rem .5rem .5rem !important;
     min-height: 5rem !important;
 
+  }
+
+  app-box-featured-product #best-seller .owl-item .item .item-inner .item-img {
+    height: 8.5rem !important;
   }
 
   app-box-featured-product .item-info {

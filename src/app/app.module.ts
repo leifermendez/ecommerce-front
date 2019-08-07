@@ -144,6 +144,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
 import { PreventWizardComponent } from './module/home/components/prevent-wizard/prevent-wizard.component';
 import { ModalFilterAttributesComponent } from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
 import { PickupAddressComponent } from './module/home/components/pickup-address/pickup-address.component';
+import { BoxListProductComponent } from './module/home/pages/home/box-list-product/box-list-product.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -264,6 +265,7 @@ export class MyIntl extends TimeagoIntl {
     PreventWizardComponent,
     ModalFilterAttributesComponent,
     PickupAddressComponent,
+    BoxListProductComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
@@ -38,8 +38,11 @@ export class BoxFeaturedProductComponent implements OnInit {
   @Input() h: any = '300px';
   @Input() items: any = 4;
   @Input() limit: any = 6;
+  @Input() autoWidth: any = true;
   @Input() relation: any = false;
+  @Input() view: any = 'carousel';
   public data: any[];
+  public activeList = 0;
   public optionsOws: any;
   public user_data: any = null;
   public loading: any = false;
@@ -63,6 +66,7 @@ export class BoxFeaturedProductComponent implements OnInit {
               private auth: AuthshopService,
               private cookieService: CookieService,
               private shopping: ShoppingCartComponent,
+              private elem: ElementRef,
               private deviceService: DeviceDetectorService,
               private modalService: BsModalService) {
     intl.strings = englishStrings;
@@ -120,16 +124,29 @@ export class BoxFeaturedProductComponent implements OnInit {
     this.modalRef.content.closeBtnName = 'Cerrar';
   }
 
+  onTranslated = (a) => {
+    let elements = this.elem.nativeElement.querySelectorAll('.slider-items .owl-stage-outer .owl-stage .active .item div');
+    elements = (elements && elements[0]) ? elements[0] : null;
+    console.log('--->',elements)
+    this.activeList = elements.dataset['index'];
+  };
+
   ngOnInit() {
     this.optionsOws = {
       dots: false,
       navigation: true,
       autoplay: false,
-      items: this.items,
       margin: 5,
-      autoWidth: true,
+      autoWidth: (this.autoWidth),
+      lazyLoad: true,
+      onTranslated: this.onTranslated.bind(this),
+      responsive: {
+        0: {items: 1},
+        600: {items: 3},
+        1000: {items: this.items}
+      }
     };
-    this.data = [1, 1, 1, 1];
+
     this.galleryOptions = [
       {
         width: this.w,
@@ -173,7 +190,7 @@ export class BoxFeaturedProductComponent implements OnInit {
     const _label = this.cookieService.get('_check_session_label');
     const _label_exists = this.cookieService.get('_check_session_label_exists');
 
-    if(this.relation) {
+    if (this.relation) {
       this.queryParams['_check_session_label'] = _label;
       this.queryParams['_check_session_label_exists'] = _label_exists;
     }

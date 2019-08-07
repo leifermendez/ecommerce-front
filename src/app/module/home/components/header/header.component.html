@@ -188,9 +188,9 @@
 <div class="header-mobile" *ngIf="!computer">
   <div class="overlay" (click)="menuResponsive = false" [style.display]="(menuResponsive) ? 'block' : 'none'"></div>
   <div class="first-nav d-flex justify-content-between">
-    <div class="block-logo p-1" (click)="menuResponsive = false"
+    <div class="block-logo pl-1 pr-1 pt-2 pb-2" (click)="menuResponsive = false"
          [routerLink]="['/']" title="Apatxee">
-      <img src="../../../../../assets/images/apatxee-logo-sqaure.png" alt="Apatxee">
+      <img src="../../../../../assets/images/ah_logo_squared.png" alt="Apatxee">
     </div>
     <div class="block-search">
       <form [formGroup]="form" (ngSubmit)="searchMobile($event)">
@@ -215,8 +215,8 @@
         </div>
       </div>
     </div>
-    <div class="block-cart p-2" [routerLink]="['/','shopping-cart']">
-      <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" alt="">
+    <div class="block-cart pt-2 pb-2" [routerLink]="['/','shopping-cart']">
+      <img class="mega-menu-hover" src="../../../../../assets/images/ah_shopping-bag.svg" alt="">
     </div>
   </div>
   <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">
