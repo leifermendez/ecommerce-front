@@ -507,7 +507,7 @@ header {
 
 .block-search .input-group {
   background-color: #fcfcfc;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 4px rgba(244, 94, 59, 0.35);
   margin: 0;
   border-radius: 5px;
   border: solid 1px #f45e3b;

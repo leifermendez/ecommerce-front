@@ -5417,7 +5417,7 @@ text-transform: uppercase
   float: left;
   margin-top: 0px;
   border-right: 1px #f2f2f2 solid;
-  /*width: 250px;*/
+  width: 100%;
 }
 
 #best-seller .owl-item .item.show-addtocart {

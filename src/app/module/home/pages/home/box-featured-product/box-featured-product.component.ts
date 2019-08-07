@@ -142,7 +142,7 @@ export class BoxFeaturedProductComponent implements OnInit {
       onTranslated: this.onTranslated.bind(this),
       responsive: {
         0: {items: 1},
-        600: {items: 3},
+        600: {items: this.items},
         1000: {items: this.items}
       }
     };

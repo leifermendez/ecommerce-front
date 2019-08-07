@@ -180,7 +180,7 @@ and (max-width: 450px) {
   }
 
   .item-price-amount, .euro-sign {
-    font-weight: 400;
+    font-weight: 600;
     font-size: .8rem;
   }
 

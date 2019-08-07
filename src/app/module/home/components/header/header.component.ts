@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
@@ -41,7 +41,7 @@ declare var $: any;
   ]
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   public location: any = null;
   public computer: any;
   public mobile: any;
@@ -110,6 +110,11 @@ export class HeaderComponent implements OnInit {
     this.mobile = this.deviceService.isMobile();
     this.tablet = this.deviceService.isTablet();
 
+  }
+
+  
+  ngAfterViewInit() {
+    //const scroll$ = fromEvent(window, 'scroll');
   }
 
   searchMobile = (e) => {
