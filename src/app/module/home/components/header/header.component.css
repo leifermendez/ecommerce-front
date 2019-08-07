@@ -526,9 +526,20 @@ header {
   margin-left: 2rem;
 }
 
+.header-mobile{
+  -webkit-transition: .2s ease-in-out;
+  -moz-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
 .header-mobile .first-nav .block-menu {
   width: 9.25%;
   line-height: 2.3rem;
+}
+
+.header-mobile.hide-toggle{
+  transform: translateY(-100%);
 }
 
 .block-menu img {

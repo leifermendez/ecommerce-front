@@ -1,19 +1,30 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit, HostBinding} from '@angular/core';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import {AuthshopService} from '../../../auth/authshop.service';
 import {AppComponent} from '../../../../app.component';
 import {TranslateService} from '@ngx-translate/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, state, style, transition, trigger, group, query, animateChild} from '@angular/animations';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 import {ZipLocationComponent} from '../zip-location/zip-location.component';
 import {SideCategoriesComponent} from '../side-categories/side-categories.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { fromEvent } from 'rxjs';
+import { throttleTime, map, pairwise, distinctUntilChanged, share, filter } from 'rxjs/operators';
 
 
 declare var $: any;
+enum VisibilityState {
+  Visible = 'visible',
+  Hidden = 'hidden'
+}
+
+enum Direction {
+  Up = 'Up',
+  Down = 'Down'
+}
 
 @Component({
   selector: 'app-header',
@@ -37,6 +48,16 @@ declare var $: any;
       transition(':leave', [
         animate(100, style({transform: 'translateY(-20%)', opacity: '1'}))
       ])
+    ]),
+    trigger('toggle', [
+      state(
+        VisibilityState.Hidden,
+        style({})
+      ),
+      state(
+        VisibilityState.Visible,
+        style({})
+      )
     ])
   ]
 })
@@ -111,10 +132,33 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.tablet = this.deviceService.isTablet();
 
   }
+  public isVisible = true;
 
+  /*@HostBinding('@toggle')
+  get toggle(): VisibilityState {
+    return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
+  }*/
   
   ngAfterViewInit() {
-    //const scroll$ = fromEvent(window, 'scroll');
+   /* const scroll$ = fromEvent(window, 'scroll').pipe(
+      throttleTime(10),
+      map(() => window.pageYOffset),
+      pairwise(),
+      map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),
+      distinctUntilChanged(),
+      share()
+    );
+
+    const scrollUp$ = scroll$.pipe(
+      filter(direction => direction === Direction.Up)
+    );
+
+    const scrollDown = scroll$.pipe(
+      filter(direction => direction === Direction.Down)
+    );
+
+    scrollUp$.subscribe(() => (this.isVisible = true));
+    scrollDown.subscribe(() => (this.isVisible = false));*/
   }
 
   searchMobile = (e) => {

@@ -24,7 +24,7 @@ export class ZipLocationComponent implements OnInit {
     types: [],
     componentRestrictions: {country: 'ES'}
   };
-
+public selectedPersonId:any;
   public list_accommodation = [
     {
         "id": 167241,
