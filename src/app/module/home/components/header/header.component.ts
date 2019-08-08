@@ -11,8 +11,7 @@ import {SideCategoriesComponent} from '../side-categories/side-categories.compon
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import { fromEvent } from 'rxjs';
-import { throttleTime, map, pairwise, distinctUntilChanged, share, filter } from 'rxjs/operators';
+
 
 
 declare var $: any;
@@ -48,16 +47,6 @@ enum Direction {
       transition(':leave', [
         animate(100, style({transform: 'translateY(-20%)', opacity: '1'}))
       ])
-    ]),
-    trigger('toggle', [
-      state(
-        VisibilityState.Hidden,
-        style({})
-      ),
-      state(
-        VisibilityState.Visible,
-        style({})
-      )
     ])
   ]
 })
