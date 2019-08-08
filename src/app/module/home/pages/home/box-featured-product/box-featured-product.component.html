@@ -1,5 +1,5 @@
 <section class="wow bounceInUp animated CollectionGrid-container">
-  <div @tijl *ngIf="loading" class="best-pro slider-items-products container">
+  <div @tijl *ngIf="loading" [style.opacity]="'.3'" class="best-pro slider-items-products container">
     <div class="CollectionGrid container min-height-300">
       <div *ngFor="let a of [1,2,3,4]" class="CollectionGrid-tile hover-overlay-light">
         <div class="timeline-item">
