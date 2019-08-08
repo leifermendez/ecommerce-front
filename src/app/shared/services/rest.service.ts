@@ -31,8 +31,10 @@ export class RestService {
     const _cookie_data = this.cookieService.get('_location_zip_code');
     this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
       JSON.parse(_cookie_data) : null;
+    console.log('---->', this.location_zip);
     this.location_zip = (this.location_zip && this.location_zip['zip_code']) ?
       this.location_zip['zip_code'] : '';
+    console.log('---->', this.location_zip);
     this.lat = this.cookieService.get('customer_lat') ? this.cookieService.get('customer_lat') : null;
     this.lng = this.cookieService.get('customer_lng') ? this.cookieService.get('customer_lng') : null;
     const timezone = new Date().getTimezoneOffset();
@@ -41,7 +43,7 @@ export class RestService {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'TIME-ZONE': `${timezone}`,
-      'LOCATION-ZIP': (this.location_zip) ? this.location_zip : '',
+      'LOCATION-ZIP': this.location_zip.toString(),
       'LAT': (this.lat) ? this.lat : '',
       'LNG': (this.lng) ? this.lng : '',
       'Authorization': `Bearer ${this.localtoken}`,
