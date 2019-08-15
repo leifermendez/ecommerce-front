@@ -14,9 +14,9 @@
           </div>
           <div><small>{{a?.name | words:5:''}}</small></div>
           <div *ngIf="a?.variations?.length">
-            <span><b>{{a?.variations[0]['price_normal']}} {{"currency" |translate}}</b>
+            <span><b>{{a?.variations[0]['price_normal'] |number:'1.2-2' }} {{"currency" |translate}}</b>
             </span>
-            <del class="text-muted ml-1">{{a?.variations[0]['price_regular']}} {{"currency" |translate}}</del>
+            <del *ngIf="a?.variations[0]['price_regular']>0" class="text-muted ml-1">{{a?.variations[0]['price_regular'] |number:'1.2-2'}} {{"currency" |translate}}</del>
           </div>
         </div>
       </div>

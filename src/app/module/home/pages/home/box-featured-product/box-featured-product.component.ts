@@ -74,9 +74,9 @@ export class BoxFeaturedProductComponent implements OnInit {
       this.user_data = data;
     });
 
-    util.getLocation.subscribe(data => {
+    /*util.getLocation.subscribe(data => {
       this.loadData();
-    });
+    });*/
 
     this.computer = this.deviceService.isDesktop();
     this.mobile = this.deviceService.isMobile();
@@ -192,13 +192,8 @@ export class BoxFeaturedProductComponent implements OnInit {
     if (this.relation) {
       this.queryParams['_check_session_label'] = _label;
       this.queryParams['_check_session_label_exists'] = _label_exists;
-    }
+    };
 
-    if (this.util.getZipCookie()) {
-      this.loadData();
-    }
-
+    this.loadData();
   }
-
-
 }

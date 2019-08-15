@@ -126,7 +126,7 @@ export class AppComponent implements OnInit {
     const _location = this.localStorage.getItem('_location');
     if (!_location) {
       if (!this.cookie_zip_code) {
-        this.open();
+        //this.open();
       }
     }
   }

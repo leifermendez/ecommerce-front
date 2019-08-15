@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {UtilsService} from './util.service';
-import {CookieService} from 'ngx-cookie-service';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UtilsService } from './util.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -14,13 +14,15 @@ export class RestService {
   public lat = '';
   public lng = '';
   public readonly url: string = 'https://alterhome-dot-alterhome-ecommerce.appspot.com/api/1.0';
+  public readonly AH_url: string = 'https://api.alterhomeapp.com/api';
+  public readonly AH_token: string = 'CMS2831F6A84E2';
 
   // public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 
   constructor(public http: HttpClient,
-              private router: Router,
-              public utils: UtilsService,
-              private cookieService: CookieService,
+    private router: Router,
+    public utils: UtilsService,
+    private cookieService: CookieService,
   ) {
 
   }
@@ -31,10 +33,8 @@ export class RestService {
     const _cookie_data = this.cookieService.get('_location_zip_code');
     this.location_zip = (_cookie_data && JSON.parse(_cookie_data)) ?
       JSON.parse(_cookie_data) : null;
-    console.log('---->', this.location_zip);
     this.location_zip = (this.location_zip && this.location_zip['zip_code']) ?
       this.location_zip['zip_code'] : '';
-    console.log('---->', this.location_zip);
     this.lat = this.cookieService.get('customer_lat') ? this.cookieService.get('customer_lat') : null;
     this.lng = this.cookieService.get('customer_lng') ? this.cookieService.get('customer_lng') : null;
     const timezone = new Date().getTimezoneOffset();
@@ -54,6 +54,22 @@ export class RestService {
     if (_label) {
       _header['COOKIES-REF'] = _label;
     }
+    this.headers = new HttpHeaders(_header);
+    return this.headers;
+  };
+
+  AH_getHeaders = (ignoreLoading = false) => {
+
+    // @ts-ignore
+    let _header = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'CMS-Client-Token': this.AH_token
+    };
+    if (ignoreLoading) {
+      _header['ignoreLoadingBar'] = '';
+    }
+
     this.headers = new HttpHeaders(_header);
     return this.headers;
   };
@@ -84,33 +100,40 @@ export class RestService {
   }
 
   get(endpoint: string, params?: IUrlParams, ignoreLoading: any = false): Promise<object> {
-    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders(ignoreLoading)}).toPromise());
+    return this.check(this.http.get(this.getUrl(endpoint, params), { headers: this.getHeaders(ignoreLoading) }).toPromise());
   }
 
   post(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.post(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.post(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
   }
 
   postMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
     return this.check(this.http.post(this.getUrl(endpoint, params), body,
-      {headers: this.getHeadersMedia()}).toPromise());
+      { headers: this.getHeadersMedia() }).toPromise());
   }
 
   putMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
     return this.check(this.http.put(this.getUrl(endpoint, params), body,
-      {headers: this.getHeadersMedia()}).toPromise());
+      { headers: this.getHeadersMedia() }).toPromise());
   }
 
   put(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.put(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.put(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
   }
 
   delete(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.delete(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
+    return this.check(this.http.delete(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
   }
 
   public getUrl(endpoint: string, params?: IUrlParams): string {
     return this.url
+      + ''
+      + (endpoint || '/')
+      + this.parseParams(params);
+  }
+
+  public AH_getUrl(endpoint: string, params?: IUrlParams): string {
+    return this.AH_url
       + ''
       + (endpoint || '/')
       + this.parseParams(params);
@@ -145,6 +168,11 @@ export class RestService {
         reject(err);
       }).bind(this));
     });
+  }
+
+  AH_get(endpoint: string, params?: IUrlParams, ignoreLoading: any = false): Promise<object> {
+    return this.check(this.http.get(this.AH_getUrl(endpoint, params),
+      { headers: this.AH_getHeaders(ignoreLoading) }).toPromise());
   }
 }
 

@@ -7814,7 +7814,7 @@ button.button.continue:before {
 .product_image .owl-prev {
   position: absolute !important;
   background: #ececec !important;
-  top: .6rem !important;
+  top: .1rem !important;
   font-size: 4rem !important;
   margin-left: -6rem !important;
   height: 2.5rem !important;
@@ -7825,7 +7825,7 @@ button.button.continue:before {
 .product_image .owl-next {
   position: absolute !important;
   background: #ececec !important;
-  top: .6rem !important;
+  top: .1rem !important;
   font-size: 4rem !important;
   margin-left: 3.5rem !important;
   height: 2.5rem !important;
@@ -7836,7 +7836,7 @@ button.button.continue:before {
 .product_image .owl-next span, .product_image .owl-prev span {
   position: absolute !important;
   left: .75rem !important;
-  top: .5rem !important;
+  top: .2rem !important;
   color: #282828 !important;
 }
 

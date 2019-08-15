@@ -115,8 +115,9 @@
 
                   </li>
                   <li class="mega-menu mega-menu-hover">
-                    <a routerLink="/shop" class="level-top">
-                      <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
+                    <a  [routerLink]="['/','search']"  [queryParams]="{order: 'rand'}"
+                     class="level-top">
+                      <span class="cursor-pointer">{{"menu.special.travel" | translate}}</span>
                     </a>
                   </li>
                   <li *ngIf="!user_data" class="mega-menu mega-menu-hover float-right d-flex">

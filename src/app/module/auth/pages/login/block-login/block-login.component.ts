@@ -1,14 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserModel} from '../../../../../shared/models/base.model';
-import {AuthshopService} from '../../../authshop.service';
-import {RestService} from '../../../../../shared/services/rest.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {UtilsService} from '../../../../../shared/services/util.service';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
-import {BsModalService} from 'ngx-bootstrap';
-import {animate, style, transition, trigger} from '@angular/animations';
-import {ShoppingCartComponent} from '../../../../home/components/shopping-cart/shopping-cart.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserModel } from '../../../../../shared/models/base.model';
+import { AuthshopService } from '../../../authshop.service';
+import { RestService } from '../../../../../shared/services/rest.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UtilsService } from '../../../../../shared/services/util.service';
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import { BsModalService } from 'ngx-bootstrap';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { ShoppingCartComponent } from '../../../../home/components/shopping-cart/shopping-cart.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-block-login',
@@ -17,11 +18,11 @@ import {ShoppingCartComponent} from '../../../../home/components/shopping-cart/s
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({transform: 'translateY(-20%)', opacity: '0'}),
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
       ])
     ])
   ]
@@ -31,16 +32,19 @@ export class BlockLoginComponent implements OnInit {
   @Input() redirect: any = false;
   public form: any = FormGroup;
   public user: any;
+  public ah_accommodations = [];
   private _currentUser: UserModel;
+  public selectAccommodation: any = null;
   public steps = 1;
   submitted = false;
   loading = false;
 
   constructor(private auth: AuthshopService, private rest: RestService,
-              private router: Router, private utils: UtilsService,
-              private fb: FormBuilder, private authService: AuthService,
-              private route: ActivatedRoute,
-              private cart: ShoppingCartComponent
+    private router: Router, private utils: UtilsService,
+    private translate: TranslateService,
+    private fb: FormBuilder, private authService: AuthService,
+    private route: ActivatedRoute,
+    private cart: ShoppingCartComponent
   ) {
     this.form = fb.group({
       'email': [null, Validators.compose([Validators.required, Validators.email])],
@@ -51,7 +55,27 @@ export class BlockLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.AH_getAccommodations();
+  }
 
+  AH_getAccommodations = () => {
+    this.loading = true;
+    this.rest.AH_get(`/web/process/accommodations`)
+      .then((response: any) => {
+        this.loading = false;
+        if (response['status'] === 'success') {
+          this.ah_accommodations = response['data'];
+          this.translate.get('global.not_staying').subscribe((text: string) => {
+            this.ah_accommodations.push({
+              name: text,
+              id: null
+            })
+          });
+
+        }
+      }).catch((err) => {
+        this.loading = false;
+      });
   }
 
   goBackStep = () => {
@@ -70,7 +94,10 @@ export class BlockLoginComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
+  emitPreview = (a) => {
 
+    console.log(a)
+  };
   login() {
 
     if (event) {
@@ -101,7 +128,7 @@ export class BlockLoginComponent implements OnInit {
       }).catch((error) => {
         this.loading = false;
         if (error['status'] === 400) {
-          this.steps = 3;
+          this.steps = 4;
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
         }
@@ -112,14 +139,14 @@ export class BlockLoginComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data: any) => {
-        console.log(data);
-        this.user = data;
-        this.user.avatar = data.photoUrl;
-        this.user.uid = data.id;
-        this.user.token = data.authToken;
-        this.user.provider = 'google';
-        this.socialloginrest(this.user);
-      }
+      console.log(data);
+      this.user = data;
+      this.user.avatar = data.photoUrl;
+      this.user.uid = data.id;
+      this.user.token = data.authToken;
+      this.user.provider = 'google';
+      this.socialloginrest(this.user);
+    }
     ).catch(error => {
       console.log(error);
     });
@@ -127,14 +154,14 @@ export class BlockLoginComponent implements OnInit {
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data: any) => {
-        console.log(data);
-        this.user = data;
-        this.user.avatar = data.photoUrl;
-        this.user.uid = data.id;
-        this.user.token = data.authToken;
-        this.user.provider = 'facebook';
-        this.socialloginrest(this.user);
-      }
+      console.log(data);
+      this.user = data;
+      this.user.avatar = data.photoUrl;
+      this.user.uid = data.id;
+      this.user.token = data.authToken;
+      this.user.provider = 'facebook';
+      this.socialloginrest(this.user);
+    }
     ).catch(error => {
       console.log(error);
     });
@@ -164,5 +191,4 @@ export class BlockLoginComponent implements OnInit {
       }
     });
   }
-
 }
