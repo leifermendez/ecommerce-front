@@ -1,25 +1,28 @@
 <div class="p-3 bg-white">
   <ul style="list-style: none" class="m-0 p-0">
     <li class="p-0 mb-4" *ngFor="let a of data">
-      <div class="d-flex ">
-        <div>
-          <img style="width: 70px; height: 70px; object-fit: cover;     border: solid 1px #f3f3f3;"
-               [src]="a?.product_image"
-               width="40px" height="50px" alt="">
-        </div>
-        <div class="pl-2 text-left">
-          <div>
-            <ngx-stars [readonly]="true" initialStars="{{a?.score_shop}}"
-                       customPadding="2px" color="#b42025"></ngx-stars>
+      <a [routerLink]="['/','single',util.slug(a['name'])+'-'+a['id']]" >
+        <div class="d-flex ">
+            <div>
+              <img style="width: 70px; height: 70px; object-fit: cover;     border: solid 1px #f3f3f3;"
+                   [src]="a?.product_image"
+                   width="40px" height="50px" alt="">
+            </div>
+            <div class="pl-2 text-left">
+              <div>
+                <ngx-stars [readonly]="true" initialStars="{{a?.score_shop}}"
+                           customPadding="2px" color="#b42025"></ngx-stars>
+              </div>
+              <div><small>{{a?.name | words:5:''}}</small></div>
+              <div *ngIf="a?.variations?.length">
+                <span><b>{{a?.variations[0]['price_normal'] |number:'1.2-2' }} {{"currency" |translate}}</b>
+                </span>
+                <del *ngIf="a?.variations[0]['price_regular']>0" class="text-muted ml-1">{{a?.variations[0]['price_regular'] |number:'1.2-2'}} {{"currency" |translate}}</del>
+              </div>
+            </div>
           </div>
-          <div><small>{{a?.name | words:5:''}}</small></div>
-          <div *ngIf="a?.variations?.length">
-            <span><b>{{a?.variations[0]['price_normal'] |number:'1.2-2' }} {{"currency" |translate}}</b>
-            </span>
-            <del *ngIf="a?.variations[0]['price_regular']>0" class="text-muted ml-1">{{a?.variations[0]['price_regular'] |number:'1.2-2'}} {{"currency" |translate}}</del>
-          </div>
-        </div>
-      </div>
+      </a>
+
     </li>
 
   </ul>

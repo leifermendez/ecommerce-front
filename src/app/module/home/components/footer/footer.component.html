@@ -16,7 +16,7 @@
     <div>
       <ul class="list-ul">
         <li>
-          <span class="brand"><b>Apatxee on time 2019</b></span>
+          <span class="brand"><b>{{"footer.main.name" | translate}}</b></span>
         </li>
         <li *ngFor="let c of data">
           <a target="_blank" [routerLink]="['/','blog',c['id'],util.slug(c['title'])]">{{c['title']}}</a>

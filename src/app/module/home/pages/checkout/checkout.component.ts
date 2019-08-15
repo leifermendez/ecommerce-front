@@ -32,8 +32,9 @@ export class CheckoutComponent implements OnInit {
   public loading = false;
   public loading_save = false;
   public zip_code = null;
+  public id_shipping_address:any = null;a
   addres: any;
-  public staying:any = true;
+  public staying: any = true;
   public ah_accommodations = [];
   public selectAccommodation: any = null;
   addreselect: any = null;
@@ -75,17 +76,17 @@ export class CheckoutComponent implements OnInit {
         this.msg = 'Not found';
       });
 
-      this.getZipCode(address['address_components'], 'locality')
+    this.getZipCode(address['address_components'], 'locality')
       .then(locality => {
-          this.editform['state'] = locality;
+        this.editform['state'] = locality;
       }).catch(error => {
-   
+
       });
-      this.getZipCode(address['address_components'], 'route')
+    this.getZipCode(address['address_components'], 'route')
       .then(locality => {
-          this.editform['district'] = locality;
+        this.editform['district'] = locality;
       }).catch(error => {
-   
+
       });
   }
 
@@ -130,7 +131,7 @@ export class CheckoutComponent implements OnInit {
         zip_code: a['localization']['District']['PostalCode'],
       }
 
-      console.log('----',this.editform)
+      console.log('----', this.editform)
     } else {
       this.loadData();
     }
@@ -163,8 +164,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   saveData = () => {
+    const _method = (this.id_shipping_address) ? 'put' : 'post';
     this.loading_save = true;
-    this.rest.post(`/rest/shipping`,
+    this.rest[_method](`/rest/shipping/${(this.id_shipping_address) ? this.id_shipping_address : ''}`,
       this.editform)
       .then((response: any) => {
         this.loading_save = false;
@@ -187,9 +189,9 @@ export class CheckoutComponent implements OnInit {
       this.data = response.data;
       this.editform = (this.data.data && this.data.data.length) ?
         this.data.data[0] : {};
-      if (!this.data.data.length) {
-        this.AH_getAccommodations();
-      }
+      this.id_shipping_address = (this.data.data && this.data.data.length) ?
+      this.data.data[0]['id'] : null;
+      this.AH_getAccommodations();
     }).catch((error: any) => {
       this.loading = false;
       this.util.openSnackBar('Ups! algo ocurrio', 'error');

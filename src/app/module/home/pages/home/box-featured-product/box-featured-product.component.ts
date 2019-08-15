@@ -36,6 +36,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   @Input() title: any = null;
   @Input() w: any = '245px';
   @Input() h: any = '300px';
+  @Input() order: any = false;
   @Input() items: any = 4;
   @Input() limit: any = 6;
   @Input() autoWidth: any = true;
@@ -90,7 +91,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   };
 
   loadData = () => {
-
+    this.queryParams['order'] = this.order;
     this.loading = true;
     this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {

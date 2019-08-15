@@ -97,7 +97,6 @@
                     <a class="level-top">
                       <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
                     </a>
-
                   </li>
 
                   <li class="mega-menu mega-menu-hover">
@@ -105,15 +104,14 @@
                        class="level-top">
                       <span class="cursor-pointer">{{"menu.product_features" | translate}}</span>
                     </a>
-
                   </li>
 
                   <li class="mega-menu mega-menu-hover">
-                    <a [routerLink]="['/','search']" lass="level-top">
+                    <a [routerLink]="['/','search']" class="level-top">
                       <span class="cursor-pointer">{{"menu.shops" | translate}}</span>
                     </a>
-
                   </li>
+                  
                   <li class="mega-menu mega-menu-hover">
                     <a  [routerLink]="['/','search']"  [queryParams]="{order: 'rand'}"
                      class="level-top">
@@ -253,16 +251,6 @@
     </div>
     <div class="block-section pr-0 pl-0">
       <ul class="list-menu list-menu pt-2 pb-2">
-        <li *ngIf="user_data" (click)="menuResponsive = false" [routerLink]="['/','sales']">
-          <div class="d-flex">
-            <div>
-              <img class="mega-menu-hover" src="../../../../../assets/images/menu-shopping-bag.svg" width="20px" alt="">
-            </div>
-            <div class="ml-4">
-              <span class="cursor-pointer">{{"menu.my.sell" | translate}}</span>
-            </div>
-          </div>
-        </li>
         <li *ngIf="user_data" (click)="menuResponsive = false" [routerLink]="['/','purchases']">
           <div class="d-flex">
             <div>
@@ -284,23 +272,23 @@
             </div>
           </div>
         </li>
-        <li (click)="menuResponsive = false" routerLink="/shop">
+        <li (click)="menuResponsive = false"  [routerLink]="['/','search']"  [queryParams]="{order: 'rand'}">
           <div class="d-flex">
             <div>
-              <img class="mega-menu-hover" src="../../../../../assets/images/shop.svg" width="20px" alt="">
+              <img class="mega-menu-hover" src="../../../../../assets/images/discount.svg" width="20px" alt="">
             </div>
             <div class="ml-4">
-              <span class="cursor-pointer">{{"menu.sell" | translate}}</span>
+              <span class="cursor-pointer">{{"menu.special.travel" | translate}}</span>
             </div>
           </div>
         </li>
         <li (click)="menuResponsive = false" [routerLink]="['/','categories']">
           <div class="d-flex">
             <div>
-              <img class="mega-menu-hover" src="../../../../../assets/images/menu-settings.svg" width="20px" alt="">
+              <img class="mega-menu-hover" src="../../../../../assets/images/menu-sale.svg" width="20px" alt="">
             </div>
             <div class="ml-4">
-              <span class="cursor-pointer">{{"menu.my.settings" | translate}}</span>
+              <span class="cursor-pointer">{{"menu.categories" | translate}}</span>
             </div>
           </div>
         </li>
@@ -318,18 +306,6 @@
     </div>
     <div class="block-section pr-0 pl-0">
       <ul class="list-menu list-menu pt-2 pb-2">
-        <li (click)="menuResponsive = false;openZip()">
-          <div class="d-flex">
-            <div>
-              <img class="mega-menu-hover" src="../../../../../assets/images/marker.svg" width="20px" alt="">
-            </div>
-            <div class="ml-4">
-              <span
-                class="cursor-pointer">{{"menu.send_to" | translate}}
-                <b>{{location['name']}} {{location['zip_code']}}</b></span>
-            </div>
-          </div>
-        </li>
         <li (click)="menuResponsive = false">
           <div class="d-flex">
             <div>

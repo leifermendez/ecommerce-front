@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {UtilsService} from '../../../../../shared/services/util.service';
 import {RestService} from '../../../../../shared/services/rest.service';
 
 @Component({
@@ -8,6 +9,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 })
 export class BoxListProductComponent implements OnInit, AfterViewInit {
   @Input() listNumber: any = 1;
+  @Input() order: any = false;
   public loading: any = false;
   public data: any = [];
   public queryParams: any = {
@@ -17,7 +19,7 @@ export class BoxListProductComponent implements OnInit, AfterViewInit {
     with_variations: 'all'
   };
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService,  private util: UtilsService,) {
   }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class BoxListProductComponent implements OnInit, AfterViewInit {
   }
 
   loadData = () => {
-
+    this.queryParams['order'] = this.order;
     this.loading = true;
     this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {

@@ -159,6 +159,7 @@
             </div>
             <div *ngIf="view === 'list'" [attr.data-index]="i">
               <app-box-list-product
+                [order]="order"
                 class="list-product-home"
                 *ngIf="activeList == i"
                 [listNumber]="items">
