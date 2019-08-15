@@ -121,6 +121,7 @@ import {AddressShoppingCartComponent} from './module/home/components/address-sho
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
 import { AppModule } from './app.module';
+import {environment} from '../environments/environment';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -180,7 +181,7 @@ export class MyIntl extends TimeagoIntl {
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
     TimepickerModule.forRoot(),
-    NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
+    NgxStripeModule.forRoot(environment.stripe_public_key),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),

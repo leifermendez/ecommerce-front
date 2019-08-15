@@ -6,7 +6,7 @@ import { RestService } from '../../../../../shared/services/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from '../../../../../shared/services/util.service';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
-import { BsModalService } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ShoppingCartComponent } from '../../../../home/components/shopping-cart/shopping-cart.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -32,9 +32,6 @@ export class BlockLoginComponent implements OnInit {
   @Input() redirect: any = false;
   public form: any = FormGroup;
   public user: any;
-  public ah_accommodations = [];
-  private _currentUser: UserModel;
-  public selectAccommodation: any = null;
   public steps = 1;
   submitted = false;
   loading = false;
@@ -42,6 +39,7 @@ export class BlockLoginComponent implements OnInit {
   constructor(private auth: AuthshopService, private rest: RestService,
     private router: Router, private utils: UtilsService,
     private translate: TranslateService,
+    public bsModalRef: BsModalRef,
     private fb: FormBuilder, private authService: AuthService,
     private route: ActivatedRoute,
     private cart: ShoppingCartComponent
@@ -55,27 +53,6 @@ export class BlockLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.AH_getAccommodations();
-  }
-
-  AH_getAccommodations = () => {
-    this.loading = true;
-    this.rest.AH_get(`/web/process/accommodations`)
-      .then((response: any) => {
-        this.loading = false;
-        if (response['status'] === 'success') {
-          this.ah_accommodations = response['data'];
-          this.translate.get('global.not_staying').subscribe((text: string) => {
-            this.ah_accommodations.push({
-              name: text,
-              id: null
-            })
-          });
-
-        }
-      }).catch((err) => {
-        this.loading = false;
-      });
   }
 
   goBackStep = () => {
@@ -94,10 +71,7 @@ export class BlockLoginComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-  emitPreview = (a) => {
 
-    console.log(a)
-  };
   login() {
 
     if (event) {
@@ -113,22 +87,20 @@ export class BlockLoginComponent implements OnInit {
         }
       ).then(logged => {
         this.loading = false;
-        this.utils.closeAllModals();
+        this.bsModalRef.hide()
         this.cart.loadData();
 
-        if (logged['confirmed'] === 1) {
+        if (logged) {
           if (this.redirect) {
             this.router.navigateByUrl(`${this.redirect}`);
           }
-        } else if (logged['confirmed'] === 0) {
-          this.router.navigateByUrl('/profile');
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
         }
       }).catch((error) => {
         this.loading = false;
         if (error['status'] === 400) {
-          this.steps = 4;
+          this.steps = 3;
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
         }
@@ -169,16 +141,14 @@ export class BlockLoginComponent implements OnInit {
 
   socialloginrest(data) {
     this.loading = true;
-    this.utils.closeAllModals();
+    this.bsModalRef.hide()
     this.cart.loadData();
     this.auth.login_social(data).then(logged => {
       this.loading = false;
-      if (logged['confirmed'] === 1) {
+      if (logged) {
         if (this.redirect) {
           this.router.navigateByUrl(`${this.redirect}`);
         }
-      } else if (logged['confirmed'] === 0) {
-        this.router.navigateByUrl('/profile');
       } else {
         this.utils.openSnackBar('Login Fail', 'try again');
       }

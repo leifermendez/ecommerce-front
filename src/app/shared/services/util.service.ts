@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { settings } from '../settings';
-import { BsModalService } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { RestService } from './rest.service';
 
 declare var $: any;
@@ -28,7 +28,7 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-    private modalService: BsModalService) {
+    private modalService: BsModalService, public bsModalRef: BsModalRef) {
   }
 
 

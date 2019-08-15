@@ -1,34 +1,19 @@
 <div @tijl class="block-login" [ngClass]="modalPadding">
-  <h5 *ngIf="steps==2" class="text-center font-weight-bold">{{"page.auth.login.step_1" | translate}}</h5>
-  <h5 *ngIf="steps==3" class="text-center font-weight-bold">{{"page.auth.login.step_2" | translate}}</h5>
-  <h5 *ngIf="steps==4" class="text-center font-weight-bold">{{"page.auth.login.step_3" | translate}}</h5>
+  <h5 *ngIf="steps==1" class="text-center font-weight-bold">{{"page.auth.login.step_1" | translate}}</h5>
+  <h5 *ngIf="steps==2" class="text-center font-weight-bold">{{"page.auth.login.step_2" | translate}}</h5>
+  <h5 *ngIf="steps==3" class="text-center font-weight-bold">{{"page.auth.login.step_3" | translate}}</h5>
   <div class="pt-4">
     <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
-        <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.name.errors }">
-            <div>
-                <ng-select [items]="ah_accommodations"
-                bindLabel="name"
-                class="select-create-category"
-                placeholder="¿Cual es tu piso?"
-                autofocus
-                [clearable]="false"
-                (ngModelChange)="emitPreview($event)"
-                [ngModelOptions]="{standalone: true}"
-                [(ngModel)]="selectAccommodation">
-        </ng-select>
-            </div>
-          <small class="form-text text-muted">Solo falta un paso.</small>
-        </div>
-        <div class="form-group" [hidden]="steps!==2" [ngClass]="{'has-danger': submitted && f.email.errors }">
+        <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">
             <input type="email" (keydown)="onKeydown($event,2)" class="form-control" formControlName="email"
               placeholder="miemail@dominio.com">
             <small class="form-text text-muted">{{"page.auth.login.label" | translate}}</small>
           </div>
-      <div class="form-group" [hidden]="steps!==3" [ngClass]="{'has-danger': submitted && f.password.errors }">
+      <div class="form-group" [hidden]="steps!==2" [ngClass]="{'has-danger': submitted && f.password.errors }">
         <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
         <small class="form-text text-muted">Manten segura tu cuenta incluye una contraseña.</small>
       </div>
-      <div class="form-group" [hidden]="steps!==4" [ngClass]="{'has-danger': submitted && f.name.errors }">
+      <div class="form-group" [hidden]="steps!==3" [ngClass]="{'has-danger': submitted && f.name.errors }">
           <input type="text" class="form-control" (keydown)="onKeydown($event,4)" formControlName="name" placeholder="Enter name">
           <small class="form-text text-muted">Queremos saber como te llamas.</small>
         </div>
@@ -36,17 +21,17 @@
 
       <div *ngIf="!loading">
         <div class="text-center" *ngIf="steps===1" (click)="steps = 2">
-          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="!selectAccommodation" type="button">
-            Continuar
-          </button>
-        </div>
-        <div class="text-center" *ngIf="steps===2" (click)="steps = 3;">
           <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.email.errors" type="button">
             Continuar
           </button>
         </div>
-        <div class="text-center" *ngIf="steps===3">
+        <div class="text-center" *ngIf="steps===2">
           <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.password.errors" type="submit">
+            Continuar
+          </button>
+        </div>
+        <div class="text-center" *ngIf="steps===3">
+          <button class="btn btn-block btn-outline-primary mt-2" [disabled]="f.name.errors" type="submit">
             Continuar
           </button>
         </div>
@@ -71,16 +56,14 @@
   </div>
   <hr>
   <div class="text-center" *ngIf="!loading">
-    <div *ngIf="steps!==1">
-        <p class="text-muted">
-            {{"page.auth.login.social.label" | translate}}
-          </p>
-          <button (click)="signInWithFB()" type="butotn" class="btn btn-lg btn-facebook" title="Login"
-            name="send"><span>Facebook</span>
-          </button>
-          <button (click)="signInWithGoogle()" type="butotn" class="btn btn-lg ml-2 btn-google" title="Login"
-            name="send"><span>Google</span>
-          </button>
-    </div>
+      <p class="text-muted">
+          {{"page.auth.login.social.label" | translate}}
+        </p>
+        <button (click)="signInWithFB()" type="butotn" class="btn btn-lg btn-facebook" title="Login"
+          name="send"><span>Facebook</span>
+        </button>
+        <button (click)="signInWithGoogle()" type="butotn" class="btn btn-lg ml-2 btn-google" title="Login"
+          name="send"><span>Google</span>
+        </button>
   </div>
 </div>

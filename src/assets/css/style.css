@@ -16214,3 +16214,6 @@ html {
   border-radius: 3px !important;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+.switch.checked{
+  background-color: #6e3d50 !important;
+}

@@ -1,10 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ElementOptions, ElementsOptions, StripeCardComponent, StripeService} from 'ngx-stripe';
+import {ElementOptions, ElementsOptions, StripeCardComponent, StripeService, StripeFactoryService, StripeInstance} from 'ngx-stripe';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../shared/services/util.service';
 import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
 import {ActivatedRoute, Router} from '@angular/router';
+import {environment} from '../../../../../environments/environment';
 import {BsModalService} from 'ngx-bootstrap';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -58,10 +59,13 @@ export class PaymentComponent implements OnInit {
   public editform: any = {};
   private uuid: any = null;
   stripeTest: FormGroup;
-
+  env = environment;
+  stripe: StripeInstance;
+  
   constructor(private rest: RestService, private util: UtilsService, private shopping: ShoppingCartComponent,
               private route: ActivatedRoute, private modalService: BsModalService, private fb: FormBuilder,
               private stripeService: StripeService, private router: Router,
+              private stripeFactory: StripeFactoryService,
               private deviceService: DeviceDetectorService) {
                 this.computer = this.deviceService.isDesktop();
                 this.mobile = this.deviceService.isMobile();
@@ -69,9 +73,11 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.stripe = this.stripeFactory.create(this.env.stripe_public_key);
     this.stripeTest = this.fb.group({
       name: ['', [Validators.required]]
     });
+
   }
 
   buy() {

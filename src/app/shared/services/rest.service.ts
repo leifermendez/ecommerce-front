@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 import { UtilsService } from './util.service';
 import { CookieService } from 'ngx-cookie-service';
-
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class RestService {
   location_zip = '';
   public lat = '';
   public lng = '';
-  public readonly url: string = 'https://alterhome-dot-alterhome-ecommerce.appspot.com/api/1.0';
-  public readonly AH_url: string = 'https://api.alterhomeapp.com/api';
-  public readonly AH_token: string = 'CMS2831F6A84E2';
+  public readonly url: string = environment.endpoint;
+  public readonly AH_url: string = environment.AH_url;
+  public readonly AH_token: string = environment.AH_token;
 
   // public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 

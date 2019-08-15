@@ -145,6 +145,7 @@ import { PreventWizardComponent } from './module/home/components/prevent-wizard/
 import { ModalFilterAttributesComponent } from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
 import { PickupAddressComponent } from './module/home/components/pickup-address/pickup-address.component';
 import { BoxListProductComponent } from './module/home/pages/home/box-list-product/box-list-product.component';
+import {environment} from '../environments/environment';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -306,7 +307,7 @@ export class MyIntl extends TimeagoIntl {
     AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
+    NgxStripeModule.forRoot(environment.stripe_public_key),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
