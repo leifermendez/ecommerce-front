@@ -134,11 +134,11 @@ export const ngxDropTargetOptions: DropTargetOptions = {
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('380950034643-1uvjkvdn21dq26cjk61ard8eb1tf7hfo.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider(environment.google_provider)
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('372832750083623')
+    provider: new FacebookLoginProvider(environment.fb_provider)
   }
 ]);
 

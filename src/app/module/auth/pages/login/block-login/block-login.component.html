@@ -1,7 +1,9 @@
 <div @tijl class="block-login" [ngClass]="modalPadding">
-  <h5 *ngIf="steps==1" class="text-center font-weight-bold">{{"page.auth.login.step_1" | translate}}</h5>
-  <h5 *ngIf="steps==2" class="text-center font-weight-bold">{{"page.auth.login.step_2" | translate}}</h5>
-  <h5 *ngIf="steps==3" class="text-center font-weight-bold">{{"page.auth.login.step_3" | translate}}</h5>
+  <div *ngIf="title">
+      <h5 *ngIf="steps==1" class="text-center font-weight-bold">{{"page.auth.login.step_1" | translate}}</h5>
+      <h5 *ngIf="steps==2" class="text-center font-weight-bold">{{"page.auth.login.step_2" | translate}}</h5>
+      <h5 *ngIf="steps==3" class="text-center font-weight-bold">{{"page.auth.login.step_3" | translate}}</h5>
+  </div>
   <div class="pt-4">
     <form class="form-group ml-4 mr-4" [formGroup]="form" (ngSubmit)="login()">
         <div class="form-group" [hidden]="steps!==1" [ngClass]="{'has-danger': submitted && f.email.errors }">

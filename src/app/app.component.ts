@@ -1,7 +1,7 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ZipLocationComponent} from './module/home/components/zip-location/zip-location.component';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
+import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent, ActivatedRoute} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {TranslateService} from '@ngx-translate/core';
 import {UtilsService} from './shared/services/util.service';
@@ -14,6 +14,7 @@ import {
   description as meta_description,
   keywords as meta_keywords
 } from '../main-config';
+import { ReferredComponent } from './module/home/components/referred/referred.component';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
   constructor(@Inject(WINDOW) private window: Window, @Inject(LOCAL_STORAGE) private localStorage: any,
               private modalService: BsModalService,
               private util: UtilsService,
+              private route: ActivatedRoute,
               private router: Router, private translate: TranslateService,
               private cookieService: CookieService,
               private meta: Meta,
@@ -66,6 +68,13 @@ export class AppComponent implements OnInit {
 
     /** METAS */
 
+    this.route.queryParams.subscribe(params => {
+      if(params && params.ref){
+        this.openReferred()
+      }
+    });
+
+
   }
 
 
@@ -79,6 +88,22 @@ export class AppComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       ZipLocationComponent,
+      Object.assign({initialState}, {
+          class: 'gray modal-lg top-modal box-shadow-modal responsive'
+        },
+        this.config)
+    );
+    this.modalRef.content.closeBtnName = 'Cerrar';
+  }
+
+  openReferred() {
+    const initialState = {
+      ignoreBackdropClick: true,
+      emitBack: this.emitBack,
+    };
+
+    this.modalRef = this.modalService.show(
+      ReferredComponent,
       Object.assign({initialState}, {
           class: 'gray modal-lg top-modal box-shadow-modal responsive'
         },

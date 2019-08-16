@@ -28,11 +28,14 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-    private modalService: BsModalService, public bsModalRef: BsModalRef) {
+    private modalService: BsModalService, public bsModalRef: BsModalRef,
+) {
   }
 
 
-  closeAllModals() {
+  closeAllModals(element = null) {
+    let elements = element.nativeElement.querySelectorAll('body');
+    elements.removeClass("modal-open");
     for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
       this.modalService.hide(i);
     }

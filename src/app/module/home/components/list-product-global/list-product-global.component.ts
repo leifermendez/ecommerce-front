@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ElementRef} from '@angular/core';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RestService} from '../../../../shared/services/rest.service';
@@ -32,6 +32,7 @@ export class ListProductGlobalComponent implements OnInit {
   constructor(private rest: RestService, private util: UtilsService,
               private shopping: ShoppingCartComponent,
               private modalService: BsModalService,
+              private elem: ElementRef,
               private route: ActivatedRoute, private router: Router) {
 
 
@@ -67,7 +68,7 @@ export class ListProductGlobalComponent implements OnInit {
   emitBack = () => this.ngOnInit();
 
   open(data) {
-    this.util.closeAllModals();
+    this.util.closeAllModals(this.elem);
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from '../../../../../shared/models/base.model';
 import { AuthshopService } from '../../../authshop.service';
@@ -30,6 +30,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class BlockLoginComponent implements OnInit {
   @Input() modalPadding: any = 'p-4';
   @Input() redirect: any = false;
+  @Input() title: any = null;
   public form: any = FormGroup;
   public user: any;
   public steps = 1;
@@ -40,6 +41,7 @@ export class BlockLoginComponent implements OnInit {
     private router: Router, private utils: UtilsService,
     private translate: TranslateService,
     public bsModalRef: BsModalRef,
+    private elem: ElementRef,
     private fb: FormBuilder, private authService: AuthService,
     private route: ActivatedRoute,
     private cart: ShoppingCartComponent
@@ -88,6 +90,7 @@ export class BlockLoginComponent implements OnInit {
       ).then(logged => {
         this.loading = false;
         this.bsModalRef.hide()
+        this.utils.closeAllModals(this.elem)
         this.cart.loadData();
 
         if (logged) {
@@ -101,8 +104,6 @@ export class BlockLoginComponent implements OnInit {
         this.loading = false;
         if (error['status'] === 400) {
           this.steps = 3;
-        } else {
-          this.utils.openSnackBar('Login Fail', 'try again');
         }
       });
     }
@@ -150,14 +151,14 @@ export class BlockLoginComponent implements OnInit {
           this.router.navigateByUrl(`${this.redirect}`);
         }
       } else {
-        this.utils.openSnackBar('Login Fail', 'try again');
+        this.utils.openSnackBar('Login Fail2', 'try again');
       }
     }).catch((error) => {
       this.loading = false;
       if (error['status'] === 400) {
         this.steps = 3;
       } else {
-        this.utils.openSnackBar('Login Fail', 'try again');
+        this.utils.openSnackBar('Login Fail3', 'try again');
       }
     });
   }

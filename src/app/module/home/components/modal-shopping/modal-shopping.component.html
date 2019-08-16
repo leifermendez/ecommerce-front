@@ -123,6 +123,7 @@
     </div>
     <div *ngIf="!loading_save">
       <app-block-login
+      [title]="true"
         *ngIf="error === 'not_session'"
         [redirect]="false"
         class="block-login-modal"

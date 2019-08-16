@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import {RestService} from '../../../../../shared/services/rest.service';
 import {NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from 'ngx-gallery';
@@ -67,6 +67,7 @@ export class BoxFeaturedProductComponent implements OnInit {
               private auth: AuthshopService,
               private cookieService: CookieService,
               private shopping: ShoppingCartComponent,
+              private elem: ElementRef,
               private deviceService: DeviceDetectorService,
               private modalService: BsModalService) {
     intl.strings = englishStrings;
@@ -107,7 +108,7 @@ export class BoxFeaturedProductComponent implements OnInit {
   emitBack = () => this.ngOnInit();
 
   open(data) {
-    this.util.closeAllModals();
+    this.util.closeAllModals(this.elem);
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,
