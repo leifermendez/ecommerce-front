@@ -184,7 +184,8 @@ export class SingleComponent implements OnInit {
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,
-      data: data
+      data: data,
+      variation:this.selectedvariationName
     };
 
     this.modalRef = this.modalService.show(

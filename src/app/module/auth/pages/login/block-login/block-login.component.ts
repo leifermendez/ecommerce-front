@@ -89,10 +89,6 @@ export class BlockLoginComponent implements OnInit {
         }
       ).then(logged => {
         this.loading = false;
-        this.bsModalRef.hide()
-        this.utils.closeAllModals(this.elem)
-        this.cart.loadData();
-
         if (logged) {
           if (this.redirect) {
             this.router.navigateByUrl(`${this.redirect}`);
@@ -100,6 +96,9 @@ export class BlockLoginComponent implements OnInit {
         } else {
           this.utils.openSnackBar('Login Fail', 'try again');
         }
+        this.bsModalRef.hide()
+        this.utils.closeAllModals(this.elem)
+        this.cart.loadData();
       }).catch((error) => {
         this.loading = false;
         if (error['status'] === 400) {

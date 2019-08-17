@@ -1,4 +1,8 @@
+
 <div *ngIf="computer">
+    <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
+        {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
+        </div>  
   <header @tijl *ngIf="!header" [style.opacity]="(modeFocus) ? '.4' : '1'"
           [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
     <div id="header">
@@ -185,6 +189,9 @@
   </header>
 </div>
 <div class="header-mobile" [ngClass]="{'hide-toggle': !isVisible}" *ngIf="!computer">
+    <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
+        {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
+        </div>  
   <div class="overlay" (click)="menuResponsive = false" [style.display]="(menuResponsive) ? 'block' : 'none'"></div>
   <div class="first-nav d-flex justify-content-between">
     <div class="block-logo pl-1 pr-1 pt-2 pb-2" (click)="menuResponsive = false"

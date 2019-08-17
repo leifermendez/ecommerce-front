@@ -34,6 +34,7 @@ export class ModalVariationsProductComponent implements OnInit {
       'price_normal': [null, Validators.compose([Validators.required])],
       'price_regular': [null, Validators.compose([Validators.required])],
       'observation': '',
+      'quantity':[null, Validators.compose([Validators.required])],
       'weight': [null, Validators.compose([Validators.required])],
       'width': [null, Validators.compose([Validators.required])],
       'height': [null, Validators.compose([Validators.required])],

@@ -14,6 +14,7 @@ export class ModalShoppingComponent implements OnInit, AfterViewInit {
   public data: any = {
     name: ''
   };
+  public variation:any;
   public error: any = false;
   public loading_save = true;
   public finish = false;
@@ -39,7 +40,9 @@ export class ModalShoppingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.qty_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    console.log('--------',this.variation)
+    const _qty = (this.variation && this.variation.quantity) ? this.variation.quantity : 0;
+    this.qty_list = Array.from(Array(_qty), (_,x) => x+1);
   }
 
   onTranslated = (a) => {
