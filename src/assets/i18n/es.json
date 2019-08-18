@@ -49,6 +49,7 @@
   "page.single.buy": "Comprar",
   "page.single.add_car": "Añadir al carrito",
   "page.single.description": "Descripción",
+  "page.single.reviews": "Comentarios recientes",
   "page.single.shipping_time": "Si compras ahora , lo recibirás en un tiempo medio de 1 hora",
   "global.not_staying": "<b class='text-secondary'>NO</b>, estoy hospedado en alterhome",
   "global.staying": "<b class='text-secondary'>SI</b>, estoy hospedado en alterhome",

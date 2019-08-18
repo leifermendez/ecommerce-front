@@ -132,6 +132,29 @@
   display: none;
 }
 
+.list-review{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-review li{
+  margin: 0;
+  padding: 0;
+}
+.list-review li .img-profile{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.gallery-review img{
+  height: 40px;
+  width: 40px;
+  margin-right: .25rem;
+}
+
 @media screen
 and (max-width: 450px) {
   .gallery-product-responsive, .call-action-buy {
