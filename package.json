@@ -76,6 +76,7 @@
     "ngx-gallery": "^5.10.0",
     "ngx-google-places-autocomplete": "^2.0.4",
     "ngx-image-zoom": "^0.3.4",
+    "ngx-lightbox": "^2.0.2",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^1.1.5",
     "ngx-page-scroll-core": "^6.0.2",

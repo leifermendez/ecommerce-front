@@ -183,8 +183,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 inline-table description-content background-solid border-left-solid
-             border-right-solid text-dark p-4 border-booton-solid" [style.borderRight]="'solid 5px whitesmoke'"
+            <div class="inline-table description-content background-solid border-left-solid
+             border-right-solid text-dark p-4 border-booton-solid" 
+             [ngClass]="{'col-8':(data.comments_count), 'col-12':!(data.comments_count)}"
+             [style.borderRight]="'solid 5px whitesmoke'"
               [style.borderTop]="'solid 5px whitesmoke'">
               <div class="container">
                 <div class="row m-0">
@@ -195,30 +197,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-4 inline-table description-content background-solid border-left-solid
+            <div *ngIf="data.comments_count>0" class="col-4 inline-table description-content background-solid border-left-solid
             border-right-solid text-dark p-2 border-booton-solid" [style.borderTop]="'solid 5px whitesmoke'">
              <div class="container p-0">
-               <div class="row m-0">
-                 <div class="col-12 p-0">
-                   <h2 class="font-weight-600 mb-4">{{"page.single.reviews" | translate}}</h2>
-                   <ul class="list-review">
-                     <li class="d-flex mb-3" *ngFor="let c of [1,1,1,1,1,1]">
-                       <div class="col-2 p-0 text-center">
-                         <img class="img-profile" src="https://storage.googleapis.com/media-ecommerce-alterhome/public/upload/products/small_WDVQwuN7HWnsABIpdlHuEpgt2rafJs76Brz.jpg" alt="">
-                       </div>
-                       <div class="col-10">
-                         <h6 class="font-weight-bold">leifer</h6>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dignissimos.</p>
-                         <div class="gallery-review">
-                           <img src="https://storage.googleapis.com/media-ecommerce-alterhome/public/upload/products/small_rXsGyKUGc1WqG62CX0v22UntfK7k1q3euGh.jpg" alt="">
-                           <img src="https://storage.googleapis.com/media-ecommerce-alterhome/public/upload/products/small_rXsGyKUGc1WqG62CX0v22UntfK7k1q3euGh.jpg" alt="">
-                           <img src="https://storage.googleapis.com/media-ecommerce-alterhome/public/upload/products/small_rXsGyKUGc1WqG62CX0v22UntfK7k1q3euGh.jpg" alt="">
-                         </div>
-                       </div>
-                     </li>
-                   </ul>
-                 </div>
-               </div>
+              <app-review *ngIf="data && (data.comments_count>0)" [id]="data.id"></app-review>
              </div>
            </div>
           </div>

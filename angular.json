@@ -30,6 +30,7 @@
               "./node_modules/pretty-checkbox/src/pretty-checkbox.scss",
               "./node_modules/ngx-datetime-picker/ngx-datetime-picker.css",
               "./node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "./node_modules/ngx-lightbox/lightbox.css",
               "./node_modules/quill/dist/quill.core.css",
               "./node_modules/quill/dist/quill.snow.css",
               "src/assets/css/responsive.css",

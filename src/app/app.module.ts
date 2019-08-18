@@ -141,12 +141,14 @@ import { SearchPageCategoryComponent } from './module/home/pages/search-page-cat
 import { SideCategoriesComponent } from './module/home/components/side-categories/side-categories.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { LightboxModule } from 'ngx-lightbox';
 import { PreventWizardComponent } from './module/home/components/prevent-wizard/prevent-wizard.component';
 import { ModalFilterAttributesComponent } from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
 import { PickupAddressComponent } from './module/home/components/pickup-address/pickup-address.component';
 import { BoxListProductComponent } from './module/home/pages/home/box-list-product/box-list-product.component';
 import { environment } from '../environments/environment';
 import { ReferredComponent } from './module/home/components/referred/referred.component';
+import { ReviewComponent } from './module/home/pages/single/review/review.component';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -269,6 +271,7 @@ export class MyIntl extends TimeagoIntl {
     PickupAddressComponent,
     BoxListProductComponent,
     ReferredComponent,
+    ReviewComponent,
   ],
   imports: [
     LoadingBarHttpClientModule,
@@ -302,6 +305,7 @@ export class MyIntl extends TimeagoIntl {
     Ng2SearchPipeModule,
     ClickOutsideModule,
     Ng2TelInputModule,
+    LightboxModule,
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
