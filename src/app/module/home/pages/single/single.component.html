@@ -100,8 +100,7 @@
                           {{"currency" | translate}}
                         </del>
                       </h6>
-                      <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}
-                        {{"currency" | translate}}
+                      <h1 class="m-0" [innerHTML]="selectedvariationName['price_normal'] |number:'1.2-2' | pricePipe">
                       </h1>
                       <div class="discount-text text-success"
                            *ngIf="selectedvariationName

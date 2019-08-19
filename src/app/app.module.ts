@@ -150,6 +150,7 @@ import { BoxListProductComponent } from './module/home/pages/home/box-list-produ
 import { environment } from '../environments/environment';
 import { ReferredComponent } from './module/home/components/referred/referred.component';
 import { ReviewComponent } from './module/home/pages/single/review/review.component';
+import { PricePipePipe } from './shared/pricePipe/price-pipe.pipe';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -273,6 +274,7 @@ export class MyIntl extends TimeagoIntl {
     BoxListProductComponent,
     ReferredComponent,
     ReviewComponent,
+    PricePipePipe,
   ],
   imports: [
     LoadingBarHttpClientModule,

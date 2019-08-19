@@ -56,7 +56,12 @@ small {
   margin: auto;
   overflow: hidden;
 }
-
+._cents {
+  position: absolute;
+  font-size: 1.2rem;
+  margin-top: .3rem;
+  text-decoration: underline;
+}
 /* Base Columns */
 .col-left {
   margin-bottom: 0px;
