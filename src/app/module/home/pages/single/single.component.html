@@ -185,7 +185,7 @@
             </div>
             <div class="inline-table description-content background-solid border-left-solid
              border-right-solid text-dark p-4 border-booton-solid" 
-             [ngClass]="{'col-8':(data.comments_count), 'col-12':!(data.comments_count)}"
+             [ngClass]="{'col-lg-8 col-sm-12':(data.comments_count), 'col-lg-12 col-sm-12':!(data.comments_count)}"
              [style.borderRight]="'solid 5px whitesmoke'"
               [style.borderTop]="'solid 5px whitesmoke'">
               <div class="container">
@@ -197,7 +197,7 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="data.comments_count>0" class="col-4 inline-table description-content background-solid border-left-solid
+            <div *ngIf="data.comments_count>0" class="col-lg-4 col-sm-12 inline-table description-content background-solid border-left-solid
             border-right-solid text-dark p-2 border-booton-solid" [style.borderTop]="'solid 5px whitesmoke'">
              <div class="container p-0">
               <app-review *ngIf="data && (data.comments_count>0)" [id]="data.id"></app-review>
