@@ -1,8 +1,7 @@
-
 <div *ngIf="computer">
-    <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
-        {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
-        </div>  
+  <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
+    {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
+  </div>
   <header @tijl *ngIf="!header" [style.opacity]="(modeFocus) ? '.4' : '1'"
           [ngClass]="{'position-fixed':(subMenu), 'offset-margin-video':(modeOffset)}">
     <div id="header">
@@ -56,20 +55,20 @@
               </ul>
             </div>
 
-<!--            <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown-->
-<!--                 [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">-->
-<!--              <div class="button-shop cursor-pointer" dropdownToggle>-->
-<!--                <span class="point-shop pulse"></span>-->
-<!--                <img src="../../../../../assets/images/shop.svg" width="30px" alt="">-->
-<!--                <div>-->
-<!--                  <span>Mi comercio</span>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                <app-shot-code-shop>-->
-<!--                </app-shot-code-shop>-->
-<!--              </ul>-->
-<!--            </div>-->
+            <!--            <div class="menu-shop-line ml-2 mr-2 pt-2 pb-0 pl-2 pr-2 btn-group" dropdown-->
+            <!--                 [routerLinkActive]="['is-active']" *ngIf="!fullMenu && user_data">-->
+            <!--              <div class="button-shop cursor-pointer" dropdownToggle>-->
+            <!--                <span class="point-shop pulse"></span>-->
+            <!--                <img src="../../../../../assets/images/shop.svg" width="30px" alt="">-->
+            <!--                <div>-->
+            <!--                  <span>Mi comercio</span>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">-->
+            <!--                <app-shot-code-shop>-->
+            <!--                </app-shot-code-shop>-->
+            <!--              </ul>-->
+            <!--            </div>-->
 
             <div class="menu-shop-line ml-2 mr-2 pb-0 pl-2 pr-2 btn-group" [routerLinkActive]="['is-active']"
                  *ngIf="fullMenu && user_data">
@@ -115,10 +114,10 @@
                       <span class="cursor-pointer">{{"menu.shops" | translate}}</span>
                     </a>
                   </li>
-                  
+
                   <li class="mega-menu mega-menu-hover">
-                    <a  [routerLink]="['/','search']"  [queryParams]="{order: 'rand'}"
-                     class="level-top">
+                    <a [routerLink]="['/','search']" [queryParams]="{order: 'rand'}"
+                       class="level-top">
                       <span class="cursor-pointer">{{"menu.special.travel" | translate}}</span>
                     </a>
                   </li>
@@ -156,24 +155,25 @@
                       <li role="menuitem">
                         <a class="dropdown-item pl-3" [routerLink]="['/','purchases']">
                           <img src="../../../../../assets/images/menu-shopping-bag.svg" width="14px" alt="">
-                          Mis compras
+                          {{"menu.my.purchases" | translate}}
                         </a>
                       </li>
                       <li role="menuitem">
                         <a class="dropdown-item pl-3" [routerLink]="['/','sales']">
                           <img src="../../../../../assets/images/menu-sale.svg" width="14px" alt="">
-                          Mis ventas
+                          {{"menu.my.sell" | translate}}
                         </a>
                       </li>
                       <li role="menuitem">
                         <a class="dropdown-item pl-3" [routerLink]="['/','logout']">
                           <img src="../../../../../assets/images/menu-logout.svg" width="14px" alt="">
-                          Salir
+                          {{"menu.my.logout" | translate}}
                         </a>
                       </li>
                       <li class="divider dropdown-divider m-0 p-0"></li>
                       <li role="menuitem">
-                        <a class="dropdown-item pl-3" [routerLink]="['/','profile']">Ajustes</a>
+                        <a class="dropdown-item pl-3"
+                           [routerLink]="['/','profile']">{{"menu.my.settings" | translate}}</a>
                       </li>
                     </ul>
                   </li>
@@ -189,9 +189,9 @@
   </header>
 </div>
 <div class="header-mobile" [ngClass]="{'hide-toggle': !isVisible}" *ngIf="!computer">
-    <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
-        {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
-        </div>  
+  <div *ngIf="time_exp_promo" class="d-block text-center p-2 text-white promo-block">
+    {{"promo.block" | translate}} <i><span timeago [date]="time_exp_promo" [live]="live"></span></i>
+  </div>
   <div class="overlay" (click)="menuResponsive = false" [style.display]="(menuResponsive) ? 'block' : 'none'"></div>
   <div class="first-nav d-flex justify-content-between">
     <div class="block-logo pl-1 pr-1 pt-2 pb-2" (click)="menuResponsive = false"
@@ -206,7 +206,7 @@
               <fa name="search"></fa>
             </button>
           </div>
-          <input type="text" formControlName="src" class="form-control input-search" placeholder="Estoy buscando..."
+          <input type="text" formControlName="src" class="form-control input-search" placeholder="{{'menu.search.input' | translate}}"
                  aria-label=""
                  aria-describedby="basic-addon1">
         </div>
@@ -279,7 +279,7 @@
             </div>
           </div>
         </li>
-        <li (click)="menuResponsive = false"  [routerLink]="['/','search']"  [queryParams]="{order: 'rand'}">
+        <li (click)="menuResponsive = false" [routerLink]="['/','search']" [queryParams]="{order: 'rand'}">
           <div class="d-flex">
             <div>
               <img class="mega-menu-hover" src="../../../../../assets/images/discount.svg" width="20px" alt="">

@@ -1,6 +1,9 @@
 {
   "currency": "EUR",
-  "promo.block":"Promocion limitada, finaliza en:",
+  "b.next": "Siguiente",
+  "b.prev": "Anterior",
+  "promo.block": "Promocion limitada, finaliza en:",
+  "menu.search.input.dropdown": "Sin resultados, prueba escribiendo otras palabras",
   "menu.product_features": "Productos destacados",
   "menu.categories": "Categorías",
   "menu.shops": "Productos cerca de ti",
@@ -12,10 +15,18 @@
   "menu.logout": "Salir",
   "menu.hello": "Hola",
   "menu.send_to": "Enviar a",
+  "menu.search.input": "Buscar un producto...",
   "menu.my.purchases": "Mis compras",
   "menu.my.settings": "Ajustes",
   "menu.my.sell": "Mis ventas",
+  "menu.my.logout": "Salir",
   "menu.view.more": "Ver más",
+  "inside.menu.purchases": "Compras",
+  "inside.menu.sell": "Ventas",
+  "inside.menu.setting": "Ajustes",
+  "inside.menu.help": "Ayuda",
+  "inside.menu.logout": "Salir",
+  "inside.menu.search.input": "Busca número de pedido, nombre de cliente",
   "page.car.title": "Articulos en el carrito",
   "page.car.shipping": "Envio",
   "page.checkout.shipping": "Enviar a",
@@ -143,5 +154,6 @@
   "block.pickup.addess.district": "Distrito",
   "block.pickup.addess.address": "Dirección",
   "block.pickup.addess.zip_code": "Código postal",
-  "block.pickup.addess.instructions": "Instrucciones"
+  "block.pickup.addess.instructions": "Instrucciones",
+  "block.categories.title": "Tenemos una gran coleccion de categorias"
 }

@@ -54,7 +54,7 @@
                 <div class="col p-0 bg-table min-height-300">
                   <input class="form-control bg-transparent mb-2" type="text" name="search" [(ngModel)]="searchText"
                          autocomplete="off"
-                         placeholder="Busca número de pedido, nombre de comercio">
+                         [placeholder]="'inside.menu.search.input' | translate">
 
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
                     <tbody>

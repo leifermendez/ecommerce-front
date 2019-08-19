@@ -201,7 +201,7 @@
                       [maxSize]="10"
                       [style.marginTop]="'3rem'"
                       class="ml-auto mb-4"
-                      previousText="Anterior" nextText="Siguiente"
+                      previousText="{{'b.prev' | translate}}" nextText="{{'b.next' | translate}}"
                       (pageChanged)="pageChanged($event,data?.list?.first_page_url)"></pagination>
         </div>
       </div>
