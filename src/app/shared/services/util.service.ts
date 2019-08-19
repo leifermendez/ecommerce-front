@@ -216,5 +216,13 @@ export class UtilsService {
     }
   });
 
+  sendEvent = (event, label) => {
+    (<any>window).ga('send', 'event', {
+      eventCategory: event,
+      eventLabel: label,
+      eventAction: 'click'
+    });
+  }
+
 
 }

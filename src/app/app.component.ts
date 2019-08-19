@@ -44,11 +44,13 @@ export class AppComponent implements OnInit {
     private util: UtilsService,
     private auth: AuthshopService,
     private route: ActivatedRoute,
-    private router: Router, private translate: TranslateService,
+    private router: Router, 
+    private translate: TranslateService,
     private cookieService: CookieService,
     private meta: Meta,
     private titleService: Title,
     private deviceService: DeviceDetectorService) {
+
     router.events.subscribe((event: RouterEvent) => {
       this.util.modeVideo.emit(false);
       this.navigationInterceptor(event);
@@ -56,7 +58,6 @@ export class AppComponent implements OnInit {
 
     this.cookie_zip_code = this.cookieService.get('_location_zip_code');
     this.translate.setDefaultLang(this.activeLang);
-
 
     /** METAS */
 
@@ -73,6 +74,14 @@ export class AppComponent implements OnInit {
     });
 
     /** METAS */
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        console.log('heheh');
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
+      }
+    });
 
     this.route.queryParams.subscribe(params => {
 

@@ -171,7 +171,8 @@
         <div class="text-center">
           <button class="btn-outline-secondary btn"
           type="buttom" (click)="bsModalRef.hide()">Continuar</button>
-          <button class="btn-outline-primary btn ml-4" (click)="bsModalRef.hide()" [routerLink]="['/','shopping-cart']">
+          <button class="btn-outline-primary btn ml-4" 
+          (click)="bsModalRef.hide();util.sendEvent('endBuyModal','click')" [routerLink]="['/','shopping-cart']">
             Finalizar compra
           </button>
         </div>
