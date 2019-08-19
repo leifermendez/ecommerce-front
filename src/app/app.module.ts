@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import {NgxTawkModule} from 'ngx-tawk';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
 import { AppRoutingModule } from './app-routing.module';
@@ -306,6 +307,7 @@ export class MyIntl extends TimeagoIntl {
     ClickOutsideModule,
     Ng2TelInputModule,
     LightboxModule,
+    NgxTawkModule,
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),

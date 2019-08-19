@@ -6,5 +6,6 @@ export const environment = {
   stripe_public_key: 'pk_live_6KCWvSfjNHesV09523rQtZfA',
   sentry_key: null,
   google_provider: '1085674862738-9vijili3ggokr8kjk51bo9u8rik1q1m6.apps.googleusercontent.com',
-  fb_provider: '645965282553317'
+  fb_provider: '645965282553317',
+  tawk: '5d5a5a5e77aa790be32f9052'
 };

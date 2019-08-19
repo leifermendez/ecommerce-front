@@ -8,6 +8,7 @@ import { UtilsService } from './shared/services/util.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ModalWarningComponent } from './module/home/components/modal-warning/modal-warning.component';
 import { LOCAL_STORAGE, WINDOW } from '@ng-toolkit/universal';
+import { environment } from '../environments/environment';
 import { Title, Meta } from '@angular/platform-browser';
 import * as moment from 'moment';
 import {
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit {
   cookie_zip_code = null;
   loading = false;
   public activeLang = 'es';
+  public tawkId = environment.tawk;
   public computer: any = true;
   nowCookies = moment().add(6, 'days').toDate();
 
