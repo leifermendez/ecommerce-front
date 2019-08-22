@@ -7,10 +7,9 @@ export class PricePipePipe implements PipeTransform {
   
   transform(value: any, args?: any): any {
     let v = value;
-    const _a = (v % 1).toString();
-    const _d = Number.parseFloat(_a).toFixed(2)
-    const decPart = (_d+"").split(".")[1];
-    return `<div class="price-pipe"><span class="_price">${Number.parseFloat(v).toFixed(0)}</span><span class="_cents">${(decPart) ? decPart : 0} ${(args) ? args : ''}</span></div>`;
+    const _i = Number.parseFloat(value).toFixed(2)
+    const inte = (_i+"").split(".");
+    return `<div class="price-pipe"><span class="_price">${inte[0]}</span><span class="_cents">${(inte[1]) ? inte[1] : 0} ${(args) ? args : ''}</span></div>`;
   }
 
 }
