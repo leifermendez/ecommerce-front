@@ -1,4 +1,4 @@
-<div class="p-3 bg-white">
+<div class="p-3 bg-white border-radius-list">
   <ul style="list-style: none" class="m-0 p-0">
     <li class="p-0 mb-4" *ngFor="let a of data">
       <a [routerLink]="['/','single',util.slug(a['name'])+'-'+a['id']]" >
@@ -11,7 +11,7 @@
             <div class="pl-2 text-left">
               <div>
                 <ngx-stars [readonly]="true" initialStars="{{a?.score_shop}}"
-                           customPadding="2px" color="#b42025"></ngx-stars>
+                           customPadding="2px" color="#ff4a52"></ngx-stars>
               </div>
               <div><small>{{a?.name | words:5:''}}</small></div>
               <div *ngIf="a?.variations?.length">

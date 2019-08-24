@@ -12,7 +12,7 @@ website:   	http://www.themesground.com/
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
-  background: #f5f5f5;
+  background: #fff;
   line-height: 1.6em;
   text-rendering: optimizeLegibility !important;
 }
@@ -42,12 +42,12 @@ small {
 }
 
 *::selection {
-  background-color: #6e3d50;
+  background-color: #ff4a52;
   color: #090809
 }
 
 .item:hover .btn-link {
-  color: #6e3d50;
+  color: #ff4a52;
   text-decoration: none;
 }
 
@@ -132,7 +132,7 @@ small {
 
 /* Header Start */
 header {
-  background-color: #fff;
+  background-color: #ff4a52;
   min-height: 66px;
   top: 0;
   -webkit-transform: translateZ(0);
@@ -175,7 +175,7 @@ header {
   /*width: 45px !important;*/
   object-fit: cover !important;
   object-position: left !important;
-  height: 42px;
+  height: 50px;
 }
 
 .header-container .fl-nav-menu {
@@ -700,7 +700,7 @@ ul.currencies_list li a:hover {
   -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 0 0 0 #202020;
-  background-color: #6e3d50;
+  background-color: #ff4a52;
   height: 40px;
   width: 40px;
   border-radius: 999px;
@@ -1027,7 +1027,7 @@ background-color: #fff;
 }
 
 #nav > li > a.active:nth-child(1) {
-  color: #6e3d50;
+  color: #ff4a52;
 
 }
 
@@ -1049,7 +1049,7 @@ background-color: #fff;
 }
 
 #nav > li:hover > a, .vertnav-top li > a:hover {
-  color: #6e3d50;
+  color: #222;
 
 }
 
@@ -1058,7 +1058,7 @@ background-color: #fff;
 }
 
 .cms-index-index #nav #nav-home > a, #nav > li.active > a, .vertnav-top li.current > a:hover {
-  color: #6e3d50;
+  color: #ff4a52;
   padding: 0px 0px;
 }
 
@@ -1440,7 +1440,7 @@ ul.level1 {
 }
 
 #nav > li > a {
-  color: #282828;
+  color: #222;
 }
 
 #nav > li.mega-menu {
@@ -3903,10 +3903,11 @@ ul.pdt-list li.item a img.image-hover {
 
 .products-grid .item .item-inner {
   position: relative;
-
+  border-radius: 10px !important;
   color: #525252;
-  box-shadow: 0px 3px 8px -4px rgba(0, 0, 0, 0.15);
-  background: #fff
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border: solid 1px rgba(218, 218, 218, 0.49);
 }
 
 .products-grid .item .item-inner .actions {
@@ -4033,6 +4034,10 @@ ul.pdt-list li.item a img.image-hover {
   background: none
 }
 
+app-box-list-product a:hover small {
+  color: #1d1d1d !important;
+}
+
 .item .item-inner .item-img .item-box-hover .product-detail-bnt a:hover {
   background-color: #090809333;
   cursor: pointer;
@@ -4093,7 +4098,7 @@ ul.pdt-list li.item a img.image-hover {
 }
 
 .products-grid .item .item-inner .item-info .info-inner .item-content .item-price {
-  background: #6e3d50;
+  background: #ff4a52;
   position: absolute;
   right: 0px;
   padding: 10px 15px;
@@ -4574,7 +4579,7 @@ ul.pdt-list li.item a img.image-hover {
 }
 
 .top-cate .new_title .title-img {
-  background: #6e3d50;
+  background: #ff4a52;
   width: 100px;
   height: 50px;
   border-radius: 0px 0px 50px 50px;
@@ -5400,8 +5405,8 @@ text-transform: uppercase
 }
 
 .best-pro .new_title h2 {
-  color: #282828;
-  font-size: 1rem;
+  color: #222;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0px;
   padding: 15px 0px 0px 0px;
@@ -5421,7 +5426,7 @@ text-transform: uppercase
 #best-seller .owl-item .item {
   float: left;
   margin-top: 0px;
-  border-right: 1px #f2f2f2 solid;
+  border-right: 5px transparent solid;
   width: 100%;
 }
 
@@ -5611,6 +5616,8 @@ text-transform: uppercase
 
 .ngx-gallery-image.ngx-gallery-active {
   z-index: 0 !important;
+  border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner {
@@ -5640,7 +5647,7 @@ text-transform: uppercase
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-content .item-price {
-  background: #6e3d50;
+  background: #ff4a52;
   position: absolute;
   right: 0px;
   padding: 10px 15px;
@@ -5672,7 +5679,7 @@ text-transform: uppercase
 }
 
 #best-seller .owl-item .item .item-inner .item-info .info-inner .item-title a:hover {
-  color: #6e3d50;
+  color: #ff4a52;
 }
 
 #best-seller .owl-item .item:hover .item-inner .item-img .item-img-info {
@@ -5702,7 +5709,7 @@ text-transform: uppercase
 }
 
 #best-seller .owl-item .item:hover .item-inner .item-info .info-inner .item-title a {
-  color: #6e3d50;
+  color: #ff4a52;
 }
 
 .add_cart {
@@ -5716,7 +5723,7 @@ text-transform: uppercase
 .btn-cart:before {
   content: '\f07a';
   font-family: FontAwesome;
-  background: #6e3d50;
+  background: #ff4a52;
   color: #fff;
   font-size: 16px;
   padding: 11px 15px;
@@ -6267,7 +6274,7 @@ text-transform: uppercase
 .latest-blog .post-date {
   height: 60px;
   width: 60px;
-  background: #6e3d50;
+  background: #ff4a52;
   position: absolute;
   display: inline-block;
   color: #fff;
@@ -6624,7 +6631,7 @@ text-transform: uppercase
 
 .footer-banner .block2 {
   transform: translate3d(0px, 0px, 0px);
-  background-color: #6e3d50;
+  background-color: #ff4a52;
   min-height: 100%;
   color: #fff;
   font-size: 14px;
@@ -6955,8 +6962,8 @@ text-transform: uppercase
 }
 
 .btn:hover, .btn:focus, .button-inverse, .button-vote:hover, .sidebar .button:hover, .sidebar .button:focus, .sidebar .btn:hover, .sidebar .btn:focus, .form-list .bootstrap-select.btn-group .btn:hover .caret, .form-list .bootstrap-select.btn-group .btn:focus .caret, .buttons-set .back-link a:hover, .buttons-set .back-link a:focus, .scrolltop, .button-tabs li a:hover, .button-tabs li a:focus {
-  border: 1px #6e3d50 solid;
-  background: #6e3d50;
+  border: 1px #ff4a52 solid;
+  background: #ff4a52;
   padding: 5px 12px;
   color: #FFF;
 }
@@ -9711,8 +9718,8 @@ a.button.detail-bnt span {
   -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-  box-shadow: inset 0 -40px 0 0 #6e3d50;
-  border: 1px solid #6e3d50;
+  box-shadow: inset 0 -40px 0 0 #ff4a52;
+  border: 1px solid #ff4a52;
   color: #fff !important
 }
 
@@ -9734,8 +9741,8 @@ a.button.detail-bnt span {
   -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-  box-shadow: inset 0 -40px 0 0 #6e3d50;
-  border: 1px solid #6e3d50;
+  box-shadow: inset 0 -40px 0 0 #ff4a52;
+  border: 1px solid #ff4a52;
   color: #fff
 }
 
@@ -10064,7 +10071,7 @@ a.button.detail-bnt span {
 }
 
 .product-view .product-shop .add-to-box .btn-cart {
-  background: #6e3d50;
+  background: #ff4a52;
   color: #090809333;
   font-size: 18px;
   text-shadow: none;
@@ -10073,7 +10080,7 @@ a.button.detail-bnt span {
   margin-top: 0px;
   font-weight: normal;
   margin-left: 10px;
-  border: 2px #6e3d50 solid;
+  border: 2px #ff4a52 solid;
   border-radius: 999px;
   -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
   -o-transition: all 0.2s cubic-bezier(0.8, 0, 0, 1);
@@ -10392,7 +10399,7 @@ a.button.detail-bnt span {
 }
 
 .custom button.items-count {
-  background-color: #6e3d50;
+  background-color: #ff4a52;
   border: none;
   transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
   color: #090809;
@@ -11648,7 +11655,7 @@ button.button.coupon:before {
 }
 
 button.button.btn-proceed-checkout {
-  background: #6e3d50;
+  background: #ff4a52;
   padding: 15px 0px;
   color: #fff;
   width: 100%;
@@ -12222,7 +12229,7 @@ button.button.new-address:before {
 
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background: #6e3d50;
+  background: #ff4a52;
   margin-top: 0px
 }
 
@@ -12291,7 +12298,7 @@ button.subscribe:before {
   padding: 7px 18px;
   cursor: pointer;
   font-weight: bold;
-  background: #6e3d50;
+  background: #ff4a52;
 }
 
 .newsletter-wrap button.subscribe:hover {
@@ -12470,7 +12477,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #6e3d50;
+  color: #ff4a52;
 }
 
 footer p {
@@ -13021,7 +13028,7 @@ button.button:hover {
   -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
   box-shadow: inset 0 -45px 0 0 #090809333;
-  border: 1px solid #6e3d50;
+  border: 1px solid #ff4a52;
   color: #fff;
 }
 
@@ -13038,7 +13045,7 @@ button.button span span {
 }
 
 .button:hover, .button:focus, .btn:hover, .btn:focus, .button-inverse, .button-vote:hover, .sidebar .button:hover, .sidebar .button:focus, .sidebar .btn:hover, .sidebar .btn:focus, .form-list .bootstrap-select.btn-group .btn:hover .caret, .form-list .bootstrap-select.btn-group .btn:focus .caret, .buttons-set .back-link a:hover, .buttons-set .back-link a:focus, .scrolltop, .button-tabs li a:hover, .button-tabs li a:focus {
-  border: 2px #6e3d50 solid;
+  border: 2px #ff4a52 solid;
   color: #FFF;
 }
 
@@ -13616,7 +13623,7 @@ button.button span span {
 }
 
 .header-banner .assetBlock span {
-  color: #6e3d50
+  color: #ff4a52
 }
 
 .cms-index-index .sale-offer-box {
@@ -14460,7 +14467,7 @@ button.button span span {
 }
 
 .newsletter-sign-box .subscribe {
-  background: none repeat scroll 0 0 #6e3d50;
+  background: none repeat scroll 0 0 #ff4a52;
   border-radius: 0;
   color: #090809;
   display: block;
@@ -15008,7 +15015,7 @@ select#shipping-address-select {
 /*	Testimonials */
 
 .testimonials-section {
-  background: #6e3d50;
+  background: #ff4a52;
   padding: 35px 45px;
   text-align: center;
   min-height: 325px;
@@ -15386,8 +15393,8 @@ timepicker table {
 }
 
 .btn-outline-primary {
-  border-color: #6e3d50  !important;
-  color: #6e3d50;
+  border-color: #ff4a52  !important;
+  color: #ff4a52;
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
@@ -15663,7 +15670,7 @@ timepicker table {
 }
 
 .btn-primary {
-  background-color: #6e3d50 ;
+  background-color: #ff4a52 ;
   border-color: #592b3a;
 }
 
@@ -15842,16 +15849,17 @@ app-single .description p {
 
 
 .custom-select-search-item .ng-select-container {
-  border-radius: 5px !important;
-  border: solid 1px #6e3d50 !important;
+  border-radius: 20px !important;
+  border: solid 1px #ff4a52 !important;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.45);
 }
 .custom-select-search-item-focus .ng-select-container {
-  border-radius: 5px !important;
-  border: solid 1px #f45e3b !important;
+  border-radius: 20px !important;
+  border: solid 1px #fff !important;
 }
 
 .custom-select-search-item .ng-arrow {
-  border-color: #6e3d50  transparent transparent !important;
+  border-color: #ff4a52  transparent transparent !important;
 }
 
 .form-group .iti--allow-dropdown {
@@ -15899,7 +15907,7 @@ app-single .description p {
 }
 
 .highlighted {
-  color: #6e3d50 !important;
+  color: #ff4a52 !important;
   font-weight: 800 !important;
 }
 
@@ -15982,7 +15990,7 @@ app-single .description p {
   display: block;
   width: 225px;
   padding: 15px 0;
-  background-color: #f45e3b;
+  background-color: #ff9120;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
@@ -16175,7 +16183,7 @@ html {
   /* width: 100px; */
   /* height: 100px; */
   /* border-radius: 50%; */
-  background: #6e3d50;
+  background: #ff4a52;
   cursor: pointer;
   box-shadow: 0 0 0 rgba(204, 0, 12, 0.4) !important;
   -webkit-animation: pulse 1s infinite !important;
@@ -16220,5 +16228,5 @@ html {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 .switch.checked{
-  background-color: #6e3d50 !important;
+  background-color: #ff4a52 !important;
 }

@@ -19,13 +19,6 @@
       <div class="inside-body2 mb-4">
         <div class="">
           <div class="row m-0">
-            <div class="responsive-title">
-              <ngx-stars [readonly]="true" initialStars="5"
-                         customPadding="2px" color="#FFC400"></ngx-stars>
-              <h2 class="font-weight-bold text-dark mb-0">
-                {{data['name']}}
-              </h2>
-            </div>
             <div
               class="col-lg-8 col-sm-12 p-0 product-image inline-table border-booton-solid
                background-solid border-left-solid border-top-solid" [style.borderRight]="'solid 5px whitesmoke'">
@@ -71,6 +64,13 @@
                 <img class="w-100 cover" [src]="'assets/images/nofound.png'"/>
               </div>
             </div>
+            <div class="responsive-title">
+                <ngx-stars [readonly]="true" initialStars="5"
+                           customPadding="2px" color="#F44336"></ngx-stars>
+                <h2 class="font-weight-bold text-dark mb-0">
+                  {{data['name']}}
+                </h2>
+              </div>
             <div @details
                  class="col-lg-4  col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
@@ -135,7 +135,7 @@
                     </ng-select>
                   </div>
                   <div class="short-description text-dark mt-2">
-                    <div class="mb-3">
+                    <div class="mb-3" [hidden]="true">
                       <p class="text-muted mb-0" [innerHTML]="'page.single.info_shop' |translate"></p>
                       <div class="p-2 info-shop">
                         <div class="d-flex mt-1 mb-2">
@@ -216,7 +216,7 @@
             <h6 class="m-0">
               {{selectedvariationName?.price_normal |number:'1.2-2'}} {{"currency" |translate}}
             </h6>
-            <small *ngIf="selectedvariationName?.price_normal">
+            <small *ngIf="selectedvariationName?.price_regular">
              <del> {{selectedvariationName?.price_regular |number:'1.2-2'}} {{"currency" |translate}}</del>
             </small>
           </div>

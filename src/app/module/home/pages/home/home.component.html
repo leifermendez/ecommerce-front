@@ -5,64 +5,37 @@
       <app-banner></app-banner>
     </div>
   </div>
+
   <app-box-info></app-box-info>
-
-  <!-- best Pro Slider -->
-<!--  <app-box-featured-product -->
-<!--  class="container d-block p-0 mt-4 mb-4"-->
-<!--  [w]="'100%'"-->
-<!--  [h]="'100%'"-->
-<!--  [items]="4"-->
-<!--  [limit]="5"-->
-<!--  [title]="'Productos destacados'">-->
-<!--</app-box-featured-product>-->
-
-  <app-box-featured-product
-    class="container d-block p-0 mt-4 mb-4"
-    [w]="'100%'"
-    [h]="'100%'"
-    [items]="5"
-    [limit]="5"
+  <app-box-featured-product class="container d-block p-0 mt-4 mb-4" [w]="'100%'" [h]="'100%'" [items]="5" [limit]="5"
     [title]="'Productos destacados'">
   </app-box-featured-product>
+  <app-box-featured-product class="container d-block p-0 mt-4 mb-4" [w]="'100%'" [h]="'100%'" [items]="5" [limit]="5"
+  [title]="'Descubre regalos'">
+</app-box-featured-product>
+
+
   <div class="container p-0">
-      <div class="row m-0">
-        <div class="col-lg-6 col-md-6 p-0">
-            <app-box-featured-product
-            class="d-block p-0 mt-4 mb-4"
-            [w]="'100%'"
-            [h]="'100%'"
-            [order]="'rand'"
-            [items]="1"
-            [limit]="5"
-            [autoWidth]="false"
-            [view]="'list'"
-            [title]="'Más vendidos'">
-          </app-box-featured-product>
-        </div>
-        <div class="col-lg-6 col-md-6 p-0">
-            <app-box-featured-product
-            class="d-block p-0 mt-4 mb-4"
-            [w]="'100%'"
-            [h]="'100%'"
-            [order]="'rand'"
-            [items]="1"
-            [limit]="5"
-            [autoWidth]="false"
-            [view]="'list'"
-            [title]="'Más vendidos'">
-          </app-box-featured-product>
-        </div>
-       
+    <div class="row m-0">
+      <div class="col-lg-6 col-md-6 p-0">
+        <app-box-featured-product class="d-block p-0 mt-4 mb-4" [w]="'100%'" [h]="'100%'" [order]="'rand'" [items]="1"
+          [limit]="5" [autoWidth]="false" [view]="'list'" [title]="'Más vendidos'">
+        </app-box-featured-product>
       </div>
+      <div class="col-lg-6 col-md-6 p-0">
+        <app-box-featured-product class="d-block p-0 mt-4 mb-4" [w]="'100%'" [h]="'100%'" [order]="'rand'" [items]="1"
+          [limit]="5" [autoWidth]="false" [view]="'list'" [title]="'Ofertas flash'">
+        </app-box-featured-product>
+      </div>
+
     </div>
-   
+  </div>
 
 
-  
+
 
   <!-- best Pro Slider -->
-    <!-- best Pro Slider
+  <!-- best Pro Slider
     <app-box-featured-product
     class="container d-block p-0 mt-4 mb-4"
     [w]="'100%'"
@@ -80,13 +53,16 @@
   <!--Category silder End-->
 
   <!--Category slider Start-->
+  <!--
   <app-side-categories [search]="false" id='myanchor' class="mt-4 mb-4 d-block pt-4">
   </app-side-categories>
+  -->
+
   <!--   <app-box-categories *ngIf="mobile" id='myanchor' class="mt-4 mb-4 d-block"></app-box-categories>-->
 
   <!--Category silder End-->
 
-<!--  <app-box-blog></app-box-blog>-->
+  <!--  <app-box-blog></app-box-blog>-->
 
 </div>
 

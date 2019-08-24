@@ -10,7 +10,7 @@
           <div class="d-flex first-nav justify-content-between w-100">
             <div class="logo">
               <a [routerLink]="['/']" title="Alterhome Shop">
-                <div><img src="assets/images/ah_logo_header.png" height="50" alt="Alterhome Shop"></div>
+                <div><img src="assets/images/mochinewwhite.svg" height="50" alt="Alterhome Shop"></div>
               </a>
             </div>
             <div *ngIf="!fullMenu" class="fl-nav-menu-search">
@@ -196,7 +196,7 @@
   <div class="first-nav d-flex justify-content-between">
     <div class="block-logo pl-1 pr-1 pt-2 pb-2" (click)="menuResponsive = false"
          [routerLink]="['/']" title="Apatxee">
-      <img src="../../../../../assets/images/ah_logo_squared.png" alt="Apatxee">
+      <img src="../../../../../assets/images/logo-mochileros-square.png" alt="Apatxee">
     </div>
     <div class="block-search">
       <form [formGroup]="form" (ngSubmit)="searchMobile($event)">
@@ -222,7 +222,7 @@
       </div>
     </div>
     <div class="block-cart pt-2 pb-2" [routerLink]="['/','shopping-cart']">
-      <img class="mega-menu-hover" src="../../../../../assets/images/ah_shopping-bag.svg" alt="">
+      <img class="mega-menu-hover" src="../../../../../assets/images/shopping-bag-white.svg" alt="">
     </div>
   </div>
   <div class="menu-open-responsive" [@animationOption2]="menuResponsive ? 'open': 'close'" *ngIf="menuResponsive">

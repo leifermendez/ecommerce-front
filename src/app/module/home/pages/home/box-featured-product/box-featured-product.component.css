@@ -172,7 +172,7 @@ and (max-width: 450px) {
     padding: 0 0 0 .6rem !important;
     font-size: 1rem;
     font-weight: 400;
-    color: gray;
+    color: #222;
   }
 
   #best-seller .owl-item .item {

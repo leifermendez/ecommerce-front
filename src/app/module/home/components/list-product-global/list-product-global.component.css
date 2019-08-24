@@ -214,8 +214,10 @@ and (max-width: 450px) {
   .item-price-amount, .euro-sign {
     font-size: .8rem;
   }
-
-  .item-title {
+  .item-title{
+    font-size: .7rem;
+  }
+  .item-store {
     display: none;
   }
 
