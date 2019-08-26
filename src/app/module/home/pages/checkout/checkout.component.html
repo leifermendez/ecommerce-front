@@ -16,14 +16,7 @@
           </ngx-content-loading>
         </div>
         <div *ngIf="!loading">
-          <div class="form-group col d-flex">
-            <div>
-              <ui-switch size="small" [(ngModel)]="staying">
-              </ui-switch>
-            </div>
-            <span class="ml-2" *ngIf="staying" [innerHTML]="'global.staying' | translate"></span>
-            <span class="ml-2" *ngIf="!staying" [innerHTML]="'global.not_staying' | translate"></span>
-          </div>
+
 
           <form [formGroup]="form" autocomplete="off" (submit)="saveData()">
             <div *ngIf="staying" class="col mb-2">
@@ -47,7 +40,7 @@
             </div>
             <div [hidden]="staying" class="d-flex">
               <div class="col">
-                <div *ngIf="editform" [hidden]="true" class="form-group">
+                <div *ngIf="editform" class="form-group">
                   <label>País</label>
                   <input type="text" class="form-control" readonly spellcheck="false" autocomplete="off"
                     [(ngModel)]="editform['country']" formControlName="country" placeholder="¿Cual es tu pais?">
@@ -73,10 +66,10 @@
                     [readOnly]="editform && editform['id']" spellcheck="false" autocomplete="off"
                     formControlName="address" placeholder="¿Piso 2, #2-4?">
                 </div>
-                <div *ngIf="editform" [hidden]="true" class="form-group">
+                <div *ngIf="editform" class="form-group">
                   <label>Codigo postal</label>
-                  <input type="text" class="form-control" [(ngModel)]="editform.zip_code" readonly spellcheck="false"
-                    autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postañ?">
+                  <input type="text" class="form-control" [(ngModel)]="editform.zip_code"  spellcheck="false"
+                    autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postal?">
                 </div>
               </div>
             </div>
@@ -113,14 +106,7 @@
         </div>
 
         <div class="bg-white pb-3 pt-3">
-          <div class="form-group col d-flex">
-            <div>
-              <ui-switch size="small" [(ngModel)]="staying">
-              </ui-switch>
-            </div>
-            <span class="ml-2" *ngIf="staying" [innerHTML]="'global.staying' | translate"></span>
-            <span class="ml-2" *ngIf="!staying" [innerHTML]="'global.not_staying' | translate"></span>
-          </div>
+   
           <div *ngIf="!loading">
             <form [formGroup]="form" autocomplete="off" (submit)="saveData()">
               <div *ngIf="staying" class="col mb-2">
@@ -172,8 +158,8 @@
                   </div>
                   <div *ngIf="editform" class="form-group">
                     <label>Codigo postal</label>
-                    <input type="text" class="form-control" [(ngModel)]="editform.zip_code" readonly spellcheck="false"
-                      autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postañ?">
+                    <input type="text" class="form-control" [(ngModel)]="editform.zip_code" spellcheck="false"
+                      autocomplete="off" formControlName="zip_code" placeholder="¿Cual es tu codigo postal?">
                   </div>
                 </div>
               </div>

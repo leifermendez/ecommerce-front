@@ -5,6 +5,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-info-shop',
@@ -23,7 +24,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public address_gp: any = null;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: {country: 'ES'}
+    componentRestrictions: {country: environment.country}
   };
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,

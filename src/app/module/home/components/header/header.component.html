@@ -26,21 +26,21 @@
             </div>
             <div *ngIf="fullMenu" class="steps-shoping-cart">
               <ul>
-                <li class="p-2 cursor-pointer">
-                  <div [routerLink]="['/','shopping-cart']" [routerLinkActive]="['is-active']">
+                <li class="p-2 cursor-pointer"  [routerLink]="['/','shopping-cart']" [routerLinkActive]="['is-active']">
+                  <div>
                     <img class="mega-menu-hover" src="../../../../../assets/images/shopping-cart.svg" width="25px"
                          alt="">
                     <div>Carro</div>
                   </div>
                 </li>
-                <li class="p-2 cursor-pointer">
-                  <div [routerLink]="['/','checkout']" [routerLinkActive]="['is-active']">
+                <li class="p-2 cursor-pointer" [routerLink]="['/','checkout']" [routerLinkActive]="['is-active']">
+                  <div>
                     <img class="mega-menu-hover" src="../../../../../assets/images/location.svg" width="25px" alt="">
                     <div>Entrega</div>
                   </div>
                 </li>
-                <li class="p-2 cursor-pointer">
-                  <div [routerLink]="['/','payment']" [routerLinkActive]="['is-active']">
+                <li class="p-2 cursor-pointer" [routerLink]="['/','payment']" [routerLinkActive]="['is-active']">
+                  <div>
                     <img class="mega-menu-hover" src="../../../../../assets/images/credit-card.svg" width="25px" alt="">
                     <div>Pago</div>
                   </div>
@@ -81,7 +81,7 @@
                        alt="">
                 </div>
                 <div class="p-1">
-                  <small>Pago seguro</small>
+                  <small class="text-white">Pago seguro</small>
                 </div>
               </div>
             </div>

@@ -10,6 +10,7 @@ import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -34,7 +35,7 @@ export class CheckoutComponent implements OnInit {
   public zip_code = null;
   public id_shipping_address:any = null;a
   addres: any;
-  public staying: any = true;
+  public staying: any = false;
   public ah_accommodations = [];
   public selectAccommodation: any = null;
   addreselect: any = null;
@@ -46,7 +47,7 @@ export class CheckoutComponent implements OnInit {
   public address: any;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: { country: 'ES' }
+    componentRestrictions: { country: environment.country }
   };
   public editform: any = {};
 
@@ -191,7 +192,8 @@ export class CheckoutComponent implements OnInit {
         this.data.data[0] : {};
       this.id_shipping_address = (this.data.data && this.data.data.length) ?
       this.data.data[0]['id'] : null;
-      this.AH_getAccommodations();
+      this.editform['country'] = environment.country;
+      /*this.AH_getAccommodations();*/
     }).catch((error: any) => {
       this.loading = false;
       this.util.openSnackBar('Ups! algo ocurrio', 'error');

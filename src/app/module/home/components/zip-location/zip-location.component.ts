@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { RestService } from '../../../../shared/services/rest.service';
 import { BsModalRef } from 'ngx-bootstrap';
 import { UtilsService } from '../../../../shared/services/util.service';
+import { environment } from '../../../../../environments/environment';
 import * as moment from 'moment';
 
 @Component({
@@ -22,7 +23,7 @@ export class ZipLocationComponent implements OnInit {
   loading = false;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: { country: 'ES' }
+    componentRestrictions: { country: environment.country }
   };
   public selectedPersonId: any;
   public list_accommodation = []

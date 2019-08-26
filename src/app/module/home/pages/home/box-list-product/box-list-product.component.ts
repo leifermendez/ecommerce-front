@@ -10,6 +10,8 @@ import {RestService} from '../../../../../shared/services/rest.service';
 export class BoxListProductComponent implements OnInit, AfterViewInit {
   @Input() listNumber: any = 1;
   @Input() order: any = false;
+  @Input() count: any = false;
+  @Input() queryP: any = false;
   public loading: any = false;
   public data: any = [];
   public queryParams: any = {
@@ -32,6 +34,7 @@ export class BoxListProductComponent implements OnInit, AfterViewInit {
 
   loadData = () => {
     this.queryParams['order'] = this.order;
+    if (this.queryP) this.queryParams = { ...this.queryParams, ...this.queryP };
     this.loading = true;
     this.rest.get(`/rest/search`, this.queryParams)
       .then((response: any) => {

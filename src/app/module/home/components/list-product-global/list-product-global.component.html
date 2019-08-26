@@ -103,7 +103,7 @@
             <div class="item">
               <div class="item-inner">
                 <div class="item-img">
-                  <div class="item-img-info">
+                  <div class="item-img-info" [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]">
                     <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                   </div>
                 </div>

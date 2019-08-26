@@ -50,6 +50,20 @@
   border-radius: 3px;
 }
 
+.item-view-more{
+  cursor: pointer;
+  padding: 3rem 1rem;
+}
+
+.item-view-more img{
+  width: 60px;
+  height: 60x;
+  object-fit: contain;
+  opacity: .7 !important;
+}
+.item-view-more:hover img{
+  opacity: 1 !important;
+}
 .item:hover .item-inner {
   /*transform: translateY(1em);*/
   -webkit-transition: -webkit-transform .3s ease-out;

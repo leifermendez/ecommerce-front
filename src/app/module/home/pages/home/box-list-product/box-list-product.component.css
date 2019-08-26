@@ -14,3 +14,12 @@
 .li:hover{
     transform: scale(1.02);
 }
+
+.count-badge{
+    background-color: #FF9800;
+    font-size: 75%;
+    padding: 0px 5px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 2px;
+}

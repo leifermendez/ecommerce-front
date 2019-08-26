@@ -3,6 +3,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-modal-shipping',
@@ -22,7 +23,7 @@ export class ModalShippingComponent implements OnInit {
   public address_single: any;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: {country: 'ES'}
+    componentRestrictions: {country: environment.country}
   };
   public deleteMe: any = false;
   public editform: any = {

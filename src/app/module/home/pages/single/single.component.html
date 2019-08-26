@@ -21,7 +21,9 @@
           <div class="row m-0">
             <div
               class="col-lg-8 col-sm-12 p-0 product-image inline-table border-booton-solid
-               background-solid border-left-solid border-top-solid" [style.borderRight]="'solid 5px whitesmoke'">
+               background-solid border-left-solid border-top-solid" 
+               [style.borderTopLeftRadius]="'25px'"
+               [style.borderRight]="'solid 5px whitesmoke'">
               <div *ngIf="selectedvariationName 
               && selectedvariationName['price_normal']
               && selectedvariationName['price_regular']"
@@ -72,7 +74,8 @@
                 </h2>
               </div>
             <div @details
-                 class="col-lg-4  col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
+            [style.borderTopRightRadius]="'25px'"
+                 class="col-lg-4 col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
                 <div class="product-shop p-4" *ngIf="loading">
                   <ngx-content-loading
@@ -186,7 +189,7 @@
              border-right-solid text-dark p-4 border-booton-solid" 
              [ngClass]="{'col-lg-8 col-sm-12':(data.comments_count), 'col-lg-12 col-sm-12':!(data.comments_count)}"
              [style.borderRight]="'solid 5px whitesmoke'"
-              [style.borderTop]="'solid 5px whitesmoke'">
+             [style.borderTop]="'solid 5px whitesmoke'">
               <div class="container">
                 <div class="row m-0">
                   <div class="col-12 p-0">

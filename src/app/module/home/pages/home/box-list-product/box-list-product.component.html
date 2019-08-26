@@ -1,4 +1,4 @@
-<div class="p-3 bg-white border-radius-list">
+<div class="pt-3 pb-3 pl-0 pr-3 bg-white border-radius-list">
   <ul style="list-style: none" class="m-0 p-0">
     <li class="p-0 mb-4 li" *ngFor="let a of data">
       <a [routerLink]="['/','single',util.slug(a['name'])+'-'+a['id']]">
@@ -12,8 +12,8 @@
             <div class="d-flex">
               <ngx-stars [readonly]="true" initialStars="{{a?.score_shop}}" customPadding="2px" color="#ff4a52">
               </ngx-stars>
-              <span>
-                  <countdown [config]="{leftTime: 1000 * 10}">$!m!:$!s!</countdown>
+              <span class="count-badge" *ngIf="count">
+                  <countdown [config]="{leftTime:count}">$!m!:$!s!</countdown>
                 </span>
             </div>
             <div><small>{{a?.name | words:5:''}}</small></div>
