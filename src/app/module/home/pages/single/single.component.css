@@ -29,6 +29,11 @@
 
 }
 
+.sub-title{
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 .background-solid {
   background-color: #ffffff;
 }
@@ -143,7 +148,7 @@ and (max-width: 450px) {
     display: none;
   }
 
-  .product-name {
+  .product-name, .title-description {
     display: none;
   }
 

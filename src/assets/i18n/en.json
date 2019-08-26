@@ -64,6 +64,8 @@
   "page.single.shipping_time": "If you buy now, you will receive it in an average time of 1 hour.",
   "global.not_staying": "<b class='text-secondary'>NO</b>, I am hosted at Mochileros",
   "global.staying": "<b class='text-secondary'>SI</b>, I'm hosted at Mochileros",
+  "global.law":"Utilizamos cookies y tecnologías similares para ofrecerte la mejor experiencia en cuanto a rendimiento, análisis, personalización y publicidad, y para respaldar el funcionamiento de nuestro sitio. ¿Quieres más información? Lee nuestra política de cookies.",
+  "global.view_more":"Ver más",
   "global.payment_sentence": "The payment is secure, your bank coordinates are encrypted thanks to the SSL protocol.",
   "modal.filter.title": "Filter by",
   "modal.initial.customer.title": "I am a customer",

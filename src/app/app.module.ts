@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { CookieLawModule } from 'angular2-cookie-law';
 import {NgxTawkModule} from 'ngx-tawk';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
@@ -279,6 +280,7 @@ export class MyIntl extends TimeagoIntl {
   ],
   imports: [
     LoadingBarHttpClientModule,
+    CookieLawModule,
     CountdownModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
