@@ -7812,10 +7812,6 @@ button.button.continue:before {
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.22);
 }
 
-.product-image .ngx-gallery-image {
-  background-size: contain !important;
-}
-
 .product-image .ngx-gallery-thumbnails a {
   border: solid 1px #e6e6e6;
 }
@@ -7850,7 +7846,7 @@ button.button.continue:before {
 .product_image .owl-next span, .product_image .owl-prev span {
   position: absolute !important;
   left: .75rem !important;
-  top: .2rem !important;
+  top: .3rem !important;
   color: #282828 !important;
 }
 

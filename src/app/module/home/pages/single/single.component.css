@@ -137,14 +137,24 @@
   display: none;
 }
 
+.product-image .ngx-gallery-image {
+  background-size: contain;
+}
+
 
 @media screen
 and (max-width: 450px) {
-  .gallery-product-responsive, .call-action-buy {
+  .gallery-product-responsive{
     display: block;
   }
+  .call-action-buy {
+    display: none;
+  }
+  .product-image .ngx-gallery-image{
+    background-size:cover !important;
+  }
 
-  .gallery-product, .add-cart, .ribbon {
+  .gallery-product,.ribbon {
     display: none;
   }
 
@@ -185,7 +195,7 @@ and (max-width: 450px) {
 
   .responsive-title h2 {
     padding-bottom: .2rem;
-    font-size: 1rem;
+    font-size: .85rem;
   }
 
   .description-content, .product-shop {

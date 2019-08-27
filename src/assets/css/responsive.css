@@ -62,7 +62,7 @@ and (max-width: 450px) {
 
   .fullwidthabanner .image-banner{
     height: 13.15rem !important;
-    border-radius: 5px !important;
+    border-radius: 15px !important;
   }
 
   .rev_slider{
@@ -97,7 +97,7 @@ and (max-width: 450px) {
   }
 
   .rev_slider .thumbnail-image {
-    padding: .4rem .4rem 1rem .4rem;;
+    padding: 0;
   }
 
   .CollectionGrid-container {
