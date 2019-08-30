@@ -18,6 +18,7 @@ import {
 } from '../main-config';
 import { ReferredComponent } from './module/home/components/referred/referred.component';
 import { AuthshopService } from './module/auth/authshop.service';
+import { Intercom } from 'ng-intercom';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit {
     private modalService: BsModalService,
     private util: UtilsService,
     private auth: AuthshopService,
+    public intercom: Intercom,
     private route: ActivatedRoute,
     private router: Router, 
     private translate: TranslateService,
@@ -171,6 +173,13 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    this.intercom.boot({
+      app_id: environment.intercom,
+      // Supports all optional configuration.
+      widget: {
+        "activator": "#intercom" 
+      }
+    });
     this.computer = this.deviceService.isDesktop();
     if (!this.computer) {
       //this.openWarning();

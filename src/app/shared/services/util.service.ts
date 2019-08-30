@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { settings } from '../settings';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { RestService } from './rest.service';
+import { Intercom } from 'ng-intercom';
 
 declare var $: any;
 
@@ -28,6 +29,7 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
+    public intercom: Intercom,
     private modalService: BsModalService, public bsModalRef: BsModalRef,
 ) {
   }
@@ -54,6 +56,14 @@ export class UtilsService {
       }
     }
     return true;
+  }
+
+  openChat = (str=null) => {
+    if(str){
+      this.intercom.showNewMessage(str);
+    }else{
+      this.intercom.show();
+    }
   }
 
   openModalSnack = (message: string,

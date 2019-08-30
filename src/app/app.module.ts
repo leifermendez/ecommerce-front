@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { CookieLawModule } from 'angular2-cookie-law';
+import { IntercomModule } from 'ng-intercom';
 import {NgxTawkModule} from 'ngx-tawk';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
@@ -314,6 +315,10 @@ export class MyIntl extends TimeagoIntl {
     Ng2TelInputModule,
     LightboxModule,
     NgxTawkModule,
+    IntercomModule.forRoot({
+      appId: environment.intercom, // from your Intercom config
+      updateOnRouterChange: true // will automatically run `update` on router event changes. Default: `false`
+    }),
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
