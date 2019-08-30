@@ -15884,7 +15884,6 @@ app-single .description p {
 }
 
 .ngx-gallery-image {
-  background-size: 100% !important;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
