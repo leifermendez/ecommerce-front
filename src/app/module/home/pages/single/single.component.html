@@ -147,15 +147,19 @@
                       <div class="p-0">
                         <div class="mt-1">
                           <h6 class="sub-title">{{"page.single.shipping" | translate}}:</h6>
-                          <p class="m-0">
+                          <div class="m-0">
                             <span [innerHTML]="'page.single.shipping_time' | translate"></span>
-                            <div><span class="badge badge-warning" *ngIf="approximate">
+                            <div>
+                              <span class="badge badge-warning" *ngIf="approximate">
                                 {{"page.single.free" | translate}}: {{approximate | date}}
                               </span>
-                              <span class="cursor-pointer"><a class="p-2 text-muted" (click)="util.openChat()">
+                              <span class="cursor-pointer">
+                                <a class="p-2 text-muted" (click)="util.openChat()">
                                   <fa name="question"></fa>
-                                </a></span></div>
-                          </p>
+                                </a>
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
