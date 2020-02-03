@@ -841,7 +841,7 @@ website:   	http://www.themesground.com/
 
 .fullwidthabanner .image-banner, .fullwidthabanner .container-banner::before {
   content: "";
-  background-image: url(../images/ah_background-icon);
+  /*background-image: url(../images/ah_background-icon);*/
   background-size: 5%;
   background-repeat: no-repeat;
   background-position: center;
