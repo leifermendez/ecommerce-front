@@ -70,12 +70,12 @@
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
-  border-left: solid 5px #f45e3b;
+  border-left: solid 5px #2980b9;
   background-color: rgba(244, 94, 59, 0.03)
 }
 
 .list-table-item.active {
-  border-left: solid 5px #f45e3b;
+  border-left: solid 5px #2980b9;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;

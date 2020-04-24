@@ -29,7 +29,7 @@ export class InfoShopsComponent implements OnInit {
 
   loadData = () => {
     this.loading = true;
-    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}&outside=yes`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {

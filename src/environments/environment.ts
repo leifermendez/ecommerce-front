@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  endpoint: 'https://store-api.mochileros.com.mx/api/1.0',
+  endpoint: 'http://localhost:8000/api/1.0',
   AH_url: '',
   AH_token: '',
   stripe_public_key: 'pk_test_Wj915HLpr6PpdvzQMuzq8idv',

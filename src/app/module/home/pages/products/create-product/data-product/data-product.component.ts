@@ -51,12 +51,13 @@ export class DataProductComponent implements OnInit {
 
   getShops = () => {
     this.loading = true;
-    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}&outside=yes`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];
           this.list_shops = response['data'];
+          console.log(this.list_shops)
           if (this.list_shops && this.list_shops.length) {
             this.select_shop = this.list_shops[0];
           }
@@ -103,6 +104,7 @@ export class DataProductComponent implements OnInit {
   }
 
   save = () => {
+    console.log(this.select_shop)
     this.loading_save = true;
     this.editform = {
       ...this.form.value,

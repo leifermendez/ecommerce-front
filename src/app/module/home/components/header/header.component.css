@@ -468,7 +468,7 @@ header {
 }
 
 .header-mobile .first-nav {
-  background-color: #ff4a52;
+  background-color: #2980b9;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -518,7 +518,7 @@ header {
   box-shadow: 0 0 4px rgba(244, 94, 59, 0.35);
   margin: 0;
   border-radius: 30px;
-  border: solid 1px #f45e3b;
+  border: solid 1px #2980b9;
 }
 
 .block-search .btn {

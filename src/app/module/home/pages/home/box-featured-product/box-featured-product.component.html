@@ -67,7 +67,7 @@
                 <div class="item-inner">
                   <div class="item-img">
                     <div class="item-img-info" [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]">
-                      <ngx-gallery [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
+                      <ngx-gallery *ngIf="dat['gallery']" [options]="galleryOptions" [images]="dat['gallery']"></ngx-gallery>
                     </div>
                   </div>
                   <a *ngIf="dat && dat['name']" [routerLink]="['/','single',util.slug(dat['name'])+'-'+dat['id']]">
@@ -89,7 +89,7 @@
                         <div class="starts">
                           <div class="item-content d-flex">
                             <ngx-stars [readonly]="true" initialStars="{{dat['score_shop']}}"
-                                       customPadding="2px" color="#ff4a52"></ngx-stars>
+                                       customPadding="2px" color="#2980b9"></ngx-stars>
                             <span class="text-muted">({{dat['score_count']}})</span>
                           </div>
                         </div>
