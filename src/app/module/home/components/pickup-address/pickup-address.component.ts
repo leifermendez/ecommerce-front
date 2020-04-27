@@ -4,7 +4,7 @@ import {RestService} from '../../../../shared/services/rest.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
-import { environment } from '../../../../../environments/environment';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-pickup-address',

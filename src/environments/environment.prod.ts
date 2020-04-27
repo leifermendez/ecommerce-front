@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  endpoint: 'https://store-api.mochileros.com.mx/api/1.0',
+  endpoint: 'https://api.mercacomunidad.com/api/1.0',
   AH_url: '',
   AH_token: '',
   stripe_public_key: 'pk_live_6KCWvSfjNHesV09523rQtZfA',
@@ -9,5 +9,5 @@ export const environment = {
   fb_provider: '958746547789996',
   tawk: '5d5a5a5e77aa790be32f9052',
   intercom: 'zk835neg',
-  country: 'MX'
+  country: 'EUR'
 };
