@@ -115,7 +115,7 @@ export class ModalVariationsProductComponent implements OnInit {
 
     this.loading_save = true;
     const _method = (this.editform['id']) ? 'put' : 'post';
-    this.rest[_method](`/rest/products-variations/${(this.editform['id']) ? this.editform['id'] : ''}`, this.editform)
+    this.rest[_method](`/rest/products-variations${(this.editform['id']) ? `/${this.editform['id']}` : ''}`, this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading_save = false;

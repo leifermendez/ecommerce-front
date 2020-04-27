@@ -28,7 +28,7 @@
 
           </div>
         </div>
-        <div *ngIf="id">
+        <div *ngIf="id && !loading">
           <tabset #staticTabs>
             <tab (selectTab)="tabs['products'] = true" heading="Productos">
               <div class="col-12 row p-0 m-0" *ngIf="tabs['products']">
@@ -75,7 +75,7 @@
                         </app-pickup-address>
                       </div>
               </div>
-        
+
             </tab>
             <tab (selectTab)="tabs['schedule'] = true" heading="Horario">
               <div class="col-12" *ngIf="tabs['schedule']">

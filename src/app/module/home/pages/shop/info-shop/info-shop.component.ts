@@ -168,7 +168,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       delete this.editform['phone_fixed_valid'];
       delete this.editform['phone_mobil_valid'];
 
-      this.rest[method](`/rest/shop/${(this.id) ? this.id : ''}`,
+      this.rest[method](`/rest/shop${(this.id) ? `/${this.id}` : ''}`,
         this.editform)
         .then((response: any) => {
           this.loading = false;

@@ -27,7 +27,7 @@ export class ZipLocationComponent implements OnInit {
   };
   public selectedPersonId: any;
   public list_accommodation = []
-  
+
   nowCookies = moment().add(15, 'days').toDate();
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
@@ -51,7 +51,6 @@ export class ZipLocationComponent implements OnInit {
       name: a['name'],
       zip_code: a['id']
     });
-    console.log('json---', _b);
     this.cookieService.set(
       '_location_zip_code',
       _b,

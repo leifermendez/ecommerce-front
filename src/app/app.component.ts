@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     private auth: AuthshopService,
     public intercom: Intercom,
     private route: ActivatedRoute,
-    private router: Router, 
+    private router: Router,
     private translate: TranslateService,
     private cookieService: CookieService,
     private meta: Meta,
@@ -97,7 +97,7 @@ export class AppComponent implements OnInit {
             '/'
           );
         }
-        
+
         const _user_data = this.auth.getCurrentUser();
         if (!_user_data) {
           this.openReferred();
@@ -177,7 +177,7 @@ export class AppComponent implements OnInit {
       app_id: environment.intercom,
       // Supports all optional configuration.
       widget: {
-        "activator": "#intercom" 
+        "activator": "#intercom"
       }
     });
     this.computer = this.deviceService.isDesktop();

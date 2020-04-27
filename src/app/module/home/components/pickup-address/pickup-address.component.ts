@@ -132,7 +132,7 @@ export class PickupAddressComponent implements OnInit {
       const method = (this.address_id) ? 'put' : 'post';
       event.preventDefault();
 
-      this.rest[method](`/rest/pickup-address/${(this.address_id) ? this.address_id : ''}`,
+      this.rest[method](`/rest/pickup-address${(this.address_id) ? `/${this.address_id}` : ''}`,
         this.editform)
         .then((response: any) => {
           this.loading = false;

@@ -91,7 +91,7 @@ export class ModalShippingComponent implements OnInit {
     this.loading = true;
     const method = (this.id) ? 'put' : 'post';
     this.editform['address'] = this.address_single + this.editform['address'];
-    this.rest[method](`/rest/shipping/${(this.id) ? this.id : ''}`,
+    this.rest[method](`/rest/shipping${(this.id) ? `/${this.id}` : ''}`,
       this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {

@@ -55,14 +55,13 @@ export class HomeComponent implements OnInit {
     this.optionsGallery = {items: 1, dots: false, navigation: true, autoplay: true};
     this.images = ['1', '2', '3'];
 
-    this.rest.get('/rest/banners')
-      .then((response: any) => {
-        if (response['status'] === 'success') {
-          response = response['data'];
-          this.data = response['data'];
-          console.log('----->', this.data);
-        }
-      });
+    // this.rest.get('/rest/banners')
+    //   .then((response: any) => {
+    //     if (response['status'] === 'success') {
+    //       response = response['data'];
+    //       this.data = response['data'];
+    //     }
+    //   });
   }
 
 }

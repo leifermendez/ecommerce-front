@@ -167,7 +167,7 @@ export class CheckoutComponent implements OnInit {
   saveData = () => {
     const _method = (this.id_shipping_address) ? 'put' : 'post';
     this.loading_save = true;
-    this.rest[_method](`/rest/shipping/${(this.id_shipping_address) ? this.id_shipping_address : ''}`,
+    this.rest[_method](`/rest/shipping${(this.id_shipping_address) ? `/${this.id_shipping_address}` : ''}`,
       this.editform)
       .then((response: any) => {
         this.loading_save = false;

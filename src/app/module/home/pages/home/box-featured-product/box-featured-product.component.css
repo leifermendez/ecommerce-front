@@ -167,7 +167,8 @@
   background: white;
   height: 200px;
   text-align: center;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #f6f6f6;
+  border-radius: .5rem;
 }
 
 .not-results .title {
