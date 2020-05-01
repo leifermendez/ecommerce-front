@@ -41,9 +41,9 @@
               "src/assets/css/owl.theme.css",
               "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
               "./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-              "src/assets/css/style.css",
+              "./src/assets/css/style.css",
               "./node_modules/font-awesome/css/font-awesome.css",
-              "src/styles.css"
+              "./src/styles.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",

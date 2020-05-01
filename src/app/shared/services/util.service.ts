@@ -1,10 +1,8 @@
 import Swal from 'sweetalert2';
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { settings } from '../settings';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
-import { RestService } from './rest.service';
-import { Intercom } from 'ng-intercom';
+import {Injectable, EventEmitter, Output} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
+import {settings} from '../settings';
+import {BsModalService, BsModalRef} from 'ngx-bootstrap';
 
 declare var $: any;
 
@@ -29,15 +27,14 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-    public intercom: Intercom,
-    private modalService: BsModalService, public bsModalRef: BsModalRef,
-) {
+              private modalService: BsModalService, public bsModalRef: BsModalRef,
+  ) {
   }
 
 
   closeAllModals(element = null) {
-    let elements = element.nativeElement.querySelectorAll('body');
-    elements.removeClass("modal-open");
+    const elements = element.nativeElement.querySelectorAll('body');
+    elements.removeClass('modal-open');
     for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
       this.modalService.hide(i);
     }
@@ -58,18 +55,14 @@ export class UtilsService {
     return true;
   }
 
-  openChat = (str=null) => {
-    if(str){
-      this.intercom.showNewMessage(str);
-    }else{
-      this.intercom.show();
-    }
-  }
+  openChat = (str = null) => {
+
+  };
 
   openModalSnack = (message: string,
-    action: string,
-    details: any = null,
-    duration: number = 5000) => {
+                    action: string,
+                    details: any = null,
+                    duration: number = 5000) => {
     if (action === 'success') {
       Swal.fire({
         type: 'success',
@@ -232,7 +225,7 @@ export class UtilsService {
       eventLabel: label,
       eventAction: 'click'
     });
-  }
+  };
 
 
 }

@@ -70,7 +70,7 @@ website:   	http://www.themesground.com/
 }
 .rev_slider::after {
   content: "";
-  background-image: url(../images/mochileros-blak.png);
+  background-image: url(../images/negro-01.png);
   opacity: .17;
   background-size: 15%;
   top: 0;
@@ -96,6 +96,7 @@ website:   	http://www.themesground.com/
   text-align: center;
   padding-top: 80px;
 }
+
 
 .rev_slider ul {
   margin: 0px;
