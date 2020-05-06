@@ -24,7 +24,7 @@
 - Nos dirigimos a `ecommerce-front/src/environments/`
 - Configuramos nuestras credenciales de Google ID, FB ID y nuestra url de API [Ver más](https://github.com/leifermendez/ecommerce-api)
 
-```json 
+```ts 
 export const environment = {
   production: false,
   endpoint: 'https://TU_URL_DE_API/api/1.0',
