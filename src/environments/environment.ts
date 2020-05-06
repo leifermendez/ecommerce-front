@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  endpoint: 'https://test.mercacomunidad.com/api/1.0',
+  endpoint: 'https://TU_URL_DE_API/api/1.0',
   AH_url: '',
   AH_token: '',
   stripe_public_key: 'STRIPE_PK',
