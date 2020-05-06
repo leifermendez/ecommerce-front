@@ -43,7 +43,7 @@ export class RestService {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'TIME-ZONE': `${timezone}`,
-      'LOCATION-ZIP': this.location_zip.toString(),
+      'LOCATION-ZIP': (this.location_zip) ? this.location_zip : '',
       'LAT': (this.lat) ? this.lat : '',
       'LNG': (this.lng) ? this.lng : '',
       'Authorization': `Bearer ${this.localtoken}`,
@@ -100,29 +100,29 @@ export class RestService {
   }
 
   get(endpoint: string, params?: IUrlParams, ignoreLoading: any = false): Promise<object> {
-    return this.check(this.http.get(this.getUrl(endpoint, params), { headers: this.getHeaders(ignoreLoading) }).toPromise());
+    return this.check(this.http.get(this.getUrl(endpoint, params), {headers: this.getHeaders(ignoreLoading)}).toPromise());
   }
 
   post(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.post(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
+    return this.check(this.http.post(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
   }
 
   postMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
     return this.check(this.http.post(this.getUrl(endpoint, params), body,
-      { headers: this.getHeadersMedia() }).toPromise());
+      {headers: this.getHeadersMedia()}).toPromise());
   }
 
   putMedia(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
     return this.check(this.http.put(this.getUrl(endpoint, params), body,
-      { headers: this.getHeadersMedia() }).toPromise());
+      {headers: this.getHeadersMedia()}).toPromise());
   }
 
   put(endpoint: string, body: object, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.put(this.getUrl(endpoint, params), body, { headers: this.getHeaders() }).toPromise());
+    return this.check(this.http.put(this.getUrl(endpoint, params), body, {headers: this.getHeaders()}).toPromise());
   }
 
   delete(endpoint: string, params?: IUrlParams): Promise<object> {
-    return this.check(this.http.delete(this.getUrl(endpoint, params), { headers: this.getHeaders() }).toPromise());
+    return this.check(this.http.delete(this.getUrl(endpoint, params), {headers: this.getHeaders()}).toPromise());
   }
 
   public getUrl(endpoint: string, params?: IUrlParams): string {
