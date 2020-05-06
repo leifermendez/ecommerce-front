@@ -18,6 +18,7 @@
           <input ngx-google-places-autocomplete
                  [disabled]="loading"
                  autocomplete="off"
+                 type="search"
                  class="form-control"
                  [ngModelOptions]="{standalone: true}"
                  [ngModel]="address" [options]='optionsPlaces' #placesRef="ngx-places"

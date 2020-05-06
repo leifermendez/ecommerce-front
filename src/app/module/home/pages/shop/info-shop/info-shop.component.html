@@ -117,9 +117,8 @@
                *ngIf="!editform.address"
                class="form-control"
                type="search"
-               spellcheck="false" autocomplete="off"
                [ngModelOptions]="{standalone: true}"
-               [ngModel]="address_gp" [options]='optionsPlaces' #placesRef="ngx-places"
+               [ngModel]="address_gp" [options]='optionsPlaces'
                placeholder="Direccion de la tienda"
                (onAddressChange)="handleAddressChange($event)"/>
         <small *ngIf="(editform.address) && !(editform.zip_code)"

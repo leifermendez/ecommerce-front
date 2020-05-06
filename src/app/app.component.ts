@@ -25,7 +25,7 @@ import {AuthshopService} from './module/auth/authshop.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'apatxee';
+  title = 'APP';
 
   modalRef: BsModalRef;
   config = {

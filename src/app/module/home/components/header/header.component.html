@@ -9,8 +9,8 @@
         <div class="row m-0">
           <div class="d-flex first-nav justify-content-between w-100">
             <div class="logo">
-              <a [routerLink]="['/']" title="Alterhome Shop">
-                <div><img src="assets/images/blanco-01.png" height="50" alt="Alterhome Shop"></div>
+              <a [routerLink]="['/']" title="Mi tienda">
+                <div><img src="assets/images/logo-big.png" height="50" alt="Mi tienda"></div>
               </a>
             </div>
             <div *ngIf="!fullMenu" class="fl-nav-menu-search">
@@ -196,7 +196,7 @@
   <div class="first-nav d-flex justify-content-between">
     <div class="block-logo pl-1 pr-1 pt-2 pb-2" (click)="menuResponsive = false"
          [routerLink]="['/']" title="Apatxee">
-      <img src="../../../../../assets/images/logo_small.png" alt="Logo">
+      <img src="../../../../../assets/images/logo-small.png" alt="Logo">
     </div>
     <div class="block-search">
       <form [formGroup]="form" (ngSubmit)="searchMobile($event)">
