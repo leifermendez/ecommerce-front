@@ -59,7 +59,7 @@ __Importante__ el archivo que termina en `.prod.ts` contiene la configuracion de
 
 
 ### Contacto
-Para dudas información, recomendaciones [codigoencasa.com](https://www.codigoencasa.com/)
+Para dudas información, recomendaciones [codigoencasa.com](https://www.codigoencasa.com/te-ayudamos-con-tu-codigo/)
 
 __Grupo de facebook:__ https://www.facebook.com/groups/163216871776185
 
