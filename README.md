@@ -17,6 +17,8 @@
 
 # Instalacion
 
+> __Recuerda__ Si tienes dudas o problemas para instalar podemos instalarlo por ti [Ver más](https://www.codigoencasa.com/te-ayudamos-con-tu-codigo/)
+
 - Debes descargar o clonar el respositorio
 - `git clone https://github.com/leifermendez/ecommerce-front.git`
 - Entra en el directorio ecommerce-front
@@ -55,10 +57,14 @@ __Importante__ el archivo que termina en `.prod.ts` contiene la configuracion de
 3. ![](https://i.imgur.com/Y1xp4WN.png)
 
 
-> Para dudas información, recomendaciones codigoencasa.com
 
-### Canales de comunicación
+### Contacto
+Para dudas información, recomendaciones [codigoencasa.com](https://www.codigoencasa.com/)
 
-Grupo de facebook: https://www.facebook.com/groups/163216871776185
+__Grupo de facebook:__ https://www.facebook.com/groups/163216871776185
 
-Slack: https://desarrolloah.slack.com/archives/C0133SK41EZ
+__Slack:__ https://desarrolloah.slack.com/archives/C0133SK41EZ
+
+<a href="https://www.buymeacoffee.com/leifermendez" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+
