@@ -34,6 +34,7 @@ export class ModalVariationsProductComponent implements OnInit {
       'price_normal': [null, Validators.compose([Validators.required])],
       'price_regular': [null, Validators.compose([Validators.required])],
       'observation': '',
+      'quantity':[null, Validators.compose([Validators.required])],
       'weight': [null, Validators.compose([Validators.required])],
       'width': [null, Validators.compose([Validators.required])],
       'height': [null, Validators.compose([Validators.required])],
@@ -114,7 +115,7 @@ export class ModalVariationsProductComponent implements OnInit {
 
     this.loading_save = true;
     const _method = (this.editform['id']) ? 'put' : 'post';
-    this.rest[_method](`/rest/products-variations/${(this.editform['id']) ? this.editform['id'] : ''}`, this.editform)
+    this.rest[_method](`/rest/products-variations${(this.editform['id']) ? `/${this.editform['id']}` : ''}`, this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading_save = false;

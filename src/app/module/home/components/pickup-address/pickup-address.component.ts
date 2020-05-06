@@ -4,6 +4,7 @@ import {RestService} from '../../../../shared/services/rest.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-pickup-address',
@@ -20,7 +21,7 @@ export class PickupAddressComponent implements OnInit {
 ;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: {country: 'ES'}
+    componentRestrictions: {country: environment.country}
   };
   public editform: any = {};
 
@@ -131,7 +132,7 @@ export class PickupAddressComponent implements OnInit {
       const method = (this.address_id) ? 'put' : 'post';
       event.preventDefault();
 
-      this.rest[method](`/rest/pickup-address/${(this.address_id) ? this.address_id : ''}`,
+      this.rest[method](`/rest/pickup-address${(this.address_id) ? `/${this.address_id}` : ''}`,
         this.editform)
         .then((response: any) => {
           this.loading = false;

@@ -79,10 +79,11 @@ export class ModalBankComponent implements OnInit {
       );
 
       setInterval(function () {
-
+        const expression = /(?:code)\=([\S\s]*?)\&/;
         const response_token = `${win.location.href}&`;
-        if (response_token) {
-          const token = response_token.match(/(?:code)\=([\S\s]*?)\&/)[1];
+        if (response_token && response_token.match(expression) &&
+          response_token.match(expression).length) {
+          const token = response_token.match(expression)[1];
           if (token) {
             resolve({
               token,
@@ -93,14 +94,14 @@ export class ModalBankComponent implements OnInit {
       }, 1000);
 
     } catch (e) {
-      reject(e);
+      reject(null);
     }
   });
 
   saveData = () => {
     this.loading = true;
     const method = (this.id) ? 'put' : 'post';
-    this.rest[method](`/rest/payment-user/${(this.id) ? this.id : ''}`,
+    this.rest[method](`/rest/payment-user${(this.id) ? `/${this.id}` : ''}`,
       this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {

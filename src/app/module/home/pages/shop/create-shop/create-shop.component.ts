@@ -23,7 +23,7 @@ export class CreateShopComponent implements OnInit, AfterViewInit {
     keyboard: false
   };
   modalRef: BsModalRef;
-  public loading = false;
+  public loading = true;
   public data_inside: any = {};
   public filesReady: any;
   public tabs: any = {products: true};
@@ -47,7 +47,6 @@ export class CreateShopComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.route.queryParams.subscribe(params => {
-      console.log(params);
       if (params && params['step']) {
         this.selectTab(params['step']);
       }

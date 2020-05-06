@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {UtilsService} from './util.service';
-import {CookieService} from 'ngx-cookie-service';
-
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UtilsService } from './util.service';
+import { CookieService } from 'ngx-cookie-service';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,16 @@ export class RestService {
   location_zip = '';
   public lat = '';
   public lng = '';
-  public readonly url: string = 'https://alterhome-dot-alterhome-ecommerce.appspot.com/api/1.0';
+  public readonly url: string = environment.endpoint;
+  public readonly AH_url: string = environment.AH_url;
+  public readonly AH_token: string = environment.AH_token;
 
   // public readonly url: string = 'http://127.0.0.1:8000/api/1.0';
 
   constructor(public http: HttpClient,
-              private router: Router,
-              public utils: UtilsService,
-              private cookieService: CookieService,
+    private router: Router,
+    public utils: UtilsService,
+    private cookieService: CookieService,
   ) {
 
   }
@@ -52,6 +54,22 @@ export class RestService {
     if (_label) {
       _header['COOKIES-REF'] = _label;
     }
+    this.headers = new HttpHeaders(_header);
+    return this.headers;
+  };
+
+  AH_getHeaders = (ignoreLoading = false) => {
+
+    // @ts-ignore
+    let _header = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'CMS-Client-Token': this.AH_token
+    };
+    if (ignoreLoading) {
+      _header['ignoreLoadingBar'] = '';
+    }
+
     this.headers = new HttpHeaders(_header);
     return this.headers;
   };
@@ -114,6 +132,13 @@ export class RestService {
       + this.parseParams(params);
   }
 
+  public AH_getUrl(endpoint: string, params?: IUrlParams): string {
+    return this.AH_url
+      + ''
+      + (endpoint || '/')
+      + this.parseParams(params);
+  }
+
   private parseParams(params: IUrlParams): string {
     let parsed = '';
     if (params) {
@@ -143,6 +168,11 @@ export class RestService {
         reject(err);
       }).bind(this));
     });
+  }
+
+  AH_get(endpoint: string, params?: IUrlParams, ignoreLoading: any = false): Promise<object> {
+    return this.check(this.http.get(this.AH_getUrl(endpoint, params),
+      { headers: this.AH_getHeaders(ignoreLoading) }).toPromise());
   }
 }
 

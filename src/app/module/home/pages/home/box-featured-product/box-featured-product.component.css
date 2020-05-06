@@ -50,6 +50,20 @@
   border-radius: 3px;
 }
 
+.item-view-more{
+  cursor: pointer;
+  padding: 3rem 1rem;
+}
+
+.item-view-more img{
+  width: 60px;
+  height: 60x;
+  object-fit: contain;
+  opacity: .7 !important;
+}
+.item-view-more:hover img{
+  opacity: 1 !important;
+}
 .item:hover .item-inner {
   /*transform: translateY(1em);*/
   -webkit-transition: -webkit-transform .3s ease-out;
@@ -153,7 +167,8 @@
   background: white;
   height: 200px;
   text-align: center;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #f6f6f6;
+  border-radius: .5rem;
 }
 
 .not-results .title {
@@ -172,7 +187,7 @@ and (max-width: 450px) {
     padding: 0 0 0 .6rem !important;
     font-size: 1rem;
     font-weight: 400;
-    color: gray;
+    color: #222;
   }
 
   #best-seller .owl-item .item {
@@ -180,7 +195,7 @@ and (max-width: 450px) {
   }
 
   .item-price-amount, .euro-sign {
-    font-weight: 400;
+    font-weight: 600;
     font-size: .8rem;
   }
 

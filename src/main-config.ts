@@ -1,3 +1,3 @@
-export const title = 'Apatxee.com'
-export const description = 'Ayudamos al pequeño comercio a competir con las grandes superficies con un transporte del producto con recogida y entrega en un tiempo medio de 1 hora.';
+export const title = 'Mercacomunidad | mercacomunidad.com'
+export const description = 'La tienda para el comercio, tenemos los mejores productos.';
 export const keywords = 'fashion, store, E-commerce';

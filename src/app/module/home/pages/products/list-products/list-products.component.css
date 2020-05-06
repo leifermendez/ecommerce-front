@@ -54,7 +54,7 @@
   border-radius: 3px;
 }
 
-.item-image{
+.item-image {
   width: 60px;
   height: 60px;
   background-color: #f7f7f7;
@@ -65,20 +65,20 @@
   width: 100px;
 }
 
-.list-table-item:hover{
+.list-table-item:hover {
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
-  border-left: solid 5px #dedede;
-  background-color: #f9f9f9;
+  border-left: solid 5px #2980b9;
+  background-color: rgba(244, 94, 59, 0.03)
 }
 
-.list-table-item.active{
-  border-left: solid 5px #ce0000;
+.list-table-item.active {
+  border-left: solid 5px #2980b9;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
-  background-color: #fff5f5;
+  background-color: rgba(244, 94, 59, 0.15);
 }

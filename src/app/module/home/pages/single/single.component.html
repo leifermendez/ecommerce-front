@@ -19,47 +19,34 @@
       <div class="inside-body2 mb-4">
         <div class="">
           <div class="row m-0">
-            <div class="responsive-title">
-              <ngx-stars [readonly]="true" initialStars="5"
-                         customPadding="2px" color="#FFC400"></ngx-stars>
-              <h2 class="font-weight-bold text-dark mb-0">
-                {{data['name']}}
-              </h2>
-            </div>
-            <div
-              class="col-lg-8 col-sm-12 p-0 product-image inline-table border-booton-solid
-               background-solid border-left-solid border-top-solid" [style.borderRight]="'solid 5px whitesmoke'">
+            <div class="col-lg-8 col-sm-12 p-0 product-image inline-table border-booton-solid
+               background-solid border-left-solid border-top-solid" [style.borderTopLeftRadius]="'25px'"
+              [style.borderRight]="'solid 5px whitesmoke'">
               <div *ngIf="selectedvariationName 
               && selectedvariationName['price_normal']
-              && selectedvariationName['price_regular']"
-                   class="ribbon ribbon-top-left"><span class="pulse">
-                   <app-discount-number
-                     *ngIf="selectedvariationName 
-                     && selectedvariationName['price_normal']"
-                     #discountChild
-                     [decimals]="0"
-                     [price_normal]="selectedvariationName['price_normal']"
-                     [price_regular]="selectedvariationName['price_regular']">
-                        </app-discount-number>%</span></div>
+              && selectedvariationName['price_regular']" class="ribbon ribbon-top-left"><span class="pulse">
+                  <app-discount-number *ngIf="selectedvariationName 
+                     && selectedvariationName['price_normal']" #discountChild [decimals]="0"
+                    [price_normal]="selectedvariationName['price_normal']"
+                    [price_regular]="selectedvariationName['price_regular']">
+                  </app-discount-number>%
+                </span></div>
               <div class="w-100 p-2">
                 <div class="h-100 min-height-500 gallery-product">
-                  <ngx-content-loading
-                    *ngIf="loading"
-                    [width]="1000"
-                    [height]="550">
+                  <ngx-content-loading *ngIf="loading" [width]="1000" [height]="550">
                     <svg:g ngx-rect width="100%" height="100%" y="0" x="0" rx="5" ry="5"></svg:g>
                   </ngx-content-loading>
-<!--                  <ngx-image-zoom-->
-<!--                    class="w-100 cover cursor-zoom single"-->
-<!--                    *ngIf="!loading && data && data['gallery'].length"-->
-<!--                    [thumbImage]="cover['medium']"-->
-<!--                    [fullImage]="cover['large']">-->
-<!--                  </ngx-image-zoom>-->
-<!--                  <app-gallery-single-->
-<!--                    (callback)="changeCover($event)"-->
-<!--                    [images]="data['gallery']"-->
-<!--                    class="w-100 d-block mt-4">-->
-<!--                  </app-gallery-single>-->
+                  <!--                  <ngx-image-zoom-->
+                  <!--                    class="w-100 cover cursor-zoom single"-->
+                  <!--                    *ngIf="!loading && data && data['gallery'].length"-->
+                  <!--                    [thumbImage]="cover['medium']"-->
+                  <!--                    [fullImage]="cover['large']">-->
+                  <!--                  </ngx-image-zoom>-->
+                  <!--                  <app-gallery-single-->
+                  <!--                    (callback)="changeCover($event)"-->
+                  <!--                    [images]="data['gallery']"-->
+                  <!--                    class="w-100 d-block mt-4">-->
+                  <!--                  </app-gallery-single>-->
 
                   <ngx-gallery *ngIf="!loading" [options]="galleryOptions" [images]="data['gallery']"></ngx-gallery>
                 </div>
@@ -68,16 +55,20 @@
                 </div>
               </div>
               <div *ngIf="data && !data['gallery']" class="w-100">
-                <img class="w-100 cover" [src]="'assets/images/nofound.png'"/>
+                <img class="w-100 cover" [src]="'assets/images/nofound.png'" />
               </div>
             </div>
-            <div @details
-                 class="col-lg-4  col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
+            <div class="responsive-title">
+              <ngx-stars [readonly]="true" initialStars="5" customPadding="2px" color="#F44336"></ngx-stars>
+              <h2 class="font-weight-bold text-dark mb-0">
+                {{data['name']}}
+              </h2>
+            </div>
+            <div @details [style.borderTopRightRadius]="'25px'"
+              class="col-lg-4 col-sm-12 p-0 inline-table border-left-solid border-top-solid border-right-solid background-solid border-booton-solid">
               <div class="w-100">
                 <div class="product-shop p-4" *ngIf="loading">
-                  <ngx-content-loading
-                    [width]="300"
-                    [height]="450">
+                  <ngx-content-loading [width]="300" [height]="450">
                     <svg:g ngx-rect width="150" height="10" y="10" x="0" rx="5" ry="5"></svg:g>
                     <svg:g ngx-rect width="90" height="10" y="40" x="0" rx="5" ry="5"></svg:g>
                     <svg:g ngx-rect width="210" height="10" y="70" x="0" rx="5" ry="5"></svg:g>
@@ -90,8 +81,10 @@
                     <h2 class="font-weight-bold text-dark">
                       {{data['name'] | words : 8 :  ''}}
                     </h2>
-                    <ngx-stars [readonly]="true" initialStars="5"
-                               customPadding="2px" color="#FFC400"></ngx-stars>
+                    <div class="d-flex">
+                      <ngx-stars [readonly]="true" initialStars="5" customPadding="2px" color="#FFC400"></ngx-stars>
+                      <small>{{data['shop_name']}} <fa name="check-circle"></fa> </small>
+                    </div>
                   </div>
                   <div class="price-block" *ngIf="variation.length">
                     <div class="price-box">
@@ -100,16 +93,12 @@
                           {{"currency" | translate}}
                         </del>
                       </h6>
-                      <h1 class="m-0">{{selectedvariationName['price_normal'] |number:'1.2-2'}}
-                        {{"currency" | translate}}
+                      <h1 class="m-0" [innerHTML]="selectedvariationName['price_normal'] |number:'1.2-2' | pricePipe">
                       </h1>
-                      <div class="discount-text text-success"
-                           *ngIf="selectedvariationName
+                      <div class="discount-text text-success" *ngIf="selectedvariationName
                           && selectedvariationName['price_normal']
                           && selectedvariationName['price_regular']">
-                        <app-discount-number
-                          #discountChild
-                          [decimals]="0"
+                        <app-discount-number #discountChild [decimals]="0"
                           [price_normal]="selectedvariationName['price_normal']"
                           [price_regular]="selectedvariationName['price_regular']">
                         </app-discount-number>
@@ -117,16 +106,11 @@
                       </div>
                     </div>
                   </div>
-                  <p *ngIf="variation && variation.length > 1"
-                     class="font-weight-normal text-muted mt-2 mb-0"
-                     [innerHTML]="'page.single.variations' | translate"></p>
+                  <p *ngIf="variation && variation.length > 1" class="font-weight-normal text-muted mt-2 mb-0"
+                    [innerHTML]="'page.single.variations' | translate"></p>
                   <div class="list-variations" *ngIf="variation && variation.length > 1">
-                    <ng-select [items]="variation"
-                               bindLabel="label"
-                               [searchable]="false"
-                               [clearable]="false"
-                               placeholder="Select variation"
-                               [(ngModel)]="selectedvariationName">
+                    <ng-select [items]="variation" bindLabel="label" [searchable]="false" [clearable]="false"
+                      placeholder="Select variation" [(ngModel)]="selectedvariationName">
                       <ng-template ng-label-tmp let-item="item">
                         <b>&nbsp;{{item.label}}</b>
                       </ng-template>
@@ -136,7 +120,7 @@
                     </ng-select>
                   </div>
                   <div class="short-description text-dark mt-2">
-                    <div class="mb-3">
+                    <div class="mb-3" [hidden]="true">
                       <p class="text-muted mb-0" [innerHTML]="'page.single.info_shop' |translate"></p>
                       <div class="p-2 info-shop">
                         <div class="d-flex mt-1 mb-2">
@@ -150,19 +134,42 @@
                             <fa name="map-marker"></fa>
                             {{data['shop_address'] | words: 15 : '...'}}
                           </p>
-                          <a class="text-info" [routerLink]="['/','store',data['shop_id']+'-'+util.slug(data['shop_name'])]">
+                          <a class="text-info"
+                            [routerLink]="['/','store',data['shop_id']+'-'+util.slug(data['shop_name'])]">
                             <fa name="bookmark"></fa>
                             <span> {{"page.single.more_product_shop" | translate}}</span>
                           </a>
                         </div>
                       </div>
                     </div>
-                    <div class="mb-2 alert-warning alert">
+                    <div class="mb-2">
+                      <hr>
                       <div class="p-0">
                         <div class="mt-1">
+                          <h6 class="sub-title">{{"page.single.shipping" | translate}}:</h6>
+                          <div class="m-0">
+                            <span [innerHTML]="'page.single.shipping_time' | translate"></span>
+                            <div>
+                              <span class="badge badge-warning" *ngIf="approximate">
+                                {{"page.single.free" | translate}}: {{approximate | date}}
+                              </span>
+                              <span class="cursor-pointer">
+                                <a class="p-2 text-muted" (click)="util.openChat()">
+                                  <fa name="question"></fa>
+                                </a>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-2">
+                      <hr>
+                      <div class="p-0">
+                        <div class="mt-1">
+                          <h6 class="sub-title">{{"page.single.return" | translate}}:</h6>
                           <p class="m-0">
-                            <fa name="truck"></fa>
-                            <span> {{"page.single.shipping_time" |translate}}</span>
+                            <span [innerHTML]="'page.single.return_exeption' | translate"></span>
                           </p>
                         </div>
                       </div>
@@ -172,26 +179,34 @@
                   <div>
                     <div class="text-center mt-4 d-block">
                       <button (click)="open(data)" type="button" [disabled]="loading_save" title="Add to Cart"
-                              class="btn btn-info btn-block add-cart">
+                        class="btn btn-info btn-block add-cart">
                         <span *ngIf="!loading_save">{{"page.single.add_car" |translate}}</span>
                         <span *ngIf="loading_save">
-                        <fa name="spinner" animation="spin"></fa>
-                      </span>
+                          <fa name="spinner" animation="spin"></fa>
+                        </span>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 inline-table description-content background-solid border-left-solid
-             border-right-solid text-dark p-4 border-booton-solid" [style.borderTop]="'solid 5px whitesmoke'">
+            <div class="inline-table description-content background-solid border-left-solid
+             border-right-solid text-dark p-4 border-booton-solid"
+              [ngClass]="{'col-lg-8 col-sm-12':(data.comments_count), 'col-lg-12 col-sm-12':!(data.comments_count)}"
+              [style.borderRight]="'solid 5px whitesmoke'" [style.borderTop]="'solid 5px whitesmoke'">
               <div class="container">
                 <div class="row m-0">
                   <div class="col-12 p-0">
-                    <h2 class="font-weight-600 mb-2">{{"page.single.description" | translate}}</h2>
+                    <h2 class="font-weight-600 mb-2 title-description">{{"page.single.description" | translate}}</h2>
                     <p class="description text-justify" [innerHTML]="data.description"></p>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div *ngIf="data.comments_count>0" class="col-lg-4 col-sm-12 inline-table description-content background-solid border-left-solid
+            border-right-solid text-dark p-2 border-booton-solid" [style.borderTop]="'solid 5px whitesmoke'">
+              <div class="container p-0">
+                <app-review *ngIf="data && (data.comments_count>0)" [id]="data.id"></app-review>
               </div>
             </div>
           </div>
@@ -204,19 +219,19 @@
   </div>
   <div *ngIf="data && data.id" class="call-action-buy row m-0 container">
     <div class="d-flex">
-        <div class="col-7 pt-1">
-            <h6 class="m-0">
-              {{selectedvariationName?.price_normal |number:'1.2-2'}} {{"currency" |translate}}
-            </h6>
-            <small *ngIf="selectedvariationName?.price_normal">
-             <del> {{selectedvariationName?.price_regular |number:'1.2-2'}} {{"currency" |translate}}</del>
-            </small>
-          </div>
-          <div class="col-5">
-            <button (click)="open(data)"  type="button" class="btn btn-primary btn-block h-100">
-              {{"page.single.buy" |translate}}
-            </button>
-          </div>
+      <div class="col-7 pt-1">
+        <h6 class="m-0">
+          {{selectedvariationName?.price_normal |number:'1.2-2'}} {{"currency" |translate}}
+        </h6>
+        <small *ngIf="selectedvariationName?.price_regular">
+          <del> {{selectedvariationName?.price_regular |number:'1.2-2'}} {{"currency" |translate}}</del>
+        </small>
+      </div>
+      <div class="col-5">
+        <button (click)="open(data)" type="button" class="btn btn-primary btn-block h-100">
+          {{"page.single.buy" |translate}}
+        </button>
+      </div>
     </div>
   </div>
 </section>

@@ -1,19 +1,33 @@
-import {Component, OnInit} from '@angular/core';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
-import {AuthshopService} from '../../../auth/authshop.service';
-import {AppComponent} from '../../../../app.component';
-import {TranslateService} from '@ngx-translate/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
-import {ZipLocationComponent} from '../zip-location/zip-location.component';
-import {SideCategoriesComponent} from '../side-categories/side-categories.component';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
-import {DeviceDetectorService} from 'ngx-device-detector';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { Component, OnInit, AfterViewInit, HostBinding } from '@angular/core';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
+import { AuthshopService } from '../../../auth/authshop.service';
+import { AppComponent } from '../../../../app.component';
+import { TranslateService } from '@ngx-translate/core';
+import { animate, state, style, transition, trigger, group, query, animateChild } from '@angular/animations';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ZipLocationComponent } from '../zip-location/zip-location.component';
+import { SideCategoriesComponent } from '../side-categories/side-categories.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { TimeagoIntl } from 'ngx-timeago';
+import { strings as englishStrings } from 'ngx-timeago/language-strings/en';
+import { CookieService } from 'ngx-cookie-service';
+import * as moment from 'moment';
+import { Number } from 'core-js';
 
 
 declare var $: any;
+enum VisibilityState {
+  Visible = 'visible',
+  Hidden = 'hidden'
+}
+
+enum Direction {
+  Up = 'Up',
+  Down = 'Down'
+}
 
 @Component({
   selector: 'app-header',
@@ -22,26 +36,26 @@ declare var $: any;
   animations: [
     trigger('tijl', [
       transition(':enter', [
-        style({transform: 'translateY(-20%)', opacity: '0'}),
+        style({ transform: 'translateY(-20%)', opacity: '0' }),
         animate('0.2s ease-in')
       ]),
       transition(':leave', [
-        animate('0.2s ease-out', style({transform: 'translateY(20%)', opacity: '1'}))
+        animate('0.2s ease-out', style({ transform: 'translateY(20%)', opacity: '1' }))
       ])
     ]),
     trigger('animationOption2', [
       transition(':enter', [
-        style({transform: 'translateY(-20%)', opacity: '.1'}),
+        style({ transform: 'translateY(-20%)', opacity: '.1' }),
         animate(100)
       ]),
       transition(':leave', [
-        animate(100, style({transform: 'translateY(-20%)', opacity: '1'}))
+        animate(100, style({ transform: 'translateY(-20%)', opacity: '1' }))
       ])
     ])
   ]
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   public location: any = null;
   public computer: any;
   public mobile: any;
@@ -59,15 +73,22 @@ export class HeaderComponent implements OnInit {
   public menuResponsive = false;
   modalRef: BsModalRef;
   public form: any = FormGroup;
+  public time_exp_promo = null;
   config = {};
 
   constructor(private util: UtilsService, private route: ActivatedRoute, private router: Router,
-              private cart: ShoppingCartComponent,
-              private modalService: BsModalService,
-              private fb: FormBuilder,
-              private deviceService: DeviceDetectorService,
-              private auth: AuthshopService, private app: AppComponent,
-              private translate: TranslateService) {
+    private cart: ShoppingCartComponent,
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private cookieService: CookieService,
+    private intl: TimeagoIntl,
+    private deviceService: DeviceDetectorService,
+    private auth: AuthshopService, private app: AppComponent,
+    private translate: TranslateService) {
+
+    intl.strings = englishStrings;
+    intl.changes.next();
+
     util.getLocation.subscribe(data => {
       this.location = data['zip_code'][0];
       this.lat = data['customer_lat'];
@@ -111,6 +132,34 @@ export class HeaderComponent implements OnInit {
     this.tablet = this.deviceService.isTablet();
 
   }
+  public isVisible = true;
+
+  /*@HostBinding('@toggle')
+  get toggle(): VisibilityState {
+    return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
+  }*/
+
+  ngAfterViewInit() {
+    /* const scroll$ = fromEvent(window, 'scroll').pipe(
+       throttleTime(10),
+       map(() => window.pageYOffset),
+       pairwise(),
+       map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),
+       distinctUntilChanged(),
+       share()
+     );
+ 
+     const scrollUp$ = scroll$.pipe(
+       filter(direction => direction === Direction.Up)
+     );
+ 
+     const scrollDown = scroll$.pipe(
+       filter(direction => direction === Direction.Down)
+     );
+ 
+     scrollUp$.subscribe(() => (this.isVisible = true));
+     scrollDown.subscribe(() => (this.isVisible = false));*/
+  }
 
   searchMobile = (e) => {
     e.stopPropagation();
@@ -119,7 +168,7 @@ export class HeaderComponent implements OnInit {
 
   scrollTop = (aid) => {
     const aTag = $(`#${aid}`);
-    $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
+    $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
 
   };
 
@@ -139,9 +188,9 @@ export class HeaderComponent implements OnInit {
 
     this.modalRef = this.modalService.show(
       SideCategoriesComponent,
-      Object.assign({initialState}, {
-          class: 'gray modal-lg top-modal box-shadow-modal side-categories'
-        },
+      Object.assign({ initialState }, {
+        class: 'gray modal-lg top-modal box-shadow-modal side-categories'
+      },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';
@@ -150,6 +199,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.user_data = this.auth.getCurrentUser();
     this.location = this.util.getZipCookie();
+    const promo_cookie = this.cookieService.get('_p_cookie');
+    if (promo_cookie) {
+ 
+      const _time = (JSON.parse(promo_cookie))
+        ? JSON.parse(promo_cookie) : null;
+
+      this.time_exp_promo = parseInt(moment(_time['_t']).format('x'))
+
+    }
+
     if (this.user_data) {
       this.cart.loadData();
     }

@@ -52,7 +52,7 @@
               </div>
               <div *ngIf="!loading" class="card block-dashboard border-0">
                 <div class="col p-0 bg-table min-height-300">
-                  <app-inside-filter-nav [placeholder]="'Busca número de pedido, nombre de cliente'"
+                  <app-inside-filter-nav [placeholder]="'inside.menu.search.input' | translate"
                     class="p-2 text-muted d-block"></app-inside-filter-nav>
                   <table *ngIf="data && data['data'].length" class="table table-shipment">
                     <tbody>

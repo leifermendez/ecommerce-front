@@ -81,7 +81,7 @@
                   <td colspan="7" class="last">
                     <div class="text-right pl-3 pr-3 mt-3">
 
-                      <button [routerLink]="['/','checkout']" class="btn btn-primary">
+                      <button [routerLink]="['/','checkout']" (click)="util.sendEvent('makePurchase','click')" class="btn btn-primary">
                         Hacer pedido
                       </button>
                     </div>

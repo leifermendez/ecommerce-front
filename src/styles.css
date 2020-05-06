@@ -2,6 +2,7 @@
 body {
   font-family: 'Poppins', sans-serif !important;
   letter-spacing: .7px;
+  font-size: 14px;
 }
 
 .page-loader {

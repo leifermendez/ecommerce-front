@@ -1,7 +1,8 @@
 <ng-select [items]="datafilter" bindLabel="name" bindValue="id" #select highlightColor="#9575cd"
+  [ngClass]="(focus) ? 'custom-select-search-item-focus' : ''" (focus)="focus = true" (blur)="focus = false"
   (search)="search($event)" [ngModelOptions]="{standalone: true}" [clearable]="true" [openOnEnter]="false"
   [clearOnBackspace]="false" [searchable]="true" [multiple]="false" [virtualScroll]="true" [closeOnSelect]="false"
-  (change)="selectOptions($event)" (keydown.enter)="srcSend($event);select.close()" placeholder="Buscar..."
+  (change)="selectOptions($event)" (keydown.enter)="srcSend($event);select.close()" placeholder="{{'menu.search.input' | translate}}"
   [ngModel]="src">
   <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
     <b [ngOptionHighlight]="search">{{item.name  | truncate : 25 :  '...'}}</b>

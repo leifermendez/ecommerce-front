@@ -12,19 +12,33 @@
           </div>
           <div class="col-9 p-4">
             <h5 class="content-h5" [innerHTML]="'thankyou.sentence.first' | translate"></h5>
-            <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
+            <p><small>#{{referer}}</small></p>
+            <div class="mt-4">
+              <a class="btn btn-primary" [routerLink]="['/','purchases',referer]">{{"thankyou.sentence.first_view_more" | translate}}</a>
+            </div>
           </div>
         </div>
         <div class="row mt-4 pt-4">
+            <div class="col-3 text-center">
+              <img src="../../../../../assets/images/scooter.svg" width="120" alt="">
+            </div>
+            <div class="col-9 p-4">
+              <h5 class="content-h5" [innerHTML]="'thankyou.sentence.second' | translate"></h5>
+            </div>
+          </div>
+        <div class="row mb-4">
           <div class="col-3 text-center">
-            <img src="../../../../../assets/images/scooter.svg" width="120" alt="">
+            <img src="../../../../../assets/images/return.svg" width="120" alt="">
           </div>
           <div class="col-9 p-4">
-            <h5 class="content-h5" [innerHTML]="'thankyou.sentence.second' | translate"></h5>
-            <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
+            <h5 class="content-h5" [innerHTML]="'thankyou.sentence.third' | translate"></h5>
+            <p class="mt-4">
+              <a href="#" target="_blank">
+                <span [innerHTML]="'thankyou.sentence.third_view_more' | translate"></span>
+              </a>
+            </p>
           </div>
         </div>
-
       </div>
         <div class="text-center payment_sentence">
       <p class="text-muted" [innerHTML]="'global.payment_sentence' | translate"></p>
@@ -46,7 +60,6 @@
             </div>
             <div class="col-lg-9 p-4">
               <h5 class="content-h5" [innerHTML]="'thankyou.sentence.second' | translate"></h5>
-              <p class="mt-4"><span [innerHTML]="'page.error_payment.refer' | translate"></span>: {{referer}}</p>
             </div>
           </div>
           <div class="row ml-0 mr-0 mt-4 pt-4 pr-4 pl-4 text-center">

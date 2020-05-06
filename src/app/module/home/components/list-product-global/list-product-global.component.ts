@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
-import {ActivatedRoute, Router} from '@angular/router';
-import {RestService} from '../../../../shared/services/rest.service';
-import {UtilsService} from '../../../../shared/services/util.service';
-import {ShoppingCartComponent} from '../../components/shopping-cart/shopping-cart.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestService } from '../../../../shared/services/rest.service';
+import { UtilsService } from '../../../../shared/services/util.service';
+import { ShoppingCartComponent } from '../../components/shopping-cart/shopping-cart.component';
 import * as moment from 'moment';
-import {ModalShoppingComponent} from '../modal-shopping/modal-shopping.component';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import { ModalShoppingComponent } from '../modal-shopping/modal-shopping.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-list-product-global',
@@ -30,9 +30,9 @@ export class ListProductGlobalComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
 
   constructor(private rest: RestService, private util: UtilsService,
-              private shopping: ShoppingCartComponent,
-              private modalService: BsModalService,
-              private route: ActivatedRoute, private router: Router) {
+    private shopping: ShoppingCartComponent,
+    private modalService: BsModalService,
+    private route: ActivatedRoute, private router: Router) {
 
 
   }
@@ -54,7 +54,7 @@ export class ListProductGlobalComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
-      {'breakpoint': 500, 'width': '100%', 'height': '200px'}
+      { 'breakpoint': 500, 'width': '100%', 'height': '200px' }
       ,
       // max-width 400
       {
@@ -67,18 +67,18 @@ export class ListProductGlobalComponent implements OnInit {
   emitBack = () => this.ngOnInit();
 
   open(data) {
-    this.util.closeAllModals();
     const initialState = {
       ignoreBackdropClick: true,
       emitBack: this.emitBack,
-      data
+      data,
+      variation: (data.variations.length) ? data.variations[0] :{}
     };
 
     this.modalRef = this.modalService.show(
       ModalShoppingComponent,
-      Object.assign({initialState}, {
-          class: 'gray modal-lg top-modal box-shadow-modal'
-        },
+      Object.assign({ initialState }, {
+        class: 'gray modal-lg top-modal box-shadow-modal'
+      },
         this.config)
     );
     this.modalRef.content.closeBtnName = 'Cerrar';

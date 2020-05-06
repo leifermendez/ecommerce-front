@@ -1,6 +1,6 @@
 .box {
   display: block;
-  background: #efefef;
+
   transform: translateX(0rem);
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
@@ -19,7 +19,7 @@
 }
 
 .box-category-parent:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.05);
   opacity: 1;
 }
 
@@ -49,16 +49,20 @@ ul .child-li:hover {
   width: 100%;
   height: 120px;
   object-fit: cover;
+  border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .box-category-parent {
   border: solid 1px whitesmoke;
   background-color: #fdfdfd;
-  opacity: .7;
+  opacity: .8;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   -o-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
+  border-radius: 10px;
+  min-height: 20rem;
 }
 
 @media screen

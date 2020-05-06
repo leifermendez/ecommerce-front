@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
+import {CookieLawModule} from 'angular2-cookie-law';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter} from 'ngx-timeago';
 import {AppRoutingModule} from './app-routing.module';
@@ -10,22 +11,23 @@ import {HeaderComponent} from './module/home/components/header/header.component'
 import {FooterComponent} from './module/home/components/footer/footer.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NgxStarsModule} from 'ngx-stars';
-import { NgxPrettyCheckboxModule } from 'ngx-pretty-checkbox';
+import {NgxPrettyCheckboxModule} from 'ngx-pretty-checkbox';
 import {OwlModule} from 'ngx-owl-carousel';
 import {RestService} from './shared/services/rest.service';
 import {UtilsService} from './shared/services/util.service';
 import {LoginComponent} from './module/auth/pages/login/login.component';
 import {BsModalRef, BsModalService, ModalModule} from 'ngx-bootstrap/modal';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
+import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 import {NgxEpicVideoPlayerModule} from 'ngx-epic-video-player';
 import {ChartModule} from 'angular-highcharts';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { QuillModule } from 'ngx-quill'
+import {QuillModule} from 'ngx-quill';
+import {CountdownModule} from 'ngx-countdown';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BannerComponent} from './module/home/pages/home/banner/banner.component';
 import {BoxCategoriesComponent} from './module/home/pages/home/box-categories/box-categories.component';
@@ -39,7 +41,7 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {MiniGalleryProductComponent} from './module/home/pages/home/mini-gallery-product/mini-gallery-product.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {NgSelectModule} from '@ng-select/ng-select';
-import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
+import {NgOptionHighlightModule} from '@ng-select/ng-option-highlight';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {CookieService} from 'ngx-cookie-service';
 import {ProfileComponent} from './module/home/pages/profile/profile.component';
@@ -127,23 +129,29 @@ import {SingleBlogComponent} from './module/home/pages/single-blog/single-blog.c
 import {AddressShoppingCartComponent} from './module/home/components/address-shopping-cart/address-shopping-cart.component';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {ModalWarningComponent} from './module/home/components/modal-warning/modal-warning.component';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
-import { DetailProductSaleComponent } from './module/home/pages/single-sale/detail-product-sale/detail-product-sale.component';
-import { ShotCodeShopComponent } from './module/home/components/shot-code-shop/shot-code-shop.component';
-import { InsideFilterNavComponent } from './module/home/components/inside-filter-nav/inside-filter-nav.component';
-import { PreviewProductComponent } from './module/home/components/preview-product/preview-product.component';
-import { FilterAttributesComponent } from './module/home/pages/store/filter-attributes/filter-attributes.component';
-import { SearchPageComponent } from './module/home/pages/search-page/search-page.component';
-import { ListProductGlobalComponent } from './module/home/components/list-product-global/list-product-global.component';
-import { SearchPageCategoryComponent } from './module/home/pages/search-page-category/search-page-category.component';
-import { SideCategoriesComponent } from './module/home/components/side-categories/side-categories.component';
+import {CommonModule} from '@angular/common';
+import {TransferHttpCacheModule} from '@nguniversal/common';
+import {NgtUniversalModule} from '@ng-toolkit/universal';
+import {DetailProductSaleComponent} from './module/home/pages/single-sale/detail-product-sale/detail-product-sale.component';
+import {ShotCodeShopComponent} from './module/home/components/shot-code-shop/shot-code-shop.component';
+import {InsideFilterNavComponent} from './module/home/components/inside-filter-nav/inside-filter-nav.component';
+import {PreviewProductComponent} from './module/home/components/preview-product/preview-product.component';
+import {FilterAttributesComponent} from './module/home/pages/store/filter-attributes/filter-attributes.component';
+import {SearchPageComponent} from './module/home/pages/search-page/search-page.component';
+import {ListProductGlobalComponent} from './module/home/components/list-product-global/list-product-global.component';
+import {SearchPageCategoryComponent} from './module/home/pages/search-page-category/search-page-category.component';
+import {SideCategoriesComponent} from './module/home/components/side-categories/side-categories.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ClickOutsideModule} from 'ng-click-outside';
-import { PreventWizardComponent } from './module/home/components/prevent-wizard/prevent-wizard.component';
-import { ModalFilterAttributesComponent } from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
-import { PickupAddressComponent } from './module/home/components/pickup-address/pickup-address.component';
+import {LightboxModule} from 'ngx-lightbox';
+import {PreventWizardComponent} from './module/home/components/prevent-wizard/prevent-wizard.component';
+import {ModalFilterAttributesComponent} from './module/home/components/modal-filter-attributes/modal-filter-attributes.component';
+import {PickupAddressComponent} from './module/home/components/pickup-address/pickup-address.component';
+import {BoxListProductComponent} from './module/home/pages/home/box-list-product/box-list-product.component';
+import {environment} from '../environments/environment';
+import {ReferredComponent} from './module/home/components/referred/referred.component';
+import {ReviewComponent} from './module/home/pages/single/review/review.component';
+import {PricePipePipe} from './shared/pricePipe/price-pipe.pipe';
 
 export const ngxDropTargetOptions: DropTargetOptions = {
   color: 'dropZoneColor',
@@ -156,11 +164,11 @@ export const ngxDropTargetOptions: DropTargetOptions = {
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('380950034643-1uvjkvdn21dq26cjk61ard8eb1tf7hfo.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider(environment.google_provider)
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('372832750083623')
+    provider: new FacebookLoginProvider(environment.fb_provider)
   }
 ]);
 
@@ -264,10 +272,16 @@ export class MyIntl extends TimeagoIntl {
     PreventWizardComponent,
     ModalFilterAttributesComponent,
     PickupAddressComponent,
+    BoxListProductComponent,
+    ReferredComponent,
+    ReviewComponent,
+    PricePipePipe,
   ],
   imports: [
     LoadingBarHttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    CookieLawModule,
+    CountdownModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     NgxGalleryModule,
     AngularFontAwesomeModule,
@@ -297,6 +311,7 @@ export class MyIntl extends TimeagoIntl {
     Ng2SearchPipeModule,
     ClickOutsideModule,
     Ng2TelInputModule,
+    LightboxModule,
     QuillModule.forRoot(),
     DeviceDetectorModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
@@ -304,7 +319,7 @@ export class MyIntl extends TimeagoIntl {
     AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    NgxStripeModule.forRoot('pk_test_iOoJca2tObgjRwE7xbi0T3MM008BdX4xYU'),
+    NgxStripeModule.forRoot(environment.stripe_public_key),
     TabsModule.forRoot(),
     NgxImageZoomModule.forRoot(),
     NgxUploadModule.forRoot(ngxDropTargetOptions),
@@ -347,7 +362,6 @@ export class MyIntl extends TimeagoIntl {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     }
-
   ],
   entryComponents: [
     ZipLocationComponent,
@@ -361,7 +375,8 @@ export class MyIntl extends TimeagoIntl {
     PreventWizardComponent,
     ModalWarningComponent,
     SideCategoriesComponent,
-    ModalFilterAttributesComponent
+    ModalFilterAttributesComponent,
+    ReferredComponent
   ],
   bootstrap: [AppComponent]
 })

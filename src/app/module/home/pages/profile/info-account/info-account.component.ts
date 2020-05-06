@@ -43,17 +43,17 @@ export class InfoAccountComponent implements OnInit {
 
   getNumber = (a) => {
     this.editform[`phone`] = a;
-  }
+  };
 
   telInputObject = (a) => {
-    console.log('-->',a)
-  }
+    console.log('-->', a);
+  };
 
   hasError = (a) => {
     this.editform[`phone_valid`] = a;
-  }
+  };
 
-  onCountryChange = (a) => console.log('--->',a)
+  onCountryChange = (a) => console.log('--->', a);
 
   loadData = (id) => {
     this.loading = true;
@@ -94,13 +94,13 @@ export class InfoAccountComponent implements OnInit {
         phone: this.editform['phone']
       };
       event.preventDefault();
-      this.rest[method](`/rest/validatePhone/${(code) ? this.codeValidation : ''}`,
+      this.rest[method](`/rest/validatePhone${(code) ? `/${this.codeValidation}` : ''}`,
         (code) ? null : _data)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
             console.log(response['data']);
-            this.auth.updateUser('confirmed','1');
+            this.auth.updateUser('confirmed', '1');
             if (code) {
               this.saveData();
             }

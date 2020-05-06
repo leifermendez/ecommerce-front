@@ -5,6 +5,7 @@ import {RestService} from '../../../../../shared/services/rest.service';
 import {UtilsService} from '../../../../../shared/services/util.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {environment} from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-info-shop',
@@ -23,7 +24,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public address_gp: any = null;
   public optionsPlaces = {
     types: [],
-    componentRestrictions: {country: 'ES'}
+    componentRestrictions: {country: environment.country}
   };
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,
@@ -79,7 +80,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
     this.editform.address = address['formatted_address'];
     this.editform['lat'] = address.geometry.location.lat();
     this.editform['lng'] = address.geometry.location.lng();
-    console.log(address)
+    console.log(address);
 
     this.getZipCode(address['address_components'])
       .then(zip_code => {
@@ -99,19 +100,19 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
     }
   };
 
-  getNumber = (e,a) => {
+  getNumber = (e, a) => {
     this.editform[`phone_${e}`] = a;
-  }
+  };
 
   telInputObject = (a) => {
-    console.log('-->',a)
-  }
+    console.log('-->', a);
+  };
 
-  hasError = (e,a) => {
+  hasError = (e, a) => {
     this.editform[`phone_${e}_valid`] = a;
-  }
+  };
 
-  onCountryChange = (a) => console.log('--->',a)
+  onCountryChange = (a) => console.log('--->', a);
 
   clearImage = (type = null) => {
     if (type === 'cover') {
@@ -167,7 +168,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
       delete this.editform['phone_fixed_valid'];
       delete this.editform['phone_mobil_valid'];
 
-      this.rest[method](`/rest/shop/${(this.id) ? this.id : ''}`,
+      this.rest[method](`/rest/shop${(this.id) ? `/${this.id}` : ''}`,
         this.editform)
         .then((response: any) => {
           this.loading = false;

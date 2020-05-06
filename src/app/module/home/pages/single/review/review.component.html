@@ -1,0 +1,20 @@
+<div class="row m-0">
+    <div class="col-12 p-0">
+      <h2 class="font-weight-600 mb-4">{{"page.single.reviews" | translate}}</h2>
+      <ul class="list-review">
+        <li class="d-flex mb-3" *ngFor="let c of data">
+          <div class="col-2 p-0 text-center">
+            <img class="img-profile" [src]="c?.users_avatar" alt="">
+          </div>
+          <div class="col-10">
+            <h6 class="font-weight-bold">{{c.users_name}}</h6>
+            <p class="font-weight-light mb-1">{{c.comment}}</p>
+            
+            <div class="gallery-review">
+                <img [src]="c.image_comment" (click)="open(c)"/>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

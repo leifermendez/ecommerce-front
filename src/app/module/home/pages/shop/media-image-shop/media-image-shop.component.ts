@@ -48,6 +48,7 @@ export class MediaImageShopComponent implements OnInit {
         const _data = data['body']['data'];
         this.callback.emit(_data);
         console.log(`upload file successful:  ${data.item} ${data.body} ${data.status} ${data.headers}`);
+        this.uploader.queue = [];
       }
     );
 

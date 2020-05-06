@@ -1,9 +1,8 @@
 import Swal from 'sweetalert2';
-import { Injectable, EventEmitter, Output } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { settings } from '../settings';
-import { BsModalService } from 'ngx-bootstrap';
-import { RestService } from './rest.service';
+import {Injectable, EventEmitter, Output} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
+import {settings} from '../settings';
+import {BsModalService, BsModalRef} from 'ngx-bootstrap';
 
 declare var $: any;
 
@@ -28,11 +27,14 @@ export class UtilsService {
   @Output() modeFocusProduct: EventEmitter<any> = new EventEmitter();
 
   constructor(private cookieService: CookieService,
-    private modalService: BsModalService) {
+              private modalService: BsModalService, public bsModalRef: BsModalRef,
+  ) {
   }
 
 
-  closeAllModals() {
+  closeAllModals(element = null) {
+    const elements = element.nativeElement.querySelectorAll('body');
+    elements.removeClass('modal-open');
     for (let i = 1; i <= this.modalService.getModalsCount(); i++) {
       this.modalService.hide(i);
     }
@@ -53,10 +55,14 @@ export class UtilsService {
     return true;
   }
 
+  openChat = (str = null) => {
+
+  };
+
   openModalSnack = (message: string,
-    action: string,
-    details: any = null,
-    duration: number = 5000) => {
+                    action: string,
+                    details: any = null,
+                    duration: number = 5000) => {
     if (action === 'success') {
       Swal.fire({
         type: 'success',
@@ -212,6 +218,14 @@ export class UtilsService {
       reject(new Error('Not valid address object'));
     }
   });
+
+  sendEvent = (event, label) => {
+    (<any>window).ga('send', 'event', {
+      eventCategory: event,
+      eventLabel: label,
+      eventAction: 'click'
+    });
+  };
 
 
 }

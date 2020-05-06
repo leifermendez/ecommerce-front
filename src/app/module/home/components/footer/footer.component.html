@@ -5,6 +5,7 @@
       <fa [name]="(show) ? 'angle-down' : 'angle-up'" size="lg"></fa>
     </span>
   </div>
+  <!--
   <div class="tab-float-right cursor-pointer box-languages" (click)="showSwitchLanguage()"
     [style.marginBottom]="(showLanguage) ? '35px' : ''">
     {{"footer.label.language" |translate}} <flag-icon country="{{flagLanguage}}"></flag-icon>
@@ -12,11 +13,13 @@
       <fa [name]="(showLanguage) ? 'angle-down' : 'angle-up'" size="lg"></fa>
     </span>
   </div>
+  -->
+
   <div class="footer-line text-center" *ngIf="show">
     <div>
       <ul class="list-ul">
         <li>
-          <span class="brand"><b>Apatxee on time 2019</b></span>
+          <span class="brand"><b>{{"footer.main.name" | translate}}</b></span>
         </li>
         <li *ngFor="let c of data">
           <a target="_blank" [routerLink]="['/','blog',c['id'],util.slug(c['title'])]">{{c['title']}}</a>
@@ -32,9 +35,6 @@
         </li>
         <li (click)="chooseLanguage('en','us')" class="cursor-pointer">
           {{"footer.item.language.en" | translate}} <flag-icon country="us"></flag-icon>
-        </li>
-        <li (click)="chooseLanguage('fr','fr')" class="cursor-pointer">
-          {{"footer.item.language.fr" | translate}} <flag-icon country="fr"></flag-icon>
         </li>
       </ul>
     </div>

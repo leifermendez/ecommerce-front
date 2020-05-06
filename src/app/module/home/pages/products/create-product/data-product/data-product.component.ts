@@ -51,12 +51,13 @@ export class DataProductComponent implements OnInit {
 
   getShops = () => {
     this.loading = true;
-    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}`)
+    this.rest.get(`/rest/shop?limit=50&filters=shops.users_id,=,${this.user_data['id']}&outside=yes`)
       .then((response: any) => {
         this.loading = false;
         if (response['status'] === 'success') {
           response = response['data'];
           this.list_shops = response['data'];
+          console.log(this.list_shops);
           if (this.list_shops && this.list_shops.length) {
             this.select_shop = this.list_shops[0];
           }
@@ -103,6 +104,7 @@ export class DataProductComponent implements OnInit {
   }
 
   save = () => {
+    console.log(this.select_shop);
     this.loading_save = true;
     this.editform = {
       ...this.form.value,
@@ -110,7 +112,7 @@ export class DataProductComponent implements OnInit {
     };
 
     const _method = (this.id) ? 'put' : 'post';
-    this.rest[_method](`/rest/products/${(this.id) ? this.id : ''}`, this.editform)
+    this.rest[_method](`/rest/products${(this.id) ? `/${this.id} ` : ''}`, this.editform)
       .then((response: any) => {
         if (response['status'] === 'success') {
           this.loading_save = false;
@@ -125,5 +127,6 @@ export class DataProductComponent implements OnInit {
       this.open({});
       // this.utils.openSnackBar(err.error.error, 'error');
     });
-  };
+  }
+;
 }

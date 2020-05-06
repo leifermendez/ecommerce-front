@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { RestService } from '../../../../shared/services/rest.service';
-import { Router } from '@angular/router';
-import { NgSelectConfig } from '@ng-select/ng-select';
-import { UtilsService } from '../../../../shared/services/util.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {RestService} from '../../../../shared/services/rest.service';
+import {Router} from '@angular/router';
+import {NgSelectConfig} from '@ng-select/ng-select';
+import {UtilsService} from '../../../../shared/services/util.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search',
@@ -17,13 +18,14 @@ export class SearchComponent implements OnInit {
   public queryParams = {
     limit: 5,
     src: ''
-  }
+  };
+  public focus = false;
 
   constructor(private rest: RestService,
-    private fb: FormBuilder,
-    private util: UtilsService,
-    private router: Router, private config: NgSelectConfig) {
-    this.config.notFoundText = 'Sin resultado, asegurate de elegir la opción correcta.';
+              private translate: TranslateService,
+              private fb: FormBuilder,
+              private util: UtilsService,
+              private router: Router, private config: NgSelectConfig) {
     this.form = fb.group({
       'src': '',
     });
@@ -36,7 +38,7 @@ export class SearchComponent implements OnInit {
   srcSend = (e) => {
     e.stopPropagation();
     this.router.navigateByUrl(`/search/${encodeURI(this.src)}`);
-  }
+  };
 
   selectOptions = (e) => {
     if (e && e['id']) {
@@ -47,17 +49,17 @@ export class SearchComponent implements OnInit {
 
   search(src: any) {
     this.src = src.term;
-    console.log(this.src)
+    console.log(this.src);
     if (src.term.length > 2) {
       this.queryParams['src'] = src.term;
-      this.rest.get(`/rest/suggestions`, this.queryParams ,true)
+      this.rest.get(`/rest/suggestions`, this.queryParams, true)
         .then((response: any) => {
           if (response.data.length) {
             this.datafilter = response.data;
           }
         }).catch(error => {
-          console.log(error);
-        });
+        console.log(error);
+      });
     }
   }
 

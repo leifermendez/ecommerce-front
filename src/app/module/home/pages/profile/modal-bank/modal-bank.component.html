@@ -34,7 +34,7 @@
 
       <div class="form-group" [hidden]="true">
         <label>ID</label>
-        <input type="text"  class="form-control"
+        <input type="text" class="form-control"
                formControlName="iban"
                [(ngModel)]="editform.iban"
                placeholder="ID Stripe">
@@ -46,7 +46,7 @@
         <div *ngIf="loading">
           <fa name="spinner" animation="spin"></fa>
           <div class="alert alert-warning mt-2">
-            Apatxee usa stripe como plataforma de pago, por lo tanto se requiere que vincules una cuenta bancaria con nosotros
+            {{'modal.bank.stripe' | translate}}
           </div>
         </div>
       </div>

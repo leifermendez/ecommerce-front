@@ -162,7 +162,7 @@ export class SchedulesShopComponent implements OnInit {
 
       this.loading = true;
       const _method = (this.has_schedules) ? 'put' : 'post';
-      this.rest[_method](`/rest/schedules/${(this.has_schedules) ? this.id : ''}`, data)
+      this.rest[_method](`/rest/schedules${(this.has_schedules) ? `/${this.id}` : ''}`, data)
         .then((response: any) => {
           this.loading = false;
           if (response['status'] === 'success') {
