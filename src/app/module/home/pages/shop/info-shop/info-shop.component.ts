@@ -23,8 +23,7 @@ export class InfoShopComponent implements OnInit, AfterViewInit {
   public loading = false;
   public address_gp: any = null;
   public optionsPlaces = {
-    types: [],
-    componentRestrictions: {country: environment.country}
+    types: []
   };
 
   constructor(private auth: AuthshopService, private fb: FormBuilder,

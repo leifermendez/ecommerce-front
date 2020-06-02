@@ -22,8 +22,7 @@ export class ModalShippingComponent implements OnInit {
   public address: any;
   public address_single: any;
   public optionsPlaces = {
-    types: [],
-    componentRestrictions: {country: environment.country}
+    types: []
   };
   public deleteMe: any = false;
   public editform: any = {

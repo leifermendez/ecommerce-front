@@ -135,7 +135,8 @@ export class DataVariationsProductComponent implements OnInit {
           this.loading = false;
           if (response['status'] === 'success') {
             this.utils.openSnackBar('Producto eliminado', 'success');
-            this.list_variations['item'].splice(index, 1);
+            console.log(index)
+            this.list_variations.splice(index, 1);
           }
         });
     }).catch(e => {

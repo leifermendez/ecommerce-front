@@ -1,13 +1,13 @@
 export const environment = {
   production: true,
-  endpoint: 'https://TU_URL_DE_API/api/1.0',
+  endpoint: 'ENV_ENDPOINT',
   AH_url: '',
   AH_token: '',
-  stripe_public_key: 'STRIPE_PK',
+  stripe_public_key: 'ENV_STRIPE_PK',
   sentry_key: null,
-  google_provider: 'GOOGLE_ID',
-  fb_provider: 'FB_ID',
+  google_provider: 'ENV_GOOGLE_ID',
+  fb_provider: 'ENV_FB_ID',
   tawk: '',
   intercom: '',
-  country: 'ES'
+  country: ''
 };

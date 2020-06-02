@@ -18,10 +18,9 @@ export class PickupAddressComponent implements OnInit {
   public form: any = FormGroup;
   public data: any = [];
   public address_gp: any = null;
-;
+
   public optionsPlaces = {
-    types: [],
-    componentRestrictions: {country: environment.country}
+    types: []
   };
   public editform: any = {};
 
