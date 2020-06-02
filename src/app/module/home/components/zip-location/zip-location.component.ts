@@ -22,8 +22,7 @@ export class ZipLocationComponent implements OnInit {
   public buttonAvailable = false;
   loading = false;
   public optionsPlaces = {
-    types: [],
-    componentRestrictions: { country: environment.country }
+    types: []
   };
   public selectedPersonId: any;
   public list_accommodation = []

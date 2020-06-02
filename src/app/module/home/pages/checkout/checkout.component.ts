@@ -46,8 +46,7 @@ export class CheckoutComponent implements OnInit {
   };
   public address: any;
   public optionsPlaces = {
-    types: [],
-    componentRestrictions: { country: environment.country }
+    types: []
   };
   public editform: any = {};
 

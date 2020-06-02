@@ -34,7 +34,7 @@ export class ModalVariationsProductComponent implements OnInit {
       'price_normal': [null, Validators.compose([Validators.required])],
       'price_regular': [null, Validators.compose([Validators.required])],
       'observation': '',
-      'quantity':[null, Validators.compose([Validators.required])],
+      'quantity': [null, Validators.compose([Validators.required])],
       'weight': [null, Validators.compose([Validators.required])],
       'width': [null, Validators.compose([Validators.required])],
       'height': [null, Validators.compose([Validators.required])],
@@ -91,13 +91,15 @@ export class ModalVariationsProductComponent implements OnInit {
             });
             const _rawTxt = this.editform['attributes_values'];
 
-            Object.keys(_rawTxt).map(b => {
-              if (_rawTxt[b] && JSON.parse(_rawTxt[b])) {
-                const _a_parse = JSON.parse(_rawTxt[b]);
-                this.editform['attributes_values_tmp'][`attr_${_a_parse['attributes_id']}`] = _a_parse.value;
-              }
+            if (_rawTxt) {
+              Object.keys(_rawTxt).map(b => {
+                if (_rawTxt[b] && JSON.parse(_rawTxt[b])) {
+                  const _a_parse = JSON.parse(_rawTxt[b]);
+                  this.editform['attributes_values_tmp'][`attr_${_a_parse['attributes_id']}`] = _a_parse.value;
+                }
 
-            });
+              });
+            }
 
           }
         }
