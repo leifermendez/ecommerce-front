@@ -60,7 +60,7 @@
     "highcharts": "^7.1.2",
     "intl-tel-input": "^16.0.2",
     "jquery": "^3.5.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-click-outside": "^4.0.0",
     "ng2-search-filter": "^0.5.1",
     "ng2-tel-input": "^2.0.3",
